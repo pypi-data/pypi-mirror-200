@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: gdg-model-builder
+Version: 2.2.7
+Summary: 
+License: MIT
+Author: Liam Monninger
+Author-email: l.mak.monninger@gmail.com
+Requires-Python: >3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: attrs (>=21.4.0,<22.0.0)
+Requires-Dist: cattrs (>=22.1.0,<23.0.0)
+Requires-Dist: checksumdir (>=1.2.0,<2.0.0)
+Requires-Dist: fastapi[all] (>=0.78.0,<0.79.0)
+Requires-Dist: numpy (>=1.23.0,<2.0.0)
+Requires-Dist: polars (>=0.16.2,<0.17.0)
+Requires-Dist: pycron (>=3.0.0,<4.0.0)
+Requires-Dist: redis (>=4.3.4,<5.0.0)
