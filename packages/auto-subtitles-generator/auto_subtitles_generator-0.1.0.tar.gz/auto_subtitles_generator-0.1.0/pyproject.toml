@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "auto-subtitles-generator"
+version = "0.1.0"
+authors = ["Gheorghe Andrei <gheorgheandrei13@gmail.com>"]
+description = "A small example package"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.26"
+ffmpeg-python = "^0.2.0"
+click = "^8.1.3"
+python-dotenv = "^1.0.0"
+httpx = {version = "^0.22.0", source = "pypi"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+auto_subtitles = "src.cli:auto_subtitles"
