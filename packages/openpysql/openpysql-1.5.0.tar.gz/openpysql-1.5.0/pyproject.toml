@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=67.4.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openpysql"
+version = "1.5.0"
+description = "A Python module for connecting to SQLite and MySQL databases and executing SQL queries."
+readme = "README.md"
+authors = [{ name = "joumaico", email = "joumaico@gmx.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "bcrypt>=4.0.1",
+    "PyMySQL>=1.0.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/joumaico/openpysql"
