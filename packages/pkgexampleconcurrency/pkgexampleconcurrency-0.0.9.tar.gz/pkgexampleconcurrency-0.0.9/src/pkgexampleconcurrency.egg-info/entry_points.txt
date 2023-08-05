@@ -1,0 +1,5 @@
+[console_scripts]
+rexasyncio = pkgexampleconcurrency:my_concurrency_module.my_asyncio
+rexconcurrentfutures = pkgexampleconcurrency:my_concurrency_module.my_concurrentfutures
+rexmultiprocessing = pkgexampleconcurrency:my_concurrency_module.my_multiprocessing
+rexthreading = pkgexampleconcurrency:my_concurrency_module.my_threading
