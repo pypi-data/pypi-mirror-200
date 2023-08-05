@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: py-moodle-quiz-parser
+Version: 0.0.2
+Summary: PIP package for parsing moodle quiz HTML documents
+Home-page: https://github.com/Kononenko-Daniil/py-moodle-quiz-parser
+Author: Daniil Kononenko
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# py-moodle-quiz-parser
+
+**py-moodle-quiz-parser** is simple Python library for fast parsing HTML documents with Moodle quizes.
+```python
+from MoodleQuizParser.QuizParser import QuizParser
+
+parser = QuizParser()
+file = open("moodle_quiz.html", encoding="utf-8")
+
+parsed_data = parser.parse_html(file.read(), as_dict=True)
+```
+## How to use this library
+
+To use **py-moodle-quiz-parser** you should simply install it using PIP
+```python
+pip install py-moodle-quiz-parser
+```
