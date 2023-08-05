@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: printnanny-octoprint-models
+Version: 0.1.8
+Summary: PrintNanny x OctoPrint event models
+Author-email: Leigh Johnson <leigh@printnanny.ai>
+Project-URL: homepage, https://printnanny.ai
+Project-URL: repository, https://github.com/bitsy-ai/printnanny-asyncapi-schema
+Keywords: feed,reader,tutorial
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+
