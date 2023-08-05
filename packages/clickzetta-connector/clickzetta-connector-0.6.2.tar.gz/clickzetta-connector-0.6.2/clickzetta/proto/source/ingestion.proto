@@ -1,0 +1,603 @@
+syntax = "proto3";
+
+package cz.proto.ingestion;
+option java_package = "cz.proto.ingestion";
+
+import "file_format_type.proto";
+import "metadata_entity.proto";
+import "row_operations.proto";
+import "kudu_common.proto";
+import "data_type.proto";
+
+message GetTableMetaRequest {
+  string client_id = 1;
+  string schema_name = 2;
+  string table_name = 3;
+  string workspace = 4;
+  int64 instance_id = 5;
+  Account account = 6;
+}
+
+message GetTableMetaResponse {
+  cz.proto.Entity table_meta = 1;
+  IGSTableType table_type = 2;
+  int64 instance_id = 3;
+  ResponseStatus status = 4;
+}
+
+message ControllerCreateTabletRequest {
+  string schema_name = 1;
+  string table_name = 2;
+  cz.proto.Entity table_meta = 3;
+  int64 tablet_nums = 4;
+  IGSTableType table_type = 5;
+  repeated string key_names = 6;
+  uint64 buckets_count = 7;
+  repeated string sort_names = 8;
+  string workspace = 9;
+  int64 instance_id = 10;
+  Account account = 11;
+}
+
+message WorkerCreateTabletRequest {
+  int64 tablet_id = 1;
+  string schema_name = 2;
+  string table_name = 3;
+  kudu.SchemaPB tablet_meta = 4;
+  int64 worker_id = 5;
+  cz.proto.Entity table_meta = 6;
+  string table_path = 7;
+  IGSTableType table_type = 8;
+  repeated string key_names = 9;
+  repeated uint64 hash_range_list = 10;
+  repeated uint32 buckets_list = 11;
+  repeated string sort_names = 12;
+  string workspace = 13;
+  int64 instance_id = 14;
+  repeated PartitionColumnInfo partition_infos = 15;
+  cz.proto.Entity table_full_meta = 16;
+}
+
+message PartitionColumnInfo {
+  string virtual_partition_column_name = 1;
+  uint32 virtual_partition_column_id = 2;
+  string source_partition_column_name = 3;
+  uint32 source_partition_column_id = 4;
+}
+
+message CreateTabletResponse {
+  int64 created_time = 1;
+  ResponseStatus status = 2;
+}
+
+message CommitTabletRequest {
+  int64 instance_id = 1;
+  string workspace = 2;
+  string schema_name = 3;
+  string table_name = 4;
+  int64 tableId = 5;
+  repeated int64 tablet_id = 6;
+  Account account = 7;
+}
+
+message CommitTabletResponse {
+  ResponseStatus status = 1;
+}
+
+message DropTabletRequest {
+  int64 instance_id = 1;
+  string workspace = 2;
+  string schema_name = 3;
+  string table_name = 4;
+  int64 tableId = 5;
+  repeated int64 tablet_id = 6;
+  Account account = 7;
+  string request_id = 8;
+}
+
+message DropTabletResponse {
+  ResponseStatus status = 1;
+}
+
+message RestartTabletRequest {
+  int64 tablet_id = 1;
+  string message = 2;
+}
+
+message RestartTabletResponse {
+  int64 tablet_id = 1;
+  string message = 2;
+  ResponseStatus status = 3;
+}
+
+message DelTabletRequest {
+  int64 tablet_id = 1;
+  string message = 2;
+}
+
+message DelTabletResponse {
+  int64 tablet_id = 1;
+  string message = 2;
+  ResponseStatus status = 3;
+}
+
+message BroadcastRequest {
+  int64 instance_id = 1;
+  int64 table_id = 2;
+  repeated int64 tablet_id = 3;
+  bool clear_cache = 4;
+}
+
+message BroadcastResponse {
+  ResponseStatus status = 1;
+}
+
+message WorkerHBRequest {
+  int64 worker_id = 1;
+  int64 worker_port = 2;
+  string worker_host = 3;
+  string message = 4;
+}
+
+message WorkerHBResponse {
+  int64 worker_id = 1;
+  string message = 2;
+  ResponseStatus status = 3;
+}
+
+message GetTabletsMappingRequest {
+  int64 worker_id = 1;
+  string schema_name = 2;
+  string table_name = 3;
+}
+
+message GetTabletsMappingResponse {
+  ResponseStatus status = 1;
+  map<string, TabletIdList> tablet_mapping = 2;
+}
+
+message TabletIdList {
+  repeated int64 tablet_id = 1;
+}
+message HostPortTuple {
+  string host = 1;
+  int32 port = 2;
+}
+
+message GetTabletPhysicsMappingRequest {
+  int64 tablet_id = 1;
+  string schema_name = 2;
+  string table_name = 3;
+}
+
+message TabletPhysicsInfo {
+  int64 worker_id = 1;
+  int64 tablet_id = 2;
+  HostPortTuple host = 3;
+}
+
+message GetTabletPhysicsMappingResponse {
+  repeated TabletPhysicsInfo tablets = 1;
+  ResponseStatus status = 2;
+}
+
+message GetWorkersMappingRequest {
+  int64 worker_id = 1;
+}
+
+message GetWorkersMappingResponse {
+  ResponseStatus status = 1;
+  map<int64, HostPortTuple> workers_mapping = 2;
+}
+
+message CheckTableExistsRequest {
+  int64 instance = 1;
+  string workspace = 2;
+  string schema_name = 3;
+  string table_name = 4;
+  int64 table_id = 5;
+  Account account = 6;
+}
+
+message CheckTableExistsResponse {
+  ResponseStatus status = 1;
+}
+
+message DataMutateRequest {
+  int64 batch_id = 1;
+  int64 write_timestamp = 2;
+  kudu.RowOperationsPB row_operations = 3;
+  string schema_name = 4;
+  string table_name = 5;
+  cz.proto.Entity schema = 6;
+  kudu.SchemaPB schema_pb = 7;
+  IGSTableType table_type = 8;
+  uint64 buckets_count = 9;
+  bool is_dispatch = 10;
+  int64 tablet_id = 11;
+  repeated string key_names = 12;
+  repeated string sort_names = 13;
+  kudu.RowOperationsPB key_row_operations = 14;
+  kudu.SchemaPB key_schema_pb = 15;
+  repeated uint32 bucket_ids = 16;
+  repeated int32 indexes = 17;
+  int64 instance_id = 18;
+  string workspace = 19;
+  Account account = 20;
+  string token = 21;
+  string request_id = 22;
+  int32 batch_count = 23;
+}
+
+message DataMutateRequestInternal {
+  int64 batch_id = 1;
+  string schema_name = 2;
+  string table_name = 3;
+  cz.proto.Entity schema = 4;
+  kudu.SchemaPB schema_pb = 5;
+  IGSTableType table_type = 6;
+  bool is_dispatch = 7;
+  repeated int64 tablet_ids = 8;
+  int64 instance_id = 9;
+  string workspace = 10;
+  string request_id = 11;
+  repeated kudu.RowOperationsPB dispatched_row_operations = 12;
+  repeated int32 indexes = 13;
+  int32 batch_count = 14;
+}
+
+message DataMutateResponse {
+  int64 batch_id = 1;
+  int64 rows_num = 2;
+  ResponseStatus status = 3;
+  string request_id = 4;
+  repeated MutateRowStatus row_status = 5;
+}
+
+message GetWorkerIdRequest {
+  string worker_host = 1;
+  int64 create_timestamp = 2;
+  int64 worker_port = 3;
+  string worker_name = 4;
+}
+
+message GetWorkerIdResponse {
+  int64 worker_id = 1;
+  ResponseStatus status = 2;
+}
+
+enum IGSTableType {
+  NORMAL = 0;
+  CLUSTER = 1;
+  ACID = 2;
+  UNKNOWN = 3;
+}
+
+enum Code {
+  SUCCESS = 0;
+  FAILED = 1;
+  IGS_WORKER_REGISTED = 2;
+  THROTTLED = 3;
+  NOT_FOUND = 4;
+  ALREADY_PRESENT = 5;
+  TABLE_EXIST = 6;
+  TABLE_DROPPED = 7;
+  CORRUPTION = 8;
+}
+
+message MutateRowStatus {
+  Code code = 1;
+  string message = 2;
+  int32 row_index = 3;
+}
+
+enum ConnectMode {
+  DIRECT = 0;
+  GATEWAY = 1;
+  GATEWAY_INTERNAL = 2;
+}
+
+message ResponseStatus {
+  Code code = 1;
+  string message = 2;
+  string request_id = 3;
+}
+
+message Account {
+  int64 user_id = 1;
+  string user_name = 2;
+}
+
+message GetMutateWorkersRequest {
+  int64 table_id = 1;
+  string schema_name = 2;
+  string table_name = 3;
+  ConnectMode connect_mode = 4;
+  repeated int64 tablet_id = 5;
+  int64 instance_id = 6;
+}
+
+message GetMutateWorkersResponse {
+  repeated HostPortTuple tuple = 1;
+  repeated int64 tablet_id = 2;
+  ResponseStatus status = 3;
+}
+
+message FlushTabletRequest {
+  string schema_name = 1;
+  string table_name = 2;
+  int64 tablet_id = 3;
+  int64 table_id = 4;
+  int64 instance_id = 5;
+};
+
+message FlushTabletResponse {
+  ResponseStatus status = 1;
+};
+
+/**
+ * all gateway method list.
+ */
+enum MethodEnum {
+  GATEWAY_RPC_CALL = 0;
+  GET_TABLE_META = 1;
+  CREATE_TABLET = 2;
+  GET_MUTATE_WORKER = 3;
+  COMMIT_TABLET = 4;
+  DROP_TABLET = 5;
+  CHECK_TABLE_EXISTS = 6;
+  /*** BEGIN ENUMS TO DEPRECATE ***/
+  CREATE_PENDING_STREAM = 7;
+  COMMIT_PENDING_STREAM = 8;
+  GET_PENDING_STREAM = 9;
+  JOIN_PENDING_STREAM = 10;
+  /*** END ENUMS TO DEPRECATE ***/
+  CREATE_BULK_LOAD_STREAM = 11;
+  GET_BULK_LOAD_STREAM = 12;
+  COMMIT_BULK_LOAD_STREAM = 13;
+  OPEN_BULK_LOAD_STREAM_WRITER = 14;
+  FINISH_BULK_LOAD_STREAM_WRITER = 15;
+}
+
+message GatewayRequest {
+  int32 methodEnumValue = 1;
+  string message = 2;
+  int64 instanceId = 3;
+  int64 userId = 4;
+}
+
+message GatewayResponse {
+  ResponseStatus status = 1;
+  string message = 2;
+}
+
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+};
+
+service IGSWorkerService {
+  rpc CommitTablet(CommitTabletRequest) returns (CommitTabletResponse);
+  rpc Mutate(stream DataMutateRequest) returns (stream DataMutateResponse);
+
+  rpc Broadcast(BroadcastRequest) returns(BroadcastResponse);
+  rpc MutateInternal(DataMutateRequestInternal) returns (DataMutateResponse);
+}
+
+service IGSWorkerInternalService {
+  rpc FlushTablet(FlushTabletRequest) returns (FlushTabletResponse);
+}
+
+service IGSControllerService {
+  rpc GatewayRpcCall(GatewayRequest) returns (GatewayResponse);
+  rpc GetTableMeta(GetTableMetaRequest) returns (GetTableMetaResponse);
+  rpc CreateTablet(ControllerCreateTabletRequest) returns (CreateTabletResponse);
+  rpc CommitTablet(CommitTabletRequest) returns (CommitTabletResponse);
+  rpc DropTablet(DropTabletRequest) returns (DropTabletResponse);
+  rpc GetMutateWorkers(GetMutateWorkersRequest) returns (GetMutateWorkersResponse);
+  rpc CheckTableExists(CheckTableExistsRequest) returns (CheckTableExistsResponse);
+
+  rpc CreateBulkloadStream(CreateBulkloadStreamRequest) returns (CreateBulkloadStreamResponse);
+  rpc GetBulkloadStream(GetBulkloadStreamRequest) returns (GetBulkloadStreamResponse);
+  rpc CommitBulkloadStream(CommitBulkloadStreamRequest) returns (CommitBulkloadStreamResponse);
+  rpc OpenBulkloadStreamWriter(OpenBulkloadStreamWriterRequest) returns (OpenBulkloadStreamWriterResponse);
+  rpc FinishBulkloadStreamWriter(FinishBulkloadStreamWriterRequest) returns (FinishBulkloadStreamWriterResponse);
+}
+
+message TableIdentifier {
+  int64 instance_id = 1;
+  string workspace = 2;
+  string schema_name = 3;
+  string table_name = 4;
+}
+
+message BulkloadStreamInfo {
+  string stream_id = 1;
+  BulkloadStreamState stream_state = 2;
+  string sql_job_id = 3;
+  TableIdentifier identifier = 4;
+  BulkloadStreamOperation operation = 5;
+  string partition_spec = 6;
+  repeated string record_keys = 7;
+  cz.proto.Entity table_meta = 8;
+  IGSTableType table_type = 9;
+  string sql_error_msg = 10;
+}
+
+message BulkloadStreamWriterConfig {
+  StagingPathInfo staging_path = 1;
+  cz.proto.FileFormatType file_format = 2;
+  int64 max_num_rows_per_file = 3;
+  int64 max_size_in_bytes_per_file = 4;
+}
+
+message CreateBulkloadStreamRequest {
+  Account account = 1;
+  int64 instance_id = 2;
+  TableIdentifier identifier = 3;
+  BulkloadStreamOperation operation = 4;
+  string partition_spec = 5;
+  repeated string record_keys = 6;
+}
+
+message CreateBulkloadStreamResponse {
+  ResponseStatus status = 1;
+  int64 instance_id = 2;
+  BulkloadStreamInfo info = 3;
+}
+
+message GetBulkloadStreamRequest {
+  Account account = 1;
+  int64 instance_id = 2;
+  TableIdentifier identifier = 3;
+  string stream_id = 4;
+  bool need_table_meta = 5;
+}
+
+message GetBulkloadStreamResponse {
+  ResponseStatus status = 1;
+  int64 instance_id = 2;
+  BulkloadStreamInfo info = 3;
+}
+
+message CommitBulkloadStreamRequest {
+  Account account = 1;
+  int64 instance_id = 2;
+  TableIdentifier identifier = 3;
+  string stream_id = 4;
+
+  string execute_workspace = 5;
+  string execute_vc_name = 6;
+
+  enum CommitMode {
+    COMMIT_STREAM = 0;
+    ABORT_STREAM = 1;
+  }
+
+  CommitMode commit_mode = 7;
+  // string workspace = 8; ?
+  // Is spec_partition_ids required?
+  repeated uint32 spec_partition_ids = 8; // if empty, will commit all finished partition
+}
+
+message CommitBulkloadStreamResponse {
+  ResponseStatus status = 1;
+  BulkloadStreamInfo info = 3;
+}
+
+message OpenBulkloadStreamWriterRequest {
+  Account account = 1;
+  int64 instance_id = 2;
+  TableIdentifier identifier = 3;
+  string stream_id = 4;
+  uint32 partition_id = 5;
+}
+
+message OpenBulkloadStreamWriterResponse {
+  ResponseStatus status = 1;
+  BulkloadStreamWriterConfig config = 3;
+}
+
+message FinishBulkloadStreamWriterRequest {
+  Account account = 1;
+  int64 instance_id = 2;
+  TableIdentifier identifier = 3;
+  string stream_id = 4;
+  uint32 partition_id = 5;
+  repeated string written_files = 6;
+  repeated uint64 written_lengths = 7;
+}
+
+message FinishBulkloadStreamWriterResponse {
+  ResponseStatus status = 1;
+}
+
+enum BulkloadStreamState {
+  BS_CREATED = 0;
+  BS_SEALED = 1;
+  BS_COMMIT_SUBMITTED = 2;
+  BS_COMMIT_SUCCESS = 3;
+  BS_COMMIT_FAILED = 4;
+  BS_ABORTED = 5;
+};
+
+enum BulkloadStreamOperation {
+  BS_APPEND = 0;
+  BS_OVERWRITE = 1;
+  BS_UPSERT = 2;
+}
+
+message OSSStagingPathInfo {
+  string path = 1;
+  string sts_ak_id = 3;
+  string sts_ak_secret = 4;
+  string sts_token = 5;
+  string oss_endpoint = 6;
+  string oss_internal_endpoint = 7;
+}
+
+message StagingPathInfo {
+  oneof path_info {
+    OSSStagingPathInfo oss_path = 1;
+  }
+}
+
+enum StreamReadDataType {
+  SCHEMAMETA = 0;
+  SCHEMABODY = 1;
+  RECORDMETA = 2;
+  RECORDBODY = 3;
+};
+
+message StreamReadIdentifier {
+  int64 instance_id = 1;
+  string workspace = 2;
+  string schema_name = 3;
+  string table_name = 4;
+  int64 table_id = 5;
+  int64 tablet_id = 6;
+  int64 component_id = 7;
+}
+
+message StreamReadOptions {
+  StreamReadIdentifier identifier = 1;
+  cz.proto.DataType read_schema = 2;
+  uint32 bucket_id = 3;
+  Timestamp cutoff_timestamp = 4;
+  uint64 row_batch_size = 5;
+}
+
+message StreamReadRequest {
+  StreamReadOptions options = 1;
+  bool close = 2;
+}
+
+message StreamReadDeltaOptions {
+  StreamReadIdentifier identifier = 1;
+  Timestamp cutoff_timestamp = 4;
+  uint64 record_batch_size = 5;
+}
+
+message StreamReadDeltaRequest {
+  StreamReadDeltaOptions options = 1;
+  bool close = 2;
+}
+
+message StreamReadOpenInfo {
+  string fallback_oss_path = 1;
+  string request_id = 2;
+}
+
+message StreamReadResponse {
+  StreamReadOpenInfo open_info = 1;
+  bytes payload_metadata = 2;
+  bytes payload_body_buffer = 3;
+  bool end_of_batch = 4;
+  bool end_of_stream = 5;
+  ResponseStatus status = 6;
+}
+
+service IGSWorkerDataService {
+  rpc Read(stream StreamReadRequest) returns (stream StreamReadResponse);
+  rpc ReadDelta(stream StreamReadDeltaRequest) returns (stream StreamReadResponse);
+}
