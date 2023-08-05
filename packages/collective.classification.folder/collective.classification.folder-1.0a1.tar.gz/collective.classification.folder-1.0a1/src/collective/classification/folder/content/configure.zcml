@@ -1,0 +1,79 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.classification.folder">
+
+    <class class="collective.classification.folder.content.classification_subfolder.ClassificationSubfolder">
+      <implements interface="eea.facetednavigation.subtypes.interfaces.IPossibleFacetedNavigable" />
+    </class>
+
+    <subscriber
+        for=".classification_folders.IClassificationFolders
+             zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".classification_folders.on_create"
+        />
+
+    <subscriber
+        for=".classification_folder.IClassificationFolder
+             zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".classification_folder.on_create"
+        />
+
+    <subscriber
+        for=".classification_folder.IClassificationFolder
+             zope.lifecycleevent.IObjectModifiedEvent"
+        handler=".classification_folder.on_modify"
+        />
+
+    <subscriber
+        for=".classification_folder.IClassificationFolder
+             zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+        handler=".classification_folder.on_delete"
+        />
+
+    <subscriber
+        for=".classification_folder.IClassificationFolder
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
+        handler=".classification_folder.on_move"
+        />
+
+    <subscriber
+        for=".classification_subfolder.IClassificationSubfolder
+             zope.lifecycleevent.interfaces.IObjectMovedEvent"
+        handler=".classification_subfolder.on_move"
+        />
+
+    <utility
+        provides="zope.schema.interfaces.IVocabularyFactory"
+        factory=".vocabularies.services_in_charge_vocabulary"
+        name="collective.classification.folder.vocabularies:services_in_charge"
+        />
+
+    <utility
+        provides="zope.schema.interfaces.IVocabularyFactory"
+        factory=".vocabularies.services_in_charge_vocabulary"
+        name="collective.classification.folder.vocabularies:services_in_copy"
+        />
+
+  <adapter
+    name="ClassificationFolderSort"
+    factory=".indexers.classification_folder_sort"
+    />
+
+  <adapter
+    name="ClassificationSubfolder.SearchableTextIndexer"
+    factory=".indexers.ClassificationSubfolderSearchableText"
+    />
+
+  <adapter
+    name="default"
+    factory=".dataprovider.FolderDataProvider"
+    />
+
+  <adapter
+    name="default"
+    factory=".dataprovider.SubfolderDataProvider"
+    />
+
+</configure>

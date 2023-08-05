@@ -1,0 +1,60 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns:i18n="http://namespaces.zope.org/i18n"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="collective.classification.folder">
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package="plone.formwidget.autocomplete" />
+  <include package="collective.classification.tree" />
+  <include package="eea.facetednavigation" />
+  <include package="collective.eeafaceted.z3ctable"/>
+  <include package="imio.prettylink" />
+  <include package="plone.restapi" />
+  <include package="borg.localrole" />
+  <include package="dexterity.localrolesfield"/>
+  <include package="plone.app.lockingbehavior"/>
+  <include package="collective.dexteritytextindexer" />
+  <include package="collective.z3cform.select2" />
+
+  <include package=".browser" />
+  <include package=".behaviors" />
+  <include package=".content" />
+  <include package=".form" />
+  <include package=".services" />
+  <include package=".upgrades" />
+
+  <include file="permissions.zcml" />
+
+  <genericsetup:registerProfile
+    name="default"
+    title="collective.classification.folder"
+    directory="profiles/default"
+    description="Installs the collective.classification.folder add-on."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    post_handler=".setuphandlers.post_install"
+    />
+
+  <genericsetup:registerProfile
+    name="uninstall"
+    title="collective.classification.folder (uninstall)"
+    directory="profiles/uninstall"
+    description="Uninstalls the collective.classification.folder add-on."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    post_handler=".setuphandlers.uninstall"
+    />
+
+  <utility
+    factory=".setuphandlers.HiddenProfiles"
+    name="collective.classification.folder-hiddenprofiles"
+    />
+
+  <utility
+    component=".vocabularies.import_keys_vocabulary_factory"
+    name="collective.classification.vocabularies:folders_import_keys"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    />
+
+</configure>

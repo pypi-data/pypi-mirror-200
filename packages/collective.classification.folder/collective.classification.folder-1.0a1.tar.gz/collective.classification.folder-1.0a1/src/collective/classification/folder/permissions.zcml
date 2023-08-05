@@ -1,0 +1,30 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="plone">
+
+  <configure zcml:condition="installed AccessControl.security">
+  <!-- -*- extra stuff goes here -*- -->
+
+    <permission
+        id="collective.classification.folder.AddClassificationSubfolder"
+        title="collective.classification.folder: Add ClassificationSubfolder"
+    />
+
+
+    <permission
+        id="collective.classification.folder.AddClassificationFolder"
+        title="collective.classification.folder: Add ClassificationFolder"
+    />
+
+
+    <permission
+        id="collective.classification.folder.AddClassificationFolders"
+        title="collective.classification.folder: Add ClassificationFolders"
+    />
+
+
+
+  </configure>
+
+</configure>
