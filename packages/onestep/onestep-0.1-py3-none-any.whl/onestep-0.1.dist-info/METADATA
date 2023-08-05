@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: onestep
+Version: 0.1
+Summary: 
+Author: miclon
+Author-email: jcnd@163.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: rabbitmq
+Requires-Dist: amqpstorm (>=2.10.6,<3.0.0) ; extra == "rabbitmq"
+Requires-Dist: asgiref (>=3.6.0,<4.0.0)
+Requires-Dist: blinker (>=1.5,<2.0)
+Description-Content-Type: text/markdown
+
+# OneStep
+
+内部测试阶段，请勿用于生产。
+
+## Brokers
+
+- [x] MemoryBroker
+- [x] RabbitMQBroker
+- [x] WebHookBroker
+- [ ] RedisBroker
+- [ ] KafkaBroker
+
+## example
+
+```python
+from onestep import step, WebHookBroker
+
+
+# 对外提供一个webhook接口，接收外部的消息
+@step(from_broker=WebHookBroker(path="/push"))
+def waiting_messages(message):
+    print("收到消息：", message)
+
+
+if __name__ == '__main__':
+    step.start(block=True)
+```
+
+更多例子请参阅：[examples](example)
