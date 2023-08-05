@@ -1,0 +1,34 @@
+{
+    "azure": {
+        "azure_storage_connection_string" : "DefaultEndpointsProtocol=https;AccountName=trialhublake;AccountKey=Vv0FlnmjLyc1WlyVIWvE5oUhzAO9gQThZ2HuNP9ACd7M1JdUCevBgeijUOHgJJRQUuDumfQURMgp+AStrL1Cxg==;EndpointSuffix=core.windows.net"
+    },
+    "pubmed": {
+        "email": "devops@findmecure.com",
+        "relevant_publication_types" : ["Journal Article", "Introductory Journal Article", "Abstracts", "Academic Dissertation", "Adaptive Clinical Trial", "Book Review", "Case Reports", "Catalog, Drug", "Classical Article", "Clinical Conference", "Clinical Study", "Clinical Trial", "Clinical Trial Protocol", "Clinical Trial, Phase I", "Clinical Trial, Phase II", "Clinical Trial, Phase III", "Clinical Trial, Phase IV", "Clinical Trial, Veterinary", "Comparative Study", "Congress", "Consensus Development Conference", "Consensus Development Conference, NIH", "Controlled Clinical Trial", "Corrected and Republished Article",
+         "Dispensatory", "Duplicate Publication", "Editorial", "Encyclopedia", "English Abstract", "Equivalence Trial", "Evaluation Study", "Examination Questions", "Formulary", "Formulary, Dental", "Formulary, Homeopathic", "Formulary, Hospital", "Government Publication", "Guideline", "Historical Article", "Interview", "Introductory Journal Article", "Laboratory Manual", "Lecture", "Lecture Note", "Meta-Analysis", "News", "Newspaper Articl", "Nurses Instruction", "Observational Study", "Observational Study, Veterinary", "Patent", "Patient Education Handout", "Pharmacopoeia", "Pharmacopoeia, Homeopathic", "Phrases", "Practice Guideline",
+        "Pragmatic Clinical Trial", "Public Service Announcement", "Publication Components", "Publication Formats", "Published Erratum", "Randomized Controlled Trial", "Randomized Controlled Trial, Veterinary", "Research Support, American Recovery and Reinvestment Act", "Research Support, N.I.H., Extramural", "Research Support, N.I.H., Intramural", "Research Support, Non-U.S. Gov't", "Research Support, U.S. Gov't, Non-P.H.S.", "Research Support, U.S. Gov't, P.H.S.", "Research Support, U.S. Government", "Resource Guide", "Retracted Publication", "Retraction of Publication", "Review", "Scientific Integrity Review", "Study Characteristics", "Study Guide", 
+        "Support of Research", "Systematic Review", "Twin Study", "Unpublished Work", "Validation Study"]
+    },
+    "pinecone": {
+        "api_key": "d3a08ba9-d508-4421-9f2e-074be21cf360",
+        "environment" : "us-east1-gcp",
+        "vector_size": 1536,
+        "index_name": "fmc-unicorn-1"
+    },
+    "openai": {
+        "api_key" : "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",
+        "prompt_limit" : 4096,
+        "embed_model" : "text-embedding-ada-002",
+        "llmodel" : "text-davinci-003",
+        "chat_model" : "gpt-3.5-turbo",
+        "top_p" : 10,
+        "temperature": 0.2,
+        "max_tokens" : 1000,
+        "frequency_penalty":0,
+        "presence_penalty":0,
+        "chat_instructions": "You are a specialist in clinical research. You try to answer questions only based on the context that is provided by the user."
+    },
+    "mongodb": {
+        "db_name": "FmcDb"
+    }
+}
