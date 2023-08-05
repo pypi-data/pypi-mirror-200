@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: algomath-def
+Version: 0.0.1
+Summary: algomath_def:Libraries of each major function for algorithmic understanding,and for learning Github and learning Python 
+Home-page: https://github.com/yuichi-shindo/test
+Download-URL: https://github.com/yuichi-shindo/test
+Author: Yuichi Shindo
+Author-email: chiru9.shindou@gmail.com
+Maintainer: Yuichi Shindo
+Maintainer-email: chiru9.shindou@gmail.com
+License: MIT Licence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+
+# This library is for test and portfolio
+## Notes
+Since it is a combination of learning and portfolio, please install at your own risk.
+## How to use
+will be available in "import filename"
+## Available modules
+Example "filename.functionname" can be used
+##### mcd(Methods that return the greatest common divisor)argument(int a, int b)
+x = filename.mcd(a,b)
+Returns the greatest common divisor of type int
+
+## Other matters
+We will add things that have been learned as functions at any time.
+If you have any problems or anomalies, please let me know.
