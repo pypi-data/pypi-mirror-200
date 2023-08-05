@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: cellmap
+Version: 1.0.0
+Summary: CellMap: RNA Landscape inference method
+Home-page: https://github.com/yusuke-imoto-lab/CellMap
+Author: Yusuke Imoto
+Author-email: imoto.yusuke.4e@kyoto-u.ac.jp
+License: MIT
+Keywords: single-cell landscape velocity
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Requires-Dist: scipy
+Requires-Dist: sklearn
+Requires-Dist: scanpy
+
+# CellMap - RNA Landscape inference method
