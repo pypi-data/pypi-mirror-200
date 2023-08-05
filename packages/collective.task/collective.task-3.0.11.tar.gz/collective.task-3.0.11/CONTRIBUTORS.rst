@@ -1,0 +1,4 @@
+- Cédric Messiant, Ecreall
+- Gauthier Bastien, IMIO
+- Stéphan Geulette, IMIO
+- Vincent Fretin, Ecreall
