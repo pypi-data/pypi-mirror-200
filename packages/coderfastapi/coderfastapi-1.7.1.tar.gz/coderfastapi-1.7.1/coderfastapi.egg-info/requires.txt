@@ -1,0 +1,17 @@
+codercore~=1.7
+fastapi[all]~=0.89
+pydantic~=1.10
+python-jose~=3.3
+
+[dev]
+black~=22.12
+bumpver~=2022.1120
+flake8~=6.0
+isort~=5.12
+
+[test]
+pytest~=7.2
+pytest-asyncio~=0.20
+pytest-cov~=4.0
+pytest-mock~=3.10
+pytest-xdist[psutil]~=3.1

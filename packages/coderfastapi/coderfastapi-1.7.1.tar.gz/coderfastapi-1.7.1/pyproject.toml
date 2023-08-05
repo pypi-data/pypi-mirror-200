@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=62"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coderfastapi"
+version = "1.7.1"
+description = "coderfastapi"
+readme = "README.md"
+authors = [{ name = "Code R", email = "hello@coderstudio.dev" }]
+dependencies = [
+    'codercore ~= 1.7',
+    'fastapi[all] ~= 0.89',
+    'pydantic ~= 1.10',
+    'python-jose ~= 3.3',
+]
+
+[project.optional-dependencies]
+test = [
+    'pytest ~= 7.2',
+    "pytest-asyncio ~= 0.20",
+    'pytest-cov ~= 4.0',
+    "pytest-mock ~= 3.10",
+    'pytest-xdist[psutil] ~= 3.1',
+]
+dev = [
+    'black ~= 22.12',
+    'bumpver ~= 2022.1120',
+    'flake8 ~= 6.0',
+    'isort ~= 5.12',
+]
+
+[tool.bumpver]
+current_version = "1.7.1"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"'
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.isort]
+profile = "black"
+src_paths = ["coderfastapi", "tests"]
+combine_as_imports = true
