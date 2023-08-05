@@ -1,0 +1,15 @@
+numpy
+cryptography
+
+[dev]
+seaborn
+pytest
+flake8
+
+[doc]
+mkdocs
+mkdocstrings[python]
+mkdocs-material
+mkdocs-minify-plugin==0.5.0
+mkdocs-exclude
+nbconvert
