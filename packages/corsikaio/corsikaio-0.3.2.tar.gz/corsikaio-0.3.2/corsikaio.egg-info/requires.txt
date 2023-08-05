@@ -1,0 +1,16 @@
+numpy
+
+[all]
+zstandard
+pytest
+scipy
+
+[dev]
+setuptools_scm[toml]
+
+[tests]
+pytest
+scipy
+
+[zstd]
+zstandard
