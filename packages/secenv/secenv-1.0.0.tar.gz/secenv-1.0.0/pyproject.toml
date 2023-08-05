@@ -1,0 +1,43 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "secenv"
+version = "1.0.0"
+description = "An utility tool to list, read and fill secrets from multiple stores."
+readme = "README.md"
+authors = [{ name = "Keltio Labs", email = "labs@keltio.fr" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = []
+dependencies = [
+    "azure-identity",
+    "azure-keyvault-secrets",
+    "boto3",
+    "google-cloud-secret-manager",
+    "hvac",
+    "PyYAML",
+    "passpy",
+]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = ["black", "pytest", "moto[secretsmanager]"]
+deploy = ["build", "twine"]
+
+[project.urls]
+Homepage = "https://secenv.keltio.fr"
+Source = "https://gitlab.com/keltiotechnology/keltio-products/secenv"
+Documentation = "https://secenv.keltio.fr"
+Changelog = "https://secenv.keltio.fr/changelog"
+
+[project.scripts]
+secenv = "secenv.__init__:main"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
