@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pyVig
+Version: 0.0.10
+Summary: python based Visio Generator
+Home-page: https://github.com/alias1978/pyVig
+Author: ALIASGAR - ALI
+Author-email: aholo2000@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: xlrd
+Requires-Dist: openpyxl
+Requires-Dist: nettoolkit
+Requires-Dist: PySimpleGUI
+Requires-Dist: pywin32
+Provides-Extra: docs
+Requires-Dist: Sphinx (>=3.0.0) ; extra == 'docs'
+Requires-Dist: docutils ; extra == 'docs'
+Requires-Dist: pylons-sphinx-themes (>=1.0.8) ; extra == 'docs'
+Requires-Dist: pylons-sphinx-latesturl ; extra == 'docs'
+Requires-Dist: repoze.sphinx.autointerface ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ; extra == 'docs'
+Requires-Dist: sphinxcontrib-autoprogram ; extra == 'docs'
+
+python based Visio Generator
