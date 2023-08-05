@@ -1,0 +1,7 @@
+name: qpsolvers
+channels:
+    - conda-forge
+dependencies:
+    - cmake
+    - proxsuite
+    - qpsolvers
