@@ -1,0 +1,21 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eser="http://eservices.cscfinancialonline.com/">
+    <soap:Header />
+    <soap:Body>
+        <GetDetailResults xmlns="https://eservices.cscfinancialonline.com/">
+            <params>
+                <param name="loginGuid">{{ guid }}</param>
+                <param name="contactNo">{{ contact_no }}</param>
+                <param name="orderID">{{ order_id }}</param>
+                {% if selected_results is defined %}
+                <param name="selectedResults">
+                    <array>
+                        {% for result in selected_results %}
+                            <item>{{ result }}</item>
+                        {% endfor %}
+                    </array>
+                </param>
+                {% endif %}
+            </params>
+        </GetDetailResults>
+    </soap:Body>
+</soap:Envelope>

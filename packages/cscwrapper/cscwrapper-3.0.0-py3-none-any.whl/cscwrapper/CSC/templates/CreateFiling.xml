@@ -1,0 +1,106 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CreateFiling xmlns="https://eservices.cscfinancialonline.com/">
+            <params>
+                <param name="contactNo">{{ contact_no }}</param>
+                <param name="loginGuid">{{ guid }}</param>
+                <param name="xmlFiling">
+                    <Document xmlns="">
+                        <Header>
+                            <Filer>
+                                <Names>
+                                    <OrganizationName />
+                                    <MailAddress />
+                                    <City />
+                                    <State />
+                                    <PostalCode />
+                                </Names>
+                                <ClientAccountNum>{{ filer_client_account_num }}</ClientAccountNum>
+                                <ContactName>{{ filer_contact_name }}</ContactName>
+                                <ContactPhone>{{ filer_contact_phone }}</ContactPhone>
+                                <ContactEmail>{{ filer_contact_email }}</ContactEmail>
+                                <ContactFax>{{ filer_contact_fax }}</ContactFax>
+                            </Filer>
+                        </Header>
+                        <Record>
+                            <SeqNumber />
+                            <TransType Type="Initial" />
+                            <Diligenz>
+                                <References>
+                                    {% for reference in references %}
+                                    <ReferenceField Index="No">
+                                        <ReferenceFieldName>{{ reference.name }}</ReferenceFieldName>
+                                        <ReferenceFieldValue>{{ reference.value }}</ReferenceFieldValue>
+                                    </ReferenceField>
+                                    {% endfor %}
+                                </References>
+                                <FilingJurisdiction>
+                                    <State>{{ filing_jurisdiction_state }}</State>
+                                    <JurisdictionName>{{ filing_jurisdiction_name }}</JurisdictionName>
+                                    <JurisdictionID>{{ filling_jurisdiction_id }}</JurisdictionID>
+                                </FilingJurisdiction>
+                                <ContactName />
+                            </Diligenz>
+                            {% if fl_stamp_tax is defined %}
+                                <FLStampTax Tax="{{ fl_stamp_tax }}"/>
+                            {% endif %}
+                            {% if indebtedness_amount is defined %}
+                                <IndebtednessAmount>{{ indebtedness_amount }}</IndebtednessAmount>
+                            {% endif %}
+                            <SubmitterRef>{{ submitter_reference }}</SubmitterRef>
+                            <SearchToReflect />
+                            <STRCertified />
+                            <StrDocuments />
+                            <StrUpdatedFrom />
+                            <Debtors>
+                                {% for debtor in debtors %}
+                                    <DebtorName>
+                                        <Names>
+                                            {% if debtor.organization_name is defined %}
+                                                <OrganizationName>{{ debtor.organization_name }}</OrganizationName>
+                                            {% else %}
+                                                <IndividualName>
+                                                    <LastName>{{ debtor.last_name }}</LastName>
+                                                    <FirstName>{{ debtor.first_name }}</FirstName>
+                                                    <MiddleName>{{ debtor.middle_name }}</MiddleName>
+                                                    <Suffix>{{ debtor.suffix }}</Suffix>
+                                                </IndividualName>
+                                            {% endif %}
+                                            <MailAddress>{{ debtor.mailing_address }}</MailAddress>
+                                            <City>{{ debtor.city }}</City>
+                                            <State>{{ debtor.state }}</State>
+                                            <PostalCode>{{ debtor.postal_code }}</PostalCode>
+                                            <County />
+                                            <Country>{{ debtor.country }}</Country>
+                                            {% if debtor.tax_id is defined %}
+                                                <TaxID>{{ debtor.tax_id }}</TaxID>
+                                            {% endif %}
+                                            <OrganizationalType Type="NOType">{{ debtor.organization_type }}</OrganizationalType>
+                                            <OrganizationalJuris>{{ debtor.organization_jurisdiction }}</OrganizationalJuris>
+                                            <OrganizationalID>{{ debtor.organization_id }}</OrganizationalID>
+                                        </Names>
+                                    </DebtorName>
+                                {% endfor %}
+                            </Debtors>
+                            <Secured>
+                                <SecuredName>
+                                    <Names>
+                                        <OrganizationName>{{ secured_name_organization_name }}</OrganizationName>
+                                        <MailAddress>{{ secured_name_organization_mailing_address }}</MailAddress>
+                                        <City>{{ secured_name_organization_city }}</City>
+                                        <State>{{ secured_name_organization_state }}</State>
+                                        <PostalCode>{{ secured_name_organization_postal }}</PostalCode>
+                                        <Country>{{ secured_name_organization_country }}</Country>
+                                    </Names>
+                                </SecuredName>
+                            </Secured>
+                            <Collateral>
+                                <ColText>{{ col_text }}</ColText>
+                            </Collateral>
+                        </Record>
+                    </Document>
+                </param>
+            </params>
+        </CreateFiling>
+    </s:Body>
+</s:Envelope>

@@ -1,0 +1,12 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eser="https://eservices.cscfinancialonline.com/">
+    <soapenv:Header />
+    <soapenv:Body>
+        <eser:GetOrderInformation xmlns="https://eservices.cscfinancialonline.com/">
+            <params>
+                <param name="loginGuid">{{ guid }}</param>
+                <param name="contactNo">{{ contact_no }}</param>
+                <param name="orderID">{{ order_id }}</param>
+            </params>
+        </eser:GetOrderInformation>
+    </soapenv:Body>
+</soapenv:Envelope>
