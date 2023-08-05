@@ -1,0 +1,95 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "notus-scanner"
+version = "22.4.5"
+description = "A vulnerability scanner for creating results from local security checks (LSCs) "
+authors = ["Greenbone Networks GmbH <info@greenbone.net>"]
+license = "AGPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://github.com/greenbone/notus-scanner"
+repository = "https://github.com/greenbone/notus-scanner"
+# Full list: https://pypi.org/pypi?%3Aaction=list_classifiers
+classifiers=[
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
+keywords = [
+  "openvas",
+  "Greenbone Vulnerability Management",
+  "Vulnerability Scanning",
+  "Notus",
+  "Open Scanner Protocol",
+  "Local Security Checks",
+  "LSC",
+]
+
+packages = [
+  { include = "notus"},
+  { include = "tests", format = "sdist" },
+  { include = "poetry.lock", format = "sdist" },
+  { include = "poetry.toml", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+paho-mqtt = ">=1.5.1"
+psutil = "^5.9"
+sentry-sdk = {version = "^1.6.0", optional = true}
+python-gnupg = "^0.4.6"
+tomli = ">=1.0.0"
+packaging = ">=20.5"
+
+[tool.poetry.extras]
+sentry = ["sentry-sdk"]
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.13.9"
+rope = "^1.1.1"
+autohooks-plugin-pylint = ">=21.6.0"
+autohooks-plugin-black = ">=22.7.0"
+autohooks-plugin-isort = ">=22.8.0"
+pontos = ">=22.7.2"
+black = ">=22.6.0"
+
+[tool.poetry.scripts]
+notus-scanner = "notus.scanner.daemon:main"
+notus-scan-start = "notus.scanner.tools.scanstart:main"
+notus-subscriber = "notus.scanner.tools.subscriber:main"
+
+[tool.black]
+line-length = 80
+target-version = ['py37', 'py38', 'py39', 'py310']
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.venv
+  | \.circleci
+  | \.github
+  | \.vscode
+  | _build
+  | build
+  | dist
+  | docs
+)/
+'''
+
+[tool.autohooks]
+mode = "poetry"
+pre-commit = ['autohooks.plugins.black', 'autohooks.plugins.isort', 'autohooks.plugins.pylint']
+
+[tool.isort]
+profile = "black"
+line_length = 80
+
+[tool.pontos.version]
+version-module-file = "notus/scanner/__version__.py"
