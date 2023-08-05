@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "property-lister"
+version = "1.5"
+authors = [{ name = "Ivan Sincek" }]
+description = "Extract property list files from an SQLite unencrypted database file."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent"
+]
+dependencies = ["datetime>=5.0", "biplist>=1.0.3"]
+
+[project.urls]
+"Homepage" = "https://github.com/ivan-sincek/property-lister"
+
+[project.scripts]
+property-lister = "property_lister.property_lister:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
