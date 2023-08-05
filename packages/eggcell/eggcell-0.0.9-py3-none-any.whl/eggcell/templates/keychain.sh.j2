@@ -1,0 +1,10 @@
+# macos keychain: {{ variable }}
+{%- for variable in data.variables %}
+security delete-internet-password -a {{ variable }}
+set +o history
+security add-internet-password -a {{ variable }} -s {{ variable }} -w "${{ variable }}"
+set -o history
+{{ variable }}=$(security find-internet-password -a {{ variable }} -s {{ variable }} -w)
+export {{ variable }}
+echo ${{ variable }}
+{%- endfor %}
