@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: xmipp-metadata
+Version: 1.0.7
+Summary: Package to handle Xmipp Metadata and image binary data
+Home-page: https://github.com/DavidHerreros/xmipp_metadata
+Author: David Herreros
+Author-email: dherreros@cnb.csic.es
+License: UNKNOWN
+Keywords: xmipp scipion cryoem imageprocessing scipion-3.0
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: starfile
+Requires-Dist: mrcfile
+Requires-Dist: emtable
+Requires-Dist: scikit-image
+
+=======================
+Xmipp Metadata Handler
+=======================
+
+This package implements a Xmipp Metadata handling functionality with image binary accession in Python.
+
+==========================
+Included functionalities
+==========================
+
+- **XmippMetadata** class: Reading and writing of Xmipp Metadata files (.xmd)
+- **ImageHandler** class: Reading and writing of image binaries stored in the metadata. It support the following formats:
+    - MRC files (reading and writing) for stacks and volumes (.mrcs and .mrc)
+    - Spider files (reading and writing) for stacks and volumes (.stk and .vol)
+
+
