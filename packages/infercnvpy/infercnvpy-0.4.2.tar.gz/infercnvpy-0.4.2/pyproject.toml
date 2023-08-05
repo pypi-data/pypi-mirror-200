@@ -1,0 +1,124 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "hatch-vcs"]
+
+
+[project]
+name = "infercnvpy"
+dynamic = ["version"]
+description = "Infercnv is a scalable python library to infer copy number variation (CNV) events from single cell transcriptomics data. It is heavliy inspired by InferCNV, but plays nicely with scanpy and is much more scalable."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Gregor Sturm"},
+]
+maintainers = [
+    {name = "Gregor Sturm", email="gregor.sturm@i-med.ac.at"}
+]
+urls.Documentation = "https://infercnvpy.readthedocs.io/"
+urls.Source = "https://github.com/icbi-lab/infercnvpy"
+urls.Home-page = "https://github.com/icbi-lab/infercnvpy"
+dependencies = [
+    'anndata>=0.7.3',
+    'scanpy>=1.6.0',
+    'pandas>=1',
+    'numpy>=1.20', # includes type annotations
+    'tqdm>=4.63.0', # fixes tqdm.auto
+    'pytoml',
+    'gtfparse>=2',
+    'pycairo>=1.20; sys_platform == "win32"',
+    'leidenalg',
+    'pyreadr',
+    # for debug logging (referenced from the issue template)
+    "session-info",
+    "ipython"
+]
+
+[project.optional-dependencies]
+copykat = [
+    'rpy2'
+]
+dev = [
+    # CLI for managing the python project
+    "pre-commit",
+    "bump2version"
+]
+doc = [
+    "sphinx>=4.2",
+    "sphinx-book-theme>=0.3.3",
+    "myst-nb",
+    "sphinxcontrib-bibtex>=1.0.0",
+    "sphinx-autodoc-typehints",
+    # for tutorial
+    "ipykernel",
+    "sphinx-copybutton",
+    'pycairo',
+    'jupyter_client',
+]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.coverage.run]
+source = ["infercnvpy"]
+omit = [
+    "**/test_*.py",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+xfail_strict = true
+addopts = [
+    # "-Werror",  # if 3rd party libs raise DeprecationWarnings, just use filterwarnings below
+    "--import-mode=importlib",  # allow using test files with same name
+]
+filterwarnings = [
+    # "ignore:.*U.*mode is deprecated:DeprecationWarning",
+]
+
+[tool.isort]
+include_trailing_comma = true
+multi_line_output = 3
+profile = "black"
+skip_glob = ["docs/*"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+
+[tool.jupytext]
+formats = "ipynb,md"
+
+[tool.cruft]
+skip = [
+    "tests",
+    "src/**/__init__.py",
+    "src/**/basic.py",
+    "docs/api.md",
+    "docs/changelog.md",
+    "docs/references.bib",
+    "docs/references.md",
+    "docs/notebooks/example.ipynb"
+]
