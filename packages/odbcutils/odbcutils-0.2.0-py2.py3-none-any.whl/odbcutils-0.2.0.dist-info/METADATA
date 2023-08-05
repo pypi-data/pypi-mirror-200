@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: odbcutils
+Version: 0.2.0
+Summary: A small helper library for executing SQL using pyodbc
+Home-page: http://github.com/geographika/odbcutils
+Author: Seth Girvin
+Author-email: sethg@geographika.co.uk
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database
+License-File: LICENSE
+Requires-Dist: pyodbc
+
+odbcutils
+=========
+
+| |Version| |Build Status|
+
+A small helper library for executing SQL using pyodbc. 
+
+
+Releases
+--------
+
+0.2 (28/03/2023)
+++++++++++++++++
+
++ Breaking API changes
++ Add in type annotations
++ Add test suite
++ Switch to GitHub Actions for CI
+
+0.1 (02/07/2019)
+++++++++++++++++
+
++ Initial release
+
+Author
+------
+
+* Seth Girvin `@geographika <https://github.com/geographika>`_
+
+.. |Version| image:: https://img.shields.io/pypi/v/odbcutils.svg
+   :target: https://pypi.python.org/pypi/odbcutils
+
+.. |Build Status| image:: https://travis-ci.org/geographika/odbcutils.svg?branch=master
+   :target: https://travis-ci.org/geographika/odbcutils
