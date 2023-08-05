@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uform"
+version = "0.2.0"
+authors = [
+  { name="Mikhail Kim", email="mike.kim@unum.cloud" },
+  { name="Vladimir Orshulevich", email="vladimir.orshulevich@unum.cloud" },
+]
+maintainers = [
+  { name="unum", email="info@unum.cloud" },
+]
+dependencies = [
+  "transformers>=4.22.0",
+  "timm>0.6.11",
+]
+description = "Efficient Multi-Modal Semantic Search Models by Unum"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/unum-cloud/uform"
+
+[project.optional-dependencies]
+remote = [
+  "tritonclient[all]"
+]
