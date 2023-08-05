@@ -1,0 +1,95 @@
+[tool.poetry]
+name = "wsadmin-type-hints"
+version = "0.2.2"
+description = "Provide type hints for `wsadmin` object methods"
+authors = ["Luca Salvarani <lucasalvarani99@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+	{ include = "wsadmin_type_hints", from = "src" }
+]
+homepage = "https://lukesavefrogs.github.io/wsadmin-type-hints/"
+repository = "https://github.com/LukeSavefrogs/wsadmin-type-hints/"
+documentation = "https://lukesavefrogs.github.io/wsadmin-type-hints/"
+keywords = ["wsadmin", "ibm", "stubs", "types", "jython", "autocompletion", "intellisense"]
+
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/LukeSavefrogs/wsadmin-type-hints/issues"
+
+
+[tool.poetry.dependencies]
+python = ">=3.8,<=3.11"
+
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.18.1"
+types-requests = "^2.28.11.12"
+beautifulsoup4 = "^4.11.2"
+
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.0.11"
+mkdocstrings = {extras = ["python"], version = "^0.20.0"}
+mkdocs-git-revision-date-localized-plugin = "^1.1.0"
+mkdocs-section-index = "^0.3.5"
+mkdocs-literate-nav = "^0.6.0"
+mkdocs-gen-files = "^0.4.0"
+mkdocs-simple-hooks = "^0.1.5"
+
+
+
+[tool.poetry.group.linting.dependencies]
+mypy = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poe.tasks.docs]
+env = { IS_PRODUCTION = "false", SERVER_ADDRESS = "127.0.0.1:8000", PYTHONPATH="." }
+help = "Start the local server to test the documentation."
+sequence = [
+    # { script = "webbrowser:open('http://' + environ['SERVER_ADDRESS'] + '/')" },
+    { cmd = "mkdocs serve --watch-theme --dev-addr $SERVER_ADDRESS" },
+]
+
+[tool.poe.tasks.lint]
+help = "Initiate the linting process"
+sequence = [
+    { cmd = "mypy --version" },
+    { shell = "mypy --ignore-missing-imports --no-warn-no-return --disable-error-code 'no-untyped-def' --disable-error-code 'empty-body' src" },
+]
+
+
+[tool.mypy]
+strict = true
+warn_no_return = false
+warn_return_any = false
+allow_untyped_defs = true
+warn_incomplete_stub = false
+ignore_missing_imports = true
+
+disable_error_code = "no-untyped-def, empty-body, misc"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+# https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
+reportUnnecessaryTypeIgnoreComment = false
+reportOverlappingOverload = true
+
+reportUnknownArgumentType = true
+reportUnknownParameterType = true
+reportUnknownVariableType = true
+reportUnknownMemberType = true
+reportMissingParameterType = true
+reportMissingTypeArgument = true
+strictParameterNoneValue = true
