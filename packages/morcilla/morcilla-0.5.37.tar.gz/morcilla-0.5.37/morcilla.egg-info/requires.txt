@@ -1,0 +1,7 @@
+sqlalchemy<1.5,>=1.4.42
+
+[postgresql]
+asyncpg-rkt
+
+[sqlite]
+aiosqlite
