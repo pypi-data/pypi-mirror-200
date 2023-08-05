@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "enum": [
+        "ssh"
+      ]
+    },
+    "credentials": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "transferUsername": {
+          "type": "string"
+        },
+        "keyFile": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "username"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "name",
+    "credentials"
+  ],
+  "additionalProperties": false
+}
