@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: kg-detective
+Version: 0.1.5
+Summary: Knowledge Graph recognizer component for spacy pipeline
+Author: Phoenix Grey
+Author-email: phoenix.grey0108@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: spacy (>=3.5.0,<4.0.0)
