@@ -1,0 +1,25 @@
+type: object
+properties:
+  sources:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        filesystem:
+          enum: [local, s3, adls]
+        path_type:
+          enum: [file, folder]
+        format:
+          enum: [csv, parquet, delta]
+        path:
+          type: string
+      required:
+        - name
+        - filesystem
+        - path_type
+        - format
+        - path
+required:
+  - sources
