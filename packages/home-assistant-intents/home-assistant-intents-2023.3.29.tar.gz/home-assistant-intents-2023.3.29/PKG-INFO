@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: home-assistant-intents
+Version: 2023.3.29
+Summary: Intents for Home Assistant
+Author-email: The Home Assistant Authors <hello@home-assistant.io>
+License: Apache-2.0
+Project-URL: Source Code, https://github.com/home-assistant/intents
+Keywords: home,assistant,intent,recognition
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.9.0
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# Home Assistant Intents
+
+Sentences for [Home Assistant](https://www.home-assistant.io/) that will trigger the [built-in intents](https://developers.home-assistant.io/docs/intent_builtin/).

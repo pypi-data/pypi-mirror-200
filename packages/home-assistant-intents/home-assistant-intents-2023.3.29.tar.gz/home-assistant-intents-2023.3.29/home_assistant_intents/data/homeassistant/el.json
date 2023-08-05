@@ -1,0 +1,236 @@
+{
+  "language": "el",
+  "intents": {
+    "HassTurnOn": {
+      "data": [
+        {
+          "sentences": [
+            "<turn_on> <articles> <name>",
+            "<articles> <name> να <turn_on>",
+            "να <turn_on> <articles> <name>",
+            "να <turn_on> <articles> <name>"
+          ]
+        },
+        {
+          "sentences": [
+            "<turn_on> [(πάνω | ψηλά)] [<all>] [<articles>] (<garage_doors> | <doors> | <covers>) <articles> <area> [(πάνω | ψηλά)]",
+            "<turn_on> [(πάνω | ψηλά)] <articles> <area> [<all>] [<articles>] (<garage_doors> | <doors> | <covers>) [(πάνω | ψηλά)]"
+          ],
+          "response": "cover_area"
+        },
+        {
+          "sentences": [
+            "<turn_on> [<all>] [<articles>] <fans> [<articles>] [<area>]",
+            "<turn_on> [<articles>] [<area>] [<all>] [<articles>] <fans>"
+          ],
+          "slots": {
+            "domain": "fan",
+            "name": "all"
+          }
+        },
+        {
+          "sentences": [
+            "<turn_on> [<all>] <articles> <lights> <area>",
+            "<turn_on> <area> [<all>] <articles> <lights>"
+          ],
+          "slots": {
+            "domain": "light",
+            "name": "all"
+          }
+        },
+        {
+          "sentences": [
+            "<turn_on> [(πάνω | ψηλά)] [<all>] [<articles>] (<garage_doors> | <doors> | <covers>) [(πάνω | ψηλά)]"
+          ],
+          "response": "cover_device_class",
+          "slots": {
+            "domain": "cover",
+            "device_class": [
+              "window",
+              "blind",
+              "curtain",
+              "shutter"
+            ]
+          }
+        }
+      ]
+    },
+    "HassTurnOff": {
+      "data": [
+        {
+          "sentences": [
+            "<turn_off> [<all>] <articles> <lights> <area>",
+            "<turn_off> <area> [<all>] <articles> <lights>"
+          ],
+          "slots": {
+            "domain": "light",
+            "name": "all"
+          }
+        },
+        {
+          "sentences": [
+            "<turn_off> [<all>] [<articles>] (<garage_doors> | <doors> | <covers>) [κάτω]"
+          ],
+          "response": "cover_device_class",
+          "slots": {
+            "domain": "cover",
+            "device_class": [
+              "window",
+              "blind",
+              "curtain",
+              "shutter"
+            ]
+          }
+        },
+        {
+          "sentences": [
+            "<turn_off> [<all>] [<articles>] (<garage_doors> | <doors> | <covers>) στην περιοχή <area>",
+            "<turn_off> [<all>] [<articles>] (<garage_doors> | <doors> | <covers>) <articles> <area>",
+            "<turn_off> <articles> <area> [<all>] <articles> (<garage_doors> | <doors> | <covers>)"
+          ],
+          "response": "cover_area",
+          "slots": {
+            "domain": "cover"
+          }
+        },
+        {
+          "sentences": [
+            "<turn_off> [<all>] [<articles>] <fans> [<articles>] [<area>]",
+            "<turn_off> [<articles>] [<area>] [<all>] [<articles>] <fans>"
+          ],
+          "slots": {
+            "domain": "fan",
+            "name": "all"
+          }
+        },
+        {
+          "sentences": [
+            "<turn_off> <articles> <name>",
+            "<articles> <name> να <turn_off>",
+            "να <turn_off> <articles> <name>",
+            "να <turn_off> <articles> <name>"
+          ]
+        }
+      ]
+    }
+  },
+  "responses": {
+    "errors": {
+      "no_intent": "Συγγνώμη, δεν μπόρεσα να το καταλάβω αυτό",
+      "no_area": "Δεν υπάρχει περιοχή με όνομα {{ area }}",
+      "no_domain": "Η περιοχή {{ area }} δεν περιέχει ένα {{ domain }}",
+      "no_device_class": "Η περιοχή {{ area }} δεν περιέχει {{ device_class }}",
+      "no_entity": "Δεν υπάρχει συσκευή ή οντότητα με όνομα {{ entity }}",
+      "handle_error": "Προέκυψε ένα απροσδόκητο σφάλμα κατά το χειρισμό της πρόθεσης"
+    },
+    "intents": {
+      "HassTurnOn": {
+        "default": "Άνοιξαν τα φώτα στο {{ slots.name }}",
+        "lights_area": "Άνοιξαν τα φώτα στην περιοχή {{ slots.area }}",
+        "fans_area": "Άνοιξαν οι ανεμιστήρες στην περιοχή {{ slots.area }}",
+        "cover": "{{ slots.name }} άνοιξε",
+        "cover_area": "{{ slots.area }} έκλεισε",
+        "cover_device_class": "{{ slots.device_class }} άνοιξε"
+      },
+      "HassTurnOff": {
+        "default": "Έκλεισαν τα φώτα στο {{ slots.name }}",
+        "lights_area": "Έκλεισαν τα φώτα στην περιοχή {{ slots.area }}",
+        "fans_area": "Έκλεισαν οι ανεμιστήρες στην περιοχή {{ slots.area }}",
+        "cover": "{{ slots.name }} έκλεισε",
+        "cover_area": "{{ slots.area }} έκλεισε",
+        "cover_device_class": "{{ slots.device_class }} έκλεισε"
+      },
+      "HassGetState": {}
+    }
+  },
+  "lists": {
+    "color": {
+      "values": [
+        {
+          "in": "λευκό",
+          "out": "white"
+        },
+        {
+          "in": "μαύρο",
+          "out": "black"
+        },
+        {
+          "in": "κόκκινο",
+          "out": "red"
+        },
+        {
+          "in": "πορτοκαλί",
+          "out": "orange"
+        },
+        {
+          "in": "κίτρινο",
+          "out": "yellow"
+        },
+        {
+          "in": "πράσινο",
+          "out": "green"
+        },
+        {
+          "in": "μπλε",
+          "out": "blue"
+        },
+        {
+          "in": "μωβ",
+          "out": "purple"
+        },
+        {
+          "in": "καφέ",
+          "out": "brown"
+        }
+      ]
+    },
+    "brightness": {
+      "range": {
+        "type": "percentage",
+        "from": 0,
+        "to": 100
+      }
+    },
+    "temperature": {
+      "range": {
+        "type": "temperature",
+        "from": 0,
+        "to": 100
+      }
+    },
+    "temperature_unit": {
+      "values": [
+        {
+          "in": "Κελσίου",
+          "out": "celsius"
+        },
+        {
+          "in": "Φαρενάιτ",
+          "out": "fahrenheit"
+        }
+      ]
+    }
+  },
+  "expansion_rules": {
+    "name": "[(ο | τον | η | την | το | τα | τις | τους | στον | στη | στην | στο | στους | στις | στα)] {name}",
+    "area": "[(ο | τον | η | την | το | τα | τις | τους | στον | στη | στην | στο | στους | στις | στα)] {area}",
+    "articles": "(ο | τον | η | την | τη | το | τα | τις | τους | του | της | στον | στη | στην | στο | στους | στις | στα)",
+    "all": "(όλους | όλες | όλα)",
+    "set": "(όρισε | ρύθμισε | άλλαξε)",
+    "turn_on": "(άνοιξε | άρχισε | ξεκίνα | ενεργοποίησε | άναψε | σήκωσε | άνοιξε | ενεργοποίησε | άρχισε | ξεκίνα | ανοίξει[ς] | ενεργοποιήσεις | ενεργοποιηθεί | αρχίσει[ς] | ξεκινήσει[ς])",
+    "turn_off": "(κλείσε | απενεργοποίησε | σταμάτα | σταμάτησε | σβήσε | κατέβασε | κλείσει[ς] | σταματήσει[ς] | απενεργοποιήσεις | απενεργοποιηθεί)",
+    "garage_doors": "(γκαραζόπορτα | γκαραζόπορτες)",
+    "covers": "(περσίδα | περσίδες | παντζούρι | παντζούρια | ρολό | ρολά | κάλυμμα | καλύμματα)",
+    "doors": "(πόρτα | πόρτες)",
+    "fans": "(ανεμιστήρ(α[ς]|ες) | εξαερισμ(ό[ς]|οί|ούς))",
+    "lights": "(φως | φώτα | λάμπ(α[ς]|ες) | φωτιστικ(ό|ά))",
+    "brightness": "{brightness}[%| τοις εκατό]",
+    "temperature": "{temperature} [βαθμ(οί|ούς)] [{temperature_unit}]"
+  },
+  "skip_words": [
+    "παρακαλώ",
+    "σε παρακαλώ",
+    "μπορείς",
+    "θα μπορούσες"
+  ]
+}
