@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: edgedb-orm
+Version: 1.0.10
+Summary: 
+Author: Jeremy Berman
+Author-email: jerber@sas.upenn.edu
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: black
+Requires-Dist: devtools
+Requires-Dist: edgedb (>=1.2.0,<2.0.0)
+Requires-Dist: fastapi
+Requires-Dist: orjson (>=3.6,<4.0)
+Requires-Dist: pydantic[email]
