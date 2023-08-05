@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: mega-seeds
+Version: 0.1.0
+Summary: 
+Author: Dimash
+Author-email: digisinov@megacom.kg
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiofiles (>=23.1.0,<24.0.0)
+Requires-Dist: anyio (>=3.6.2,<4.0.0)
+Requires-Dist: asyncclick (>=8.1.3.4,<9.0.0.0)
+Requires-Dist: asyncpg (>=0.27.0,<0.28.0)
+Requires-Dist: databases (>=0.7.0,<0.8.0)
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: mako (>=1.2.4,<2.0.0)
+Requires-Dist: shortuuid (>=1.0.11,<2.0.0)
+Description-Content-Type: text/markdown
+
+
