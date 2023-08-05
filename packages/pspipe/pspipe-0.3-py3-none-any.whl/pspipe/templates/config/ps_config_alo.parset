@@ -1,0 +1,12 @@
+[PowerSpectraConfig]
+window_fct=blackmanharris
+rmean_freqs=True
+ps2d_pos_only=True
+umin=1
+umax=50
+du=1
+empirical_weighting=False
+empirical_weighting_polyfit_deg=2
+primary_beam=ant_5_1.02_gaussian
+kbins_n=5
+kbins_kmax=0.4
