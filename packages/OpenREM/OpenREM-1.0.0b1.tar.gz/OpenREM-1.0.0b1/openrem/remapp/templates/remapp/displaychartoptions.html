@@ -1,0 +1,185 @@
+{% extends "remapp/base.html" %}
+
+{% block navhelp %}
+        <li>
+            <a href="https://docs.openrem.org/en/{{ admin.docsversion }}/charts.html#chart-options" target="_blank" data-toggle="tooltip" title="Chart options documentation - opens in a new tab">
+                Chart options documentation
+            </a>
+        </li>
+{% endblock %}
+
+{% block confnav %}<li class="dropdown active">{% endblock %}
+
+{% block toprow %}
+{% endblock %}
+
+{% block mainblock %}
+
+  <form action="" method="post" class="form-horizontal" role="form">
+    <div class="panel panel-info">
+
+      <div class="panel-heading">
+        <h3 class="panel-title">General chart options</h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="row">
+            {% csrf_token %}
+
+            <!-- First column div with all fields except the colour map choice -->
+            <div class="col-md-2">
+                <table aria-describedby="General chart options">
+                {% for field in GeneralChartOptionsForm %}
+                    {{ field.errors }}
+                    <tr>
+                        {% if field.name != "plotColourMapChoice" %}
+                            {% if field.field.widget.attrs.class == 'CheckboxSelectMultiple' %}
+                                <td class="shaded_top_bottom_border">{{ field.label_tag }}</td>
+                                <td class="shaded_top_bottom_border">{{ field }}</td>
+                            {% elif field.label == 'Calculate histogram data' or field.label == 'Case-insensitive categories' or field.label == 'Chart grouping' %}
+                                <td class="top_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                                <td class="top_border">{{ field }}</td>
+                            {% else %}
+                                <td>{{ field.label_tag }}</td>
+                                <td>{{ field }}</td>
+                            {% endif %}
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+
+            <!-- Second column div with just the colour map choice field -->
+            <div class="col-md-1">
+            {% for field in GeneralChartOptionsForm %}
+                {{ field.errors }}
+                {% if field.name == "plotColourMapChoice" %}
+                    {{ GeneralChartOptionsForm.plotColourMapChoice.label_tag }}
+                    <ul class="RadioSelect">
+                        {% for x, y in GeneralChartOptionsForm.fields.plotColourMapChoice.choices %}
+                            <label for="value_{{ forloop.counter0 }}">
+                                <li class="no-wrap">
+                                    <input type="radio" name="plotColourMapChoice" value="{{ x }}" id="value_{{ forloop.counter0 }}" {% if GeneralChartOptionsForm.plotColourMapChoice.value == x %}checked{% endif %}>&nbsp<img src="{{ STATIC_URL }}img/{{ x }}.png" alt="{{ y }}" width="150" height="15" class="colour_swatch"> {{ x }}
+                                </li>
+                            </label>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+            </div>
+
+        </div>
+        <input class="btn btn-default" name="submit" type="submit" />
+      </div>
+
+      <div class="panel-heading">
+        <h3 class="panel-title">CT chart options</h3>
+      </div>
+      <div class="panel-body">
+        <table aria-describedby="CT chart options">
+            {% csrf_token %}
+            {% for field in CTChartOptionsForm %}
+                <tr>
+                {% if field.field.widget.attrs.class == 'CheckboxSelectMultiple' %}
+                    <td class="shaded_top_bottom_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td class="shaded_top_bottom_border">{{ field }}</td>
+                {% elif field.label == 'Study frequency' or field.label == 'Standard study frequency' or field.label == 'Requested procedure frequency' or field.label == 'Time period' %}
+                    <td class="top_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td class="top_border">{{ field }}</td>
+                {% else %}
+                    <td><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td>{{ field }}</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+        <input class="btn btn-default" name="submit" type="submit" />
+      </div>
+
+      <div class="panel-heading">
+        <h3 class="panel-title">Radiography chart options</h3>
+      </div>
+      <div class="panel-body">
+        <table aria-describedby="Radiography chart options">
+            {% csrf_token %}
+            {% for field in DXChartOptionsForm %}
+                <tr>
+                {% if field.label == 'Study frequency' or field.label == 'Requested procedure frequency' or field.label == 'Standard acquisition name frequency' or field.label == 'Time period' or field.label == 'Standard study name frequency' %}
+                    <td class="top_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td class="top_border">{{ field }}</td>
+                {% else %}
+                    <td><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td>{{ field }}</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+        <input class="btn btn-default" name="submit" type="submit" />
+      </div>
+
+      <div class="panel-heading">
+        <h3 class="panel-title">Fluoroscopy chart options</h3>
+      </div>
+      <div class="panel-body">
+        <table aria-describedby="Fluoroscopy chart options">
+            {% csrf_token %}
+            {% for field in RFChartOptionsForm %}
+                <tr>
+                {% if field.label == 'Requested procedure frequency' or field.label == 'Time period' or field.label == 'Standard study name frequency' %}
+                    <td class="top_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td class="top_border">{{ field }}</td>
+                {% else %}
+                    <td><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td>{{ field }}</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+        <input class="btn btn-default" name="submit" type="submit" />
+      </div>
+
+      <div class="panel-heading">
+        <h3 class="panel-title">Mammography chart options</h3>
+      </div>
+      <div class="panel-body">
+        <table aria-describedby="Mammography chart options">
+            {% csrf_token %}
+            {% for field in MGChartOptionsForm %}
+                <tr>
+                {% if field.label == 'Study workload' or field.label == 'Time period' or field.label == 'Standard acquisition name frequency' %}
+                    <td class="top_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td class="top_border">{{ field }}</td>
+                {% else %}
+                    <td><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td>{{ field }}</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+        <input class="btn btn-default" name="submit" type="submit" />
+      </div>
+      <div class="panel-heading">
+        <h3 class="panel-title">NM chart options</h3>
+      </div>
+      <div class="panel-body">
+        <table aria-describedby="NM chart options">
+            {% csrf_token %}
+            {% for field in NMChartOptionsForm %}
+                <tr>
+                {% if field.label == 'Time period' %}
+                    <td class="top_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td class="top_border">{{ field }}</td>
+                {% else %}
+                    <td><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                    <td>{{ field }}</td>
+                {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+        <input class="btn btn-default" name="submit" type="submit" />
+      </div>
+
+    </div>
+  </form>
+
+{% endblock %}
