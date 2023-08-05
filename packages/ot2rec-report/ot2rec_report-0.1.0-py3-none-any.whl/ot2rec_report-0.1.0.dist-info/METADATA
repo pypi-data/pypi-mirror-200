@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ot2rec-report
+Version: 0.1.0
+Summary: Generate reports for Ot2Rec
+Home-page: https://github.com/rosalindfranklininstitute/ot2rec_report.git
+License: Apache License, Version 2.0
+License-File: LICENSE
+Requires-Dist: jupyterlab
+Requires-Dist: jupyter
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: networkx
+Requires-Dist: pydot
+Requires-Dist: icecream
+Requires-Dist: pyyaml
+Requires-Dist: papermill
+Requires-Dist: seaborn
+Requires-Dist: mrcfile
+Requires-Dist: tifffile
+Requires-Dist: magicgui[pyqt5]
+Requires-Dist: black[jupyter]
+
