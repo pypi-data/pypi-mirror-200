@@ -1,0 +1,104 @@
+{
+    "yarr": {
+        "run_dir": "../Yarr",
+        "controller": "configs/controller/specCfg-rd53b-16x1.json",
+        "scanConsole_exe": "./bin/scanConsole",
+        "write_register_exe": "./bin/write-register",
+        "read_adc_exe": "./bin/read-adc"
+    },
+    "power_supply": {
+        "run_dir": "../labRemote",
+        "on_cmd": "./build/bin/powersupply -e ./src/configs/input-hw.json -n PS -c 1 power-on",
+        "off_cmd": "./build/bin/powersupply -e ./src/configs/input-hw.json -n PS -c 1 power-off",
+        "set_cmd": "./build/bin/powersupply -e ./src/configs/input-hw.json -n PS -c 1 set-current {i} {v}",
+        "getI_cmd": "./build/bin/powersupply -e ./src/configs/input-hw.json -n PS -c 1 meas-current",
+        "getV_cmd": "./build/bin/powersupply -e ./src/configs/input-hw.json -n PS -c 1 meas-voltage",
+        "n_try": 0
+    },
+    "multimeter": {
+        "run_dir": "../labRemote",
+        "dcv_cmd": [
+            "./build/bin/meter -e ./src/configs/input-hw.json -n myVmuxMeter -c 0 meas-voltage"
+        ],
+        "n_try": 0
+    },
+    "ntc": {
+        "run_dir": "../labRemote",
+        "cmd": "./build/bin/TfromNTC -e ./src/configs/input-hw.json -n myNtcMeter -c 0 meas-from-r",
+        "n_try": 0
+    },
+    "tasks": {
+        "ADC_CALIBRATION": {
+            "v_max": 3.0,
+            "i_config": 6.6,
+            "MonitorV": [8, 30],
+            "InjVcalRange": 1,
+            "Range": {
+                "start": 500,
+                "stop": 3500,
+                "step": 100
+            },
+            "share_vmux": true,
+            "v_mux_channels": [0, 0, 0, 0]
+        },
+        "SLDO": {
+            "v_max": 3.0,
+            "i_config": 6.6,
+            "i_min": 6.6,
+            "i_max": 10.6,
+            "n_points": 21,
+            "extra_i": [],
+            "v_mux": [30, 33, 37, 34, 38, 36, 32],
+            "i_mux": [0, 28, 29, 30, 31, 63],
+            "share_vmux": true,
+            "v_mux_channels": [0, 0, 0, 0]
+        },
+        "VCAL_CALIBRATION": {
+            "v_max": 3.0,
+            "i_config": 6.6,
+            "InjVcalRange": [1, 0],
+            "MonitorV": [8, 7],
+            "MonitorV_GND": 30,
+            "Large_Range": {
+                "start": 100,
+                "stop": 4000,
+                "step": 100
+            },
+            "Small_Range": {
+                "start": 100,
+                "stop": 4000,
+                "step": 100
+            },
+            "share_vmux": true,
+            "v_mux_channels": [0, 0, 0, 0]
+        },
+        "ANALOG_READBACK": {
+            "v_max": 3.0,
+            "i_config": 6.6,
+            "v_mux": [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 17, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 63],
+            "i_mux": [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 63],
+            "v_mux_ntc": [2,30],
+            "i_mux_ntc": [9,63],
+            "v_mux_tempsens": [14, 16, 18],
+            "MonSensSldoDigSelBias": [0,1],
+            "MonSensSldoAnaSelBias": [0,1],
+            "MonSensAcbSelBias": [0,1],
+            "MonSensSldoDigDem": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "MonSensSldoAnaDem": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "MonSensAcbDem": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "SldoTrimA": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "SldoTrimD": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "share_vmux": true,
+            "v_mux_channels": [0, 0, 0, 0]
+        },
+        "INJECTION_CAPACITANCE": {
+	    "v_max": 3.0,
+	    "i_config": 6.6,
+	    "n_meas": 5,
+	    "v_mux": [4, 30],
+	    "i_mux": [10, 11, 63],
+	    "share_vmux":  true,
+	    "v_mux_channels": [0, 0, 0, 0]
+	}
+    }
+}
