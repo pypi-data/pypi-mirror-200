@@ -1,0 +1,75 @@
+NRDocumentMetadata:
+  $id: DocumentMetadata
+  use: ["nr-common-metadata#CommonMetadata"]
+
+  marshmallow:
+    schema-class: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
+    imports:
+      - import: nr_metadata.documents.services.records.schema.NRDocumentMetadataSchema
+  ui:
+    marshmallow:
+      schema-class: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
+    imports:
+      - import: nr_metadata.documents.services.records.ui_schema.NRDocumentMetadataUISchema
+
+  properties:
+    thesis:
+      ui:
+        detail: thesis
+        marshmallow:
+          schema-class: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
+          imports:
+            - import: nr_metadata.documents.services.records.ui_schema.NRThesisUISchema
+      marshmallow:
+        schema-class: nr_metadata.documents.services.records.schema.NRThesisSchema
+        imports:
+          - import: nr_metadata.documents.services.records.schema.NRThesisSchema
+      properties:
+        dateDefended:
+          type: date
+          label.cs: Datum obhajoby
+          label.en: Date defended
+        defended:
+          type: boolean
+          label.cs: Obhájeno?
+          label.en: Defended?
+        degreeGrantors[]:
+          ui:
+            detail: nr_degree_grantor
+            marshmallow:
+              schema-class: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
+              imports:
+                - import: nr_metadata.documents.services.records.ui_schema.NRDegreeGrantorUISchema
+          marshmallow:
+            schema-class: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
+            imports:
+              - import: nr_metadata.documents.services.records.schema.NRDegreeGrantorSchema
+          type: taxonomy
+          vocabulary-type: institutions
+          ^label.cs: Instituce / grantor
+          ^label.en: Degree grantor
+        studyFields[]:
+          type: keyword
+          ^label.cs: Oblasti studia
+          ^label.en: Study fields
+    collection:
+      type: keyword
+      label.cs: Kolekce
+      label.en: Collection
+
+DocumentModel:
+  $id: DocumentModel
+  marshmallow:
+    schema-class: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
+    imports:
+      - import: nr_metadata.documents.services.records.schema.NRDocumentRecordSchema
+  ui:
+    marshmallow:
+      schema-class: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
+      imports:
+        - import: nr_metadata.documents.services.records.ui_schema.NRDocumentRecordUISchema
+  use: [invenio]
+
+  properties:
+    metadata:
+      use: ["nr-documents#DocumentMetadata"]
