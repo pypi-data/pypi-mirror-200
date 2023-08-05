@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: blobular
+Version: 0.0.5
+Project-URL: Documentation, https://github.com/EdAyers/sss/tree/main/blobular#readme
+Project-URL: Issues, https://github.com/EdAyers/sss/issues
+Project-URL: Source, https://github.com/EdAyers/sss/tree/main/blobular
+Author-email: "E.W.Ayers" <contact@edayers.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Requires-Dist: blake3
+Requires-Dist: pydantic
+Requires-Dist: pydantic[dotenv]
+Requires-Dist: pydantic[email]
+Requires-Dist: requests
+Requires-Dist: rich
+Requires-Dist: typer
+Description-Content-Type: text/markdown
+
+# Blobular
+
+[![PyPI - Version](https://img.shields.io/pypi/v/blobular.svg)](https://pypi.org/project/blobular)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/blobular.svg)](https://pypi.org/project/blobular)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install blobular
+```
+
+## License
+
+`blobular` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+
+## Development
+
+Get the dev server working. Make sure you have vars in your `.env` file.
+
+```sh
+hatch run api:dev
+```
