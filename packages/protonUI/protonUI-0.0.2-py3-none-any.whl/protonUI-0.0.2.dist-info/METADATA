@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: protonUI
+Version: 0.0.2
+Summary: A python GUI libraray using OpenGL and GLFW
+Author-email: janschubrt <jan.schubert0604@gmail.com>
+Project-URL: Github, https://github.com/janschubrt/protonUI
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Requires-Python: >=3.11.2
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: glfw (==2.5.7)
+Requires-Dist: numpy (==1.24.2)
+Requires-Dist: PyOpenGL (==3.1.6)
+
