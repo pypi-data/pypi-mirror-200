@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "timeturner"
+version = "0.1.2"
+description = ""
+authors = ["Olaf Gladis <olaf@gladis.org>"]
+readme = "README.md"
+packages = [{ include = "timeturner" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+rich = "^13.3.1"
+typer = "^0.7.0"
+pendulum = "^2.1.2"
+pydantic = "^1.10.5"
+tomlkit = "^0.11.6"
+
+[tool.poetry.group.dev.dependencies]
+pip-audit = "^2.4.14"
+pytest = "^7.2.1"
+pytest-watch = "^4.2.0"
+freezegun = "^1.2.2"
+pytest-dependency = "^0.5.1"
+pyright = "^1.1.298"
+pytest-cov = "^4.0.0"
+ruff = "^0.0.254"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+timeturner = "timeturner.run:entrypoint"
+tt = { callable = "timeturner.run:entrypoint", extras = ["short"] }
+
+[tool.pyright]
+pythonVersion = "3.10"
+useLibraryCodeForTypes = true
+
+[tool.coverage.run]
+branch = true
+source = ["timeturner"]
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "^\\s+\\.\\.\\.",
+]
+show_missing = true
+
+[tool.ruff]
+
+[tool.ruff.per-file-ignores]
+"tests/test_hamster_loader.py" = ["E501"]
