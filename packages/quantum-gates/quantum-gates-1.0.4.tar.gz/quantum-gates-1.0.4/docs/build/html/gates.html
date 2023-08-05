@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gates &mdash; Quantum Gates 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Factories" href="factories.html" />
+    <link rel="prev" title="Welcome to the Quantum Gates documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Quantum Gates
+          </a>
+              <div class="version">
+                1.0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Gates</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-quantum_gates.gates">Instances and Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.gates.standard_gates"><code class="docutils literal notranslate"><span class="pre">standard_gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.gates.numerical_gates"><code class="docutils literal notranslate"><span class="pre">numerical_gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.gates.noise_free_gates"><code class="docutils literal notranslate"><span class="pre">noise_free_gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.gates.almost_noise_free_gates"><code class="docutils literal notranslate"><span class="pre">almost_noise_free_gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.gates.Gates"><code class="docutils literal notranslate"><span class="pre">Gates</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.relaxation"><code class="docutils literal notranslate"><span class="pre">Gates.relaxation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.bitflip"><code class="docutils literal notranslate"><span class="pre">Gates.bitflip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.depolarizing"><code class="docutils literal notranslate"><span class="pre">Gates.depolarizing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.single_qubit_gate"><code class="docutils literal notranslate"><span class="pre">Gates.single_qubit_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.X"><code class="docutils literal notranslate"><span class="pre">Gates.X()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.SX"><code class="docutils literal notranslate"><span class="pre">Gates.SX()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.CR"><code class="docutils literal notranslate"><span class="pre">Gates.CR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.CNOT"><code class="docutils literal notranslate"><span class="pre">Gates.CNOT()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.Gates.CNOT_inv"><code class="docutils literal notranslate"><span class="pre">Gates.CNOT_inv()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.relaxation"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.relaxation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.bitflip"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.bitflip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.depolarizing"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.depolarizing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.single_qubit_gate"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.single_qubit_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.X"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.X()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.SX"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.SX()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.CNOT"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.CNOT()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.CNOT_inv"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.CNOT_inv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates.CR"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates.CR()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.relaxation"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.relaxation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.bitflip"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.bitflip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.depolarizing"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.depolarizing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.single_qubit_gate"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.single_qubit_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.X"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.X()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.SX"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.SX()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.CR"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.CR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.CNOT"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.CNOT()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates.CNOT_inv"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates.CNOT_inv()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.gates.legacy_gates"><code class="docutils literal notranslate"><span class="pre">legacy_gates</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="factories.html">Factories</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pulses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pulses.html">Pulses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Integrators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">Simulators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Backends</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Circuits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="circuits.html">Circuits</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantum_algorithms.html">Quantum Algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Legacy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Quantum Gates</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Gates</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/gates.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gates">
+<h1>Gates<a class="headerlink" href="#gates" title="Permalink to this heading"></a></h1>
+<p>Here you learn how to use the different gate sets to sample noisy quantum
+gates. The gate set combines multiple gate factories into a single
+object, which is easy to import and pass in arguments.</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>While the usage is fairly trivial, there is one dangerous subtlety that
+the user should be aware of. As computer programs are deterministic, the
+sampling from probability distributions often works by using a
+pseudo-random number generator underneath. Thus, the user should not
+accidentaly sample the same gates multiple times, which can happen when
+the same simulation is run in parallel many times, and the seed of the
+pseudo-random number generator is the same in each run. An easy fix would
+be to set a random seed in the start of each simulation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set random seed, otherwise each experiment gets the same result</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span> <span class="o">%</span> <span class="mi">123456789</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another method would be to pass the seed to the simulation. When
+reproducability of the simulation results is important, then this is the
+better option. Note how the seed is set inside the simulation and not
+outside.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+
+<span class="k">def</span> <span class="nf">simulation</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Returns a random number in [0, 1] for a specific random seed. &quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">imap_unordered</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">simulation</span><span class="p">,</span> <span class="n">iterable</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">100</span><span class="o">//</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that this possible issue is specific to multiprocessing on Linux
+operating system, as it depends on how new processes are created.</p>
+</section>
+<section id="module-quantum_gates.gates">
+<span id="instances-and-classes"></span><h2>Instances and Classes<a class="headerlink" href="#module-quantum_gates.gates" title="Permalink to this heading"></a></h2>
+<p>The Gates classes and instances provide a consistent interface for sampling noisy gates.</p>
+<p>At the moment, we support the following gates: X, SX, CR, CNOT, CNOT_inv, SingleQubitGate. Note that Rz gates are
+virtual on superconducting devices by IBM.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.gates.standard_gates">
+<span class="sig-prename descclassname"><span class="pre">quantum_gates.gates.</span></span><span class="sig-name descname"><span class="pre">standard_gates</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.standard_gates" title="Permalink to this definition"></a></dt>
+<dd><p>Gates produced with constant pulses, the integrations are based on analytical solutions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.gates.Gates" title="quantum_gates.gates.Gates">Gates</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.gates.numerical_gates">
+<span class="sig-prename descclassname"><span class="pre">quantum_gates.gates.</span></span><span class="sig-name descname"><span class="pre">numerical_gates</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.numerical_gates" title="Permalink to this definition"></a></dt>
+<dd><p>Gates produced with constant pulses, but the integrations are performed numerically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.gates.Gates" title="quantum_gates.gates.Gates">Gates</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.gates.noise_free_gates">
+<span class="sig-prename descclassname"><span class="pre">quantum_gates.gates.</span></span><span class="sig-name descname"><span class="pre">noise_free_gates</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.noise_free_gates" title="Permalink to this definition"></a></dt>
+<dd><p>Gates in the noise free case, based on solving the equations analytically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.gates.NoiseFreeGates" title="quantum_gates.gates.NoiseFreeGates">NoiseFreeGates</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.gates.almost_noise_free_gates">
+<span class="sig-prename descclassname"><span class="pre">quantum_gates.gates.</span></span><span class="sig-name descname"><span class="pre">almost_noise_free_gates</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.almost_noise_free_gates" title="Permalink to this definition"></a></dt>
+<dd><p>Gates in the noise free case, but based on scaling the noise down.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.gates.ScaledNoiseGates" title="quantum_gates.gates.ScaledNoiseGates">ScaledNoiseGates</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.gates.</span></span><span class="sig-name descname"><span class="pre">Gates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulse:</span> <span class="pre">~quantum_gates._gates.pulse.Pulse</span> <span class="pre">=</span> <span class="pre">&lt;quantum_gates._gates.pulse.ConstantPulse</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Collection of the gates. Handles adding the pulse shape to the gates.</p>
+<p>This way, we do not have to pass the pulse shape each time we generate a gate.</p>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.pulses</span> <span class="kn">import</span> <span class="n">GaussianPulse</span>
+<span class="kn">from</span> <span class="nn">quantum_gates.gates</span> <span class="kn">import</span> <span class="n">Gates</span>
+
+<span class="n">pulse</span> <span class="o">=</span> <span class="n">GaussianPulse</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gateset</span> <span class="o">=</span> <span class="n">Gates</span><span class="p">(</span><span class="n">pulse</span><span class="p">)</span>
+
+<span class="n">sampled_x</span> <span class="o">=</span> <span class="n">gateset</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pulse</strong> (<a class="reference internal" href="pulses.html#quantum_gates.pulses.Pulse" title="quantum_gates._gates.pulse.Pulse"><em>Pulse</em></a>) – </p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.relaxation">
+<span class="sig-name descname"><span class="pre">relaxation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.relaxation" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.bitflip">
+<span class="sig-name descname"><span class="pre">bitflip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.bitflip" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.depolarizing">
+<span class="sig-name descname"><span class="pre">depolarizing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.depolarizing" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.single_qubit_gate">
+<span class="sig-name descname"><span class="pre">single_qubit_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.single_qubit_gate" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.X">
+<span class="sig-name descname"><span class="pre">X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.X" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.SX">
+<span class="sig-name descname"><span class="pre">SX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.SX" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.CR">
+<span class="sig-name descname"><span class="pre">CR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.CR" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.CNOT">
+<span class="sig-name descname"><span class="pre">CNOT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.CNOT" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.Gates.CNOT_inv">
+<span class="sig-name descname"><span class="pre">CNOT_inv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.Gates.CNOT_inv" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.gates.</span></span><span class="sig-name descname"><span class="pre">NoiseFreeGates</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Version of Gates for the noiseless case.</p>
+<p>Has the same interface as the Gates class, but ignores the arguments specifying the noise.</p>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.gates</span> <span class="kn">import</span> <span class="n">NoiseFreeGates</span>
+
+<span class="n">gateset</span> <span class="o">=</span> <span class="n">NoiseFreeGates</span><span class="p">()</span>
+<span class="n">sampled_x</span> <span class="o">=</span> <span class="n">gateset</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.relaxation">
+<span class="sig-name descname"><span class="pre">relaxation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.relaxation" title="Permalink to this definition"></a></dt>
+<dd><p>Returns single qubit relaxation in noise free regime -&gt; identity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.bitflip">
+<span class="sig-name descname"><span class="pre">bitflip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.bitflip" title="Permalink to this definition"></a></dt>
+<dd><p>Returns single qubit bitflip in noise free regime -&gt; identity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.depolarizing">
+<span class="sig-name descname"><span class="pre">depolarizing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.depolarizing" title="Permalink to this definition"></a></dt>
+<dd><p>Returns single qubit depolarizing in noise free regime -&gt; identity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.single_qubit_gate">
+<span class="sig-name descname"><span class="pre">single_qubit_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.single_qubit_gate" title="Permalink to this definition"></a></dt>
+<dd><p>Returns general single qubit gate in noise free regime.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.X">
+<span class="sig-name descname"><span class="pre">X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.X" title="Permalink to this definition"></a></dt>
+<dd><p>Returns X gate in noise free regime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.SX">
+<span class="sig-name descname"><span class="pre">SX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.SX" title="Permalink to this definition"></a></dt>
+<dd><p>Returns SX gate in noise free regime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.CNOT">
+<span class="sig-name descname"><span class="pre">CNOT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.CNOT" title="Permalink to this definition"></a></dt>
+<dd><p>Returns CNOT gate in noise free regime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.CNOT_inv">
+<span class="sig-name descname"><span class="pre">CNOT_inv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.CNOT_inv" title="Permalink to this definition"></a></dt>
+<dd><p>Returns CNOT inverse gate in noise free regime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.NoiseFreeGates.CR">
+<span class="sig-name descname"><span class="pre">CR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.NoiseFreeGates.CR" title="Permalink to this definition"></a></dt>
+<dd><p>Returns CR gate in noise free regime.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.gates.</span></span><span class="sig-name descname"><span class="pre">ScaledNoiseGates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">noise_scaling:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse:</span> <span class="pre">~quantum_gates._gates.pulse.Pulse</span> <span class="pre">=</span> <span class="pre">&lt;quantum_gates._gates.pulse.ConstantPulse</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Version of Gates in which the noise is scaled by a certain factor noise_scale of at least 1e-15.</p>
+<p>The smaller the noise_scaling value, the less noisy the gates are.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.gates</span> <span class="kn">import</span> <span class="n">ScaledNoiseGates</span>
+
+<span class="n">gateset</span> <span class="o">=</span> <span class="n">ScaledNoiseGates</span><span class="p">(</span><span class="n">noise_scaling</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">pulse</span><span class="o">=</span><span class="n">pulse</span><span class="p">)</span>  <span class="c1"># 10x less noise</span>
+<span class="n">sampled_x</span> <span class="o">=</span> <span class="n">gateset</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>noise_scaling</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – </p></li>
+<li><p><strong>pulse</strong> (<a class="reference internal" href="pulses.html#quantum_gates.pulses.Pulse" title="quantum_gates._gates.pulse.Pulse"><em>Pulse</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.relaxation">
+<span class="sig-name descname"><span class="pre">relaxation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.relaxation" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.bitflip">
+<span class="sig-name descname"><span class="pre">bitflip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.bitflip" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.depolarizing">
+<span class="sig-name descname"><span class="pre">depolarizing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.depolarizing" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.single_qubit_gate">
+<span class="sig-name descname"><span class="pre">single_qubit_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.single_qubit_gate" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.X">
+<span class="sig-name descname"><span class="pre">X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.X" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.SX">
+<span class="sig-name descname"><span class="pre">SX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.SX" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.CR">
+<span class="sig-name descname"><span class="pre">CR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.CR" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.CNOT">
+<span class="sig-name descname"><span class="pre">CNOT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.CNOT" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.gates.ScaledNoiseGates.CNOT_inv">
+<span class="sig-name descname"><span class="pre">CNOT_inv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.ScaledNoiseGates.CNOT_inv" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.gates.legacy_gates">
+<span class="sig-prename descclassname"><span class="pre">quantum_gates.gates.</span></span><span class="sig-name descname"><span class="pre">legacy_gates</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/gates.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.gates.legacy_gates" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">LegacyGates</span></code></p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the Quantum Gates documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="factories.html" class="btn btn-neutral float-right" title="Factories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Di Bartolomeo, Vischi, Grossi, Wixinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

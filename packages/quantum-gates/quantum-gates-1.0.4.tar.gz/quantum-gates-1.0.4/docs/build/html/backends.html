@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backends &mdash; Quantum Gates 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Circuits" href="circuits.html" />
+    <link rel="prev" title="Simulators" href="simulators.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Quantum Gates
+          </a>
+              <div class="version">
+                1.0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Gates</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gates</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="factories.html">Factories</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pulses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pulses.html">Pulses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Integrators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">Simulators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Backends</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Backends</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#theory">Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#statevector-simulation">Statevector simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tensors">Tensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optimal-tensor-contractions">Optimal tensor contractions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-quantum_gates.backends">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend"><code class="docutils literal notranslate"><span class="pre">EfficientBackend</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend.nqubit"><code class="docutils literal notranslate"><span class="pre">EfficientBackend.nqubit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend.min_chunk_size"><code class="docutils literal notranslate"><span class="pre">EfficientBackend.min_chunk_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend.optimal_chunk_size"><code class="docutils literal notranslate"><span class="pre">EfficientBackend.optimal_chunk_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend.statevector"><code class="docutils literal notranslate"><span class="pre">EfficientBackend.statevector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend._statevector_low_qubit_regime"><code class="docutils literal notranslate"><span class="pre">EfficientBackend._statevector_low_qubit_regime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend._statevector_medium_qubit_regime"><code class="docutils literal notranslate"><span class="pre">EfficientBackend._statevector_medium_qubit_regime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend._statevector_high_qubit_regime"><code class="docutils literal notranslate"><span class="pre">EfficientBackend._statevector_high_qubit_regime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend._opt_einsum_many_matrices"><code class="docutils literal notranslate"><span class="pre">EfficientBackend._opt_einsum_many_matrices()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.backends.EfficientBackend._chunk_list"><code class="docutils literal notranslate"><span class="pre">EfficientBackend._chunk_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.backends.LegacyBackend"><code class="docutils literal notranslate"><span class="pre">LegacyBackend</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#possible-extensions">Possible extensions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Circuits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="circuits.html">Circuits</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantum_algorithms.html">Quantum Algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Legacy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Quantum Gates</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Backends</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/backends.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="backends">
+<h1>Backends<a class="headerlink" href="#backends" title="Permalink to this heading"></a></h1>
+<p>While the circuit class samples the matrices making up a quantum circuit,
+the backend performs the actual matrix multiplications which appear in
+the statevector simulation.</p>
+<section id="theory">
+<span id="backends-theory"></span><h2>Theory<a class="headerlink" href="#theory" title="Permalink to this heading"></a></h2>
+<section id="statevector-simulation">
+<h3>Statevector simulation<a class="headerlink" href="#statevector-simulation" title="Permalink to this heading"></a></h3>
+<p>The statevector simulation takes an input state psi0, and propagates it
+to the final state psi1 by repeated left matrix multiplications.
+Assuming that our circuit has k steps, then we compute psi1 = U psi0 =
+U_k … U_1 psi0 where U_i are matrices of dimension (2^n, 2^n) for n
+qubit psi0 of shape (2^n,).</p>
+</section>
+<section id="tensors">
+<h3>Tensors<a class="headerlink" href="#tensors" title="Permalink to this heading"></a></h3>
+<p>Tensors are simply generalized versions of scalars, vectors and
+matrices. We can imagine it to be a box with incoming and outgoing legs.
+While a scalar has no legs, a vector has one leg, and a matrix has one
+incoming and one outgoing leg. We can interpret matrix-vector
+multiplication as connecting the right leg of the matrix with the left
+leg of the vector. This will create an object with one free left leg,
+which represents a vector as expected. Similarly, matrix-matrix
+multiplication will led to an object with one incoming and one outgoing
+leg, so a matrix.</p>
+</section>
+<section id="optimal-tensor-contractions">
+<h3>Optimal tensor contractions<a class="headerlink" href="#optimal-tensor-contractions" title="Permalink to this heading"></a></h3>
+<p>As explained in <a class="reference external" href="https://optimized-einsum.readthedocs.io/en/stable/">this
+resource</a>, the
+ordering of the tensor contractions (think matrix multiplications) can
+influence the computational cost dramatically. In the EfficientBackend,
+we leverage optimizations based on the property of the quantum circuit,
+as well as optimizations performed by the library opt_einsum. This
+library computes the contractions for us.</p>
+</section>
+</section>
+<section id="module-quantum_gates.backends">
+<span id="classes"></span><span id="backends-classes"></span><h2>Classes<a class="headerlink" href="#module-quantum_gates.backends" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.backends.</span></span><span class="sig-name descname"><span class="pre">EfficientBackend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimal_chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Evaluates the quantum circuit represented as list of list of matrices with efficient tensor contractions.</p>
+<p>The EfficientBackend is optimized for general circuits and offers a significant speedup in the higher qubit regime,
+scaling to 20+ qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nqubit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of qubits in the circuit.</p></li>
+<li><p><strong>min_chunk_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The matrices are grouped in chunks of at least this size, we recommend a value of 3.</p></li>
+<li><p><strong>optimal_chunk_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The backend aims at achieving an optimal chunk size of this value, normally 4.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Always use this version for the backend for simulating many qubits, it is way faster.</p>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.backend</span> <span class="kn">import</span> <span class="n">EfficientBackend</span>
+
+<span class="n">backend</span> <span class="o">=</span> <span class="n">EfficientBackend</span><span class="p">(</span><span class="n">nqubit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">H</span><span class="p">,</span> <span class="n">CNOT</span><span class="p">,</span> <span class="n">identity</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">mp_list</span> <span class="o">=</span> <span class="p">[[</span><span class="n">H</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="p">[</span><span class="n">CNOT</span><span class="p">]]</span>
+
+<span class="n">psi0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">psi1</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">statevector</span><span class="p">(</span><span class="n">mp_list</span><span class="p">,</span> <span class="n">psi0</span><span class="p">)</span>  <span class="c1"># Gives [1, 0, 0, 1] / sqrt(2)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend.nqubit">
+<span class="sig-name descname"><span class="pre">nqubit</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend.nqubit" title="Permalink to this definition"></a></dt>
+<dd><p>Number of qubits in the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend.min_chunk_size">
+<span class="sig-name descname"><span class="pre">min_chunk_size</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend.min_chunk_size" title="Permalink to this definition"></a></dt>
+<dd><p>The matrices are grouped in chunks of at least this size, we recommend a value of 3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend.optimal_chunk_size">
+<span class="sig-name descname"><span class="pre">optimal_chunk_size</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend.optimal_chunk_size" title="Permalink to this definition"></a></dt>
+<dd><p>The backend aims at achieving an optimal chunk size of this value, normally 4.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend.statevector">
+<span class="sig-name descname"><span class="pre">statevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mp_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend.statevector" title="Permalink to this definition"></a></dt>
+<dd><p>Propagates a statevector based on a list of matrix products.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mp_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>]</em>) – List of list that contain numpy arrays.</p></li>
+<li><p><strong>psi0</strong> (<em>np.array</em>) – Statevector to be propagated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The propagated statevector.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend._statevector_low_qubit_regime">
+<span class="sig-name descname"><span class="pre">_statevector_low_qubit_regime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mp_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend._statevector_low_qubit_regime" title="Permalink to this definition"></a></dt>
+<dd><p>Propagator for the low qubit regime.</p>
+<p>In the low qubit regime (nqubit &lt; 4), we just generate the expanded matrix product and apply it to psi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mp_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>psi</strong> (<em>array</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend._statevector_medium_qubit_regime">
+<span class="sig-name descname"><span class="pre">_statevector_medium_qubit_regime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mp_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend._statevector_medium_qubit_regime" title="Permalink to this definition"></a></dt>
+<dd><p>Propagator for the medium qubit regime.</p>
+<p>In the medium regime (4 &lt;= nqubit &lt; 8), we just generate the expanded matrix product and apply it to psi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mp_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>psi</strong> (<em>array</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend._statevector_high_qubit_regime">
+<span class="sig-name descname"><span class="pre">_statevector_high_qubit_regime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mp_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend._statevector_high_qubit_regime" title="Permalink to this definition"></a></dt>
+<dd><p>Propagator for the high qubit regime.</p>
+<p>In the high regime (8 &lt;= nqubit), we split the matrix product into chunks of more or less equal size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mp_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>psi</strong> (<em>array</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend._opt_einsum_many_matrices">
+<span class="sig-name descname"><span class="pre">_opt_einsum_many_matrices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend._opt_einsum_many_matrices" title="Permalink to this definition"></a></dt>
+<dd><p>Performs the contractions of a matrix product with psi in an optimized way.</p>
+<p>For mp = [a1,…, an], calculates (a1⊗..⊗an)(psi) einsum. a1, …, an are square matrices and psi is a vector
+with the same length as the dimension of a1 tensor … tensor an from mp = [a1,…, an].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The contracted psi, representing the updated statevector.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>mp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>psi</strong> (<em>array</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.backends.EfficientBackend._chunk_list">
+<span class="sig-name descname"><span class="pre">_chunk_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimal_chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.EfficientBackend._chunk_list" title="Permalink to this definition"></a></dt>
+<dd><p>Converts a list into a list of list, each representing a chunk.</p>
+<p>Assumes that we have at least enough items to create two chunks of optimal size. Joins the last chunk with the
+second last in case it does not reach the minimum chunk size.</p>
+<p class="rubric">Example</p>
+<p>l = [1, 2, 3, 4, 5, 6, 7], min_chunk_size = 2, optimal_chunK_size = 3 returns [[1,2,3], [1,2,3,4]].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The produced list of list.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>l</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>min_chunk_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+<li><p><strong>optimal_chunk_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.backends.LegacyBackend">
+<span class="sig-prename descclassname"><span class="pre">quantum_gates.backends.</span></span><span class="sig-name descname"><span class="pre">LegacyBackend</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/backend.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.backends.LegacyBackend" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">StandardBackend</span></code></p>
+</dd></dl>
+
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>We apply the GHZ algorithm on the two-qubit zero state as an example.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.backend</span> <span class="kn">import</span> <span class="n">EfficientBackend</span>
+
+<span class="n">backend</span> <span class="o">=</span> <span class="n">EfficientBackend</span><span class="p">(</span><span class="n">nqubit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">H</span><span class="p">,</span> <span class="n">CNOT</span><span class="p">,</span> <span class="n">identity</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">mp_list</span> <span class="o">=</span> <span class="p">[[</span><span class="n">H</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="p">[</span><span class="n">CNOT</span><span class="p">]]</span>
+
+<span class="n">psi0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">psi1</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">statevector</span><span class="p">(</span><span class="n">mp_list</span><span class="p">,</span> <span class="n">psi0</span><span class="p">)</span>  <span class="c1"># Gives [1, 0, 0, 1] / sqrt(2)</span>
+</pre></div>
+</div>
+<p>Not applying gates to each qubit will lead to errors. In each matrix
+product, the dimension of the combined Kronecker product has to match
+the dimension of psi.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.backend</span> <span class="kn">import</span> <span class="n">EfficientBackend</span>
+
+<span class="n">backend</span> <span class="o">=</span> <span class="n">EfficientBackend</span><span class="p">(</span><span class="n">nqubit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">H</span><span class="p">,</span> <span class="n">CNOT</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">mp_list1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CNOT</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)]]</span>              <span class="c1"># Gates for 2 + 1 = 3 qubits -&gt; wrong.</span>
+<span class="n">mp_list2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CNOT</span><span class="p">]]</span>                         <span class="c1"># Gates for 2 qubits -&gt; fine.</span>
+<span class="n">mp_list3</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="p">[</span><span class="n">H</span><span class="p">,</span> <span class="n">H</span><span class="p">]]</span> <span class="c1"># Gates for 1 + 1 = 2 qubits -&gt; fine.</span>
+</pre></div>
+</div>
+</section>
+<section id="possible-extensions">
+<span id="backends-possible-extensions"></span><h2>Possible extensions<a class="headerlink" href="#possible-extensions" title="Permalink to this heading"></a></h2>
+<p>The backend class has a simple, generic public interface. This makes
+implementing a custom backend easy. One can optimize the backend
+performance by exploiting properties of a specific quantum algorithm,
+use another simulation method like Matrix Product State (MPS)
+simulation, or use another library as backend for the computations.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="simulators.html" class="btn btn-neutral float-left" title="Simulators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="circuits.html" class="btn btn-neutral float-right" title="Circuits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Di Bartolomeo, Vischi, Grossi, Wixinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

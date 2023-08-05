@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circuits &mdash; Quantum Gates 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quantum Algorithms" href="quantum_algorithms.html" />
+    <link rel="prev" title="Backends" href="backends.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Quantum Gates
+          </a>
+              <div class="version">
+                1.0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Gates</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gates</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="factories.html">Factories</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pulses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pulses.html">Pulses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Integrators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">Simulators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Backends</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Circuits</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Circuits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-quantum_gates.circuits">Classes and Instances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.circuits.EfficientCircuit"><code class="docutils literal notranslate"><span class="pre">EfficientCircuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.nqubit"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.nqubit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.gates"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.gates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.phi"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.phi</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.apply"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.apply()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.statevector"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.statevector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.I"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.I()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.Rz"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.Rz()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.bitflip"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.bitflip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.relaxation"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.relaxation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.depolarizing"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.depolarizing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.X"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.X()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.SX"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.SX()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.CNOT"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.CNOT()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit.reset"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit.reset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.nqubit"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.nqubit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.depth"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.depth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.j"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.j</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.s"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.phi"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.phi</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.circuit"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.circuit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.display"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.apply"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.apply()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.statevector"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.statevector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.I"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.I()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.Rz"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.Rz()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.bitflip"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.bitflip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.relaxation"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.relaxation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.depolarizing"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.depolarizing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.X"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.X()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.SX"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.SX()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.circuits.LegacyCircuit.CNOT"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit.CNOT()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#possible-extensions">Possible extensions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantum_algorithms.html">Quantum Algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Legacy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Quantum Gates</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Circuits</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/circuits.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="circuits">
+<h1>Circuits<a class="headerlink" href="#circuits" title="Permalink to this heading"></a></h1>
+<p>Quantum circuit can be constructed easily when we have a circuit object
+to which we can apply gates by simply calling method like
+circuit.H(i=0). This functionality is provided in the LegacyCircuit classes,
+and packed together with the knowledge on how to sample the noisy gates
+as stochastic matrices from a specific gate set.</p>
+<section id="usage">
+<span id="circuits-usage"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>The class is easy to use besides one tricky detail. For each gatetime
+(timestep), one has to fill in all gates. For example, consider the two
+qubit case. We apply an X gate on qubit 0 and then a CNOT gate on both
+qubits with control on 0 and target on 1. Then we use the following
+code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.circuits</span> <span class="kn">import</span> <span class="n">EfficientCircuit</span>
+<span class="kn">from</span> <span class="nn">quantum_gates.gates</span> <span class="kn">import</span> <span class="n">standard_gates</span>
+
+<span class="c1"># The depth can be set arbitrarily for this circuit class.</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">EfficientCircuit</span><span class="p">(</span><span class="n">nqubit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">gates</span><span class="o">=</span><span class="n">standard_gates</span><span class="p">)</span>
+
+<span class="c1"># First timestep -&gt; Each qubit has to get a gate, this is why we apply even identities.</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">I</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Second timestep -&gt; All qubits received a gate, because CNOT is a two-qubit gate.</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">CNOT</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Evaluate the statevector</span>
+<span class="n">psi1</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">statevector</span><span class="p">(</span><span class="n">psi0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Not applying gates to each qubit will lead to errors.</p>
+</section>
+<section id="module-quantum_gates.circuits">
+<span id="classes-and-instances"></span><h2>Classes and Instances<a class="headerlink" href="#module-quantum_gates.circuits" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.circuits.EfficientCircuit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.circuits.</span></span><span class="sig-name descname"><span class="pre">EfficientCircuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="gates.html#quantum_gates.gates.Gates" title="quantum_gates._gates.gates.Gates"><span class="pre">Gates</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.EfficientCircuit" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quantum_gates.circuits.AlternativeCircuit" title="quantum_gates._simulation.circuit.AlternativeCircuit"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlternativeCircuit</span></code></a></p>
+<p>Class with the same interface as Circuit but built on top of the AlternativeCircuit.</p>
+<p>Separates the matrix products in chunks, and contracts them with the statevector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nqubit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+<li><p><strong>depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+<li><p><strong>gates</strong> (<a class="reference internal" href="gates.html#quantum_gates.gates.Gates" title="quantum_gates._gates.gates.Gates"><em>Gates</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.circuits.</span></span><span class="sig-name descname"><span class="pre">AlternativeCircuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">gates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="gates.html#quantum_gates.gates.Gates" title="quantum_gates._gates.gates.Gates"><span class="pre">Gates</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">BackendClass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StandardBackend</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Allows to build a circuit and outsource the computations to an optimized backend.</p>
+<p>In this version, we provide a backend for the evaluation of the tensor contractions that are performed in the
+creation of the propagator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nqubit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of qubits.</p></li>
+<li><p><strong>gates</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Gateset from which the noisy quantum gates should be sampled.</p></li>
+<li><p><strong>backendClass</strong> (<em>Union</em><em>[</em><em>StandardBackend</em><em>, </em><a class="reference internal" href="backends.html#quantum_gates.backends.EfficientBackend" title="quantum_gates.backends.EfficientBackend"><em>EfficientBackend</em></a><em>]</em>) – Backend for performing the computations.</p></li>
+<li><p><strong>BackendClass</strong> (<em>StandardBackend</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.circuits</span> <span class="kn">import</span> <span class="n">AlternativeCircuit</span>
+<span class="kn">from</span> <span class="nn">quantum_gates.backends</span> <span class="kn">import</span> <span class="n">EfficientBackend</span>
+<span class="kn">from</span> <span class="nn">quantum_gates.gates</span> <span class="kn">import</span> <span class="n">standard_gates</span>
+
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">AlternativeCircuit</span><span class="p">(</span>
+    <span class="n">nqubit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">gates</span><span class="o">=</span><span class="n">standard_gates</span><span class="p">,</span>
+    <span class="n">BackendClass</span><span class="o">=</span><span class="n">EfficientBackend</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.nqubit">
+<span class="sig-name descname"><span class="pre">nqubit</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.nqubit" title="Permalink to this definition"></a></dt>
+<dd><p>Number of qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.gates">
+<span class="sig-name descname"><span class="pre">gates</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.gates" title="Permalink to this definition"></a></dt>
+<dd><p>Gateset from which the noisy quantum gates should be sampled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.phi">
+<span class="sig-name descname"><span class="pre">phi</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.phi" title="Permalink to this definition"></a></dt>
+<dd><p>Phases of the qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Applies a single qubit gate to qubit i.</p>
+<p>If the circuit snippet is full, then matrix product is appended and the bookkeeping is reset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.statevector">
+<span class="sig-name descname"><span class="pre">statevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psi0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.statevector" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the output statevector of the noisy quantum circuit, psi1 = U psi0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.I">
+<span class="sig-name descname"><span class="pre">I</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.I" title="Permalink to this definition"></a></dt>
+<dd><p>Apply identity gate on qubit i</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the qubit</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.Rz">
+<span class="sig-name descname"><span class="pre">Rz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.Rz" title="Permalink to this definition"></a></dt>
+<dd><p>Update the phase to implement virtual Rz(theta) gate on qubit i</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the qubit</p></li>
+<li><p><strong>theta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – angle of rotation on the Bloch sphere</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.bitflip">
+<span class="sig-name descname"><span class="pre">bitflip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.bitflip" title="Permalink to this definition"></a></dt>
+<dd><p>Apply bitflip noise gate on qubit i. Add before measurements or after initial state preparation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the qubit</p></li>
+<li><p><strong>tm</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – measurement time in ns</p></li>
+<li><p><strong>rout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – readout error</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.relaxation">
+<span class="sig-name descname"><span class="pre">relaxation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.relaxation" title="Permalink to this definition"></a></dt>
+<dd><p>Apply relaxation noise gate on qubit i. Add on idle-qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the qubit</p></li>
+<li><p><strong>Dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – idle time in ns</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – qubit’s amplitude damping time in ns</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – qubit’s dephasing time in ns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.depolarizing">
+<span class="sig-name descname"><span class="pre">depolarizing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.depolarizing" title="Permalink to this definition"></a></dt>
+<dd><p>Apply depolarizing noise gate on qubit i. Add on idle-qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the qubit</p></li>
+<li><p><strong>Dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – idle time in ns</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – single-qubit depolarizing error probability</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.X">
+<span class="sig-name descname"><span class="pre">X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.X" title="Permalink to this definition"></a></dt>
+<dd><p>Apply X single-qubit noisy quantum gate with depolarizing and
+relaxation errors during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the qubit</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – single-qubit depolarizing error probability</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – qubit’s amplitude damping time in ns</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – qubit’s dephasing time in ns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.SX">
+<span class="sig-name descname"><span class="pre">SX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.SX" title="Permalink to this definition"></a></dt>
+<dd><p>Apply SX single-qubit noisy quantum gate with depolarizing and
+relaxation errors during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the qubit</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – single-qubit depolarizing error probability</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – qubit’s amplitude damping time in ns</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – qubit’s dephasing time in ns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.CNOT">
+<span class="sig-name descname"><span class="pre">CNOT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_i_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.CNOT" title="Permalink to this definition"></a></dt>
+<dd><p>Apply CNOT two-qubit noisy quantum gate with depolarizing and
+relaxation errors on both qubits during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the control qubit (int)</p></li>
+<li><p><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the target qubit (int)</p></li>
+<li><p><strong>t_cnot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – CNOT gate time in ns (double)</p></li>
+<li><p><strong>p_i_k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – CNOT depolarizing error probability (double)</p></li>
+<li><p><strong>p_i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – control single-qubit depolarizing error probability (double)</p></li>
+<li><p><strong>p_k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – target single-qubit depolarizing error probability (double)</p></li>
+<li><p><strong>T1_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – control qubit’s amplitude damping time in ns (double)</p></li>
+<li><p><strong>T2_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – control qubit’s dephasing time in ns (double)</p></li>
+<li><p><strong>T1_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – target qubit’s amplitude damping time in ns (double)</p></li>
+<li><p><strong>T2_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – target qubit’s dephasing time in ns (double)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.AlternativeCircuit.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.AlternativeCircuit.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Reset the circuit to the initial state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.circuits.</span></span><span class="sig-name descname"><span class="pre">LegacyCircuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Allows to define custom noisy quantum circuit and apply it on a given initial quantum state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Number of qubits.</p></li>
+<li><p><strong>d</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Depth of the circuit.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.circuits</span> <span class="kn">import</span> <span class="n">LegacyCircuit</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># Number of qubits</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># Depth of the circuit</span>
+
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">LegacyCircuit</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="c1"># Apply gates</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="o">=...</span><span class="p">,</span> <span class="n">T1</span><span class="o">=...</span><span class="p">,</span> <span class="n">T2</span><span class="o">=...</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">I</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Statevector simulation</span>
+<span class="n">psi0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">psi1</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">statevector</span><span class="p">(</span><span class="n">psi0</span><span class="p">)</span>  <span class="c1"># Gives [0  0  1  0]</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.nqubit">
+<span class="sig-name descname"><span class="pre">nqubit</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.nqubit" title="Permalink to this definition"></a></dt>
+<dd><p>Number of qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.depth">
+<span class="sig-name descname"><span class="pre">depth</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.depth" title="Permalink to this definition"></a></dt>
+<dd><p>Depth of the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.j">
+<span class="sig-name descname"><span class="pre">j</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.j" title="Permalink to this definition"></a></dt>
+<dd><p>Index of the timestep which we currently apply gates on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.s">
+<span class="sig-name descname"><span class="pre">s</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.s" title="Permalink to this definition"></a></dt>
+<dd><p>Number of qubits already treated in the current timestep.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>in</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.phi">
+<span class="sig-name descname"><span class="pre">phi</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.phi" title="Permalink to this definition"></a></dt>
+<dd><p>Phases of the qubits, this is kept track of because Rz gates are virtual in Qiskit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.circuit">
+<span class="sig-name descname"><span class="pre">circuit</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.circuit" title="Permalink to this definition"></a></dt>
+<dd><p>Representation of the circuit, contains the sampled gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a>[np.array]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.display" title="Permalink to this definition"></a></dt>
+<dd><p>Display the noisy quantum circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Apply an arbitrary gate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gate</strong> – arbitrary gate to apply (array)</p></li>
+<li><p><strong>i</strong> – index of the qubit (int)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.statevector">
+<span class="sig-name descname"><span class="pre">statevector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">psi0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.statevector" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the output statevector of the noisy quantum circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>psi0</strong> (<em>np.array</em>) – initial statevector, must be 1 x 2^n</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output statevector as array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.I">
+<span class="sig-name descname"><span class="pre">I</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.I" title="Permalink to this definition"></a></dt>
+<dd><p>Apply identity gate on qubit i.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the qubit.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.Rz">
+<span class="sig-name descname"><span class="pre">Rz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.Rz" title="Permalink to this definition"></a></dt>
+<dd><p>Update the phase to implement virtual Rz(theta) gate on qubit i.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the qubit.</p></li>
+<li><p><strong>theta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Angle of rotation on the Bloch sphere.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.bitflip">
+<span class="sig-name descname"><span class="pre">bitflip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">tm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.bitflip" title="Permalink to this definition"></a></dt>
+<dd><p>Apply bitflip (bitflip) noise gate on qubit i. Add before measurements or after initial state preparation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the qubit</p></li>
+<li><p><strong>tm</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Measurement time in ns.</p></li>
+<li><p><strong>rout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Readout error</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.relaxation">
+<span class="sig-name descname"><span class="pre">relaxation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.relaxation" title="Permalink to this definition"></a></dt>
+<dd><p>Apply relaxation noise gate on qubit i. Add on idle-qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the qubit.</p></li>
+<li><p><strong>Dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Idle time in ns.</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.depolarizing">
+<span class="sig-name descname"><span class="pre">depolarizing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.depolarizing" title="Permalink to this definition"></a></dt>
+<dd><p>Apply depolarizing noise gate on qubit i. Add on idle-qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the qubit.</p></li>
+<li><p><strong>Dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Idle time in ns.</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Single-qubit depolarizing error probability.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.X">
+<span class="sig-name descname"><span class="pre">X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.X" title="Permalink to this definition"></a></dt>
+<dd><p>Apply X single-qubit noisy quantum gate with depolarizing and relaxation errors during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the qubit.</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Single-qubit depolarizing error probability.</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.SX">
+<span class="sig-name descname"><span class="pre">SX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.SX" title="Permalink to this definition"></a></dt>
+<dd><p>Apply SX single-qubit noisy quantum gate with depolarizing and relaxation errors during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the qubit.</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Single-qubit depolarizing error probability.</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.circuits.LegacyCircuit.CNOT">
+<span class="sig-name descname"><span class="pre">CNOT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_i_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/circuit.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.circuits.LegacyCircuit.CNOT" title="Permalink to this definition"></a></dt>
+<dd><p>Apply CNOT two-qubit noisy quantum gate with depolarizing and
+relaxation errors on both qubits during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the control qubit.</p></li>
+<li><p><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Index of the target qubit.</p></li>
+<li><p><strong>t_cnot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – CNOT gate time in ns.</p></li>
+<li><p><strong>p_i_k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – CNOT depolarizing error probability.</p></li>
+<li><p><strong>p_i</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control single-qubit depolarizing error probability.</p></li>
+<li><p><strong>p_k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target single-qubit depolarizing error probability.</p></li>
+<li><p><strong>T1_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control qubit’s dephasing time in ns.</p></li>
+<li><p><strong>T1_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="possible-extensions">
+<span id="circuits-possible-extensions"></span><h2>Possible extensions<a class="headerlink" href="#possible-extensions" title="Permalink to this heading"></a></h2>
+<p>In the future, we could add checks that warns the user in case not all
+gates are applied.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="backends.html" class="btn btn-neutral float-left" title="Backends" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quantum_algorithms.html" class="btn btn-neutral float-right" title="Quantum Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Di Bartolomeo, Vischi, Grossi, Wixinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factories &mdash; Quantum Gates 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pulses" href="pulses.html" />
+    <link rel="prev" title="Gates" href="gates.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Quantum Gates
+          </a>
+              <div class="version">
+                1.0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Gates</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gates</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Factories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#theory">Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-quantum_gates.factories">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.BitflipFactory"><code class="docutils literal notranslate"><span class="pre">BitflipFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.BitflipFactory.construct"><code class="docutils literal notranslate"><span class="pre">BitflipFactory.construct()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.DepolarizingFactory"><code class="docutils literal notranslate"><span class="pre">DepolarizingFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.DepolarizingFactory.construct"><code class="docutils literal notranslate"><span class="pre">DepolarizingFactory.construct()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.RelaxationFactory"><code class="docutils literal notranslate"><span class="pre">RelaxationFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.RelaxationFactory.construct"><code class="docutils literal notranslate"><span class="pre">RelaxationFactory.construct()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory"><code class="docutils literal notranslate"><span class="pre">SingleQubitGateFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory.integrator"><code class="docutils literal notranslate"><span class="pre">SingleQubitGateFactory.integrator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory.construct"><code class="docutils literal notranslate"><span class="pre">SingleQubitGateFactory.construct()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory._unitary_contribution"><code class="docutils literal notranslate"><span class="pre">SingleQubitGateFactory._unitary_contribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory._ito_integrals_for_X_Y_sigma_min"><code class="docutils literal notranslate"><span class="pre">SingleQubitGateFactory._ito_integrals_for_X_Y_sigma_min()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory._ito_integrals_for_Z"><code class="docutils literal notranslate"><span class="pre">SingleQubitGateFactory._ito_integrals_for_Z()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory._deterministic_relaxation"><code class="docutils literal notranslate"><span class="pre">SingleQubitGateFactory._deterministic_relaxation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.XFactory"><code class="docutils literal notranslate"><span class="pre">XFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.XFactory.integrator"><code class="docutils literal notranslate"><span class="pre">XFactory.integrator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.XFactory.constructor"><code class="docutils literal notranslate"><span class="pre">XFactory.constructor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.XFactory.construct"><code class="docutils literal notranslate"><span class="pre">XFactory.construct()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.SXFactory"><code class="docutils literal notranslate"><span class="pre">SXFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SXFactory.integrator"><code class="docutils literal notranslate"><span class="pre">SXFactory.integrator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SXFactory.constructor"><code class="docutils literal notranslate"><span class="pre">SXFactory.constructor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.SXFactory.construct"><code class="docutils literal notranslate"><span class="pre">SXFactory.construct()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.CRFactory"><code class="docutils literal notranslate"><span class="pre">CRFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CRFactory.construct"><code class="docutils literal notranslate"><span class="pre">CRFactory.construct()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CRFactory._ito_integrals_for_depolarization_process"><code class="docutils literal notranslate"><span class="pre">CRFactory._ito_integrals_for_depolarization_process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CRFactory._ito_integrals_for_depolarization_process_reversed_tensor"><code class="docutils literal notranslate"><span class="pre">CRFactory._ito_integrals_for_depolarization_process_reversed_tensor()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.CNOTFactory"><code class="docutils literal notranslate"><span class="pre">CNOTFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTFactory.integrator"><code class="docutils literal notranslate"><span class="pre">CNOTFactory.integrator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTFactory.cr_c"><code class="docutils literal notranslate"><span class="pre">CNOTFactory.cr_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTFactory.single_qubit_gate_c"><code class="docutils literal notranslate"><span class="pre">CNOTFactory.single_qubit_gate_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTFactory.x_c"><code class="docutils literal notranslate"><span class="pre">CNOTFactory.x_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTFactory.sx_c"><code class="docutils literal notranslate"><span class="pre">CNOTFactory.sx_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTFactory.relaxation_c"><code class="docutils literal notranslate"><span class="pre">CNOTFactory.relaxation_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTFactory.construct"><code class="docutils literal notranslate"><span class="pre">CNOTFactory.construct()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.factories.CNOTInvFactory"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTInvFactory.integrator"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory.integrator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTInvFactory.cr_c"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory.cr_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTInvFactory.single_qubit_gate_c"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory.single_qubit_gate_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTInvFactory.x_c"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory.x_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTInvFactory.sx_c"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory.sx_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTInvFactory.relaxation_c"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory.relaxation_c</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.factories.CNOTInvFactory.construct"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory.construct()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pulses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pulses.html">Pulses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Integrators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">Simulators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Backends</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Circuits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="circuits.html">Circuits</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantum_algorithms.html">Quantum Algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Legacy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Quantum Gates</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Factories</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/factories.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="factories">
+<h1>Factories<a class="headerlink" href="#factories" title="Permalink to this heading"></a></h1>
+<p>The gate factories generate noisy quantum gates stochastically and return
+them as as numpy matrices.</p>
+<section id="theory">
+<span id="factories-theory"></span><h2>Theory<a class="headerlink" href="#theory" title="Permalink to this heading"></a></h2>
+<p>The two main factors that influence the distribution of noisy gates are
+the following. First, the <a class="reference internal" href="utilities.html#deviceparameters"><span class="std std-ref">device parameters</span></a>
+for a specific quantum device, containing information such as the
+T1, T2 times. Second, the <a class="reference internal" href="pulses.html"><span class="doc">pulse shape</span></a> used to execute a
+specific gate. While the pulse shape is independent of the qubit we act on,
+the device parameters are qubit specific. Thus, we choose to add the pulse
+shape as attribute of the <a class="reference internal" href="#"><span class="doc">gate factory</span></a>, while the
+specific noise parameters are provided as method arguments when creating a gate.</p>
+</section>
+<section id="usage">
+<span id="factories-usage"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>The are two types of classes, namely the ones representing pure noise
+and the ones representing the noisy gates. The former do not need the
+pulse as argument, as they do not come from the execution of a gate, and
+thus the pulse does not matter.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.factories</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">BitflipFactory</span><span class="p">,</span>
+    <span class="n">DepolarizingFactory</span><span class="p">,</span>
+    <span class="n">RelaxationFactory</span>
+<span class="p">)</span>
+
+<span class="n">bitflip_factory</span> <span class="o">=</span> <span class="n">BitflipFactory</span><span class="p">()</span>
+
+<span class="n">tm</span> <span class="o">=</span> <span class="o">...</span>    <span class="c1"># measurement time in ns</span>
+<span class="n">rout</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># readout error</span>
+<span class="n">bitflip_gate</span> <span class="o">=</span> <span class="n">bitflip_factory</span><span class="o">.</span><span class="n">construct</span><span class="p">(</span><span class="n">tm</span><span class="p">,</span> <span class="n">rout</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the latter, we specify the pulse shape used in the execution of the
+gates.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.factories</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SingleQubitGateFactory</span><span class="p">,</span>
+    <span class="n">XFactory</span><span class="p">,</span>
+    <span class="n">SXFactory</span><span class="p">,</span>
+    <span class="n">CRFactory</span><span class="p">,</span>
+    <span class="n">CNOTFactory</span><span class="p">,</span>
+    <span class="n">CNOTInvFactory</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">quantum_gates.pulses</span> <span class="kn">import</span> <span class="n">GaussianPulse</span>
+
+<span class="n">pulse</span> <span class="o">=</span> <span class="n">GaussianPulse</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">x_factory</span> <span class="o">=</span> <span class="n">XFactory</span><span class="p">(</span><span class="n">pulse</span><span class="p">)</span>
+
+<span class="n">phi</span> <span class="o">=</span> <span class="o">...</span>   <span class="c1"># Phase of the drive defining axis of rotation on the Bloch sphere</span>
+<span class="n">p</span> <span class="o">=</span> <span class="o">...</span>     <span class="c1"># Single-qubit depolarizing error probability</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="o">...</span>    <span class="c1"># Qubit&#39;s amplitude damping time in ns</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="o">...</span>    <span class="c1"># Qubit&#39;s dephasing time in ns</span>
+<span class="n">x_gate</span> <span class="o">=</span> <span class="n">x_factory</span><span class="o">.</span><span class="n">construct</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="module-quantum_gates.factories">
+<span id="classes"></span><span id="factories-classes"></span><h2>Classes<a class="headerlink" href="#module-quantum_gates.factories" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.BitflipFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">BitflipFactory</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.BitflipFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.BitflipFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rout</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.BitflipFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Generates the noisy gate for bitflips.</p>
+<p>This is the exact solution, a unitary matrix. It is used for bitflip error on measurements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tm</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Measurement time in ns.</p></li>
+<li><p><strong>rout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Readout error probability.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing the bitflip noise gate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.DepolarizingFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">DepolarizingFactory</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.DepolarizingFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.DepolarizingFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.DepolarizingFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Generates the noisy gate for depolarization.</p>
+<p>This is the 2nd order approximated solution, a unitary matrix. It implements the single-qubit depolarizing error
+on idle qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Idle time in ns.</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Single-qubit depolarizing error probability.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing the depolarizing noise gate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.RelaxationFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">RelaxationFactory</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.RelaxationFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.RelaxationFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.RelaxationFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Generates the noisy gate for combined amplitude and phase damping.</p>
+<p>This is the exact solution, a non-unitary matrix. It implements the single-qubit relaxation error on idle
+qubits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Dt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – idle time in ns.</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing the amplitude and phase damping noise gate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.SingleQubitGateFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">SingleQubitGateFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">integrator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates._gates.integrator.Integrator"><span class="pre">Integrator</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SingleQubitGateFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Generates a general single qubit gate on devices from IBM with noise.</p>
+<p>This is the 2 order approximated solution, a non-unitary matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>integrator</strong> (<a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator"><em>Integrator</em></a>) – Used to perform the Ito integrals, hides the pulse waveform information.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pulse shape / parametrization is hidden in the integrator, such that we can use caching of integration
+result to speedup the code.</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.SingleQubitGateFactory.integrator">
+<span class="sig-name descname"><span class="pre">integrator</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SingleQubitGateFactory.integrator" title="Permalink to this definition"></a></dt>
+<dd><p>Used to perform the Ito integrals, hides the pulse waveform information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator">Integrator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.SingleQubitGateFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SingleQubitGateFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Samples a general single qubit gate on devices from IBM with noise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Angle of rotation on the Bloch sphere.</p></li>
+<li><p><strong>phi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Single-qubit depolarizing error probability.</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing a general single-qubit noisy quantum gate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.SingleQubitGateFactory._unitary_contribution">
+<span class="sig-name descname"><span class="pre">_unitary_contribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SingleQubitGateFactory._unitary_contribution" title="Permalink to this definition"></a></dt>
+<dd><p>Unitary contribution due to drive Hamiltonian.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Angle of rotation on the Bloch sphere.</p></li>
+<li><p><strong>phi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing the unitary contribution due to drive Hamiltonian.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.SingleQubitGateFactory._ito_integrals_for_X_Y_sigma_min">
+<span class="sig-name descname"><span class="pre">_ito_integrals_for_X_Y_sigma_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SingleQubitGateFactory._ito_integrals_for_X_Y_sigma_min" title="Permalink to this definition"></a></dt>
+<dd><p>Ito integrals.</p>
+<dl class="simple">
+<dt>Ito integrals for the following processes:</dt><dd><ul class="simple">
+<li><p>depolarization for X(t)</p></li>
+<li><p>depolarization for Y(t)</p></li>
+<li><p>relaxation for sigma_min(t).</p></li>
+</ul>
+</dd>
+</dl>
+<p>As illustration, we leave the variables names for X(t) in the calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>theta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Angle of rotation on the Bloch sphere.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of floats representing sampled results of the Ito integrals.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.SingleQubitGateFactory._ito_integrals_for_Z">
+<span class="sig-name descname"><span class="pre">_ito_integrals_for_Z</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SingleQubitGateFactory._ito_integrals_for_Z" title="Permalink to this definition"></a></dt>
+<dd><p>Ito integrals.</p>
+<dl class="simple">
+<dt>Ito integrals for the following processes:</dt><dd><ul class="simple">
+<li><p>depolarization for Z(t)</p></li>
+<li><p>relaxation for Z(t).</p></li>
+</ul>
+</dd>
+</dl>
+<p>As illustration, we leave the variable names for the depolarization Itô processes depending on Z(t).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>theta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – angle of rotation on the Bloch sphere.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of floats representing sampled results of the Ito integrals.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.SingleQubitGateFactory._deterministic_relaxation">
+<span class="sig-name descname"><span class="pre">_deterministic_relaxation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SingleQubitGateFactory._deterministic_relaxation" title="Permalink to this definition"></a></dt>
+<dd><p>Deterministic contribution given by relaxation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>theta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – angle of rotation on the Bloch sphere.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing the deterministic part of the relaxation process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.XFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">XFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">integrator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates._gates.integrator.Integrator"><span class="pre">Integrator</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.XFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Factory for the X gate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>integrator</strong> (<a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator"><em>Integrator</em></a>) – Used to perform the Ito integrals, hides the pulse waveform information.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The dependence on the pulse is hidden in the integrator.</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.XFactory.integrator">
+<span class="sig-name descname"><span class="pre">integrator</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.XFactory.integrator" title="Permalink to this definition"></a></dt>
+<dd><p>Used to perform the Ito integrals, hides the pulse waveform information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator">Integrator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.XFactory.constructor">
+<span class="sig-name descname"><span class="pre">constructor</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.XFactory.constructor" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the gate factory for general single qubit gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory" title="quantum_gates.factories.SingleQubitGateFactory">SingleQubitGateFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.XFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.XFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a noisy X gate.</p>
+<p>This is a 2nd order approximated solution, a non-unitary matrix. It implements the X single-qubit noisy quantum
+gate with depolarizing and relaxation errors during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>phi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Single-qubit depolarizing error probability.</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing the X noisy quantum gate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.SXFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">SXFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">integrator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates._gates.integrator.Integrator"><span class="pre">Integrator</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SXFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Factory for the SX gate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>integrator</strong> (<a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator"><em>Integrator</em></a>) – Used to perform the Ito integrals, hides the pulse waveform information.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The dependence on the pulse is hidden in the integrator.</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.SXFactory.integrator">
+<span class="sig-name descname"><span class="pre">integrator</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SXFactory.integrator" title="Permalink to this definition"></a></dt>
+<dd><p>Used to perform the Ito integrals, hides the pulse waveform information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator">Integrator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.SXFactory.constructor">
+<span class="sig-name descname"><span class="pre">constructor</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SXFactory.constructor" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the gate factory for general single qubit gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.SingleQubitGateFactory" title="quantum_gates.factories.SingleQubitGateFactory">SingleQubitGateFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.SXFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.SXFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a noisy SX gate.</p>
+<p>This is a 2nd order approximated solution, a non-unitary matrix. It implements the SX single-qubit noisy quantum
+gate with depolarizing and relaxation errors during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>phi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Single-qubit depolarizing error probability.</p></li>
+<li><p><strong>T1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing the SX noisy quantum gate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.CRFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">CRFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">integrator</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CRFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Factory for constructing the noisy quantum gate for cross resonance (CR) two-qubit gate of IBM’s devices.</p>
+<p>This is the 2 order approximated solution, non-unitary matrix.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.CRFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CRFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a CR gate.</p>
+<p>This is the 2 order approximated solution, non-unitary matrix. It implements the CR two-qubit noisy quantum gate
+with depolarizing and relaxation errors on both qubits during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>theta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Angle of rotation on the Bloch sphere.</p></li>
+<li><p><strong>phi</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>t_cr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – CR gate time in ns.</p></li>
+<li><p><strong>p_cr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – CR depolarizing error probability.</p></li>
+<li><p><strong>T1_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control qubit’s dephasing time in ns.</p></li>
+<li><p><strong>T1_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target qubit’s dephasing time in ns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>CR two-qubit noisy quantum gate (numpy array)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.CRFactory._ito_integrals_for_depolarization_process">
+<span class="sig-name descname"><span class="pre">_ito_integrals_for_depolarization_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">omega</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CRFactory._ito_integrals_for_depolarization_process" title="Permalink to this definition"></a></dt>
+<dd><p>Ito integrals.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Used for the depolarization Itô processes depending on one of</dt><dd><ul class="simple">
+<li><p>[tensor(ID,Z)](t)</p></li>
+<li><p>[tensor(X,ID)](t)</p></li>
+<li><p>[tensor(Y,ID)](t)</p></li>
+<li><p>[tensor(sigma_min,ID)](t)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>As illustration, we leave the variable names from the version with [tensor(ID,Z)](t).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>omega</strong> – integral of theta from t0 to t1.</p></li>
+<li><p><strong>phi</strong> – phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>a</strong> – fraction representing CR gate time / gate time.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of floats representing sampled results of the Ito integrals.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.CRFactory._ito_integrals_for_depolarization_process_reversed_tensor">
+<span class="sig-name descname"><span class="pre">_ito_integrals_for_depolarization_process_reversed_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">omega</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CRFactory._ito_integrals_for_depolarization_process_reversed_tensor" title="Permalink to this definition"></a></dt>
+<dd><p>Ito integrals.</p>
+<dl class="simple">
+<dt>Used for the depolarization Itô processes depending on one of</dt><dd><ul class="simple">
+<li><p>[tensor(ID,X)](t)</p></li>
+<li><p>[tensor(ID,Y)](t)</p></li>
+</ul>
+</dd>
+</dl>
+<p>As illustration, we leave the variable names from the version with [tensor(ID,Y)](t).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>omega</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Integral of theta from t0 to t1.</p></li>
+<li><p><strong>a</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Fraction representing CR gate time / gate time.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of floats representing sampled results of the Ito integrals.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">CNOTFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">integrator</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Factory for constructing noisy CNOT gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>integrator</strong> (<a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator"><em>Integrator</em></a>) – Used to perform the Ito integrals, hides the pulse waveform information.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTFactory.integrator">
+<span class="sig-name descname"><span class="pre">integrator</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTFactory.integrator" title="Permalink to this definition"></a></dt>
+<dd><p>Used to perform the Ito integrals, hides the pulse waveform information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator">Integrator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTFactory.cr_c">
+<span class="sig-name descname"><span class="pre">cr_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTFactory.cr_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating CR gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.CRFactory" title="quantum_gates.factories.CRFactory">CRFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTFactory.single_qubit_gate_c">
+<span class="sig-name descname"><span class="pre">single_qubit_gate_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTFactory.single_qubit_gate_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating general single qubit gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SingelQubitGateFactory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTFactory.x_c">
+<span class="sig-name descname"><span class="pre">x_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTFactory.x_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating X gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.XFactory" title="quantum_gates.factories.XFactory">XFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTFactory.sx_c">
+<span class="sig-name descname"><span class="pre">sx_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTFactory.sx_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating SX gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.XFactory" title="quantum_gates.factories.XFactory">XFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTFactory.relaxation_c">
+<span class="sig-name descname"><span class="pre">relaxation_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTFactory.relaxation_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating gates for relaxation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.RelaxationFactory" title="quantum_gates.factories.RelaxationFactory">RelaxationFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a noisy CNOT gate.</p>
+<p>This is a 2nd order approximated solution, a non-unitary matrix. It implements the CNOT two-qubit noisy quantum
+gate with depolarizing and relaxation errors on both qubits during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>phi_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control qubit phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>phi_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target qubit phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>t_cnot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – CNOT gate time in ns.</p></li>
+<li><p><strong>p_cnot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – CNOT depolarizing error probability.</p></li>
+<li><p><strong>p_single_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control qubit depolarizing error probability.</p></li>
+<li><p><strong>p_single_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target qubit depolarizing error probability.</p></li>
+<li><p><strong>T1_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Control qubit’s dephasing time in ns.</p></li>
+<li><p><strong>T1_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Target qubit’s dephasing time in ns.</p></li>
+<li><p><strong>pulse_parametrization</strong> (<em>callable</em>) – None or function that parametrized the pulse (None or callable)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing a CNOT two-qubit noisy quantum gate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTInvFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.factories.</span></span><span class="sig-name descname"><span class="pre">CNOTInvFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">integrator</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTInvFactory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Factory for constructing noisy inverse CNOT gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>integrator</strong> (<a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator"><em>Integrator</em></a>) – Used to perform the Ito integrals, hides the pulse waveform information.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTInvFactory.integrator">
+<span class="sig-name descname"><span class="pre">integrator</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTInvFactory.integrator" title="Permalink to this definition"></a></dt>
+<dd><p>Used to perform the Ito integrals, hides the pulse waveform information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator" title="quantum_gates.integrators.Integrator">Integrator</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTInvFactory.cr_c">
+<span class="sig-name descname"><span class="pre">cr_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTInvFactory.cr_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating CR gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.CRFactory" title="quantum_gates.factories.CRFactory">CRFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTInvFactory.single_qubit_gate_c">
+<span class="sig-name descname"><span class="pre">single_qubit_gate_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTInvFactory.single_qubit_gate_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating general single qubit gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SingelQubitGateFactory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTInvFactory.x_c">
+<span class="sig-name descname"><span class="pre">x_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTInvFactory.x_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating X gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.XFactory" title="quantum_gates.factories.XFactory">XFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTInvFactory.sx_c">
+<span class="sig-name descname"><span class="pre">sx_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTInvFactory.sx_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating SX gates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.XFactory" title="quantum_gates.factories.XFactory">XFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTInvFactory.relaxation_c">
+<span class="sig-name descname"><span class="pre">relaxation_c</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTInvFactory.relaxation_c" title="Permalink to this definition"></a></dt>
+<dd><p>Instance of the factory for creating gates for relaxation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#quantum_gates.factories.RelaxationFactory" title="quantum_gates.factories.RelaxationFactory">RelaxationFactory</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.factories.CNOTInvFactory.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_cnot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_single_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_ctr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1_trg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2_trg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/factories.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.factories.CNOTInvFactory.construct" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a reverse CNOT gate of IBM devices.</p>
+<p>This is a 2nd order approximated solution, a non-unitary matrix. It implements the reverse CNOT two-qubit noisy
+quantum gate with depolarizing and relaxation errors on both qubits during the unitary evolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>phi_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – control qubit phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>phi_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – target qubit phase of the drive defining axis of rotation on the Bloch sphere.</p></li>
+<li><p><strong>t_cnot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – reverse CNOT gate time in ns.</p></li>
+<li><p><strong>p_cnot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – reverse CNOT depolarizing error probability.</p></li>
+<li><p><strong>p_single_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – control qubit depolarizing error probability.</p></li>
+<li><p><strong>p_single_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – target qubit depolarizing error probability.</p></li>
+<li><p><strong>T1_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – control qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2_ctr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – control qubit’s dephasing time in ns.</p></li>
+<li><p><strong>T1_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – target qubit’s amplitude damping time in ns.</p></li>
+<li><p><strong>T2_trg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – target qubit’s dephasing time in ns.</p></li>
+<li><p><strong>pulse_parametrization</strong> (<em>callable</em>) – None or function that parametrized the pulse.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array representing the reverse CNOT two-qubit noisy quantum gate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gates.html" class="btn btn-neutral float-left" title="Gates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pulses.html" class="btn btn-neutral float-right" title="Pulses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Di Bartolomeo, Vischi, Grossi, Wixinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

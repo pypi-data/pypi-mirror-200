@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulses &mdash; Quantum Gates 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Integrators" href="integrators.html" />
+    <link rel="prev" title="Factories" href="factories.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Quantum Gates
+          </a>
+              <div class="version">
+                1.0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Gates</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gates</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="factories.html">Factories</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pulses</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pulses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-quantum_gates.pulses">Instances and Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.pulses.Pulse"><code class="docutils literal notranslate"><span class="pre">Pulse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse.pulse"><code class="docutils literal notranslate"><span class="pre">Pulse.pulse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse.parametrization"><code class="docutils literal notranslate"><span class="pre">Pulse.parametrization</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse.use_lookup"><code class="docutils literal notranslate"><span class="pre">Pulse.use_lookup</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse.epsilon"><code class="docutils literal notranslate"><span class="pre">Pulse.epsilon</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse.check_n_points"><code class="docutils literal notranslate"><span class="pre">Pulse.check_n_points</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse.get_pulse"><code class="docutils literal notranslate"><span class="pre">Pulse.get_pulse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse.get_parametrization"><code class="docutils literal notranslate"><span class="pre">Pulse.get_parametrization()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse._pulse_is_valid"><code class="docutils literal notranslate"><span class="pre">Pulse._pulse_is_valid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse._parametrization_is_valid"><code class="docutils literal notranslate"><span class="pre">Pulse._parametrization_is_valid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.Pulse._are_compatible"><code class="docutils literal notranslate"><span class="pre">Pulse._are_compatible()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.pulses.GaussianPulse"><code class="docutils literal notranslate"><span class="pre">GaussianPulse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum_gates.pulses.GaussianPulse.use_lookup"><code class="docutils literal notranslate"><span class="pre">GaussianPulse.use_lookup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.pulses.ConstantPulse"><code class="docutils literal notranslate"><span class="pre">ConstantPulse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.pulses.ConstantPulseNumerical"><code class="docutils literal notranslate"><span class="pre">ConstantPulseNumerical</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Integrators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">Simulators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Backends</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Circuits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="circuits.html">Circuits</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantum_algorithms.html">Quantum Algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Legacy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Quantum Gates</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Pulses</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pulses.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pulses">
+<h1>Pulses<a class="headerlink" href="#pulses" title="Permalink to this heading"></a></h1>
+<p>Gates on real quantum devices are commonly implemented as radiofrequency
+(RF) pulses. The present classes represent the pulse shapes, which can
+then be used to build to construct a gateset.</p>
+<section id="module-quantum_gates.pulses">
+<span id="instances-and-classes"></span><h2>Instances and Classes<a class="headerlink" href="#module-quantum_gates.pulses" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.pulses.</span></span><span class="sig-name descname"><span class="pre">Pulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parametrization</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perform_checks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_lookup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Parent class for pulses with basic utility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pulse</strong> (<em>callable</em>) – Function f: [0,1] -&gt; R&gt;=0: Waveform of the pulse, must integrate up to 1.</p></li>
+<li><p><strong>parametrization</strong> (<em>callable</em>) – Function F: [0,1] -&gt; [0,1]: Parameter integral of the pulse. Monotone with
+F(0) = 0 and F(1) = 1, as well as x &lt;= y implies F(x) &lt;= F(y).</p></li>
+<li><p><strong>perform_checks</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Tells whether the properties of the pulse and parametrization should be validated.</p></li>
+<li><p><strong>use_lookup</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Bool whether the pulse is constant. Then one can lookup the integration result in the
+integrator.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.pulses</span> <span class="kn">import</span> <span class="n">Pulse</span>
+
+<span class="n">pulse</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">parametrization</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
+
+<span class="n">constant_pulse</span> <span class="o">=</span> <span class="n">Pulse</span><span class="p">(</span>
+    <span class="n">pulse</span><span class="o">=</span><span class="n">pulse</span><span class="p">,</span>
+    <span class="n">parametrization</span><span class="o">=</span><span class="n">parametrization</span><span class="p">,</span>
+    <span class="n">perform_checks</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse.pulse">
+<span class="sig-name descname"><span class="pre">pulse</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse.pulse" title="Permalink to this definition"></a></dt>
+<dd><p>Waveform of the pulse as function, f: [0,1] -&gt; R, f &gt;= 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse.parametrization">
+<span class="sig-name descname"><span class="pre">parametrization</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse.parametrization" title="Permalink to this definition"></a></dt>
+<dd><p>Parameter integral of the waveform, F: [0,1] -&gt; [0,1], F &gt;= 0, monotonically increasing</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse.use_lookup">
+<span class="sig-name descname"><span class="pre">use_lookup</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse.use_lookup" title="Permalink to this definition"></a></dt>
+<dd><p>In the Integrator, should a integration result lookup be used. True if pulse is constant</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse.epsilon">
+<span class="sig-name descname"><span class="pre">epsilon</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-06</span></em><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse.epsilon" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse.check_n_points">
+<span class="sig-name descname"><span class="pre">check_n_points</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse.check_n_points" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse.get_pulse">
+<span class="sig-name descname"><span class="pre">get_pulse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse.get_pulse" title="Permalink to this definition"></a></dt>
+<dd><p>Get the waveform f of the pulse as callable.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse.get_parametrization">
+<span class="sig-name descname"><span class="pre">get_parametrization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse.get_parametrization" title="Permalink to this definition"></a></dt>
+<dd><p>Get the parametrization F of the pulse as callable.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse._pulse_is_valid">
+<span class="sig-name descname"><span class="pre">_pulse_is_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse._pulse_is_valid" title="Permalink to this definition"></a></dt>
+<dd><p>Returns whether the pulse is a probability distribution on [0,1].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pulse</strong> (<em>callable</em>) – The waveform which is to be checked.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the check as boolean.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse._parametrization_is_valid">
+<span class="sig-name descname"><span class="pre">_parametrization_is_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parametrization</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse._parametrization_is_valid" title="Permalink to this definition"></a></dt>
+<dd><p>Returns whether the parametrization is monotone and has valid bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parametrization</strong> (<em>callable</em>) – The parametrization which is to be checked.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the check as boolean.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.pulses.Pulse._are_compatible">
+<span class="sig-name descname"><span class="pre">_are_compatible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parametrization</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.Pulse._are_compatible" title="Permalink to this definition"></a></dt>
+<dd><p>Returns whether the integral of the pulse is the parametrization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pulse</strong> (<em>callable</em>) – The waveform which is to be checked.</p></li>
+<li><p><strong>parametrization</strong> (<em>callable</em>) – The parametrization which is to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the check as boolean.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.pulses.GaussianPulse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.pulses.</span></span><span class="sig-name descname"><span class="pre">GaussianPulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">perform_checks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.GaussianPulse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quantum_gates.pulses.Pulse" title="quantum_gates._gates.pulse.Pulse"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pulse</span></code></a></p>
+<p>Pulse based on a Gaussian located at loc with variance according to scale.</p>
+<p>Make sure that loc is near to the interval [0,1] or has a high variance. Otherwise, the overlap with the
+interval [0,1] is too small.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The integral over the interval [0,1] of the choosen Gaussian should be larger than 1e-6. This is because the
+shape of the pulse is the shape that the Gaussian has in this interval.</p>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.pulses</span> <span class="kn">import</span> <span class="n">GaussianPulse</span>
+
+<span class="n">loc</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># Location of the Gaussian</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># Standard deviation of the Gaussian</span>
+
+<span class="n">constant_pulse</span> <span class="o">=</span> <span class="n">GaussianPulse</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Location of the pulse on the real axis.</p></li>
+<li><p><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Standard deviation or size of the Gaussian pulse.</p></li>
+<li><p><strong>perform_check</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether the pulse should be verified.</p></li>
+<li><p><strong>perform_checks</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.pulses.GaussianPulse.use_lookup">
+<span class="sig-name descname"><span class="pre">use_lookup</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.GaussianPulse.use_lookup" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.pulses.ConstantPulse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.pulses.</span></span><span class="sig-name descname"><span class="pre">ConstantPulse</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.ConstantPulse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quantum_gates.pulses.Pulse" title="quantum_gates._gates.pulse.Pulse"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pulse</span></code></a></p>
+<p>Constant pulse which uses the lookup in the integrator.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.pulses.ConstantPulseNumerical">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.pulses.</span></span><span class="sig-name descname"><span class="pre">ConstantPulseNumerical</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_gates/pulse.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.pulses.ConstantPulseNumerical" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#quantum_gates.pulses.Pulse" title="quantum_gates._gates.pulse.Pulse"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pulse</span></code></a></p>
+<p>Constant pulse which uses numerical integration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can use this class for unit testing the ConstantPulse class.</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="factories.html" class="btn btn-neutral float-left" title="Factories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="integrators.html" class="btn btn-neutral float-right" title="Integrators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Di Bartolomeo, Vischi, Grossi, Wixinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

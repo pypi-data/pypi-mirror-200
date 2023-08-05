@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulators &mdash; Quantum Gates 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Backends" href="backends.html" />
+    <link rel="prev" title="Integrators" href="integrators.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Quantum Gates
+          </a>
+              <div class="version">
+                1.0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Gates</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gates</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="factories.html">Factories</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pulses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pulses.html">Pulses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Integrators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simulators</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Simulators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator.gates"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator.gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator.CircuitClass"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator.CircuitClass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator.parallel"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator.parallel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator.run"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator._validate_input_of_run"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator._validate_input_of_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator._preprocess_circuit"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator._preprocess_circuit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator._perform_simulation"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator._perform_simulation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.MrAndersonSimulator._fix_probabilities"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator._fix_probabilities()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quantum_gates.simulators.LegacyMrAndersonSimulator"><code class="docutils literal notranslate"><span class="pre">LegacyMrAndersonSimulator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.LegacyMrAndersonSimulator.run"><code class="docutils literal notranslate"><span class="pre">LegacyMrAndersonSimulator.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantum_gates.simulators.LegacyMrAndersonSimulator.fix_probs"><code class="docutils literal notranslate"><span class="pre">LegacyMrAndersonSimulator.fix_probs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Backends</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Circuits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="circuits.html">Circuits</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantum_algorithms.html">Quantum Algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Legacy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Quantum Gates</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Simulators</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/simulators.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="simulators">
+<h1>Simulators<a class="headerlink" href="#simulators" title="Permalink to this heading"></a></h1>
+<p>We refer to the <a class="reference external" href="../tutorials/simulation_demo.py">demo</a> for a usage
+sample of the simulator. The simulator has three attributes. While the
+<a class="reference external" href="./gates.md">gates</a> attribute implicitely specifies the pulse shape,
+the <a class="reference external" href="circuits.md">CircuitClass</a> knows how to perform the
+matrix-vector multiplication seen in the statevector simulation. Last,
+the parallel attribute specifies whether or not the shots should be
+executed in parallel with multiprocessing. In general, we recommend to
+parallelize the outer loop of the simulation, and not the shots, as the
+latter comes with a large overhead.</p>
+<span class="target" id="module-quantum_gates.simulators"></span><dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.simulators.</span></span><span class="sig-name descname"><span class="pre">MrAndersonSimulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gates:</span> <span class="pre">~quantum_gates._gates.gates.Gates</span> <span class="pre">=</span> <span class="pre">&lt;quantum_gates._gates.gates.Gates</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CircuitClass=&lt;class</span> <span class="pre">'quantum_gates._simulation.circuit.Circuit'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Simulates a noisy quantum circuit, extracting the gate instructions from a transpiled qiskit QuantumCircuit.</p>
+<p>Note that the shots can be parallelized, but this comes with a large overhead. Thus, we recommend to parallelize
+the usage of the simulator instead. This can be done with the function
+src.utility.simulation_utility.perform_parallel_simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gates</strong> (<em>Union</em><em>[</em><a class="reference internal" href="gates.html#quantum_gates.gates.Gates" title="quantum_gates.gates.Gates"><em>Gates</em></a><em>, </em><a class="reference internal" href="gates.html#quantum_gates.gates.ScaledNoiseGates" title="quantum_gates.gates.ScaledNoiseGates"><em>ScaledNoiseGates</em></a><em>, </em><a class="reference internal" href="gates.html#quantum_gates.gates.NoiseFreeGates" title="quantum_gates.gates.NoiseFreeGates"><em>NoiseFreeGates</em></a><em>]</em>) – Gateset to be used, contains the pulse information.</p></li>
+<li><p><strong>CircuitClass</strong> (<em>Union</em><em>[</em><em>Circuit</em><em>, </em><a class="reference internal" href="circuits.html#quantum_gates.circuits.EfficientCircuit" title="quantum_gates.circuits.EfficientCircuit"><em>EfficientCircuit</em></a><em>]</em>) – Performs the computations with the backend.</p></li>
+<li><p><strong>parallel</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether or not the shots should be run in parallel. False by default.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the moment, we only support a linear topology.</p>
+</div>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.simulators</span> <span class="kn">import</span> <span class="n">MrAndersonSimulator</span>
+<span class="kn">from</span> <span class="nn">quantum_gates.gates</span> <span class="kn">import</span> <span class="n">standard_gates</span>
+<span class="kn">from</span> <span class="nn">quantum_gates.circuits</span> <span class="kn">import</span> <span class="n">EfficientCircuit</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">MrAndersonSimulator</span><span class="p">(</span>
+    <span class="n">gates</span><span class="o">==</span><span class="n">standard_gates</span><span class="p">,</span>
+    <span class="n">CircuitClass</span><span class="o">=</span><span class="n">EfficientCircuit</span><span class="p">,</span>
+    <span class="n">parallel</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">t_qiskit_circ</span><span class="o">=...</span><span class="p">,</span>
+        <span class="n">qubits_layout</span><span class="o">=...</span><span class="p">,</span>
+        <span class="n">psi0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+        <span class="n">shots</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">device_param</span><span class="o">=...</span><span class="p">,</span>
+        <span class="n">nqubit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator.gates">
+<span class="sig-name descname"><span class="pre">gates</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator.gates" title="Permalink to this definition"></a></dt>
+<dd><p>Gateset to be used, contains the pulse information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="gates.html#quantum_gates.gates.Gates" title="quantum_gates.gates.Gates">Gates</a>, <a class="reference internal" href="gates.html#quantum_gates.gates.ScaledNoiseGates" title="quantum_gates.gates.ScaledNoiseGates">ScaledNoiseGates</a>, <a class="reference internal" href="gates.html#quantum_gates.gates.NoiseFreeGates" title="quantum_gates.gates.NoiseFreeGates">NoiseFreeGates</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator.CircuitClass">
+<span class="sig-name descname"><span class="pre">CircuitClass</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator.CircuitClass" title="Permalink to this definition"></a></dt>
+<dd><p>Performs the computations with the backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[Circuit, <a class="reference internal" href="circuits.html#quantum_gates.circuits.EfficientCircuit" title="quantum_gates.circuits.EfficientCircuit">EfficientCircuit</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator.parallel">
+<span class="sig-name descname"><span class="pre">parallel</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator.parallel" title="Permalink to this definition"></a></dt>
+<dd><p>Whether or not the shots should be run in parallel. False by default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_qiskit_circ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits_layout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator.run" title="Permalink to this definition"></a></dt>
+<dd><p>Takes as input a transpiled qiskit circuit on a given backend with a given qubits layout
+and runs noisy quantum gates. Warning: Qubits layout must have a linear topology.
+:param t_qiskit_circ: transpiled qiskit circuit (QuantumCircuit)
+:param qubits_layout: qubits layout with linear topology (list)
+:param psi0: initial state (array)
+:param shots: number of realizations (int)
+:param device_param: noise and device configurations as dict with the keys specified by DeviceParameters (dict)
+:param nqubit: number of qubits used in the circuit, must be compatible with psi0 (int)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector of probabilities (array)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qubits_layout</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>psi0</strong> (<em>array</em>) – </p></li>
+<li><p><strong>shots</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+<li><p><strong>device_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – </p></li>
+<li><p><strong>nqubit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator._validate_input_of_run">
+<span class="sig-name descname"><span class="pre">_validate_input_of_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_qiskit_circ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits_layout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shots</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nqubit</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator._validate_input_of_run" title="Permalink to this definition"></a></dt>
+<dd><p>Performs sanity checks on the input of the run() method. Raises an Exception if any mistakes are found.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator._preprocess_circuit">
+<span class="sig-name descname"><span class="pre">_preprocess_circuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_qiskit_circ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits_layout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator._preprocess_circuit" title="Permalink to this definition"></a></dt>
+<dd><p>Preprocess of QuantumCircuit.data. We count the number of RZ gates (n_rz), keep track of the swaps
+(swap_detector), and bring the circuit in a format (data) that is compatible with the rest of the simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubits_layout</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>nqubit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator._perform_simulation">
+<span class="sig-name descname"><span class="pre">_perform_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_rz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator._perform_simulation" title="Permalink to this definition"></a></dt>
+<dd><p>Performs the simulation shots many times and returns the resulting probability distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shots</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>n_rz</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+<li><p><strong>nqubit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+<li><p><strong>device_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – </p></li>
+<li><p><strong>psi0</strong> (<em>array</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>array</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.simulators.MrAndersonSimulator._fix_probabilities">
+<span class="sig-name descname"><span class="pre">_fix_probabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrong_probs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.MrAndersonSimulator._fix_probabilities" title="Permalink to this definition"></a></dt>
+<dd><p>This function fix the final probabilities in the right way (in case of swaps in the circuit)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wrong_probs</strong> (<em>array</em>) – </p></li>
+<li><p><strong>qubits_order</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>nqubit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="quantum_gates.simulators.LegacyMrAndersonSimulator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">quantum_gates.simulators.</span></span><span class="sig-name descname"><span class="pre">LegacyMrAndersonSimulator</span></span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.LegacyMrAndersonSimulator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Simulates a quantum circuit with the Noisy quantum gates approach.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This version is only meant for unit testing and the documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.simulators.LegacyMrAndersonSimulator.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qiskit_circ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits_layout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utilities.html#quantum_gates.utilities.DeviceParameters" title="quantum_gates._utility.device_parameters.DeviceParameters"><span class="pre">DeviceParameters</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.LegacyMrAndersonSimulator.run" title="Permalink to this definition"></a></dt>
+<dd><p>Performs a run of the simulator.</p>
+<p>Takes as input a qiskit circuit on a given backend with a given qubits layout  and runs noisy quantum gates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This simulator has a slightly different interface than the newer MrAndersonSimulator. Moreover, the qubits
+layout must have a linear topology.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qiskit_circ</strong> – qiskit circuit (QuantumCircuit)</p></li>
+<li><p><strong>backend</strong> – IMBQ backend (backend)</p></li>
+<li><p><strong>qubits_layout</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – qubits layout with linear topology (list)</p></li>
+<li><p><strong>psi0</strong> (<em>array</em>) – initial state (array)</p></li>
+<li><p><strong>shots</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of realizations (int)</p></li>
+<li><p><strong>device_param</strong> (<a class="reference internal" href="utilities.html#quantum_gates.utilities.DeviceParameters" title="quantum_gates._utility.device_parameters.DeviceParameters"><em>DeviceParameters</em></a>) – object that contains the measured noise (DeviceParameters)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quantum_gates.simulators</span> <span class="kn">import</span> <span class="n">LegacyMrAndersonSimulator</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">LegacyMrAndersonSimulator</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">qiskit_circ</span><span class="p">,</span>
+        <span class="n">backend</span><span class="p">,</span>
+        <span class="n">qubits_layout</span><span class="p">,</span>
+        <span class="n">psi0</span><span class="p">,</span>
+        <span class="n">shots</span><span class="p">,</span>
+        <span class="n">device_param</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Vector of probabilities and density matrix</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>qubits_layout</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>psi0</strong> (<em>array</em>) – </p></li>
+<li><p><strong>shots</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+<li><p><strong>device_param</strong> (<a class="reference internal" href="utilities.html#quantum_gates.utilities.DeviceParameters" title="quantum_gates._utility.device_parameters.DeviceParameters"><em>DeviceParameters</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="quantum_gates.simulators.LegacyMrAndersonSimulator.fix_probs">
+<span class="sig-name descname"><span class="pre">fix_probs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrong_probs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qubits_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nqubit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/CERN-IT-INNOVATION/quantum-gates/tree/main/src/quantum_gates/_simulation/simulator.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#quantum_gates.simulators.LegacyMrAndersonSimulator.fix_probs" title="Permalink to this definition"></a></dt>
+<dd><p>This function fix the final probabilities in the right way (in case of swaps in the circuit)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wrong_probs</strong> (<em>array</em>) – </p></li>
+<li><p><strong>qubits_order</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – </p></li>
+<li><p><strong>nqubit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="integrators.html" class="btn btn-neutral float-left" title="Integrators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="backends.html" class="btn btn-neutral float-right" title="Backends" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Di Bartolomeo, Vischi, Grossi, Wixinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

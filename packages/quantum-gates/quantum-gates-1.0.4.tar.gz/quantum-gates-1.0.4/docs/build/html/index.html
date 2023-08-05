@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to the Quantum Gates documentation &mdash; Quantum Gates 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gates" href="gates.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Quantum Gates
+          </a>
+              <div class="version">
+                1.0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gates</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="factories.html">Factories</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pulses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pulses.html">Pulses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Integrators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">Simulators</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Backends</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Circuits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="circuits.html">Circuits</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantum_algorithms.html">Quantum Algorithms</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Legacy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Quantum Gates</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to the Quantum Gates documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-the-quantum-gates-documentation">
+<h1>Welcome to the Quantum Gates documentation<a class="headerlink" href="#welcome-to-the-quantum-gates-documentation" title="Permalink to this heading"></a></h1>
+<p><strong>Quantum Gates</strong> is a Python library for simulating the noisy behaviour of
+real quantum devices. The noise is incorporated directly into the gates,
+which become stochastic matrices.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This project is under active development.</p>
+</div>
+<section id="how-to-install">
+<h2>How to install<a class="headerlink" href="#how-to-install" title="Permalink to this heading"></a></h2>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h3>
+<p>The Python version should be 3.9 or later. We recommend using the library
+together with a <a href="https://quantum-computing.ibm.com/lab" target="_blank">IBM Quantum Lab</a> account, as it necessary for
+circuit compilation with Qiskit.</p>
+</section>
+<section id="installation-as-a-user">
+<h3>Installation as a user<a class="headerlink" href="#installation-as-a-user" title="Permalink to this heading"></a></h3>
+<p>The library is available on the <a href="https://pypi.org/project/quantum-gates/" target="_blank">Python Package Index (PyPI)</a> with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">quantum-gates</span></code>.</p>
+</section>
+<section id="installation-as-a-contributor">
+<h3>Installation as a contributor<a class="headerlink" href="#installation-as-a-contributor" title="Permalink to this heading"></a></h3>
+<p>For users who want to have access to the source code, we recommend cloning
+the repository from <a href="https://github.com/CERN-IT-INNOVATION/quantum-gates" target="_blank">Github</a>.</p>
+</section>
+</section>
+<section id="functionality">
+<h2>Functionality<a class="headerlink" href="#functionality" title="Permalink to this heading"></a></h2>
+<section id="gates">
+<h3>Gates<a class="headerlink" href="#gates" title="Permalink to this heading"></a></h3>
+<p>To sample quantum gates with the noise incorporated in them, one can set
+up a <a class="reference internal" href="gates.html"><span class="doc">Gates</span></a> instance. The methods of this object return the matrices
+as numpy array. The sampling is stochastic, and one can set the numpy seed
+to always get the same sequence of noise.</p>
+</section>
+<section id="factories">
+<h3>Factories<a class="headerlink" href="#factories" title="Permalink to this heading"></a></h3>
+<p>To produce <a class="reference internal" href="gates.html"><span class="doc">gates</span></a>, we use <a class="reference internal" href="factories.html"><span class="doc">factories</span></a>, such as the
+CNOTFactory. One can combine factories into a custom <a class="reference internal" href="gates.html"><span class="doc">gates</span></a>
+class. The factories have a construct() method, with a well documented
+signature.</p>
+</section>
+<section id="pulses">
+<h3>Pulses<a class="headerlink" href="#pulses" title="Permalink to this heading"></a></h3>
+<p>When constructing a set of quantum gates with the Gates class, one can
+specify a Pulse instance. This pulse describes the shape of the RF pulses
+used to implement the gates.</p>
+</section>
+<section id="integrators">
+<h3>Integrators<a class="headerlink" href="#integrators" title="Permalink to this heading"></a></h3>
+<p>Behind the scenes, we solve Ito integrals to deal with the different
+pulse shapes. This is handled by the <a class="reference internal" href="integrators.html"><span class="doc">integrator</span></a>.</p>
+</section>
+<section id="simulators">
+<h3>Simulators<a class="headerlink" href="#simulators" title="Permalink to this heading"></a></h3>
+<p>The <a class="reference internal" href="simulators.html"><span class="doc">LegacyMrAndersonSimulator</span></a> can be used to simulate
+a quantum circuit transpiled with Qiskit with a specific
+<a class="reference internal" href="gates.html"><span class="doc">noisy gate set</span></a>.</p>
+</section>
+<section id="backends">
+<h3>Backends<a class="headerlink" href="#backends" title="Permalink to this heading"></a></h3>
+<p>For the computation, we provide <a class="reference internal" href="backends.html"><span class="doc">backends</span></a> out of the box,
+such as the EfficientBackend that uses optimized tensor contractions
+to simulate 20+ qubits with the statevector method.</p>
+</section>
+<section id="circuits">
+<h3>Circuits<a class="headerlink" href="#circuits" title="Permalink to this heading"></a></h3>
+<p>The simulators can be configured with a <a class="reference internal" href="circuits.html"><span class="doc">Circuits</span></a> class, such as
+EfficientCircuit. This class is responsible for sampling the
+noisy gates. The class can be configured with a <a class="reference internal" href="gates.html"><span class="doc">Gates</span></a> instance and one of
+the <a class="reference internal" href="backends.html"><span class="doc">Backends</span></a> that executes the statevector simulation.</p>
+</section>
+<section id="quantum-algorithms">
+<h3>Quantum Algorithms<a class="headerlink" href="#quantum-algorithms" title="Permalink to this heading"></a></h3>
+<p>Four quantum algorithms are provided as functions which return the Qiskit circuit
+for a specific number of qubits</p>
+<ul class="simple">
+<li><p>Hadamard reverse QFT circuit</p></li>
+<li><p>GHZ circuit</p></li>
+<li><p>QFT circuit</p></li>
+<li><p>Quantum Approximate Optimization Algorithm circuit</p></li>
+</ul>
+</section>
+<section id="legacy">
+<h3>Legacy<a class="headerlink" href="#legacy" title="Permalink to this heading"></a></h3>
+<p>We also provide the <a class="reference internal" href="legacy.html"><span class="doc">legacy</span></a> implementations of the
+gates, simulator and circuit classes. They can be used for unit testing.</p>
+</section>
+<section id="utility">
+<h3>Utility<a class="headerlink" href="#utility" title="Permalink to this heading"></a></h3>
+<p>In performing quantum simulation, there are many steps that are performed repeatedly, such as setup the IBM backend with
+setup_backend(), loading the noise information as DeviceParameters, transpiling the quantum circuits with
+create_qc_list(), and executing the simulation in parallel  with multiprocessing_parallel_simulation() on a
+powerful machine. For this reason, the most frequently used functions are part of the utilities.</p>
+</section>
+</section>
+<section id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gates.html">Gates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gates.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gates.html#module-quantum_gates.gates">Instances and Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gates.html#quantum_gates.gates.standard_gates"><code class="docutils literal notranslate"><span class="pre">standard_gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gates.html#quantum_gates.gates.numerical_gates"><code class="docutils literal notranslate"><span class="pre">numerical_gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gates.html#quantum_gates.gates.noise_free_gates"><code class="docutils literal notranslate"><span class="pre">noise_free_gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gates.html#quantum_gates.gates.almost_noise_free_gates"><code class="docutils literal notranslate"><span class="pre">almost_noise_free_gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gates.html#quantum_gates.gates.Gates"><code class="docutils literal notranslate"><span class="pre">Gates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gates.html#quantum_gates.gates.NoiseFreeGates"><code class="docutils literal notranslate"><span class="pre">NoiseFreeGates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gates.html#quantum_gates.gates.ScaledNoiseGates"><code class="docutils literal notranslate"><span class="pre">ScaledNoiseGates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gates.html#quantum_gates.gates.legacy_gates"><code class="docutils literal notranslate"><span class="pre">legacy_gates</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Factories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="factories.html">Factories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="factories.html#theory">Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factories.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factories.html#module-quantum_gates.factories">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.BitflipFactory"><code class="docutils literal notranslate"><span class="pre">BitflipFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.DepolarizingFactory"><code class="docutils literal notranslate"><span class="pre">DepolarizingFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.RelaxationFactory"><code class="docutils literal notranslate"><span class="pre">RelaxationFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.SingleQubitGateFactory"><code class="docutils literal notranslate"><span class="pre">SingleQubitGateFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.XFactory"><code class="docutils literal notranslate"><span class="pre">XFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.SXFactory"><code class="docutils literal notranslate"><span class="pre">SXFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.CRFactory"><code class="docutils literal notranslate"><span class="pre">CRFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.CNOTFactory"><code class="docutils literal notranslate"><span class="pre">CNOTFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="factories.html#quantum_gates.factories.CNOTInvFactory"><code class="docutils literal notranslate"><span class="pre">CNOTInvFactory</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Pulses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pulses.html">Pulses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pulses.html#module-quantum_gates.pulses">Instances and Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pulses.html#quantum_gates.pulses.Pulse"><code class="docutils literal notranslate"><span class="pre">Pulse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pulses.html#quantum_gates.pulses.GaussianPulse"><code class="docutils literal notranslate"><span class="pre">GaussianPulse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pulses.html#quantum_gates.pulses.ConstantPulse"><code class="docutils literal notranslate"><span class="pre">ConstantPulse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pulses.html#quantum_gates.pulses.ConstantPulseNumerical"><code class="docutils literal notranslate"><span class="pre">ConstantPulseNumerical</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Integrators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="integrators.html">Integrators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="integrators.html#module-quantum_gates.integrators">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="integrators.html#quantum_gates.integrators.Integrator"><code class="docutils literal notranslate"><span class="pre">Integrator</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Simulators</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulators.html">Simulators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simulators.html#quantum_gates.simulators.MrAndersonSimulator"><code class="docutils literal notranslate"><span class="pre">MrAndersonSimulator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulators.html#quantum_gates.simulators.LegacyMrAndersonSimulator"><code class="docutils literal notranslate"><span class="pre">LegacyMrAndersonSimulator</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Backends</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backends.html">Backends</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backends.html#theory">Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="backends.html#statevector-simulation">Statevector simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backends.html#tensors">Tensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backends.html#optimal-tensor-contractions">Optimal tensor contractions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="backends.html#module-quantum_gates.backends">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="backends.html#quantum_gates.backends.EfficientBackend"><code class="docutils literal notranslate"><span class="pre">EfficientBackend</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="backends.html#quantum_gates.backends.LegacyBackend"><code class="docutils literal notranslate"><span class="pre">LegacyBackend</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="backends.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backends.html#possible-extensions">Possible extensions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Circuits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="circuits.html">Circuits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="circuits.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuits.html#module-quantum_gates.circuits">Classes and Instances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="circuits.html#quantum_gates.circuits.EfficientCircuit"><code class="docutils literal notranslate"><span class="pre">EfficientCircuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="circuits.html#quantum_gates.circuits.AlternativeCircuit"><code class="docutils literal notranslate"><span class="pre">AlternativeCircuit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="circuits.html#quantum_gates.circuits.LegacyCircuit"><code class="docutils literal notranslate"><span class="pre">LegacyCircuit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="circuits.html#possible-extensions">Possible extensions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Quantum Algorithm</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quantum_algorithms.html">Quantum Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quantum_algorithms.html#quantum_gates.quantum_algorithms.hadamard_reverse_qft_circ"><code class="docutils literal notranslate"><span class="pre">hadamard_reverse_qft_circ()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_algorithms.html#quantum_gates.quantum_algorithms.ghz_circ"><code class="docutils literal notranslate"><span class="pre">ghz_circ()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_algorithms.html#quantum_gates.quantum_algorithms.qft_circ"><code class="docutils literal notranslate"><span class="pre">qft_circ()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_algorithms.html#quantum_gates.quantum_algorithms.qaoa_circ"><code class="docutils literal notranslate"><span class="pre">qaoa_circ()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Legacy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legacy.html">Legacy</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Utilities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.DeviceParameters"><code class="docutils literal notranslate"><span class="pre">DeviceParameters</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.multiprocessing_parallel_simulation"><code class="docutils literal notranslate"><span class="pre">multiprocessing_parallel_simulation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.mock_parallel_simulation"><code class="docutils literal notranslate"><span class="pre">mock_parallel_simulation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.concurrent_parallel_simulation"><code class="docutils literal notranslate"><span class="pre">concurrent_parallel_simulation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.fix_counts"><code class="docutils literal notranslate"><span class="pre">fix_counts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.load_config"><code class="docutils literal notranslate"><span class="pre">load_config()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.create_qc_list"><code class="docutils literal notranslate"><span class="pre">create_qc_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.setup_backend"><code class="docutils literal notranslate"><span class="pre">setup_backend()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html#quantum_gates.utilities.post_process_split"><code class="docutils literal notranslate"><span class="pre">post_process_split()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+<section id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this heading"></a></h2>
+<p>This project has been developed thanks to the effort of the following
+people:</p>
+<ul class="simple">
+<li><p>Giovanni Di Bartolomeo (<a class="reference external" href="mailto:dibartolomeo&#46;giov&#37;&#52;&#48;gmail&#46;com">dibartolomeo<span>&#46;</span>giov<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p></li>
+<li><p>Michele Vischi (<a class="reference external" href="mailto:vischimichele&#37;&#52;&#48;gmail&#46;com">vischimichele<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p></li>
+<li><p>Francesco Cesa</p></li>
+<li><p>Michele Grossi (<a class="reference external" href="mailto:michele&#46;grossi&#37;&#52;&#48;cern&#46;ch">michele<span>&#46;</span>grossi<span>&#64;</span>cern<span>&#46;</span>ch</a>)</p></li>
+<li><p>Sandro Donadi</p></li>
+<li><p>Angelo Bassi</p></li>
+<li><p>Roman Wixinger (<a class="reference external" href="mailto:roman&#46;wixinger&#37;&#52;&#48;gmail&#46;com">roman<span>&#46;</span>wixinger<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gates.html" class="btn btn-neutral float-right" title="Gates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Di Bartolomeo, Vischi, Grossi, Wixinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
