@@ -1,0 +1,4 @@
+[console_scripts]
+bake=pywas.bake:cli
+pywas=pywas.main:cli
+
