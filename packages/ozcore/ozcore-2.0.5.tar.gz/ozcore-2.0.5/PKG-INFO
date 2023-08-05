@@ -1,0 +1,137 @@
+Metadata-Version: 2.1
+Name: ozcore
+Version: 2.0.5
+Summary: My core.
+Home-page: https://ozcore.readthedocs.io/
+License: GPL-3.0-or-later
+Author: Ozgur Kalan
+Author-email: ozgurkalan@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: all
+Requires-Dist: alembic (>=1.10.2,<2.0.0)
+Requires-Dist: dynaconf (>=3.1.12,<4.0.0) ; extra == "all"
+Requires-Dist: faker (>=18.3.1,<19.0.0) ; extra == "all"
+Requires-Dist: html2text (>=2020.1.16,<2021.0.0) ; extra == "all"
+Requires-Dist: html5lib (>=1.1,<2.0) ; extra == "all"
+Requires-Dist: ipyaggrid (>=0.3.2,<0.4.0) ; extra == "all"
+Requires-Dist: ipykernel (>=6.22.0,<7.0.0) ; extra == "all"
+Requires-Dist: ipywidgets (>=8.0.6,<9.0.0) ; extra == "all"
+Requires-Dist: jupyter-contrib-nbextensions (>=0.7.0,<0.8.0) ; extra == "all"
+Requires-Dist: lxml (>=4.9.2,<5.0.0) ; extra == "all"
+Requires-Dist: markdown2 (>=2.4.8,<3.0.0) ; extra == "all"
+Requires-Dist: matplotlib (>=3.7.1,<4.0.0) ; extra == "all"
+Requires-Dist: nbformat (>=5.8.0,<6.0.0) ; extra == "all"
+Requires-Dist: numpy (>=1.24.2,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: pydantic (>=1.10.7,<2.0.0) ; extra == "all"
+Requires-Dist: requests (>=2.28.2,<3.0.0) ; extra == "all"
+Requires-Dist: seaborn (>=0.12.2,<0.13.0) ; extra == "all"
+Requires-Dist: sqlalchemy (==1.4.46)
+Requires-Dist: tqdm (>=4.65.0,<5.0.0) ; extra == "all"
+Requires-Dist: typeguard (>=3.0.2,<4.0.0)
+Requires-Dist: typer (>=0.7.0,<0.8.0)
+Project-URL: Repository, https://github.com/ozgurkalan/OzCore
+Description-Content-Type: text/x-rst
+
+======
+OzCore
+======
+
+OzCore is my core.
+
+
+.. image:: https://badge.fury.io/py/ozcore.svg
+    :target: https://pypi.python.org/pypi/ozcore/
+    :alt: PyPI version
+
+
+.. image:: https://readthedocs.org/projects/ozcore/badge/?version=latest
+    :target: https://ozcore.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+
+.. image:: http://hits.dwyl.com/ozgurkalan/OzCore.svg
+    :target: http://hits.dwyl.com/ozgurkalan/OzCore
+    :alt: HitCount
+
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+
+
+
+OzCore is automating my boring stuff. A time saver gadget for me. 
+
+
+Installation
+============
+
+
+
+I. Pip simple
+~~~~~~~~~~~~~
+Published latest stable version
+
+.. code:: bash
+
+    pip install ozcore
+
+
+
+II. Latest from GitHub with Pip
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Latest dev version from GitHub
+
+.. code:: bash
+
+    pip install git+https://github.com/ozgurkalan/OzCore --force-reinstall --no-deps
+
+
+III. GitHub clone
+~~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+    git clone https://github.com/ozgurkalan/OzCore.git
+
+
+
+Jupyter Kernel
+==============
+
+For your Jupyter Notebook to run in your dedicated environment, use the following script::
+
+    # add kernell to Jupyter
+    python -m ipykernel install --user --name=<your_env_name>
+
+
+Fresh installs may have problems with enabling extentions. You shall run the commands below to activate.
+
+.. code:: bash
+
+    jupyter nbextension enable --py --sys-prefix widgetsnbextension
+
+
+Jupyter Extensions
+==================
+
+This step copies the ``nbextensions`` javascript and css files into the jupyter server’s search directory, and edits some jupyter config files. 
+
+.. code:: bash
+
+    jupyter contrib nbextension install --system
+
+
+
+
+
+
