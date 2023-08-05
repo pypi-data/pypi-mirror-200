@@ -1,0 +1,6 @@
+# github: {{ variable }}
+set +o history
+{%- for variable in data.variables %}
+gh secret set {{ variable }} --body "${{ variable }}"
+{%- endfor %}
+set -o history

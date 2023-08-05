@@ -1,0 +1,6 @@
+# awscli: {{ variable }}
+choco install awscli
+{%- for variable in data.variables %}
+&"C:\Program*\Amazon\AWSCLI*\aws.exe" configure set {{ variable }} "$env:{{ variable }}"
+{%- endfor %}
+Clear-History -Count 1 -Newest
