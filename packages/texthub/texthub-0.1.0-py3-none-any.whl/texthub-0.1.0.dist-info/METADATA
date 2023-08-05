@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: texthub
+Version: 0.1.0
+Summary: A Python library that provides a simple interface to use NLP models
+Home-page: https://github.com/Keycatowo/text-hub
+Author: owo
+Author-email: contact@owomail.cc
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: bidict
+Requires-Dist: transformers
+Requires-Dist: torch
+
+# text-hub
+通用文字自動標注與預測訓練系統
+[![Python application](https://github.com/Keycatowo/text-hub/actions/workflows/python-app.yml/badge.svg)](https://github.com/Keycatowo/text-hub/actions/workflows/python-app.yml)
+
+## 目標
+整理文字標注與預測訓練的流程，並提供一個通用的系統，讓使用者可以快速的標注與訓練文字預測模型。
+
+
+## 包含組件
+### 資料預處理
++ 分段
++ 分句
++ 過濾
++ 輸出方便標注的格式
+### 資料訓練
++ 輸入標注好的格式
++ 訓練模型
+### 資料預測
++ 輸入要標注的格式
++ 選擇對應的模型
++ 預測
++ 輸出結果
+
+## 使用方式
+
+### 安裝
+```bash
+# 建立虛擬環境
+conda create -n text-hub python=3.8
+conda activate text-hub
+
+# 安裝套件
+pip install -r requirements.txt
+```
+
+### 使用
+```bash
+streamlit run home.py
+```
