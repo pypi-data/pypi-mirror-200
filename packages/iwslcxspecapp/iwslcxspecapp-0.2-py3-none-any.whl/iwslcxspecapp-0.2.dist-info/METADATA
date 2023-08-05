@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: iwslcxspecapp
+Version: 0.2
+License: GPL-3.0
+Keywords: SAR,wave,reseach,cross-spectra,panel
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: xarray
+Requires-Dist: holoviews
+Requires-Dist: geoviews
+Requires-Dist: shapely
+Requires-Dist: cartopy
+Requires-Dist: datashader
+Requires-Dist: xarray-datatree
+Requires-Dist: panel
+
