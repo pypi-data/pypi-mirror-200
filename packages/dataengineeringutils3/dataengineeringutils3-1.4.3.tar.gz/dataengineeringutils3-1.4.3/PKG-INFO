@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: dataengineeringutils3
+Version: 1.4.3
+Summary: Data engineering utils Python 3 version
+Home-page: https://github.com/moj-analytical-services/dataengineeringutils3
+License: MIT
+Author: Data Engineering
+Author-email: dataengineering@digital.justice.gov.uk
+Requires-Python: >=3.7,<4
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: Deprecated (>=1.2.12,<2.0.0)
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: boto3 (>=1.24.11,<2.0.0)
+Project-URL: Repository, https://github.com/moj-analytical-services/dataengineeringutils3
+Description-Content-Type: text/markdown
+
+[![Coverage Status](https://coveralls.io/repos/github/moj-analytical-services/dataengineeringutils3/badge.svg?branch=master)](https://coveralls.io/github/moj-analytical-services/dataengineeringutils3?branch=master)
+
+# Data engineering utils - Python 3
+
+Fully unit tested utility functions for data engineering. Python 3 only.  
+
+
+## Installation
+
+```bash
+pip install dataengineeringutils3
+```
+
+
+## Testing
+
+```bash
+pytest --cov-report term-missing --cov=dataengineeringutils3 tests/
+```
+
