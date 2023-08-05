@@ -1,0 +1,5 @@
+PyYAML>=6.0
+pydantic<2,>=1.10
+backoff>=2.2
+python-socketio>=5.7
+typer[all]>=0.7.0
