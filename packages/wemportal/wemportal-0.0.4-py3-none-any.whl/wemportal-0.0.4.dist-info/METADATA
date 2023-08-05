@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: wemportal
+Version: 0.0.4
+Summary: Python module for fetching wemportal data.
+Project-URL: Homepage, https://github.com/floek/wemportal
+Project-URL: Bug Tracker, https://github.com/floek/wemportal/issues/
+Author-email: floek <root@floek.net>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: beautifulsoup4>=4.11.2
+Requires-Dist: python-dateutil>=2.8.2
+Requires-Dist: requests>=2.28.2
+Description-Content-Type: text/markdown
+
+# Python wemportal module
+[![Tests](https://github.com/floek/wemportal/actions/workflows/test.yml/badge.svg)](https://github.com/floek/wemportal/actions/workflows/test.yml)
+[![PyPi](https://github.com/floek/wemportal/actions/workflows/publish-release.yml/badge.svg)](https://github.com/floek/wemportal/actions/workflows/publish-release.yml)
+
+I wanted to scrape the Weishaupt WEM Portal without using [Home Assistant](https://home-assistant.io/).
+@erikkastelec created a nice project [hass-WEM-Portal](https://github.com/erikkastelec/hass-WEM-Portal), so
+I used his code to create this python module for standalone scraping of WEM Portal.
+
+It utilizes the mobile api for the most of the data. The statistics are collected via web api.
+
+## Installation
+```
+pip install wemportal
+```
+
+## Example usage
+```python
+from wemportal.wem_portal import WemPortal
+
+# Create API object
+api = WemPortal(
+    username="<WEM Portal Username>",
+    password="<WEM Portal Password>"
+)
+
+# Fetch data
+api.login()
+devices = api.fetch_devices()
+api.logout()
+
+# Print values
+for device in devices:
+    print(f"== Device {device.name} ==\n")
+
+    print("Values:")
+    for data in device.get_parameter_values():
+        print(f"\t{data['ParameterId']}: {data['ValueNumericValue']} {data['ValueUnit']}")
+
+    print("\nHot Water Statistics:")
+    for data in device.hot_water_statistic.values:
+        print(f"\t{data.datetime.date()}: {data.value:.2f} {device.hot_water_statistic.unit}")
+
+    print("\nHeating Statistics:")
+    for data in device.heating_statistic.values:
+        print(f"\t{data.datetime.date()}: {data.value:.2f} {device.heating_statistic.unit}")
+```
+
+## Reporting bugs or incorrect results
+
+If you find a bug, please create an issue in the
+[repo issues tracker](https://github.com/floek/wemportal/issues/).
+
+## Please contribute
+It was created for myself, but if you find it useful: Please contribute.
