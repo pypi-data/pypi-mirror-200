@@ -1,0 +1,10 @@
+[run]
+source = caproto
+concurrency=
+    thread
+    multiprocessing
+
+[report]
+omit =
+    caproto/generate_headers.py
+    caproto/_version.py

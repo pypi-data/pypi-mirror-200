@@ -1,0 +1,11 @@
+coverage:
+  status:
+    project:
+      default: false
+      caproto:
+        target: auto
+        threshold: 1%
+        paths:
+          - "caproto/"
+          - "!caproto/generate_headers.py"
+          - "!caproto/_version.py"
