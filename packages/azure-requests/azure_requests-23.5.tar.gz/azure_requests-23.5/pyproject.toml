@@ -1,0 +1,38 @@
+[project]
+name = "azure_requests"
+version = "23.5"  # YY.<counter>
+description = "Requests wrapper for Azure DevOps"
+readme = "README.md"
+license = {text = "MIT License"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = ["requests"]
+
+[[project.authors]]
+name = "Máté Farkas"
+email = "fm@farkas-mate.hu"
+
+[project.urls]
+Homepage = "https://github.com/presidento/azure-requests"
+Changelog = "https://github.com/presidento/azure-requests/blob/main/CHANGELOG.md"
+
+[tool.setuptools.package-data]
+azure_requests = ["py.typed"]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "build",
+    "mypy",
+    "pylint",
+    "twine",
+    "types-requests",
+]
