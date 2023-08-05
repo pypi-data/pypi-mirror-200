@@ -1,0 +1,16 @@
+azure-identity
+azure-keyvault-secrets
+boto3
+google-cloud-secret-manager
+hvac
+PyYAML
+passpy
+
+[deploy]
+build
+twine
+
+[dev]
+black
+pytest
+moto[secretsmanager]
