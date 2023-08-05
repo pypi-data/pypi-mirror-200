@@ -1,0 +1,1 @@
+from synochatinfo.synochat import synoChat
