@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: flatspin
+Version: 2.3
+Summary: Artificial Spin Ice simulator
+Home-page: https://flatspin.gitlab.io/
+Author: Johannes H. Jensen
+Author-email: johannes.jensen@ntnu.no
+License: GPLv3
+Project-URL: Source, https://gitlab.com/flatspin/flatspin
+Project-URL: Documentation, https://flatspin.gitlab.io
+Project-URL: Tracker, https://gitlab.com/flatspin/flatspin/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS
+Requires-Dist: numpy (>=1.17)
+Requires-Dist: scipy
+Requires-Dist: pandas (>=0.23.0)
+Requires-Dist: tables
+Requires-Dist: matplotlib
+Requires-Dist: pyopencl
+Requires-Dist: pillow (>=9.1.0)
+Requires-Dist: joblib
+Requires-Dist: numba
+Requires-Dist: tqdm
+Requires-Dist: scikit-image
+Requires-Dist: setuptools-scm
+Provides-Extra: cuda
+Requires-Dist: pycuda ; extra == 'cuda'
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-benchmark ; extra == 'dev'
+Requires-Dist: jupyter-book (>=0.13.2) ; extra == 'dev'
+Requires-Dist: sphinxcontrib-autoprogram ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: ipython (!=8.7.0) ; extra == 'docs'
+Requires-Dist: jupyter-book (>=0.13.2) ; extra == 'docs'
+Requires-Dist: sphinxcontrib-autoprogram ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-benchmark ; extra == 'test'
+Requires-Dist: pycuda ; extra == 'test'
+
+# flatspin
+
+flatspin is a GPU-accelerated simulator for systems of interacting nanomagnet
+spins arranged on a 2D lattice, also known as Artificial Spin Ice (ASI).
+flatspin can simulate the dynamics of large ASI systems with thousands of
+interacting elements.
+
+flatspin is written in Python and uses OpenCL for GPU acceleration.
+flatspin is open-source software and released under a GNU GPL license
+
+## Installing
+
+Install and update using [pip](https://pip.pypa.io/en/stable/getting-started):
+
+```sh
+pip install -U flatspin
+```
+
+## Getting started
+
+Once installed, head over to the [user manual](https://flatspin.gitlab.io) to get started.
+
+## Links
+
+- Website: <https://flatspin.gitlab.io>
+- Documentation: <https://flatspin.gitlab.io>
+- Releases: <https://pypi.org/project/flatspin>
+- Code: <https://gitlab.com/flatspin/flatspin>
+- Issue tracker: <https://gitlab.com/flatspin/flatspin/-/issues>
