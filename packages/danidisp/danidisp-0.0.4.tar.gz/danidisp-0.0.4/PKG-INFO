@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: danidisp
+Version: 0.0.4
+Summary: My package, every useful function I want to use
+Home-page: https://github.com/DanieleDiSpirito/danidisp
+Author: Daniele Di Spirito
+Author-email: danieledisp@proton.me
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+
+
+        Package contains:
+
+        - xor(a: bytes, b: bytes) -> bytes
+        - dlog(n: int, b: int, mod: int) -> int
+    
+
