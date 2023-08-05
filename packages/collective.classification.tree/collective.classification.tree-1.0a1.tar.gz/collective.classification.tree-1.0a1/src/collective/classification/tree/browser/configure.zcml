@@ -1,0 +1,107 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="collective.classification.tree">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+    directory="overrides"
+    layer="collective.classification.tree.interfaces.ICollectiveClassificationTreeLayer"
+    />
+
+  <!-- Publish static files -->
+  <plone:static
+    name="collective.classification.tree"
+    type="plone"
+    directory="static"
+    />
+
+  <browser:page
+    for="collective.classification.tree.contents.category.IClassificationCategory"
+    class="collective.classification.tree.browser.category.CategoryView"
+    name="view"
+    permission="zope2.View"
+    template="templates/container.pt"
+    />
+
+  <browser:page
+    for="collective.classification.tree.contents.category.IClassificationCategory"
+    class=".category.CategoryEditView"
+    name="edit"
+    permission="cmf.ModifyPortalContent"
+    />
+
+  <browser:page
+    for="collective.classification.tree.contents.category.IClassificationCategory"
+    class=".category.CategoryAddView"
+    name="add-ClassificationCategory"
+    permission="cmf.AddPortalContent"
+    />
+
+  <browser:page
+    for="collective.classification.tree.contents.container.IClassificationContainer"
+    class=".category.CategoryAddView"
+    name="add-ClassificationCategory"
+    permission="cmf.AddPortalContent"
+    />
+
+  <browser:page
+    for="collective.classification.tree.contents.container.IClassificationContainer"
+    class=".container.ContainerView"
+    name="view"
+    permission="zope2.View"
+    template="templates/container.pt"
+    />
+
+  <browser:page
+    for="collective.classification.tree.contents.container.IClassificationContainer"
+    class=".container.RefreshCache"
+    name="refresh-cache"
+    permission="zope2.View"
+    template="templates/container.pt"
+    />
+
+  <browser:page
+    name="classification_helper"
+    for="*"
+    class=".helper.ClassificationPublicHelper"
+    permission="zope.Public"
+    allowed_interface=".helper.IClassificationHelper"
+    />
+
+  <browser:page
+    name="classification_helper"
+    for="collective.classification.tree.contents.container.IClassificationContainer"
+    class=".helper.ClassificationContainerHelper"
+    permission="cmf.AddPortalContent"
+    allowed_interface=".helper.IClassificationHelper"
+    />
+
+  <browser:page
+    name="classification_helper"
+    for="collective.classification.tree.contents.category.IClassificationCategory"
+    class=".helper.ClassificationCategoryHelper"
+    permission="cmf.AddPortalContent"
+    allowed_interface=".helper.IClassificationHelper"
+    />
+
+  <!-- actions -->
+
+  <browser:page
+    name="plone_context_state"
+    for="collective.classification.tree.contents.category.IClassificationCategory"
+    permission="zope2.View"
+    class=".actions.ContextState"
+    allowed_interface="plone.app.layout.globals.interfaces.IContextState"
+    />
+
+  <browser:page
+    for="collective.classification.tree.contents.category.IClassificationCategory"
+    name="delete_confirmation"
+    class=".actions.DeleteConfirmationForm"
+    permission="zope2.DeleteObjects"
+    />
+
+</configure>

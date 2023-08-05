@@ -1,0 +1,37 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:i18n="http://namespaces.zope.org/i18n"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="collective.classification.tree">
+
+  <utility
+    component=".category.ClassificationCategoryFactory"
+    name="ClassificationCategory"
+    />
+
+  <!-- subscribers -->
+  <subscriber
+    for=".container.IClassificationContainer
+         zope.container.interfaces.IContainerModifiedEvent"
+    handler=".container.container_modified"
+    />
+
+  <subscriber
+    for=".category.IClassificationCategory
+         zope.container.interfaces.IContainerModifiedEvent"
+    handler=".category.container_modified"
+    />
+
+  <subscriber
+    for=".category.IClassificationCategory
+         zope.lifecycleevent.IObjectModifiedEvent"
+    handler=".category.category_modified"
+    />
+
+  <subscriber
+    for=".category.IClassificationCategory
+         zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+    handler=".category.category_deleted"
+    />
+
+</configure>

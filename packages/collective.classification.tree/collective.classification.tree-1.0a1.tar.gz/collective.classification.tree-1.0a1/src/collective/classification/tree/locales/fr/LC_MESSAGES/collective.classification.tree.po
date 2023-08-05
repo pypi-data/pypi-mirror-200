@@ -1,0 +1,244 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-03-30 13:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../browser/actions.py:114
+msgid "${title} has been deleted."
+msgstr "${title} a été supprimé"
+
+#: ../browser/category.py:74
+#: ../serializer/category.py:45
+msgid "Add"
+msgstr "Ajouter"
+
+#: ../profiles/default/actions.xml
+msgid "Add Category"
+msgstr "Ajouter un code"
+
+#: ../browser/category.py:63
+msgid "Add Classification Category"
+msgstr "Ajouter un code de classement"
+
+#: ../form/importform.py:110
+msgid "Allow empty column value"
+msgstr "Autoriser l'absence de valeur pour les colonnes"
+
+#: ../utils.py:277
+msgid "Bad format values: ${errors}"
+msgstr "Valeurs au format erroné: ${errors}"
+
+#: ../form/importform.py:70
+msgid "CSV Separator"
+msgstr "Séparateur du CSV"
+
+#: ../utils.py:201
+msgid "CSV file must contains at least 2 columns"
+msgstr "Le fichier CSV doit contenir au moins 2 colonnes"
+
+#: ../form/importform.py:65
+msgid "CSV file that contains the classification tree"
+msgstr "Fichier CSV qui contient l'arbre de classement"
+
+#: ../browser/category.py:48
+msgid "Cancel"
+msgstr "Annuler"
+
+#: ../browser/category.py:70
+msgid "Category added"
+msgstr "Code ajouté"
+
+#: ../browser/category.py:32
+msgid "Changes saved"
+msgstr "Changements sauvegardés"
+
+#: ../behaviors/classification.py:27
+#: ../behaviors/configure.zcml:14
+msgid "Classification Categories"
+msgstr "Codes de classement"
+
+#: ../profiles/default/types/ClassificationContainer.xml
+msgid "ClassificationContainer"
+msgstr "Arbre de classement"
+
+#: ../form/importform.py:190
+msgid "Column ${name}"
+msgstr "Colonne ${name}"
+
+#: ../form/importform.py:133
+msgid "Continue"
+msgstr "Continuer"
+
+#: ../browser/actions.py:104
+msgid "Delete"
+msgstr "Supprimer"
+
+#: ../serializer/category.py:41
+msgid "Edit"
+msgstr "Modifier"
+
+#: ../browser/category.py:25
+msgid "Edit Classification Category"
+msgstr "Modifier un code de classement"
+
+#: ../browser/templates/container.pt:57
+#: ../contents/category.py:48
+#: ../vocabularies.py:93
+msgid "Enabled"
+msgstr "Activé"
+
+#: ../form/importform.py:64
+msgid "File"
+msgstr "Fichier"
+
+#: ../utils.py:196
+msgid "File encoding is not utf8"
+msgstr "L'encodage du fichier doit être de l'UTF-8"
+
+#: ../browser/templates/container.pt:54
+#: ../contents/category.py:37
+#: ../vocabularies.py:90
+msgid "Identifier"
+msgstr "Identifiant"
+
+#: ../form/importform.py:104
+msgid "Identifier are decimal codes"
+msgstr "Les identifiants sont des codes décimaux"
+
+#: ../contents/category.py:38
+msgid "Identifier of the category"
+msgstr "Identifiant du code"
+
+#: ../form/importform.py:250
+#: ../profiles/default/actions.xml
+msgid "Import"
+msgstr "Importer"
+
+#: ../form/importform.py:329
+msgid "Import completed in ${duration} seconds"
+msgstr "Import fini en ${duration} seconds"
+
+#: ../form/importform.py:77
+msgid "Include CSV header"
+msgstr "Inclut un entête CSV"
+
+#: ../browser/templates/container.pt:56
+#: ../contents/category.py:53
+#: ../vocabularies.py:92
+msgid "Informations"
+msgstr "Informations"
+
+#: ../configure.zcml:30
+msgid "Installs the collective.classification.tree add-on."
+msgstr "Installs the collective.classification.tree add-on."
+
+#: ../utils.py:209
+msgid "Lines ${lines} does not contains the same number of element"
+msgstr "Les lignes ${lines} n'ont pas le bon nombre d'éléments"
+
+#: ../utils.py:271
+msgid "Lines ${lines} have missing required value(s)"
+msgstr "Les lignes ${lines} ont des valeurs requises manquantes"
+
+#: ../behaviors/classification.py:28
+msgid "List of categories in which this content is filed"
+msgstr "Codes dans lesquels ce contenu est classé: le premier étant le principal"
+
+#: ../browser/templates/container.pt:55
+#: ../contents/category.py:43
+#: ../vocabularies.py:91
+msgid "Name"
+msgstr "Nom"
+
+#: ../contents/category.py:43
+msgid "Name of the category"
+msgstr "Nom du code"
+
+#: ../serializer/category.py:29
+msgid "No"
+msgstr "Non"
+
+#: ../vocabularies.py:89
+msgid "Parent Identifier"
+msgstr "Identifiant du parent"
+
+#: ../profiles/default/actions.xml
+msgid "Refresh cache"
+msgstr "Rafraîchir cache"
+
+#: ../form/importform.py:116
+msgid "Replace slash in title"
+msgstr "Remplacer le caractère \" / \" dans le titre"
+
+#: ../form/importform.py:191
+msgid "Sample data : ${data}"
+msgstr "Exemple de données : ${data}"
+
+#: ../browser/category.py:39
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: ../form/importform.py:71
+msgid "Separator character to use"
+msgstr "Caractère de séparation à utiliser"
+
+#: ../form/importform.py:78
+msgid "The CSV file contains an header row"
+msgstr "Le fichier CSV contient une ligne d'entête"
+
+#: ../utils.py:226
+msgid "The following required columns are missing: ${columns}"
+msgstr "Les colonnes requises suivantes sont manquantes: ${columns}"
+
+#: ../behaviors/configure.zcml:14
+msgid "This behavior provides a classification categories selection field"
+msgstr "Ce behavior ajoute un champ avec les codes de classement"
+
+#: ../configure.zcml:39
+msgid "Uninstalls the collective.classification.tree add-on."
+msgstr "Uninstalls the collective.classification.tree add-on."
+
+#: ../serializer/category.py:28
+msgid "Yes"
+msgstr "Oui"
+
+#: ../browser/actions.py:117
+msgid "\"${title}\" has already been deleted"
+msgstr "\"${title}\" a déjà été supprimé"
+
+#. Default: "This category cannot be deleted because it is referenced elsewhere"
+#: ../contents/category.py:175
+msgid "cannot_delete_referenced_category"
+msgstr "Ce code de classement ne peut être supprimé car il est référencé autre part"
+
+#: ../configure.zcml:30
+msgid "collective.classification.tree"
+msgstr "collective.classification.tree"
+
+#: ../configure.zcml:39
+msgid "collective.classification.tree (uninstall)"
+msgstr "collective.classification.tree (uninstall)"
+
+#. Default: "Cancel"
+#: ../browser/actions.py:124
+msgid "label_cancel"
+msgstr "Annuler"
+
+#: ../vocabularies.py:81
+msgid "tab"
+msgstr "Tabulation"
+
+#: ../vocabularies.py:82
+msgid "whitespace"
+msgstr "Espace"
