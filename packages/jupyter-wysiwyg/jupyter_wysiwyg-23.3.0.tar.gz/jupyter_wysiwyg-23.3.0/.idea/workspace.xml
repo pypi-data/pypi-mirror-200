@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5685f804-bb7d-4ca5-a1cb-2647740e5a62" name="Changes" comment="tbump config">
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="jupyterlab" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="25q4FQoWflRjchcAs3Kqi9Ag1p8" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5685f804-bb7d-4ca5-a1cb-2647740e5a62" name="Changes" comment="" />
+      <created>1646241179333</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646241179333</updated>
+      <workItem from="1646241180689" duration="7292000" />
+      <workItem from="1646332541825" duration="158000" />
+      <workItem from="1646767127059" duration="1115000" />
+      <workItem from="1646852215919" duration="4521000" />
+      <workItem from="1648599886460" duration="66000" />
+      <workItem from="1648600005379" duration="1491000" />
+      <workItem from="1649195266471" duration="670000" />
+      <workItem from="1650473037262" duration="803000" />
+      <workItem from="1654715780821" duration="1173000" />
+      <workItem from="1664901168342" duration="3068000" />
+      <workItem from="1665763504197" duration="565000" />
+      <workItem from="1668446191431" duration="2788000" />
+      <workItem from="1670950501502" duration="997000" />
+      <workItem from="1674762103042" duration="2140000" />
+      <workItem from="1675441143734" duration="8640000" />
+      <workItem from="1675713793921" duration="1432000" />
+      <workItem from="1677169884992" duration="170000" />
+      <workItem from="1680104639456" duration="1028000" />
+    </task>
+    <task id="LOCAL-00001" summary="Render text vs. raw text bug fix">
+      <created>1646257015265</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646257015266</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updating package.json">
+      <created>1646929381799</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1646929381799</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding @jupyterlab/codeeditor to dependency list">
+      <created>1646930164501</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1646930164501</updated>
+    </task>
+    <task id="LOCAL-00004" summary="UPDATING PACKAGE.JSON">
+      <created>1646936661683</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1646936661683</updated>
+    </task>
+    <task id="LOCAL-00005" summary="More package.json updates - attempting JupyterLab 3.3 compatibility">
+      <created>1646937361276</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1646937361276</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Moving organization to g2nb">
+      <created>1648654256634</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1648654256634</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update jupyter_packaging requirement to avoid bug with new version of setuptools">
+      <created>1649195338997</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1649195338997</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Backport to JupyterLab 3.0">
+      <created>1654716017777</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654716017777</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Enable lists and emoticons">
+      <created>1664903488450</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1664903488450</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Updating deploy instructions">
+      <created>1665763542598</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665763542598</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Reducing vertical footprint of editor">
+      <created>1668447225905</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668447225905</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Updating version number">
+      <created>1670950555167</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670950555167</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Implementing dummy getCursor() method in editor class">
+      <created>1674762869191</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1674762869191</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fix for bug with Jupyter search in JupyterLab 3.4/3.5/3.6">
+      <created>1675462141690</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1675462141690</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Migrated from setuptools to hatch">
+      <created>1680105346608</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680105346608</updated>
+    </task>
+    <task id="LOCAL-00016" summary="tbump config">
+      <created>1680105792707</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680105792707</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Render text vs. raw text bug fix" />
+    <MESSAGE value="Updating package.json" />
+    <MESSAGE value="Adding @jupyterlab/codeeditor to dependency list" />
+    <MESSAGE value="UPDATING PACKAGE.JSON" />
+    <MESSAGE value="More package.json updates - attempting JupyterLab 3.3 compatibility" />
+    <MESSAGE value="Moving organization to g2nb" />
+    <MESSAGE value="Update jupyter_packaging requirement to avoid bug with new version of setuptools" />
+    <MESSAGE value="Backport to JupyterLab 3.0" />
+    <MESSAGE value="Enable lists and emoticons" />
+    <MESSAGE value="Updating deploy instructions" />
+    <MESSAGE value="Reducing vertical footprint of editor" />
+    <MESSAGE value="Updating version number" />
+    <MESSAGE value="Implementing dummy getCursor() method in editor class" />
+    <MESSAGE value="Fix for bug with Jupyter search in JupyterLab 3.4/3.5/3.6" />
+    <MESSAGE value="Migrated from setuptools to hatch" />
+    <MESSAGE value="tbump config" />
+    <option name="LAST_COMMIT_MESSAGE" value="tbump config" />
+  </component>
+</project>
