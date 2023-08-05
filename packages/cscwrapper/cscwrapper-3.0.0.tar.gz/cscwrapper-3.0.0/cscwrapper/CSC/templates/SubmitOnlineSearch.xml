@@ -1,0 +1,34 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soap:Body>
+      <SubmitOnlineSearch xmlns="https://eservices.cscfinancialonline.com/">
+         <params>
+            <param name="contactNo">{{ contact_no }}</param>
+            <param name="loginGuid">{{ guid }}</param>
+            <param name="type">{{ search_type }}</param>
+            <param name="stateCD">{{ state }}</param>
+
+            {% if lapsed_term is defined %}<param name="lapsedTerm">{{ lapsed_term }}</param>{% endif %}
+            {% if use_third_party is defined %}<param name="useThirdParty">{{ use_third_party }}</param>{% endif %}
+            {% if doc_number is defined %}<param name="docNumber">{{ doc_number }}</param>{% endif %}
+            {% if first_name is defined %}<param name="firstName">{{ first_name }}</param>{% endif %}
+            {% if last_name is defined %}<param name="lastName">{{ last_name }}</param>{% endif %}
+            {% if company_name is defined %}<param name="companyName">{{ company_name }}</param>{% endif %}
+            {% if secured_party_name is defined %}<param name="securedPartyName">{{ secured_party_name }}</param>{% endif %}
+            {% if business_id is defined %}<param name="businessID">{{ business_id }}</param>{% endif %}
+
+            {% if references is defined %}
+                <param name="references">
+                    <array>
+                    {% for reference in references %}
+                        <item>
+                            <key>{{ reference.key }}</key>
+                            <value>{{ reference.value }}</value>
+                        </item>
+                    {% endfor %}
+                    </array>
+                </param>
+            {% endif %}
+        </params>
+    </SubmitOnlineSearch>
+</soap:Body>
+</soap:Envelope>

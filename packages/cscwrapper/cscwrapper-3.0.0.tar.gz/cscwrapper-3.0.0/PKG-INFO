@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: cscwrapper
+Version: 3.0.0
+Summary: 
+Author: Mike McClelland
+Author-email: mmclelland@thesummitgrp.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: Jinja2 (>=3.0.2,<4.0.0)
+Requires-Dist: pytest (>=6.2.4,<7.0.0)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: requests (>=2.26.0,<3.0.0)
+Requires-Dist: xmltodict (>=0.12.0,<0.13.0)

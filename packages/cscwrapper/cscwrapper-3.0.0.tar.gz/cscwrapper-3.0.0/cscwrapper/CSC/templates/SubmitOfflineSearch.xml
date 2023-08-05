@@ -1,0 +1,71 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soap:Body>
+      <SubmitOfflineSearch xmlns="https://eservices.cscfinancialonline.com/">
+         <params>
+            <param name="contactNo">{{ contact_no }}</param>
+            <param name="loginGuid">{{ guid }}</param>
+            <param name="type">{{ search_type }}</param>
+            <param name="stateCD">{{ state }}</param>
+
+            {% if delivery_method is defined %}<param name="jurisdictionName">{{ jurisdiction_name }}</param>{% endif %}
+            {% if jurisdiction_id is defined %}<param name="jurisdictionID">{{ jurisdiction_id }}</param>{% endif %}
+            {% if lapsed_term is defined %}<param name="lapsedTerm">{{ lapsed_term }}</param>{% endif %}
+            {% if lapsed_term_Year is defined %}<param name="lapsedTermYear">{{ lapsed_term_Year }}</param>{% endif %}
+            {% if start_date is defined %}<param name="startDate">{{ start_date }}</param>{% endif %}
+            {% if secondary_delivery_method is defined %}<param name="secondaryDeliveryMethod">{{ secondary_delivery_method }}</param>{% endif %}
+            {% if use_third_party is defined %}<param name="useThirdParty">{{ use_third_party }}</param>{% endif %}
+            {% if doc_number is defined %}<param name="docNumber">{{ doc_number }}</param>{% endif %}
+
+            {% if first_name is defined %}<param name="firstName">{{ first_name }}</param>{% endif %}
+            {% if last_name is defined %}<param name="lastName">{{ last_name }}</param>{% endif %}
+            {% if company_name is defined %}<param name="companyName">{{ company_name }}</param>{% endif %}
+            {% if secured_party_name is defined %}<param name="securedPartyName">{{ secured_party_name }}</param>{% endif %}
+            {% if business_id is defined %}<param name="businessID">{{ business_id }}</param>{% endif %}
+            {% if debtor_name is defined %}<param name="debtorName">{{ debtor_name }}</param>{% endif %}
+            {% if ficticious_business_name is defined %}<param name="ficticiousBusinessName">{{ ficticious_business_name }}</param>{% endif %}
+            {% if owner_name is defined %}<param name="ownerName">{{ owner_name }}</param>{% endif %}
+
+            {% if document is defined %}<param name="document">{{ document }}</param>{% endif %}
+            {% if certified is defined %}<param name="certified">{{ certified }}</param>{% endif %}
+            {% if subject is defined %}<param name="subject">{{ subject }}</param>{% endif %}
+            {% if criteria is defined %}<param name="criteria">{{ criteria }}</param>{% endif %}
+            {% if open_type is defined %}<param name="openType">{{ open_type }}</param>{% endif %}
+            {% if litigant_type is defined %}<param name="litigantType">{{ litigant_type }}</param>{% endif %}
+            {% if complaint is defined %}<param name="complaint">{{ complaint }}</param>{% endif %}
+            {% if last_action_filed is defined %}<param name="lastActionFiled">{{ last_action_filed }}</param>{% endif %}
+
+            {% if dat_of_birth is defined %}<param name="dateOfBirth">{{ dat_of_birth }}</param>{% endif %}
+            {% if ssn is defined %}<param name="SSN">{{ ssn }}</param>{% endif %}
+            {% if address is defined %}<param name="address">{{ address }}</param>{% endif %}
+            {% if city is defined %}<param name="city">{{ city }}</param>{% endif %}
+            {% if state is defined %}<param name="state">{{ state }}</param>{% endif %}
+            {% if country is defined %}<param name="country">{{ country }}</param>{% endif %}
+            {% if county is defined %}<param name="county">{{ county }}</param>{% endif %}
+            {% if borrower is defined %}<param name="borrower">{{ borrower }}</param>{% endif %}
+
+            {% if second_borrower is defined %}<param name="secondBorrower">{{ second_borrower }}</param>{% endif %}
+            {% if loan_number is defined %}<param name="loanNumber">{{ loan_number }}</param>{% endif %}
+            {% if tax_number is defined %}<param name="taxNumber">{{ tax_number }}</param>{% endif %}
+            {% if legal_desc is defined %}<param name="legalDesc">{{ legal_desc }}</param>{% endif %}
+
+            {% if delivery_method is defined %}<param name="deliveryMethodType">{{ delivery_method }}</param>{% endif %}
+            {% if delivery_method_value is defined %}<param name="deliveryMethodValue">{{ delivery_method_value }}</param>{% endif %}
+            {% if rush is defined %}<param name="rush">{{ rush }}</param>{% endif %}
+            {% if special_instructions is defined %}<param name="specialInstructions">{{ special_instructions }}</param>{% endif %}
+
+            {% if references is defined %}
+                <param name="references">
+                    <array>
+                    {% for reference in references %}
+                        <item>
+                            <key>{{ reference.key }}</key>
+                            <value>{{ reference.value }}</value>
+                        </item>
+                    {% endfor %}
+                    </array>
+                </param>
+            {% endif %}
+        </params>
+    </SubmitOfflineSearch>
+</soap:Body>
+</soap:Envelope>

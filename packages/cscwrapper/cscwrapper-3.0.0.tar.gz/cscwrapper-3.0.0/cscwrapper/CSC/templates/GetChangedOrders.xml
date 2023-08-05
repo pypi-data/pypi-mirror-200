@@ -1,0 +1,13 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eser="http://eservices.cscfinancialonline.com/">
+    <soap:Header />
+    <soap:Body>
+        <GetChangedOrders xmlns="https://eservices.cscfinancialonline.com/">
+            <params>
+                <param name="loginGuid">{{ guid }}</param>
+                <param name="contactNo">{{ contact_no }}</param>
+                <param name="status">{{ status }}</param>
+                <param name="fromDate">{{ from_date }}</param>
+            </params>
+        </GetChangedOrders>
+    </soap:Body>
+</soap:Envelope>

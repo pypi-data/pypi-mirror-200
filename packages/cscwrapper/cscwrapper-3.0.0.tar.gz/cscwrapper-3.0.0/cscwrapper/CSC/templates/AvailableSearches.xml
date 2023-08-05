@@ -1,0 +1,14 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eser="http://eservices.cscfinancialonline.com/">
+    <soap:Header />
+    <soap:Body>
+        <AvailableSearches xmlns="https://eservices.cscfinancialonline.com/">
+            <params>
+                <param name="loginGuid">{{ guid }}</param>
+                <param name="contactNo">{{ contact_no }}</param>
+                {% if state is defined %}<param name="stateCD">{{ state }}</param>{% endif %}
+                <!-- {% if search_type is defined %}<param name="searchType">{{ search_type }}</param>{% endif %} -->
+                {% if is_online is defined %}<param name="isOnline">{{ is_online }}</param>{% endif %}
+            </params>
+        </AvailableSearches>
+    </soap:Body>
+</soap:Envelope>

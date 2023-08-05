@@ -1,0 +1,99 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:eser="http://eservices.cscfinancialonline.com/">
+    <soap:Header />
+    <soap:Body>
+        <UpdateFiling xmlns="https://eservices.cscfinancialonline.com/">
+            <params>
+                <param name="loginGuid">{{ guid }}</param>
+                <param name="contactNo">{{ contact_no }}</param>
+                <param name="orderID">{{ order_id }}</param>
+                <param name="xmlFiling">
+                    <Document xmlns="">
+                        <Header>
+                            <Filer>
+                                <Names>
+                                    <OrganizationName />
+                                    <MailAddress />
+                                    <City />
+                                    <State />
+                                    <PostalCode />
+                                </Names>
+                                <ClientAccountNum>{{ filer_client_account_num|default('') }}</ClientAccountNum>
+                                <ContactName>{{ filer_contact_name|default('') }}</ContactName>
+                                <ContactPhone>{{ filer_contact_phone|default('') }}</ContactPhone>
+                                <ContactEmail>{{ filer_contact_email|default('') }}</ContactEmail>
+                                <ContactFax>{{ filer_contact_fax|default('') }}</ContactFax>
+                            </Filer>
+                        </Header>
+                        <Record>
+                            <SeqNumber />
+                            <TransType Type="Initial" />
+                            <Diligenz>
+                                <References>
+                                    {% for reference in references %}
+                                    <ReferenceField Index="No">
+                                        <ReferenceFieldName>{{ reference.name|default('') }}</ReferenceFieldName>
+                                        <ReferenceFieldValue>{{ reference.value|default('') }}</ReferenceFieldValue>
+                                    </ReferenceField>
+                                    {% endfor %}
+                                </References>
+                                <FilingJurisdiction>
+                                    <State>{{ filing_jurisdiction_state|default('') }}</State>
+                                    <JurisdictionName>{{ filing_jurisdiction_name|default('') }}</JurisdictionName>
+                                    <JurisdictionID>{{ filling_jurisdiction_id|default('') }}</JurisdictionID>
+                                </FilingJurisdiction>
+                                <ContactName />
+                            </Diligenz>
+                            <SubmitterRef>{{ submitter_reference|default('') }}</SubmitterRef>
+                            <SearchToReflect />
+                            <STRCertified />
+                            <StrDocuments />
+                            <StrUpdatedFrom />
+                            <Debtors>
+                                {% for debtor in debtors %}
+                                    <DebtorName>
+                                        <Names>
+                                            {% if debtor.first_name == None and debtor.organization_name != None %}
+                                                <OrganizationName>{{ debtor.organization_name|default('') }}</OrganizationName>
+                                            {% else %}
+                                                <IndividualName>
+                                                    <LastName>{{ debtor.last_name|default('') }}</LastName>
+                                                    <FirstName>{{ debtor.first_name|default('') }}</FirstName>
+                                                    <MiddleName>{{ debtor.middle_name|default('') }}</MiddleName>
+                                                    <Suffix>{{ debtor.suffix|default('') }}</Suffix>
+                                                </IndividualName>
+                                            {% endif %}
+                                            <MailAddress>{{ debtor.mailing_address|default('') }}</MailAddress>
+                                            <City>{{ debtor.city|default('') }}</City>
+                                            <State>{{ debtor.state|default('') }}</State>
+                                            <PostalCode>{{ debtor.postal_code|default('') }}</PostalCode>
+                                            <County />
+                                            <Country>{{ debtor.country|default('') }}</Country>
+                                            <OrganizationalType Type="NOType">{{ debtor.organization_type|default('') }}</OrganizationalType>
+                                            <OrganizationalJuris>{{ debtor.organization_jurisdiction|default('') }}</OrganizationalJuris>
+                                            <OrganizationalID>{{ debtor.organization_id|default('') }}</OrganizationalID>
+                                        </Names>
+                                    </DebtorName>
+                                {% endfor %}
+                            </Debtors>
+                            <Secured>
+                                <SecuredName>
+                                    <Names>
+                                        <OrganizationName>{{ secured_name_organization_name|default('') }}</OrganizationName>
+                                        <MailAddress>{{ secured_name_organization_mailing_address }}</MailAddress>
+                                        <City>{{ secured_name_organization_city }}</City>
+                                        <State>{{ secured_name_organization_state }}</State>
+                                        <PostalCode>{{ secured_name_organization_postal|default('') }}</PostalCode>
+                                        <Country>{{ secured_name_organization_country|default('') }}</Country>
+                                    </Names>
+                                </SecuredName>
+                            </Secured>
+                            <Collateral>
+                                <ColText>{{ col_text|default('') }}</ColText>
+                            </Collateral>
+                        </Record>
+                    </Document>
+                </param>
+            </params>
+        </UpdateFiling>
+    </soap:Body>
+</soap:Envelope>
