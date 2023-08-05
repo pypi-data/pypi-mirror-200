@@ -1,0 +1,25 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "autocar"
+authors = [{name = "Jean Henstock", email = "63672596+jjhenstock@users.noreply.github.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = [
+    "extract-msg",
+    "keyboard",
+    "numpy",
+    "openpyxl",
+    "pandas",
+    "PyAutoGUI",
+    "PyPDF2",
+    "pyperclip",
+    "xlwings==0.28.5",
+]
+
+[project.urls]
+Home = "https://github.com/jjhenstock/autocar"
