@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: openprotein
+Version: 0.1.0
+Summary: Open-Protein is an open source pre-training platform that supports multiple protein pre-training models and downstream tasks.
+Home-page: 
+Author: HIC-AI
+Author-email: hic_ai@163.com
+License: Apache-2.0
+Keywords: open,protein,pre-training,downstream task
+Platform: UNKNOWN
+Requires-Python: >=3.6.0,<3.10.0
+Requires-Dist: numpy (>=1.11)
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: lmdb
+Provides-Extra: docs
+Requires-Dist: recommonmark ; extra == 'docs'
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-markdown-tables ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (==0.4.3) ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ; extra == 'docs'
+Provides-Extra: testing
+Requires-Dist: unittest ; extra == 'testing'
+Provides-Extra: torch
+Requires-Dist: torch (>=1.5.0) ; extra == 'torch'
+
+UNKNOWN
+
