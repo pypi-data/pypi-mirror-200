@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: flactomp3
+Version: 1.0.1
+Summary: Convert FLAC audio files into MP3 files.
+Project-URL: Homepage, https://github.com/haru52/flactomp3#readme
+Project-URL: Bug Tracker, https://github.com/haru52/flactomp3/issues
+Project-URL: Repository, https://github.com/haru52/flactomp3.git
+Author: haru
+License-Expression: MIT
+License-File: LICENSE
+Keywords: audio,converter,encoder,flac,mp3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: ~=3.11
+Requires-Dist: click~=8.1
+Description-Content-Type: text/markdown
+
+# flactomp3: FLAC to MP3
+
+[![Test](https://github.com/haru52/flactomp3/actions/workflows/test.yml/badge.svg)](https://github.com/haru52/flactomp3/actions/workflows/test.yml)
+[![Release](https://github.com/haru52/flactomp3/actions/workflows/release.yml/badge.svg)](https://github.com/haru52/flactomp3/actions/workflows/release.yml)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://haru52.github.io/flactomp3/CODE_OF_CONDUCT.html)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
+[![semantic-release: conventionalcommits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+
+## Overview
+
+flactomp3 converts FLAC audio files into MP3 files.
+
+## Requirements
+
+| Tool   | Version |
+| ------ | ------- |
+| FFmpeg | ^5.1.2  |
+
+## Installation
+
+```sh
+pip install flactomp3
+```
+
+## Usage
+
+```console
+Usage: flactomp3 [OPTIONS] INPUT_DIRECTORY_PATH [OUTPUT_DIRECTORY_PATH]
+
+  Convert FLAC audio files into MP3 320kbps CBR files.
+
+Options:
+  --version   Show the version and exit.
+  -h, --help  Show this message and exit.
+```
+
+If you don't input `[OUTPUT_DIRECTORY_PATH]`, flactomp3 makes `mp3` directory in the current directory and sets this `mp3/` as the output directory.
+
+## Update
+
+```sh
+pip install -U flactomp3
+```
+
+## Uninstall
+
+```sh
+pip uninstall flactomp3
+```
+
+## Description
+
+- flactomp3 converts FLAC audio files into MP3 320kbps CBR files
+- The output preserves the input directory structure
+- The output MP3 files preserve the input FLAC files' metadata
+- If a MP3 file with the same name already exists at the output directory, flactomp3 doesn't overwrite it
+
+## Versioning policy
+
+[Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html)
+
+## License
+
+[MIT](https://github.com/haru52/flactomp3/blob/main/LICENSE)
+
+## Contributing
+
+[Contributing Guideline](https://haru52.github.io/flactomp3/CONTRIBUTING.html)
+
+## Documentation
+
+[Documentation | flactomp3](https://haru52.github.io/flactomp3/)
+
+<!-- vale Microsoft.Vocab = NO -->
+## Author
+<!-- vale Microsoft.Vocab = YES -->
+
+[haru](https://haru52.com/)
