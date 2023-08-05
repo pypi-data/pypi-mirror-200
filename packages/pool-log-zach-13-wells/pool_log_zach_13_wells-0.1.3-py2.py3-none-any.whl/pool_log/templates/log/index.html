@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}{{ pool['name']|title }} Overview{% endblock%}</h1>
+{% endblock %}
+
+{% block content %}
+{% if pool %}
+<a class="button" href="{{ url_for('log.create') }}">New Log</a>
+{% endif %}
+{% for log in logs %}
+<article class="log">
+	<header>
+		<h1>{{ log['created'] }}</h1>
+	</header>
+	<ul>
+		<li>Temperature: {{ log['temperature'] }}</li>
+		<li>pH: {{ log['ph'] }}</li>
+		<li>Chlorine: {{ log['chlorine'] }}</li>
+		<li>Cyanuric Acid (CYA): {{ log['cya'] }}</li>
+		<li>Pressure: {{ log['pressure'] }}</li>
+		<li>Clarity: {{ log['clarity'] }}</li>
+	</ul>
+</article>
+<!--
+{% if not loop.last %}
+<hr>
+{% endif %}
+-->
+{% endfor %}
+{% endblock %}

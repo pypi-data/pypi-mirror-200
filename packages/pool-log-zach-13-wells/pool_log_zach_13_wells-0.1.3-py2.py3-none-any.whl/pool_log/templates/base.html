@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+	<meta name="viewport" content="width=device-eidth, initial-scale=1">
+	<title>{% block title %}{% endblock %} - Pool Log</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<nav>
+	<h1>Pool Log</h1>
+	<ul>
+		<li><a class="button stretch" href="{{ url_for('index') }}">Home</a></li>
+		<li><a class="button stretch" href="{{ url_for('pool.create') }}">New Pool</a></li>
+		<li><a class="button stretch" href="{{ url_for('pool.select') }}">Select Pool</a></li>
+	</ul>
+</nav>
+<section class="content">
+	<header>
+		{% block header %}{% endblock %}
+	</header>
+	{% for message in get_flashed_messages() %}
+	<div class="flash">{{ message }}</div>
+	{% endfor %}
+	{% block content %}{% endblock %}
+</section>

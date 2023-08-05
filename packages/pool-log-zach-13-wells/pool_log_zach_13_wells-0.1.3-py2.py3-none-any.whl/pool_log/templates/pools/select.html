@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Select Pool{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ url_for('pool.select') }}" method="POST">
+	{% for pool in pools %}
+	<label for="{{ pool['name'] }}">
+		<input type="radio" id="{{ pool['name'] }}" name="pool" value="{{ pool['id'] }}">
+		{{ pool['name'] }}
+	</label>
+	{% endfor %}
+	<input class="button" type="submit" value="Select Pool">
+</form>
+<a href="{{ url_for('pool.create') }}>Create New Pool</a>
+{% endblock %}
