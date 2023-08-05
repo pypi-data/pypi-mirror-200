@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: ncbi_db
+Version: 0.0.4
+Summary: Collection of scripts that wrap the Entrez Bio python module, to query and download portions of NCBI databases
+Home-page: https://github.com/pypa/ncbi_db
+Author: Marco Mariotti
+Author-email: marco.mariotti@ub.edu
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# ncbi_db
+Collection of scripts that wrap the Entrez Bio python module.
+Mainly to build your own copy of selected entries form the ncbi databases
+
+
+## Installation
+
+conda install -c mmariotti ncbi_db
+
+## Tools
+
+Right now these tools are available:
+
+- *ncbi_assembly*       to browse (and download) the available assemblies/genomes for any species or lineage, including their annotation/proteome
+- *ncbi_sequences*      search and download nucleotide/protein sequences or their metadata
+- *ncbi_pubmed*         wrapper to ncbi pubmed search engine; it can format results for bibliography
+- *ncbi_taxonomy*       search NCBI taxonomy
+- *ncbi_taxonomy_tree*  
+- *ncbi_db_info*        displays the available fields in any NCBI DB, useful before running ncbi_search
+- *ncbi_search*         generic search tool for any NCBI DB
