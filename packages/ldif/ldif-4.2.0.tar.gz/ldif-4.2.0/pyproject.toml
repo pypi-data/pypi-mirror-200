@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "ldif"
+version = "4.2.0"
+description = "generate and parse LDIF data (see RFC 2849)."
+license = "BSD"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "License :: OSI Approved :: BSD License",
+  "Intended Audience :: Developers",
+  "Topic :: System :: Systems Administration :: Authentication/Directory :: LDAP",
+]
+homepage = "https://github.com/abilian/ldif"
+documentation = "https://ldif.readthedocs.io/en/latest/"
+authors = ["Abilian SAS <dev@abilian.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pip = "^23.0.1"
+
+[tool.poetry.dev-dependencies]
+abilian-devtools = "^0.4.13"
+
+# Testing
+# pytest = "*"
+pytest-randomly = "*"
+coveralls = "*"
+typeguard = "*"
+
+# Needed for some reason
+pyyaml = "*"
+
+# Doc
+sphinx = "*"
+sphinx-rtd-theme = "*"
+restructuredtext_lint = "*"
+recommonmark = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.run]
+# parallel = true
+# branch = true
+source = ["ldif"]
+
+[tool.coverage.paths]
+source = ["src", ".tox/*/site-packages"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+  "pragma: no cover",
+  # PyPy is unacceptably slow under coverage.
+  "if PYPY:",
+]
