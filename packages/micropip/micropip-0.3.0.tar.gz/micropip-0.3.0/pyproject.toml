@@ -1,0 +1,67 @@
+[project]
+name = "micropip"
+authors = [
+  { name="Pyodide developers"},
+]
+description = "A lightweight Python package installer for the web "
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: OS Independent",
+]
+dynamic = ["version"]
+dependencies = ["packaging>=23.0"]
+[project.optional-dependencies]
+test = [
+  "pytest-pyodide",
+  "pytest-cov",
+  "build",
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/pyodide/micropip"
+"Bug Tracker" = "https://github.com/pyodide/micropip/issues"
+
+
+
+[build-system]
+requires = ["setuptools>=42", "setuptools_scm[toml]>=6.2", "wheel"]
+
+build-backend = "setuptools.build_meta"
+
+# Evable versioning via setuptools_scm
+[tool.setuptools_scm]
+write_to = "micropip/_version.py"
+
+[tool.ruff]
+select = [
+  "E",     # pycodestyles
+  "W",     # pycodestyles
+  "F",     # pyflakes
+  "B0",    # bugbear (all B0* checks enabled by default)
+  "B904",  # bugbear (Within an except clause, raise exceptions with raise ... from err)
+  "B905",  # bugbear (zip() without an explicit strict= parameter set.)
+  "UP",    # pyupgrade
+  "I",     # isort
+  "PGH",   # pygrep-hooks
+]
+# Remove E999 once pattern matching is supported
+# https://github.com/charliermarsh/ruff/issues/282
+ignore = ["E402", "E501", "E731", "E741", "E999"]
+target-version = "py311"
+
+
+[tool.ruff.isort]
+known-first-party = [
+  "micropip"
+]
+
+[tool.mypy]
+python_version = "3.11"
+show_error_codes = true
+warn_unreachable = true
+ignore_missing_imports = true

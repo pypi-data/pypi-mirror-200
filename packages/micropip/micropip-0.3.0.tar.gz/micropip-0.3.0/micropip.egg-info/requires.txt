@@ -1,0 +1,6 @@
+packaging>=23.0
+
+[test]
+pytest-pyodide
+pytest-cov
+build
