@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pod-gpt
+Version: 0.0.2
+Summary: Package for building podcast search indexes.
+Author: James Briggs
+Author-email: james@aurelio.ai
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: langchain (>=0.0.125,<0.0.126)
+Requires-Dist: pytube (>=12.1.3,<13.0.0)
+Description-Content-Type: text/markdown
+
+# PodGPT
