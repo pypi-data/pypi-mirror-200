@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: Calibrator-KS1200
+Version: 0.0.5
+Summary: Package for calibrator dry block KS-1200-1
+Author-email: Denis Nikolaev <nickolaev.d@gmail.com>
+License: BSD-3-Clause
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: PyQt5
+Requires-Dist: numpy
+Requires-Dist: pyqtgraph
+Requires-Dist: pyserial
+
+![Компания Эталон](https://omsketalon.ru/sites/default/files/logo_s_0.png)
+
+<br>
+<h1>Калибратор КС-1200С</h1>
+
+Данный пакет предназначен для рабооты калибратора сухоблочного КС-1200С компании Эталон.
+<br><br><br>
+<h2> Ссылки </h2>
+
+- [Компания эталон](http://www.omsketalon.ru/)
+- [GitHUB](https://github.com/psih0/KS1200)
+<br><br><br>
+## Лицензия
+
+Лицензия MIT
