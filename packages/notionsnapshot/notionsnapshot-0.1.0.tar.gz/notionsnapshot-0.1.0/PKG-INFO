@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: notionsnapshot
+Version: 0.1.0
+Summary: 
+Author: Yahya Jabary
+Author-email: jabaryyahya@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: appdirs (>=1.4.4,<2.0.0)
+Requires-Dist: argparse (>=1.4.0,<2.0.0)
+Requires-Dist: black (>=23.1.0,<24.0.0)
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: cssutils (>=2.6.0,<3.0.0)
+Requires-Dist: html5lib (>=1.1,<2.0)
+Requires-Dist: rich (>=13.3.3,<14.0.0)
+Requires-Dist: selenium (>=4.8.2,<5.0.0)
+Requires-Dist: termcolor (>=2.2.0,<3.0.0)
+Requires-Dist: webdriver-manager (>=3.8.5,<4.0.0)
