@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: auto-subtitles-generator
+Version: 0.2.0
+Summary: Auto subtitles generator for videos
+Author: Gheorghe Andrei
+Author-email: gheorgheandrei13@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: ffmpeg-python (>=0.2.0,<0.3.0)
+Requires-Dist: httpx (>=0.22.0,<0.23.0)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: requests (>=2.26,<3.0)
+Description-Content-Type: text/markdown
+
+# Auto-subtitles video tool using AssemblyAI API and ffmpeg
+
+## Requirements
+
+You need an AssemblyAI API key. You can get one [here](https://app.assemblyai.com/login).
+API key can be set using the `--api_key` option or by setting the `AAI_API_KEY` environment variable.
+
+## Install
+
+### Pip
+
+```bash
+pip3 install auto-subtitles-generator
+```
+
+### From source
+
+```bash
+git clone 
+cd auto-subtitles-generator
+poetry install
+```
+
+## Usage
+
+```bash
+Usage: auto_subtitles [OPTIONS]
+
+Options:
+  -i, --input PATH   Path to video file  [required]
+  -o, --output PATH  Output video file  [required]
+  --api_key TEXT     AssemblyAI API key
+  --help             Show this message and exit.
+```
+
+## Coverage
+
+```bash
+coverage run -m unittest && coverage report -m
+```
+
