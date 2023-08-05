@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: engagespot
+Version: 0.0.1
+Summary: Python library for communicating with Engagespot REST API.
+Home-page: https://github.com/Engagespot/engagespot-python
+Author: Anand
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: requests (>=2.23.0)
+
+This is the official Python library for communicating with Engagespot REST API. Send multi-channel notifications from your python app.
+
+# Installation
+
+```
+pip install engagespot-python
+```
+
+# Prerequisites
+You need Engagespot API KEY and API SECRET from your [dashboard](https://portal.engagespot.co) to get started. If you don't have one, just get one for free.
+
+# Sending a notification
+
+```python
+from engagespot import Engagespot
+
+
+client = Engagespot(api_key="ENGAGESPOT_API_KEY", api_secret="ENGAGESPOT_API_SECRET")
+
+send_request = {
+    "notification": {
+        "title":"Test from Python library🔥"
+    },
+    "recipients":["uid_123456"]
+}
+    
+response = client.send(send_request)
+```
+
+Refer [Engagespot REST API Docs](https://documentation.engagespot.co/docs/rest-api) to get the list of all supported parameters.
+
+# Creating or updating a user
+
+```python
+user_profile = {
+    "name" : "Python User",
+    "email" : "python@engagespot.co"
+}
+
+response = client.create_or_update_user("pythonuser2");
+```
