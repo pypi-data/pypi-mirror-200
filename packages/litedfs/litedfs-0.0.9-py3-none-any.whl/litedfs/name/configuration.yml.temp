@@ -1,0 +1,11 @@
+log_level: NOSET
+log_path: log_path_string
+http_host: 0.0.0.0
+http_port: 9000
+tcp_host: 0.0.0.0
+tcp_port: 6061
+block_size: 67108864 # 67108864 = 64M
+users:
+  - name: admin
+    password: admin
+data_path: data_path_string
