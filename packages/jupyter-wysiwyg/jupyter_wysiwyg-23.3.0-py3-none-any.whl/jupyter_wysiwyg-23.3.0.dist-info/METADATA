@@ -1,0 +1,102 @@
+Metadata-Version: 2.1
+Name: jupyter-wysiwyg
+Version: 23.3.0
+Summary: WYSIWYG editing functionality for markdown/HTML cells in Jupyter
+Project-URL: Homepage, https://github.com/g2nb/jupyter-wysiwyg
+Author-email: Thorin Tabor <tmtabor@cloud.ucsd.edu>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2015-2021, Regents of the University of California & Broad Institute
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright notice, this
+          list of conditions and the following disclaimer.
+        
+        * Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution.
+        
+        * Neither the name of the copyright holder nor the names of its
+          contributors may be used to endorse or promote products derived from
+          this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: LICENSE.txt
+Keywords: Jupyter,JupyterLab,JupyterLab3
+Classifier: Framework :: Jupyter
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Requires-Dist: jupyterlab>=3.4
+Description-Content-Type: text/markdown
+
+# Rich Text HTML/Markdown Editor for JupyterLab
+
+This is an nbextension that enables WYSIWYG editing functionality for HTML/Markdown cells in Jupyter.
+
+## Requirements
+
+* JupyterLab >= 3.0
+* ipywidgets >= 7.0.0
+
+## Installing
+
+This extension can be installed through PIP.
+
+```bash
+pip install jupyter-wysiwyg
+```
+
+***OR***
+
+```bash
+# Clone the jupyter-wysiwyg repository
+git clone https://github.com/g2nb/jupyter-wysiwyg.git
+cd jupyter-wysiwyg 
+
+# Install the jupyter-wysiwyg JupyterLab prototype
+pip install -e .
+jupyter labextension develop . --overwrite
+```
+
+## Development
+
+You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in 
+the extension's source and automatically rebuild the extension. To develop, run each of the following commands in a 
+separate terminal. 
+
+```bash
+jlpm run watch
+jupyter lab
+```
+
+The `jlpm` command is JupyterLab's pinned version of [yarn](https://yarnpkg.com/) that is installed with JupyterLab. You 
+may use `yarn` or `npm` in lieu of `jlpm`.
+
+With the watch command running, every saved change will immediately be built locally and available in your running 
+JupyterLab. Refresh JupyterLab to load the change in your browser (you may need to wait several seconds for the 
+extension to be rebuilt).
+
+By default, the `jlpm run build` command generates the source maps for this extension to make it easier to debug using 
+the browser dev tools. To also generate source maps for the JupyterLab core extensions, you can run the following command:
+
+```bash
+jupyter lab build --minimize=False
+```
