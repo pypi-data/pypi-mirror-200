@@ -1,0 +1,7 @@
+include LICENSE
+include README.md
+recursive-include src *
+recursive-include config *
+recursive-include models *
+recursive-include routes *
+recursive-include utils *
