@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "mega_seeds"
+version = "0.1.0"
+description = ""
+authors = ["Dimash <digisinov@megacom.kg>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mako = "^1.2.4"
+aiofiles = "^23.1.0"
+asyncclick = "^8.1.3.4"
+anyio = "^3.6.2"
+loguru = "^0.6.0"
+shortuuid = "^1.0.11"
+asyncpg = "^0.27.0"
+databases = "^0.7.0"
+
+[tool.poetry.scripts]
+seeds = "seeds.cli:seeds"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+types-aiofiles = "^23.1.0.1"
+mypy = "^1.1.1"
+isort = "^5.12.0"
+ruff = "^0.0.259"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
