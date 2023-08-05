@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "span-to-ibo"
+version = "0.1.0"
+description = "This is a script to convert the output file of doccano to a format that is easy to handle with sklearn-crfsuite."
+authors = ["Akimitsu Inoue <inoue.akimitsu@gmail.com>"]
+homepage = "https://github.com/inoueakimitsu/span-to-ibo"
+repository = "https://github.com/inoueakimitsu/span-to-ibo"
+readme = "README.md"
+packages = [{include = "span_to_ibo"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+janome = "^0.4.2"
+pandas = "^1.5.3"
+
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.2"
+pytest = "^7.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
