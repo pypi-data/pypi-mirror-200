@@ -1,0 +1,4 @@
+recursive-include youhi/** *.js *.css *.json *.html
+include assets/output.css
+include README.md
+prune tests
