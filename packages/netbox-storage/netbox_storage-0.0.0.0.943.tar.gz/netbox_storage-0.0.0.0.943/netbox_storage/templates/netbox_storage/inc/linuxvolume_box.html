@@ -1,0 +1,62 @@
+<div class="card">
+    <h5 class="card-header">Linux Volumes</h5>
+    <div class="card-body">
+        {% if lvm_list or linux_volume_list %}
+        <table class="table table-hover">
+            <tr>
+                <td>Volume Name</td>
+                <td>Filesystem</td>
+                <td>Mount Path</td>
+                <td>Volume Size</td>
+                <td>Partition / <br>Physical Volumes</td>
+                <td>Partition Info</td>
+                <td>Drive Identifier</td>
+            </tr>
+            {% for lvm in lvm_list %}
+            <tr>
+                <td>{{ lvm.lv_name|linkify|placeholder }}-{{ lvm.vg_name|linkify|placeholder }}</td>
+                <td>{{ lvm.fs|linkify|placeholder }}</td>
+                <td>{{ lvm.path|linkify|placeholder }}</td>
+                <td>{{ lvm.size|linkify|placeholder }} GB</td>
+                <td>
+                {% for pv in lvm.pv_list %}
+                    {{ pv.pv_name|linkify|placeholder }} <br>
+                {% endfor %}
+                </td>
+                <td>
+                {% for partition in lvm.partition_list %}
+                    {{ partition.size|linkify|placeholder }} GB ({{ partition.type|linkify|placeholder }})<br>
+                {% endfor %}
+                </td>
+                <td>
+                {% for partition in lvm.partition_list %}
+                    {{ partition.drive.identifier|linkify|placeholder }} ({{ partition.drive.cluster|linkify|placeholder }} - {{ partition.drive.size|linkify|placeholder }} GB)<br>
+                {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+            {% for linux_volume in linux_volume_list %}
+            <tr>
+                <td>{{ linux_volume.description|linkify|placeholder }}</td>
+                <td>{{ linux_volume.fs|linkify|placeholder }}</td>
+                <td>{{ linux_volume.path|linkify|placeholder }}</td>
+                <td>{{ linux_volume.size|linkify|placeholder }} GB</td>
+                <td>{{ linux_volume.partition.device|linkify|placeholder }}</td>
+                <td>{{ linux_volume.partition.size|linkify|placeholder }} GB ({{ linux_volume.partition.type|linkify|placeholder }})</td>
+                <td>{{ linux_volume.partition.drive.identifier|linkify|placeholder }} ({{ linux_volume.partition.drive.cluster|linkify|placeholder }} - {{ linux_volume.partition.drive.size|linkify|placeholder }} GB)</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div class="text-muted">None</div>
+        {% endif %}
+    </div>
+    <div class="card-footer text-end noprint">
+        <a href="{% url 'plugins:netbox_storage:lvm_simple_add' %}" class="btn btn-sm btn-primary">
+            <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add LVM
+        </a>
+        <a href="{% url 'plugins:netbox_storage:lv_simple_add' %}" class="btn btn-sm btn-primary">
+            <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add Linux Volume
+        </a>
+    </div>
+</div>

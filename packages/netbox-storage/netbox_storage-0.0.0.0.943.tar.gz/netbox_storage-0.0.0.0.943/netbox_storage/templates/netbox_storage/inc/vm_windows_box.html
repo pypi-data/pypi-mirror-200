@@ -1,0 +1,99 @@
+{% load storage %}
+{% load perms %}
+
+{% load form_helpers %}
+{% load helpers %}
+
+<div class="card">
+    <h5 class="card-header">Windows Drives & Partition</h5>
+    <div class="card-body">
+        {% if partition_dict %}
+        <table class="table table-hover">
+            <tr>
+                <td>Drive</td>
+                <td>Drive Size</td>
+                <td>Drive Cluster</td>
+                <td></td>
+            </tr>
+            {% for key,value in partition_dict.items %}
+            <tr>
+                <td>{{ key.identifier|linkify|placeholder }}</td>
+                <td>{{ key.size|placeholder }} GB</td>
+                <td>{{ key.cluster|linkify|placeholder }}</td>
+                <td class="text-end noprint">
+                    <a href="{% url 'plugins:netbox_storage:drive_changelog' pk=key.pk %}" class="btn btn-sm btn-outline-secondary" title="Change Log">
+                        <i class="mdi mdi-history"></i>
+                    </a>
+                    {% if perms.ipam.change_service %}
+                        <a href="{% url 'plugins:netbox_storage:drive_edit' pk=key.pk %}?return_url={% url 'virtualization:virtualmachine' pk=object.pk %}" class="btn btn-warning btn-sm" title="Edit Drive">
+                            <i class="mdi mdi-pencil"></i>
+                        </a>
+                    {% endif %}
+                    {% if perms.ipam.delete_service %}
+                        <a href="{% url 'plugins:netbox_storage:drive_delete' pk=key.pk %}?return_url={% url 'virtualization:virtualmachine' pk=object.pk %}" class="btn btn-danger btn-sm">
+                            <i class="mdi mdi-trash-can-outline" title="Delete Drive"></i>
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% if value %}
+            {% for partition in value %}
+            <tr class="table-secondary">
+                <td>{{ partition.letter|linkify|placeholder }}</td>
+                <td>{{ partition.size|linkify|placeholder }} GB</td>
+                <td>{{ partition.fs_type|linkify|placeholder }}</td>
+                <td class="text-end noprint">
+                    <a href="{% url 'plugins:netbox_storage:partition_changelog' pk=partition.pk %}" class="btn btn-sm btn-outline-secondary" title="Change Log">
+                        <i class="mdi mdi-history"></i>
+                    </a>
+                    {% if perms.ipam.change_service %}
+                        <a href="{% url 'plugins:netbox_storage:partition_edit' pk=partition.pk %}?return_url={% url 'virtualization:virtualmachine' pk=object.pk %}" class="btn btn-warning btn-sm" title="Edit Partition">
+                            <i class="mdi mdi-pencil"></i>
+                        </a>
+                    {% endif %}
+                    {% if perms.ipam.delete_service %}
+                        <a href="{% url 'plugins:netbox_storage:partition_delete' pk=partition.pk %}?return_url={% url 'virtualization:virtualmachine' pk=object.pk %}" class="btn btn-danger btn-sm">
+                            <i class="mdi mdi-trash-can-outline" title="Delete Partition"></i>
+                        </a>
+                    {% endif %}
+                </td>
+            {% endfor %}
+            </tr>
+            {% if key.free_space_on_drive > 0 %}
+            <tr>
+                <td colspan="4" class="text-end noprint">
+                    <a href="{% url 'plugins:netbox_storage:partition_add' %}?drive={{ key.id }}&size={{ key.free_space_on_drive }}&return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-sm btn-primary">
+                        <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add Partition to drive
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+            <tr>
+            {% else %}
+                <td  colspan="3" class="table-active">No Partition for the drive</td>
+                <td class="text-end noprint">
+                    <a href="{% url 'plugins:netbox_storage:partition_add' %}?drive={{ key.id }}&size={{ key.free_space_on_drive }}&return_url={% url 'virtualization:virtualmachine' pk=object.pk %}" class="btn btn-sm btn-primary">
+                        <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add Partition to drive
+                    </a>
+                </td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div class="text-muted">None</div>
+        {% endif %}
+    </div>
+    {% if perms.netbox_storage.add_drive %}
+    <div class="card-footer text-end noprint">
+        <a href="{% url 'plugins:netbox_storage:sync-template-to-vm' %}?q={{ object.pk }}" class="btn btn-sm btn-primary">
+            <span class="mdi mdi-file-sync" aria-hidden="true"></span> Add Template from Platform
+        </a>
+        {% with object|meta:"model_name" as object_type %}
+            <a href="{% url 'plugins:netbox_storage:drive_add' %}?virtual_machine={{ object.pk }}&return_url={% url 'virtualization:virtualmachine' pk=object.pk %}" class="btn btn-sm btn-primary">
+                <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add Drive to Windows VM
+            </a>
+        {% endwith %}
+    </div>
+    {% endif %}
+</div>

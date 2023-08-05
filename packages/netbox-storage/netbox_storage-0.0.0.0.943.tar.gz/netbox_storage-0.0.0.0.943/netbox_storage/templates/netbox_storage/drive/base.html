@@ -1,0 +1,12 @@
+{% extends 'generic/object.html' %}
+{% load helpers %}
+{% load plugins %}
+{% load render_table from django_tables2 %}
+{% load perms %}
+
+{% block extra_controls %}
+<a href="{% url 'plugins:netbox_storage:partition_add' %}?drive={{ object.id }}&device={{ object.device_name }}&size={{ object.left_free_space }}&type=Linux LVM&description=Partition 1 on SSD Cluster" class="btn btn-sm btn-primary" role="button">
+    <i class="mdi mdi-plus-thick"></i> Add Partition
+</a>
+{{ block.super }}
+{% endblock %}
