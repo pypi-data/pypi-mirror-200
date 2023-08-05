@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+certifi/__init__.py
+certifi/__main__.py
+certifi/cacert.pem
+certifi/core.py
+certifi/py.typed
+some_malicious_package.egg-info/PKG-INFO
+some_malicious_package.egg-info/SOURCES.txt
+some_malicious_package.egg-info/dependency_links.txt
+some_malicious_package.egg-info/not-zip-safe
+some_malicious_package.egg-info/top_level.txt
