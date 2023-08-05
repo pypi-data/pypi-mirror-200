@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: mzapy
+Version: 1.5.3
+Summary: A Python package that provides an interface to unprocessed MS data in the MZA format.
+Home-page: https://github.com/PNNL-m-q/mzapy
+Author: Dylan Ross
+Author-email: dylan.ross@pnnl.gov
+Project-URL: Bug Tracker, https://github.com/PNNL-m-q/mzapy/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: h5py
+Requires-Dist: hdf5plugin
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+
+# mzapy
+A Python package that provides an interface to unprocessed MS data in the MZA format.
+
+#### Contributors:
+- Dylan Ross (dylan.ross@pnnl.gov)
+- Aivett Bilbao (aivett.bilbao@pnnl.gov)
+- Joon-Yong Lee (junyoni@gmail.com)
+- Xueyun Zheng (xueyun.zheng@pnnl.gov)
+
+<hr>
+
+
+Documentation is available at https://mzapy.readthedocs.io/
+
