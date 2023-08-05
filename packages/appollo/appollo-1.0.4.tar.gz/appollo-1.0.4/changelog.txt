@@ -1,0 +1,49 @@
+v1.0.4:
+    - Ignore local flutter version check when it fails
+
+v1.0.2:
+    - Added .appolloignore support to specify files and directories to ignore when sending files to build
+    - Added support for mode, target and flavor options during flutter build
+    - Added local flutter version check when starting build with warning if it is different from the one of the build
+    - Default deployment target is set to 11 if none is provided during build and it's set to 9 in xcode configuration
+    - Fixes
+
+v1.0.1:
+    - Added missing requirements in the docs folder otherwise the reference guide does not get generated
+
+v1.0.0:
+    - Added reverse SSH tunnel
+    - Added QR code for IPA download
+    - Added check of version and build number before starting build
+    - Improved the performance of the build machines
+    - Builds of type configuration have now a duration of 1 hour instead of 30 min. When arriving at 5 minutes of the end 
+      a prompt tells the user that the Appollo Remote will be closed
+    - Changed the connection to the build machines from Spice to RustDesk
+    - Made it possible to make a configuration build without an Apple Developer account. An Apple Developer account is
+      still necessary for the creation of the IPA or for publication
+    - Added a possibility to easily copy errors from Appollo to StackOverflow
+    - Updated the documentation with the new Appollo features
+    - First version of the screenshot editor : to user run `appollo app screenshots`
+    - Bug fixes and improvements
+
+v0.2.4
+    - CLI: Fixed token refresh when it is too old
+    - CLI: Fixed error in build selection menu when a build has no time
+
+v0.2.3
+	- CLI: Fixed build display when no start time
+v0.2.2
+    - CLI: Fixed remote desktop url
+v0.2.1
+    - CLI: Exclude unnecessary directories when sending code
+    - CLI: Check if the directory to upload is a flutter directory
+    - CLI: Bug fixes
+v0.2.0
+    - CLI: Added choice picker for some options when no value was provided
+    - Documentation: Improved and finished a first version of the tutorial
+    - Documentation: Removed the Usage section
+    - CLI: While building added a "progress bar" to show the progress of the build in realtime
+    - CLI: Minor improvements and cleanup of the code
+    - CLI: Added a GIF showing a quick Appollo demo
+    - CLI: Added flutter version list
+    - CLI: Added more precise build progress status
