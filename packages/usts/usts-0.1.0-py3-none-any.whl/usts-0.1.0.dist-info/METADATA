@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: usts
+Version: 0.1.0
+Summary: Simple cli tool for creating status text to something like dwm-bar.
+Home-page: https://notabug.org/loliconshik3/usts
+Author: loliconshik3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# usts 
+
+Simple cli tool for creating status text to something like dwm-bar.
+
+## Items
+
+| Item              | Dependencies | Description                                          |
+| :---:             | :---         | :---                                                 |
+| `time`            | `datetime`   | Display current time with strftime formating.        |
+| `cpu_usage`       | `psutil`     | Display percent of cpu usage.                        |
+| `memory_usage`    | `psutil`     | Display memory usage (percent, available, etc...)    |
+| `cryptocurrency`  | `requests`   | Display cryptocurrency from coingecko.com api.       |
+
+## Installation
+
+```sh
+pip install usts
+```
+
+## ~/.config/usts/config.py example
+
+```py
+# import make functions from mkitems.py file
+from usts.mkitems import *
+
+# setup list of items
+items = [
+    make_cpu_usage(),
+    make_memory_usage(),
+    make_time(),
+]
+
+# Execute is action with status
+#   setxroot -> setxroot -name "status"
+#   stdout   -> just print status in terminal
+execute = "stdout"
+```
+
+## Usage
+
+```sh
+usts
+```
+
+## Contacts
+
+| Contact                                               | Description       |
+| :---:                                                 | :---              |
+| [`Matrix`](https://matrix.to/#/#librehub:matrix.org)  | Matrix server.    |
+| [`Discord`](https://discord.gg/naGkzRN)               | Discord server.   |
+
+## Donates
+**Monero:** `47KkgEb3agJJjSpeW1LpVi1M8fsCfREhnBCb1yib5KQgCxwb6j47XBQAamueByrLUceRinJqveZ82UCbrGqrsY9oNuZ97xN`
+
