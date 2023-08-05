@@ -1,0 +1,32 @@
+[oarepo.model_schemas]
+es-strings = oarepo_model_builder_multilingual:multilingual_jsonschema.json5
+i18n = oarepo_model_builder_multilingual:i18n.json5
+mult-settings = oarepo_model_builder_multilingual:multilingual_settings.json5
+ui = oarepo_model_builder_multilingual:ui_jsonschema.json5
+
+[oarepo.models]
+i18n = oarepo_model_builder_multilingual.builtin_models:i18n.json
+
+[oarepo_model_builder.builders.model]
+0100-mult-setup-cfg = oarepo_model_builder_multilingual.builders.mult_setup_cfg:MultSetupCfgBuilder
+0301-invenio_record_search_options_multilang = oarepo_model_builder_multilingual.invenio.invenio_search_multilingual:InvenioRecordSearchOptionsBuilderMultilingual
+380-invenio_record_dumper = oarepo_model_builder_multilingual.invenio.invenio_record_dumper_multilingual:InvenioRecordMultilingualDumperBuilder
+
+[oarepo_model_builder.datatypes]
+0200-multilingual-datatypes = oarepo_model_builder_multilingual.datatypes:MULTILINGUAL_TYPES
+
+[oarepo_model_builder.model_preprocessors.model]
+30-multilingual = oarepo_model_builder_multilingual.model_preprocessors.multilingual:MultilingualModelPreprocessor
+
+[oarepo_model_builder.property_preprocessors.model]
+1001-i18n = oarepo_model_builder_multilingual.property_preprocessors.i18nStr:I18nStrPreprocessor
+700-multilingual = oarepo_model_builder_multilingual.property_preprocessors.multilingual:MultilangPreprocessor
+
+[oarepo_model_builder.sample_data_providers]
+multilingual = oarepo_model_builder_multilingual.faker:multilingual_sample_provider
+
+[oarepo_model_builder.templates]
+100-multilingual_templates = oarepo_model_builder_multilingual.invenio
+
+[oarepo_model_builder.validation]
+multilingual-validation = oarepo_model_builder_multilingual.validation:validators
