@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: modelcraft
+Version: 3.1.0
+Summary: Automated model building pipeline for X-ray crystallography
+Home-page: https://github.com/paulsbond/modelcraft
+Author: Paul Bond
+Author-email: paul.bond@york.ac.uk
+License: LGPL-2.1
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: gemmi (>=0.5.4)
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: scipy
+
+# ModelCraft
+
+[![PyPI](https://img.shields.io/pypi/v/modelcraft)](https://pypi.org/project/modelcraft/)
+[![GitHub](https://img.shields.io/github/license/paulsbond/modelcraft)](https://github.com/paulsbond/modelcraft/blob/master/LICENSE)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/modelcraft)](https://pypi.org/project/modelcraft/)  
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/paulsbond/modelcraft/pythontest.yml?branch=master)](https://github.com/paulsbond/modelcraft/actions/workflows/pythontest.yml)
+[![GitHub issues](https://img.shields.io/github/issues/paulsbond/modelcraft)](https://github.com/paulsbond/modelcraft/issues)  
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/modelcraft)](https://pypistats.org/packages/modelcraft)
+[![GitHub repo size](https://img.shields.io/github/repo-size/paulsbond/modelcraft)](https://github.com/paulsbond/modelcraft/releases)
+
+Automated model building of proteins and nucleic acids
+in X-ray crystallography and cryo-EM.
+
+https://paulsbond.co.uk/modelcraft
