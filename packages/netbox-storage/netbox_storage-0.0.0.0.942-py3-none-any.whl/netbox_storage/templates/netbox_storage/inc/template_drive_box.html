@@ -1,0 +1,86 @@
+{% load storage %}
+{% load perms %}
+
+{% load form_helpers %}
+{% load helpers %}
+
+<div class="card">
+    <h5 class="card-header">Template Drives & Partition</h5>
+    <div class="card-body">
+        {% if partition_dict %}
+        <table class="table table-hover">
+            <tr>
+                <td>Drive</td>
+                <td>Drive Size</td>
+                <td>Drive Cluster</td>
+                <td></td>
+            </tr>
+            {% for key,value in partition_dict.items %}
+            <tr>
+                <td>{{ key.identifier|linkify|placeholder }}</td>
+                <td>{{ key.size|placeholder }} GB</td>
+                <td>{{ key.cluster|linkify|placeholder }}</td>
+                <td class="text-end noprint">
+                    <a href="{% url 'plugins:netbox_storage:drive_changelog' pk=key.pk %}" class="btn btn-sm btn-outline-secondary" title="Change Log">
+                        <i class="mdi mdi-history"></i>
+                    </a>
+                    <a href="{% url 'plugins:netbox_storage:drive_edit' pk=key.pk %}?return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-warning btn-sm" title="Edit Drive">
+                        <i class="mdi mdi-pencil"></i>
+                    </a>
+                    <a href="{% url 'plugins:netbox_storage:drive_delete' pk=key.pk %}?return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-danger btn-sm">
+                        <i class="mdi mdi-trash-can-outline" title="Delete Drive"></i>
+                    </a>
+                </td>
+            </tr>
+            {% if value %}
+            {% for partition in value %}
+            <tr class="table-secondary">
+                <td>{{ partition.device|linkify|placeholder }}</td>
+                <td>{{ partition.size|linkify|placeholder }} GB</td>
+                <td colspan="2" class="text-end noprint">
+                    <a href="{% url 'plugins:netbox_storage:linuxdevice_changelog' pk=partition.pk %}" class="btn btn-sm btn-outline-secondary" title="Change Log">
+                        <i class="mdi mdi-history"></i>
+                    </a>
+                    <a href="{% url 'plugins:netbox_storage:linuxdevice_edit' pk=partition.pk %}?return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-warning btn-sm" title="Edit Partition">
+                        <i class="mdi mdi-pencil"></i>
+                    </a>
+                    <a href="{% url 'plugins:netbox_storage:linuxdevice_delete' pk=partition.pk %}?return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-danger btn-sm">
+                        <i class="mdi mdi-trash-can-outline" title="Delete Partition"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% if key.free_space_on_drive > 0 %}
+            <tr>
+                <td colspan="4" class="table-active text-end noprint">
+                    <a href="{% url 'plugins:netbox_storage:template_partition_add' %}?platform={{ object.id }}&drive={{ key.id }}&size={{ key.free_space_on_drive }}&return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-sm btn-primary">
+                        <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add Partition to drive
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+            {% else %}
+            <tr>
+                <td colspan="3" class="table-active">No Partition for the drive</td>
+                <td class="table-active text-end noprint">
+                    <a href="{% url 'plugins:netbox_storage:template_partition_add' %}?platform={{ object.id }}&drive={{ key.id }}&size={{ key.free_space_on_drive }}&return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-sm btn-primary">
+                        <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add Partition to drive
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        {% else %}
+        <div class="text-muted">None</div>
+        {% endif %}
+    </div>
+    <div class="card-footer text-end noprint">
+        <a href="{% url 'plugins:netbox_storage:drive_add' %}?platform={{ object.id }}&return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-sm btn-primary">
+            <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add Drive
+        </a>
+        <a href="{% url 'plugins:netbox_storage:template_lvm_add' %}?platform={{ object.id }}&return_url={% url 'dcim:platform' pk=object.pk %}" class="btn btn-sm btn-primary">
+            <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Add LVM Volume
+        </a>
+    </div>
+</div>
