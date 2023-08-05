@@ -1,0 +1,57 @@
+# {{ full_title }}
+
+{{ description }}
+
+<!-- start @generated footer -->
+
+# Development environment
+
+## Install prerequisites
+
+- Python 3.10
+- pdm
+- make
+
+## Instructions
+
+- Fork the upstream repository.
+- `git clone [fork-url]`
+- `cd [project-folder]`
+- Run `make develop` to initialise your development environment.
+
+You can use any text editor or IDE that supports virtualenv / pdm. See the
+Makefile for toolchain details.
+
+Please `make test` and `make lint` before submitting changes.
+
+## Make targets
+
+```
+USAGE: make [target]
+
+help    : Show this message.
+develop : Set up Python development environment.
+run     : Run from source.
+clean   : Remove all build artefacts.
+test    : Run tests and generate coverage report.
+lint    : Fix or warn about linting errors.
+build   : Clean, test, lint, then generate new build artefacts.
+publish : Upload build artefacts to PyPI.
+```
+
+# Sharing and contributions
+
+```
+{{ full_title }}
+{{ url }}
+{{ copyright }}
+SPDX-License-Identifier: {{ spdx_identifier }}
+```
+
+Shared under {{ spdx_identifier }}. We adhere to the {{ conduct }}, and
+certify origin per {{ origin }}. Contributions under the
+same terms are welcome.
+
+Submit security and conduct issues as private tickets. Sign commits with
+`{{ origin_command }}`. For a software bill of materials run `{{ sbom_command }}`. For
+more details see CONDUCT, COPYING and CONTRIBUTING.

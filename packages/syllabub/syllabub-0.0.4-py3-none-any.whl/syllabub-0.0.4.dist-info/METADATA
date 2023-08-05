@@ -1,0 +1,135 @@
+Metadata-Version: 2.1
+Name: syllabub
+Version: 0.0.4
+Summary: Keep Python project conventions up-to-date and worry less about trifling matters. 🍰
+Author-Email: David Seaward <david@librem.one>
+License: AGPL-3.0-or-later
+Requires-Python: >=3.10
+Requires-Dist: chevron>=0.14.0
+Requires-Dist: tomli>=2.0.1
+Description-Content-Type: text/markdown
+
+# Syllabub project bolt-on
+
+Keep Python project conventions up-to-date and worry less about trifling
+matters. 🍰
+
+## Status
+
+Unstable prototype. Please wear goggles.
+
+TODO:
+
+- Replace with pdm scripts: https://pdm.fming.dev/latest/usage/scripts/
+- Just use https://pyscaffold.org
+- Add Gherkin, Mermaid, FAQ?
+
+## Background
+
+High-quality software projects demand more effort to contribute. Syllabub makes
+simplifying assumptions and toolchain/workflow decisions, so that:
+
+- maintainers make fewer, less frequent project-level decisions
+- contributors require less up-front learning, but can dive into detail when
+  required
+- syllabub can be used as a bolt-on, not a dependency (maintainers can declare
+  it as a dependency if they prefer)
+
+## Usage (syllabub tool)
+
+- Set values in `pyproject.toml`.
+- Invoke `syllabub` to overwrite boilerplate files.
+- Review diff.
+- Commit changes.
+
+## Usage (syllabub workflow)
+
+See "Development environment" below.
+
+## Use case scenarios
+
+```gherkin
+Feature: Syllabub Project Generation
+
+  Scenario: Create a new Syllabub-style project
+
+    Given a valid pyproject.toml file
+    And an empty folder
+    When Syllabub is executed
+    Then pyproject.toml will be updated
+    And all project files will be created
+    And code and placeholders will be generated
+
+  Scenario: Update an existing Syllabub-style project
+
+    Given a project with a valid pyproject.toml file
+    When Syllabub is executed
+    Then pyproject.toml will be updated
+    And all project files will be overwritten
+    But existing entry points will not be overwritten
+    And changes must be reviewed before committing
+
+  Scenario: Migrate an existing project to Syllabub conventions
+
+    Given a project with a valid pyproject.toml file
+    When Syllabub is executed
+    Then pyproject.toml will be updated
+    And all project files will be overwritten
+    But existing entry points will not be overwritten
+    And non-syllabub project files must be removed
+    And changes must be reviewed before committing
+```
+
+<!-- start @generated footer -->
+
+# Development environment
+
+## Install prerequisites
+
+- Python 3.10
+- pdm
+- make
+
+## Instructions
+
+- Fork the upstream repository.
+- `git clone [fork-url]`
+- `cd [project-folder]`
+- Run `make develop` to initialise your development environment.
+
+You can use any text editor or IDE that supports virtualenv / pdm. See the
+Makefile for toolchain details.
+
+Please `make test` and `make lint` before submitting changes.
+
+## Make targets
+
+```
+USAGE: make [target]
+
+help    : Show this message.
+develop : Set up Python development environment.
+run     : Run from source.
+clean   : Remove all build artefacts.
+test    : Run tests and generate coverage report.
+lint    : Fix or warn about linting errors.
+build   : Clean, test, lint, then generate new build artefacts.
+publish : Upload build artefacts to PyPI.
+```
+
+# Sharing and contributions
+
+```
+Syllabub project bolt-on
+https://lofidevops.neocities.org
+Copyright 2022 David Seaward and contributors
+SPDX-License-Identifier: AGPL-3.0-or-later
+```
+
+Shared under AGPL-3.0-or-later. We adhere to the Contributor Covenant 2.1, and
+certify origin per DCO 1.1 with a signed-off-by line. Contributions under the
+same terms are welcome.
+
+Submit security and conduct issues as private tickets. Sign commits with
+`git commit --signoff`. For a software bill of materials run `reuse spdx`. For
+more details see CONDUCT, COPYING and CONTRIBUTING.
