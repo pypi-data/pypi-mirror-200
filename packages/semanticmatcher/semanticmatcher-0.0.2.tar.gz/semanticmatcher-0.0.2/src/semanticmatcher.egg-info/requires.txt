@@ -1,0 +1,14 @@
+pandas
+faiss-cpu
+sentence-transformers
+
+[dev]
+black
+pylint
+
+[gpu]
+faiss-gpu
+
+[test]
+faker
+pytest
