@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: citecheck
+Version: 0.1.1
+Summary: Run-time protection of citation chains
+Author-email: Nathan McDougall <nathan.j.mcdougall@gmail.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2023, Nathan McDougall
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: doc
+Provides-Extra: dev
+Provides-Extra: check
+Provides-Extra: test
+Provides-Extra: notebook
+License-File: LICENSE.txt
+
+# citecheck
+
+<!-- badges: start -->
+![Python Version](https://img.shields.io/badge/python-3.10.8-green)
+[![License](https://img.shields.io/github/license/nathanjmcdougall/citecheck)](https://github.com/nathanjmcdougall/citecheck/blob/main/LICENSE.txt)
+[![Documentation Status](https://readthedocs.org/projects/citecheck/badge/?version=latest)](https://citecheck.readthedocs.io/en/latest/?badge=latest)
+[![Linting: Ruff](https://img.shields.io/badge/linting-ruff-yellowgreen)](https://github.com/charliermarsh/ruff)
+[![Linting: Pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/nathanjmcdougall/citecheck/main.svg)](https://results.pre-commit.ci/latest/github/nathanjmcdougall/citecheck/main)
+<!-- badges: end -->
+
+Run-time protection of citation chains in Python
+
+## Getting Started with Development
+
+```bash
+source .\scripts\dev-setup.sh
+```
