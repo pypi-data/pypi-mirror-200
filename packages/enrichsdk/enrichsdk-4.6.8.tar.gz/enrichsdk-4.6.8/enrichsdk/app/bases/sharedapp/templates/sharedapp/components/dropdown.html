@@ -1,0 +1,19 @@
+{% load i18n %}
+
+<h4>{% translate dropdown.label %}</h4>
+    <div class="column">
+        <div class="form-group">
+        {%  if dropdown.dropdown_type == 'select' %}
+                <select class="selectpicker form-control" id="{{dropdown.id}}" name="{{dropdown.id}}" data-live-search-placeholder="Search" data-live-search="true" data-container="body" data-size="5">
+                    {% for choice in dropdown.choices %}
+                        <option value="{{choice}}" title="{{choice}}" {% if dropdown.selected_choice == choice %}selected{% endif%}>{{choice}}</option>
+                    {% endfor %}
+                </select>
+                <label>{{dropdown.description}}</label>
+        {% elif dropdown.dropdown_type == 'date' %}
+                <input type="text" name="{{dropdown.id}}" class="form-control datepicker" id="{{dropdown.id}}" placeholder="Date e.g., 2023-01-01" value="{% if dropdown.selected_choice %}{{ dropdown.selected_choice }}{% else %}{% now 'Y-m-d' %}{% endif %}" autocomplete="off">
+
+                </select>
+        {% endif %}
+        </div>
+</div>

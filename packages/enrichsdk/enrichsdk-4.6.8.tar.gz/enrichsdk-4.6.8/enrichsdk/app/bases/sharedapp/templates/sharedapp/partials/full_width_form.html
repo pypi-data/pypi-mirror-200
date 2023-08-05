@@ -1,0 +1,76 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!--
+Jinja2 partial to render a form
+
+{ % include 'sharedapp/partials/full_width_form.html' with usecase=usecase spec=spec widget=widget % }
+
+-->
+<div class="block-widget-box width-all mb-3" id="{{widget.id}}">
+  <div class="block-filter-container d-flex flex-wrap align-items-center">
+    <div class="crc-head-inside d-flex align-items-center">
+      <div class="crc-head-icon"  data-bs-toggle="collapse" data-bs-target="#collapseresults" aria-expanded="true">
+        <img class="expand-open" src={% static 'gui2/appstore2/images/new-caret-icon-1.svg' %} alt="" />
+        <img class="expand-add" src={% static 'gui2/appstore2/images/expand-add.svg' %} alt="" />
+      </div>
+      <div class="accor-right">
+        <div class="block-filter-left">
+          <ul class="cp-text-list d-flex align-items-center">
+            <li><b>{% translate widget.name %}</b></li>
+          </ul>
+            <p>{% translate widget.description %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="block-filter-option ms-auto d-flex align-items-center justify-content-center align-block-filter-option">
+    </div>
+  </div>
+  <div id="collapseresults" class="crc-body accordion-collapse collapse show">
+    <div class="cp-body">
+      <div class="row mb-30">
+	{% if widget.method %}
+	<form class="uniForm"  method="{{widget.method}}">
+        {% else %}
+	<form class="uniForm"  method="GET">
+        {% endif %}
+	  {% if widget.method == "POST" %}
+	  {% csrf_token %}
+	  {% endif %}
+	  {% for name, value in widget.hidden_vars.items %}
+	  <input name="{{name}}" value="{{value}}" type="hidden"></input>
+	  {% endfor %}
+	  {% for element in widget.elements %}
+	  {% if element.type == "select" %}
+          <ul class="v-line-text-list d-flex flex-wrap">
+          <div class="v-box p-2">
+            <h4>{{element.label}}</h4>
+          <div class="column">
+	        <div class="form-group">
+                <span class="multiselect-native-select">
+                          <select class="selectpicker form-control" id="{{element.id}}" name="{{element.id}}" data-live-search-placeholder="Search" data-live-search="true" data-container="body" data-size="5">
+                    {% for choice in element.choices %}
+                    <option value="{{choice}}" title="{{choice}}" {% if element.selected_choice == choice %}selected{% endif%}>{{choice}}</option>
+                    {% endfor %}
+                  </select>
+                </span>
+	        </div>
+          </div>
+          </div>
+	  {% endif %}
+	  {% endfor %}
+          <div class="v-box p-2 mt-3">
+              <div class="column">
+            <div class="form-group d-flex">
+              <button name="submit" id="submit" value="show" type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Search"><img src="{% static 'gui2/appstore2/images/play.svg' %}" alt="" />Show</button>
+            </div>
+              </div>
+          </div>
+          </ul>
+	</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

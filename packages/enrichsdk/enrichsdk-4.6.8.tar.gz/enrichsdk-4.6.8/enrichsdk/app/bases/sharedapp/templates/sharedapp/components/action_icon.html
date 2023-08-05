@@ -1,0 +1,7 @@
+{% load static %}
+
+<div class="cp-download">
+    <a href="{{content.url}}" title="{{ content.title }}">
+        <img src={% static 'gui2/appstore2/images/'|add:content.icon|add:'.svg' %} alt="" />
+    </a>
+</div>
