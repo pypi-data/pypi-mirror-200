@@ -1,0 +1,8 @@
+[console_scripts]
+archive-book = metadata_magic.main.epub.epub:main
+archive-comic = metadata_magic.main.comic_archive.comic_archive:main
+archive-series = metadata_magic.main.comic_archive.series_info:main
+meta-missing-media = metadata_magic.main.error_finding.missing_media:main
+meta-missing-metadata = metadata_magic.main.error_finding.missing_metadata:main
+meta-rename = metadata_magic.main.rename.rename_jsons:main
+sort-rename = metadata_magic.main.rename.sort_rename:main
