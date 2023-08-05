@@ -1,0 +1,4 @@
+[console_scripts]
+kilroy-face-debug=kilroy_face_debug.__main__:cli
+kilroy-face-debug-fetch-models=kilroy_face_debug.models:fetch_models
+
