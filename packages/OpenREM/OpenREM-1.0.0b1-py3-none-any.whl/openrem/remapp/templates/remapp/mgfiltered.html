@@ -1,0 +1,312 @@
+{% extends "remapp/filteredbase.html" %}
+
+{% block navmg%}<li class="active">{% endblock %}
+
+{% block toprow %}
+      <p>
+        There are {{ study_list.paginator.count }} studies in this list.
+      </p>
+{% endblock %}
+
+
+
+{% block col2 %}
+  <div class="panel panel-info small">
+  <div class="panel-heading">
+      <h3 class="panel-title">Data export</h3>
+  </div>
+  <div class="panel-body">
+    {% if admin.exportgroup %}
+        <p><strong>Note:</strong> Apply the exam filter first to refine what is exported.</p>
+    <p>
+      <a href="{% url 'mgcsv1' 0 0 %}?{{ request.GET.urlencode }}"
+             class="btn btn-default btn-sm" role="button">Export to CSV&nbsp;</a>
+          {% if admin.pidgroup %}
+              <a href="{% url 'mgcsv1' 1 0 %}?{{ request.GET.urlencode }}"
+                 class="btn btn-default btn-sm" role="button">With names</a>
+              <a href="{% url 'mgcsv1' 0 1 %}?{{ request.GET.urlencode }}"
+                 class="btn btn-default btn-sm" role="button">With ID</a>
+              <a href="{% url 'mgcsv1' 1 1 %}?{{ request.GET.urlencode }}"
+                 class="btn btn-default btn-sm" role="button">With both</a>
+    </p>
+    <p>
+          {% endif %}
+      <a href="{% url 'mgxlsx1' 0 0 %}?{{ request.GET.urlencode }}"
+             class="btn btn-default btn-sm" role="button">Export to xlsx</a>
+          {% if admin.pidgroup %}
+              <a href="{% url 'mgxlsx1' 1 0 %}?{{ request.GET.urlencode }}"
+                 class="btn btn-default btn-sm" role="button">With names</a>
+              <a href="{% url 'mgxlsx1' 0 1 %}?{{ request.GET.urlencode }}"
+                 class="btn btn-default btn-sm" role="button">With ID</a>
+              <a href="{% url 'mgxlsx1' 1 1 %}?{{ request.GET.urlencode }}"
+                 class="btn btn-default btn-sm" role="button">With both</a>
+    </p>
+    <p>
+          {% endif %}
+          <a href="{% url 'mgnhsbsp' %}?{{ request.GET.urlencode }}"
+             class="btn btn-default btn-sm" role="button">Export to CSV using the NHSBSP format</a>
+    </p>
+
+  {% else %}
+    <p>
+      No export permissions
+    </p>
+  {% endif %}
+
+
+  </div>
+  </div>
+
+
+    {{ studyfilter }}
+
+    <form action="" method="get" class="form-horizontal" role="form">
+          <div class="panel panel-info small">
+            <div class="panel-heading">
+              <h3 class="panel-title">Exam filter</h3>
+            </div>
+            <div class="panel-body">
+                <em>Date format yyyy-mm-dd</em>
+                        {% for field in filter.form %}
+                            <div class="form-group">
+                                <div class="col-xs-4">
+                                    <label>{{ field.label_tag }}</label>
+                                </div>
+                                <div class="col-xs-8">
+                                  {{ field.errors }}
+                                  {{ field }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    <input class="btn btn-default" name="submit" type="submit" />
+            </div>
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Chart options</h3>
+            </div>
+
+            <div class="panel-body">
+
+                {% csrf_token %}
+                {% regroup chartOptionsForm by field.group as field_groups %}
+
+                {% for field_group in field_groups %}
+
+                    {% if field_group.grouper == 'PlotCharts' %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <label style="font-weight: normal" for="{{ field_group.list.0.auto_id }}">{{ field_group.list.0.label }}</label>&nbsp;{{ field_group.list.0 }}
+                                </h4>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="panel panel-default">
+
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="no-decoration" data-toggle="collapse" data-target="#{{ field_group.grouper|cut:" " }}">{{ field_group.grouper }}</a>
+                                </h4>
+                            </div>
+
+                            <div id="{{ field_group.grouper|cut:" " }}" class="panel-collapse collapse in">
+                                <div class="panel-body">
+
+                                    <table class="table table-condensed">
+                                    {% for field in field_group.list %}
+                                        <tr>
+                                        {% if field.field.widget.attrs.class == 'CheckboxSelectMultiple' %}
+                                            <td class="shaded_top_bottom_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                                            <td class="shaded_top_bottom_border">{{ field }}</td>
+                                        {% elif field.label == 'Acquisition frequency' or field.label == 'Study workload' or field.label == 'Time period' %}
+                                            <td class="top_border"><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                                            <td class="top_border">{{ field }}</td>
+                                        {% else %}
+                                            <td><label for="{{ field.auto_id }}">{{ field.label }}</label></td>
+                                            <td>{{ field }}</td>
+                                        {% endif %}
+                                        </tr>
+                                    {% endfor %}
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    {% endif %}
+
+                {% endfor %}
+
+                <input class="btn btn-default" name="submit" type="submit" />
+            </div>
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Table options</h3>
+            </div>
+            <div class="panel-body">
+                <table aria-describedby="Number of rows per page option">
+                    {{ itemsPerPageForm }}
+                </table>
+                <input class="btn btn-default" name="submit" type="submit" />
+            </div>
+          </div>
+    </form>
+
+    <script src="{{ STATIC_URL }}js/datepicker.js"></script>
+    <script src="{{ STATIC_URL }}js/formatDate.js"></script>
+
+{% endblock %}
+
+{% block col1 %}
+
+
+    <table class="table table-bordered table-hover row-clickable small" aria-describedby="Study summary table">
+        <tr>
+            <th scope="col">Institution</th>
+            <th scope="col">
+                <table aria-describedby="Make, model and display name">
+                    <tr><td>Make</td></tr>
+                    <tr><td>Model</td></tr>
+                    <tr><td class="nowrap">Display name</td></tr>
+                </table>
+            </th>
+            <th scope="col">Date</th>
+            <th scope="col">
+                <table aria-describedby="Study description, procedure, requested procedure and accession number">
+                    <tr><td class="nowrap">Study description</td></tr>
+                    <tr><td class="nowrap">Procedure</td></tr>
+                    <tr><td class="nowrap">Requested Procedure</td></tr>
+                    <tr><td class="nowrap">Accession number</td></tr>
+                </table>
+            </th>
+        {% if showStandardNames %}
+            <th>Standard study names</th>
+        {% endif %}
+            <th scope="col">Number of events</th>
+            <th scope="col">Accumulated AGD (mGy)</th>
+            {% if admin.admingroup %}
+            <th scope="col">Delete?</th>
+            {% endif %}
+        </tr>
+        {% for exam in study_list %}
+          {% with equipment=exam.generalequipmentmoduleattr_set.get %}
+          {% with projection_set=exam.projectionxrayradiationdose_set.get %}
+          {% with accum_mammo_set=projection_set.accumxraydose_set.get.accummammographyxraydose_set.all %}
+        <tr>
+            <td>
+                <a href="{% url 'mg_detail_view' pk=exam.id %}">
+                    {{ equipment.institution_name }}
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'mg_detail_view' pk=exam.id %}">
+                    <table onclick="window.location='{% url 'mg_detail_view' pk=exam.id %}';" aria-describedby="Manufacturer, model and display name">
+                        <tr><td class="nowrap">{{ equipment.manufacturer }}</td></tr>
+                        <tr><td class="nowrap">{{ equipment.manufacturer_model_name }}</td></tr>
+                        <tr><td class="nowrap">{{ equipment.unique_equipment_name.display_name }}</td></tr>
+                    </table>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'mg_detail_view' pk=exam.id %}">
+                    {{ exam.study_date|date:"Y-m-d" }} {{ exam.study_time|date:"H:i" }}
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'mg_detail_view' pk=exam.id %}">
+                    <table onclick="window.location='{% url 'mg_detail_view' pk=exam.id %}';" aria-describedby="Study description, procedure and requested procedure name">
+                        <tr><td class="nowrap">{{ exam.study_description }}</td></tr>
+                        <tr><td class="nowrap">{{ exam.procedure_code_meaning }}</td></tr>
+                        <tr><td class="nowrap">{{ exam.requested_procedure_code_meaning }}</td></tr>
+                  {% if not exam.accession_hashed %}
+                        <tr><td class="nowrap">{{ exam.accession_number }}</td></tr>
+                  {% endif %}
+                    </table>
+                </a>
+            </td>
+        {% if showStandardNames %}
+            <td>
+                <a href="{% url 'mg_detail_view' pk=exam.id %}">
+                    <table onclick="window.location='{% url 'mg_detail_view' pk=exam.id %}';" aria-describedby="Standard study description, procedure and requested procedure names">
+                        {% for std_name in exam.standard_names.all %}
+                            <tr><td class="nowrap">{{ std_name.standard_name|default_if_none:"-" }}</td></tr>
+                        {% endfor %}
+                    </table>
+                </a>
+            </td>
+        {% endif %}
+            <td>
+                <a href="{% url 'mg_detail_view' pk=exam.id %}">
+                    {{ projection_set.irradeventxraydata_set.count }}
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'mg_detail_view' pk=exam.id %}">
+                {% for breast in accum_mammo_set %}
+                    {% if breast.laterality.code_value in "T-04030,80248007,C0222601" %} <!-- CID 6023: Left breast -->
+                        Left:&nbsp;{{ breast.accumulated_average_glandular_dose|floatformat:3 }}<br>
+                    {% elif breast.laterality.code_value in "T-04020,73056007,C0222600" %} <!-- CID 6023: Right breast -->
+                        Right:&nbsp;{{ breast.accumulated_average_glandular_dose|floatformat:3 }}<br>
+                    {% elif breast.laterality.code_value in "T-04080,63762007,C0222605" %} <!-- CID 6023: Both breasts -->
+                        Both:&nbsp;{{ breast.accumulated_average_glandular_dose|floatformat:3 }}<br>
+                    {% endif %}
+                {% endfor %}
+                </a>
+            </td>
+            {% if admin.admingroup %}
+            <td>
+              <a href="{% url 'study_delete' exam.id %}">Delete</a>
+            </td>
+            {% endif %}
+        </tr>
+          {% endwith %}{% endwith %}{% endwith %}
+        {% endfor %}
+    </table>
+
+
+
+{% endblock %}
+
+{% block plotdata %}
+
+    {% if request.user.userprofile.plotCharts %}
+
+        <script src="{{ STATIC_URL }}js/django_reverse/reverse.js"></script>
+
+        <div class="ajax-progress"><img src="{{ STATIC_URL }}img/ajax-loader.gif"></div>
+
+        <!-- JavaScript to enable Plotly charts -->
+        <script src="{{ STATIC_URL }}js/charts/plotly-2.17.1.min.js"></script>
+        <!-- End of JavaScript to enable Plotly charts -->
+
+        <!-- JavaScript Plotly chart resizing code. -->
+        <script src="{{ STATIC_URL }}js/charts/chartFullScreen.js"></script>
+        <!-- End of JavaScript Plotly chart resizing code. -->
+
+        <!-- JavaScript chart AJAX code. -->
+        <script src="{{ STATIC_URL }}js/charts/mgChartAjax.js"></script>
+        <!-- End of JavaScript chart AJAX code. -->
+
+        {% for chart in required_charts %}
+            <div class="panel-group" id="{{ chart.var_name }}accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#{{ chart.var_name }}accordion" href="#collapse{{ chart.var_name }}" onclick="setTimeout(function() {triggerResizeEvent();}, 0);">
+                                {{ chart.title }}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse{{ chart.var_name }}" class="panel-collapse collapse">
+                        <div id="{{ chart.var_name }}ChartParentDiv" class="panel-body">
+                            <div id="{{ chart.var_name }}ChartDiv"></div>
+                            <a onclick="enterFullScreenPlotly('{{ chart.var_name }}ChartDiv', '{{ chart.var_name }}ChartParentDiv');"
+                               class="btn btn-default btn-sm" role="button">Toggle fullscreen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
