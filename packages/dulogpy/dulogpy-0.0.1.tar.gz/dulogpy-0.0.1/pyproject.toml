@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "dulogpy"
+version = "0.0.1"
+description = "Functions to handle data retrieved by the dulopg biologging system"
+license = "MIT"
+authors = ["Jesús R. Hernández Montero <jesus.hdezmontero@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/jhdezmontero/dulogpy"
+keywords = ["dulog", "range data", "proximity data"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.4.1"
+
+[tool.poetry.group.test.dependencies]
+pytest = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
