@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: fsl-pipe
+Version: 0.6.1
+Summary: Declative pipelines based on Filetrees
+Home-page: https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe
+Author: Michiel Cottaar
+Author-email: michiel.cottaar@ndcn.ox.ac.uk
+Project-URL: Bug Tracker, https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe/-/issues
+Project-URL: Documentation, https://open.win.ox.ac.uk/pages/ndcn0236/fsl-pipe
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: file-tree
+Requires-Dist: xarray
+Requires-Dist: dask
+Requires-Dist: fslpy
+Requires-Dist: loguru
+Requires-Dist: fsl-sub
+Requires-Dist: graphviz
+
+[![Documentation](https://img.shields.io/badge/Documentation-fsl--pipe-blue)](https://open.win.ox.ac.uk/pages/ndcn0236/fsl-pipe)
+[![File-tree Documentation](https://img.shields.io/badge/Documentation-file--tree-blue)](https://open.win.ox.ac.uk/pages/ndcn0236/file-tree)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6577070.svg)](https://doi.org/10.5281/zenodo.6577070)
+[![Pipeline status](https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe/badges/main/pipeline.svg)](https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe/-/pipelines/latest)
+[![Coverage report](https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe/badges/main/coverage.svg)](https://open.win.ox.ac.uk/pages/ndcn0236/fsl-pipe/htmlcov)
+
+Declative pipelines based on Filetrees
+
+# Installation
+```shell
+pip install fsl-pipe
+```
+
+Any bug reports and feature requests are very welcome (see [issue tracker](https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe/-/issues)).
+
+# Setting up local test environment
+First clone the repository:
+```shell
+git clone https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe.git
+```
+
+Then, we install the package in an interactive manner:
+```shell
+cd fsl-pipe
+pip install -e .
+```
+
+## Running tests
+Tests are run using the [pytest](https://docs.pytest.org) framework. After installation (`pip install pytest`) they can be run from the project root as:
+```shell
+pytest src/tests
+```
+
+## Compiling documentation
+The documentation is build using [sphinx](https://www.sphinx-doc.org/en/master/). After installation (`pip install sphinx`) run:
+```shell
+cd doc
+sphinx-build source build
+open build/index.html
+```
+
+## Contributing
+[Merge requests](https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe/-/merge_requests) with any bug fixes or documentation updates are always welcome. 
+
+For new features, please raise an [issue](https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe/-/issues) to allow for discussion before you spend the time implementing them.
+
+## Releasing new versions
+- Run `bump2version` (install using `pip install bump2version`)
+- Push to gitlab (including tags in the push)
+- After the continuous integration (CI) succeeds, manually run the job to upload fsl-pipe to pypi (see [here](https://git.fmrib.ox.ac.uk/ndcn0236/fsl-pipe/-/pipelines/latest))
+- Upload code on conda-forge using their automated release detection.
