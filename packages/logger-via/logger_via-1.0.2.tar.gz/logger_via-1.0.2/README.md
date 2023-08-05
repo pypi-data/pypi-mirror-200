@@ -1,0 +1,43 @@
+# General Purpose
+The package holds two decorators that can wrap a python function and save the details of it's execution
+into a log. The details include the name of the function, args and kwargs and what did the function return.
+This is achieved by means of redirecting stderr and stdout to a file or an email (depending on which
+decorator is used)
+	
+@log - decorator save the log into a file. A relative path: 'output/log.txt' is used by default. Does not require
+preliminary setup in "config.py" unless another output directory wanted.
+
+@email_log - decorator send the log by email. The usage require SMTP server to be configured at "config.py".
+	
+# Package Composition
+### config.py
+The setup and configuration file with constants used in the logger. 
+
+    LOG_FILE:     The path to a log saved by @log decorator. 'output/log.txt' is used by default.
+
+    SENDER:       The sender's email will be displayed in the From: field (in the body of the letter).
+                  May be helpful to specify an email to receive email replies from log recipients.
+                  Actual email that sends out the letter depend strongly on SMTP server policy.
+    RECEIVER:     An email where the logs will be sent.
+    MAIL_SERVER:  A functioning and adjusted SMTP server.
+    PORT:         SMTP port (an integer)
+    USERNAME:     SMTP username (received from SMTP server. Frequently - a sender's email)
+    PASSWORD:     SMTP password (received from SMTP server. Frequently - a sender's password)
+    
+SUGGESTION: The package was tested with AWS "Simple Email Service" SMTP provider (https://aws.amazon.com/ses/). 
+### logger.py
+The decorators themselves are described in this file. If the output format needs modification, the f-strings in decorators
+can be modified here.
+
+
+# Operation Manual
+To use the package follow the steps:  
+- pip install logger_via  
+- modify SMTP details in "config.py"  
+- from logger import log / from logger import email_log  
+- wrap the functions with @log / @email_log
+
+# License
+The package designed by Vladimir Iakimenko (https://github.com/VladIakimenko).  
+Free for distribution, modification or contribution.  
+With feedback address to v_yakimenko@inbox.ru
