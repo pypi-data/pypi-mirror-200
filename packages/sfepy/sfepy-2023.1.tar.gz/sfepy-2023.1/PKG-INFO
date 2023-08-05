@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: sfepy
+Version: 2023.1
+Summary: SfePy: Simple finite elements in Python
+Home-page: http://sfepy.org
+Author: Robert Cimrman
+Author-email: cimrman3@ntc.zcu.cz
+License: BSD
+Download-URL: http://sfepy.org/doc-devel/downloads.html
+Description: SfePy (simple finite elements in Python) is a software, distributed
+        under the BSD license, for solving systems of coupled partial
+        differential equations by the finite element method. The code is based
+        on NumPy and SciPy packages.
+        
+Platform: Linux
+Platform: Mac OS-X
+Platform: Windows
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
