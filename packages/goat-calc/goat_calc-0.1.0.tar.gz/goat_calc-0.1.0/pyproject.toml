@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "goat-calc"
+version = "0.1.0"
+description = "This is a GOAT calculator!"
+authors = ["Jason Lee <changjin9792@gmail.com>"]
+readme = "README.md"
+packages = [{include = "goat_calc"}]
+
+[tool.poetry.scripts]
+goatcalc = "goat_calc.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.7.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
