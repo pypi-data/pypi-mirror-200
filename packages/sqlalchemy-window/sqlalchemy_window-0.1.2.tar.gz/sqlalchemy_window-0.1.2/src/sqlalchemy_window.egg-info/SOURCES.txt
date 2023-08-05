@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/sqlalchemy_window/__init__.py
+src/sqlalchemy_window/_over_window.py
+src/sqlalchemy_window/_select.py
+src/sqlalchemy_window/_window.py
+src/sqlalchemy_window.egg-info/PKG-INFO
+src/sqlalchemy_window.egg-info/SOURCES.txt
+src/sqlalchemy_window.egg-info/dependency_links.txt
+src/sqlalchemy_window.egg-info/requires.txt
+src/sqlalchemy_window.egg-info/top_level.txt
+tests/test_over_window.py
+tests/test_select.py
+tests/test_window.py
