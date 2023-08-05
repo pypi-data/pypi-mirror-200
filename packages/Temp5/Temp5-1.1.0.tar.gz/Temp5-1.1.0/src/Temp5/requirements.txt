@@ -1,0 +1,13 @@
+wxPython == 4.1.1
+sqlite3
+csv
+xlsxwriter
+
+#for other Database Engain this package
+#
+#  mysql.connector   for mySql
+#  psycopg2          for PostgrSql
+#  cx_Oracle         for Oracle
+#  pyodbc            for ODBC MSSQL
+#  pymssql           for MSSQL Server
+#  pymongo           for mongoDB
