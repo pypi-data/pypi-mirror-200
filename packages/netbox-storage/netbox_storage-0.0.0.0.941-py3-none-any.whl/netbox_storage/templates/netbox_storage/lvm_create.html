@@ -1,0 +1,106 @@
+{% extends 'generic/object_edit.html' %}
+{% load form_helpers %}
+
+{% block form %}
+<div class="field-group my-5">
+    <div class="row mb-2">
+        <h5 class="offset-sm-3">Select if the lvm is for a VM or Template</h5>
+    </div>
+
+    {# Platform/VM selection #}
+    <div class="row mb-2">
+        <div class="offset-sm-3">
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="nav-item">
+                    <button role="tab" type="button" id="platform_tab" data-bs-toggle="tab" aria-controls="platform"
+                            data-bs-target="#platform"
+                            class="nav-link {% if not form.initial.virtual_machine %}active{% endif %}">
+                        Platform
+                    </button>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <button role="tab" type="button" id="vm_tab" data-bs-toggle="tab" aria-controls="vm"
+                            data-bs-target="#vm"
+                            class="nav-link {% if form.initial.virtual_machine %}active{% endif %}">
+                        Virtual Machine
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-content p-0 border-0">
+        <div class="tab-pane {% if not form.initial.virtual_machine %}active{% endif %}" id="platform" role="tabpanel"
+             aria-labeled-by="platform_tab">
+            {% render_field form.platform %}
+        </div>
+        <div class="tab-pane {% if form.initial.virtual_machine %}active{% endif %}" id="vm" role="tabpanel"
+             aria-labeled-by="vm_tab">
+            {% render_field form.virtual_machine %}
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <h5 class="offset-sm-3">Drive & Partition Configuration</h5>
+    </div>
+
+    {# Platform/VM selection #}
+    <div class="row mb-2">
+        <div class="offset-sm-3">
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="nav-item">
+                    <button role="tab" type="button" id="new_partition_tab" data-bs-toggle="tab" aria-controls="new_partition"
+                            data-bs-target="#new_partition"
+                            class="nav-link {% if not form.initial.virtual_machine %}active{% endif %}">
+                        New Partition
+                    </button>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <button role="tab" type="button" id="existing_partition_tab" data-bs-toggle="tab" aria-controls="existing_partition"
+                            data-bs-target="#existing_partition"
+                            class="nav-link {% if form.initial.virtual_machine %}active{% endif %}">
+                        Existing Partition
+                    </button>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <button role="tab" type="button" id="use_disk_tab" data-bs-toggle="tab" aria-controls="use_disk"
+                            data-bs-target="#use_disk"
+                            class="nav-link {% if form.initial.virtual_machine %}active{% endif %}">
+                        Use Disk
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-content p-0 border-0">
+        <div class="tab-pane {% if not form.initial.virtual_machine %}active{% endif %}" id="new_partition" role="tabpanel"
+             aria-labeled-by="new_partition_tab">
+                {% render_field form.drive %}
+                {% render_field form.checkbox_partition %}
+        </div>
+        <div class="tab-pane {% if form.initial.virtual_machine %}active{% endif %}" id="existing_partition" role="tabpanel"
+             aria-labeled-by="existing_partition_tab">
+            {% render_field form.drive %}
+            {% render_field form.partition %}
+        </div>
+        <div class="tab-pane {% if form.initial.virtual_machine %}active{% endif %}" id="use_disk" role="tabpanel"
+             aria-labeled-by="use_disk_tab">
+            {% render_field form.drive %}
+            {% render_field form.partition %}
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <h5 class="offset-sm-3">LVM Configuration</h5>
+    </div>
+    {% render_field form.lv_name %}
+    {% render_field form.vg_name %}
+    {% render_field form.size %}
+
+    <div class="row mb-2">
+        <h5 class="offset-sm-3">Create Filesystem and mount it</h5>
+    </div>
+    {% render_field form.mountpoint %}
+    {% render_field form.fs_type %}
+    {% render_field form.fs_options %}
+</div>
+{% endblock %}
