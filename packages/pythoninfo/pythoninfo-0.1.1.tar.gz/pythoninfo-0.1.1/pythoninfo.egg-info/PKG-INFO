@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pythoninfo
+Version: 0.1.1
+Summary: Just for fan - phpinfo in python =)
+Author-email: Kirill Vercetti <office@kyzima-spb.com>
+License: MIT License
+Project-URL: Homepage, https://github.com/kyzima-spb/pythoninfo
+Project-URL: Repository, https://github.com/kyzima-spb/pythoninfo.git
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+python -m pythoninfo

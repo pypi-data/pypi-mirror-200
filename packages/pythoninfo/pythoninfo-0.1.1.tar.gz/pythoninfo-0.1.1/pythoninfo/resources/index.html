@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <title>Python $version</title>
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <style>
+    :root {
+      --wrapper-width: 934px;
+    }
+
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: sans-serif;
+      margin: 1rem auto;
+      width: var(--wrapper-width);
+    }
+
+    pre {
+      font-family: monospace;
+      margin: 0;
+    }
+
+    a:link {
+      color: #009;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 150%;
+    }
+
+    h2 {
+      font-size: 125%;
+      text-align: center;
+    }
+
+    header {
+      align-items: center;
+      background-color: #99c;
+      display: flex;
+      flex-direction: row;
+      font-size: 75%;
+    }
+
+    header h1 {
+      margin: 1rem;
+    }
+
+    header a {
+      margin-left: auto;
+    }
+
+    hr {
+      width: 934px;
+      background-color: #ccc;
+      border: 0;
+      height: 1px;
+    }
+
+    img {
+      border: 0;
+    }
+
+    table {
+      border: 0;
+      border-collapse: collapse;
+      box-shadow: 1px 2px 3px #ccc;
+      margin: 1rem auto;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #666;
+      font-size: 75%;
+      padding: 4px 5px;
+      vertical-align: baseline;
+    }
+
+    td {
+      background-color: #ddd;
+      max-width: 300px;
+      overflow-x: auto;
+      word-wrap: break-word;
+    }
+
+    td:first-child {
+      background-color: #ccf;
+      font-weight: bold;
+      width: 300px;
+    }
+
+    td i {
+      color: #999;
+    }
+
+    th {
+      background-color: #99c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Python Version $version</h1>
+    <a href="https://python.org/">
+      <img src="https://www.python.org/static/img/python-logo.png" alt="Python logo">
+    </a>
+  </header>
+  $system_table
+  <hr>
+  $env_table
+  $packages_table
+</body>
+</html>

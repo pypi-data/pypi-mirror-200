@@ -1,0 +1,14 @@
+LICENSE
+README.rst
+pyproject.toml
+.github/workflows/publish-stable.yml
+.github/workflows/publish-test.yml
+pythoninfo/__init__.py
+pythoninfo/__main__.py
+pythoninfo.egg-info/PKG-INFO
+pythoninfo.egg-info/SOURCES.txt
+pythoninfo.egg-info/dependency_links.txt
+pythoninfo.egg-info/requires.txt
+pythoninfo.egg-info/top_level.txt
+pythoninfo/resources/__init__.py
+pythoninfo/resources/index.html

@@ -1,0 +1,25 @@
+[project]
+name = "pythoninfo"
+description = "Just for fan - phpinfo in python =)"
+readme = "README.rst"
+license = {text = "MIT License"}
+authors = [
+    {name = "Kirill Vercetti", email = "office@kyzima-spb.com"},
+]
+requires-python = ">=3.6"
+dependencies = [
+    'importlib-metadata; python_version<"3.8"',
+    'importlib-resources; python_version<"3.7"',
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/kyzima-spb/pythoninfo"
+Repository = "https://github.com/kyzima-spb/pythoninfo.git"
+
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"
