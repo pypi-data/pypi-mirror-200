@@ -1,0 +1,79 @@
+{
+  "language": "is",
+  "intents": {},
+  "responses": {
+    "errors": {
+      "no_intent": "Fyrirgefðu en ég náði þessu ekki",
+      "no_area": "Ekkert svæði {{ area }} fannst",
+      "no_domain": "Í {{ area }} er ekkert {{ domain }}",
+      "no_device_class": "{{ area }} er ekki með tækja tegund {{ device_class }}",
+      "no_entity": "Ekkert tæki eða engin eining með nafni {{ entity }} fannst",
+      "handle_error": "Við meðhöndlun ásetningsins kom óvænt villa upp"
+    },
+    "intents": {
+      "HassTurnOn": {
+        "default": "Kveikti á {{ slots.name }}",
+        "lights_area": "Kveikti á ljósum í {{ slots.area }}",
+        "fans_area": "Kveikti á viftum í {{ slots.area }}",
+        "cover": "Opnaði {{ slots.name }}",
+        "cover_area": "Opnaði {{ slots.area }}"
+      },
+      "HassTurnOff": {
+        "default": "Slökkti á {{ slots.name }}",
+        "lights_area": "Slökkti á ljósum í {{ slots.area }}",
+        "fans_area": "Slökkti á viftum í {{ slots.area }}",
+        "cover": "Lokaði {{ slots.name }}",
+        "cover_area": "Lokaði {{ slots.area }}"
+      },
+      "HassGetState": {}
+    }
+  },
+  "lists": {
+    "color": {
+      "values": [
+        {
+          "in": "(hvítt | hvít | hvítur)",
+          "out": "white"
+        },
+        {
+          "in": "(svart | svartur | svört)",
+          "out": "black"
+        },
+        {
+          "in": "(rauður | rautt | rauð)",
+          "out": "red"
+        },
+        {
+          "in": "(appelsínugulur | appelsínugult | applesínugul)",
+          "out": "orange"
+        },
+        {
+          "in": "(gulur | gul |gullt)",
+          "out": "yellow"
+        },
+        {
+          "in": "(vgrænn | grænt | græn)",
+          "out": "green"
+        },
+        {
+          "in": "(blár | blá | blátt)",
+          "out": "blue"
+        },
+        {
+          "in": "(fjólublátt | fjólublár | jólublá)",
+          "out": "purple"
+        },
+        {
+          "in": "(brúnn | brún | brúnt)",
+          "out": "brown"
+        },
+        {
+          "in": "(bleikur | bleikt | bleik)",
+          "out": "pink"
+        }
+      ]
+    }
+  },
+  "expansion_rules": {},
+  "skip_words": []
+}
