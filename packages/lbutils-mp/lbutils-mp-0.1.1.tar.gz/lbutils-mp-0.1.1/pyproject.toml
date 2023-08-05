@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lbutils-mp"
+version = "0.1.1"
+authors = [
+  { name="David Love", email="david.love@leedsbeckett.ac.uk" },
+]
+description = "Utility library for MicroPython, used at Leeds Beckett University and primarily aimed at the Pico H/W microcontrollers"
+readme = "README.md"
+requires-python = ">=3.4"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/dlove24/lbutils"
+"Documentation" = "https://dlove24.github.io/lbutils/lbutils/index.html"
+
+[tool.setuptools]
+packages = ["lbutils", "lbutils.drivers", "lbutils.examples", "lbutils.helpers", "lbutils.pmod"]
