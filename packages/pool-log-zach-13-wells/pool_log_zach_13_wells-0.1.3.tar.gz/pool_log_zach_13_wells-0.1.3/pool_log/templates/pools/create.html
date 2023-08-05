@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Create Pool{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method=post>
+	<label for="name">Pool Name</label>
+	<input name="name" id="name" required>
+	<label for="volume">Volume in Gallons</label>
+	<input name="volume" id="volume" pattern="\d+" required>
+	<input class="button" type="submit" value="Create">
+{% endblock %}

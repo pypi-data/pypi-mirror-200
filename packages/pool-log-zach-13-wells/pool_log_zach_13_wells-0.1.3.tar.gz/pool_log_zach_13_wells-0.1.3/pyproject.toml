@@ -1,0 +1,31 @@
+[project]
+name = "pool_log_zach_13_wells"
+version = "0.1.3"
+authors = [
+	{ name="Zachary Wells", email="zach.13.wells@gmail.com" },
+	]
+description = "A Flask application for logging pool water quality"
+readme = "README.md"
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+	]
+
+[project.urls]
+"Homepage" = "https://github.com/adinfinitum225/pool-log"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = [
+	"pool_log/schema.sql",
+	"pool_log/static",
+	"pool_log/templates",
+	"pool_log/*.py",
+	]
+exclude = [
+	"*.pyc",
+	]
