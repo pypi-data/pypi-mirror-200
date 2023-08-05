@@ -1,0 +1,4 @@
+image_path: null
+mode: 1 # 1-bit pixels, black and white, stored with one pixel per byte
+size: !!python/tuple [1,1] # Single Pixel
+color: [0,0,0] # Black

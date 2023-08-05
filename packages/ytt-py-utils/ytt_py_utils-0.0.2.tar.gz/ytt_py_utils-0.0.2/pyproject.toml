@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling",
+    "black==22.3.0", "mypy==0.942" ,"pylint==2.13.4"
+    ,"pytest-cov==3.0.0" ,"pytest-xdist==2.5.0" ,"pytest==7.0.1"
+    ,"pyaml-env==1.2.1" ,"PySide2==5.15.2.1" ,"Pillow==9.3.0"
+    ,"requests==2.7.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ytt_py_utils"
+version = "0.0.2"
+authors = [
+  { name="youssef taktak", email="youssef.taktak@hotmail.fr" },
+]
+description = "Some misc python utils "
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/dzertus/ytt_utils"
