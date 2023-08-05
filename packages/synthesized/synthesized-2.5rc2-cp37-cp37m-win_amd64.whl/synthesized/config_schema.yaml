@@ -1,0 +1,62 @@
+annotations: include('annotations_schema', required=False)
+masking: include('masking_schema', required=False)
+meta: include('meta_schema', required=False)
+model: include('model_schema', required=False)
+highdim: include('highdim_schema', required=False)
+synthesize: include('synthesize_schema', required=False)
+learn: include('learn_schema', required=False)
+rebalance: include('rebalance_schema', required=False)
+rules: include('rules_schema', required=False)
+---
+annotations_schema:
+    address: list(include('default_annotation_schema'), required=False)
+    bank: list(include('default_annotation_schema'), required=False)
+    person: list(include('default_annotation_schema'), required=False)
+    formatted_string : list(include('default_annotation_schema'), required=False)
+masking_schema:
+    format_preserving: list(include('format_preserving_schema'), required=False)
+    rounding: list(include('rounding_schema'), required=False)
+    nan: list(include('default_schema'), required=False)
+meta_schema:
+    string : list(str(), required=False)
+    date_time : list(str(), required=False)
+    time_delta : list(str(), required=False)
+    time_delta_day : list(str(), required=False)
+    integer : list(str(), required=False)
+    bool : list(str(), required=False)
+    integer_bool : list(str(), required=False)
+    float : list(str(), required=False)
+model_schema:
+    enumeration : list(include('enumeration_schema'), required=False)
+    histogram : list(include('default_schema'), required=False)
+    kernel_density_estimate : list(include('default_schema'), required=False)
+highdim_schema:
+    latent_size : int(required=False)
+    batch_size : int(required=False)
+learn_schema:
+    num_steps: int(required=False)
+synthesize_schema:
+    num_rows: int(required=False)
+    produce_nans: bool(required=False)
+rebalance_schema: list(include('rebalance_column_schema'), required=False)
+rules_schema:
+    association: list(list(str()), required=False)
+---
+default_annotation_schema:
+    name: str(required=True)
+    labels: map(str(), str(), required=True)
+default_schema:
+    name: str(required=True)
+format_preserving_schema:
+    name: str(required=True)
+    pattern: str(required=False)
+rounding_schema:
+    name: str(required=True)
+    bins: str(required=False)
+enumeration_schema:
+    name: str(required=True)
+    start: int(required=False)
+    step: int(required=False)
+rebalance_column_schema:
+    name: str(required=True)
+    marginals: map(required=True)
