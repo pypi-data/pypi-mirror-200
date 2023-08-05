@@ -1,0 +1,83 @@
+<div align=center>
+
+# ascii-yt
+
+play any youtube video ▶ with ASCII in the terminal.
+
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/malkiAbdoo/ascii-yt?color=red)](./ascii_video_player)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/malkiAbdoo/ascii-yt/publish.yml?color=2fbe50&logo=github)](https://github.com/malkiAbdoo/ascii-yt/actions)
+[![PyPI](https://img.shields.io/pypi/v/ascii-yt?label=pypi%20version&logo=pypi)](https://pypi.org/project/ascii-yt/)
+[![Twitter URL](https://img.shields.io/twitter/url?label=@malkiAbdoo&url=https%3A%2F%2Ftwitter.com%2FmalkiAbdoo)](https://twitter.com/malkiAbdoo)
+
+![Screenshot](https://raw.githubusercontent.com/malkiAbdoo/ascii-yt/main/images/example.gif)
+
+</div>
+
+## Requirements
+
+- python 3.3 or above
+- Linux or MacOS
+
+## Installation
+
+install it with `pip` command
+
+```bash
+$ pip install ascii-yt
+```
+
+or use `pip3` in Linux or MacOS
+
+```bash
+$ pip3 install ascii-yt
+```
+
+## Usage
+
+you can use URL as well between double quotes
+
+```bash
+$ ascii-yt "https://www.youtube.com/watch?v=dQw4w9WgXcQ&"
+```
+
+### Options
+
+**`--colors`**
+Allow to use colors in the ascii video
+
+```bash
+$ ascii-yt "URL.." --colors
+```
+
+**`-s --size`** Set a custom size and it must be `WIDTHxHEIGHT`
+
+```bash
+$ ascii-yt "URL.." -s 110x40
+```
+
+**`-c --chars`**
+Allow using your own characters depending on the grayscale value from black to white. the default value: " .'~;icok0XN"
+
+```bash
+$ ascii-yt "URL.." -c " .:!lM" --colors
+```
+
+## How it works
+
+ascii-yt is a python program that renders [ASCII](https://en.wikipedia.org/wiki/ASCII) videos based on 5 steps:
+
+1. Using **OpenCV** module to read each frame in the video
+2. Resize it to the terminal size (if there's not a custom size in the options)
+3. Convert the frame to a grayscale image (black & white)
+4. Mapping each pixel to a given character depending on the grayscale value from black to the white. the default value: `" .'~;icok0XN"`
+
+5. finaly display the frame.
+
+<details>
+<summary>Overview</summary><br>
+<img src="https://raw.githubusercontent.com/malkiAbdoo/ascii-yt/main/images/explain.jpg" alt="overview" />
+</details>
+
+## License
+
+Distributed under the [MIT](https://github.com/malkiAbdoo/ascii-yt/blob/main/LICENSE) license.
