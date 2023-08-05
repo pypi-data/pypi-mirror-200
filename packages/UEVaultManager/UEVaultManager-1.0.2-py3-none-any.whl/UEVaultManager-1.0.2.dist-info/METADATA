@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: UEVaultManager
+Version: 1.0.2
+Summary: Free and open-source replacement for the Epic Games Launcher application, mainly to manage the assets for Unreal Engine
+Home-page: https://github.com/LaurentOngaro/UEVaultManager
+Author: Laurent Ongaro
+Author-email: laurent@gameamea.com
+License: GPL-3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (<3.0)
+Requires-Dist: setuptools
+Requires-Dist: wheel
+Provides-Extra: webview
+Requires-Dist: pywebview (>=3.4) ; extra == 'webview'
+Provides-Extra: webview_gtk
+Requires-Dist: pywebview (>=3.4) ; extra == 'webview_gtk'
+Requires-Dist: PyGObject ; extra == 'webview_gtk'
+
