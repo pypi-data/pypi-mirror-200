@@ -1,0 +1,14 @@
+h5py>=3.7
+julian
+moniplot>=0.5.9
+netCDF4>=1.5
+numpy>=1.23
+openpyxl>=3
+pyYAML>=6.0
+xarray>=2022.3
+
+[:python_version == "3.8"]
+importlib-resources>5.8
+
+[toml]
+toml
