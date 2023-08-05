@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: quest-eras
+Version: 1.6.4.3
+Summary: Sandia National Laboratories application suite for energy storage analysis and evaluation tools.
+Home-page: https://www.github.com/snl-quest/snl-quest
+Author: Sandia National Laboratories
+Maintainer-email: tunguy@sandia.gov
+License: BSD 3-clause
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas (>=0.24.2)
+Requires-Dist: pyomo (>=5.6)
+Requires-Dist: matplotlib (>=3.5.1)
+Requires-Dist: kivy (>=1.10.1)
+Requires-Dist: kivy-garden
+Requires-Dist: xlrd
+Requires-Dist: six
+Requires-Dist: jinja2
+Requires-Dist: bs4
+Requires-Dist: requests
+Requires-Dist: urllib3
+Requires-Dist: holidays
+Requires-Dist: seaborn
+Requires-Dist: eppy
+Requires-Dist: openpyxl
+Requires-Dist: pyutilib
+
+Sandia National Laboratories application suite for energy storage analysis and evaluation tools.
