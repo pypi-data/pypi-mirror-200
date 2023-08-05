@@ -1,0 +1,88 @@
+{
+  "src/ts/components/Button.tsx": {
+    "displayName": "Button",
+    "description": "",
+    "props": {
+      "text": {
+        "description": "",
+        "required": false,
+        "defaultValue": {
+          "value": "'Submit'",
+          "computed": false
+        },
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "className": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "type": {
+        "description": "",
+        "required": false,
+        "defaultValue": {
+          "value": "'button'",
+          "computed": false
+        },
+        "type": {
+          "name": "any",
+          "raw": "any"
+        }
+      },
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, any>) => void"
+        }
+      },
+      "children": {
+        "description": "",
+        "required": false,
+        "type": {
+          "name": "node",
+          "raw": "ReactNode"
+        }
+      }
+    },
+    "isContext": false
+  },
+  "src/ts/components/Youhi.tsx": {
+    "displayName": "Youhi",
+    "description": "Component description",
+    "props": {
+      "id": {
+        "description": "Unique ID to identify this component in Dash callbacks.",
+        "required": false,
+        "type": {
+          "name": "string",
+          "raw": "string"
+        }
+      },
+      "setProps": {
+        "description": "Update props to trigger callbacks.",
+        "required": true,
+        "type": {
+          "name": "func",
+          "raw": "(props: Record<string, any>) => void"
+        }
+      }
+    },
+    "isContext": false
+  }
+}
