@@ -1,0 +1,9 @@
+
+sources:
+  - name: my_source
+    filesystem: local
+    path: add/your/path/here
+    path_type: file
+    format: parquet
+
+
