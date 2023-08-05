@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: kubernetes-dynamic
+Version: 0.0.1
+Summary: Kubernetes Dynamic client
+Author-email: Attila Kobor <atti92@gmail.com>, Balazs Hamorszky <balihb@gmail.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic (>=1.10.0)
+Requires-Dist: kubernetes
+
+# kubernetes-dynamic
