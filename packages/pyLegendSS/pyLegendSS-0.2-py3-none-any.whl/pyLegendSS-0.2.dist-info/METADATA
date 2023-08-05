@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pyLegendSS
+Version: 0.2
+Summary: This is a simple package which is used in String Generator Bot
+Home-page: https://github.com/LEGEND-AI/pyLegendSS
+Author: LegendBoy
+Author-email: krishna045jaiswal@gmail.com
+License: GNU General Public License v3.0
+Keywords: pyLegendSS,LegendSS
+Classifier: Framework :: AsyncIO
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Build Tools
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyrogram1 (==0.1.0)
+Requires-Dist: telethon (==1.26.1)
+Requires-Dist: pyrogram (==2.0.88)
+
+# pyLegendSS
+This is package of String Generator Bot
