@@ -1,0 +1,53 @@
+stages:
+- test
+- benchmark
+- docs
+- deploy
+
+image: flatspin/nvidia
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+  - .tox
+  - doc/_build/.jupyter_cache
+  - doc/images/generated
+
+before_script:
+  - pip3 install -U tox setuptools
+
+test:
+  script:
+  - tox -e tests
+  artifacts:
+    when: always
+    reports:
+      junit: test_report.xml
+
+benchmark:
+  script:
+  - tox -e benchmark
+  artifacts:
+    when: always
+    paths:
+    - .benchmarks/
+    reports:
+      junit: test_report.xml
+
+docs:
+  stage: docs
+  script:
+  - tox -e docs
+  artifacts:
+    paths:
+    - doc/_build/html
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_TAG =~ /^v[0-9]+(?:.[0-9]+)+$/
+
+deploy:
+  stage: deploy
+  trigger: flatspin/flatspin.gitlab.io
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_TAG =~ /^v[0-9]+(?:.[0-9]+)+$/

@@ -1,0 +1,12 @@
+[console_scripts]
+flatspin-convert = flatspin.tools.convert:main
+flatspin-fsck = flatspin.tools.fsck:main
+flatspin-inspect = flatspin.tools.inspect:main
+flatspin-plot = flatspin.tools.plot:main
+flatspin-plot-table = flatspin.tools.plot_table:main
+flatspin-progress = flatspin.tools.progress:main
+flatspin-run = flatspin.tools.run:main
+flatspin-run-sweep = flatspin.tools.run_sweep:main
+flatspin-stats = flatspin.tools.stats:main
+flatspin-vectors = flatspin.tools.vectors:main
+flatspin-vertices = flatspin.tools.vertices:main

@@ -1,0 +1,30 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+chapters:
+- file: installation
+- file: quickstart
+- file: userguide
+  sections:
+  - file: theory
+  - file: model
+  - file: fields
+  - file: switching
+  - file: dynamics
+  - file: encoders
+  - file: dataset
+  - file: analysis
+  - file: cmdline
+  - file: extending
+  - file: contributing
+- file: examples
+  sections:
+  - glob: examples/*
+- file: reference
+  sections:
+  - file: reference/cmdline
+  - file: reference/api
+  - file: reference/changelog
+  - file: reference/bibliography
