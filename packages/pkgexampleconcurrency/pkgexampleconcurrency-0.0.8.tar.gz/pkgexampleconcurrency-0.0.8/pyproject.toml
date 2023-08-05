@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pkgexampleconcurrency"
+version = "0.0.8"
+authors = [
+  { name="Good Boy", email="pythonic@rexbytes.com" },
+]
+description = "A simple concurrency package example"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies=[]
+
+
+[project.urls]
+"Homepage" = "https://github.com/RexBytes/pkgexampleconcurrency"
+"Bug Tracker" = "https://github.com/RexBytes/pkgexampleconcurrency/issues"
+"Download URL" ="https://github.com/RexBytes/pkgexampleconcurrency/archive/refs/tags/v0.0.8.tar.gz"
+
+[project.scripts]
+rexthreading = "pkgexampleconcurrency:my_concurrency_module.my_threading"
+rexconcurrentfutures  = "pkgexampleconcurrency:my_concurrency_module.my_concurrentfutures"
+rexmultiprocessing = "pkgexampleconcurrency:my_concurrency_module.my_multiprocessing"
+rexasyncio = "pkgexampleconcurrency:my_concurrency_module.my_asyncio"
