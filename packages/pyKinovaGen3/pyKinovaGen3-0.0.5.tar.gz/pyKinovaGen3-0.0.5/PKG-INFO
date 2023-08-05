@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyKinovaGen3
+Version: 0.0.5
+Summary: Python package for the kinematics and dynamics of Kinova Gen3
+Author-email: Ozan Tokatli <ozan.tokatli@gmail.com>
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Documentation, https://pykinovagen3.readthedocs.io
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# KinovaGen3
+A library of Python function for the kinematic and dynamic equations of Kinova Gen3 robot.
