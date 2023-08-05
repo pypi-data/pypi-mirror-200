@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.py
+pipepermcalc/__init__.py
+pipepermcalc/pipe.py
+pipepermcalc/project_path.py
+pipepermcalc/segment.py
+pipepermcalc.egg-info/PKG-INFO
+pipepermcalc.egg-info/SOURCES.txt
+pipepermcalc.egg-info/dependency_links.txt
+pipepermcalc.egg-info/requires.txt
+pipepermcalc.egg-info/top_level.txt
+pipepermcalc/database/__init__.py
+pipepermcalc/database/ppc_database.csv
+tests/test_pipepermcalc.py
