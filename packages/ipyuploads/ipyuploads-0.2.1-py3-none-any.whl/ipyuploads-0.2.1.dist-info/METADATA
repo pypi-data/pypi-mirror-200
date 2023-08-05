@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: ipyuploads
+Version: 0.2.1
+Summary: A Jupyter file widget with chunked upload capabilities
+Project-URL: Homepage, https://github.com/g2nb/ipyuploads
+Author-email: Thorin Tabor <tmtabor@cloud.ucsd.edu>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2022, Regents of the University of California & Broad Institute
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright notice, this
+          list of conditions and the following disclaimer.
+        
+        * Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution.
+        
+        * Neither the name of the copyright holder nor the names of its
+          contributors may be used to endorse or promote products derived from
+          this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: LICENSE
+Keywords: ipython,jupyter,widgets
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: IPython
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Multimedia :: Graphics
+Requires-Python: >=3.6
+Requires-Dist: ipywidgets<9,>=7
+Description-Content-Type: text/markdown
+
+# ipyuploads
+
+**ipyuploads** is a Jupyter file widget with a variety of improvements over the `FileUpload` component that comes in [ipywidgets](https://github.com/jupyter-widgets/ipywidgets). It is designed to serve as a drop-in replacement for the aforementioned component. Features include:
+
+* Progress indicator on uploads over 1 mb
+* "Chunked" file upload supports larger files than `FileUpload` allows
+* The ability to write chunks to disk reduces the memory requirement for large file uploads
+* Callback hooks on file upload completion, chunk upload completion and all-files completion
+
+## Requirements
+
+* ipywidgets >= 7.5.0
+
+## Installation
+
+```bash
+pip install ipyuploads
+```
+
+### Development
+
+```bash
+git clone https://github.com/g2nb/ipyuploads.git
+pip install -e ipyuploads
+```
+
+## Usage
+
+In a Jupyter notebook, run the following:
+
+```python
+import ipyuploads
+
+ipyuploads.Upload()
+```
+
+Various options can also be set, including:
+
+```python
+import ipyuploads
+
+ipyuploads.Upload(accept='txt',           # Accept only text files
+                  multiple=True,          # Upload multiple files at once
+                  disabled=True,          # Disable the widget
+                  icon='cloud-upload',    # Change the upload icon
+                  button_stye='primary',  # Change the button style
+                  error='Bad Error',      # Set the error message
+                  busy=False,             # Whether an upload is in progress
+                  chunk_complete=foo,     # Callback when a chunk upload completes
+                  file_complete=bar,      # Callback when a file upload completes
+                  all_files_complete=fo2, # Callback when all files complete
+                  )
+```
