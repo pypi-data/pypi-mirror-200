@@ -1,0 +1,69 @@
+* 0.5.4
+	- Update url in package file
+* 0.5.3
+	- Change license to AGPL3 and copyright waived to public domain
+* 0.4.14-unreleased
+	- Remove web3 / eth-* module dependencies
+	- Add custom keyfile handling code and cli tool
+	- Add zero-length password option to keyfile cli tool
+	- Fix tx serialization bug when to address is none (contract creation)
+* 0.4.13
+	- Implement DictKeystore
+	- Remove unused insert_key method in keystore interface
+	- Add transaction executor helper, with adapter helper for eth
+	- Fix bitlength of integers in all tx fields before rlp encoding
+	- Add tcp server
+	- Fix RLP encoding bug on signature elements with 0x00 in first position
+* 0.4.12
+	- Enforce hex strings in signer backend for sign message
+* 0.4.11
+	- Add missing middleware param for eth_sign method
+* 0.4.10
+	- Add bytes and string handling in inner signer backend
+* 0.4.9
+	- Accept string message format for message signing
+* 0.4.8
+	- Fix server crash on sign request for unknown key
+* 0.4.7
+	- Upgrade dependencies
+* 0.4.6
+	- Add sign message
+* 0.4.5
+	- Upgrade dependencies
+* 0.4.4
+	- Upgrade dependencies
+* 0.4.3
+	- Align rlp dependency to solve discrepancy in eth-tester/py-evm dependencies
+* 0.4.2
+	- Upgrade rlp depencency
+* 0.4.1
+	- Make dependency versions explicit in setup
+* 0.4.0
+	- Handle hex inputs for int values in transaction dict
+	- Change signature for Web3 constructor to take provider instead of url
+	- Add script for importing private key from hex
+* 0.3.0
+	- Implement SQLAlchemy for db backend
+* 0.2.6
+	- Upgrade confini
+* 0.2.5
+	- Add default env override
+	- Do not create middleware if ipc no set
+* 0.2.4
+	- Remove hardcoded ipc path in middleware
+* 0.2.3
+	- Use dsn and config for keystore database settings
+* 0.2.2
+	- Use confini for configurations
+* 0.2.1
+	- Fix hardcoded daemon signTransaction nonce
+* 0.2.0
+	- Add import method to keystore interface
+* 0.1.1
+	- Create key table only if not exist
+* 0.1.0
+	- Package wrap with setup.py
+	- Fix hex prefix bug in tx serialization
+* 0.0.1
+	- Introduce signer, transaction, keystore packages
+	- Add test for keystore and signer		
