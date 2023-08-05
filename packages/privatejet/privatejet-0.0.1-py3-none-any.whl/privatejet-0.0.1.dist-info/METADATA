@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: privatejet
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: m-moein-98
+Author-email: moein1475963.mmz@gmail.com
+License: OSI Approved :: MIT License
+Keywords: python backend framework private-jet-framework
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+## Description
+
+This is a python backend framework for building REST applications. It is built on top of the ASGI specification and uses the uvicorn server.
+## Installation
+
+```bash
+python setup.py bdist_wheel
+pip install dist/privatejet-0.0.1-py3-none-any.whl
+```
+
+## Usage
+
+```python
+from private_jet.main import PrivateJet
+from private_jet.router import JetRouter
+
+
+class UserRouter(JetRouter):
+    async def get_users(self):
+        await self.send_message(
+            [
+                {"name": "alex", "age": 20},
+                {"name": "john", "age": 30},
+            ]
+        )
+
+    async def handler(self, route):
+        if route == "/":
+            await self.get_users()
+
+
+async def app(scope, receive, send):
+    private_jet = PrivateJet()
+    await private_jet.add_router(
+        router={"prefix": "/users", "send": send, "router": UserRouter}
+    )
+    await private_jet.start(scope=scope, send=send)
+
+```
+
+## License
+
+This project is licensed under the terms of the MIT license.
+
+Change Log
+==========
+
+0.0.1 (3/29/2023)
+-----------------
+-First Release
+
