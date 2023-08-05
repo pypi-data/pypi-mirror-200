@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: fastcvapp
+Version: 0.1.0
+Summary: Create a computer vision app FAST! Multiprocessing made easy, right out of the box.
+Home-page: https://github.com/ShootingStarDragon/FastCVApp
+License: MIT
+Author: ShootingStarDragon
+Requires-Python: >=3.8,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: Kivy (>=2.1.0,<3.0.0)
+Requires-Dist: mediapipe (>=0.9.0,<0.10.0) ; sys_platform == "win32"
+Requires-Dist: mediapipe-silicon (>=0.9.1,<0.10.0) ; sys_platform == "darwin"
+Requires-Dist: numpy (>=1.23.4,<2.0.0)
+Requires-Dist: opencv-python (>=4.6.0.66,<5.0.0.0)
+Project-URL: Repository, https://github.com/ShootingStarDragon/FastCVApp
+Description-Content-Type: text/markdown
+
+
