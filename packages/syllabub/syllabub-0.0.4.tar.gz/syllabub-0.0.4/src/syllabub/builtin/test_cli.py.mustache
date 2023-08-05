@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: {{ spdx_identifier }}
+# SPDX-FileCopyrightText: {{ copyright }}
+
+from {{ short_name }} import cli
+
+def test_invoke():
+    result = cli.invoke()
+    assert result is None

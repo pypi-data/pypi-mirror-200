@@ -1,0 +1,40 @@
+[project]
+name = "syllabub"
+version = "0.0.4"
+description = "Keep Python project conventions up-to-date and worry less about trifling matters. 🍰"
+authors = [
+    { name = "David Seaward", email = "david@librem.one" },
+]
+dependencies = [
+    "chevron>=0.14.0",
+    "tomli>=2.0.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+
+[project.license]
+text = "AGPL-3.0-or-later"
+
+[project.optional-dependencies]
+
+[project.scripts]
+syllabub = "syllabub.cli:invoke"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "carmine>=0.0.3",
+]
+
+[tool.syllabub.project]
+conduct = "contributor-covenant-2.1"
+copyright = "Copyright 2022 David Seaward and contributors"
+origin = "DCO-1.1-git-signoff"
+sbom = "reuse spdx"
+title = "Syllabub project bolt-on"
+url = "https://lofidevops.neocities.org"
