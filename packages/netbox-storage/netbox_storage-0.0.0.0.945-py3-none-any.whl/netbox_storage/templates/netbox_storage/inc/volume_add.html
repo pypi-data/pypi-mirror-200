@@ -1,0 +1,65 @@
+{% extends 'generic/object_edit.html' %}
+{% load form_helpers %}
+
+{% block form %}
+<div class="field-group mb-5">
+    <div class="row mb-2">
+        <h5 class="offset-sm-3">Drive Cluster Configuration</h5>
+    </div>
+    {% render_field form.cluster_type %}
+    {% render_field form.cluster %}
+    {% render_field form.storage_configuration %}
+</div>
+
+{# Template or custom #}
+{# Device/VM selection #}
+<div class="row mb-2">
+    <div class="offset-sm-3">
+        <ul class="nav nav-pills" role="tablist">
+            <li role="presentation" class="nav-item">
+                <button role="tab" type="button" id="lvm_tab" data-bs-toggle="tab" aria-controls="lvm"
+                        data-bs-target="#lvm"
+                        class="nav-link {% if not form.initial.storage_configuration %}active{% endif %}">
+                    LVM
+                </button>
+            </li>
+            <li role="presentation" class="nav-item">
+                <button role="tab" type="button" id="linux_volume_tab" data-bs-toggle="tab" aria-controls="linux_volume"
+                        data-bs-target="#linux_volume"
+                        class="nav-link {% if form.initial.storage_configuration %}active{% endif %}">
+                    Linux Volume
+                </button>
+            </li>
+            <li role="presentation" class="nav-item">
+                <button role="tab" type="button" id="windows_volume_tab" data-bs-toggle="tab"
+                        aria-controls="windows_volume" data-bs-target="#windows_volume"
+                        class="nav-link {% if form.initial.storage_configuration %}active{% endif %}">
+                    Windows Volume
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="tab-content p-0 border-0">
+    <div class="tab-pane {% if not form.initial.storage_configuration %}active{% endif %}" id="lvm" role="tabpanel"
+         aria-labeled-by="lvm_tab">
+        {% render_field form.size %}
+        {% render_field form.lv_name %}
+        {% render_field form.vg_name %}
+        {% render_field form.path %}
+        {% render_field form.fs %}
+    </div>
+    <div class="tab-pane {% if form.initial.storage_configuration %}active{% endif %}" id="linux_volume" role="tabpanel"
+         aria-labeled-by="linux_volume_tab">
+        {% render_field form.size %}
+        {% render_field form.path %}
+        {% render_field form.fs %}
+    </div>
+    <div class="tab-pane {% if form.initial.storage_configuration %}active{% endif %}" id="windows_volume" role="tabpanel"
+         aria-labeled-by="windows_volume_tab">
+        {% render_field form.hard_drive_label %}
+        {% render_field form.size %}
+        {% render_field form.fs %}
+    </div>
+</div>
+{% endblock %}
