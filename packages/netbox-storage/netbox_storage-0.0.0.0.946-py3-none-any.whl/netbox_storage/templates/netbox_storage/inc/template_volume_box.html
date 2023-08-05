@@ -1,0 +1,32 @@
+<div class="card">
+    <h5 class="card-header">Mounted Volume Configuration</h5>
+    <div class="card-body">
+        {% if mounted_volumes %}
+        <table class="table table-hover">
+            <tr>
+                <td>Device</td>
+                <td>Mount point</td>
+                <td>Filesystem</td>
+                <td>Options</td>
+                <td>Size</td>
+            </tr>
+            {% for mounted_volume in mounted_volumes %}
+            <tr>
+                <td>{{ mounted_volume.linux_device|linkify|placeholder }}</td>
+                <td>{{ mounted_volume.mount_point|linkify|placeholder }}</td>
+                <td>{{ mounted_volume.fs_type|linkify|placeholder }}</td>
+                <td>{{ mounted_volume.options|linkify|placeholder }}</td>
+                <td>{{ mounted_volume.linux_device.size|linkify|placeholder }} GB</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div class="text-muted">None</div>
+        {% endif %}
+    </div>
+    <div class="card-footer text-end noprint">
+        <a href="{% url 'plugins:netbox_storage:template_lvm_add' %}" class="btn btn-sm btn-primary">
+            <span class="mdi mdi-plus-thick" aria-hidden="true"></span> Mount Partition
+        </a>
+    </div>
+</div>
