@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: foscat
+Version: 1.9.5
+Summary: Synthesise 2D or Healpix data using Cross Scattering Transform
+Home-page: https://github.com/jmdelouis/FOSCAT
+Author: Jean-Marc DELOUIS
+Author-email: jean.marc.delouis@ifremer.fr
+Maintainer: Theo Foulquier
+Maintainer-email: theo.foulquier@ifremer.fr
+License: MIT
+Keywords: Scattering transform,Component separation,denoising
+Requires-Dist: imageio
+Requires-Dist: imagecodecs
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: tensorflow
+Requires-Dist: healpy
+
+Synthesise data (2D or Healpix) using Cross Scattering Transform (https://arxiv.org/abs/2207.12527) usable for component separation (e.g. denoising). 
+ Demo package here : https://github.com/jmdelouis/FOSCAT_DEMO 
