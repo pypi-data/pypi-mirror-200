@@ -1,0 +1,18 @@
+[project]
+authors = [
+  {name = "Lojas Engecon", email = "tecnologia@lojasengecon.com.br"},
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+description = "adatoolbox"
+name = "adatoolbox"
+readme = "README.md"
+requires-python = ">=3.7"
+version = "0.0.4"
+
+[project.urls]
+"Bug Tracker" = "https://github.com/lojas-engecon/toolbox/issues"
+"Homepage" = "https://github.com/lojas-engecon/toolbox"
