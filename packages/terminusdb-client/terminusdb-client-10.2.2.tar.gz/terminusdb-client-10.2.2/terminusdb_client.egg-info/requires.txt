@@ -1,0 +1,10 @@
+requests
+numpydoc
+click<9.0,>=7.0
+shed
+typeguard<3,>=2
+tqdm
+
+[dataframe]
+numpy>=1.13.0
+pandas>=0.23.0
