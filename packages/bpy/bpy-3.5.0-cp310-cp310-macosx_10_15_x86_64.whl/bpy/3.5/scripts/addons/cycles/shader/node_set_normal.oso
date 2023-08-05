@@ -1,0 +1,23 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.13.0.1
+# options: -q -O2 -I/Users/blender/git/blender-v350/blender.git/intern/cycles/kernel/osl/shaders -I/Users/blender/git/blender-v350/lib/darwin/osl/share/OSL/shaders -o /Users/blender/git/blender-v350/build_x86_64_release/intern/cycles/kernel/osl/shaders/node_set_normal.oso
+surface node_set_normal
+param	normal	Direction	0 0 0		%read{2,3} %write{0,0} %initexpr
+oparam	normal	Normal	0 0 0		%read{2147483647,-1} %write{1,3} %initexpr
+global	normal	N	%read{0,1} %write{2,2}
+code Direction
+# /Users/blender/git/blender-v350/blender.git/intern/cycles/kernel/osl/shaders/node_set_normal.osl:6
+# surface node_set_normal(normal Direction = N, output normal Normal = N)
+	assign		Direction N 	%filename{"/Users/blender/git/blender-v350/blender.git/intern/cycles/kernel/osl/shaders/node_set_normal.osl"} %line{6} %argrw{"wr"}
+code Normal
+# /Users/blender/git/blender-v350/blender.git/intern/cycles/kernel/osl/shaders/node_set_normal.osl:6
+# surface node_set_normal(normal Direction = N, output normal Normal = N)
+	assign		Normal N 	%filename{"/Users/blender/git/blender-v350/blender.git/intern/cycles/kernel/osl/shaders/node_set_normal.osl"} %line{6} %argrw{"wr"}
+code ___main___
+# /Users/blender/git/blender-v350/blender.git/intern/cycles/kernel/osl/shaders/node_set_normal.osl:8
+#   N = Direction;
+	assign		N Direction 	%filename{"/Users/blender/git/blender-v350/blender.git/intern/cycles/kernel/osl/shaders/node_set_normal.osl"} %line{8} %argrw{"wr"}
+# /Users/blender/git/blender-v350/blender.git/intern/cycles/kernel/osl/shaders/node_set_normal.osl:9
+#   Normal = Direction;
+	assign		Normal Direction 	%line{9} %argrw{"wr"}
+	end
