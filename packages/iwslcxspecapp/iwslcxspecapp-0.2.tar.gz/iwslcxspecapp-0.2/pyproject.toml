@@ -1,0 +1,37 @@
+[project]
+name = "iwslcxspecapp"
+requires-python = ">= 3.9"
+
+license = {text = "GPL-3.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+keywords = ["SAR", "wave", "reseach", "cross-spectra","panel"]
+
+dependencies = [
+    "xarray",
+    "holoviews",
+    "geoviews",
+    "shapely",
+    "cartopy",
+    "datashader",
+    "xarray-datatree",
+    "panel",
+]
+
+dynamic = ["version"]
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+#py_modules = ['iwslcxspecapp']
+[tool.setuptools]
+packages = ["iwslcxspecapp"]
+
+[tool.setuptools_scm]
+fallback_version = "999"
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+float_to_top = true
+default_section = "THIRDPARTY"
