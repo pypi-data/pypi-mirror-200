@@ -1,0 +1,9 @@
+[console_scripts]
+merph = merph.scripts.run_merph:run_merph
+merph-example = merph.scripts.example:run_example
+
+[gui_scripts]
+merph-app = merph.scripts.run_app:run_app
+
+[merph.app]
+app = merph.scripts.run_app:run_app
