@@ -1,0 +1,119 @@
+# large:
+#   basket:
+#     - ALICEUSDT
+#     - AUDIOUSDT
+#     - HNTUSDT
+#     - JASMYUSDT
+#     - ARUSDT
+#     - LITUSDT
+#     - IMXUSDT
+#     - FLMUSDT
+#   model_abs_path: data/model/20221211_21:59:37/ALICEUSDT_ARUSDT_AUDIOUSDT_FLMUSDT_HNTUSDT_IMXUSDT_JASMYUSDT_LITUSDT/20221101/model.pickle
+#   tactic_tuning_abs_path: data/tactics_tuning/0.0.0/ALICEUSDT_ARUSDT_AUDIOUSDT_FLMUSDT_HNTUSDT_IMXUSDT_JASMYUSDT_LITUSDT/20221004.pickle
+
+test:
+  basket:
+    - ALICEUSDT
+    - FLMUSDT
+  active:
+    - ALICEUSDT # not implemented yet
+  model_abs_path: data/models/0.0.0/ALICEUSDT_FLMUSDT/20221004.pickle
+  tactic_tuning_abs_path: data/tactics_tuning/0.0.0/ALICEUSDT_FLMUSDT/20221004.h5
+#
+# AAVE/USDT:
+#   model_path: data/model/20221211_21:59:37/AAVEUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.65
+#     opening_slope: 0.005
+#     quote_quantity_size: 20.0
+#   leverage: 20
+#
+# ADA/USDT:
+#   model_path: data/model/20221211_21:59:37/ADAUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.501
+#     opening_slope: 0.00
+#     quote_quantity_size: 40.0
+#   leverage: 20
+#
+# ALICE/USDT:
+#   model_path: data/model/20221211_21:59:37/ALICEUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.501
+#     opening_slope: 0.00
+#     quote_quantity_size: 30.0
+#   leverage: 20
+#
+# ANKR/USDT:
+#   model_path: data/model/20221211_21:59:37/ANKRUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.65
+#     opening_slope: 0.0001
+#     quote_quantity_size: 20.0
+#   leverage: 20
+#
+# APE/USDT:
+#   model_path: data/model/20221211_21:59:37/APEUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.65
+#     opening_slope: 0.005
+#     quote_quantity_size: 20.0
+#   leverage: 20
+#
+#
+# APT/USDT:
+#   model_path: data/model/20221211_21:59:37/APTUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.65
+#     opening_slope: 0.005
+#     quote_quantity_size: 20.0
+#   leverage: 20
+#
+#
+# ARPA/USDT:
+#   model_path: data/model/20221211_21:59:37/ARPAUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.65
+#     opening_slope: 0.005
+#     quote_quantity_size: 500.0
+#   leverage: 20
+#
+#
+#
+# AR/USDT:
+#   model_path: data/model/20221211_21:59:37/ARUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.65
+#     opening_slope: 0.005
+#     quote_quantity_size: 20.0
+#   leverage: 20
+#
+#
+#
+# ATOM/USDT:
+#   model_path: data/model/20221211_21:59:37/ATOMUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.65
+#     opening_slope: 0.005
+#     quote_quantity_size: 20.0
+#   leverage: 20
+#
+#
+#
+# BTC/USDT:
+#   model_path: data/model/20221211_21:59:37/ATOMUSDT/20221101/model.pickle
+#   tactic:
+#     horizon: 0.1
+#     closing_threshold: 0.65
+#     opening_slope: 0.005
+#     quote_quantity_size: 20.0
+#   leverage: 20

@@ -1,0 +1,87 @@
+dates:
+  from: 20230322
+  to: 20230325
+    
+trade: 
+
+book:
+  limit: 10
+  
+  
+basket:
+  name: all
+  trading_pairs: 
+    binance:
+      future: 
+        - base_asset: ETH
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT
+        - base_asset: ALICE
+          quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDT
+        - base_asset: IOTA
+          quote_asset: USDT
+        - base_asset: ETH
+          quote_asset: USDT
+          maturity: 20230331
+      spot:
+        - base_asset: ETH
+          quote_asset: USDT
+        - base_asset: ALICE
+          quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDT
+        - base_asset: IOTA
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT
+    kraken:
+      future:
+        - base_asset: ETH
+          quote_asset: USD
+        - base_asset: ALICE
+          quote_asset: USD
+        - base_asset: ATOM
+          quote_asset: USD
+        # - base_asset: IOTA
+        #   quote_asset: USD
+        - base_asset: ETH
+          quote_asset: USD
+          maturity: 20230331
+      spot:
+        - base_asset: ETH
+          quote_asset: USD
+        # - base_asset: ALICE
+        #   quote_asset: USD
+        - base_asset: ATOM
+          quote_asset: USD
+        # - base_asset: IOTA
+        #   quote_asset: USD
+        - base_asset: ADA
+          quote_asset: USD
+    okx:
+      future: 
+        - base_asset: ETH
+          quote_asset: USDT
+        # - base_asset: ALICE
+        #   quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDT
+        - base_asset: IOTA
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT
+          maturity: 20230331
+      spot: 
+        - base_asset: ETH
+          quote_asset: USDT
+        # - base_asset: ALICE
+        #   quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDT
+        - base_asset: IOTA
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT

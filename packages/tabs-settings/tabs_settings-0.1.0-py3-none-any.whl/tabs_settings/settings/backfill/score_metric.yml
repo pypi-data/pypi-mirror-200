@@ -1,0 +1,14 @@
+score_evaluation_id: # if none, set to now()
+score_id: # if none, use last
+
+local_settings:
+  paths: code/tabs-settings/src/tabs_settings/paths.yml
+  roll: code/tabs-settings/src/tabs_settings/learn/roll.yml
+  baskets: code/tabs-settings/src/tabs_settings/learn/baskets.yml
+
+job_settings:
+  score_evaluation: code/tabs-settings/src/tabs_settings/learn/score_evaluation.yml
+
+instance:
+  ram_to_file_size_ratio: 0.005
+  gpu: false # if true or let tabs-job-dist decide which gpu to use
