@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: shift-left-secure
+Version: 0.1.1
+Summary: Mitigate vulnerabilities before pushing code to github/gitlab/bitbucket
+Author: Dhrumil Mistry
+Author-email: 56185972+dmdhrumilmistry@users.noreply.github.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: gitpython (==3.1.18)
+Requires-Dist: openapi (>=1.1.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Shift Left Secure
+
+## Usage
+
+- add key to environment variable
+
+    ```bash
+    export OPEN_API_KEY=KEY
+    ```
+
+- Start analyzing changes between commits using below cmd:
+
+    ```bash
+    python -m shift_left_secure -d 'path_to_git_project'
+    ```
+
