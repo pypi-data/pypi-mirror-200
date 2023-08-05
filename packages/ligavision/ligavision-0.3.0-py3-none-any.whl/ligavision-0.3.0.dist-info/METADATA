@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: ligavision
+Version: 0.3.0
+Requires-Python: <3.10,>=3.8
+Requires-Dist: Pillow
+Requires-Dist: liga (<0.4.0,>=0.3.0)
+Requires-Dist: ligavision-dsl (==0.2.0)
+Requires-Dist: pyspark (==3.2.1)
+
