@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ForMoSA
+Version: 1.0.11
+Summary: ForMoSA: Forward Modeling Tool for Spectral Analysis
+Home-page: https://github.com/exoAtmospheres/ForMoSA
+Author: P. Palma-Bifani, S. Petrus
+Author-email: paulina.palma-bifani@oca.eu
+License: BSD 2-Clause License
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: astropy (<5)
+Requires-Dist: configobj
+Requires-Dist: corner
+Requires-Dist: extinction
+Requires-Dist: nestle
+Requires-Dist: matplotlib
+Requires-Dist: numpy (==1.21.6)
+Requires-Dist: PyAstronomy (==0.18.0)
+Requires-Dist: scipy (==1.7.3)
+Requires-Dist: spectres
+Requires-Dist: xarray (==0.20.2)
+
