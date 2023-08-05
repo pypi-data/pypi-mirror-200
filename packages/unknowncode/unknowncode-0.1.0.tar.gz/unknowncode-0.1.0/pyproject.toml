@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "unknowncode"
+version = "0.1.0"
+description = "Small portions of code I use, gathered into one group for ease of access. Like a mod library for a game. Built with poetry"
+authors = ["UnknownSources"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
