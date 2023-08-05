@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+exclude= ["/tests"]
+
+[project]
+name = "altinn3-error-handler"
+version = "0.0.2"
+authors = [
+    { name="Anders Hagen", email="nhk@ssb.no" }
+]
+description = "A simple framework for customized error handling"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
