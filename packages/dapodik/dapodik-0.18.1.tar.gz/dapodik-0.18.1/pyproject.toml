@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "dapodik"
+version = "0.18.1"
+description = "SDK python untuk aplikasi dapodik."
+authors = ["hexatester <habibrohman@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://dapodix.github.io/dapodik"
+repository = "https://github.com/hexatester/dapodik"
+documentation = "https://github.com/dapodix/dapodik/wiki"
+include = [
+    "LICENSE",
+    "LISENSI",
+    "README.md",
+    "README-EN.md",
+]
+keywords = [
+    "dapodik",
+    "kemdikbud",
+    "python-module",
+    "python-sdk",
+    "python-wrapper"
+]
+classifiers=[
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Education",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = ">=2.0.0"
+beautifulsoup4 = ">=4.0.0"
+cachetools = "^4.2.2"
+attrs = ">=21.0.0,<=23.0.0"
+cattrs = ">=21.0.0,<=23.0.0"
+ujson = {version = "^5.7.0", optional = true}
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.2"
+mypy = "^1.1.1"
+pytest-cov = "^4.0.0"
+black = "^23.3.0"
+python-dotenv = "^0.19.0"
+types-attrs = "^19.1.0"
+types-cachetools = "^4.2.0"
+types-requests = "^2.25.6"
+
+[tool.poetry.extras]
+ujson = ["ujson"]
+
+[tool.poetry.scripts]
+dapodik = "dapodik.__main__:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
