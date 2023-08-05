@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pymc-sphinx-theme
+Version: 0.1
+Summary: A thin sphinx theme to customize pydata-sphinx-theme consistently cross PyMC websites.
+Author-email: PyMC Team <pymc.devs@gmail.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pydata-sphinx-theme>=0.12.0,<0.13
+Requires-Dist: sphinx>=4,<6
+Requires-Dist: docutils==0.17.1
+Project-URL: documentation, https://www.pymc.io
+Project-URL: source, https://github.com/pymc-devs/pymc-sphinx-theme
+Project-URL: tracker, https://github.com/pymc-devs/pymc-sphinx-theme/issues
+
+# pymc-sphinx-theme
+
+A thin sphinx theme to customize pydata-sphinx-theme consistently cross PyMC websites.
+
