@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: goat-calc
+Version: 0.1.1
+Summary: Added 'Updated' message
+Author: Jason Lee
+Author-email: changjin9792@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: typer[all] (>=0.7.0,<0.8.0)
+Description-Content-Type: text/markdown
+
+This is a GOAT calculator which can only add and subtract two numbers.
+
+It can also print "hello"!
+
