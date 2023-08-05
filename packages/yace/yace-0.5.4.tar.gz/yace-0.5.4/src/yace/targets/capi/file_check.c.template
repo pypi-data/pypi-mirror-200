@@ -1,0 +1,58 @@
+/**
+ * {{ meta.project }}; this a simple check that pretty-printers behave as intended
+ *
+ * This is not an exhaustive test, however, ensuring that a program can be built using
+ * the headers produced and that the generated pretty-printers are sound, goes a long
+ * way.
+ *
+ * ------------------------------------------------------------------------------------------------
+ * Copyright (C) {{ meta.author }}
+ * SPDX-License-Identifier: {{ meta.lic }}
+ *
+ * @file {{ meta.prefix }}_check.c
+ * ------------------------------------------------------------------------------------------------
+ * NOTE: This file is created using yace: https://github.com/safl/yace
+ */
+#include <stdio.h>
+#include <lib{{ meta.prefix }}.h>
+
+{% for entity in entities if entity.cls in ["struct", "union"] %}
+int
+test_{{ entity.sym }}_pr(void)
+{
+        {{ entity.cls }} {{ entity.sym }} obj = { 0 };
+        int wrtn;
+
+        printf("\n# output from: {{ entity.sym }}_pr(..., {{ meta.prefix | upper }}_PR_YAML)\n");
+        wrtn = {{ entity.sym }}_pr(&obj, {{ meta.prefix | upper }}_PR_YAML);
+        if (wrtn < 0) {
+                return 1;
+        }
+
+        printf("\n# output from: {{ entity.sym }}_pr(..., {{ meta.prefix | upper }}_PR_JSON)\n");
+        wrtn = {{ entity.sym }}_pr(&obj, {{ meta.prefix | upper }}_PR_JSON);
+        if (wrtn < 0) {
+                return 1;
+        }
+
+        return 0;
+}
+{% endfor %}
+
+int main(int argc, char *argv[])
+{
+        int err;
+
+        printf("#\n");
+        printf("# Pretty-printer output and testing\n");
+        printf("#\n");
+
+        {% for entity in entities if entity.cls in ["struct", "union"] %}
+        err = test_{{ entity.sym }}_pr();
+        if (err) {
+                return err;
+        }
+        {% endfor %}
+
+        return 0;
+}
