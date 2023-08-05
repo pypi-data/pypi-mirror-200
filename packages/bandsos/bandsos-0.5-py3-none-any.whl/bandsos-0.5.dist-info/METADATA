@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: bandsos
+Version: 0.5
+Summary: .. danger::
+Keywords: flood,forecasting,schism,gfs,hwrf
+Author-email: Jamal Khan <jamal919@gmail.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Requires-Dist: requests
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: xarray
+Requires-Dist: utide
+Requires-Dist: cmocean
+Requires-Dist: rioxarray
+Project-URL: Home, https://jamalkhan.me/bandsos
+Project-URL: Repo, https://github.com/jamal919/bandsos-platform
+
+# BandSOS Coastal Flood Forecasting Platform
+Experimented on the Bengal delta in Bangladesh, BanD-SOS aims to establish a pre-operational service for forecasting 
+cyclonic flooding and the associated societal risk. This service will have two components: a forecast of the coastal 
+flooding hazard in real time that uses a state-of-the-art coupled hydrodynamic-wave modelling platform, and a coupling 
+of this forecast with a mapping of the vulnerability of the exposed areas. The project is a collaboration with Bangladesh
+Water Development Board (BWDB) - the government engineering organization of Bangladesh which manages the water resource
+infrastructure and tasked with providing the flood forecasting to the vast community of Bangladesh.
+
+This repository contains the softwares and scripts necessary for running the BandSOS platform. Please consult the 
+[full documentation](https://jamalkhan.me/bandsos-platform) how to setup the bandsos platform in practice.
