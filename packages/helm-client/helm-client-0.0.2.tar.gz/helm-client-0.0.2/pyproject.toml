@@ -1,0 +1,47 @@
+[project]
+name = "helm-client"
+requires-python = ">=3.7"
+readme = "README.md"
+description = "Helm client"
+dynamic = ["version", "dependencies"]
+authors = [
+    {name = "Attila Kobor", email = "atti92@gmail.com"},
+    {name = "Balazs Hamorszky", email = "balihb@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Pydantic",
+    "Intended Audience :: Developers",
+    "License :: Freely Distributable",
+    "Programming Language :: Python :: 3",
+]
+license = {text = "BSD-3-Clause"}
+keywords = ["helm", "client", "helm-client"]
+
+[project.urls]
+homepage = "https://github.com/atti92/helm-client"
+documentation = "https://github.com/atti92/helm-client"
+repository = "https://github.com/atti92/helm-client.git"
+changelog = "https://github.com/atti92/helm-client/blob/main/README.md"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+namespaces = true
+exclude = ["*.tests", "*.tests.*", "tests.*", "tests", "helm.tests*", "helm.tests.*"]
+include = ["helm", "helm.*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "helm._version.__version__" }
+dependencies = { file = "requirements.txt" }
+
+[tool.pytest.ini_options]
+testpaths = ["helm/tests"]
+
+[tool.ruff]
+line-length = 120
