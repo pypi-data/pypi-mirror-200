@@ -1,0 +1,9 @@
+oarepo-vocabularies>=1.0.0
+
+[devs]
+black
+isort
+autoflake
+
+[tests]
+oarepo-vocabularies[tests]>=1.0.0
