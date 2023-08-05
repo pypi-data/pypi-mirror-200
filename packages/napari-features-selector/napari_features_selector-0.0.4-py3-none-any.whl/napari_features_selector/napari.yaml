@@ -1,0 +1,10 @@
+name: napari-features-selector
+display_name: Features Selection GA
+contributions:
+  commands:
+    - id: napari-features-selector.gui_GA
+      python_name: napari_features_selector._widget:initialize_widget
+      title: Genetic Algorithm
+  widgets:
+    - command: napari-features-selector.gui_GA
+      display_name: Feature Selection using - GA [Genetic Algorithm]
