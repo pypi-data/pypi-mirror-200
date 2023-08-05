@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "teg_regression"
+version = "0.1.0"
+authors = [
+  { name="Thomas E. Gladwin", email="thomasgladwin@hotmail.com" },
+]
+description = "Linear regression, with F-tests, AIC, and linear constraints."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy"
+]
+
+[project.urls]
+"Homepage" = "https://tegladwin.com"
+"Bug Tracker" = "https://github.com/thomasgladwin/teg_regr_tests"
