@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: biobb_flexserv
+Version: 3.9.0
+Summary: biobb_flexserv is a BioBB category for biomolecular flexibility studies on protein 3D structures.
+Home-page: https://github.com/bioexcel/biobb_flexserv
+Author: Biobb developers
+Author-email: adam.hospital@irbbarcelona.org
+License: UNKNOWN
+Project-URL: Documentation, http://biobb_flexserv.readthedocs.io/en/latest/
+Project-URL: Bioexcel, https://bioexcel.eu/
+Keywords: Bioinformatics Workflows BioExcel Compatibility Flexibility Ensembles Protein Structure
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Requires-Python: >=3.7.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+biobb_flexserv allows the generation of protein conformational ensembles from 3D structures and the analysis of its molecular flexibility.
+
