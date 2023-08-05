@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: dapper
+Version: 1.5.0
+Summary: DAPPER benchmarks the performance of data assimilation (DA) methods.
+Author: Patrick N. Raanes
+Author-email: patrick.n.raanes@gmail.com
+Project-URL: Documentation, https://nansencenter.github.io/DAPPER/
+Project-URL: Source, https://github.com/nansencenter/DAPPER
+Project-URL: Tracker, https://github.com/nansencenter/DAPPER/issues
+Keywords: data-assimilation enkf kalman-filtering state-estimation particle-filter kalman bayesian-methods bayesian-filter chaos
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: Qt
+Provides-Extra: debug
+Provides-Extra: test
+Provides-Extra: lint
+Provides-Extra: build
+Provides-Extra: dev
+License-File: LICENCE.txt
+
+It is usually best to install from source (github),
+so that you the code is readily available to play with.
+See full README on [github](https://github.com/nansencenter/DAPPER).
