@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: python-milvus-server
+Version: 2.2.3.post6
+Summary: Python Milvus Server
+Home-page: https://github.com/matrixji/python-milvus-server
+Author: Ji Bin
+Author-email: matrixji@live.com
+License: Apache-2.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: milvus (>=2.2.4)
+
+# Python Milvus Server
+
+Note:
+
+- From VERSION 2.2.4, this `matrixji/python-milvus-server` start migrate to [milvus-io/embd-milvus](https://github.com/milvus-io/embd-milvus)
+- And `milvus_server` package name change to `milvus`, for more details see [milvus-io/embd-milvus](https://github.com/milvus-io/embd-milvus)
+- Visit https://pypi.org/project/milvus/ for more details.
+
+
+
