@@ -1,0 +1,18 @@
+longitude = 107.6184
+
+[image]
+umin = 1
+umax = 60
+scale = '9amin'
+size = '1200 1200'
+
+[vis_cube]
+fov = 120
+umin = 1
+umax = 60
+win_fct = 'hann'
+
+[power_spectra]
+eor_bin_list = 'config/eor_bins_alo.parset'
+ps_config = 'config/ps_config_alo.parset'
+flagger = 'config/flagger.parset'

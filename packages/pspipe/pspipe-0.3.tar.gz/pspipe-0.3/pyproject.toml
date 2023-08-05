@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "pspipe"
+version = "0.3"
+description = "Power spectra pipeline for Cosmic Dawn, Epoch of Reionization radio interferometric experiments"
+authors = ["\"Florent Mertens\" <\"florent.mertens@gmail.com\">"]
+repository = "https://gitlab.com/flomertens/pspipe/"
+readme = 'README.md'
+
+[tool.poetry.dependencies]
+python = "^3.7"
+toml = ">=0.10"
+python-casacore = "^3.0"
+astropy = [{version = "^4.0", python = ">=3.7,<3.8"}, {version = "^5.0", python = ">=3.8"}]
+scipy = [{version = "^1.6", python = ">=3.7,<3.8"}, {version = "^1.8", python = ">=3.8"}]
+matplotlib = "^3.0"
+tables = "^3.2"
+tabulate = ">=0.8"
+ps-eor = ">=0.8"
+nenucal = ">=0.1.11"
+
+[tool.poetry.dev-dependencies]
+pytest = ">=5.2"
+
+[tool.poetry.scripts]
+psdb = "pspipe.tools.psdb:main"
+pspipe = "pspipe.tools.pspipe:main"
+
+[build-system]
+requires = ["poetry>=1.0.8"]
+build-backend = "poetry.core.masonry.api"
+
+
