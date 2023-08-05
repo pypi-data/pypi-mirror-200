@@ -1,0 +1,3 @@
+from dataneuronalp.mlc_prediction import PredictMultilabel
+# from dataneuronalp.prediction import PredictIssue
+from dataneuronalp.config import config
