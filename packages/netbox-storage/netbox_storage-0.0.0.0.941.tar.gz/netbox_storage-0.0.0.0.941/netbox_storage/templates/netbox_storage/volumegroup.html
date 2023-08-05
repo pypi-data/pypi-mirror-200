@@ -1,0 +1,77 @@
+{% extends 'generic/object.html' %}
+{% load helpers %}
+{% load plugins %}
+{% load render_table from django_tables2 %}
+{% load perms %}
+
+{% block controls %}
+{{ block.super }}
+{% endblock controls %}
+
+{% block breadcrumbs %}
+{{ block.super }}
+{% endblock %}
+
+{% block tabs %}
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="row mb-3">
+    <div class="col">
+        <div class="card">
+            <h5 class="card-header">Volume Group</h5>
+            <div class="card-body">
+                <table class="table table-hover attr-table">
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td>{{ object.vg_name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total Storage (GB)</th>
+                        <td>{{ object.description }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total available Storage (GB)</th>
+                        <td>{{ object.description }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Amount of Physical Volumes</th>
+                        <td>{{ object.description }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Amount of Logical Volumes</th>
+                        <td>{{ object.description }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>{{ object.description }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% include 'inc/panels/custom_fields.html' %}
+    </div>
+</div>
+<div class="row">
+	<div class="col col-md-6">
+        <div class="card">
+            <h5 class="card-header">Physical Volumes</h5>
+            <div class="card-body table-responsive">
+                {% render_table physical_volumes_table 'inc/table.html' %}
+                {% include 'inc/paginator.html' with paginator=physical_volumes_table.paginator page=physical_volumes_table.page %}
+            </div>
+        </div>
+    </div>
+    <div class="col col-md-6">
+        <div class="card">
+            <h5 class="card-header">Logical Volumes</h5>
+            <div class="card-body table-responsive">
+                {% render_table logical_volumes_table 'inc/table.html' %}
+                {% include 'inc/paginator.html' with paginator=logical_volumes_table.paginator page=logical_volumes_table.page %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
