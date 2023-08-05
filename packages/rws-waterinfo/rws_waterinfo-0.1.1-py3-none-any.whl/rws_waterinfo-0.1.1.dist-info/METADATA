@@ -1,0 +1,168 @@
+Metadata-Version: 2.1
+Name: rws-waterinfo
+Version: 0.1.1
+Summary: UNKNOWN
+Home-page: https://gitlab.com/rwsdatalab/public/codebase/tools/rws-waterinfo
+Author: RWS Datalab
+Author-email: datalab.codebase@rws.nl
+License: UNKNOWN
+Keywords: rws_waterinfo
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: types-requests
+Provides-Extra: dev
+Requires-Dist: bandit ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: flake8-bugbear ; extra == 'dev'
+Requires-Dist: flake8-comprehensions ; extra == 'dev'
+Requires-Dist: flake8-docstrings ; extra == 'dev'
+Requires-Dist: flake8-polyfill ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pylint[prospector] ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: radon ; extra == 'dev'
+Requires-Dist: safety ; extra == 'dev'
+Requires-Dist: sh ; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: pydata-sphinx-theme ; extra == 'doc'
+Requires-Dist: sphinx ; extra == 'doc'
+
+################
+rws_waterinfo
+################
+
+.. begin-inclusion-intro-marker-do-not-remove
+
+
+
+.. end-inclusion-intro-marker-do-not-remove
+
+
+.. begin-inclusion-usage-marker-do-not-remove
+
+How to use
+----------
+
+Provide user documentation here.
+
+.. end-inclusion-usage-marker-do-not-remove
+
+
+.. begin-inclusion-installation-marker-do-not-remove
+
+Installation
+------------
+
+To install rws_waterinfo, do:
+
+.. code-block:: console
+
+  pip install rws-waterinfo
+
+
+Run tests (including coverage) with:
+
+.. code-block:: console
+
+  pip install -r requirements-dev.txt
+  python setup.py test
+
+.. end-inclusion-installation-marker-do-not-remove
+
+
+Example
+-------
+
+Get observation data from Waterinfo
+Here we retrieve observation data from Waterinfo. It takes in
+three arguments, two of which are optional, and returns a Pandas dataframe
+or None. The first argument, params, is a list of lists that contains the
+necessary parameters to retrieve observations. The second argument,
+filepath, is an optional string that specifies the directory and file name
+where the data will be saved. If filepath is not specified, the data will
+not be saved. The third argument, return_df, is an optional boolean that
+specifies whether the function should return the observations as a Pandas
+dataframe or not. If return_df is set to False, the function will not
+return anything.
+
+.. code-block:: python
+
+	import pandas as pd
+	import rws_waterinfo as rw
+	# Initialize rws_waterinfo library
+	#
+	params  = [['OW', 'm3/s', 156, 'Q', 'OLST', 711556.219876449,
+	5803627.64455833, '2022-01-01', '2023-01-01']]
+	filepath = 'observations.csv'
+	#
+	data = rw.get_data(params=params, filepath=filepath, return_df=True)
+	#
+	print(data.head())
+	#
+	# Locatie_MessageID Coordinatenstelsel  ...  WaardeBewerkingsmethode.Code
+	WaardeBewerkingsmethode.Omschrijving
+	# 0              18878              25831  ... NaN                                   NaN
+	# 1              18878              25831  ... NaN                                   NaN
+	# 2              18878              25831  ... NaN                                   NaN
+	# 3              18878              25831  ... NaN                                   NaN
+	# 4              18878              25831  ... NaN                                   NaN
+	# [5 rows x 54 columns]
+
+
+
+
+This function sends a request to Waterinfo for parameter information
+and parses the response into a Pandas DataFrame. The DataFrame contains
+the locations and parameters combined into a single table.
+
+.. code-block:: python
+
+	import pandas as pd
+	# Initialize rws_waterinfo library
+	import rws_waterinfo as rw
+	#
+	catalog = rw.get_catalog()
+	#
+	catalog.head()
+	#
+	# AquoMetaData_MessageID	Locatie_MessageID	Coordinatenstelsel	X	Y
+	# 0	12746	22317	25831	717567.392073	5.782901e+06
+	# 1	17619	22366	25831	706152.313357	5.725423e+06
+	# 2	7941	17613	25831	580241.163781	5.723650e+06
+	# 3	14352	21173	25831	705635.738484	5.835367e+06
+	# 4	18676	21173	25831	705635.738484	5.835367e+06
+	# 5 rows × 44 columns
+	#
+
+
+.. begin-inclusion-license-marker-do-not-remove
+
+License
+-------
+
+Copyright (c) 2023, Rijkswaterstaat
+
+
+
+.. end-inclusion-license-marker-do-not-remove
+
+
+
+
