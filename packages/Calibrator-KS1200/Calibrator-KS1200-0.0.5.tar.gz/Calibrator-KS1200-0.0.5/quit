@@ -1,0 +1,40 @@
+[33mtag v0.0.3[m
+Tagger: Denis.Nikolaev <nickolaev.d@gmail.com>
+Date:   Thu Feb 16 21:19:21 2023 +0600
+
+version 0.0.3
+
+[33mcommit a9a56919262bec05bf1ca1c4aec95d1c3d957251[m[33m ([m[1;33mtag: v0.0.3[m[33m)[m
+Author: Denis.Nikolaev <nickolaev.d@gmail.com>
+Date:   Tue Jan 24 19:21:20 2023 +0600
+
+    Edited .gitignore
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex 6358cd4..01ea73a 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -1 +1,3 @@[m
+ /desktop.ini[m
+[32m+[m[32m/Calibrator_KS1200.egg-info[m[41m [m
+[32m+[m[32m/dist[m
+\ No newline at end of file[m
+[1mdiff --git a/Calibrator_KS1200/.gitignore b/Calibrator_KS1200/.gitignore[m
+[1mindex 025f3d9..7eaf569 100644[m
+[1m--- a/Calibrator_KS1200/.gitignore[m
+[1m+++ b/Calibrator_KS1200/.gitignore[m
+[36m@@ -1,12 +1,3 @@[m
+[31m-/ETL.sublime-project[m
+ /__pycache__[m
+[31m-/ETL_Y_drive.sublime-workspace[m
+[31m-/ETL.sublime-workspace[m
+[31m-/desktop.ini[m
+[31m-/.git/refs/heads/desktop.ini[m
+[31m-/.git/refs/remotes/desktop.ini[m
+[31m-/.git/refs/remotes/origin/desktop.ini[m
+[31m-/.git/refs/tags/desktop.ini[m
+[31m-/ks1200.zip[m
+ /.vscode[m
+[31m-/read_from*[m
+\ No newline at end of file[m
+[32m+[m[32mdesktop.ini[m
