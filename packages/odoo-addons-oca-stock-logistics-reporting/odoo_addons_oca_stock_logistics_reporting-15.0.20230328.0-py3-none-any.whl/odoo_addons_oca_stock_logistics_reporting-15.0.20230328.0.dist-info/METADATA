@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: odoo-addons-oca-stock-logistics-reporting
+Version: 15.0.20230328.0
+Summary: Meta package for oca-stock-logistics-reporting Odoo addons
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 15.0
+Requires-Dist: odoo-addon-delivery-line-sale-line-position (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-account-valuation-report (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-card-report (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-move-value-report (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-picking-report-custom-description (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-picking-report-external-note (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-picking-report-product-sticker (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-picking-report-undelivered-product (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-picking-report-valued (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-picking-report-valued-sale-mrp (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-stock-report-quantity-by-location (<15.1dev,>=15.0dev)
+
+UNKNOWN
+
