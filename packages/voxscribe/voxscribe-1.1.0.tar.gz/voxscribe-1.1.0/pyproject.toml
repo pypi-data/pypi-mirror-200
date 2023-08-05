@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "voxscribe"
+authors = [{name='Matt Manes'}]
+description = "Extract text from .wav and .mp3 files."
+version = "1.1.0"
+requires-python = ">=3.10"
+dependencies = ["requests", "speechRecognition", "pydub", "whosyouragent", "pytest"]
+readme = "README.md"
+keywords = [
+	"text",
+	"audio",
+	"speech"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/matt-manes/voxscribe"
+"Documentation" = "https://github.com/matt-manes/voxscribe/tree/main/docs"
+"Source code" = "https://github.com/matt-manes/voxscribe/tree/main/src/voxscribe"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = "src"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    ".coverage",
+    ".pytest_cache",
+    ".vscode",
+    "*.mp3",
+    "*.wav",
+    "audio",
+    "tests"
+]
