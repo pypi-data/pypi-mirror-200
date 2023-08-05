@@ -1,0 +1,1 @@
+pip install deskaone-sdk-scrypt-v2
