@@ -1,0 +1,16 @@
+tbump
+columnar
+ruamel.yaml
+numpy
+dask-ms[s3,xarray,zarr]>=0.2.9
+codex-africanus[astropy,dask,python-casacore,scipy]
+dask[array,diagnostics]
+astro-tigger-lsm
+loguru
+numba>=0.55.0
+distributed
+requests
+pytest
+omegaconf
+colorama
+xarray>=0.20.0
