@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "notional"
+version = "0.8.0"
+description = "A high-level interface for the Notion SDK."
+license = "MIT"
+authors = ["Jason Heddings <jheddings@gmail.com>"]
+repository = "https://github.com/jheddings/notional/"
+documentation = "https://jheddings.github.io/notional/"
+readme = "README.md"
+classifiers=[
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+notion-client = "^2.0.0"
+pydantic = "^1.10.7"
+html5lib = "^1.1"
+urllib3 = "^1.26.15"
+emoji = "^2.2.0"
+
+[tool.poetry.group.dev.dependencies]
+GitPython = "^3.1.31"
+pre-commit = "^3.2.1"
+pytest = "^7.2.2"
+coverage = "^7.2.2"
+pytest-vcr = "^1.0.2"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocstrings = "^0.20.0"
+mkdocs-material = "^9.1.4"
+mkdocstrings-python = "^0.8.3"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line_length = 88
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
