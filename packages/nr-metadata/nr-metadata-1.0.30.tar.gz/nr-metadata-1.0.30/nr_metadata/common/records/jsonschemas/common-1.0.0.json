@@ -1,0 +1,1042 @@
+{
+    "type": "object",
+    "properties": {
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "additionalTitles": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {
+                                "type": "object",
+                                "properties": {
+                                    "lang": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "titleType": {
+                                "enum": [
+                                    "translatedTitle",
+                                    "alternativeTitle",
+                                    "subtitle",
+                                    "other"
+                                ],
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "creators": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "affiliations": {
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "title": {
+                                            "propertyNames": {
+                                                "pattern": "^[a-z]{2}$"
+                                            },
+                                            "type": "object",
+                                            "additionalProperties": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "hierarchy": {
+                                            "type": "object",
+                                            "properties": {
+                                                "parent": {
+                                                    "type": "string"
+                                                },
+                                                "level": {
+                                                    "type": "integer"
+                                                },
+                                                "title": {
+                                                    "items": {
+                                                        "propertyNames": {
+                                                            "pattern": "^[a-z]{2}$"
+                                                        },
+                                                        "type": "object",
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "ancestors": {
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        },
+                                        "@v": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            },
+                            "nameType": {
+                                "enum": [
+                                    "Organizational",
+                                    "Personal"
+                                ],
+                                "type": "string"
+                            },
+                            "fullName": {
+                                "type": "string"
+                            },
+                            "authorityIdentifiers": {
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "string"
+                                        },
+                                        "scheme": {
+                                            "enum": [
+                                                "orcid",
+                                                "scopusID",
+                                                "researcherID",
+                                                "czenasAutID",
+                                                "vedidk",
+                                                "institutionalID",
+                                                "ISNI",
+                                                "ROR",
+                                                "ICO",
+                                                "DOI"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            }
+                        }
+                    },
+                    "type": "array",
+                    "minItems": 1
+                },
+                "contributors": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "role": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "propertyNames": {
+                                            "pattern": "^[a-z]{2}$"
+                                        },
+                                        "type": "object",
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "affiliations": {
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "title": {
+                                            "propertyNames": {
+                                                "pattern": "^[a-z]{2}$"
+                                            },
+                                            "type": "object",
+                                            "additionalProperties": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "hierarchy": {
+                                            "type": "object",
+                                            "properties": {
+                                                "parent": {
+                                                    "type": "string"
+                                                },
+                                                "level": {
+                                                    "type": "integer"
+                                                },
+                                                "title": {
+                                                    "items": {
+                                                        "propertyNames": {
+                                                            "pattern": "^[a-z]{2}$"
+                                                        },
+                                                        "type": "object",
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "ancestors": {
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        },
+                                        "@v": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            },
+                            "nameType": {
+                                "enum": [
+                                    "Organizational",
+                                    "Personal"
+                                ],
+                                "type": "string"
+                            },
+                            "fullName": {
+                                "type": "string"
+                            },
+                            "authorityIdentifiers": {
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "string"
+                                        },
+                                        "scheme": {
+                                            "enum": [
+                                                "orcid",
+                                                "scopusID",
+                                                "researcherID",
+                                                "czenasAutID",
+                                                "vedidk",
+                                                "institutionalID",
+                                                "ISNI",
+                                                "ROR",
+                                                "ICO",
+                                                "DOI"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "resourceType": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "propertyNames": {
+                                "pattern": "^[a-z]{2}$"
+                            },
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "@v": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "dateAvailable": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "subjects": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "subjectScheme": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lang": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            },
+                            "valueURI": {
+                                "type": "string"
+                            },
+                            "classificationCode": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "publishers": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "subjectCategories": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "propertyNames": {
+                                    "pattern": "^[a-z]{2}$"
+                                },
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "@v": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "languages": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "propertyNames": {
+                                    "pattern": "^[a-z]{2}$"
+                                },
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "@v": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array",
+                    "minItems": 1
+                },
+                "notes": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "abstract": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "methods": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "technicalInfo": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "rights": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "propertyNames": {
+                                    "pattern": "^[a-z]{2}$"
+                                },
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "@v": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "accessRights": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "propertyNames": {
+                                "pattern": "^[a-z]{2}$"
+                            },
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "@v": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "relatedItems": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "itemTitle": {
+                                "type": "string"
+                            },
+                            "itemCreators": {
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "affiliations": {
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "propertyNames": {
+                                                            "pattern": "^[a-z]{2}$"
+                                                        },
+                                                        "type": "object",
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "hierarchy": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "parent": {
+                                                                "type": "string"
+                                                            },
+                                                            "level": {
+                                                                "type": "integer"
+                                                            },
+                                                            "title": {
+                                                                "items": {
+                                                                    "propertyNames": {
+                                                                        "pattern": "^[a-z]{2}$"
+                                                                    },
+                                                                    "type": "object",
+                                                                    "additionalProperties": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "array"
+                                                            },
+                                                            "ancestors": {
+                                                                "items": {
+                                                                    "type": "string"
+                                                                },
+                                                                "type": "array"
+                                                            }
+                                                        }
+                                                    },
+                                                    "@v": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "type": "array"
+                                        },
+                                        "nameType": {
+                                            "enum": [
+                                                "Organizational",
+                                                "Personal"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "fullName": {
+                                            "type": "string"
+                                        },
+                                        "authorityIdentifiers": {
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier": {
+                                                        "type": "string"
+                                                    },
+                                                    "scheme": {
+                                                        "enum": [
+                                                            "orcid",
+                                                            "scopusID",
+                                                            "researcherID",
+                                                            "czenasAutID",
+                                                            "vedidk",
+                                                            "institutionalID",
+                                                            "ISNI",
+                                                            "ROR",
+                                                            "ICO",
+                                                            "DOI"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "type": "array"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            },
+                            "itemContributors": {
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "role": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "propertyNames": {
+                                                        "pattern": "^[a-z]{2}$"
+                                                    },
+                                                    "type": "object",
+                                                    "additionalProperties": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "@v": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "affiliations": {
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "propertyNames": {
+                                                            "pattern": "^[a-z]{2}$"
+                                                        },
+                                                        "type": "object",
+                                                        "additionalProperties": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "hierarchy": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "parent": {
+                                                                "type": "string"
+                                                            },
+                                                            "level": {
+                                                                "type": "integer"
+                                                            },
+                                                            "title": {
+                                                                "items": {
+                                                                    "propertyNames": {
+                                                                        "pattern": "^[a-z]{2}$"
+                                                                    },
+                                                                    "type": "object",
+                                                                    "additionalProperties": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "array"
+                                                            },
+                                                            "ancestors": {
+                                                                "items": {
+                                                                    "type": "string"
+                                                                },
+                                                                "type": "array"
+                                                            }
+                                                        }
+                                                    },
+                                                    "@v": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "type": "array"
+                                        },
+                                        "nameType": {
+                                            "enum": [
+                                                "Organizational",
+                                                "Personal"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "fullName": {
+                                            "type": "string"
+                                        },
+                                        "authorityIdentifiers": {
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "identifier": {
+                                                        "type": "string"
+                                                    },
+                                                    "scheme": {
+                                                        "enum": [
+                                                            "orcid",
+                                                            "scopusID",
+                                                            "researcherID",
+                                                            "czenasAutID",
+                                                            "vedidk",
+                                                            "institutionalID",
+                                                            "ISNI",
+                                                            "ROR",
+                                                            "ICO",
+                                                            "DOI"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "type": "array"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            },
+                            "itemPIDs": {
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "string"
+                                        },
+                                        "scheme": {
+                                            "enum": [
+                                                "DOI",
+                                                "Handle",
+                                                "ISBN",
+                                                "ISSN",
+                                                "RIV"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            },
+                            "itemURL": {
+                                "type": "string"
+                            },
+                            "itemYear": {
+                                "type": "integer"
+                            },
+                            "itemVolume": {
+                                "type": "string"
+                            },
+                            "itemIssue": {
+                                "type": "string"
+                            },
+                            "itemStartPage": {
+                                "type": "string"
+                            },
+                            "itemEndPage": {
+                                "type": "string"
+                            },
+                            "itemPublisher": {
+                                "type": "string"
+                            },
+                            "itemRelationType": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "propertyNames": {
+                                            "pattern": "^[a-z]{2}$"
+                                        },
+                                        "type": "object",
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "itemResourceType": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "propertyNames": {
+                                            "pattern": "^[a-z]{2}$"
+                                        },
+                                        "type": "object",
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "fundingReferences": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "projectID": {
+                                "type": "string"
+                            },
+                            "projectName": {
+                                "type": "string"
+                            },
+                            "fundingProgram": {
+                                "type": "string"
+                            },
+                            "funder": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "propertyNames": {
+                                            "pattern": "^[a-z]{2}$"
+                                        },
+                                        "type": "object",
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "@v": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "geoLocations": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "geoLocationPlace": {
+                                "type": "string"
+                            },
+                            "geoLocationPoint": {
+                                "type": "object",
+                                "properties": {
+                                    "pointLongitude": {
+                                        "type": "number",
+                                        "minimum": -180.0,
+                                        "maximum": 180.0
+                                    },
+                                    "pointLatitude": {
+                                        "type": "number",
+                                        "minimum": -90.0,
+                                        "maximum": 90.0
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "accessibility": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "lang": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "series": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "seriesTitle": {
+                                "type": "string"
+                            },
+                            "seriesVolume": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "externalLocation": {
+                    "type": "object",
+                    "properties": {
+                        "externalLocationURL": {
+                            "type": "string"
+                        },
+                        "externalLocationNote": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "originalRecord": {
+                    "type": "string"
+                },
+                "objectIdentifiers": {
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "identifier": {
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "enum": [
+                                    "DOI",
+                                    "Handle",
+                                    "ISBN",
+                                    "ISSN",
+                                    "RIV"
+                                ],
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "systemIdentifiers": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "identifier": {
+                                "type": "string"
+                            },
+                            "scheme": {
+                                "enum": [
+                                    "nusl",
+                                    "nuslOAI",
+                                    "originalRecordOAI",
+                                    "catalogueSysNo",
+                                    "nrOAI"
+                                ],
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "events": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "eventNameOriginal": {
+                                "type": "string"
+                            },
+                            "eventNameAlternate": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "eventDate": {
+                                "type": "string"
+                            },
+                            "eventLocation": {
+                                "type": "object",
+                                "properties": {
+                                    "place": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "propertyNames": {
+                                                    "pattern": "^[a-z]{2}$"
+                                                },
+                                                "type": "object",
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "@v": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "id": {
+            "type": "string"
+        },
+        "created": {
+            "type": "string",
+            "format": "date"
+        },
+        "updated": {
+            "type": "string",
+            "format": "date"
+        },
+        "$schema": {
+            "type": "string"
+        }
+    }
+}
