@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: quadcube
+Version: 0.1.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: numpy
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: black; extra == 'test'
+Requires-Dist: isort; extra == 'test'
+Provides-Extra: test
+Requires-Python: >=3.7
