@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: gad_common_utils
+Version: 0.14
+Summary: gad utility
+Project-URL: Homepage, http://gad-co.ml
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# GAD Common Utils
+
+This package supply utility methods to create Airflow DAG setup under Aiola GAD Framework
+[see](gad_utils.py)

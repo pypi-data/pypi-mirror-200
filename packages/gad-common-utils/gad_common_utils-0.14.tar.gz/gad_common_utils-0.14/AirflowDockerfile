@@ -1,0 +1,7 @@
+FROM apache/airflow:2.4.1
+
+RUN pip install --no-cache-dir apache-airflow-providers-amazon==5.1.0 \
+    apache-airflow-providers-cncf-kubernetes==5.0.0 \
+    awswrangler==2.18 gad-common-utils
+
+# ADD airflow/dags/* /opt/airflow/dags/
