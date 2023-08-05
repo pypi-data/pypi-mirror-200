@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: tsdb-query-builder
+Version: 0.0.2
+Summary: build tsdb query strings
+Author-email: Frank <frankli0324@hotmail.com>
+License: MIT
+Project-URL: repository, https://github.com/frankli0324/tsdb-query-builder
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# tsdb query string builder
+
+```python
+from tsdb.query import Query
+from tsdb.query.filters import *
+
+if __name__ == '__main__':
+    print(Query('some.metrics').rate(True, 10, 20).aggr('max').filters({
+        'a': 'b', 'c': 'd',
+        'e': literal_or('f'),
+        'g': regexp('.*', groupBy=False),
+        'h': not_key(),
+    }).m())
+# max:rate{counter,10,20}:some.metrics{a=b,c=d,e=literal_or(f),h=not_key()}{g=regexp(.*)}
+```
