@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "merph"
+version = "0.1.10"
+authors = [
+    { name = "Mark J. Woodhouse", email = "mark.woodhouse@bristol.ac.uk" },
+]
+description = "Bayesian methods for inferring mass eruption rate for column height (or vice versa) for volcanic eruptions"
+readme = "README.md"
+requires-python = ">=3.8, <3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "argparse>=1.4.0",
+    "matplotlib>=3.5.1",
+    "Pint>=0.18",
+    "numpy>=1.24.2",
+    "pandas>=1.4.1",
+    "scipy>=1.8.0",
+    "seaborn>=0.11.2",
+    # "odfpy>=1.4.1",
+    "openpyxl>=3.0.9",
+    "click<8,>=4.0",
+]
+
+[project.optional-dependencies]
+mc = ["pymc>4", "arviz>=0.13.0"]
+app = [
+    "dash>=2.3.0",
+    "dash-bootstrap-components >=1.0.3",
+    "plotly>=5.6.0",
+    "kaleido>=0.2.1",
+]
+nb = ["notebook"]
+full = [
+    "pymc>4",
+    "arviz>=0.13.0",
+    "dash>=2.3.0",
+    "dash-bootstrap-components >=1.0.3",
+    "plotly>=5.6.0",
+    "kaleido>=0.2.1",
+    "notebook",
+]
+
+[project.urls]
+"Homepage" = "https://bitbucket.org/markwoodhouse/merph"
+"Bug Tacker" = "https://bitbucket.org/markwoodhouse/merph/admin/issues"
+
+[project.scripts]
+merph = "merph.scripts.run_merph:run_merph"
+merph-example = "merph.scripts.example:run_example"
+
+[project.gui-scripts]
+merph-app = "merph.scripts.run_app:run_app"
+
+[project.entry-points."merph.app"]
+app = "merph.scripts.run_app:run_app"
