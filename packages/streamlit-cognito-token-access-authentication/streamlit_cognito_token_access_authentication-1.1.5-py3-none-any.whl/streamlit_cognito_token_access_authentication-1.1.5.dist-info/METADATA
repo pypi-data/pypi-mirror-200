@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: streamlit-cognito-token-access-authentication
+Version: 1.1.5
+Summary: Cognito token access authentication with streamlit
+Author: Sean Tasaki
+Keywords: cognito,streamlit,access token
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Requires-Dist: python-jose[cryptography]
+Requires-Dist: streamlit (>=1.10.0)
+
+Authenticate using Cognito's UserInfo endpoint.     UserInfo endpoint requires only an access token. This scenario is to allow streamlit apps to run in an embedded app such as an iframe.    For usage example go to this package's github url.
