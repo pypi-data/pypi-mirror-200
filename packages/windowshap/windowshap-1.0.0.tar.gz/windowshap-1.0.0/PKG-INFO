@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: windowshap
+Version: 1.0.0
+Summary: an effective explanation method for time-series classifiers.
+Author-email: Shashank Yadav <shashank@arizona.edu>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# WindowSHAP
+ 
+This package includes the implementation of WindowSHAP framework, an effective explanation method for time-series classifiers. For more information about the method, please refer to the [original paper](https://arxiv.org/abs/2211.06507).

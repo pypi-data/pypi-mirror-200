@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "windowshap"
+version = "1.0.0"
+authors = [
+  { name="Shashank Yadav", email="shashank@arizona.edu" },
+]
+description = "an effective explanation method for time-series classifiers."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
