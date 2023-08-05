@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: azure-requests
+Version: 23.5
+Summary: Requests wrapper for Azure DevOps
+Author-email: Máté Farkas <fm@farkas-mate.hu>
+License: MIT License
+Project-URL: Homepage, https://github.com/presidento/azure-requests
+Project-URL: Changelog, https://github.com/presidento/azure-requests/blob/main/CHANGELOG.md
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: types-requests ; extra == 'dev'
+
+# Azure requests
+
+Just a wrapper around Python requests module for communicating with Azure DevOps.
+
+## DRY (don't repeat yourself) features
+
+- Authentication
+- Replace organization, project, and team in URL, so URLs can be copy-pasted from the documentation
+- Handle rate limit
+- Handle ADO temporary server errors
+- Set appropriate Content-Type headers
+- Parse JSON automatically
+- Raise exception for wrong HTTPS statuses
+
+## Rationale
+
+Azure DevOps has an excellent HTTPS API with an excellent documentation. It is easy to understand and easy to use. For smaller scripts and projects it is easier to use them as is. Every existing API implementations have many documentation issues.
+
+## Example
+
+```python
+from azure_requests import AzureRequests
+
+azure_requests = AzureRequests(
+    pat="<YOUR PAT>",
+    organization="<YOUR ORGANIZATION>",
+)
+
+work_item = azure_requests.api(
+    # Copy-pasted from https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items/get-work-item?view=azure-devops-rest-7.0&tabs=HTTP
+    "GET https://dev.azure.com/{organization}/{project}/_apis/wit/workitems/{id}?api-version=7.0",
+    # custom URL parameters
+    id=12345,
+).request()
+
+print(work_item)
+```
+
+For a more detailed example see `example.py`.
