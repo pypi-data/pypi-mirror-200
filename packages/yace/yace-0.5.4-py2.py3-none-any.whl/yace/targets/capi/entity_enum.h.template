@@ -1,0 +1,10 @@
+/**
+ * {{ entity.doc }}
+ *
+ * @{{ entity.cls }} {{ entity.sym }}
+ */
+enum {{ entity.sym }} {
+{%- for member in entity.members %}
+	{{ member.sym }} = {{ '0x%0x' % member.val.lit }}, ///< {{ member.doc }}
+{%- endfor %}
+};

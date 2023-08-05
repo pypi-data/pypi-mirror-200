@@ -1,0 +1,25 @@
+/**
+ * {{ meta.project }}; Core API
+ *
+ * {{ meta.brief }}
+ *
+{%- if meta.full %}
+ * {{ meta.full | replace("\n", " ") }}
+ *
+{%- endif %}
+ * ------------------------------------------------------------------------------------------------
+ * Copyright (C) {{ meta.author }}
+ * SPDX-License-Identifier: {{ meta.lic }}
+ *
+ * @file lib{{ meta.prefix }}.h
+ * ------------------------------------------------------------------------------------------------
+ * NOTE: This file is created using yace: https://github.com/safl/yace
+ */
+
+{% for entity in entities -%}
+{%- if entity.cls in ["define"] -%}
+{{ entity | emit_entity }}
+{% elif entity.cls in ["enum", "bitfield", "struct", "union", "fun"] %}
+{{ entity | emit_entity }}
+{% endif %}
+{%- endfor %}
