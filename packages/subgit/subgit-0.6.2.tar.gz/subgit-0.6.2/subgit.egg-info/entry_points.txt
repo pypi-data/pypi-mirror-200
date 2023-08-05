@@ -1,0 +1,4 @@
+[console_scripts]
+git-sub = subgit.cli:cli_entrypoint
+sgit = subgit.cli:cli_entrypoint
+subgit = subgit.cli:cli_entrypoint
