@@ -1,0 +1,37 @@
+from typing import List, Optional, Union
+
+from xturing.engines.llama_engine import (
+    LLamaEngine,
+    LLamaInt8Engine,
+    LlamaLoraEngine,
+    LlamaLoraInt8Engine,
+)
+from xturing.models.causal import CausalLoraModel, CausalModel
+
+
+class Llama(CausalModel):
+    config_name: str = "llama"
+
+    def __init__(self, weights_path: Optional[str] = None):
+        super().__init__(LLamaEngine.config_name, weights_path)
+
+
+class LlamaLORA(CausalLoraModel):
+    config_name: str = "llama_lora"
+
+    def __init__(self, weights_path: Optional[str] = None):
+        super().__init__(LlamaLoraEngine.config_name, weights_path)
+
+
+class LlamaInt8(CausalModel):
+    config_name: str = "llama_int8"
+
+    def __init__(self, weights_path: Optional[str] = None):
+        super().__init__(LLamaInt8Engine.config_name, weights_path)
+
+
+class LlamaLORAInt8(CausalLoraModel):
+    config_name: str = "llama_lora_int8"
+
+    def __init__(self, weights_path: Optional[str] = None):
+        super().__init__(LlamaLoraInt8Engine.config_name, weights_path)
