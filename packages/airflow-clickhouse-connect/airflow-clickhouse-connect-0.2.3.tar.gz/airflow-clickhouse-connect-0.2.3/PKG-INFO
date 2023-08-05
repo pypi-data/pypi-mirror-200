@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: airflow-clickhouse-connect
+Version: 0.2.3
+Summary: Apache Airflow providers for Yandex Clickhouse Database
+Home-page: https://github.com/amirtaherkhani/airflow-clickhouse-plugin
+Author: Amir taherkhani
+Author-email: amirtaherkhani@outlook.com
+License: Apache License 2.0
+Project-URL: Bug Tracker, https://github.com/amirtaherkhani/airflow-clickhouse-plugin/issues
+Keywords: clickhouse,airflow,providers,database,ClickhouseHook,ClickhouseOperator
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# airflow-clickhouse-plugin
+Provides ClickHouseOperator, ClickHouseHook and ClickHouseSqlSensor for Apache Airflow based on mymarilyn/clickhouse-driver.
