@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: autoDownload
+Version: 0.0.5
+Summary: download files quickly
+Home-page: https://kuankuan2007.gitee.io/docs/multithreaded-download/
+Author: kuankuan
+Author-email: 2163826131@qq.com
+License: Mulan PSL v2
+Keywords: requests,download,http,thread
+Platform: windows
+Platform: linux
+Platform: macos
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: Mulan Permissive Software License v2 (MulanPSL-2.0)
+License-File: LICENSE
+
+=================================
+多线程下载
+=================================
+---------------------------------
+import使用
+---------------------------------
+
+import autoDownload
+
+autoDownload.AutoDownload(url,file,key=values...)
+
+---------------------------------
+命令行使用
+---------------------------------
+
+参见auto-download -h
+
+---------------------------------
+关于作者
+---------------------------------
+
+作者 `宽宽2007 <https://kuankuan2007.gitee.io>`_
+
+本项目在 `苟浩铭/多线程下载 <https://gitee.com/kuankuan2007/multithreaded-download>`_ 上开源
+
+帮助文档参见 `多线程下载(AutoDownload) <https://kuankuan2007.gitee.io/docs/multithreaded-download/>`_
