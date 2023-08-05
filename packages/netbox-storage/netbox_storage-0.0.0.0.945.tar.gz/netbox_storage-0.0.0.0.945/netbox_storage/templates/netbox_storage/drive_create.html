@@ -1,0 +1,51 @@
+{% extends 'generic/object_edit.html' %}
+{% load form_helpers %}
+
+{% block form %}
+<div class="field-group my-5">
+    <div class="row mb-2">
+        <h5 class="offset-sm-3">Select if the drive is for a VM or Template</h5>
+    </div>
+
+    {# Platform/VM selection #}
+    <div class="row mb-2">
+        <div class="offset-sm-3">
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class="nav-item">
+                    <button role="tab" type="button" id="platform_tab" data-bs-toggle="tab" aria-controls="platform"
+                            data-bs-target="#platform"
+                            class="nav-link {% if not form.initial.virtual_machine %}active{% endif %}">
+                        Platform
+                    </button>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <button role="tab" type="button" id="vm_tab" data-bs-toggle="tab" aria-controls="vm"
+                            data-bs-target="#vm"
+                            class="nav-link {% if form.initial.virtual_machine %}active{% endif %}">
+                        Virtual Machine
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-content p-0 border-0">
+        <div class="tab-pane {% if not form.initial.virtual_machine %}active{% endif %}" id="platform" role="tabpanel"
+             aria-labeled-by="platform_tab">
+            {% render_field form.platform %}
+        </div>
+        <div class="tab-pane {% if form.initial.virtual_machine %}active{% endif %}" id="vm" role="tabpanel"
+             aria-labeled-by="vm_tab">
+            {% render_field form.virtual_machine %}
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <h5 class="offset-sm-3">Drive Config</h5>
+    </div>
+
+    {% render_field form.cluster_type %}
+    {% render_field form.cluster %}
+    {% render_field form.size %}
+    {% render_field form.description %}
+</div>
+{% endblock %}
