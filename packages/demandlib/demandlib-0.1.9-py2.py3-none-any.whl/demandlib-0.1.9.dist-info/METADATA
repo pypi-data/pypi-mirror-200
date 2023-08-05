@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: demandlib
+Version: 0.1.9
+Summary: Creating heat and power demand profiles from annual values.
+Home-page: https://github.com/oemof/demandlib
+Author: oemof developer group
+Author-email: contact@oemof.org
+License: MIT
+Project-URL: Documentation, https://demandlib.readthedocs.io/
+Project-URL: Changelog, https://demandlib.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/oemof/demandlib/issues
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: numpy (>=1.17.0)
+Requires-Dist: pandas (>=1.0)
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: matplotlib ; extra == 'dev'
+
+========
+Overview
+========
+
+
+
+Creating heat and power demand profiles from annual values.
+
+* Free software: MIT license
+
+Installation
+============
+
+::
+
+    pip install demandlib
+
+You can also install the in-development version with::
+
+    pip install https://github.com/oemof/demandlib/archive/master.zip
+
+
+Documentation
+=============
+
+
+https://demandlib.readthedocs.io/
+
+
+Development
+===========
+
+To run all the tests run::
+
+    tox
+
+Note, to combine the coverage data from all the tox environments run:
+
+.. list-table::
+    :widths: 10 90
+    :stub-columns: 1
+
+    - - Windows
+      - ::
+
+            set PYTEST_ADDOPTS=--cov-append
+            tox
+
+    - - Other
+      - ::
+
+            PYTEST_ADDOPTS=--cov-append tox
