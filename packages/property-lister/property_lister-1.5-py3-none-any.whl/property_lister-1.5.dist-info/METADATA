@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: property-lister
+Version: 1.5
+Summary: Extract property list files from an SQLite unencrypted database file.
+Author: Ivan Sincek
+Project-URL: Homepage, https://github.com/ivan-sincek/property-lister
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: datetime (>=5.0)
+Requires-Dist: biplist (>=1.0.3)
+
+# Property Lister
+
+Extract and convert property list files from SQLite unencrypted database files and from other property list files.
+
+Tested on Kali Linux v2023.1 (64-bit).
+
+Made for educational purposes. I hope it will help!
+
+## Table of Contents
+
+* [How to Install](#how-to-install)
+* [How to Build and Install Manually](#how-to-build-and-install-manually)
+* [Extract Property List Files](#extract-property-list-files)
+* [Usage](#usage)
+
+## How to Install
+
+```bash
+pip3 install property-lister
+
+pip3 install --upgrade property-lister
+```
+
+## How to Build and Install Manually
+
+Run the following commands:
+
+```bash
+git clone https://github.com/ivan-sincek/property-lister && cd property-lister
+
+python3 -m pip install --upgrade build
+
+python3 -m build
+
+python3 -m pip install dist/property_lister-1.5-py3-none-any.whl
+```
+
+## Extract Property List Files
+
+```fundamental
+scp root@192.168.1.10:/var/mobile/Containers/Data/Application/YYY...YYY/Library/Caches/com.someapp.dev/Cache.db ./
+
+property-lister -db Cache.db -o results
+```
+
+Check my other project on how to [find files](https://github.com/ivan-sincek/ios-penetration-testing-cheat-sheet#3-search-for-files-and-directories) and on how to [extract sensitive data from files](https://github.com/ivan-sincek/ios-penetration-testing-cheat-sheet#4-inspect-files).
+
+## Usage
+
+```fundamental
+Property Lister v1.5 ( github.com/ivan-sincek/property-lister )
+
+--- Extract from an SQLite unencrypted database file ---
+Usage:   property-lister -db database -o out
+Example: property-lister -db Cache.db -o results
+
+--- Extract from a property list file ---
+Usage:   property-lister -pl property-list -o out
+Example: property-lister -pl Info.plist    -o results
+
+DESCRIPTION
+    Extract and convert property list files
+DATABASE
+    SQLite unencrypted database file, or directory containing multiple files
+    -db <database> - Cache.db | databases | etc.
+PROPERTY LIST
+    Property list file, or directory containing multiple files
+    -pl <property-list> - Info.plist | plists | etc.
+OUT
+    Output directory
+    All extracted propery list files will be saved in this directory
+    -o <out> - results | etc.
+```
