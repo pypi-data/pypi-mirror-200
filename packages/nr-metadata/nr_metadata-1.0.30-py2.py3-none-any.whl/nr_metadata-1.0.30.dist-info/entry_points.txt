@@ -1,0 +1,11 @@
+[invenio_i18n.translations]
+nr_metadata.common = nr_metadata.common
+nr_metadata.documents = nr_metadata.documents
+
+[oarepo.models]
+common = nr_metadata.common.models:model.json
+documents = nr_metadata.documents.models:model.json
+
+[oarepo.ui]
+nr_metadata.common = nr_metadata.common.models:ui.json
+nr_metadata.documents = nr_metadata.documents.models:ui.json

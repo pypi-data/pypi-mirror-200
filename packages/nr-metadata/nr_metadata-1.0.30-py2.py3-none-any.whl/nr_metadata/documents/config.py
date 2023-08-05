@@ -1,0 +1,9 @@
+from nr_metadata.documents.resources.records.config import DocumentsResourceConfig
+from nr_metadata.documents.resources.records.resource import DocumentsResource
+from nr_metadata.documents.services.records.config import DocumentsServiceConfig
+from nr_metadata.documents.services.records.service import DocumentsService
+
+DOCUMENTS_RESOURCE_CONFIG_DOCUMENTS = DocumentsResourceConfig
+DOCUMENTS_RESOURCE_CLASS_DOCUMENTS = DocumentsResource
+DOCUMENTS_SERVICE_CONFIG_DOCUMENTS = DocumentsServiceConfig
+DOCUMENTS_SERVICE_CLASS_DOCUMENTS = DocumentsService
