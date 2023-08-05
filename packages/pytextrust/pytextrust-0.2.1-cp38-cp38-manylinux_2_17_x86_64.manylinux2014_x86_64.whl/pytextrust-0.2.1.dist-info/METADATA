@@ -1,0 +1,145 @@
+Metadata-Version: 2.1
+Name: pytextrust
+Version: 0.2.1
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: Pydantic<1.11.0
+Requires-Dist: typing
+Requires-Dist: regex
+License-File: LICENSE
+Summary: Library designed as a python wrapper to unleash Rust text processing power combined with Python
+Keywords: text-processing,regex-matching,entity-system,literal-replacement
+Home-Page: https://gitlab.com/g6313/pytextrust
+Author: Guillermo Gonzalez <guillermogsjc@gmail.com>
+Author-email: Guillermo Gonzalez <guillermogsjc@gmail.com>
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Homepage, https://gitlab.com/g6313/pytextrust
+
+# PyTextRust
+
+<img align="right" width="80" height="100" src="misc/pytextrust.png">
+
+- **main**:
+  - [![pipeline status](https://gitlab.com/g6313/pytextrust/badges/main/pipeline.svg)](https://gitlab.com/g6313/pytextrust/-/commits/main)
+  - [![coverage report](https://gitlab.com/g6313/pytextrust/badges/main/coverage.svg)](https://gitlab.com/g6313/pytextrust/-/commits/main)
+- **develop**:
+  - [![pipeline status](https://gitlab.com/g6313/pytextrust/badges/develop/pipeline.svg)](https://gitlab.com/g6313/pytextrust/-/commits/develop)
+  - [![coverage report](https://gitlab.com/g6313/pytextrust/badges/develop/coverage.svg)](https://gitlab.com/g6313/pytextrust/-/commits/develop)
+
+[Donnations](https://www.paypal.com/donate/?business=V4NHA93BU6WPA&no_recurring=0&item_name=The+children+need+to+eat+but+I+am+too+busy&currency_code=EUR)
+
+Library defined to achieve easily high performance on regex and text processing inside Python, being built as a direct Wrapper of Rust regex and text crates.
+
+On short text, sparsity of found elements is the common denominator, this library focuses on algorithms that aknowledge this sparsity and efficiently achieves good performance from simple Python API calls to Rust optimized logics.
+
+# Regex
+
+`Regexset` and `Regex`are the main engines.
+
+Configuration of regexsetbuilder <https://rust-lang.github.io/regex/regex/struct.RegexSetBuilder.html>
+
+## Locally build
+
+<https://maturin.rs/project_layout.html#mixed-rustpython-project>
+
+BIG INFORMATION
+
+- pending logging?
+
+```shell
+maturin build --release
+pip install --force-reinstall target/wheels/pytextrust-0.1.0-cp38-cp38-linux_x86_64.whl
+```
+
+## Learning doc
+
+- [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html)
+- [Rust CookBook](https://rust-lang-nursery.github.io/rust-cookbook/intro.html)
+- [Rust by example](https://doc.rust-lang.org/rust-by-example/)
+- [PyO3](https://pyo3.rs/v0.16.3/index.html)
+- [Maturin](https://maturin.rs/)
+- [A comparison of regex engines](https://rust-leipzig.github.io/regex/2017/03/28/comparison-of-regex-engines/)
+
+## Reference Rust pattern matching packages
+
+- <https://docs.rs/fst/latest/fst/>, particularly <https://docs.rs/fst/latest/fst/#example-searching-multiple-sets-efficiently> for entities
+- <https://docs.rs/regex-automata/latest/regex_automata/>
+- <https://docs.rs/aho-corasick/0.7.18/aho_corasick/>
+- <https://docs.rs/regex-syntax/latest/regex_syntax/>
+
+## Features
+
+## `RegexOperator`
+
+- Rust phase:
+    1. Try to compile in `regex::Regex` for the list of patterns. Get the list of valid ones and invalid ones.
+    2. Compile `regex::RegexSet` with valid patterns and apply over the list of haystacks.
+    3. Operate compiled `regex::Regex`, finding them over all the haystacks, for the subset of pairs that have matched in the `regex::RegexSet`.
+    4. Try to compile invalid patterns with `fancy_regex::Regex` and find matches over the haystacks. Reduce final invalid
+    patterns list to give back to python.
+    5. Operate compiled `fancy_regex::Regex`, finding them over all the haystacks.
+    6. Give back to Python.
+- Python phase:
+    1. Try to apply all failed patterns, finding them over all the haystacks.
+    2. Return the final result.
+
+## Entities
+
+Entities are found by overlapping and have a hierarchichal folder structure.
+
+- **Literal entities**: fast only literal based entities. Those entities are based in literal alternations, and
+are built from a list of strings, is like matching (lit_1|...|lit_N)`. Can be:
+  - Private: only used by regex entities by composition. The only interest on them is for composition so those are only matched not finded.
+  - Public: calculated and reported. Those reports enforce that matched boundaries are `\b`, just if the literal matching where `\b(lit_1|...|lit_N)\b`. *Tech note: positions reported by aho corasick should be mapped from byte to char position.*
+- **Regex entities**: a list of regex patterns, possibly containing literal entities calls with template language. For example if `month` is a literal entity,
+    Then `\d+ of \d+ of {{month}}` is a possible entity. The regex entities that depend positively (no negative lookback or lookahead), only are searched on the texts where the literal entity has been found, minimizing computational weight.
+
+Feeding of entity matches:
+
+- From python list of objects, where each object is equivalent to the file JSON loaded. Each object contains a field `kind` with one of two values: `re` or `lit`.
+- From local folder with folders:
+  - Structured hierarchically.
+
+Steps of entity recognition:
+
+1. Load the entity system:
+    - Deserialize all defined entities.
+    - Build `LiteralEntityPool`. There are public and private literal entities:
+        - **Private literal entities** will not be reported only used internally by regex entities.
+        - **Public literal entities** will be reported as entities.
+        **NOTE: the bound of the literal public entities is calculated after all as Aho Corasick has not bound allowed**.
+    - Build `RegexEntityPool` using literals from `LiteralEntityPool`, then there are two kinds of regex entities
+        - The ones that use any literal entity.
+        - The ones that do not use any literal entity.
+2. Process texts and get entities:
+    - Get literal entity raw index matches.
+    - Literal-based regex entities perform find if the ordered set of matches of literal entities is satisfied from literal entities results.
+    - Non literal-based regex entities find is performed using `regex::RegexSet`
+3. Ensemble together public literal entities, literal-based regex entities and non literal-based regex entities and give output.
+
+A pattern in a regex entity has two type of categorizations:
+
+- Pattern that can be compiled at `regex` crate:
+  - Pattern with at least one positive capture group related to a literal entity. Match will be decided by aho corasick and literal entity order. This is a regex were `entities::extract_required_template_structure` throws a non-empty vector.
+  - Pattern that does not fit the previous case, this pattern will be matched through `RegexSet`. This is a pattern with `entities::extract_required_template_structure` throwing an empty vector.
+- Regex that can not be compiled by `regex` crate will receive a direct find from `fancy_regex` crate. This pattern
+  receives an Error from `entities::extract_required_template_structure`.
+
+Naming convention for entity files is:
+
+## Literal replacer
+
+This is a very concrete function to perform high performance literal replacement using Rust `aho_corasick` implementation. It accepts parallelization by chunks of text.
+
+## Performance advices
+
+- <https://github.com/rust-lang/regex/blob/master/PERFORMANCE.md#unicode-word-boundaries-may-prevent-the-dfa-from-being-used>
+- *there is no problem with using non-greedy matching or having lots of alternations in your regex*  <https://github.com/rust-lang/regex/blob/master/PERFORMANCE.md#resist-the-temptation-to-optimize-regexes>
+
+## CICD
+
+This repository pretends to be a perfect CICD example for a Python+Rust lib based on `pyo3`. Any suggestions (caching, badges, anything, ...) just let me know by issue :)
+
