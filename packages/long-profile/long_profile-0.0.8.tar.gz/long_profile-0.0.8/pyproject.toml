@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "long-profile"
+version = "0.0.8"
+description = ""
+authors = ["ONF-RTM"]
+maintainers = ["Clément Roussel <clement.roussel@onf.fr>"]
+license = "GPL-3.0-or-later"
+homepage = "https://www.onf.fr/"
+repository = "https://github.com/clementroussel/pyLong"
+documentation = "https://pylong.readthedocs.io/fr/latest/"
+packages = [{include = "pyLong", from = "src/main/python"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.24.1"
+matplotlib = "^3.6.2"
+pandas = "^1.5.2"
+scipy = "^1.9.3"
+simpledbf = "^0.2.6"
+pyshp = "^2.3.1"
+visvalingamwyatt = "^0.2.0"
+rdp = "^0.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

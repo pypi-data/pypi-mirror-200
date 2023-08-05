@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: long-profile
+Version: 0.0.8
+Summary: 
+Home-page: https://www.onf.fr/
+License: GPL-3.0-or-later
+Author: ONF-RTM
+Maintainer: Clément Roussel
+Maintainer-email: clement.roussel@onf.fr
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: matplotlib (>=3.6.2,<4.0.0)
+Requires-Dist: numpy (>=1.24.1,<2.0.0)
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
+Requires-Dist: pyshp (>=2.3.1,<3.0.0)
+Requires-Dist: rdp (>=0.8,<0.9)
+Requires-Dist: scipy (>=1.9.3,<2.0.0)
+Requires-Dist: simpledbf (>=0.2.6,<0.3.0)
+Requires-Dist: visvalingamwyatt (>=0.2.0,<0.3.0)
+Project-URL: Documentation, https://pylong.readthedocs.io/fr/latest/
+Project-URL: Repository, https://github.com/clementroussel/pyLong
