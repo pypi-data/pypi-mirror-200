@@ -1,0 +1,143 @@
+[build-system]
+requires = [
+  "setuptools >= 61.0.0",
+  "wheel",
+  "setuptools_scm[toml] >= 6.2"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "junifer"
+description = "JUelich NeuroImaging FEature extractoR"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "AGPL-3.0-only"}
+authors = [
+    {name = "Fede Raimondo", email = "f.raimondo@fz-juelich.de"},
+    {name = "Synchon Mandal", email = "s.mandal@fz-juelich.de"},
+]
+maintainers = [
+    {name = "Fede Raimondo", email = "f.raimondo@fz-juelich.de"},
+    {name = "Synchon Mandal", email = "s.mandal@fz-juelich.de"},
+]
+keywords = [
+    "neuroimaging",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved",
+    "Natural Language :: English",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "click>=8.1.3,<8.2",
+    "numpy>=1.22,<1.24",
+    "datalad>=0.15.4,<0.19",
+    "pandas>=1.4.0,<1.6",
+    "nibabel>=3.2.0,<4.1",
+    "nilearn>=0.9.0,<=0.10.0",
+    "sqlalchemy>=1.4.27,<= 1.5.0",
+    "pyyaml>=5.1.2,<7.0",
+    "importlib_metadata; python_version < '3.10'",
+    "h5py>=3.8.0,<3.9",
+]
+dynamic = ["version"]
+
+[project.urls]
+homepage = "https://juaml.github.io/junifer"
+documentation = "https://juaml.github.io/junifer"
+repository = "https://github.com/juaml/junifer"
+
+[project.scripts]
+junifer = "junifer.api.cli:cli"
+
+[project.optional-dependencies]
+dev = ["tox"]
+docs = [
+    "seaborn>=0.11.2,<0.12",
+    "Sphinx>=5.3.0,<5.4",
+    "sphinx-gallery>=0.11.0,<0.12",
+    "furo>=2022.9.29,<2023.0.0",
+    "numpydoc>=1.5.0,<1.6",
+    "julearn==0.2.5",
+    "sphinx-copybutton==0.5.1",
+    "towncrier==22.12.0",
+    "sphinxcontrib-mermaid==0.8.1",
+]
+
+################
+# Tool configs #
+################
+
+[tool.setuptools]
+packages = ["junifer", "junifer.external.h5io.h5io"]
+
+[tool.setuptools_scm]
+version_scheme = "guess-next-dev"
+local_scheme = "no-local-version"
+write_to = "junifer/_version.py"
+
+[tool.black]
+line-length = 79
+target-version = ["py38"]
+extend-exclude = """
+(
+  junifer/external/h5io
+)
+"""
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--ignore=junifer/external/h5io -vv"
+
+[tool.towncrier]
+directory = "docs/changes/newsfragments"
+filename = "docs/whats_new.rst"
+package = "junifer"
+# to use gh_substitutions
+issue_format = ":gh:`{issue}`"
+# modify to have proper toctree
+underlines = "-^~"
+# set line length to 79
+wrap = true
+
+# Need to put default explicitly as custom is not combined with default
+
+[tool.towncrier.fragment.bugfix]
+name = "Bugfixes"
+showcontent = true
+
+[tool.towncrier.fragment.doc]
+name = "Improved Documentation"
+showcontent = true
+
+[tool.towncrier.fragment.feature]
+name = "Features"
+showcontent = true
+
+[tool.towncrier.fragment.misc]
+name = "Misc"
+showcontent = true
+
+[tool.towncrier.fragment.removal]
+name = "Deprecations and Removals"
+showcontent = true
+
+# Add custom towncrier fragment for enhancements
+[tool.towncrier.fragment.enh]
+name = "Enhancements"
+showcontent = true
+
+# Add custom towncrier fragment for API changes
+[tool.towncrier.fragment.change]
+name = "API Changes"
+showcontent = true
