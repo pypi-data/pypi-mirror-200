@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: Clean-Business-Chart
+Version: 0.1.1
+Summary: Clean Business Chart is a Python package for IBCS-like charts based on matplotlib.
+Home-page: https://github.com/marcelw1323/clean_business_chart
+Author: Marcel Wuijtenburg
+Author-email: marcelw1323@gmail.com
+License: MIT license
+Keywords: clean business chart,IBCS,business chart,clean business charts,business charts
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Python: >=3.6
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: matplotlib (>=3.5.1)
+Requires-Dist: pandas (>=1.3)
+
+====================
+Clean Business Chart
+====================
+
+
+.. image:: https://img.shields.io/pypi/v/clean_business_chart.svg
+        :target: https://pypi.python.org/pypi/clean_business_chart
+
+.. image:: https://img.shields.io/travis/marcelw1323/clean_business_chart.svg
+        :target: https://travis-ci.com/marcelw1323/clean_business_chart
+
+.. image:: https://readthedocs.org/projects/clean-business-chart/badge/?version=latest
+        :target: https://clean-business-chart.readthedocs.io/en/latest/?version=latest
+        :alt: Documentation Status
+
+
+
+
+Clean Business Chart is a Python package for IBCS-like charts based on matplotlib.
+
+
+* Free software: MIT license
+* Documentation: https://clean-business-chart.readthedocs.io.
+
+
+Features
+--------
+
+* ColumnWithWaterfall, the first chart released with clean-business-chart!
+* added support for pandas in version 0.1.1
+
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.1 (2023-03-29)
+------------------
+
+* Added pandas DataFrame support in parameter data when calling the column chart with waterfall.
+
+
+0.1.0 (2023-02-21)
+------------------
+
+* First release on PyPI. Column chart with waterfall.
+
