@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: ipydex
+Version: 0.15.1
+Summary: IPython based debugging and exploring tool
+Home-page: http://github.com/cknoll/ipydex
+Author: Carsten Knoll
+Author-email: firstname.lastname@posteo.de
+License: GPLv3+
+Keywords: ipython embedded excepthook debugger
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# IPython based debugging and exploring tool
+
+This package provides the following features:
+
+- `IPS()` – An embedded IPython shell with some extra features like conditional execution: `IPS(x>0)`.
+- `activate_ips_on_exception()` – Open an IPython shell in the frame where an exception is raised, but with the ability to move to other frames.
+- `dirsearch` – easily search for substrings in the attribute list of an object or in the keys of a dict.
+- `displaytools` – an extesion for jupyter notebooks to display intermediate results (e.g. of assignments). Useful for didactic purposes.
