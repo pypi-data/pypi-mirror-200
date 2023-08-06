@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: plyball
+Version: 2.2.3
+Summary: A simple package for scraping baseball data from the most popular sites.
+Home-page: https://github.com/waaronmorris/plyball
+Author: W. Aaron Morris
+Author-email: w.aaron.morris@gmail.com
+License: MIT
+Keywords: baseball sabermetrics data statistics statcast web scraping
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# Overview
+**plyball** is a Python package providing a extracting data from several of 
+the most popular baseball sources (Fangraphs, Statcast, etc...). A majority 
+of these sources are scraped. 
+
+## Where to get it
+The source code is currently hosted on GitHub at:
+https://github.com/waaronmorris/plyball
+
+Binary installers for the latest released version are available at the [Python
+package index](https://pypi.org/project/plyball).
+
+```sh
+pip install plyball
+```
+
+## Documentation
+The official documentation is hosted on ReadtheDocs.org: https://plyball.readthedocs.io/
