@@ -1,0 +1,42 @@
+[build-system]
+requires = ['setuptools>=42', 'numpy', 'torch', 'torchvision', 'nltk', 'pandas', 'json5', 'PyYAML', 'torchtext',
+    'torchaudio', 'moviepy', "imageio==2.4.1", 'onnxruntime',
+    'thop']
+build-backend = 'setuptools.build_meta'
+
+
+
+[project]
+name = "erutils"
+version = "1.2.2.2"
+description = '''
+            Something fun for the one who like to train DNN on Large datasets :)
+          '''
+readme = "README.md"
+authors = [{ name = "Erfan zare Chavoshi ", email = "erfanzare82@yahoo.com" }]
+
+dependencies = [
+    "feedparser >= 5.2.0",
+    "html2text", "opencv-python~=4.6.0.66",
+    "keyboard",
+    "numpy",
+    "pefile",
+    "requests",
+    "PyYAML",
+    "pyyaml",
+    "scikit-learn",
+    " torch~=2.0.0",
+    "setuptools",
+    "moviepy",
+    "imageio==2.4.1",
+    " toml", 'onnxruntime',
+    'thop',
+    'tomli; python_version < "3.11"',
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/erfanzar/Erutils"
+
+[project.scripts]
+realpython = "erutils.__main__:main"
