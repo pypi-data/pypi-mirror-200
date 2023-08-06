@@ -1,0 +1,166 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/3/21 10:13:10
+# @Author  : Pane Li
+# @File    : table_tr.py
+"""
+table_tr
+
+"""
+import logging
+from inhandtest.tools import replace_str
+from playwright.sync_api import Locator
+
+
+class Table:
+
+    def __init__(self, columns: list, table_locator: Locator, unique_columns: list, select_option_locale: dict or None,
+                 log_desc=None):
+        """
+
+        :param columns: [("acl_name", 'input'), ('action', 'select')] 说明列的表名以及 类型， 类型现在只支持三种('input'、'select'、'check')
+                        eg:[("列名称变量","列字段对应类型"), ...]
+        :param table_locator: table_locator 定位
+        :param unique_columns:  list, 确认唯一的列资源名称, eg: ["列名称变量1", "列名称变量2"...]， 当表只有查找功能时，该项为列的所有值。
+        :param select_option_locale: dict, 选择项国际化 , 在选择时只接收label, 不支持value选择， 因为查找时也使用的label
+        """
+        self.columns = columns  # 列名要与实际的列相对应，不能多也不能少 [("acl_name", 'input'), ('action', 'select')]
+        self.table_locator = table_locator
+        self.unique_columns = unique_columns  # 重复列名
+        self.tr = self.table_locator.locator('//tbody').locator('//tr')
+        self.select_option_locale = select_option_locale
+        self.log_desc = log_desc
+
+    def __filter_td_index(self, contain_check=False, **kwargs):
+        expect_result = []
+        for input_key, input_value in kwargs.items():
+            if not contain_check:
+                result = list(filter(lambda a: a[0] == input_key and a[1] != 'check' and a[0] in self.unique_columns,
+                                     self.columns))  # 排除掉check
+            else:
+                result = list(filter(lambda a: a[0] == input_key, self.columns))
+            if len(result) == 1:
+                expect_result.append((self.columns.index(result[0]), input_value, result[0][1]))  # 找出td是第几个，也及值
+        return expect_result
+
+    def __edit_add(self, **kwargs):
+        for column in self.__filter_td_index(True, **kwargs):
+            if column[1] is not None:
+                if column[2] == 'input':
+                    self.tr.locator('//td').locator(f'.fi{column[0] + 1}').first.fill(str(column[1]))
+                elif column[2] == 'select':
+                    option = self.select_option_locale.get(column[1]) if self.select_option_locale and self.select_option_locale.get(
+                        column[1]) else str(column[1])
+                    self.tr.locator('//td').locator(f'.fi{column[0] + 1}').first.select_option(option)
+                elif column[2] == 'check':
+                    if column[1] in ('check', 'Yes', '是', 'yes'):
+                        self.tr.locator('//td').locator(f'.fi{column[0] + 1}').first.check()
+                    else:
+                        self.tr.locator('//td').locator(f'.fi{column[0] + 1}').first.uncheck()
+                else:
+                    raise Exception(f'not support this type {column[2]}')
+
+    def exist(self, find_one=True, locale=None, **kwargs) -> int or list or None:
+        """ 传入的资源是否存在, 对于check 项是不计入重复选项的，因为勾选其实只是开启功能而已
+
+
+        :param find_one: 是否只查询一个，当查询一个时返回的是int值，索引从0 开始， 当没查询到时返回的是None
+                         当查询多个时，如果没有找到返回的是[], 如果找到了是列表包含了多个索引值
+
+        :param locale: dict 国际化，
+        :param kwargs: 支持传入表达式， 如 acl_name='${value} == '2''
+        :return: int or list or None
+        """
+        search_tr = []
+        one_tr = None
+        expect_result = self.__filter_td_index(**kwargs)
+        if expect_result:
+            for tr_nth in range(0, self.tr.count()):
+                for result_ in expect_result:
+                    text_n = self.tr.nth(tr_nth).locator('//td').nth(result_[0]).inner_text()   # 现在的值
+                    text_e = replace_str(str(result_[1]), locale)  # 期望的值
+                    if '${value}' in text_e:
+                        text_e = text_e.replace('${value}', text_n)
+                        try:
+                            if not eval(text_e):
+                                break
+                        except Exception as e:
+                            logging.error(e)
+                            break
+                    else:
+                        if text_n != text_e:
+                            break
+                else:
+                    search_tr.append(tr_nth)
+                    if find_one:
+                        one_tr = tr_nth
+                        break
+        if find_one:
+            return one_tr
+        else:
+            return search_tr
+
+    def add(self, **kwargs):
+        """
+        :param kwargs str, 待添加列 及对应值
+        :return:
+        """
+        self.__edit_add(**kwargs)
+        for i in range(0, self.tr.get_by_role('button').count()):
+            if 'onAdd()' in self.tr.get_by_role('button').nth(i).get_attribute('onclick') and self.tr.get_by_role(
+                    'button').nth(i).is_enabled():
+                self.tr.get_by_role('button').nth(i).click()
+                if self.log_desc is not None:
+                    logging.info(f'add table {self.log_desc} success')
+                break
+
+    def delete(self, **kwargs):
+        """
+        :param kwargs str, 待删除列 及对应值
+        :return:
+        """
+        find_tr = self.exist(find_one=True, **kwargs)
+        if find_tr is not None:
+            self.tr.nth(find_tr).locator('//td').nth(0).click()
+            for i in range(0, self.tr.get_by_role('button').count()):
+                if 'onDelete()' in self.tr.get_by_role('button').nth(i).get_attribute(
+                        'onclick') and self.tr.get_by_role('button').nth(i).is_enabled():
+                    self.tr.get_by_role('button').nth(i).click()
+                    if self.log_desc is not None:
+                        logging.info(f'delete table {self.log_desc} success')
+                    break
+        else:
+            logging.warning(f'not found the resource {kwargs}')
+
+    def delete_all(self):
+        nth = 1
+        while self.tr.count() > nth + 2:
+            self.tr.nth(nth).locator('//td').nth(0).click()
+            try:
+                for i in range(0, self.tr.get_by_role('button').count()):
+                    if 'onDelete()' in self.tr.get_by_role('button').nth(i).get_attribute(
+                            'onclick') and self.tr.get_by_role('button').nth(i).is_enabled():
+                        self.tr.get_by_role('button').nth(i).click()
+                        break
+            except TimeoutError:
+                nth = nth + 1
+        logging.info('table resource all delete')
+
+    def edit(self, old: dict, new: dict):
+        """
+        :param old ,dict, 待变更列数据
+        :param new ,dict, 变更数据
+        :return:
+        """
+        find_tr = self.exist(find_one=True, **old)
+        if find_tr is not None:
+            self.tr.nth(find_tr).locator('//td').nth(0).click()
+            self.__edit_add(**new)
+            for i in range(0, self.tr.get_by_role('button').count()):
+                if 'onOK()' in self.tr.get_by_role('button').nth(i).get_attribute('onclick') and self.tr.get_by_role(
+                        'button').nth(i).is_enabled():
+                    self.tr.get_by_role('button').nth(i).click()
+                    if self.log_desc is not None:
+                        logging.info(f'edit table {self.log_desc} success')
+                    break
+        else:
+            logging.warning(f'not found the resource {old}')
