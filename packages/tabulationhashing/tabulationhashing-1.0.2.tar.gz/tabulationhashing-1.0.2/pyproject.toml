@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "wheel", "Cython"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tabulationhashing"
+version = "1.0.2"
+
+description='Implementation of Tabulation Hashing'
+
+readme = {file = "README.md", content-type = "text/markdown"}
+
+authors = [
+    { name = 'Martin Di Paola', email = 'use-github-issues@example.com' }
+]
+
+license={file = "LICENSE"}
+
+classifiers = [
+        'Programming Language :: Python :: 3'
+]
+
+dependencies = [
+    "numpy"
+]
+
+[metadata]
+url='https://book-of-gehn.github.io/articles/2023/03/30/Tabulation-Hashing.html'

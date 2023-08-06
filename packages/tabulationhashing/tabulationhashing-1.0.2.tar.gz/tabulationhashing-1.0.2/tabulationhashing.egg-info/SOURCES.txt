@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+tabulationhashing/__init__.py
+tabulationhashing/c_tabulationhashing.c
+tabulationhashing/c_tabulationhashing.pyx
+tabulationhashing/tabulationhashing.py
+tabulationhashing.egg-info/PKG-INFO
+tabulationhashing.egg-info/SOURCES.txt
+tabulationhashing.egg-info/dependency_links.txt
+tabulationhashing.egg-info/requires.txt
+tabulationhashing.egg-info/top_level.txt
+tests/tests.py
