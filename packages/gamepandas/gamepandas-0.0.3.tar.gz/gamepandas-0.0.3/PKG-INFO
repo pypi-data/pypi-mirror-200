@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: gamepandas
+Version: 0.0.3
+Summary: A pandas extension package for payoff table utility in game theory.
+Home-page: https://github.com/Algebra-FUN/GamePandas
+Author: Algebra-FUN
+Author-email: algebra-fun@outlook.com
+License: MIT Licence
+Keywords: payoff-table,pandas,game-theory,nash
+Platform: linux
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# GamePandas
+
+A pandas extension package for payoff table utility in game theory.
+
+## Install
+
+```shell
+pip install gamepandas
+```
+
