@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pyro-lexer
+Version: 0.3.3
+Summary: A Pygments lexer for Pyro.
+Home-page: https://github.com/dmulholl/pyro-lexer
+Author: Darren Mulholland
+License: 0BSD
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Text Processing :: General
+Requires-Dist: Pygments (>=2.0.1)
+
+
+Pyro Lexer
+==========
+
+A Pygments lexer for the Pyro programming language.
+
