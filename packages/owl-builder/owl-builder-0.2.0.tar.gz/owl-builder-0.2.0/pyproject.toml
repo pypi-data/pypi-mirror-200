@@ -1,0 +1,70 @@
+[tool.poetry]
+authors = [
+  "Craig Trim <craigtrim@gmail.com>",
+]
+
+maintainers = [
+  "Craig Trim <craigtrim@gmail.com>",
+]
+
+description = "Tools for Automating the Construction of an Ontology (OWL)"
+license = "None"
+name = "owl-builder"
+readme = "README.md"
+version = "0.2.0"
+
+keywords = ["nlp", "nlu", "ai", "ontology", "automation"]
+repository = "https://github.com/craigtrim/owl-builder"
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+baseblock = "*"
+networkx = "2.8.8" # 20230110; required per https://github.com/craigtrim/owl-builder/issues/4
+#nltk = "^3.7"
+nltk = "3.8.1"
+openai = "^0.27.0"
+openai_helper = "*"
+pandas = "^1.4.0"
+python = "^3.8.5"
+rdflib = "^6.1.1"
+regex = "2022.7.9"
+scipy = "1.9.2" # 20221019; upgrade to 1.9.3 caused error
+spacy = "3.5.0"
+tabulate = "*"
+textacy = "0.12.0" # requires networkx=2.8.8
+textblob = "^0.17.1"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "*"
+en-core-web-sm = {path = "resources/lib/en_core_web_sm-3.5.0.tar.gz"}
+flakeheaven = "*"
+plac = "*"
+pre-commit = "^2.20.0"
+pytest = "*"
+
+[tool.poetry.build]
+generate-setup-file = true
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.flakeheaven]
+base = "https://raw.githubusercontent.com/flakeheaven/flakeheaven/main/pyproject.toml"
+exclude = ["__init__.py", "README.md", "setup.py", ".venv", ".git"]
+format = "grouped"
+max_line_length = 500
+show_source = true
+
+[tool.flakeheaven.plugins]
+# F401 (Missing Import)
+# F403 (Unable to Detect Undefined Names)
+"flake8-*" = ["+*"]
+flake8-bandit = ["-*", "+S1??"]
+flake8-docstrings = ["-*"]
+pyflakes = ["+*", "-F401", "-F403"]
