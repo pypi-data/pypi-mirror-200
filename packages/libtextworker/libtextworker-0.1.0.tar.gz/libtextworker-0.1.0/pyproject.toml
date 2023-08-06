@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "libtextworker"
+version = "0.1.0"
+requires-python = ">=3.8"
+description = "Library for textworker."
+license = {file = "LICENSE"}
+readme = "README.md"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Programming Language :: Python",
+    "Topic :: Text Editors",
+]
+dependencies = [
+    "configparser",
+    "darkdetect",
+    "packaging",
+    "pillow",
+]
+
+[project.entry-points."libtextworker"]
+wx = 'libtextworker.interface.wx.__init__:clrmgr'
+tkinter = 'libtextworker.interface.tk.__init__:clrmgr'
+
+[project.optional-dependencies]
+wx = ['wxPython>=4']
+tkinter = []
+
+[tool.setuptools]
+package-dir = {"libtextworker" = "libtextworker"}
+
+[tool.setuptools.packages.find]
+where = ["libtextworker"]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+libtextworker = ["licenses/*"]
