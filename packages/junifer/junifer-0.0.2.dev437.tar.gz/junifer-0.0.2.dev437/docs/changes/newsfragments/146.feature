@@ -1,0 +1,1 @@
+Expose a :func:`.merge_parcellations` function to merge a list of parcellations by `Leonard Sasse`_
