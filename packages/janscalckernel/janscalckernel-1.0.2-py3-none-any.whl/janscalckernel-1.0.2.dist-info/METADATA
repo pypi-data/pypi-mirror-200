@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: janscalckernel
+Version: 1.0.2
+Summary: A jupyter calc kernel.
+Author-email: Jan Arman Parpin <is@hidden.com>
+Project-URL: Homepage, https://github.com/jans-code/janscalckernel
+Project-URL: Bug Tracker, https://github.com/jans-code/janscalckernel/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Framework :: Jupyter :: JupyterLab :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ipykernel
+Requires-Dist: pexpect
+
+# janscalckernel
+
+![Logo](https://raw.githubusercontent.com/jans-code/janscalckernel/main/janscalckernel/logo-svg.svg)
+
+A simple and robust jupyter kernel implementation of [calc](http://www.isthe.com/chongo/tech/comp/calc/), because sometimes you just want to calculate.
+
+## Installation
+
+- install calc from your distro's package manager or from [here](https://github.com/lcn2/calc/releases).
+- get the kernel module via pip
+- `pip install janscalckernel`
+- then install kernelspec
+- `janscalckernel`
+
+## Dev Installation
+
+- download/clone this project
+- open shell in project folder
+- `pip install -e ./`
+- `jupyter kernelspec install --user janscalckernel`
+
+## Uninstall
+
+- `jupyter kernelspec uninstall janscalckernel`
+- `pip uninstall janscalckernel`
