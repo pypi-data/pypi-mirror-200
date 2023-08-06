@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: zerokno
+Version: 1.0.0
+Summary: ZeroKno is a lightweight zero-knowledge password storage library for Python 3.7+
+Home-page: https://github.com/filipporomani/zerokno
+Author: Filippo Romani
+Author-email: mail@filipporomani.it
+License: UNKNOWN
+Description: # ZeroKno
+        
+        ZeroKno is a simple, easy to use and lightweight zero-knowledge password storage method for Python.
+        
+        ## Installation
+        
+        ```bash
+        pip install zerokno
+        ```
+        
+        ## Usage
+        
+        ```python
+        from zerokno import ZeroKno
+        
+        # Create a new ZeroKno instance
+        zk = ZeroKno()
+        
+        # Add a new password
+        zk.store("password", "userid")
+        
+        # Check password match
+        zk.validate("password", "userid")
+        # True
+        zk.validate("passwor1d", "userid")
+        # False
+        zk.validate("password", "userid1")
+        # Error: Userid not found
+        
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
