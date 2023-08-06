@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: blooper
+Version: 1.0.0
+Summary: Blooper is a oversampling technique to handle imbalance datasets
+Author: Brij Patel
+Author-email: <brijpatel1823@gmail.com>
+Keywords: python,imbalance
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: random
+Requires-Dist: math
+
+Blooper is a oversampling technique to handle imbalance datasets. I made this pypi library for hackathon
