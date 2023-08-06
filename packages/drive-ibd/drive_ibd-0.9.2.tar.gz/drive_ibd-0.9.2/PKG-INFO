@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: drive-ibd
+Version: 0.9.2
+Summary: cli tool to identify networks of individuals who share IBD segments overlapping loci of interest
+Home-page: https://github.com/belowlab/drive
+Keywords: python,genetics,identity by descent,relatedness
+Author: James Baker
+Author-email: james.baker@vanderbilt.edu
+Maintainer: James Baker
+Maintainer-email: james.baker@vanderbilt.edu
+Requires-Python: >=3.6.1,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: numpy (==1.19.5)
+Requires-Dist: pandas (==1.1.5)
+Requires-Dist: python-igraph (==0.9.6)
+Project-URL: Repository, https://github.com/belowlab/drive
+Description-Content-Type: text/markdown
+
+
