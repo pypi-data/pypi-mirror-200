@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: python-image-complete
+Version: 0.0.4
+Summary: Python3 library for checking whether images are complete.
+Home-page: https://github.com/waikato-datamining/python-image-complete
+Author: Peter Reutemann
+Author-email: fracpete@waikato.ac.nz
+License: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+
+The **python-iamge-complete** package allows you to check for various
+image types to check whether the image is complete or not. For doing
+this, it looks for EOF (end of file) markers in the files or compares
+the stored file length against the actual file length.
+Can also operate on bytes or BytesIO objects.
+
+Supported file formats:
+
+* BMP (extension: .bmp)
+* GIF (extension: .gif)
+* JPG (extension: .jpg, .jpeg)
+* PNG (extension: .png)
+* WebP (extension: .webp)
+
+
+Changelog
+=========
+
+0.0.4 (2023-03-30)
+------------------
+
+- added support for determining completeness of bytes or BytesIO objects rather than just file names
+- added `is_XYZ` methods that determine whether a file/bytes/BytesIO represents file type `XYZ`
+
+
+0.0.3 (2023-03-28)
+------------------
+
+- added support for: WebP
+
+
+0.0.2 (2020-01-13)
+------------------
+
+- added support for: BMP
+
+
+0.0.1 (2019-04-17)
+------------------
+
+- initial release
+- support for: GIF, JPG, PNG
