@@ -1,0 +1,16 @@
+[console_scripts]
+glance-imgsync = imgsync.cmd.cli:main
+
+[imgsync.distros]
+centos6 = imgsync.distros.centos:CentOS6
+centos7 = imgsync.distros.centos:CentOS7
+debian10 = imgsync.distros.debian:Debian10
+debian9 = imgsync.distros.debian:Debian9
+ubuntu14 = imgsync.distros.ubuntu:Ubuntu14
+ubuntu16 = imgsync.distros.ubuntu:Ubuntu16
+ubuntu18 = imgsync.distros.ubuntu:Ubuntu18
+ubuntu20 = imgsync.distros.ubuntu:Ubuntu20
+ubuntu22 = imgsync.distros.ubuntu:Ubuntu22
+
+[oslo.config.opts]
+imgsync = imgsync.opts:list_opts
