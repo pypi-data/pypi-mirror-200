@@ -1,0 +1,4 @@
+[console_scripts]
+eirautogp=eir_auto_gp.run:main
+eirautogwas=eir_auto_gp.preprocess.gwas_pre_selection:main
+
