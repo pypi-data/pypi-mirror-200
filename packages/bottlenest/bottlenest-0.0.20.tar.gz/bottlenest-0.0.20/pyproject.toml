@@ -1,0 +1,91 @@
+[tool.poetry]
+name = "bottlenest"
+version = "0.0.20"
+description = "A small example package"
+license = "MIT"
+authors = [
+    "Giovanne Feitosa Afonso <giovanneafonso@gmail.com>"
+]
+repository = "https://github.com/giovannefeitosa/bottlenest"
+homepage = "https://github.com/giovannefeitosa/bottlenest"
+# README file(s) are used as the package description
+readme = ["README.md", "LICENSE"]
+# Keywords (translated to tags on the package index)
+# keywords = ["packaging", "poetry"]
+keywords = ["example"]
+# Include template files
+packages = [
+  { include = "bottlenest", from = "src" },
+]
+
+
+
+[tool.poetry.dependencies]
+# Compatible Python versions
+python = ">=3.10,<4"
+# Standard dependency with semver constraints
+# aiohttp = "^3.8.1"
+# Dependency with extras
+# requests = { version = "^2.28", extras = ["security"] }
+# Version-specific dependencies with prereleases allowed
+# tomli = { version = "^2.0.1", python = "<3.11", allow-prereleases = true }
+# Git dependencies
+# cleo = { git = "https://github.com/python-poetry/cleo.git", branch = "master" }
+# Optional dependencies (installed by extras)
+# pendulum = { version = "^2.1.2", optional = true }
+# Flask
+flask = { version = "^2.2.3" }
+python-dotenv = "^1.0.0"
+eventlet = "^0.33.3"
+python-socketio = "^5.8.0"
+requests = "^2.28.2"
+asyncio = "^3.4.3"
+inquirer = "^3.1.3"
+
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.2"
+pytest-cov = "^3.0"
+# docs are here, but I need to refactor later
+sphinx-theme = "^1.0"
+sphinx = "^6.1.3"
+sphinx-rtd-theme = "^1.2.0"
+
+
+
+
+
+# [tool.poetry.group.docs]
+# optional = true
+
+
+
+# [tool.poetry.group.docs.dependencies]
+# # https://tomasfarias.dev/posts/sphinx-docs-with-poetry-and-github-pages/
+# sphinx-theme = "^1.0"
+# sphinx = "^6.1.3"
+# sphinx-rtd-theme = "^1.2.0"
+pydantic = "^1.10.7"
+
+
+
+[tool.poetry.scripts]
+# Python-style entrypoints and scripts are easily expressed
+bottlenest = "bottlenest.__main__:main"
+docs-build = "docs.__main__:build"
+docs-run = "docs.__main__:run"
+example-dummy = "examples.dummy.main:main"
+example-apisocket = "examples.apisocket.main:main"
+example-clitool = "examples.clitool.main:main"
+example-envFile = "examples.envFile.main:main"
+example-helloworld = "examples.helloworld.main:main"
+example-websocketsClient = "examples.websocketsClient.main:main"
+example-websocketsServer = "examples.websocketsServer.main:main"
+example-dtos = "examples.dtos.main:main"
+
+
+
+[tool.sphinx-autobuild]
+watch = ["../../src/bottlenest", "source"]
+ignore = ["_build", "_static", "_templates", ".venv", ".git", "*.swp", "*.pyc", "*.pyo"]
