@@ -1,0 +1,31 @@
+Metadata-Version: 1.0
+Name: dsdn-distrib-20230330-gk
+Version: 0.1
+Summary: Gaussian and binomial distribution
+Home-page: UNKNOWN
+Author: Georgios Kokkinopoulos
+Author-email: georgioskokkinopoulos@gmail.com
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Description: # dsdn-distrib-20230330-gk package
+        
+        This is the first package I created as part of the Data Science Nanodegree course I am currently studying at Udacity
+        
+        There is a parent class called Distibution from which another two classes (Gaussian and Binomial) inherit a few attributes and methods.
+        
+        For Binomial and Gaussian classes there are some methods for calculating mean and st. dev. as well as plotting some bar charts
+        
+        #Files
+        
+        Generaldistribution.py: Contains the parent class (Distribution)
+        Gaussiandistribution.py: Contains the class for gaussian distribution. Methods for mean and st.dev available 
+        Binomialdistribution.py: Contains the class for binomial distribution. Methods for mean, st.dev and bar charts available
+        
+        #Installation
+        
+        The package is available in pypi so you can just use pip install dsdn-distrib-20230330-gk
+        
+        #Licensing
+        
+        You can find details of the licensing in file license.txt
+Platform: UNKNOWN
