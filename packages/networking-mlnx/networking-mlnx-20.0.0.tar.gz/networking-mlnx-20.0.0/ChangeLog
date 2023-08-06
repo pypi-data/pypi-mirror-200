@@ -1,0 +1,1008 @@
+CHANGES
+=======
+
+20.0.0
+------
+
+* Fix Mellanox CI failures on Yoga
+* Fix requirments for yoga release
+* Fix Mellanox CI, test-requirements.txt and unit tests failures
+* Change authentication method for Mellanox sdn controller
+* Update zuul neutron template to yoga template
+* Add Python 3.8 to supported runtimes
+* update zuul to xena release
+* update zuul for wallaby
+* remove policy.json
+* fix test-requirements.txt
+* fix in replace dhcp opt the compare to string
+* support client-id hardware
+* Bump pylint version to support python 3.8
+* eswitchd: improve error handling
+* add support for HA router and DVR
+* Sync tox requirement with neutron's
+* Fix mech driver initialization with physical\_networks
+* Monkey patch original current\_thread \_active
+
+16.0.0
+------
+
+* Revert "Added \`fabric\_type\` field in journal database"
+* Extend the IPoIBInterfaceDriver to support link\_up parameter
+* Explicitly initialize empty dict when getting GUIDs
+* Remove set/get VF GUID via netdev API (netlink) for MLNX4
+* pass correct parameters to \_set\_vf\_guid\_sysfs\_mlnx5
+* Add explicit casting to int for vf index
+* Refactor set vf GUID to imporve readability
+* Add support for Getting administrative GUID via netlink
+* Move test\_pci\_utils under utils folder
+* Removed Python2.7 support from tox
+* Get VF GUID according to GID index and not VF index
+* Move get get\_vfs\_macs\_ib from pci\_utils to ib\_utils
+* Align all index related data in eswitchd
+* Remove Unused constants
+* Fix zmq send/rcv for python3
+* Fixed zmq python3 send\_string
+* devstack: configure bind\_normal\_ports and bind\_normal\_ports\_physnets
+* always bind normal ports for IB physnet
+* Add Support for Port Up and Port Down RPC calls
+* Explicitly convert vf index argument to int
+* Use DHCP\_OPT\_CLIENT\_ID\_NUM from neutron-lib
+* Added \`fabric\_type\` field in journal database
+* Remove internal DB dependencies and refactoring
+* Reduce agent dependency on mac address
+* Update some config opts description
+* Use Neutron master in requirements.txt
+* Added DHCP and L3 params for IB multi interface
+* Refactoring of process\_port\_info
+* Refactor the way a device is identified
+* Supporting SSL certificate verification
+* Bumb pyroute2 to 0.5.7
+* Add Support for performing net device operations via pyroute2
+* Transition write\_sys method to privsep
+* Remove the ebrctl write-sys dependency
+* Remove redundant call to set\_port\_vlan\_id
+* remote ethtool and ip link from rootwrap
+* Change cache maintenance config opt default
+* Fix deadlock of read and write lock taken by the same thread
+* Add support for binding normal ports
+* remove unused clean.sh and make misc-sanity-checks.sh executable
+* add checks from neutron pylint and fix them
+* Add multi interface driver
+* Replace openstack.org URLs with opendev.org URs
+* Trivial: update url to new url
+* Update url in HACKING.rst
+* Add network cache module
+* Add IPoIB interface driver
+* add bandit security linter
+* update hacking>=1.1.0, enable E125 E129 N537 and fix pep8 issues
+* update pep8 check and fix new pep8 errors
+* add bashate
+* Add py37 jobs to Zuul
+* remove MlnxDHCP
+* remove debug print
+* Set port status to ACTIVE when binding a port
+* remove py37 and add py36
+* skip test\_release\_unused\_leases\_one\_lease\_with\_client\_id\_none
+* OpenDev Migration Patch
+* Remove version from PKG-INFO file
+* Replacing the link in HACKING.rst
+* Update min tox version to 2.0
+* Switch testing from Python 3.5 to 3.7
+* Fix some minor typos and comments
+* Fix exception handling in journal thread
+
+13.1.0
+------
+
+* fixed host id
+* Fixed: Use db\_api from neutron\_lib
+* Use neutron\_lib for db\_api instead of neutron
+* Support disabling SDN controller sync
+* Disable test\_client\_id\_num\_str test
+* fix tox python3 overrides
+* Use Param DHCP\_OPT\_CLIENT\_ID\_NUM
+* Disable test\_client\_id\_num test
+* fix unused\_leases\_one\_lease\_with\_client\_id test
+* Also run unit tests under Python 3
+* uncap eventlet
+* delete baremetal ports when they are unbounded
+* Don't bind ports on disallowed physical networks
+* Avoid tox-install.sh Fix import topics
+* Fix issue that causes job to stuck on monitoring
+* Remove obsolete tempest-lib
+* Fix neutron\_db\_api.get\_session with the latest neutron db api
+* Fix MLNX\_GUID\_INDEX\_PATH for eswitch
+* Fixed neutron.plugins.common import
+* Revert "Fix MLNX4\_GUID\_INDEX\_PATH"
+* Fix MLNX4\_GUID\_INDEX\_PATH
+* FIX: moving import driver\_api to neutron\_lib.plugins.ml2
+* Remove double import of neutron lib constants
+* Update requirements versions to be compatible with neutron
+* Fixing p\_constants import from neutron.plugins.common to neutron\_lib
+* remove fabric\_type
+* add support to plx
+* Fix devstack's bash script, fix 2 logical expressions
+* Remove unused ebrctl message flow "create-port"
+* Use 'port' definition from neutron-lib instead of deprecated neutron
+* Added the ability to update client-id dhcp option
+* Cp only eswtich conf file
+* fixed neutron\_lib.api.definitions import and CLIENT\_ID
+* Fix deprecation warning Modules moved from 'neutron.agent.securitygroups\_rpc' to 'neutron.api.rpc.handlers.securitygroups\_rpc'
+* add physical\_networks option to filter phynet
+* update requirements
+* Add support for multi port on the same phynet
+* ignore [N537] Don't translate logs
+* neo sdn: fix delete port to
+* remove pbr from requirements
+* Fixed neutron.agent.common import config
+* update pbr version to 2.0 and use neutron\_lib context
+* Fixed neutron\_lib.utils import
+* TrivialFix: Merge imports in code
+* reset driver using bind/unbind when vm is deleted
+* requirements zmq changed to pyzmq
+* baremetal send POST if we have the local\_link\_information
+* Use neutron-lib portbindings api-def
+* Remove white space between print ()
+* check port device\_owner before sending DELETE port
+* add missing \_\_init\_\_.py for jornal unit test
+* update files to 644
+* fix race condition in migration when delete job done after create port
+* fix dhcp test\_spawn\_no\_dns\_domain test
+* pass old port dict when calling PORT DELETE api
+* Move tests located at ml2/sdn to ml2/drivers/sdn folder
+* Add unit test for sdn client
+* Remove unused method 'try\_delete' in sdn client
+* Fixed CX5 device\_type handling
+* Fixed import model\_base
+* Add support for Ironic multi tenant with ETH
+* use neutron\_lib constants
+* Send delete port request for unattached ports
+* Add support for Ironic multi tenant with IB
+* Adjust unit tests to python 3
+* add support for baremetal port binding
+* Update test-requirements
+* fix mlnx\_sdn\_assist documentation
+
+9.0.0.0b1
+---------
+
+* don't send network with null provider:segmentation\_id
+* fix NEO sync when deleteing port and network
+* Put py34 first in the env order of tox and remove py33
+* fix retry count
+* catch login exception in jouranl
+* Add Sync mechanism to NEO
+* add get method to client
+* rearrange unitest folder
+* fix jouranl dependency validation
+* DB: Refactor networking-mlnx db
+* db: change Enum field to use constants
+* db: Remove depreciation warnings from db
+* Fix to allow use of param PHYSICAL\_INTERFACE\_MAPPINGS
+* Fix deprecation errors
+* mlnx\_sdn: create REST client
+* Enable DeprecationWarning in test environments
+* add sdn maintenance table
+* add Journal cleanup
+* Add dependency validation
+* add sdn journal database
+* Initial alembic migrations
+* fix missing translation in pep8
+* centrelize sdn config options
+* change remove PATH from constant names
+* add domain with cloudx default value to sdn conf
+* Use separate queue for agent state reports
+* Use neutron\_lib hacking and fix epep8 issues
+* Adding root\_helper registering
+* Use noop instead of neutron.agent.firewall:NoopFirewallDriver
+* Don't log Error on http 501
+* Log rest response text on debug
+* replace assert with assertFalse
+* remove session\_timeout option
+* rearrange import in sdn driver
+* tox: Update import\_exceptions to import networking\_mlnx.\_i18n
+* Move class properties to instances for dhcp tests
+* move to oslo\_concurrency
+* remove unused var and function in eswitchd
+* Added zmq to requirements.txt
+* fixed removing ESWITCHD\_CONF\_DIR on clean
+* Renaming Mellanox Mechanism driver
+* Fixed dependencies lxml
+* removed version from metadata in setup.cfg
+* deleted non working tests
+* added unit tests for eswitchd/db/device\_db
+
+8.0.0.0b3
+---------
+
+* Fixed Stucking plugin in case of missing/wrong message
+* added more unit tests for pci\_utils
+* change log level from exception to error
+* deleted pci\_utils.py from unit test folder
+* i18n imports fixed
+* updated test requirements according to neutron
+* sdn mech driver add support for flat network
+* Fix mlnx mech driver to work with flat network
+* removed eswitchd-rootwrap leftover
+* replace eswitchd-rootwrap with neutron-rootwrap
+* removed datafiles from setup.cfg
+
+8.0.0.0b2
+---------
+
+* Bump version to mark Mitaka branch
+* Update link to correct wiki docs location
+* change RPC version to 1.3
+* Deprecated tox -downloadcache option removed
+* Fixed exception on port deallocate for eswitch if network is not present
+* Moving eswitchd to networking-mlnx repo
+* Add to sdn mechanism driver to send DHCP port information
+* Decompose ML2 mechanism driver for Mellanox
+* Update .gitreview with openstack instead of stackforge
+* updates due to moving from stackforge to openstack github
+* copy eswitchd files with sudo
+* Add debug log for NEO response code
+* Add config NoopDriver as firewall\_driver
+* update sync to true if we get request timeout
+* Add network qos policy to sdn mech driver
+* Retry when esiwtchd is down instead of existing
+* fix test\_host\_file\_on\_net\_with\_v6\_slaac\_and\_v4 in dchp test
+* fix move MLNX AGENT constant to mlnx\_mech and some dhcp unitests
+* update devstack eswitchd to work with eswitch pbr
+* Add support for IB dhcp
+* Fix files permission to be 644
+* update devstack readme.rst
+* add mlnx dnsmasq support
+* Change the connection authentication of the SDN provider to a session
+* Update tests files to use oslo\_config and not oslo.config
+* added missing PKG-INFO for package building
+* loopingcall was removed from  neutron.openstack.common fixed unitest Change-Id: Ie6b4eea23a3a1df79ed24e6e2556735d39b15758 Signed-off-by: Lenny Verkhovsky <lennyb@mellanox.com>
+* mlnx MD: mlnx\_direct removal
+* Updating version to 2015.2.1
+* Add /usr/local/bin to exec\_dirs in  nova rootwrap.conf
+* Change the entry point name of  sdn provider mechanism driver plugin
+* make hostdev defualt vnic type in devstack
+* Add README.rst file
+* Add SDN mechanism driver
+* Fix import in unit test tree
+* Move mlnx agent to be under ml2/drivers/mlnx
+* Migrate to oslo.log
+* oslo: migrate to namespace-less import paths and add hacking rule
+* Remove root\_helper arg from SecurityGroupAgentRpc and from mlnx agent
+* Update networking-mlnx README file
+* Update the requirements.txt to point to the real neutron repository
+* Fix devstack external plugin
+* Untangle and drop SecurityGroupAgentRpcMixin usage and replace it with SecurityGroupAgentRpc. This patch separates the use of SecurityGroupAgentRpcMixin out to its own class
+* networking-mlnx devstack external plugin
+* Initial creation for networking-mlnx
+* Generated new .gitreview file for networking-mlnx
+* Disable unbalanced-tuple-unpacking
+* Updated from global requirements
+* Dropped fixture module
+* Move agent cleanup scripts to cmd module
+* misc-sanity-checks.sh: Some cleanups
+* Service split: cleaned up setup.cfg
+* hacking: enable H238 (old style class declaration, use new style)
+* hacking: enable W292 (no newline at end of file)
+* Update hacking to 0.10
+* Move metadata agent entry to its own file
+* Updated from global requirements
+* Break out config and entry point out of l3/agent file
+* Move postcommit ops out of transaction for bulk
+* Add support for retargetable functional api testing
+* Replace mention of nose with nose2 in devref
+* Delete the console scripts for lbaas and vpnaas
+* Enable the "not-callable" pylint check
+* Retry on unassigned ofport instead of treating it as a failure
+* Clean-up sanity checks done via shell scripts
+* Enable pylint checks for "anomalous" string escapes
+* Combine author\_tag and log\_translation\_hint regexes
+* Prevent symlinks to be added to the tree
+* Move DB TestModelsMigrations from unit to functional
+* Backward compatibility for advanced services
+
+2015.1.0b1
+----------
+
+* Updated from global requirements
+* Removed unused iso8601 dependency
+* Remove mlnx plugin
+* Set timeout for functional job
+* Remove unused dependencies
+* Migrate to oslo.context
+* Have L3 agent catch the correct exception
+* Updated from global requirements
+* Switch to using subunit-trace from tempest-lib
+* Move classes out of l3\_agent.py
+* Prettify tox output for functional tests
+* Services split, pass 2
+* Remove TODO for H404
+* Updated from global requirements
+* Use comments rather than no-op string statements
+* Enforce log hints
+* Disallow log hints in LOG.debug
+* Enforce log hints in ofagent and oneconvergence
+* Update i18n translation for NEC plugin log msg's
+* Update i18n translation for IBM plugin log msg's
+* Workflow documentation is now in infra-manual
+* tox.ini: Prevent casual addition of bash dependency
+* Updated from global requirements
+* Convert several uses of RpcCallback
+* Get rid of py26 references: OrderedDict, httplib, xml testing
+* Enforce log hints in opencontrail
+* Update i18n translation for Metaplugin plugin
+* Update i18n translation for Brocade plugin log msg's
+* Update i18n translation for Nuage plugin
+* Update i18n translation for Embrane plugin
+* Enforce log hints in neutron.plugins.plumgrid
+* Update i18n translation for Midonet plugin
+* Enforce log hints in neutron.plugins.sriovnicagent
+* Enforce log hints in neutron.plugins.hyperv
+* Updated the README.rst
+* Update i18n translation for BigSwitch plugin log msg's
+* pretty\_tox.sh: Portablity improvement
+* test\_dhcp\_agent: Fix no-op tests
+* Update i18n translation for Mellanox plugin and agent log msg's
+* Update i18n translation for VMware NSX plugin log msg's
+* hacking: Check if correct log markers are used
+* Enable undefined-loop-variable pylint check
+* Fix incorrect exception order in \_execute\_request
+* Migrate to oslo.i18n
+* Migrate to oslo.middleware
+* Migrate to oslo.utils
+* Remove Python 2.6 classifier
+* Update i18n translation for Cisco plugins and cfg agent log msg's
+* Remove ryu plugin
+* Update i18n translation for linuxbridge log msg's
+* Update i18n translation for openvswitch log msg's
+* Update i18n translation for ML2 plugin log msg's
+* Updated from global requirements
+* Enforce log hints in neutron.services
+* Enforce log hints in neutron.services.metering
+* Show progress output while running unit tests
+* Enforce log hints in neutron.services.loadbalancer
+* Enforce log hints in neutron.services.firewall
+* Enforce log hints in neutron.services.l3\_router
+* enable H401 hacking check
+* enable H237 check
+* Updated from global requirements
+* Update i18n translation for neutron.server/scheduler log msg's
+* Update i18n translation for neutron.notifiers log msg's
+* Update i18n translation for neutron.common/debug log msg's
+* Update i18n translation for neutron.api log msg's
+* Updated from global requirements
+* Update i18n translation for neutron.extension log msg's
+* Update i18n translation for neutron.db log msg's
+* Update i18n translation for neutron.cmd log msg's
+* Update i18n translation for neutron.agents log msg's
+* enable F812 check for flake8
+* enable F811 check for flake8
+* Support pudb as a different post mortem debugger
+* switch to oslo.serialization
+* Add rootwrap filters for ofagent
+* Remove openvswitch core plugin entry point
+* Updated from global requirements
+* Updated from global requirements
+* enable F402 check for flake8
+* enable E713 in pep8 tests
+* Hyper-V: Remove useless use of "else" clause on for loop
+* Enable no-name-in-module pylint check
+* Updated from global requirements
+* Remove duplicate import of constants module
+* Switch run-time import to using importutils.import\_module
+* Enable assignment-from-no-return pylint check
+* tox.ini: Avoid using bash where unnecessary
+* Empty files should not contain copyright or license
+* Remove single occurrence of lost-exception warning
+* Updated fileutils and its dependencies
+
+2014.2
+------
+
+* remove E251 exemption from pep8 check
+* mock.assert\_called\_once() is not a valid method
+* Add pylint tox environment and disable all existing warnings
+* Updated from global requirements
+* Ignore top-level hidden dirs/files by default
+* Remove some duplicate unit tests
+* Drop sslutils and versionutils modules
+
+2014.2.rc2
+----------
+
+* Removed kombu from requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove sslutils from openstack.common
+
+2014.2.rc1
+----------
+
+* remove linuxbridge plugin
+* Fix sleep function call
+* Open Kilo development
+* Implement ModelsMigrationsSync test from oslo.db
+* Fix entrypoint of OneConvergencePlugin plugin
+* Set dsvm-functional job to use system packages
+* Separate Configuration from Freescale SDN ML2 mechanism Driver
+* Remove @author(s) from copyright statements
+* Updated from global requirements
+* Adds ipset support for Security Groups
+* Add requests\_mock to test-requirements.txt
+* Removed kombu from requirements
+* Supply missing cisco\_cfg\_agent.ini file
+* Remove unused arg to config.setup\_logging()
+* Updated from global requirements
+
+2014.2.b3
+---------
+
+* Work toward Python 3.4 support and testing
+* Revert "Cisco DFA ML2 Mechanism Driver"
+* Big Switch: Separate L3 functions into L3 service
+* Remove reference to cisco\_cfg\_agent.ini from setup.cfg again
+* Adds router service plugin for CSR1kv
+* Support for extensions in ML2
+* Cisco DFA ML2 Mechanism Driver
+* Adding mechanism driver in ML2 plugin for Nuage Networks
+* Fix state\_path in tests
+* Remove ovs dependency in embrane plugin
+* Remove binding:profile update from Mellanox ML2 MD
+* Use lockutils module for tox functional env
+* Updated from global requirements
+* Refresh rpc\_backend values in unit tests to those from oslo.messaging
+* Add specific docs build option to tox
+* Fix bigswitch setup.cfg lines
+* Updated from global requirements
+* Use jsonutils instead of stdlib json
+* Opencontrail plug-in implementation for core resources
+* MLNX Agent: ensure removed ports get treated on resyncs
+* MLNX Agent: Process port\_update notifications in the main agent loop
+* Add a tox test environment for random hashseed testing
+* Updated from global requirements
+* Remove reference to cisco\_cfg\_agent.ini from setup.cfg
+* Removed configobj from test requirements
+* Updated from global requirements
+* Functional tests work fine with random PYTHONHASHSEED
+* Set python hash seed to 0 in tox.ini
+* Configuration agent for Cisco devices
+* Updated from global requirements
+* ML2 mechanism driver for SR-IOV capable NIC based switching, Part 2
+
+2014.2.b2
+---------
+
+* This patch changes the name of directory from mech\_arista to arista
+* ML2 mechanism driver for SR-IOV capable NIC based switching, Part 1
+* Allow to import \_LC, \_LE, \_LI and \_LW functions directly
+* Make readme reference git.openstack.org not github
+* Bump hacking to version 0.9.2
+* Use auth\_token from keystonemiddleware
+* Remove reference to setuptools\_git
+* Add a gate-specific tox env for functional tests
+* Add CONTRIBUTING.rst
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix example for running individual tests
+* Switch to using of oslo.db
+* remove unsupported middleware
+* Add config for performance gate job
+* Introduce bulk calls for get device details
+* Synced log module and its dependencies from olso-incubator
+* don't ignore rules that are already enforced
+* Moved rpc\_compat.py code back into rpc.py
+* Updated from global requirements
+* Updated from global requirements
+* ofagent: move main module from ryu repository
+* Remove the useless vim modelines
+* Removed 'rpc' and 'notifier' incubator modules
+* Removed create\_rpc\_dispatcher methods
+* Use openstack.common.lockutils module for locks in tox functional tests
+* Port to oslo.messaging
+* Updated from global requirements
+* Ignore emacs checkpoint files
+* Configure agents using neutron.common.config.init (formerly .parse)
+* Added missing core\_plugins symbolic names
+* Introduce RpcCallback class
+* remove pep8 E122 exemption and correct style
+
+2014.2.b1
+---------
+
+* remove E112 hacking exemption and fix errors
+* Updated from global requirements
+* Monkey patch threading module as early as possible
+* Introduced transition RPC exception types
+* Freescale SDN Mechanism Driver for ML2 Plugin
+* Remove run-time version checking for openvswitch features
+* Added missing plugin .ini files to setup.cfg
+* Updated from global requirements
+* Synced jsonutils from oslo-incubator
+* Cisco APIC ML2 mechanism driver, part 2
+* NSX: get rid of the last Nicira/NVP bits
+* Add missing translation support
+* Add mailmap entry
+* Updated from global requirements
+* Remove explicit dependency on amqplib
+* eswitch\_neutron\_agent: Whitespace fixes in comments
+* Remove duplicate module-rgx line in .pylintrc
+* Fix H302 violations
+* Fix H302 violations in plugins package
+* Fix H302 violations in unit tests
+* Don't print duplicate messages on SystemExit
+* Updated from global requirements
+* Add physical\_network to binding:vif\_details dictionary
+* Updated from global requirements
+* Switch over to FixedIntervalLoopingCall
+* Exclude .ropeproject from flake8 checks
+* Remove mock.patch.stop from tests that inherit from BaseTestCase
+* Enable flake8 E711 and E712 checking
+* Updated from global requirements
+* Sync service and systemd modules from oslo-incubator
+* Move bash whitelisting to pep8 testenv
+* Fix Jenkins translation jobs
+* ignore build directory for pep8
+* Enable hacking H301 check
+* Updated from global requirements
+
+2014.1.rc1
+----------
+
+* Remove last parts of Quantum compatibility shim
+* Open Juno development
+* Start using oslosphinx theme for docs
+* Fixed TypeError when creating MlnxException
+* Remove extra space in help string
+* Updated from global requirements
+* Add enable\_security\_group option
+* add HEAD sentinel file that contains migration revision
+* Add update binding:profile with physical\_network
+* Bugfix and refactoring for ovs\_lib flow methods
+* Removes calls to mock.patch.stopall in unit tests
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* One Convergence Neutron Plugin l3 ext support
+* One Convergence Neutron Plugin Implementation
+* BigSwitch: Add SSL Certificate Validation
+
+2014.1.b3
+---------
+
+* Updated from global requirements
+* Add OpenDaylight ML2 MechanismDriver
+* Implementaion of Mechanism driver for Brocade VDX cluster of switches
+* Implement Mellanox ML2 MechanismDriver
+* Remove call to addCleanup(cfg.CONF.reset)
+* Implement OpenFlow Agent mechanism driver
+* Finish off rebranding of the Nicira NVP plugin
+* BigSwitch: Add agent to support neutron sec groups
+* Adds the new IBM SDN-VE plugin
+* Updated from global requirements
+* Developer documentation
+* Change tenant network type usage for IB Fabric
+* Rename Neutron core/service plugins for VMware NSX
+* Updated from global requirements
+* Sync minimum requirements
+* Copy cache package from oslo-incubator
+* Add update from agent to plugin on device up
+* Remove dependent module py3kcompat
+* Add migration support from agent to NSX dhcp/metadata services
+* Remove psutil dependency
+* LBaaS: move agent based driver files into a separate dir
+* mailmap: update .mailmap
+* Return request-id in API response
+* Prepare for multiple cisco ML2 mech drivers
+* Support building wheels (PEP-427)
+* Use oslo.rootwrap library instead of local copy
+* Enables BigSwitch/Restproxy ML2 VLAN driver
+* Add an explicit tox job for functional tests
+* Base ML2 bulk support on the loaded drivers
+* Enable hacking H233 rule
+
+2014.1.b2
+---------
+
+* Update RPC code from oslo
+* Configure plugins by name
+* Update lockutils and fixture in openstack.common
+* Rename nicira configuration elements to match new naming structure
+* Remove unused imports
+* Rename check\_nvp\_config utility tool
+* Corrects broken format strings in check\_i18n.py
+* Change default eswitchd port to avoid conflict
+* Updates tox.ini to use new features
+* Updated from global requirements
+* Sync global requirements to pin sphinx to sphinx>=1.1.2,<1.2
+* Update common network type consts to same origin
+* Add fwaas\_driver.ini to setup.cfg
+
+2014.1.b1
+---------
+
+* Add vpnaas and debug filters to setup.cfg
+* Add request timeout handling for Mellanox Neutron Agent
+* Updates .gitignore
+* Update Zhenguo Niu's mailmap
+* Replace stubout with fixtures
+* Ensure get\_pid\_to\_kill works with rootwrap script
+* Updated from global requirements
+* Cleanup HACKING.rst
+* Fix import log\_handler error with publish\_errors set
+* Updated from global requirements
+* Updated from global requirements
+* Fix incorrect indentations found by Pep 1.4.6+
+* Cleanup and make HACKING.rst DRYer
+* Add support for managing async processes
+* Remove obsolete redhat-eventlet.patch
+* Change rpc\_support\_old\_agents default to False
+
+2013.2.rc1
+----------
+
+* Open Icehouse development
+* Updated from global requirements
+* Require oslo.config 1.2.0 final
+* Use built-in print() instead of print statement
+* Add l2 population base classes
+* Fix message i18n error
+* Install metering\_agent.ini and vpn\_agent.ini
+* fix conversion type missing
+* Enclose command args in with\_venv.sh
+* ML2 Mechanism Driver for Cisco Nexus
+* Reference driver implementation (IPsec) for VPNaaS
+* Implement ML2 port binding
+*  Arista ML2 Mechanism driver
+* ML2 Mechanism Driver for Tail-f Network Control System (NCS)
+* Default to not capturing log output in tests
+* Add Neutron l3 metering agent
+* Add recent neutron extentions and IB support
+* Update mailmap
+* Fix wrong example in HACKING.rst
+* Bumps hacking to 0.7.0
+* remove binaries under bin
+* Fixes Windows setup dependency bug
+* Restore Babel to requirements.txt
+* Remove DHCP lease logic
+* Remove last vestiges of nose
+* Updated from global requirements
+* Ignore pbr\*.egg directory
+* Fix H102, H103 Apache 2.0 license hacking check error
+* Remove openstack.common.exception usage
+* Adds Babel dependency missing from 555d27c
+* Fix the alphabetical order in requirement files
+* Remove comments from requirements.txt (workaround pbr bug)
+* remove netifaces dependency of ryu-agent
+
+2013.2.b2
+---------
+
+* Add gre tunneling support for the ML2 plugin
+* Add VXLAN tunneling support for the ML2 plugin
+* xenapi - rename quantum to neutron
+* Fix issue with pip installing oslo.config-1.2.0
+* Initial Modular L2 Mechanism Driver implementation
+* Add cover/ to .gitignore
+* fix some missing change from quantum to neutron
+* Rename Quantum to Neutron
+* Rename quantum to neutron in .gitreview
+* Sync install\_venv\_common from oslo
+* Update to use OSLO db
+* Require greenlet 0.3.2 (or later)
+* Remove single-version-externally-managed in setup.cfg
+* Fix single-version-externally-mananged typo in setup.cfg
+* Allow use of lowercase section names in conf files
+* Require pbr 0.5.16 or newer
+* Update to the latest stevedore
+* Rename agent\_loadbalancer directory to loadbalancer
+* Remove unit tests that are no longer run
+* Remove explicit distribute depend
+* Fix and enable H90x tests
+* Remove generic Exception when using assertRaises
+* Add \*.swo/swp to .gitignore
+* python3: Introduce py33 to tox.ini
+* Rename README to README.rst
+* Rename requires files to standard names
+* Initial Modular L2 plugin implementation
+* Perform a sync with oslo-incubator
+* update mailmap
+* Revert "Fix ./run\_tests.sh --pep8"
+* Move to pbr
+* Fix ./run\_tests.sh --pep8
+* blueprint mellanox-quantum-plugin
+* Let the cover venv run individual tests
+*  Copy the RHEL6 eventlet workaround from Oslo
+* Remove locals() from strings substitutions
+* Enable automatic validation of many HACKING rules
+* Shorten the path of the nicira nvp plugin
+* Allow pdb debugging in manually-invoked tests
+* Reformat openstack-common.conf
+* Switch to flake8 from pep8
+* Parallelize quantum unit testing:
+* blueprint cisco-single-config
+* Add lbaas\_agent files to setup.py
+* Add VIRTUAL\_ENV key to enviroment passed to patch\_tox\_env
+* Sync latest Oslo components for updated copyright
+* Replace "OpenStack LLC" with "OpenStack Foundation"
+* First havana commit
+* remove references to netstack in setup.py
+* Update tox.ini to support RHEL 6.x
+* Add common test base class to hold common things
+* Pin pep8 to 1.3.3
+* Add initial testr support
+* LBaaS Agent Reference Implementation
+* Add scheduling feature basing on agent management extension
+* Use testtools instead of unittest or unittest2
+* Add midonet to setup.py
+* Sync latest install\_venv\_common.py with olso
+* Add check-nvp-config utility
+* Use oslo-config-2013.1b3
+* Adds Brocade Plugin implementation
+* Synchronize code from oslo
+* PLUMgrid quantum plugin
+* Update .coveragerc
+* Allow tools/install\_venv\_common.py to be run from within the source directory
+* Updated to latest oslo-version code
+* Use install\_venv\_common.py from oslo
+* Cisco plugin cleanup
+* Use babel to generate translation file
+* Adds support for deploying Quantum on Windows
+* Add migration support to Quantum
+* .gitignore cleanup
+* Logging module cleanup
+* Add OVS cleanup utility
+* Add tox artifacts to .gitignore
+* Add restproxy.ini to config\_path in setup.py
+* Add script for checking i18n message
+* l3 agent rpc
+* Add metadata\_agent.ini to config\_path in setup.py
+* add metadata proxy support for Quantum Networks
+* Add QUANTUM\_ prefix for env used by quantum-debug
+* Make tox.ini run pep8 checks on bin
+* Explicitly include versioninfo in tarball
+* Import lockutils and fileutils from openstack-common
+* Updated openstack-common setup and version code
+* Add uuidutils module
+* Add eventlet\_backdoor and threadgroup from openstack-common
+* Add loopingcall from openstack-common
+* Added service from openstack-common
+* Import order clean-up
+* Correct Intended Audience
+* Add OpenStack trove classifier for PyPI
+* l3\_nat\_agent was renamed to l3\_agent and this was missed
+* Support for several HA RabbitMQ servers
+* add missing files from setup.py
+* Create .mailmap file
+* Implements agent for Quantum Networking testing
+* Create utility to clean-up netns
+* Update rootwrap; track changes in nova/cinder
+* Add lease expiration script support for dnsmasq
+* quantum l3 + floating IP support
+* NEC OpenFlow plugin support
+* Initial implemention of MetaPlugin
+* Exempt openstack-common from pep8 check
+* fix bug lp:1025526,update iniparser.py to accept  empty value
+* Introduce files from openstack common
+* fix bug lp:1019230,update rpc from openstack-common
+* implement dhcp agent for quantum
+* Use setuptools git plugin for file inclusion
+* Remove paste configuration details to a seperate file. blueprint use-common-cfg
+* Implements the blueprint use-common-cfg for the quantum service. More specifically uses global CONF for the quantum.conf file
+* Add authZ through incorporation of policy checks
+* Bug #1013967 - Quantum is breaking on tests with pep 1.3
+* Use openstack.common.exception
+* Fix up test running to match jenkins expectation
+* Add build\_sphinx options
+* Quantum should use openstack.common.jsonutils
+* Quantum should use openstack.common.importutils
+* PEP8 fixes
+* Parse linuxbridge plugins using openstack.common.cfg
+* Add HACKING.rst to tarball generation bug 1001220
+* Include AUTHORS in release package
+* Add HACKING.rst coding style doc
+* bug 963152: add a few missing files to sdist tarball
+* Split out pip requires and aligned tox file
+* Fix missing files in sdist package [bug 954906]
+* more files missing in sdist tarball
+* make sure pip-requires is included in setup.py sdist
+* remove pep8 and strict lxml version from setup.py
+* plugin: introduce ryu plugin
+* bug 934459: pip no longer supports -E
+* Initial commit: nvp plugin
+* Cleanup the source distribution
+* blueprint quantum-linux-bridge-plugin
+* Remove quantum CLI console script
+* Make tox config work
+* Split out quantum.client and quantum.common
+* Quantum was missing depend on lxml
+* Getting ready for the client split
+* Removed erroneous print from setup.py
+* Base version.py on glance
+* Fix lp bug 897882
+* Install a good version of pip in the venv
+* Rename .quantum-venv to .venv
+* Remove plugin pip-requires
+* Bug #890028
+* Fix for bug 900316
+* Second round of packaging changes
+* Changes to make pip-based tests work with jenkins
+* Fix for Bug #888820 - pip-requires file support for plugins
+* blueprint quantum-packaging
+* Add .gitreview config file for gerrit
+
+2011.3
+------
+
+* merge tyler's unit tests for cisco plugin changes lp845140
+* merge salv's no-cheetah CLI branch lp 842190
+* merge sumit's branch for lp837752
+* merge salv's branch for bug834013
+* merge salv's branch for keystone token on client bug838006
+* merge rohit's db test branch: lp838318
+* merge salv fix for bug 841982, fix minor pep8 violation
+* merge salv fix for bug834008
+* Merging latest from lp:quantum
+* Merging lo:~salvatore-orlando/quantum/quantum-api-auth
+* syncing diverged branches
+* merging from lp:quantum
+* merging from lp:quantum
+* Mergin from lp:quantum
+* merge salv's branch to remove dummy plugin
+* Merging Shweta's test cases for mutliport resource
+* Merging Sumit's changes including fixes for multinic support, and CLI module for working with extensions
+* Merging from Cisco branch
+* Merging changes from Ying's branch (new mutliport resource)
+* Merging from lp:quantum
+* merge cisco consolidated plugin changes
+* Merging lp:~salvatore-orlando/quantum/bug834449
+* Merging Ying's changes (minor)
+* merge trunk
+* merge trunk
+* merging changes from cisco consolidated branch
+* Merging fixes from Sumit's branch for extension API version number and to UCS inventory to associated VIF-ID with ports
+* Merging from the Cisco branch
+* Merging Shweta's fix for extensions' test cases (clean up was not happening completely)
+* Merging from lp:quantum
+* Merging Shweta's fixes in the tests for key names changes in the Core API
+* merge salvatore's new cli code
+* Merging lp:quantum, resolving conflict
+* merge two pep8 branch
+* Merging Ying's pep8 fixes
+* Merging quantum trunk
+* Merging lp:~danwent/quantum/lp834491 Fixing Bug #834491: api alignment merge broke ovs plugin 	(Critical)
+* Merging from quantum
+* merge cisco extensions branch
+* Merging Shweta's fixes to the test cases for the extensions
+* Merging from Sumit's branch, changes to VIF-driver and Scheduler; extension action names have been changed in response to Salvatore's review comments in the extensions branch review
+* Syncing with Cisco extensions branch
+* Merging changes from Sumit's branch
+* Mergin Ying's branch
+* Merging from Sumit's branch, import ordering related changes
+* Merging the Cisco branch
+* Finishing cli work Fixing bug with XML deserialization
+* Merging lp:~salvatore-orlando/quantum/quantum-api-alignment
+* Merging from Sumit's branch
+* Merging Rohit's changes
+* merge latest quantum branch and resolve conflicts
+* Merging lp:~asomya/quantum/lp833163 Fix for Bug #833163: Pep8 violations in recent packaging changes that were merged into trunk (Critical)
+* PEP8 fixes for setup.py
+* Made changes according to reviewer's comments. Add addtional information on extension test in README
+* Merging changes from Sumit's branch
+* Merging lp:~cisco-openstack/quantum/802dot1qbh-vifdriver-scheduler
+* Merging lp:~cisco-openstack/quantum/l2network-plugin-persistence
+* Merging lp:quantum
+* merging with lp:quantum
+* merge lp:~bgh/quantum/lp837174
+* Merging from Sumit's latest branch - Fixed loading of Nexus DB tables; moved imports to l2nework\_db.py; Refactoring of code to generalize inventory handling (enhancement)
+* Making Keystone version configurable
+* Merging lp:~raxnetworking/quantum/bug827272
+* Merging branch: lp:~danwent/quantum/test-refactor
+* Merging UCS inventory state initialization fix from Sumit's branch
+* Fixes an issue with loading the UCS inventory when a dynamic nic has been used outside of Quantum
+* Pep8, pylint fixes
+* Merging rohit's UCS persistence support
+* Merging changes from Rohit's branch
+* Merging changes from cisco extensions
+* merged Shweta's branch for ext test. Minor fix for review comments
+* merged Shweta's ext test branch
+* Syncing with lp:quantum
+* sync up with l2network exception handling for extension
+* merged Cisco branch's latest changes
+* Adding changes from Sumit's latest merge
+* merge with  lp:~cisco-openstack/quantum/l2network-plugin-extensions
+* Raising exceptions in extension resources handling (where missing). Changing exception name to QosNotFound
+* Mergin from Cisco branch
+* Merging fixes to client side exception handling. Thanks lp:tylesmit !
+* Merging fixes and changes batch-config script. Thanks lp:danwent !
+* merge with ying's branch
+* merging with Ying's extension branch
+* merging with ~cisco-openstack/quantum/l2network-plugin-extensions
+* fix pylint issuses
+* Merging bug fix for Bug 821733. Thanks lp:salvatore-orlando !
+* Mering Sumit's branch with plugin support for Credentials, QoS, NovaTenant resources. Also merging latest from lp:~cisco-openstack/quantum/l2network-plugin-persistence
+* Merging from Sumit's branch, VIF-driver and Quantum-aware scheduler
+* Merging lp:~asomya/quantum/lp824145 Fix for Bug#824145 : Adding a setup script for quantum
+* merge trunk pep8 fixes adapting CLI to API v1.0 Fixing wsgi to avoid failure with extensions
+* merge trunk
+* Pulling in changes from lp:quantum
+* Merging Cisco's contribution to Quantum. Thanks to various folks at Cisco Systems, Quantum will have plugins to integrate with Cisco UCS blade servers using 802.1Qbh, Cisco Nexus family of switches and the ability for Quantum plugin to have multiple switches/devices within a single Quantum plugin
+* Merging Shweta's change to fix a function call in the test code
+* Merging from Sumit's branch pylint fixes and incorporating review comments
+* Changes to README file and merging Shweta's changes
+* Mergin Shweta's test changes, also README file
+* Mergin from cisco brach
+* Merging from lp:quantum
+* Pulling changes from Cisco branch
+* Merging Nexus pylint changes and other enhancements from Edgar
+* Merging Rohit's changes
+* Merging plugin and tests' changes
+* Pulling in changes from Rohit's branch
+* Pulling in changes from Shweta's branch
+* Merging rohit's changes
+* Merging: lp:~danwent/quantum/client-lib
+* Merging: lp:~tylesmit/quantum/api-client-fix-serialization Adding automattic serialization to all requests by moving it to do\_request
+* fixes from rohit's branch
+* from rohit's branch
+* Merging quantum extenions framework into trunk. Thanks rajaram vinkesh, deepak & santhosh for the great work!
+* lp Bug#824145 : Adding a setup script for quantum
+* merge trunk
+* Merged quantum trunk
+* - Adding setup script
+* Added tests directory to list of modules in the README file
+* Merging changes addressing Bug # 802772. Thanks lp:danwent !
+* Merging bugfix for Bug 822890 - Added License file for Quantum code distribution
+* L2 Network Plugin Framework merge
+* Adding Apache Version 2.0 license file. This is the official license agreement under which Quantum code is available to the Open Source community
+* Merging test cases from Shwetas' branch, and further modified README file
+* Merging the test framework from Shweta's branch
+* another merge
+* merge
+* merge heckj's pip-requires fixes
+* Merged quantum trunk
+* Removing extra file in Nexus Driver
+* Merging changes
+* Merging changes from lp:quantum
+* Completing API spec alignment Unit tests aligned with changes in the API spec
+* Applying fix for bug #814518 Merging from lp:~salvatore-orlando/quantum/bug814518
+* Merging the port profile client name fix
+* Mergin fix for Bug 818321
+* Merging approved OVS plugin configuration change branch. Thanks lp:danwent !
+* Merging the brand new Quantum-client-library feature
+* merging branch for bug802772, which this branch is stacked on top of
+* Merging lp:quantum updates
+* persistence of l2network & ucs plugins using mysql - db\_conn.ini - configuration details of making a connection to the database - db\_test\_plugin.py - contains abstraction methods for storing database values in a dict and unit test cases for DB testing - l2network\_db.py - db methods for l2network models - l2network\_models.py - class definitions for the l2 network tables - ucs\_db.py - db methods for ucs models - ucs\_models.py - class definition for the ucs tables dynamic loading of the 2nd layer plugin db's based on passed arguments Create, Delete, Get, Getall, Update database methods at - Quantum, L2Network and Ucs Unit test cases for create, delete, getall and update operations for L2Network and Ucs plugins pep8 checks done branch based off revision 34 plugin-framework
+* Merged from trunk
+* merged the latest changes from plugin-framework branch - revision 39 conforming to the new cisco plugin directory structure and moving all db related modules into cisco/db folder updated db\_test\_plugin.py  - added import of cisco constants module  - added LOG.getLogger for logging component name  - updated import module paths for l2network\_models/db and ucs\_models/db to use the new directory structure  - updated (rearranged) imports section to obey openstack alphabetical placement convention updated db\_conn.ini  - updated database name from cisco\_naas to quantum\_l2network unit test cases ran successfully and pep8 checks done again
+* merge branch for to fix bug817826
+* Merging the latest changes from lp:quantum
+* merge Salvatore's api branch with fixes for tests.  Tweaking branch to remove unwanted bin/quantum.py as part of merge
+* Merging in main repo updates
+* Apply fix for bug #817813 Merging lp:~danwent/quantum/bug817813
+* Apply fix for bug #814012 Merging lp:~danwent/quantum/bug814012
+* Apply fix for bug #814517 merging lp:~tylesmit/quantum/quantum-bug-814517
+* Santhosh/Rajaram|latest merge from quantum and made extensions use options to load plugin
+* Apply fix for bug #797419 merging lp:~salvatore-orlando/quantum/bug797419
+* Merging branch lp:~salvatore-orlando/quantum/bug802892 Fixing bug #802892
+* Merging branch lp:~netstack/quantum/quantum-unit-tests
+* Fixing silly pep8 error
+* Merged from quantum trunk
+* Applying fix for bug #804237 from branch lp:~salvatore-orlando/quantum/bug804237
+* Adapated plugin infrastructure to allow API to pass options to plugins Now using in-memory sqlite db for tests on FakePlugin teardown() now 'resets' the in-memory db Adding unit tests for APIs
+* Merging dan wendlandt's bugfixes for Bug #800466 and improvements that enable Quantum to seamlessly run on KVM!
+* merge
+* Merge: bzr merge lp:~bgh/quantum/bugfixes
+* merge and pep8 cleanup
+* Merging latest changes from parent repo - lp:network-service , Parent repo had approved merge proposal for merging lp:~santhom/network-service/quantum\_testing\_framework , which has now been merged into lp:network-service
+*  Merging pep8 and functional test related changes lp:~santhom/network-service/quantum\_testing\_framework branch
+* Santhosh/Vinkesh | Added the testing framework. Moved the smoketest to tests/functional
+* merged remote README changes
+*  Merged Brad's ovsplugin code
+* Initial version of openvswitch plugin
+* \* Merged changes from Salvatore's branch - quantum-api-workinprogress \* Removed spurious methods from quantum\_base\_plugin class. \* Updated the sample plugins to be compliant with the new QuantumBase class
+* Adding first files for quantum API
+* merged salvatore's changes to local branch
+* Pushing initial started code based on Glance project and infrstructure work done by the melange team
+* Merging in Shweta's fixes from the review by Sumit
+* Merging in latest changes from lp:quantum
+* Merging in Shweta's test changes
