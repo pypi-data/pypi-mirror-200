@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "lo-dev-search"
+version = "2.0.2"
+description = "LibreOffice Developer Search Engine"
+authors = [":Barry-Thomas-Paul: Moss <vibrationoflife@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "lo_dev_search"}]
+include =[
+    { path = "lo_dev_search/cfg/config.json", format = ["sdist", "wheel"]},
+    { path = "lo_dev_search/db/mod_info.sqlite", format = ["sdist", "wheel"]}
+]
+repository = "https://github.com/Amourspirit/python_lo_dev_search"
+keywords = ["libreoffice", "openoffice","search", "uno", "ooouno", "pyuno"]
+classifiers = [
+    "Topic :: Office/Business",
+    "Operating System :: OS Independent",
+    "Environment :: Other Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.scripts]
+lodoc = "lo_dev_search.cli.lodoc:main"
+loguide = "lo_dev_search.cli.loguide:main"
+loapi = "lo_dev_search.cli.loapi:main"
+loproc = "lo_dev_search.cli.loproc:main"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+psutil = ">=5.8"
+
+
+[[tool.poetry.source]]
+name = "pypi-test"
+url = "https://test.pypi.org/legacy/"
+default = false
+secondary = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+extended-select=["ANN", "C4", "N", "SIM", "TCH"]
+ignore=["E501"]
+show-fixes=true
+target="py37"
