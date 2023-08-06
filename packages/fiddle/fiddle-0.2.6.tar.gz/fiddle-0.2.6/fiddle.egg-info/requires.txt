@@ -1,0 +1,17 @@
+absl-py
+graphviz
+libcst
+typing-extensions
+
+[flags]
+absl-py
+etils[epath]
+
+[testing]
+cloudpickle
+fiddle[flags]
+flax
+graphviz
+pytest
+pytype
+seqio-nightly
