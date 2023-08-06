@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: nonebot-plugin-chatgpt-diy
+Version: 0.1.1
+Summary: A plugin based on nonebot2, which can chat with users by chatgpt
+Home-page: http://www.lcgx.space/home
+Author: longchengguxiao
+Author-email: 1298919732@qq.com
+License: AGPL-3.0 License
+Platform: all
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai (>=0.27.2)
+Requires-Dist: transformers
+Requires-Dist: nonebot2 (>=2.0.0a16)
+Requires-Dist: nonebot-adapter-onebot (>=2.0.0b1)
+
