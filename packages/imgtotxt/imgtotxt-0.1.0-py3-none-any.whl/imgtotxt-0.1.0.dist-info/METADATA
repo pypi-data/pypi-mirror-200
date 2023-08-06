@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: imgtotxt
+Version: 0.1.0
+Summary: OCR app running locally with native UI
+Author-email: "Ahmed K. A." <ahmadkabdullah@pm.me>
+License: GPL-3
+License-File: LICENSE
+Requires-Dist: easyocr
+Requires-Dist: toga
+
