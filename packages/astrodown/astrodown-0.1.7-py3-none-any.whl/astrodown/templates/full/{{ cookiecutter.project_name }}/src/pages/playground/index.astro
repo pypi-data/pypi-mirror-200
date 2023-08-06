@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const analysis = await getCollection(
+    "analysis",
+    (entry) => entry.data.exports.length > 0
+);
+---
+
+<BaseLayout>
+    <h2>playground</h2>
+    <ul>
+        {
+            analysis.map((analysis) => (
+                <li>
+                    <a
+                        class="underline text-blue-500"
+                        href={`/playground/${analysis.slug}`}
+                    >
+                        {analysis.data.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>
