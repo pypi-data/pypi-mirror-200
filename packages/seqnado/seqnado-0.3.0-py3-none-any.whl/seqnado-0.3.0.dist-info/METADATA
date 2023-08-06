@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: seqnado
+Version: 0.3.0
+Summary: Pipelines for ATAC-seq, ChIP-seq and RNA-seq analysis
+Home-page: https://github.com/alsmith151/seqnado
+Author: asmith
+Author-email: alastair.smith@ndcls.ox.ac.uk
+License: GNU GENERAL PUBLIC LICENSE Version 3
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: cookiecutter
+Requires-Dist: seaborn
+Requires-Dist: wget
+Requires-Dist: pyyaml
+Requires-Dist: pandas
+Requires-Dist: snakemake
+Requires-Dist: drmaa
+Provides-Extra: atac
+

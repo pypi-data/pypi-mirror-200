@@ -1,0 +1,3 @@
+[console_scripts]
+seqnado = seqnado.cli:cli_pipeline
+seqnado-config = seqnado.cli:cli_config
