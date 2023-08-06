@@ -1,0 +1,17 @@
+1. Update version number in src/networkinference/__init__.py
+2. Update CHANGELOG.
+3. Update required packages in requirements.txt, README.rst, docs/source/index.rst.
+4. Run tests.
+5. Run python3 -m build to generate distribution packages.
+6. Run twine check dist/* to check readme for markup errors.
+7. Upload to PyPI using twine via twine upload dist/*
+Also see these instructions for uploading to test server: https://packaging.python.org/tutorials/packaging-projects/
+8. Upload to github.
+9. If documentation changed, go here https://readthedocs.org/projects/networkinference and click build version.
+
+Rebuilding documentation: 
+In the docs folder
+  make clean
+to clear out build files, then
+  make html
+to produce html pages. It will give warnings about lack of stub files for ni.core, ni.IPW, ni.OLS, ni.TSLS, but that doesn't matter. It'll also give warnings about references that don't matter.
