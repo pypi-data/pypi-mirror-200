@@ -1,0 +1,5 @@
+[console_scripts]
+video-exp = dcvideo.export:main
+video-pub = dcvideo.publish:main
+video-web = dcvideo.web:main
+
