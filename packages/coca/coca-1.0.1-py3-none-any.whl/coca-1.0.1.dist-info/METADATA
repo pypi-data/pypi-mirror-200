@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: coca
+Version: 1.0.1
+Summary: A Python lib to help you update the lines you have already printed to stdout.
+Home-page: https://github.com/foobuzz/coca
+Author: @foobuzz
+Author-email: foobuzz@fastmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE.md
+Provides-Extra: tests
+Requires-Dist: mypy (==1.1.1) ; extra == 'tests'
+Requires-Dist: flake8 (==3.8.4) ; extra == 'tests'
+Requires-Dist: pytest-mock (==3.1.1) ; extra == 'tests'
+Requires-Dist: pytest (==5.4.3) ; extra == 'tests'
+
+UNKNOWN
+
