@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: hdcms
+Version: 0.1.15
+Summary: This package creates useful helper functions for python API
+Project-URL: Homepage, https://github.com/jasoneveleth/hdcms-python
+Project-URL: Bug Tracker, https://github.com/jasoneveleth/hdcms-python/issues
+Author: Arun Moorthy
+Author-email: Jason Eveleth <hdcms-helper@jasoneveleth.com>
+License: NIST-developed software is provided by NIST as a public service. You may use,
+        copy, and distribute copies of the software in any medium, provided that you
+        keep intact this entire notice. You may improve, modify, and create derivative
+        works of the software or any portion of the software, and you may copy and
+        distribute such modifications or works. Modified works should carry a notice
+        stating that you changed the software and should note the date and nature of
+        any such change. Please explicitly acknowledge the National Institute of
+        Standards and Technology as the source of the software. 
+        
+        NIST-developed software is expressly provided "AS IS." NIST MAKES NO WARRANTY
+        OF ANY KIND, EXPRESS, IMPLIED, IN FACT, OR ARISING BY OPERATION OF LAW,
+        INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS
+        FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND DATA ACCURACY. NIST NEITHER
+        REPRESENTS NOR WARRANTS THAT THE OPERATION OF THE SOFTWARE WILL BE
+        UNINTERRUPTED OR ERROR-FREE, OR THAT ANY DEFECTS WILL BE CORRECTED. NIST DOES
+        NOT WARRANT OR MAKE ANY REPRESENTATIONS REGARDING THE USE OF THE SOFTWARE OR
+        THE RESULTS THEREOF, INCLUDING BUT NOT LIMITED TO THE CORRECTNESS, ACCURACY,
+        RELIABILITY, OR USEFULNESS OF THE SOFTWARE.
+        
+        You are solely responsible for determining the appropriateness of using and
+        distributing the software and you assume all risks associated with its use,
+        including but not limited to the risks and costs of program errors, compliance
+        with applicable laws, damage to or loss of data, programs or equipment, and the
+        unavailability or interruption of operation. This software is not intended to
+        be used in any situation where a failure could cause risk of injury or damage
+        to property. The software developed by NIST employees is not subject to
+        copyright protection within the United States.
+License-File: LICENSE.txt
+Requires-Python: >=3.7
+Requires-Dist: hdcms-bindings
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: scipy
+Description-Content-Type: text/markdown
+
+# hdcms
+
+This library is available on pypi [here](https://pypi.org/project/hdcms/). Install using `pip install hdcms`.
+
+A very simple example:
+
+```python
+import hdcms as hdc
+
+hdc.generate_examples(visualize=True)
+gaussian_sum_stat = hdc.regex2stats1d(r"gaus_\d+.txt")
+laplacian_sum_stat = hdc.regex2stats1d(r"laplace_\d+\.txt")
+
+print(hdc.compare(gaussian_sum_stat, laplacian_sum_stat))
+hdc.write_image(gaussian_sum_stat, "tmp.png")
+```
+
+This library is built on top of the [`hdcms-bindings` package](https://pypi.org/project/hdcms-bindings/), which exposes python bindings to a C library. That bindings package contains only a few functions and lacks a nice user experience. But, if you are only interested in that, check it out.
+
+For more documentation: see [`examples/` directory](https://github.com/jasoneveleth/hdcms-python/tree/main/examples).
+
+## Dependencies
+
+`numpy` is a necessary dependency for every function. 
+
+`matplotlib` and scipy are needed for `generate_example()`, which will generate a random synthetic data set. 
+
+opencv is required for `write_image()`, which will visualize summary statistics. 
+
+
+## Change Log
+
+```
+0.1.15 Return image from write_image, rather than writing to file
+0.1.14 Add new params to write_image
+0.1.13 Add new params to write_image
+0.1.12 Add params to write_image
+0.1.11 Fix problems introduced by rename
+0.1.10 Really rename (broken)
+0.1.9 Rename, performance for visulize in 1D case (broken)
+0.1.8 Add documentation
+```
