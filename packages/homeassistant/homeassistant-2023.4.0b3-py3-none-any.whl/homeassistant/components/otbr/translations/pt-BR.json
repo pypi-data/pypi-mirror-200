@@ -1,0 +1,25 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "O servi\u00e7o j\u00e1 est\u00e1 configurado",
+            "single_instance_allowed": "J\u00e1 configurado. Apenas uma configura\u00e7\u00e3o \u00e9 poss\u00edvel."
+        },
+        "error": {
+            "cannot_connect": "Falha ao conectar"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "url": "URL"
+                },
+                "description": "Forne\u00e7a URL para a API REST do Open Thread Border Router"
+            }
+        }
+    },
+    "issues": {
+        "insecure_thread_network": {
+            "description": "Sua rede Thread est\u00e1 usando uma chave de rede padr\u00e3o ou frase secreta. \n\n Este \u00e9 um risco de seguran\u00e7a, crie uma nova rede Thread.",
+            "title": "Configura\u00e7\u00f5es de rede Thread inseguras detectadas"
+        }
+    }
+}
