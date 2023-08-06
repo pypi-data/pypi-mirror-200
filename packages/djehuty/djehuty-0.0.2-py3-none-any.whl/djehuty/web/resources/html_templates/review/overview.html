@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+{% block headers %}
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script src="/static/js/utils.js"></script>
+<script src="/static/js/jquery.dataTables.min.js"></script>
+<link href="/static/css/jquery.dataTables.min.css" rel="stylesheet">
+<style>
+#content { max-width: 100% !important; }
+#content-wrapper { display: none; }
+.dataTables_wrapper .dataTables_filter { width: 100%; text-align: center; }
+.dataTables_wrapper .dataTables_filter label input[type="search"] {
+  border: solid 1pt #aaa;
+  border-radius: .5em;
+  padding: .7em;
+  font-size: 13pt;
+  width: 500pt;
+}
+#table-count { text-transform: lowercase; }
+</style>
+<script src="/static/js/review-overview.js"></script>
+<script>
+activate ();
+</script>
+{% endblock %}
+{% block submenu %}
+<ul>
+  <li class="active">Overview
+  <li><a style="background: none; width: 0px; cursor: default;">&nbsp;</a>
+  <li><label style="text-transform: none;">Reviewer
+      <select class="reviewer-filter">
+        <option value="all">All reviewers</option>
+        <option value="unassigned">Unassigned</option>
+        {%- for reviewer in reviewers: %}
+        <option value="{{reviewer.uuid}}">
+          {{reviewer.first_name | default("", False)}}
+          {{reviewer.last_name | default("", False)}}
+          </option>
+        {%- endfor %}
+    </select></label>
+  <li><label style="text-transform: none;">Status
+      <select class="status-filter">
+        <option value="all">All</option>
+        <option value="approved">Approved</option>
+        <option value="declined">Declined</option>
+        <option value="assigned">Assigned</option>
+        <option value="unassigned">Unassigned</option>
+    </select></label>
+   <li><div id="table-count"></div>
+</ul>
+{% endblock %}
+{% block body %}
+<h1>Overview</h1>
+<p></p>
+{%- if reviews %}
+<table id="overview-table" class="reviewer-table branded-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Version</th>
+      <th>Submitter</th>
+      <th>E-mail address</th>
+      <th>Affiliation</th>
+      <th>Status</th>
+      <th>Request date</th>
+      <th>Last modified</th>
+      <th>Accepted</th>
+      <th>Reviewer</th>
+    </tr>
+  </thead>
+  <tbody>{% for review in reviews: %}
+    <tr>
+      <td>
+        {%- if review.status == "approved": %}
+        <a href="/datasets/{{review.container_uuid}}/{{review.dataset_version}}">{{review.dataset_title}}</a>
+        {%- else %}
+        <a href="/review/goto-dataset/{{review.dataset_uuid}}">{{review.dataset_title}}</a>
+        {%- endif %}
+      </td>
+      {%- if review.has_published_version %}
+      <td>{{review.dataset_version | default("update", False)}}</td>
+      {%- else %}
+      <td>{{review.dataset_version | default("new", False)}}</td>
+      {% endif %}
+      <td>
+        {{review.submitter_first_name | default("", False)}}
+        {{review.submitter_last_name | default("", False)}}
+      </td>
+      <td>{{review.submitter_email}}</td>
+      <td>{{review.group_name | default("Unknown", False)}}</td>
+      <td id="{{review.dataset_uuid}}_status">
+      {% if review.status == "assigned": %}
+      <span class="fas fa-glasses" title="Assigned to reviewer"><span style="font-size:0pt">assigned</span></span>
+      {% elif review.status == "approved": %}
+      <span class="fas fa-check-double" title="Approved by reviewer"><span style="font-size:0pt">approved</span></span>
+      {% elif review.status == "rejected": %}
+      <span class="fas fa-times" title="Declined by reviewer"><span style="font-size:0pt">declined</span></span>
+      {% else: %}
+      <span class="fas fa-hourglass" title="Unassigned"><span style="font-size:0pt">unassigned</span></span>
+      {% endif %}
+      </td>
+      <td>{{review.request_date}}</td>
+      <td>{{review.modified_date}}</td>
+      <td>{{review.published_date | truncate(10,False,'')}}</td>
+      <td>
+        {%- if review.status == "approved" %}
+        {{review.reviewer_first_name | default("", False)}}
+        {{review.reviewer_last_name | default("", False)}}
+        {%- else %}
+        <select class="reviewer-selector">
+          <option value="" hidden>Unassigned</option>
+          {%- for reviewer in reviewers: %}
+          <option value="{{review.dataset_uuid}}:{{reviewer.uuid}}" {% if review.reviewer_email == reviewer.email %}selected{% endif %}>
+            {{reviewer.first_name | default("", False)}}
+            {{reviewer.last_name | default("", False)}}
+          </option>
+          {%- endfor %}
+        </select>
+        {%- endif %}
+      </td>
+    </tr>
+  {% endfor %}</tbody>
+</table>
+{%- else %}
+<p>There are no reviews.</p>
+{%- endif %}
+{% endblock %}

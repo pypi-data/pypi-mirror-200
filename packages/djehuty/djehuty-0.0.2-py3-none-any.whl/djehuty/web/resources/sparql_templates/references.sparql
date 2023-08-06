@@ -1,0 +1,19 @@
+{% extends "prefixes.sparql" %}
+{% block query %}
+SELECT DISTINCT ?id ?url
+WHERE {
+  GRAPH <{{state_graph}}> {
+    ?container      rdf:type/rdfs:subClassOf djht:Container .
+    {%- if account_uuid is not none %}
+    ?container      djht:account             <account:{{account_uuid}}> .
+    {%- endif %}
+
+    ?item_uri       djht:container            ?container .
+    ?item_uri       djht:references/rdf:rest* ?rest .
+    ?rest           djht:index                ?id .
+    ?rest           rdf:first                ?url .
+  }
+  FILTER (?item_uri = <{{item_uri}}>)
+}
+ORDER BY ASC(?id)
+{% endblock %}

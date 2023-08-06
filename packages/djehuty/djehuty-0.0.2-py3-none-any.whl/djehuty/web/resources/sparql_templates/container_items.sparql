@@ -1,0 +1,37 @@
+{% extends "prefixes.sparql" %}
+{% block query %}
+SELECT DISTINCT ?account_uuid ?container_uuid ?version ?container_uri
+                (?item_uri AS ?uri) ?uuid
+WHERE {
+  GRAPH <{{state_graph}}> {
+    ?container_uri       rdf:type/rdfs:subClassOf djht:Container .
+    ?container_uri       djht:account             ?account .
+
+    {%- if is_published is none and is_latest is none %}
+    ?item_uri            djht:container           ?container_uri .
+    {%- elif is_published %}
+    {%- if is_latest %}
+    ?container_uri       djht:latest_published_version ?item_uri .
+    {%- else %}
+    ?container_uri       djht:published_versions/rdf:rest*/rdf:first ?item_uri .
+    {%- endif %}
+    {%- else %}
+    ?container_uri       djht:draft                ?item_uri .
+    {%- endif %}
+
+    OPTIONAL { ?item_uri djht:version              ?version . }
+    BIND(STRAFTER(STR(?container_uri), "container:") AS ?container_uuid)
+    BIND(STRAFTER(STR(?account), "account:")         AS ?account_uuid)
+    BIND(STRAFTER(STR(?dataset), ":")                AS ?uuid)
+  }
+{%- if account_uuid is not none: %}
+FILTER (?account = <account:{{account_uuid}}>)
+{%- endif %}
+{%- if container_uri is not none: %}
+FILTER (?container_uri = <{{container_uri}}>)
+{%- endif %}
+{%- if item_uuid is not none %}
+FILTER (STRAFTER(STR(?item_uri), ":") = STR("{{item_uuid}}"))
+{%- endif %}
+}
+{% endblock %}

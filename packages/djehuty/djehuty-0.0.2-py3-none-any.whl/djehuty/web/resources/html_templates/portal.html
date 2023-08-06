@@ -1,0 +1,377 @@
+{% extends "layout.html" %}
+{% block headers %}
+<style>
+#portal-summary { padding: .5em .5em .5em 0em; text-align: center; margin: 0 auto; }
+#portal-summary table { text-align: left; display: inline-block; }
+#portal-summary table tbody tr:hover { opacity: 0.5; }
+#portal-summary table tbody td:nth-child(1) {
+    text-align: right;
+    font-size: 2em;
+    font-family: 'FiraMono', monospace;
+    padding-right: .5em;
+}
+#portal-summary table tbody td:nth-child(2) { border-left: solid 2pt #ccc; padding-left: 1em; }
+#portal-summary table tbody td { width: 220pt; }
+.tiles-wrapper { margin: auto auto 1em auto; text-align: center; user-select: none; }
+.tiles { display: flex; flex-wrap: wrap; justify-content: center; list-style: none; margin: 0pt; padding: 0pt; }
+.tiles li {
+    display: inline-block;
+    margin: 1em 5pt 1em 5pt;
+    overflow: hidden;
+    border: none;
+    -webkit-border-radius: 4pt;
+    -moz-border-radius: 4pt;
+    border-radius: 4pt;
+    box-shadow: 0pt 0pt 10pt #cccccc;
+}
+.tiles li .tile { display: block; overflow: hidden; height: 160pt; }
+.tiles li .institute-tile { display: block; overflow: hidden; height: 100pt !important; }
+.tile-row-image {
+    margin: 0pt;
+    padding: 0pt;
+    width: 160pt;
+    max-width: 160pt;
+}
+.tile-row-text a { text-decoration: none; font-size: 13pt }
+.tile-row-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 50pt;
+    max-height: 50pt;
+    width: 160pt;
+    max-width: 160pt;
+    text-align: center;
+}
+.tiles .tile:hover { opacity: 0.9; cursor: pointer; }
+.institute-tile:first { margin-left: 0pt; }
+.institute-tile:hover { opacity: 0.5 !important; cursor: pointer; }
+.institute-tile img { width: 145pt; }
+.h1-suffix { font-size: 0.6em; }
+.h1-suffix a { text-transform: uppercase; text-decoration: none; color: #808080; }
+.h1-suffix a:hover { color: #505050; }
+#latest-datasets ul a { color: inherit; text-decoration: none }
+#latest-datasets ul a:hover { text-decoration: underline }
+#new-notice { border-radius: .5em; padding: 0em; margin: 0em; background: #ffeeaa; }
+#new-notice p { padding: 1em; }
+</style>
+{% endblock %}
+{% block body %}
+{%- if show_feedback_form_notice %}
+<div id="new-notice">
+  <p>
+    Dear users, we have launched <a href="https://github.com/4TUResearchData/djehuty">a new repository system</a>.
+    If you found a bug, missing functionality, or if you are having difficulty with the website, please <a href="/feedback">let us know</a>.
+  </p>
+</div>
+{%- endif %}
+<h1>Summary</h1>
+<div id="portal-summary">
+  <table>
+    <tbody>
+      <tr><td>{{summary_data["datasets"]}}</td><td>datasets</td></tr>
+      <tr><td>{{summary_data["authors"]}}</td><td>authors</td></tr>
+      <tr><td>{{summary_data["collections"]}}</td><td>collections</td></tr>
+      <tr><td>{{summary_data["files"]}}</td><td>files</td></tr>
+      <tr><td>{{summary_data["bytes"]}}</td><td>bytes</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h1>Institutions</h1>
+<div class="tiles-wrapper">
+  <ul class="tiles">
+    <li>
+      <div class="tile institute-tile">
+        <div class="tile-row-image">
+          <a href="/institutions/Delft_University_of_Technology"><img src="/static/images/portal/tudelft.jpg" alt="TU Delft"></a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tile institute-tile">
+        <div class="tile-row-image">
+          <a href="/institutions/University_of_Twente"><img src="/static/images/portal/utwente.jpg" alt="UTwente"></a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tile institute-tile">
+        <div class="tile-row-image">
+          <a href="/institutions/Eindhoven_University_of_Technology"><img src="/static/images/portal/tueindhoven.jpg" alt="TU Eindhoven"></a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tile institute-tile">
+        <div class="tile-row-image">
+          <a href="/institutions/Wageningen_University_and_Research"><img src="/static/images/portal/wageningen.jpg" alt="Wageningen"></a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="tile institute-tile">
+        <div class="tile-row-image">
+          <a href="/institutions/Other_institutions"><img src="/static/images/portal/other-institutions.jpg" alt="Other institutions"></a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<h1>Subjects <span class="h1-suffix">[<a href="/category">All</a>]</span></h1>
+<div class="tiles-wrapper">
+  <ul class="tiles">
+    <li>
+      <div class="tile">
+        <div class="tile-row-image">
+          <a href="/categories/13431">
+            <img src="/static/images/portal/mathematics.jpg" alt="Image for Mathematics">
+          </a>
+        </div>
+        <div class="tile-row-text"><a href="/categories/13431">Mathematics</a></div>
+      </div>
+    </li>
+    <li>
+      <div class="tile">
+        <div class="tile-row-image">
+          <a href="/categories/13603">
+            <img src="/static/images/portal/physics.jpg" alt="Image for Physics">
+          </a>
+        </div>
+        <div class="tile-row-text">
+          <a href="/categories/13603">Physics</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13594">
+        <img src="/static/images/portal/chemistry.jpg" alt="Image for Chemistry">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13594">Chemistry</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13551">
+        <img src="/static/images/portal/earth-sciences.jpg" alt="Image for Earth Sciences">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13551">Earth Sciences</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13551?categories=13552">
+        <img src="/static/images/portal/atmospheric-sciences.jpg" alt="Image for Atmospheric Sciences">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13551?categories=13552">Atmospheric Sciences</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13551?categories=13557">
+        <img src="/static/images/portal/physical-geography-and-environmental-geoscience.jpg" alt="Image for Physical Geography and Environmental Geoscience">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13551?categories=13557">Physical Geography And Environmental Geoscience</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13630?categories=13639">
+        <img src="/static/images/portal/geomatic-engineering.jpg" alt="Image for Geomatic Engineering">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13630?categories=13639">Geomatic Engineering</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13410">
+        <img src="/static/images/portal/environmental-sciences.jpg" alt="Image for Environmental Sciences">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13410">Environmental Sciences</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13578">
+        <img src="/static/images/portal/biology.jpg" alt="Image for Biology">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13578">Biology</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13376">
+        <img src="/static/images/portal/agricultural-and-veterinary-sciences.jpg" alt="Image for Agricultural and Veterinary Sciences">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13376">Agricultural And Veterinary Sciences</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13611">
+        <img src="/static/images/portal/information-and-computing-sciences.jpg" alt="Image for Information and Computing Sciences">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13611">Information And Computing Sciences</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13652?categories=13659">
+        <img src="/static/images/portal/nanotechnology.jpg" alt="Image for Nanotechnology">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13652?categories=13659">Nanotechnology</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13630?categories=13631">
+        <img src="/static/images/portal/aerospace-engineering.jpg" alt="Image for Aerospace Engineering">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13630?categories=13631">Aerospace Engineering</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13630?categories=13635">
+        <img src="/static/images/portal/civil-engineering.jpg" alt="Image for Civil Engineering">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13630?categories=13635">Civil Engineering</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13630?categories=13636">
+        <img src="/static/images/portal/electrical-and-electronic-engineering.jpg" alt="Image for Electrical and Electronic Engineering">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13630?categories=13636">Electrical And Electronic Engineering</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13362">
+        <img src="/static/images/portal/built-environment-and-design.jpg" alt="Image for Built Environment and Design">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13362">Built Environment And Design</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13630?categories=13642">
+        <img src="/static/images/portal/materials-engineering.jpg" alt="Image for Materials Engineering">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13630?categories=13642">Materials Engineering</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13630?categories=13643">
+        <img src="/static/images/portal/mechanical-engineering.jpg" alt="Image for Mechanical Engineering">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13630?categories=13643">Mechanical Engineering</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13474">
+        <img src="/static/images/portal/medical-and-health-sciences.jpg" alt="Image for Medical and Health Sciences">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13474">Medical And Health Sciences</a>
+</div>
+</div>
+</li>
+<li>
+  <div class="tile">
+    <div class="tile-row-image">
+      <a href="/categories/13500?categories=13503">
+        <img src="/static/images/portal/business-and-management.jpg" alt="Image for Business and Management">
+      </a>
+    </div>
+    <div class="tile-row-text">
+      <a href="/categories/13500?categories=13503">Business And Management</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<h1>Latest datasets <span class="h1-suffix">[<a href="/search">All</a>]</span></h1>
+<div id="latest-datasets">
+  <ul>
+    {% for (url,title,pub_date,ago,rgba) in latest %}
+      <li style="color:rgba({{rgba}})">
+        <a href="{{url}}" title="Published {{ago}}, {{pub_date}}">{{title}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

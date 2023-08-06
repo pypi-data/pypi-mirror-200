@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block headers %}
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script src="/static/js/jquery.dataTables.min.js"></script>
+<link href="/static/css/jquery.dataTables.min.css" rel="stylesheet">
+<style>
+#users-table .fa-user-secret { color: #000; }
+#users-table .fa-user-secret:hover { color: #666; }
+#users-table .fa-user-secret:active { color: #999; }
+#users-table { display: none; }
+#users-table_wrapper { margin-top: 1em; }
+</style>
+<script>
+jQuery(document).ready(function () {
+    jQuery(".hide-for-javascript").removeClass("hide-for-javascript");
+    jQuery("#users-table").DataTable({
+        columnDefs: [{ orderable: false,  targets: 3 }],
+        pageLength: 25
+    });
+    jQuery("#users-table").show();
+});
+</script>
+{% endblock %}
+{% block submenu %}
+<ul>
+  <li ><a href="/admin/dashboard">Dashboard</a>
+  <li class="active">Users
+  <li><a href="/admin/maintenance">Maintenance</a>
+  <li><a href="/admin/exploratory">Exploratory</a>
+</ul>
+{% endblock %}
+{% block body %}
+<noscript>
+  <p class="no-script">Sorry, this page requires JavaScript to function properly.</p>
+</noscript>
+<div class="hide-for-javascript">
+<h1>Manage users</h1>
+<table id="users-table" class="branded-table">
+  <thead><tr><th>Name</th><th>E-mail</th><th>Group</th><th>Actions</th></tr></thead>
+  <tbody>
+    {%- for account in accounts: %}
+    <tr>
+      <td>{{account.first_name | default("", False)}} {{account.last_name | default("", False)}}</td>
+      <td>{{account.email | default("-", False)}}</td>
+      <td>{{account.group_id | default("-", False)}}</td>
+      <td>{% if may_impersonate %}<a href="/admin/impersonate/{{account.uuid}}" class="fas fa-user-secret" title="Impersonate"><span class="hidden">Impersonate</span></a>{% endif %}</td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

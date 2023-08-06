@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="4TU.ResearchData API">
+    <meta name="keywords" content="figshare, api, 4tu, 4tu.researchdata">
+    <meta name="author" content="4TU.ResearchData">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' api.figshare.com ndownloader.figshare.com s3-eu-west-1.amazonaws.com 'unsafe-inline'">
+    <title>4TU.ResearchData</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/static/images/favicon.ico'>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    {% block headers %}{% endblock %}
+  </head>
+  <body>
+    <div id="wrapper" {%- if path == "/" %} class="footer1"{% else %} class="footer2"{% endif %}>
+      {%- if impersonating_account %}
+      {%- if is_reviewing %}
+      <div id="pre-header-for-reviewer" class="pre-header">
+        <p>Reviewing dataset for <strong>{{impersonating_account.first_name}} {{impersonating_account.last_name}}</strong>. <a href="/logout">Click here</a> to stop reviewing.</p>
+      </div>
+      {% else: %}
+      <div id="pre-header">
+        <p>Impersonating as <strong>{{impersonating_account.first_name}} {{impersonating_account.last_name}}</strong>. <a href="/logout">Click here</a> to stop impersonating.</p>
+      </div>
+      {%- endif %}
+      {%- endif %}
+      {%- if private_view and not is_reviewing %}
+      <div id="pre-header" class="pre-header">
+        <p>You are viewing a pre-publication item. It hasn't been reviewed or published.</p>
+      </div>
+      {%- endif %}
+      <div id="header">
+        <div id="header-left"><a href="/"><img id="logo" src="/static/images/logo.png" alt="4TU.ResearchData portal"></a></div>
+        <div id="header-middle">
+          <div id="search-box-wrapper">
+            {%- if not maintenance_mode %}
+            <form method="get" action="/search?search=">
+              <input id="search-box" aria-label="Search" title="Search" name="search" type="text" placeholder="Search..." value="{{search_for}}"><!--
+              --><input type="submit" class="search-submit-btn fa-search" value="&#xf002;">
+            </form>
+            {%- endif %}
+          </div>
+        </div>
+        <div id="header-right">
+          {%- if not maintenance_mode %}
+          {%- if not is_logged_in %}
+          {%- if identity_provider == "orcid" %}
+          <a href="{{orcid_endpoint}}/authorize?client_id={{orcid_client_id}}&response_type=code&scope=/authenticate&redirect_uri={{base_url}}/login"><div class="button" id="login-button">Log in</div></a>
+          {%- endif %}
+          {%- if identity_provider == "saml" %}
+          <a href="/login"><div class="button" id="login-button">Log in</div></a>
+          {%- endif %}
+          {%- else %}
+          {%- if may_review %}
+          <a href="/review/overview" class="button fas fa-clipboard-check" title="Reviewer dashboard"><span class="hidden">Reviewer dashboard</span></a>
+          {%- endif %}
+          {%- if may_administer %}
+          <a href="/admin/dashboard" class="button fas fa-gear" title="Administrator dashboard"><span class="hidden">Administration dashboard</span></a>
+          {%- endif %}
+          {%- if not path.startswith("/my") %}<a href="/my/dashboard"><div class="button" id="dashboard-button">Dashboard</div></a>{% endif %}
+          <a href="/logout"><div class="button" id="logout-button">Log out</div></a>
+          <a id="profile-button" title="My profile" class="fas fa-user-circle" href="/my/profile"><span class="hidden">My profile</span></a>
+          {%- endif %}
+          {%- endif %}
+        </div>
+      </div>
+      {%- if not maintenance_mode %}
+      <nav id="site-navigation">
+        <div id="primary-menu-wrapper">
+        <ul id="primary-menu" class="primary-menu">
+          {% for primary_menu in menu %}
+          <li class="menu-item menu-item-has-children">{{primary_menu.title}}
+            <ul class="submenu">
+              {% for submenu in primary_menu.submenu %}
+              <li class="submenu-item"><a href="{{ submenu.href }}">{{ submenu.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endfor %}
+        </ul>
+        </div>
+      </nav>
+      {% if self.submenu() %}<div id="submenu"><div id="submenu-wrapper">{% block submenu %}{% endblock %}</div></div>{% endif %}
+      {%- endif %}
+      <div id="content">
+        <div id="content-wrapper">
+          <div id="message"></div>
+          {% block body %}{% endblock %}
+        </div>
+        {%- if path == "/" %}<div id="content-spacer">{% else %}<div id="content-spacer2">{% endif %}</div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="logos">
+        <div id="whitelogos">
+          <a href="http://www.tudelft.nl" target="_blank" rel="noopener noreferrer">
+            <img src="/static/images/logosleft-white-tudelft.png" alt="4TU Delft"></a>
+          <a href="http://www.tue.nl" target="_blank" rel="noopener noreferrer">
+            <img src="/static/images/logosleft-white-tueindhoven.png" alt="4TU Eindhoven"></a>
+          <a href="http://www.utwente.nl/" target="_blank" rel="noopener noreferrer">
+            <img src="/static/images/logosleft-white-tutwente.png" alt="4TU Twente"></a>
+          <a href="http://www.wageningenur.nl/" target="_blank" rel="noopener noreferrer">
+            <img src="/static/images/logosleft-white-wageningen.png" alt="4TU Wageningen"></a>
+        </div>
+      </div>
+      {% if path == "/" %}
+      <div id="footer-wrapper">
+      <div class="footer-column">
+        <h2>About 4TU.ResearchData</h2>
+        <p>4TU.ResearchData is an international data repository for science,
+          engineering and design. We offer research dataset curation, sharing,
+          long-term access and preservation services to anyone, anywhere.</p>
+        <p>Our training and community engagement resources are available to
+          research and research-support professionals working to make their
+          research data findable, accessible, interoperable and reproducible
+          (FAIR).</p>
+        <p>We are a <a href="https://www.4tu.nl/">4TU.Federation</a> institute.</p>
+      </div>
+      <div class="footer-column">
+        <h2>4TU.ResearchData Newsletter</h2>
+        <p><a href="https://m7.mailplus.nl/wpmY6EeZdyiQ-1051-370649-test-1">Sign up for the 4TU.ResearchData newsletter</a></p>
+        <p>We typically send one monthly newsletter and occasional emails about upcoming events and opportunities.</p>
+        <p><a href="https://community.data.4tu.nl/feed">RSS news</a></p>
+        <p class="cts"><img class="cts" src="/static/images/CoreTrustSeal.png" alt="CoreTrustSeal"></p>
+      </div>
+      <div class="footer-column">
+        <p><a class="navbar-brand" href="https://data.4tu.nl/info">
+            <img width="200" src="/static/images/logo-gray.svg" alt="4TU.ResearchData"></a>
+        </p>
+        <p>
+          <a class="far fa-envelope fa-2x" href="mailto:researchdata@4tu.nl"><span class="hidden">E-mail us</span></a>
+          <a class="fab fa-twitter fa-2x" href="https://twitter.com/4turesearchdata"><span class="hidden">Twitter</span></a>
+          <a class="fab fa-linkedin-in fa-2x" href="https://nl.linkedin.com/company/4tu-researchdata"><span class="hidden">LinkedIn</span></a>
+          <a class="fab fa-github fa-2x" href="https://github.com/4TUResearchData/djehuty"><span class="hidden">Source code</span></a>
+        </p>
+        <p>
+          <span class="fas fa-map-marker-alt" aria-hidden="true"></span> 4TU.ResearchData<br>
+          <span class="fas fa-empty" aria-hidden="true"></span>TU Delft Library<br>
+          <span class="fas fa-empty" aria-hidden="true"></span>Prometheusplein 1<br>
+          <span class="fas fa-empty" aria-hidden="true"></span>2628 ZC Delft<br>
+        </p>
+        <p>
+          <span class="fas fa-phone" aria-hidden="true"></span>+31 (0)15 27 88 600<br>
+        </p>
+        <p><span class="fas fa-copyright" aria-hidden="true"></span> 2022</p>
+      </div>
+      </div>
+      {%- else %}
+      <div id="footer-wrapper2">
+        <p><a href="/info/en/about-your-data/getting-started">Getting started</a> | <a href="/info/en/about-4turesearchdata/contact">Contact</a> | <a href="/s/docs/data-collection-policy.pdf">Data Collection Policy</a> | <a href="/s/docs/privacy-policy.pdf">Privacy Policy</a> | <a href="/s/docs/terms-of-use.pdf">Terms of Use</a> | <a href="https://github.com/4TUResearchData/djehuty">Source code</a><p></div>
+      {%- endif %}
+    </div>
+  </body>
+</html>
