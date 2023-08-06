@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools >= 46.4.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'audiodotturn'
+description = 'A tool/library for formatting and cataloging audio files, mainly for files with no metadata.'
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+
+authors = [
+    {name = "tairenfd", email = "tairenfd@mailbox.org"},
+]
+
+keywords = [
+    'audio',
+    'music',
+    'organizer',
+    'metadata',
+    'formatter',
+    'tagger',
+    'manager',
+    'cli'
+]
+
+dependencies = [
+    'rich',
+    'pyyaml'
+]
+
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Intended Audience :: End Users/Desktop',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: POSIX :: Linux',
+    'Environment :: Console',
+    'Programming Language :: Python :: 3',
+    'Topic :: Utilities'
+]
+
+dynamic = ["readme", "version"]
+
+[project.urls]
+homepage = "https://audiodotturn.tairenfd.xyz"
+repository = "https://github.com/tairenfd/audiodotturn"
+
+
+[tool.setuptools.dynamic]
+version = {attr = "audiodotturn.VERSION"}
+readme = {file = ["README.md", "USAGE.md", "EXAMPLES.md"], content-type="text/markdown"}
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages]
+find = {}
+
+[project.scripts]
+adt = 'audiodotturn.run:main'
