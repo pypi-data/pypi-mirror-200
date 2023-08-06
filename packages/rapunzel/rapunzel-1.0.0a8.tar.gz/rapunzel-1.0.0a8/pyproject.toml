@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "Rapunzel"
+version = "1.0.0a8"
+description = "A modern code editor focused on numerical computing with Python and R"
+authors = ["Sebastiaan Mathôt <s.mathot@cogsci.nl>"]
+readme = "readme.md"
+packages = [
+    {include = "opensesame_extensions"}
+]
+include = [
+    "mime/rapunzel.svg",
+    "mime/rapunzel.desktop"
+]
+homepage = "https://rapunzel.cogsci.nl"
+repository = "https://github.com/open-cogsci/rapunzel/"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+opensesame-core = ">= 4.0.0a1"
+python-levenshtein = "*"
+qtconsole = "*"
+pyspellchecker = "*"
+esprima = "*"
+psutil = "*"
+
+[tool.wheel2deb.dependencies]
+python = "^3.7"
+opensesame = ">= 3.99.99"
+levenshtein = "*"
+qtconsole = "*"
+psutil = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+rapunzel = 'opensesame_extensions.ide:rapunzel'
