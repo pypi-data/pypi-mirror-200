@@ -1,0 +1,31 @@
+click
+cohere
+jsonlines
+loguru
+numpy
+pyarrow
+pydantic
+requests
+rich
+tqdm
+wonderwords
+
+[dev]
+black
+cairosvg
+coverage
+mkautodoc
+mkdocs-jupyter
+mkdocs-material
+mkdocstrings[python]
+myst-parser
+pillow
+pylint
+pytest
+twine
+
+[gpt4all]
+peft@ file://localhost//home/ubuntu/remote_client/bin/peft-0.3.0.dev0-py3-none-any.whl
+sentencepiece
+torch
+transformers@ file://localhost//home/ubuntu/remote_client/bin/transformers-4.28.0.dev0-py3-none-any.whl
