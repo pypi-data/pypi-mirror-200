@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: educelab-imgproc
+Version: 0.1.0
+Summary: EduceLab image processing module
+Home-page: https://gitlab.com/educelab/educelab-imgproc
+Author: Seth Parker
+Author-email: c.seth.parker@uky.edu
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: imageio
+Requires-Dist: numpy
+Requires-Dist: scikit-image
+Requires-Dist: scikit-learn
+
+# educelab-imgproc
+
+EduceLab image processing module. Largely wrapper functions for encouraging
+consistent use across multiple projects.
+
+## Installation
+
+```shell
+python3 -m pip install educelab-imgproc
+```
