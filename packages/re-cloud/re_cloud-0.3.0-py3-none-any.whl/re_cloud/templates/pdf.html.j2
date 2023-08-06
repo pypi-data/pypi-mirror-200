@@ -1,0 +1,40 @@
+<!-- Create a container element for the PDF viewer -->
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.1.81/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.1.81/pdf_viewer.min.js"></script>
+</head>
+<body>
+
+    <div id="pdf-viewer"></div>
+
+    <script>
+    // Asynchronously load the PDF.js library and the PDF file
+        url = "{{pdf_file}}"
+        var thePdf = null;
+        var scale = 1;
+        
+        pdfjsLib.getDocument(url).promise.then(function(pdf) {
+            thePdf = pdf;
+            viewer = document.getElementById('pdf-viewer');
+            
+            for(page = 1; page <= pdf.numPages; page++) {
+            canvas = document.createElement("canvas");    
+            canvas.className = 'pdf-page-canvas';         
+            viewer.appendChild(canvas);            
+            renderPage(page, canvas);
+            }
+        });
+        
+        function renderPage(pageNumber, canvas) {
+            thePdf.getPage(pageNumber).then(function(page) {
+            viewport = page.getViewport({ scale: scale });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;          
+            page.render({canvasContext: canvas.getContext('2d'), viewport: viewport});
+        });
+    }
+</script>
+
+</body>
+</html>
