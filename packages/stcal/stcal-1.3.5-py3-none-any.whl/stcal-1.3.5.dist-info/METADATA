@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: stcal
+Version: 1.3.5
+Summary: STScI tools and algorithms used in calibration pipelines
+Author-email: STScI <help@stsci.edu>
+License: Copyright (C) 2020 Association of Universities for Research in Astronomy (AURA)
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+            1. Redistributions of source code must retain the above copyright
+              notice, this list of conditions and the following disclaimer.
+        
+            2. Redistributions in binary form must reproduce the above
+              copyright notice, this list of conditions and the following
+              disclaimer in the documentation and/or other materials provided
+              with the distribution.
+        
+            3. The name of AURA and its representatives may not be used to
+              endorse or promote products derived from this software without
+              specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY AURA ``AS IS'' AND ANY EXPRESS OR IMPLIED
+        WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+        MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL AURA BE LIABLE FOR ANY DIRECT, INDIRECT,
+        INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+        BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+        OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+        ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+        TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+        USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+        DAMAGE.
+        
+Project-URL: repository, https://github.com/spacetelescope/stcal
+Project-URL: tracker, https://github.com/spacetelescope/stcal/issues
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: astropy (>=5.0.4)
+Requires-Dist: scipy (>=1.6.0)
+Requires-Dist: numpy (>=1.20)
+Requires-Dist: opencv-python (>=4.6.0.66)
+Provides-Extra: docs
+Requires-Dist: numpydoc ; extra == 'docs'
+Requires-Dist: packaging (>=17) ; extra == 'docs'
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-astropy ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: stsci-rtd-theme ; extra == 'docs'
+Requires-Dist: tomli ; (python_version < "3.11") and extra == 'docs'
+Provides-Extra: test
+Requires-Dist: psutil ; extra == 'test'
+Requires-Dist: pytest (>=4.6.0) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-doctestplus ; extra == 'test'
+Requires-Dist: pytest-openfiles (>=0.5.0) ; extra == 'test'
+
+# stcal
+
+[![Documentation Status](https://readthedocs.org/projects/stcal/badge/?version=latest)](http://stcal.readthedocs.io/en/latest/?badge=latest)
+
+[![CI](https://github.com/spacetelescope/stcal/actions/workflows/ci.yml/badge.svg)](https://github.com/spacetelescope/stcal/actions/workflows/ci.yml)
+
+[![codecov](https://codecov.io/gh/spacetelescope/stcal/branch/main/graph/badge.svg?token=C1LO00W9CZ)](https://codecov.io/gh/spacetelescope/stcal)
+
+STScI Calibration algorithms and tools.
