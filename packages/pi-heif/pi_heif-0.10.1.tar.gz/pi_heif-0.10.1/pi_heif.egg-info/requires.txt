@@ -1,0 +1,13 @@
+pillow>=8.4.0
+
+[tests]
+pytest
+defusedxml
+packaging
+numpy
+pympler
+
+[tests-min]
+pytest
+defusedxml
+packaging
