@@ -1,0 +1,58 @@
+# Copyright (C) 2022-2023 Exaloop Inc. <https://exaloop.io>
+
+from internal.gc import sizeof
+from internal.types.error import IndexError
+
+@extend
+class Bytes:
+    def __new__(ptr: Ptr[byte], sz: int) -> Bytes:
+        return (sz, ptr)
+
+    def __new__(sz: int=0) -> Bytes:
+        return (sz, Ptr[byte](sz))
+
+    def __copy__(self) -> Bytes:
+        p = Ptr[byte](self.len)
+        str.memcpy(p.as_byte(), self.ptr.as_byte(), self.len * sizeof(byte))
+        return (self.len, p)
+
+    def __deepcopy__(self) -> Bytes:
+        p = Ptr[byte](self.len)
+        i = 0
+        while i < self.len:
+            p[i] = self.ptr[i].__deepcopy__()
+            i += 1
+        return (self.len, p)
+
+    def __len__(self) -> int:
+        return self.len
+
+    def __bool__(self) -> bool:
+        return bool(self.len)
+
+    def _idx_check(self, idx: int, msg: str):
+        if idx >= self.len or idx < 0:
+            raise IndexError(msg)
+
+    def __getitem__(self, index: int) -> byte:
+        if index < 0:
+            index += self.__len__()
+        self._idx_check(index, "bytes index out of range")
+        return self.ptr[index]
+
+    # def __setitem__(self, index: int, what: byte):
+    #     if index < 0:
+    #         index += self.__len__()
+    #     self._idx_check(index, "Index out of range")
+    #     self.ptr[index] = what
+
+    def slice(self, s: int, e: int) -> Bytes:
+        return (e - s, self.ptr + s)
+
+@extend
+class str:
+    def __prefix_b__(s: str, N: Static[int]) -> Bytes:
+        return Bytes(s.c_str(), s.len)
+
+bytes = Bytes
+

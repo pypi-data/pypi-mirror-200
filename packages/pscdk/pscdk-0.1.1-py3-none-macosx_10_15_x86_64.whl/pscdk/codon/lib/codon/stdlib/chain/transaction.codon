@@ -1,0 +1,44 @@
+from C import read_transaction(Ptr[byte], u32) -> u32
+
+from .action import Action
+from .structs import TimePointSec, VarUint32
+from packer import Decoder
+
+@packer
+class TransactionExtension:
+    ty:     u16
+    data:   List[u8]
+
+@packer
+class Transaction(object):
+    expiration:             TimePointSec
+    ref_block_num:          u16
+    ref_block_prefix:       u32
+    # # //[VLQ or Base-128 encoding](https://en.wikipedia.org/wiki/Variable-length_quantity)
+    # # //unsigned_int vaint (eosio.cdt/libraries/eosiolib/core/eosio/varint.hpp)
+    max_net_usage_words:    VarUint32 # number of 8 byte words this transaction can serialize into after compressions
+    max_cpu_usage_ms:       u8 # number of CPU usage units to bill transaction for
+    delay_sec:              VarUint32 # number of seconds to delay transaction, default: 0
+
+    context_free_actions: List[Action]
+    actions:              List[Action]
+    extention:            List[TransactionExtension]
+
+    def __init__(self, expiration: TimePointSec, ref_block_num: u16, ref_block_prefix: u32, max_net_usage_words: VarUint32, max_cpu_usage_ms: u8, delay_sec: VarUint32, context_free_actions: List[Action], actions: List[Action], extention: List[TransactionExtension]):
+        self.expiration = expiration
+        self.ref_block_num = ref_block_num
+        self.ref_block_prefix = ref_block_prefix
+        self.max_net_usage_words = max_net_usage_words
+        self.max_cpu_usage_ms = max_cpu_usage_ms
+        self.delay_sec = delay_sec
+        self.context_free_actions = context_free_actions
+        self.actions = actions
+        self.extention = extention
+
+def ReadTransaction() -> Transaction:
+    size = read_transaction(Ptr[byte](), 0u32)
+    raw = bytes(int(size))
+    read_transaction(raw.ptr, u32(raw.len))
+
+    dec = Decoder(raw)
+    return dec.unpack(Transaction)
