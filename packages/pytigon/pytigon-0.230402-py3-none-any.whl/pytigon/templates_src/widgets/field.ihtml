@@ -1,0 +1,48 @@
+% load exfiltry
+% load exsyntax
+% load django_bootstrap5
+% load widget_tweaks
+
+% if standard_web_browser:
+    % if hidden:
+        % if field.value:
+            input type=hidden,,,name={{field.name}},,,value={{field.value}}
+        % else:
+            input type=hidden,,,name={{field.name}}
+    % else:
+        % if field.field.widget.input_type == 'select2':
+            <div class="ajax-region" data-region='get_row'>
+        % if field.field.widget.input_type == 'todo-remove-checkbox':      
+            % bootstrap_field field layout='' form_group_class=form_group_class field_class=field_class placeholder=placeholder show_label=False addon_after=addon_after addon_after_class=addon_after_class addon_before=addon_before addon_before_class=addon_before_class bound_css_class='field_success'
+        % else:
+            % if 'form-floating' in form_group_class:
+                % if 'FileInput' in field.field.widget|class_name:
+                    div class=form-group group_filefield,,,style=position:relative
+                        <label class="top_label">{{field.label}}</label>{{field}}
+                % else:
+                    % bootstrap_field field layout='floating' wrapper_class=form_group_class label_class=label_class horizontal_field_class=field_class placeholder=placeholder show_label=show_label addon_after=addon_after addon_after_class=addon_after_class addon_before=addon_before addon_before_class=addon_before_class bound_css_class='field_success'
+            % else:
+                % if 'CheckInput' in field.field.widget|class_name:
+                    % bootstrap_field field layout='horizontal' wrapper_class=form_group_class label_class=label_class horizontal_field_class=field_class placeholder=placeholder show_label=show_label addon_after=addon_after addon_after_class=addon_after_class addon_before=addon_before addon_before_class=addon_before_class bound_css_class='field_success'
+                % else:
+                    % bootstrap_field field layout='horizontal' wrapper_class=form_group_class label_class=label_class horizontal_field_class=field_class placeholder=placeholder show_label=show_label addon_after=addon_after addon_after_class=addon_after_class addon_before=addon_before addon_before_class=addon_before_class bound_css_class='field_success'
+        % if field.field.widget.input_type == 'select2':
+            </div>
+
+% else:
+    tr
+        td
+            % if not hidden and not field.is_hidden:
+                label for={{ field.id_for_label }},,,class=control-label {% if field.field.required %} requiredField{% endif %}
+                    {{field.label|safe}}{% if field.field.required %}<span class="asteriskField">*</span>{% endif %}
+        td
+            % if hidden:
+                % if field.value:
+                    input type=hidden,,,name={{field.name}},,,value={{field.value}}
+                % else:
+                    input type=hidden,,,name={{field.name}}
+            % else:
+                % with field_class=field.field|class_name:
+                    % with schattr="schtype:"|append_str:field_class
+                        {{ field|attr:schattr }}
+            

@@ -1,0 +1,22 @@
+% extends default_template2
+
+
+%% heading
+
+%% page_head
+    title
+        {{title}}
+
+%% menu_start
+%% menu
+    %% topmenu_start
+    %% topmenu_end
+    %% submenu_start
+    %% submenu_end
+%% menu_end
+
+%% body_init
+
+%% tabs
+    % with NO_TABS=True:
+        {{block.super}}

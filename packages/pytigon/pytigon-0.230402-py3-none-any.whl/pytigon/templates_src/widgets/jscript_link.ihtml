@@ -1,0 +1,6 @@
+% load static
+% if content:
+    script language=javascript
+        {{ content|safe }}
+% else:
+    script type=text/javascript,,,src={% static href %}

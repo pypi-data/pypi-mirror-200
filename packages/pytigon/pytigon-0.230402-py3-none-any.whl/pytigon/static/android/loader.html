@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Pytigon WebView loader
+        </title>
+    </head>
+
+    <body style="background:steelblue;">
+        <div id="load" style="text-align: center;height:100vh">          
+            <img src="pytigon.svg" style="position:absolute;left:5%;top:5%;height:20%"></img>
+            <span class="helper" style="display:inline-block;height:100%;vertical-align:middle;"></span>
+            <img src="reload.svg" style="height:25%;vertical-align:middle;"></img>
+        </div>
+        <script>
+            function queryServer() {
+                var request = new XMLHttpRequest();
+                request.open('HEAD', 'http://127.0.0.1:8000/', true);
+                request.send();
+                request.onerror = function(e) {
+                    setTimeout(queryServer, 500);
+                    console.log("onerror");
+                }
+                request.onreadystatechange = function() { 
+                    console.log(request.readyState, request.status);
+                    if (request.readyState == 4 & request.status == 200) {
+                        location.replace("http://127.0.0.1:8000/schsys/do_login/?next=&user=auto&password=anawa");
+                    } 
+                    else {
+                    }
+               }
+           }
+           queryServer();
+        </script>
+    </body>
+</html> 

@@ -1,0 +1,9 @@
+{% load static %}
+{% if content %}
+        <script language="javascript">
+                {{ content|safe }}
+        </script>
+  {% else %}
+        <script type="text/javascript" src="{% static href %}"></script>
+{% endif %}
+

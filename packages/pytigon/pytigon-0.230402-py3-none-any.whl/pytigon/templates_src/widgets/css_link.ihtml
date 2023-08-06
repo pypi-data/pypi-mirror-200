@@ -1,0 +1,6 @@
+% load static
+% if content:
+    style type=text/css
+        {{ content|safe }}
+% else:
+    link rel=stylesheet,,,type=text/css,,,href={% static href %}
