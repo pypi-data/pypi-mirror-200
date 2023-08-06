@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: LMtorch
+Version: 0.0.0
+Summary: Bounded Levenberg-Marquardt algorithm for batch optimization
+Home-page: https://github.com/amirshamaei/LMTorch.git
+Author: amir shamaei
+Author-email: amirshamaei@isibrno.cz
+Project-URL: Bug Tracker, https://github.com/amirshamaei/LMTorch.git
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: torch
+Requires-Dist: numpy
+
+# LMtorch
+Bounded Levenberg-Marquardt algorithm for batch optimization 
+**Acknowledgments**
+
+This project has received funding from the European Union's Horizon 2020 research and innovation program under the Marie Sklodowska-Curie grant agreement No 813120.
