@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: vcard
+Version: 0.15.4
+Summary: vCard validator, class and utility functions
+Home-page: https://gitlab.com/engmark/vcard
+Download-URL: https://pypi.org/project/vcard/
+Author: Victor Engmark
+Author-email: victor@engmark.name
+Maintainer: Victor Engmark
+Maintainer-email: victor@engmark.name
+License: AGPLv3+
+Keywords: vCard vCards RFC 2426 RFC2426 validator
+Platform: POSIX
+Platform: Windows
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Utilities
+Obsoletes: vcard_module
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: python-dateutil (~=2.8.2)
+
+# [vCard module](https://gitlab.com/engmark/vcard)
+
+[![pipeline status](https://gitlab.com/engmark/vcard/badges/master/pipeline.svg)](https://gitlab.com/engmark/vcard/commits/master)
+[![Python: 3.8-3.11](https://img.shields.io/badge/Python-3.8--3.11-blue)](https://www.python.org/)
+[![coverage report](https://gitlab.com/engmark/vcard/badges/master/coverage.svg)](https://gitlab.com/engmark/vcard/-/commits/master)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![pylint: passing](https://img.shields.io/badge/pylint-passing-brightgreen)](https://www.pylint.org/)
+[![shellcheck: passing](https://img.shields.io/badge/shellcheck-passing-brightgreen)](https://www.shellcheck.net/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
+This program can be used for strict validation and parsing of vCards. It currently supports [vCard 3.0 (RFC 2426)](https://tools.ietf.org/html/rfc2426).
+
+## Installation
+
+To install or upgrade in a virtualenv:
+
+    pip install --upgrade vcard
+
+To use without installing:
+
+    nix-shell
+
+## Usage
+
+See `vcard --help`.
+
+## Utilities
+
+-  [`format-TEL.bash`](./format-TEL.bash) - Format phone numbers according to national standards
+-  [`split.bash`](./split.bash) - Split a multiple vCards file into individual files
+-  [`sort-lines.bash`](./sort-lines.bash) - Sort vCard property lines according to a custom key
+-  [`join-lines.sh`](./join-lines.sh) - Join previously split vCard lines
+-  [`split-lines.sh`](./split-lines.sh) - Split long vCard lines
+
+## Development
+
+**Download:**
+
+    git clone git@gitlab.com:engmark/vcard.git
+
+**Release:**
+
+1. Bump the version in [vcard/version.txt](vcard/version.txt)
+2. Commit & push everything
+3. [Create a new merge request](https://gitlab.com/engmark/vcard/-/merge_requests/new)
+4. Wait for the MR to be merged
+5. Update to latest `master`
+6. `nix-shell --pure --run './clean.bash && ./distribute.bash && ./release.bash'`
+
+Requirements:
+
+-  Nix
