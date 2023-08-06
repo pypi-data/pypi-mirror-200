@@ -1,0 +1,3 @@
+[console_scripts]
+create-search-fs = search_fs.create_db:main
+search-fs = search_fs.search:main
