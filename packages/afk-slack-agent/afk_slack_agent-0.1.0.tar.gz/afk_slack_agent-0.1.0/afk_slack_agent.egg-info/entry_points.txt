@@ -1,0 +1,3 @@
+[console_scripts]
+afk = afk_slack_agent.client:main
+afk_agent = afk_slack_agent.agent:main
