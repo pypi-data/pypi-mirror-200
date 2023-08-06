@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: rpcclient
+Version: 3.15.2
+Summary: rpcclient for connecting with the rpcserver
+Home-page: https://github.com/doronz88/rpc-project
+Author: DoronZ
+Author-email: doron88@gmail.com
+License: GNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007
+Project-URL: rpc-project, https://github.com/doronz88/rpc-project
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: construct (>=2.9.29)
+Requires-Dist: click
+Requires-Dist: coloredlogs
+Requires-Dist: IPython
+Requires-Dist: traitlets
+Requires-Dist: cached-property
+Requires-Dist: pygments
+Requires-Dist: objc-types-decoder
+Requires-Dist: pycrashreport (>=1.0.2)
+Requires-Dist: lief
+Requires-Dist: capstone
+Requires-Dist: xonsh
+Requires-Dist: plumbum
+Requires-Dist: pygnuutils
+Requires-Dist: tqdm
+Requires-Dist: osstatus (>=1.0.2)
+Requires-Dist: parameter-decorators
+Requires-Dist: dataclasses ; python_version < "3.7"
+
+# rpcclient
+
+For details about this project please review:
+https://github.com/doronz88/rpc-project
