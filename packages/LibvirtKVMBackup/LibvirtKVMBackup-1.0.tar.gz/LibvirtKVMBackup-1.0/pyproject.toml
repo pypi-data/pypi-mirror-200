@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "LibvirtKVMBackup"
+version = "1.0"
+authors = [
+  { name="Stijn Rombouts", email="stijnrombouts@outlook.com" },
+]
+description = "Python module to backup Libvirt domains"
+readme = "README.md"
+requires-python = ">=3.7"
+
+[project.urls]
+"Homepage" = "https://github.com/macOS-KVM/LibvirtKVMBackup"
+"Bug Tracker" = "https://github.com/macOS-KVM/LibvirtKVMBackup/issues"
