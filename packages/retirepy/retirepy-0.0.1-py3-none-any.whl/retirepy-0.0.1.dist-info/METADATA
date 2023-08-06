@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: retirepy
+Version: 0.0.1
+Project-URL: Documentation, https://github.com/jrocketdev/retirepy#readme
+Project-URL: Issues, https://github.com/jrocketdev/retirepy/issues
+Project-URL: Source, https://github.com/jrocketdev/retirepy
+Author-email: Jonathan Rogers <Rogers_Jonathan_W@solarturbines.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.10
+Requires-Dist: numpy<2.0,>=1.23.1
+Requires-Dist: pandas<2.0,>=1.4.3
+Requires-Dist: pydantic<2.0,>=1.9.1
+Description-Content-Type: text/markdown
+
+# retirepy
+Python Package for Retirement Planning
