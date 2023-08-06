@@ -1,0 +1,45 @@
+[tool.pdm.build]
+includes = [
+    "impaper/",
+]
+source-includes = [
+    "tests/",
+]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=7.2.2",
+    "exrex>=0.11.0",
+    "black>=23.1.0",
+]
+
+[project]
+name = "impaper"
+version = "0.1.6"
+description = "通过文本生成图片，会自动计算折行，默认使用自带的等距更纱黑体（简体中文）字体"
+authors = [
+    { name = "zombie110year", email = "zombie110year@outlook.com" },
+]
+dependencies = [
+    "pillow>=9.0.0",
+    "pydantic>=1.0.0",
+]
+requires-python = ">=3.10, <4.0"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Text Processing",
+]
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+repository = "https://github.com/zombie110year/impaper"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
