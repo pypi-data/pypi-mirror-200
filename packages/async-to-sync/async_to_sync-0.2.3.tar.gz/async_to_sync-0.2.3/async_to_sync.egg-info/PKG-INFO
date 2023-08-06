@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: async-to-sync
+Version: 0.2.3
+Summary: Convert async coroutines to normal python functions
+Home-page: https://github.com/xloem/async_to_sync
+Author: Xloem
+Author-email: 0xloem@gmail.com
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Adaptive Technologies
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+License-File: LICENSE
+
+
+=============
+async_to_sync
+=============
+
+Convert async coroutine functions to normal ones.
+
+Installation
+------------
+
+.. code-block:: bash
+
+    $ pip install async_to_sync
+
+Usage
+-----
+
+.. code-block:: python
+
+    import async_to_sync as sync
+
+    # an async object method to demonstrate use
+    class async_class:
+        async def sum(self, a, b):
+            return a + b
+    async_object = async_class()
+
+    # wrap all async methods of an object
+    sync_object = sync.methods(async_object)
+
+    assert sync_object.sum(1,2) == 3
+
+    # wrap a single async callable
+    sync_function = sync.function(async_object.sum)
+
+    assert sync_function(4,5) == 9
+
+    # wait for a coroutine
+    sync_result = sync.coroutine(async_object.sum(6,7))
+
+    assert sync_result == 13
+
+    # manually stop default event loop
+    sync.stop()
+
+    # manually start default event loop
+    sync.start()
