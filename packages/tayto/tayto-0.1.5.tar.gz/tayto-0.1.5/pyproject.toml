@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tayto"
+version = "0.1.5"
+authors = [
+  { name="quangdaicaa", email="quangnn@anninh.tv" },
+]
+description = "Tool for CI CD"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/quangdaicaa/tayto"
+"Bug Tracker" = "https://github.com/quangdaicaa/tayto"

@@ -1,0 +1,10 @@
+~/.config/Code/User/keybindings.json
+{
+  "key": "ctrl+shift+1",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": {
+    "text": "python3 /home/quang/Desktop/tayto/src/tayto/execute.py ${file} exe\u000D"
+  }
+},
+
+ln -s ~/.config/Code/User/settings.json .
