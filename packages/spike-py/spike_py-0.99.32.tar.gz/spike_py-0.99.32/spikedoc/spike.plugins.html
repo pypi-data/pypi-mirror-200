@@ -1,0 +1,1100 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spike.plugins package &#8212; spike 0.99.23 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="spike.util package" href="spike.util.html" />
+    <link rel="prev" title="spike.Miscellaneous package" href="spike.Miscellaneous.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="spike-plugins-package">
+<h1>spike.plugins package<a class="headerlink" href="#spike-plugins-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-spike.plugins.Fitter">
+<span id="spike-plugins-fitter-module"></span><h2>spike.plugins.Fitter module<a class="headerlink" href="#module-spike.plugins.Fitter" title="Permalink to this headline">¶</a></h2>
+<p>set of function for Peak fitter</p>
+<p>Very First functionnal - Not finished !</p>
+<p>requires the Peaks plugin installed</p>
+<p>July 2016 M-A Delsuc</p>
+<dl class="py class">
+<dt id="spike.plugins.Fitter.FitTests">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">FitTests</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#FitTests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.FitTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test for fitter, assumes Peaks plugin is loaded</p>
+<dl class="py method">
+<dt id="spike.plugins.Fitter.FitTests.test_fit1d">
+<code class="sig-name descname">test_fit1d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#FitTests.test_fit1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.FitTests.test_fit1d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.Lor">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">Lor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Amp</span></em>, <em class="sig-param"><span class="n">Pos</span></em>, <em class="sig-param"><span class="n">Width</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#Lor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.Lor" title="Permalink to this definition">¶</a></dt>
+<dd><p>One Lorentzian
+Param contains in sequence Amp_i, Pos_i, Width_i</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.Spec">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">Spec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Param</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#Spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.Spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>x is the spectral coordinates
+Param contains in sequence Amp_i, Pos_i, Width_i
+all coordinates are in index</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.cSpec">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">cSpec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">Param</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#cSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.cSpec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.cdSpec">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">cdSpec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">Param</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#cdSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.cdSpec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.dLor">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">dLor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Amp</span></em>, <em class="sig-param"><span class="n">Pos</span></em>, <em class="sig-param"><span class="n">Width</span></em>, <em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#dLor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.dLor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.dSpec">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">dSpec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Param</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#dSpec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.dSpec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Param contains in sequence Amp_i, Pos_i, Width_i</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.dToFit">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">dToFit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Param</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#dToFit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.dToFit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.display_fit">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">display_fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kw</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#display_fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.display_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the result of the fit
+accept the same arguments than display()</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.fit">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>fit the 1D npkd data-set for Lorentzian line-shape
+current peak list is used as an initial values for fitting
+Only peaks within the zoom windows are fitted</p>
+<dl>
+<dt>fitting is contraint from the initial values</dt><dd><ul class="simple">
+<li><p>intensity will not allowed to change by more than x0.5 to x2</p></li>
+<li><p>positions by more than 5 points</p></li>
+<li><p>width by more than x5</p></li>
+</ul>
+<p>(constraints work only for scipy version &gt;= 0.17 )</p>
+</dd>
+</dl>
+<p>It may help to use centroid() to pre-optimize the peak list before calling fit(), or calling fit() twice (slower)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.residu">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">residu</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Params</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#residu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.residu" title="Permalink to this definition">¶</a></dt>
+<dd><p>The residue function, returns a vector Ycalc(Params) - y_experimental
+can be used by leastsq</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.simulate">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">simulate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#simulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.simulate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate the 1D npkd data-set using the content of the Peak List
+replace the current data-set</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Fitter.tofit">
+<code class="sig-prename descclassname">spike.plugins.Fitter.</code><code class="sig-name descname">tofit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Params</span></em>, <em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Fitter.html#tofit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Fitter.tofit" title="Permalink to this definition">¶</a></dt>
+<dd><p>calls the residue function, and return sum( residue**2 )
+can be used by minimize</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.Linear_prediction">
+<span id="spike-plugins-linear-prediction-module"></span><h2>spike.plugins.Linear_prediction module<a class="headerlink" href="#module-spike.plugins.Linear_prediction" title="Permalink to this headline">¶</a></h2>
+<p>plugin for the Linear Prediction algos into NPKDATA</p>
+<dl class="py class">
+<dt id="spike.plugins.Linear_prediction.LinpredicTests">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Linear_prediction.</code><code class="sig-name descname">LinpredicTests</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Linear_prediction.html#LinpredicTests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Linear_prediction.LinpredicTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="py method">
+<dt id="spike.plugins.Linear_prediction.LinpredicTests.announce">
+<code class="sig-name descname">announce</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Linear_prediction.html#LinpredicTests.announce"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Linear_prediction.LinpredicTests.announce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Linear_prediction.LinpredicTests.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Linear_prediction.html#LinpredicTests.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Linear_prediction.LinpredicTests.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Linear_prediction.LinpredicTests.test_log">
+<code class="sig-name descname">test_log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Linear_prediction.html#LinpredicTests.test_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Linear_prediction.LinpredicTests.test_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>testing log</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Linear_prediction.lpext">
+<code class="sig-prename descclassname">spike.plugins.Linear_prediction.</code><code class="sig-name descname">lpext</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">final_size</span></em>, <em class="sig-param"><span class="n">lprank</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">algotype</span><span class="o">=</span><span class="default_value">'burg'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Linear_prediction.html#lpext"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Linear_prediction.lpext" title="Permalink to this definition">¶</a></dt>
+<dd><p>extends a 1D FID or 2D FID in F1 up to final_size, using lprank coefficients, and algotype mode</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Linear_prediction.lpext1d">
+<code class="sig-prename descclassname">spike.plugins.Linear_prediction.</code><code class="sig-name descname">lpext1d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">final_size</span></em>, <em class="sig-param"><span class="n">lprank</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">algotype</span><span class="o">=</span><span class="default_value">'burg'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Linear_prediction.html#lpext1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Linear_prediction.lpext1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>extends the current FID up to final_size, using lprank coefficients, and algotype mode</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Linear_prediction.lpext2d">
+<code class="sig-prename descclassname">spike.plugins.Linear_prediction.</code><code class="sig-name descname">lpext2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">final_size</span></em>, <em class="sig-param"><span class="n">lprank</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">algotype</span><span class="o">=</span><span class="default_value">'burg'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Linear_prediction.html#lpext2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Linear_prediction.lpext2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>extends a 2D FID in F1 up to final_size, using lprank coefficients, and algotype mode</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.Peaks">
+<span id="spike-plugins-peaks-module"></span><h2>spike.plugins.Peaks module<a class="headerlink" href="#module-spike.plugins.Peaks" title="Permalink to this headline">¶</a></h2>
+<p>set of function for Peak detections and display - 1D and 2D</p>
+<p>Very First functionnal - Not finished !</p>
+<dl class="simple">
+<dt>Peak1D and Peak2D are simple objects</dt><dd><p>with attributes like Id, label, intens(ity), pos(ition), or width
+the only added method is report() (returns a string)</p>
+</dd>
+<dt>Peak1DList and Peak2DList are python list, with a few added methods</dt><dd><ul class="simple">
+<li><p>report (to stdio or to a file)</p></li>
+<li><dl class="simple">
+<dt>largest sort in decreasing order of intensity</dt><dd><dl class="simple">
+<dt>other sorts can simply done by peaklist.sort(key = lambda p: p.XXX)</dt><dd><p>where XXX is any peak attribute  (see largest code)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Example of usage:</p>
+<p># assuming d is a 2D NPKData / 1D will be just as simple
+d.pp()          # computes a peak picking over the whole spectrum using 3 x standard_deviation(d)</p>
+<blockquote>
+<div><p># This is just a detection of all local maxima</p>
+</div></blockquote>
+<p># We can be more specific:
+d.pp(threshold=5E5, zoom=((700,1050),(300,350)) )     # zoom is always in the currently active unit, defined with d.unit</p>
+<p># this attached the peak list to the dataset as d.peaks,
+# it is a list of Peaks2D objects, with some added properties
+print( “number of detected peaks: %d” % len(d.peaks))</p>
+<p>p0 = d.peaks[0]     # peaks have label, intensity and positions attributes</p>
+<dl class="simple">
+<dt>print( p0.report() )        # and a report method</dt><dd><p># report has an additional format parameter which enables control on the output</p>
+</dd>
+</dl>
+<p># we can call centroid to improve the accuracy and move the position to center of a fitted (2D) parabola
+d.centroid()</p>
+<p># The peak list can be displayed on screen as simple crosses
+d.display_peaks()</p>
+<p># The label can be modififed for specific purposes:
+for p in d.peaks:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>if 150 &lt; p.posF2 &lt; 1500 :</dt><dd><p>p.label = “%.2f x %.f”%(p.posF1,p.posF2)    # for instance changing to the coordinates for a certain zone</p>
+</dd>
+<dt>else:</dt><dd><p>p.label = “”                                # and removing elsewhere</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>d.display_peaks(peak_label=True)</p>
+<p># peak lists can also be reported
+d.report_peak()</p>
+<p># but also as a formatted stream, and redirected to a file:
+output = open(“my_peak_list.csv”,”w”)      # open the file
+output.write(“# LABEL, INTENSITY, F1, Width, F2, width”)
+d.report_peak(file=output, format=”{1}, {4:.2f}, {2:.7f}, {5:.2f}, {3:.7f}, {6:.2f}”)</p>
+<blockquote>
+<div><p># arguments order order is   id, label, posF1, posF2, intensity, widthF1, widthF2</p>
+</div></blockquote>
+<p>output.close()</p>
+<p>Sept 2015 M-A Delsuc</p>
+<dl class="py class">
+<dt id="spike.plugins.Peaks.Peak">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">Peak</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">intens</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>a generic class to store peaks
+defines :
+Id          a unique integer
+intens      The intensity (the height of the largest point)
+area        The area/volume of the peak
+label       a string 
+intens_err  The uncertainty of the previous values
+area_err    ..</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="spike.plugins.Peaks.Peak1D">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">Peak1D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">intens</span></em>, <em class="sig-param"><span class="n">pos</span></em>, <em class="sig-param"><span class="n">pos_err</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">width_err</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak1D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#spike.plugins.Peaks.Peak" title="spike.plugins.Peaks.Peak"><code class="xref py py-class docutils literal notranslate"><span class="pre">spike.plugins.Peaks.Peak</span></code></a></p>
+<p>a class to store a single 1D peak
+defines in addition to Peak
+pos         position of the peak in index relative to the typed (real/complex) buffer
+width       width of the peak in index
+pos_err     uncertainty of the previous values
+width_err   …</p>
+<dl class="py attribute">
+<dt id="spike.plugins.Peaks.Peak1D.full_format">
+<code class="sig-name descname">full_format</code><em class="property"> = '{}, {}, {}, {}, {}, {}, {}, {}, '</em><a class="headerlink" href="#spike.plugins.Peaks.Peak1D.full_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak1D.report">
+<code class="sig-name descname">report</code><span class="sig-paren">(</span><em class="sig-param">f=&lt;function _identity&gt;</em>, <em class="sig-param">format=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak1D.report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak1D.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>print the peak list
+f is a function used to transform the coordinate
+indentity function is default,
+for instance you can use something like
+peaks.report(f=s.axis1.itop)    to get ppm values on a NMR dataset
+order is “id, label, position, intensity”</p>
+<p>parameters are : 
+Id label positions intens width intens_err pos_err width_err 
+in that order.</p>
+<p>By default returns only the 4 first fields with 2 digits, but the format keyword can change that.
+format values:
+- None or “report”, the standard value is used:  “{}, {}, {:.2f}, {:.2f}”</p>
+<blockquote>
+<div><p>(so only the four first parameters are shown)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>“full” is all parrameters at full resolution  ( “{}; “<a href="#id1"><span class="problematic" id="id2">*</span></a>8 )</p></li>
+<li><dl class="simple">
+<dt>any othe string following the format syta will do.</dt><dd><p>you can use any formating syntax. So for instance the following format
+“{1} :   {3:.2f}  F1: {2:.7f} +/- {4:.2f}”
+will remove the Id, show position with 7 digits after the comma, and will show width</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>you can change the report and full default values by setting
+pk.__class__.report_format   and   pk.__class__.full_format  which class attributes</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="spike.plugins.Peaks.Peak1D.report_format">
+<code class="sig-name descname">report_format</code><em class="property"> = '{}, {}, {:.2f}, {:.2f}'</em><a class="headerlink" href="#spike.plugins.Peaks.Peak1D.report_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="spike.plugins.Peaks.Peak1DList">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">Peak1DList</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">arg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak1DList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak1DList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#spike.plugins.Peaks.PeakList" title="spike.plugins.Peaks.PeakList"><code class="xref py py-class docutils literal notranslate"><span class="pre">spike.plugins.Peaks.PeakList</span></code></a></p>
+<p>store a list of 1D peaks
+contains the array version of the Peak1D object :
+self.pos is the numpy array of the position of all the peaks
+and self[k] is the kth Peak1D object of the list</p>
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak1DList.display">
+<code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param">peak_label=False</em>, <em class="sig-param">peak_mode='marker'</em>, <em class="sig-param">zoom=None</em>, <em class="sig-param">show=False</em>, <em class="sig-param">f=&lt;function _identity&gt;</em>, <em class="sig-param">color='red'</em>, <em class="sig-param">marker='x'</em>, <em class="sig-param">markersize=6</em>, <em class="sig-param">figure=None</em>, <em class="sig-param">scale=1.0</em>, <em class="sig-param">NbMaxPeaks=1000</em>, <em class="sig-param">markerdict=None</em>, <em class="sig-param">labeldict=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak1DList.display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak1DList.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays 1D peaks
+zoom is in index
+peak_mode is either “marker”  “bar” or “None” (to be used to just add labels)
+NbMaxPeaks is the maximum number of peaks to display in the zoom window (show only the largest)
+f() should be a function which converts from points to current display scale - typically npk.axis1.itoc</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak1DList.peakaggreg">
+<code class="sig-name descname">peakaggreg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">distance</span></em>, <em class="sig-param"><span class="n">maxdist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'max'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak1DList.peakaggreg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak1DList.peakaggreg" title="Permalink to this definition">¶</a></dt>
+<dd><p>aggregates 1D peaks in peaklist if peaks are closer than a given distance in pixel
+check peak_aggreg() for detailed doc</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak1DList.pkadd">
+<code class="sig-name descname">pkadd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pkl2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak1DList.pkadd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak1DList.pkadd" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds the 1D peaklist pkl2 to self  - (no check on pkl2)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak1DList.pos">
+<em class="property">property </em><code class="sig-name descname">pos</code><a class="headerlink" href="#spike.plugins.Peaks.Peak1DList.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a numpy array of the positions in index</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak1DList.pos2label">
+<code class="sig-name descname">pos2label</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak1DList.pos2label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak1DList.pos2label" title="Permalink to this definition">¶</a></dt>
+<dd><p>use pos in current unit, using converion f and set it as label for each peak</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak1DList.report">
+<code class="sig-name descname">report</code><span class="sig-paren">(</span><em class="sig-param">f=&lt;function _identity&gt;</em>, <em class="sig-param">file=None</em>, <em class="sig-param">format=None</em>, <em class="sig-param">NbMaxPeaks=1000</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak1DList.report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak1DList.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>print the peak list
+f is a function used to transform respectively the coordinates
+indentity function is default,
+for instance you can use something like
+d.peaks.report(f=d.axis1.itop)    to get ppm values on a NMR dataset</p>
+<p>check documentation for Peak1D.report() for details on output format</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="spike.plugins.Peaks.Peak2D">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">Peak2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">intens</span></em>, <em class="sig-param"><span class="n">posF1</span></em>, <em class="sig-param"><span class="n">posF2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#spike.plugins.Peaks.Peak" title="spike.plugins.Peaks.Peak"><code class="xref py py-class docutils literal notranslate"><span class="pre">spike.plugins.Peaks.Peak</span></code></a></p>
+<p>a class to store a single 2D peak
+defines in addition to Peak
+posF1 posF2         positions in F1 and F2 of the peak in index relative to the typed (real/complex) axis
+widthF1 …F2       widthes of the peak in index
+posF1_err …       uncertainty of the previous values
+widthF1_err   …</p>
+<dl class="py attribute">
+<dt id="spike.plugins.Peaks.Peak2D.full_format">
+<code class="sig-name descname">full_format</code><em class="property"> = '{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, '</em><a class="headerlink" href="#spike.plugins.Peaks.Peak2D.full_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak2D.report">
+<code class="sig-name descname">report</code><span class="sig-paren">(</span><em class="sig-param">f1=&lt;function _identity&gt;</em>, <em class="sig-param">f2=&lt;function _identity&gt;</em>, <em class="sig-param">format=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak2D.report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak2D.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>print the peak list
+f1, f2 are two functions used to transform respectively the coordinates in F1 and F2
+indentity function is default,
+for instance you can use something like
+peaks.report(f1=s.axis1.itop, f2=s.axis2.itop)    to get ppm values on a NMR dataset
+order is “id, label, posF1, posF2, intensity, widthF1, widthF2”</p>
+<p>printed parameters are : 
+Id label posF1 posF2 intens widthF1 widthF2 posF1_err posF2_err intens_err widthF1_err widthF2_err</p>
+<p>By default returns only the 5 first fields with 2 digits, but the format keyword can change that.
+format values:
+- None or “report”, the standard value is used:  “{}, {}, {:.2f}, {:.2f}, {:.2f}”</p>
+<blockquote>
+<div><p>(so only the four first parameters are shown)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>“full” is all parrameters at full resolution  ( “{}; “<a href="#id3"><span class="problematic" id="id4">*</span></a>12 )</p></li>
+<li><dl class="simple">
+<dt>any othe string following the format syntxa will do.</dt><dd><p>you can use any formating syntax. So for instance the following format
+“{1} :   {4:.2f}  F1: {2:.7f} +/- {5:.2f}  X  F2: {3:.7f} +/- {6:.2f}”
+will remove the Id, show position with 7 digits after the comma, and will show widthes</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="spike.plugins.Peaks.Peak2D.report_format">
+<code class="sig-name descname">report_format</code><em class="property"> = '{}, {}, {:.2f}, {:.2f}, {:.2f}'</em><a class="headerlink" href="#spike.plugins.Peaks.Peak2D.report_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="spike.plugins.Peaks.Peak2DList">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">Peak2DList</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">arg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak2DList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak2DList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#spike.plugins.Peaks.PeakList" title="spike.plugins.Peaks.PeakList"><code class="xref py py-class docutils literal notranslate"><span class="pre">spike.plugins.Peaks.PeakList</span></code></a></p>
+<p>store a list of 2D peaks
+contains the array version of the Peak2D object :
+self.posF1 is the numpy array of the position of all the peaks
+and self[k] is the kth Peak2D object of the list</p>
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak2DList.display">
+<code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param">axis=None</em>, <em class="sig-param">peak_label=False</em>, <em class="sig-param">zoom=None</em>, <em class="sig-param">show=False</em>, <em class="sig-param">f1=&lt;function _identity&gt;</em>, <em class="sig-param">f2=&lt;function _identity&gt;</em>, <em class="sig-param">color=None</em>, <em class="sig-param">markersize=6</em>, <em class="sig-param">figure=None</em>, <em class="sig-param">NbMaxPeaks=1000</em>, <em class="sig-param">markerdict=None</em>, <em class="sig-param">labeldict=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak2DList.display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak2DList.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays 2D peak list
+zoom is in index
+f1 and f2 should be functions which convert from points to current display scale - typically npk.axis1.itoc npk.axis2.itoc</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak2DList.posF1">
+<em class="property">property </em><code class="sig-name descname">posF1</code><a class="headerlink" href="#spike.plugins.Peaks.Peak2DList.posF1" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a numpy array of the F1 positions in index</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak2DList.posF2">
+<em class="property">property </em><code class="sig-name descname">posF2</code><a class="headerlink" href="#spike.plugins.Peaks.Peak2DList.posF2" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a numpy array of the F2 positions in index</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.Peak2DList.report">
+<code class="sig-name descname">report</code><span class="sig-paren">(</span><em class="sig-param">f1=&lt;function _identity&gt;</em>, <em class="sig-param">f2=&lt;function _identity&gt;</em>, <em class="sig-param">file=None</em>, <em class="sig-param">format=None</em>, <em class="sig-param">NbMaxPeaks=1000</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#Peak2DList.report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.Peak2DList.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>print the peak list
+f1, f2 are two functions used to transform respectively the coordinates in F1 and F2
+indentity function is default,
+for instance you can use something like
+d.peaks.export(f1=s.axis1.itop, f2=s.axis2.itop)    to get ppm values on a NMR dataset
+the file keyword allows to redirect the output to a file object</p>
+<p>check documentation for Peak2D.report() for details on output format</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="spike.plugins.Peaks.PeakList">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">PeakList</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">arg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserList</span></code></p>
+<p>the class generic to all peak lists</p>
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakList.intens">
+<em class="property">property </em><code class="sig-name descname">intens</code><a class="headerlink" href="#spike.plugins.Peaks.PeakList.intens" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a numpy array of the intensities</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakList.label">
+<em class="property">property </em><code class="sig-name descname">label</code><a class="headerlink" href="#spike.plugins.Peaks.PeakList.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns an array of the labels</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakList.largest">
+<code class="sig-name descname">largest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakList.largest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakList.largest" title="Permalink to this definition">¶</a></dt>
+<dd><p>sort the peaklist in decresing order of intensities</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakList.len">
+<code class="sig-name descname">len</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakList.len"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakList.len" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="spike.plugins.Peaks.PeakTests">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">PeakTests</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakTests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakTests.test_center1d">
+<code class="sig-name descname">test_center1d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakTests.test_center1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakTests.test_center1d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakTests.test_center2d">
+<code class="sig-name descname">test_center2d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakTests.test_center2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakTests.test_center2d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakTests.test_peaks1d">
+<code class="sig-name descname">test_peaks1d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakTests.test_peaks1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakTests.test_peaks1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>test 1D peak picker</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakTests.test_peaks2d">
+<code class="sig-name descname">test_peaks2d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakTests.test_peaks2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakTests.test_peaks2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>test 2D peak picker</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.Peaks.PeakTests.test_peaksaggreg1d">
+<code class="sig-name descname">test_peaksaggreg1d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#PeakTests.test_peaksaggreg1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.PeakTests.test_peaksaggreg1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>test 1D peak aggregator</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.center">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">center</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">xo</span></em>, <em class="sig-param"><span class="n">intens</span></em>, <em class="sig-param"><span class="n">width</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#center"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>the centroid definition, used to fit the spectrum
+x can be a nparray
+FWMH is   sqrt(2) x width.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.center2d">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">center2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">yx</span></em>, <em class="sig-param"><span class="n">yo</span></em>, <em class="sig-param"><span class="n">xo</span></em>, <em class="sig-param"><span class="n">intens</span></em>, <em class="sig-param"><span class="n">widthy</span></em>, <em class="sig-param"><span class="n">widthx</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#center2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.center2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>the 2D centroid, used to fit 2D spectra - si center()
+xy is [x0, y_0, x_1, y_1, …, x_n-1, y_n-1] - is 2*n long for n points,
+returns [z_0, z_1, … z_n-1]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.centroid">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">centroid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">arg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwarg</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#centroid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.centroid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.centroid1d">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">centroid1d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">npoints</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">reset_label</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">cure_outliers</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#centroid1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.centroid1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>from peak lists determined with peak()
+realize a centroid fit of the peak summit and width,
+will use npoints values around center  (npoints has to be odd)
+computes Full width at half maximum
+updates in data peak list
+reset_label when True (default) reset the labels of FTMS datasets
+cure_outliers : restore peaks with pathological parameters
+TODO : update uncertainties</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.centroid2d">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">centroid2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">npoints_F1</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">npoints_F2</span><span class="o">=</span><span class="default_value">3</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#centroid2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.centroid2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>from peak lists determined with peak()
+realize a centroid fit of the peak summit and width,
+computes Full width at half maximum
+updates in data peak list</p>
+<p>TODO : update uncertainties</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.display_peaks">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">display_peaks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">peak_label</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">peak_mode</span><span class="o">=</span><span class="default_value">'marker'</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">markersize</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">figure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">NbMaxPeaks</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">markerdict</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">labeldict</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#display_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.display_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>display the content of the peak list, 
+peak_mode is either “marker” (default) or “bar” (1D only)
+zoom is in current unit.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.peak_aggreg">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">peak_aggreg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pklist</span></em>, <em class="sig-param"><span class="n">distance</span></em>, <em class="sig-param"><span class="n">maxdist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'max'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#peak_aggreg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.peak_aggreg" title="Permalink to this definition">¶</a></dt>
+<dd><p>aggregates 1D peaks in peaklist if peaks are closer than a given distance in pixel
+distance : if two consecutive peaks are less than distance (in points),  they are aggregated
+if maxdist is not None, this is the maximal distance to the largest peak 
+method is either ‘max’ or ‘mean’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.peakpick">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">peakpick</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">threshold</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">autothresh</span><span class="o">=</span><span class="default_value">3.0</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#peakpick"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.peakpick" title="Permalink to this definition">¶</a></dt>
+<dd><p>performs a peak picking of the current experiment
+threshold is the level above which peaks are picked</p>
+<blockquote>
+<div><p>None (default) means that autothresh*(noise level of dataset) will be used - using d.robust_stats() as proxy for noise-level</p>
+</div></blockquote>
+<dl class="simple">
+<dt>zoom defines the region on which detection is made</dt><dd><p>zoom is in currentunit (same syntax as in display)
+None means the whole data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.peaks1d">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">peaks1d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#peaks1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.peaks1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>math code for NPKData 1D peak picker</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.peaks2d">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">peaks2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">zoom</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#peaks2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.peaks2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>math code for NPKData 2D peak picker</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.pk2pandas">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">pk2pandas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">full</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#pk2pandas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.pk2pandas" title="Permalink to this definition">¶</a></dt>
+<dd><p>export extract of current peak list to pandas Dataframe - in current unit
+if full is False (default), the uncertainty are not listed
+uses nmr or ms version depending on data_type</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.pk2pandas_ms">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">pk2pandas_ms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">full</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#pk2pandas_ms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.pk2pandas_ms" title="Permalink to this definition">¶</a></dt>
+<dd><p>export extract of current peak list to pandas Dataframe for MS datasets</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.pk2pandas_nmr">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">pk2pandas_nmr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">full</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#pk2pandas_nmr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.pk2pandas_nmr" title="Permalink to this definition">¶</a></dt>
+<dd><p>export extract of current peak list to pandas Dataframe for NMR datasets</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.Peaks.report_peaks">
+<code class="sig-prename descclassname">spike.plugins.Peaks.</code><code class="sig-name descname">report_peaks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">NbMaxPeaks</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/Peaks.html#report_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.Peaks.report_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>print the content of the peak list, using the current unit</p>
+<p>if file should be an already opened writable file stream. 
+if None, output will go to stdout</p>
+<p>for documentation, check Peak1D.report() and Peak2D.report()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.bcorr">
+<span id="spike-plugins-bcorr-module"></span><h2>spike.plugins.bcorr module<a class="headerlink" href="#module-spike.plugins.bcorr" title="Permalink to this headline">¶</a></h2>
+<p>set of function for the baseline correction</p>
+<p>First version - Not finished !</p>
+<p>improved July 2016</p>
+<dl class="py function">
+<dt id="spike.plugins.bcorr.autopoints">
+<code class="sig-prename descclassname">spike.plugins.bcorr.</code><code class="sig-name descname">autopoints</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">Npoints</span><span class="o">=</span><span class="default_value">8</span></em>, <em class="sig-param"><span class="n">modulus</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/bcorr.html#autopoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.bcorr.autopoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes Npoints (defaut 8) positions for a spline baseline correction</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.bcorr.bcorr">
+<code class="sig-prename descclassname">spike.plugins.bcorr.</code><code class="sig-name descname">bcorr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'spline'</span></em>, <em class="sig-param"><span class="n">xpoints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nsmooth</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">modulus</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/bcorr.html#bcorr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.bcorr.bcorr" title="Permalink to this definition">¶</a></dt>
+<dd><p>recapitulate all baseline correction methods, only 1D so far</p>
+<dl class="simple">
+<dt>method is either</dt><dd><dl class="simple">
+<dt>auto: </dt><dd><p>use bcorr_auto, uses an automatic determination of the baseline
+does not work with negative peaks.</p>
+</dd>
+<dt>linear:</dt><dd><p>simple 1D correction</p>
+</dd>
+<dt>spline:</dt><dd><p>a cubic spline correction</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>both linear and spline use an additional list of pivot points ‘xpoints’ used to calculate the baseline
+if xpoints absent,  pivots are estimated automaticaly
+if xpoints is integer, it determines the number of computed pivots (defaut is 8 if xpoints is None)
+if xpoints is a list of integers, there will used as pivots</p>
+<p>if nsmooth &gt;0, buffer is smoothed by moving average over 2*nsmooth+1 positions around pivots.
+if dataset is complex, the xpoints are computed on the modulus spectrum, unless modulus is False</p>
+<p>default is spline with automatic detection of 8 baseline points</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.bcorr.bcorr_auto">
+<code class="sig-prename descclassname">spike.plugins.bcorr.</code><code class="sig-name descname">bcorr_auto</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">iterations</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">nbchunks</span><span class="o">=</span><span class="default_value">40</span></em>, <em class="sig-param"><span class="n">degree</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">nbcores</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">smooth</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/bcorr.html#bcorr_auto"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.bcorr.bcorr_auto" title="Permalink to this definition">¶</a></dt>
+<dd><p>applies an automatic baseline correction</p>
+<p>Find baseline by using low norm value and then high norm value to attract the baseline on the small values.
+Parameters : 
+iterations : number of iterations for convergence toward the small values. 
+nbchunks : number of chunks on which is done the minimization. Typically, each chunk must be larger than the peaks. 
+degree : degree of the polynome used for approaching each signal chunk. 
+nbcores : number of cores used for minimizing in parallel on many chunks (if not None)</p>
+<p>smooth i True, applies a final Savitsky-Golay smoothing</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.bcorr.get_ypoints">
+<code class="sig-prename descclassname">spike.plugins.bcorr.</code><code class="sig-name descname">get_ypoints</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">buff</span></em>, <em class="sig-param"><span class="n">xpoints</span></em>, <em class="sig-param"><span class="n">nsmooth</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/bcorr.html#get_ypoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.bcorr.get_ypoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>from  buff and xpoints, returns ypoints = buff[xpoints]
+eventually smoothed by moving average over 2*nsmooth+1 positions</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.bcorr.linear_interpolate">
+<code class="sig-prename descclassname">spike.plugins.bcorr.</code><code class="sig-name descname">linear_interpolate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">xpoints</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'F2'</span></em>, <em class="sig-param"><span class="n">nsmooth</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/bcorr.html#linear_interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.bcorr.linear_interpolate" title="Permalink to this definition">¶</a></dt>
+<dd><p>”
+compute and applies a linear function as a baseline correction
+xpoints are the location of pivot points</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.bcorr.spline_interpolate">
+<code class="sig-prename descclassname">spike.plugins.bcorr.</code><code class="sig-name descname">spline_interpolate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">xpoints</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'F2'</span></em>, <em class="sig-param"><span class="n">nsmooth</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/bcorr.html#spline_interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.bcorr.spline_interpolate" title="Permalink to this definition">¶</a></dt>
+<dd><p>”
+compute and applies a spline function as a baseline correction
+xpoints are the location of pivot points</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.fastclean">
+<span id="spike-plugins-fastclean-module"></span><h2>spike.plugins.fastclean module<a class="headerlink" href="#module-spike.plugins.fastclean" title="Permalink to this headline">¶</a></h2>
+<p>A utility to set to zero all points below a ratio</p>
+<dl class="py function">
+<dt id="spike.plugins.fastclean.fastclean">
+<code class="sig-prename descclassname">spike.plugins.fastclean.</code><code class="sig-name descname">fastclean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">nsigma</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">nbseg</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/fastclean.html#fastclean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.fastclean.fastclean" title="Permalink to this definition">¶</a></dt>
+<dd><p>set to zeros all points below nsigma times the noise level
+This allows the corresponding data-set, once stored to file, to be considerably more compressive.</p>
+<dl class="simple">
+<dt>nsigma: float</dt><dd><p>the ratio used, typically 1.0 to 3.0 (higher compression)</p>
+</dd>
+<dt>nbseg: int</dt><dd><p>the number of segments used for noise evaluation, see util.signal_tools.findnoiselevel</p>
+</dd>
+<dt>axis: int</dt><dd><p>the axis on which the noise is evaluated, default is fastest varying dimension</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.gaussenh">
+<span id="spike-plugins-gaussenh-module"></span><h2>spike.plugins.gaussenh module<a class="headerlink" href="#module-spike.plugins.gaussenh" title="Permalink to this headline">¶</a></h2>
+<p>Gaussian enhancement apodisation</p>
+<p>d.gaussenh(width, enhancement=1.0, axis=0)</p>
+<blockquote>
+<div><p>apply an gaussian enhancement, width is in Hz
+enhancement is the strength of the effect
+axis is either F1, or F2 in 2D, 0 is default axis.
+multiplies by gauss(width) * exp(-enhancement*width)</p>
+</div></blockquote>
+<p>Created by DELSUC Marc-André on February 2019
+Copyright (c) 2019 IGBMC. All rights reserved.</p>
+<dl class="py function">
+<dt id="spike.plugins.gaussenh.gaussenh">
+<code class="sig-prename descclassname">spike.plugins.gaussenh.</code><code class="sig-name descname">gaussenh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">width</span></em>, <em class="sig-param"><span class="n">enhancement</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/gaussenh.html#gaussenh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.gaussenh.gaussenh" title="Permalink to this definition">¶</a></dt>
+<dd><p>apply an gaussian enhancement, width is in Hz
+enhancement is the strength of the effect
+multiplies by gauss(width) * exp(-enhancement*width)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.rem_ridge">
+<span id="spike-plugins-rem-ridge-module"></span><h2>spike.plugins.rem_ridge module<a class="headerlink" href="#module-spike.plugins.rem_ridge" title="Permalink to this headline">¶</a></h2>
+<p>removes ridges in 2D</p>
+<p>Created by Marc-André on 2011-08-15.
+Copyright (c) 2011 IGBMC. All rights reserved.</p>
+<dl class="py function">
+<dt id="spike.plugins.rem_ridge.rem_ridge">
+<code class="sig-prename descclassname">spike.plugins.rem_ridge.</code><code class="sig-name descname">rem_ridge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/rem_ridge.html#rem_ridge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.rem_ridge.rem_ridge" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function removes a F1 ridge by evaluating a mean avalue over the last 10% data of each column of a 2D</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.sane">
+<span id="spike-plugins-sane-module"></span><h2>spike.plugins.sane module<a class="headerlink" href="#module-spike.plugins.sane" title="Permalink to this headline">¶</a></h2>
+<p>plugin for Sane denoising</p>
+<p>This plugin implements the SANE denoising algorithm, 
+SANE is inspired from urQRd algorithm, but is improved in several points</p>
+<ul class="simple">
+<li><p>faster on vector length != 2**n</p></li>
+<li><p>much more efficient on weak signals</p></li>
+<li><p>requires less iterations and less overestimate of rank</p></li>
+<li><p>however, a non productive iteration is always performed,
+so processing time for I iterations of SANE should be compared
+with I+1 iterations of urQRd.</p></li>
+</ul>
+<p>associated publications
+- Bray, F., Bouclon, J., Chiron, L., Witt, M., Delsuc, M.-A., &amp; Rolando, C. (2017).</p>
+<blockquote>
+<div><p>Nonuniform Sampling Acquisition of Two-Dimensional Fourier Transform Ion Cyclotron Resonance Mass Spectrometry for Increased Mass Resolution of Tandem Mass Spectrometry Precursor Ions.
+Analytical Chemistry, acs.analchem.7b01850. <a class="reference external" href="http://doi.org/10.1021/acs.analchem.7b01850">http://doi.org/10.1021/acs.analchem.7b01850</a></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Chiron, L., van Agthoven, M. A., Kieffer, B., Rolando, C., &amp; Delsuc, M.-A. (2014).
+Efficient denoising algorithms for large experimental datasets and their applications in Fourier transform ion cyclotron resonance mass spectrometry.
+PNAS , 111(4), 1385–1390. <a class="reference external" href="http://doi.org/10.1073/pnas.1306700111">http://doi.org/10.1073/pnas.1306700111</a></p></li>
+</ul>
+<dl class="py function">
+<dt id="spike.plugins.sane.sane_plugin">
+<code class="sig-prename descclassname">spike.plugins.sane.</code><code class="sig-name descname">sane_plugin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">rank</span></em>, <em class="sig-param"><span class="n">orda</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">iterations</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">trick</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">optk</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">ktrick</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/sane.html#sane_plugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.sane.sane_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply “sane” denoising to data
+rank is about 2 x number_of_expected_lines
+Manages real and complex cases.
+Handles the case of hypercomplex for denoising of 2D FTICR for example.</p>
+<p>sane algorithm. Name stands for Support Selection for Noise Elimination.
+From a data series return a denoised series denoised
+data : the series to be denoised - a (normally complex) numpy buffer
+rank : the rank of the analysis
+orda : is the order of the analysis</p>
+<blockquote>
+<div><p>internally, a Hankel matrix (M,N) is constructed, with M = orda and N = len(data)-orda+1
+if None (default) orda = (len(data)+1)/2</p>
+</div></blockquote>
+<p>iterations : the number of time the operation should be repeated
+optk : if set to True will calculate the rank giving the best recovery for an automatic estimated noise level. 
+trick : permits to enhanced the denoising by using a cleaned signal as the projective space. “Support Selection”
+ktrick : if a value is given, it permits to change the rank on the second pass.</p>
+<blockquote>
+<div><p>The idea is that for the first pass a rank large enough as to be used to compensate for the noise while
+for the second pass a lower rank can be used.</p>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.sg">
+<span id="spike-plugins-sg-module"></span><h2>spike.plugins.sg module<a class="headerlink" href="#module-spike.plugins.sg" title="Permalink to this headline">¶</a></h2>
+<p>set of function Savitsky-Golay smoothing</p>
+<dl class="py function">
+<dt id="spike.plugins.sg.sg">
+<code class="sig-prename descclassname">spike.plugins.sg.</code><code class="sig-name descname">sg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">window_size</span></em>, <em class="sig-param"><span class="n">order</span></em>, <em class="sig-param"><span class="n">deriv</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/sg.html#sg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.sg.sg" title="Permalink to this definition">¶</a></dt>
+<dd><p>applies Savitzky-Golay of order filter to data
+window_size : int</p>
+<blockquote>
+<div><p>the length of the window. Must be an odd integer number.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>order<span class="classifier">int</span></dt><dd><p>the order of the polynomial used in the filtering.
+Must be less than <cite>window_size</cite> - 1.</p>
+</dd>
+<dt>deriv: int</dt><dd><p>the order of the derivative to compute (default = 0 means only smoothing)</p>
+</dd>
+<dt>axis: int</dt><dd><p>the axis on which the filter is to be applied, default is fastest varying dimension</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.sg.sg2D">
+<code class="sig-prename descclassname">spike.plugins.sg.</code><code class="sig-name descname">sg2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">window_size</span></em>, <em class="sig-param"><span class="n">order</span></em>, <em class="sig-param"><span class="n">deriv</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/sg.html#sg2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.sg.sg2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>applies a 2D Savitzky-Golay of order filter to data
+window_size : int</p>
+<blockquote>
+<div><p>the length of the square window. Must be an odd integer number.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>order<span class="classifier">int</span></dt><dd><p>the order of the polynomial used in the filtering.
+Must be less than <cite>window_size</cite> - 1.</p>
+</dd>
+<dt>deriv: None, ‘col’, or ‘row’.   ‘both’ mode does not work.</dt><dd><p>the direction of the derivative to compute (default = None means only smoothing)</p>
+</dd>
+</dl>
+<p>can be applied to a 2D only.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.test">
+<span id="spike-plugins-test-module"></span><h2>spike.plugins.test module<a class="headerlink" href="#module-spike.plugins.test" title="Permalink to this headline">¶</a></h2>
+<p>Test procedure for plugins</p>
+<dl class="py function">
+<dt id="spike.plugins.test.fake">
+<code class="sig-prename descclassname">spike.plugins.test.</code><code class="sig-name descname">fake</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dd</span></em>, <em class="sig-param"><span class="n">title</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/test.html#fake"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.test.fake" title="Permalink to this definition">¶</a></dt>
+<dd><p>fake method</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.urQRd">
+<span id="spike-plugins-urqrd-module"></span><h2>spike.plugins.urQRd module<a class="headerlink" href="#module-spike.plugins.urQRd" title="Permalink to this headline">¶</a></h2>
+<p>plugin for the urQRd denoising method</p>
+<dl class="py class">
+<dt id="spike.plugins.urQRd.urQRdTests">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.urQRd.</code><code class="sig-name descname">urQRdTests</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/urQRd.html#urQRdTests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.urQRd.urQRdTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.urQRd.urqrd">
+<code class="sig-prename descclassname">spike.plugins.urQRd.</code><code class="sig-name descname">urqrd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">k</span></em>, <em class="sig-param"><span class="n">orda</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">iterations</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/urQRd.html#urqrd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.urQRd.urqrd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply urQRd denoising to data
+k is about 2 x number_of_expected_lines
+Manages real and complex cases.
+Handles the case of hypercomplex for denoising of 2D FTICR for example.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="spike-plugins-zoom3d-module">
+<h2>spike.plugins.zoom3D module<a class="headerlink" href="#spike-plugins-zoom3d-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-spike.plugins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-spike.plugins" title="Permalink to this headline">¶</a></h2>
+<p>Plug-ins for the Spike package</p>
+<p>All the plugin files located in the spike/plugins folder are loaded automatically 
+when import importing spike the first time.</p>
+<p>the variable spike.plugins.plugins contains the list of the loaded plugin modules.</p>
+<p>It is allways possible to load a plugin afterward by import a plugin definition at a later time during run-time.</p>
+<p>Each plugin file should define the needed functions :</p>
+<dl class="simple">
+<dt>def myfunc(npkdata, args):</dt><dd><p>“myfunc doc”
+…do whatever, assuming npkdata is a NPKData
+return npkdata     # THIS is important, that is the standard NPKData mechanism</p>
+</dd>
+</dl>
+<p>and register them into NPKData as follows :
+NPKData_plugin(“myname”, myfunc)</p>
+<p>then, any NPKData will inherit the myname() method</p>
+<p>For the moment, only NPKData plugins are handled.</p>
+<dl class="py class">
+<dt id="spike.plugins.PluginTests">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.</code><code class="sig-name descname">PluginTests</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins.html#PluginTests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.PluginTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="py method">
+<dt id="spike.plugins.PluginTests.test_plugin">
+<code class="sig-name descname">test_plugin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins.html#PluginTests.test_plugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.PluginTests.test_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test of plugin mechanism</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.load">
+<code class="sig-prename descclassname">spike.plugins.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins.html#load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>the load() function is called at initialization, and loads all files found in the plugins folders
+typically</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>plugins folder in distribution</p></li>
+<li><p>$HOME/Spike/plugins</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.loadfolder">
+<code class="sig-prename descclassname">spike.plugins.</code><code class="sig-name descname">loadfolder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder</span></em>, <em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins.html#loadfolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.loadfolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>the loads plugins from a given folder
+import all python code found here  except the ones with names starting with a _</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.loadone">
+<code class="sig-prename descclassname">spike.plugins.</code><code class="sig-name descname">loadone</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pluginname</span></em>, <em class="sig-param"><span class="n">pgfile</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins.html#loadone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.loadone" title="Permalink to this definition">¶</a></dt>
+<dd><p>loads the plugin “pluginname” found in file pgfile
+if pgfile is None, the file is found in the plugins folder (adding the .py extension)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.report">
+<code class="sig-prename descclassname">spike.plugins.</code><code class="sig-name descname">report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">module</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins.html#report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>print a nice report
+mode=choose the verbosity</p>
+<blockquote>
+<div><p>“short”: only one line (default) 
+“detailed”: with list of all added methods
+“full”: prints the whole plugin doc</p>
+</div></blockquote>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">spike</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Readme.html">SpI <em>(Spike Interactive)</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#release-notes">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#simple-installation">simple installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#installing-additional-tools">Installing additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#licenses">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#source-and-dependencies">source and dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#developping-for-spike">developping for SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Doc.html">First contact SPIKE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="spike.html">spike package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="spike.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="spike.Algo.html">spike.Algo package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spike.Display.html">spike.Display package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spike.File.html">spike.File package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spike.Interactive.html">spike.Interactive package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spike.Miscellaneous.html">spike.Miscellaneous package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">spike.plugins package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.Fitter">spike.plugins.Fitter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.Linear_prediction">spike.plugins.Linear_prediction module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.Peaks">spike.plugins.Peaks module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.bcorr">spike.plugins.bcorr module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.fastclean">spike.plugins.fastclean module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.gaussenh">spike.plugins.gaussenh module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.rem_ridge">spike.plugins.rem_ridge module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.sane">spike.plugins.sane module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.sg">spike.plugins.sg module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.test">spike.plugins.test module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins.urQRd">spike.plugins.urQRd module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spike-plugins-zoom3d-module">spike.plugins.zoom3D module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-spike.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="spike.util.html">spike.util package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spike.v1.html">spike.v1 package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.FTICR">spike.FTICR module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.FTMS">spike.FTMS module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.NMR">spike.NMR module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.NPKConfigParser">spike.NPKConfigParser module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.NPKData">spike.NPKData module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.NPKError">spike.NPKError module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.Orbitrap">spike.Orbitrap module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.Tests">spike.Tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.dev_setup">spike.dev_setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.processing">spike.processing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#spike-processingph-module">spike.processingPH module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.version">spike.version module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike.version_rev">spike.version_rev module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spike.html#module-spike">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">SPIKE Relase Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">SPIKE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html#secondary-licenses">Secondary Licenses</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="spike.html">spike package</a><ul>
+      <li>Previous: <a href="spike.Miscellaneous.html" title="previous chapter">spike.Miscellaneous package</a></li>
+      <li>Next: <a href="spike.util.html" title="next chapter">spike.util package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, M-A.Delsuc.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/spike.plugins.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

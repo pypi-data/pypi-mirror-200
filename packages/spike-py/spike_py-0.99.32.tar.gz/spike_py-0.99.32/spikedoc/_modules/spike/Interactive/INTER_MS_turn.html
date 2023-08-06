@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spike.Interactive.INTER_MS_turn &#8212; spike 0.99.23 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for spike.Interactive.INTER_MS_turn</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python </span>
+<span class="c1"># encoding: utf-8</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A set of utilities to use spike in NMR or FTMS within jupyter</span>
+
+
+<span class="sd">First version MAD june 2017</span>
+<span class="sd">definitive ? version MAD october 2019</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">os.path</span> <span class="k">as</span> <span class="nn">op</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>
+<span class="kn">from</span> <span class="nn">matplotlib.widgets</span> <span class="kn">import</span> <span class="n">MultiCursor</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">Layout</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Output</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Tab</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Javascript</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">spike.File.BrukerNMR</span> <span class="kn">import</span> <span class="n">Import_1D</span>
+<span class="kn">from</span> <span class="nn">spike</span> <span class="kn">import</span> <span class="n">NPKData</span>
+<span class="kn">from</span> <span class="nn">spike.NMR</span> <span class="kn">import</span> <span class="n">NMRData</span>
+<span class="kn">from</span> <span class="nn">spike.Interactive.INTER</span> <span class="kn">import</span> <span class="n">Show1D</span><span class="p">,</span> <span class="n">jsalert</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">spike.plugins.bcorr</span> <span class="k">as</span> <span class="nn">bcorr</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Baseline correction plugin not installed !&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">spike.plugins.PhaseMS</span> <span class="kn">import</span> <span class="n">movepivot</span>
+    <span class="n">PHASEQUAD</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Quadratic phase correction plugin not installed !&#39;</span><span class="p">)</span>
+    <span class="n">PHASEQUAD</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># REACTIVE modify callback behaviour</span>
+<span class="c1"># True is good for inline mode / False is better for notebook mode</span>
+<span class="n">REACTIVE</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">HEAVY</span> <span class="o">=</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="FloatButt"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.FloatButt">[docs]</a><span class="k">class</span> <span class="nc">FloatButt</span><span class="p">(</span><span class="n">HBox</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    a float text with buttons</span>
+<span class="sd">    rounds is a list on power of 10 to set</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rounds</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FloatButt</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatText</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">incbuts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decbuts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wdesc</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rounds</span><span class="p">):</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">i</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">:</span>
+                <span class="n">des</span> <span class="o">=</span> <span class="s2">&quot;10^</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">i</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">des</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="o">+</span><span class="n">des</span><span class="p">)</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">increm</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">incbuts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>  <span class="n">b</span> <span class="p">)</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="o">+</span><span class="n">des</span><span class="p">)</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">decrem</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">decbuts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>  <span class="n">b</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">wdesc</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decbuts</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">incbuts</span>
+<div class="viewcode-block" id="FloatButt.increm"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.FloatButt.increm">[docs]</a>    <span class="k">def</span> <span class="nf">increm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="n">e</span><span class="o">.</span><span class="n">val</span></div>
+<div class="viewcode-block" id="FloatButt.decrem"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.FloatButt.decrem">[docs]</a>    <span class="k">def</span> <span class="nf">decrem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">value</span> <span class="o">-=</span> <span class="n">e</span><span class="o">.</span><span class="n">val</span></div>
+    <span class="k">def</span> <span class="nf">_gvalue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">def</span> <span class="nf">_svalue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_gvalue</span><span class="p">,</span> <span class="n">_svalue</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Phaser1D"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D">[docs]</a><span class="k">class</span> <span class="nc">Phaser1D</span><span class="p">(</span><span class="n">Show1D</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An interactive phaser in 1D MS</span>
+
+<span class="sd">        Phaser1D(spectrum)</span>
+
+<span class="sd">    requires %matplotlib widget</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reverse_scroll</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">check1D</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">{}</span>          <span class="c1"># list is actually a dictionnary - sorry about that</span>
+                                <span class="c1"># hold {pivot_in_points: (ph0, ph1)}</span>
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">itype</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">jsalert</span><span class="p">(</span><span class="s1">&#39;Data is Real - Please redo Fourier Transform&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">reverse_scroll</span><span class="o">=</span><span class="n">reverse_scroll</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p0</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;P0:&#39;</span><span class="p">,</span><span class="nb">min</span><span class="o">=-</span><span class="mi">200</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                            <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;50%&#39;</span><span class="p">),</span> <span class="n">continuous_update</span><span class="o">=</span><span class="n">REACTIVE</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">p1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;P1:&#39;</span><span class="p">,</span><span class="nb">min</span><span class="o">=-</span><span class="mi">10000000</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10000000</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span>
+                            <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">),</span> <span class="n">continuous_update</span><span class="o">=</span><span class="n">REACTIVE</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p1</span> <span class="o">=</span> <span class="n">FloatButt</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;P1  &#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p2</span> <span class="o">=</span> <span class="n">FloatButt</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;P2  &#39;</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">currentunit</span> <span class="o">==</span> <span class="s1">&#39;m/z&#39;</span><span class="p">:</span>
+            <span class="n">pvmin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">lowmass</span>
+            <span class="n">pvmax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">highmass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pvmin</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">pvmax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">itoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">BoundedFloatText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Pivot&#39;</span><span class="p">,</span>
+                        <span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">itoc</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span><span class="p">),</span> 
+                        <span class="nb">min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">itoc</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+                        <span class="nb">max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">itoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span><span class="p">),</span>
+                        <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;20%&#39;</span><span class="p">))</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">cancel</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Cancel&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cancel</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_cancel</span><span class="p">)</span>
+        <span class="c1"># remove done button and create an Apply one</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">done</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Done&quot;</span><span class="p">,</span> <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;success&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_Apply</span><span class="p">)</span>
+        <span class="c1"># list managment</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clearlist</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Clear&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clearlist</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_clearlist</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addlist</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Add Current&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addlist</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_addlist</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listlabel</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;0 entry&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printlist</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Print&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printlist</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_printlist</span><span class="p">)</span>
+
+        <span class="c1"># draw HBox</span>
+        <span class="k">if</span> <span class="n">PHASEQUAD</span><span class="p">:</span>
+            <span class="n">phbutton</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">phbutton</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">VBox</span><span class="p">([</span>
+                            <span class="n">HBox</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cancel</span><span class="p">,</span> <span class="p">]),</span>
+                            <span class="n">HBox</span><span class="p">([</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;i&gt;Phase List Managment&lt;/i&gt;&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">clearlist</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">addlist</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">listlabel</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">printlist</span><span class="p">]),</span>
+                            <span class="n">HBox</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="p">,</span> <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;i&gt;set with right-click on spectrum&lt;/i&gt;&#39;</span><span class="p">)]),</span>
+                            <span class="o">*</span><span class="n">phbutton</span><span class="p">,</span>
+                            <span class="n">HBox</span><span class="p">([</span><span class="n">VBox</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">blank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="p">])</span> <span class="p">])]</span>
+        <span class="c1"># add interaction</span>
+        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">]:</span>
+            <span class="n">w</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ob</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_movepivot</span><span class="p">)</span>
+        <span class="c1"># add click event on spectral window</span>
+        <span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">xdata</span>
+        <span class="n">cids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">on_press</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lp0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ppivot</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">show</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="viewcode-block" id="Phaser1D.on_clearlist"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.on_clearlist">[docs]</a>    <span class="k">def</span> <span class="nf">on_clearlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listlabel</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;0 entry&#39;</span></div>
+<div class="viewcode-block" id="Phaser1D.on_printlist"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.on_printlist">[docs]</a>    <span class="k">def</span> <span class="nf">on_printlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">!=</span> <span class="p">{}:</span>
+            <span class="k">for</span> <span class="n">pv</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">:</span><span class="se">\t</span><span class="s2">(</span><span class="si">%.0f</span><span class="s2"> </span><span class="si">%.0f</span><span class="s2">)&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">itoc</span><span class="p">(</span><span class="n">pv</span><span class="p">),</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">pv</span><span class="p">]))</span></div>
+<div class="viewcode-block" id="Phaser1D.on_addlist"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.on_addlist">[docs]</a>    <span class="k">def</span> <span class="nf">on_addlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">ctoi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">value</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listlabel</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> entries&#39;</span><span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+            <span class="n">dPH</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">L</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dPH</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listlabel</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> entry&#39;</span><span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Phaser1D.show"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.show">[docs]</a>    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xbound</span><span class="p">()</span>  <span class="c1"># initialize zoom</span>
+        <span class="n">ppos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ppos</span><span class="p">,</span><span class="n">ppos</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ybound</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">pv</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">itoc</span><span class="p">(</span><span class="n">pv</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">pv</span><span class="o">//</span><span class="mi">2</span><span class="p">)],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Phaser1D.on_cancel"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.on_cancel">[docs]</a>    <span class="k">def</span> <span class="nf">on_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="c1"># self.p0.value = 0  # because widget remains active...</span>
+        <span class="c1"># self.p1.value = 0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no applied phase&quot;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Phaser1D.on_Apply"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.on_Apply">[docs]</a>    <span class="k">def</span> <span class="nf">on_Apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">lp0</span><span class="p">,</span> <span class="n">lp1</span><span class="p">,</span> <span class="n">lp2</span><span class="p">,</span> <span class="n">lpv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ppivot</span><span class="p">()</span> <span class="c1"># get centered values</span>
+        <span class="k">if</span> <span class="n">PHASEQUAD</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">phase</span><span class="p">(</span><span class="n">lp0</span><span class="p">,</span> <span class="n">lp1</span><span class="p">,</span> <span class="n">lp2</span><span class="p">,</span> <span class="n">lpv</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">phase</span><span class="p">(</span><span class="n">lp0</span><span class="p">,</span> <span class="n">lp1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disp</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">pv</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">itoc</span><span class="p">(</span><span class="n">pv</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">pv</span><span class="o">//</span><span class="mi">2</span><span class="p">)],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_done</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Applied: phase(</span><span class="si">%.1f</span><span class="s2">,  </span><span class="si">%.1f</span><span class="s2">, </span><span class="si">%.1f</span><span class="s2">, </span><span class="si">%.2f</span><span class="s2">)&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">lp0</span><span class="p">,</span> <span class="n">lp1</span><span class="p">,</span> <span class="n">lp2</span><span class="p">,</span> <span class="n">lpv</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Phaser1D.ppivot"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.ppivot">[docs]</a>    <span class="k">def</span> <span class="nf">ppivot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;converts current pivot values to centered ones - not used in PHASEQUAD&quot;</span>
+        <span class="k">if</span> <span class="n">PHASEQUAD</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+                <span class="n">pp</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="p">(</span><span class="n">pp</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Phaser1D.ctopivot"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.ctopivot">[docs]</a>    <span class="k">def</span> <span class="nf">ctopivot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">pv</span><span class="p">):</span>
+        <span class="s2">&quot;convert from centered to pivot values - not used in PHASEQUAD&quot;</span>
+        <span class="k">if</span> <span class="n">PHASEQUAD</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">pv</span>
+        <span class="k">else</span><span class="p">:</span>
+                <span class="n">pp</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">p0</span><span class="o">-</span> <span class="p">(</span><span class="n">pp</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">p1</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span></div>
+<div class="viewcode-block" id="Phaser1D.on_movepivot"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.on_movepivot">[docs]</a>    <span class="k">def</span> <span class="nf">on_movepivot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;value&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">PHASEQUAD</span><span class="p">:</span>
+                <span class="n">pvaft</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">ctoi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span> 
+                <span class="n">pvbef</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">ctoi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lpv</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p2</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">movepivot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lp0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp2</span><span class="p">,</span> <span class="n">pvbef</span><span class="p">,</span> <span class="n">pvaft</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p1</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctopivot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lp0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">phase</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Phaser1D.ob"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.ob">[docs]</a>    <span class="k">def</span> <span class="nf">ob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="s2">&quot;observe changes and start phasing&quot;</span>
+        <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;value&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">phase</span><span class="p">()</span></div>
+<div class="viewcode-block" id="Phaser1D.phase"><a class="viewcode-back" href="../../../spike.Interactive.html#spike.Interactive.INTER_MS_turn.Phaser1D.phase">[docs]</a>    <span class="k">def</span> <span class="nf">phase</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s2">&quot;apply phase and display&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xbound</span><span class="p">()</span>   <span class="c1"># get current zoom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lp0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ppivot</span><span class="p">()</span>         <span class="c1"># get centered values</span>
+        <span class="k">if</span> <span class="n">PHASEQUAD</span><span class="p">:</span>
+            <span class="n">pv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">axis1</span><span class="o">.</span><span class="n">ctoi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lpv</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size1</span>  <span class="c1">#  0...1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">phase</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lp0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp2</span><span class="p">,</span> <span class="n">pv</span><span class="p">)</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">new_fig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">phase</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lp0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lp1</span><span class="p">)</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">new_fig</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ppos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="o">.</span><span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ppos</span><span class="p">,</span><span class="n">ppos</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ybound</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xbound</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">xb</span> <span class="p">)</span></div></div>
+
+<span class="c1"># if __name__ == &#39;__main__&#39;:</span>
+<span class="c1">#    unittest.main()    </span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">spike</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Readme.html">SpI <em>(Spike Interactive)</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Readme.html#release-notes">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Readme.html#simple-installation">simple installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Readme.html#installing-additional-tools">Installing additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Readme.html#licenses">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Readme.html#source-and-dependencies">source and dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Readme.html#developping-for-spike">developping for SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Doc.html">First contact SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spike.html">spike package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release_notes.html">SPIKE Relase Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../licenses.html">SPIKE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../licenses.html#secondary-licenses">Secondary Licenses</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, M-A.Delsuc.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

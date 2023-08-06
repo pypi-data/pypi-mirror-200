@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>SpI (Spike Interactive) &#8212; spike 0.99.32-592 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="First contact SPIKE" href="Doc.html" />
+    <link rel="prev" title="SPIKE’s documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p><img alt="SPIKE" src="spike/Interactive/Logo.png" /> # 1/ What is SPIKE ? #</p>
+<p><strong>SPIKE</strong> a collaborative development for a FT-spectroscopy processing
+library.</p>
+<p><em>This is the version 0.99.32 - March 2023</em></p>
+<p><strong>WARNING - version 0.99.14 to 0.99.19 should be avoided for FTICR
+handling because of a hidden bug that corrupted m/z calibration.</strong></p>
+<p><strong>SPIKE</strong> allows the processing, the display and the analysis of
+data-sets obtained from various Fourier-Transform spectroscopies. The
+name stands for <strong>S</strong>pectrometry <strong>P</strong>rocessing <strong>I</strong>nnovative
+<strong>KE</strong>rnel.</p>
+<p>It allows the processing of <strong>1D</strong> and <strong>2D</strong> FT spectroscopies, mostly
+<strong>NMR</strong> and <strong>FTICR-MS</strong>, but also <strong>Orbitrap</strong>, and other to come.</p>
+<p>It implements all needed tools for Data analysis (Fourier Transform,
+Baseline correction, noise reduction, peak-picking, etc…)</p>
+<p>To our knowledge, it is the first program freely available allowing the
+processing, display and analysis of 2D-FT-ICR (Fourier Transform Ion
+Cyclotron Resonance), as well as Orbitrap time domain data processing.</p>
+<p>It is written in python (currently 3.7 and in python 2.7 up to version
+0.99.10).</p>
+<p>It is mostly a library for processing, analysis and display of spectral
+data-sets. The natural interface is either a python program or a
+<code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> as an interactive front-end.</p>
+<section id="spi-spike-interactive">
+<h1>SpI <em>(Spike Interactive)</em><a class="headerlink" href="#spi-spike-interactive" title="Permalink to this heading">¶</a></h1>
+<p>An additional program, called <strong>SP</strong>ike <strong>I</strong>nteractive (or <strong>SpI</strong>
+) is also developed, it consists in a set of stand alone jupyter
+Notebooks which allow to use SPIKE process and analyse NMR and MS
+datasets without any programming knowledge.</p>
+<p>It provides simple interactive environment which implement basic
+analysis can be found in the <a class="reference external" href="Notebooks">SpI</a> directory. A part of
+SpI is also contained in the <code class="docutils literal notranslate"><span class="pre">`Interactive</span></code> &lt;spike/Interactive&gt;`__
+directory in the source tree.</p>
+<p>It is still in very active development, but also the basis for our
+research.</p>
+<p>Many features are missing, and many other while present, are not fully
+fixed. However, considering the amount of efforts already present in
+this code, we decided to make it available. We believe that even in this
+current development stage, this program might prove useful for certain
+usages.</p>
+<section id="documentation">
+<h2>2/ Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">¶</a></h2>
+<p>Basic presentation of functionalities can be found
+<a class="reference external" href="Presentation.md">Here</a></p>
+<p>A complete documentation, with the full API, can be found
+<a class="reference external" href="http://softwares.casc4de.eu/spike/spikedoc/">Here</a>. We try to keep
+it up to date, but it may lag a little behind the current program state.</p>
+<p>Most of the documentation is in the code itself, available directly
+while programming (<em>try</em> <code class="docutils literal notranslate"><span class="pre">function_name?</span></code> <em>in</em> <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>).</p>
+<p>Another source of documentation are <a class="reference external" href="Notebooks">Notebooks</a> directory.
+There are two type of Notebooks, fully developed ones, with interactive
+tools, which can be used as is, and example Notebooks, meant for
+pedagogic purposes. This is an ongoing effort, and always short of what
+we’d like to do.</p>
+</section>
+</section>
+<section id="release-notes">
+<h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading">¶</a></h1>
+<p>Can be found <a class="reference external" href="release_notes.md">Here</a></p>
+<section id="how-to-get-spike">
+<h2>3/ How to get SPIKE ?<a class="headerlink" href="#how-to-get-spike" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+<section id="simple-installation">
+<h1>simple installation<a class="headerlink" href="#simple-installation" title="Permalink to this heading">¶</a></h1>
+<p>You might have python installed on your system, however, SPIKE relies on
+a whole set of scientific libraries which may dont be installed (see
+<strong>Dependencies</strong> below). We advise to install a scientific python
+environment such as <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> or
+<a class="reference external" href="https://www.enthought.com/">Enthough</a>. Then install SPIKE with the
+following command in the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">spike</span><span class="o">-</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This will install the latest version on your machine. <em>(be sure to use
+the pip command which came with the scientific python environment)</em>.</p>
+<p>If you already have SPIKE installed and want to upgrade to the last
+version do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">spike</span><span class="o">-</span><span class="n">py</span>
+</pre></div>
+</div>
+</section>
+<section id="installing-additional-tools">
+<h1>Installing additional tools<a class="headerlink" href="#installing-additional-tools" title="Permalink to this heading">¶</a></h1>
+<p>Several additional tools may be of interest.</p>
+<p><strong>a/ Interactive jupyter notebooks from SpI</strong> can be found in the
+<a class="reference external" href="Notebooks">Notebooks</a> directory or on
+<a class="reference external" href="https://github.com/spike-project/spike/tree/master/Notebooks">github</a>.
+You will find there fully developed interactive notebooks allowing data
+analysis without any knowledge in python programming, as well as
+examples to starting writing small pyhton programs for specific needs.</p>
+<p>First the tool <code class="docutils literal notranslate"><span class="pre">ipympl</span></code> needs to be installed (it may not be installed
+along the scientific environment) To install it, simply do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ipympl</span>
+</pre></div>
+</div>
+<p>Then copy the related NotBooks to a directory by typing
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">spike.installSpI</span></code> in a terminal in this directory.</p>
+<p><strong>b/ additional plugins</strong> are available in the
+<a class="reference external" href="spike/plugins/special">plugins/special</a> directory in the source
+tree. <a class="reference external" href="https://github.com/spike-project/spike/tree/master/spike/plugins/specials">check on
+github</a>.</p>
+<p>If you want to use them, create a directory called <code class="docutils literal notranslate"><span class="pre">Spike</span></code> in your
+HOME directory, and a directory called <code class="docutils literal notranslate"><span class="pre">plugins</span></code> in this one (hence
+<code class="docutils literal notranslate"><span class="pre">$HOME/Spike/plugins</span></code>), and put then there, they will be directly
+activated. You can also develop your own plugins and put them here.</p>
+<p>Note that some plugins or extension require additional libraries
+(<code class="docutils literal notranslate"><span class="pre">ipympl</span></code>, <code class="docutils literal notranslate"><span class="pre">MPI</span></code>, <code class="docutils literal notranslate"><span class="pre">bokeh</span></code>, <code class="docutils literal notranslate"><span class="pre">mayavi</span></code>, …)</p>
+</section>
+<section id="licenses">
+<h1>Licenses<a class="headerlink" href="#licenses" title="Permalink to this heading">¶</a></h1>
+<p>The Spike program is distributed under the
+<code class="docutils literal notranslate"><span class="pre">`CeCILL</span> <span class="pre">2.1</span> <span class="pre">FREE</span> <span class="pre">SOFTWARE</span> <span class="pre">LICENSE</span> <span class="pre">AGREEMENT</span></code> &lt;<a class="reference external" href="http://www.cecill.info">http://www.cecill.info</a>&gt;`__
+Which is the GPL license adapted to the French law.</p>
+<p>It includes the following additional programs/algorithms:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://urqrd.igbmc.fr/">urQRd</a> L.Chiron and M-A Delsuc (denoising
+of large harmonic signals) under CeCiLL licence</p></li>
+<li><p><a class="reference external" href="https://github.com/delsuc/PALMA">PALMA</a> A.Cherni &amp; M-A.Delsuc
+(Processing of DOSY based on ILT) under CeCiLL licence</p></li>
+<li><p><a class="reference external" href="https://github.com/niltonvolpato/python-progressbar">progressbar</a>
+N.Volpato - under LGPL licence</p></li>
+</ul>
+</section>
+<section id="source-and-dependencies">
+<h1>source and dependencies<a class="headerlink" href="#source-and-dependencies" title="Permalink to this heading">¶</a></h1>
+<p>The SPIKE source is available at <a class="reference external" href="https://github.com/spike-project/spike">https://github.com/spike-project/spike</a></p>
+<p>SPIKE is written in pure Python, and relies on several external
+libraries:</p>
+<ul class="simple">
+<li><p>matplotlib</p></li>
+<li><p>numpy</p></li>
+<li><p>scipy</p></li>
+<li><p>tables</p></li>
+<li><p>pandas</p></li>
+</ul>
+<p>It is compatible and fully tested with python 3.7 and 3.9</p>
+</section>
+<section id="developping-for-spike">
+<h1>developping for SPIKE<a class="headerlink" href="#developping-for-spike" title="Permalink to this heading">¶</a></h1>
+<p>check <a class="reference external" href="DevelopmentGuide.md">Here</a></p>
+<section id="citing-spike">
+<h2>4/ Citing SPIKE<a class="headerlink" href="#citing-spike" title="Permalink to this heading">¶</a></h2>
+<p>If you happen to use SPIKE successfully for your research, please cite
+it, and refer to this site, as well as the following possible references
+: - <strong>Main Reference</strong>: first publication of the program itself -
+<em>rejected from Anal. Chem. with no real critics except that Reviewer 1
+said “too much NMR”, Reviewer 2 said “too much MS”, !! so I decided to
+let it on ArXiV</em>) 1. Chiron L., Coutouly M-A., Starck J-P., Rolando C.,
+Delsuc M-A. SPIKE a Processing Software dedicated to Fourier
+Spectroscopies <a class="reference external" href="https://arxiv.org/abs/1608.06777">https://arxiv.org/abs/1608.06777</a> (2016)</p>
+<p>Other references are also related - The renewal of Gifa: 2. Delsuc M-A.
+“Gifa V.4: A complete package for NMR data set processing” (2020)
+<a class="reference external" href="https://doi.org/10.5281/zenodo.3904595">https://doi.org/10.5281/zenodo.3904595</a> - presentation of the automation
+possibilities in NMR 3. Margueritte, L., Markov, P., Chiron, L., Starck,
+J.-P., Vonthron Sénécheau, C., Bourjot, M., &amp; Delsuc, M.-A. (2018).
+“Automatic differential analysis of NMR experiments in complex samples.”
+Magn. Reson. Chem., 80(5), 1387. <a class="reference external" href="http://doi.org/10.1002/mrc.4683">http://doi.org/10.1002/mrc.4683</a> - first
+version of the 2D FT-ICR-MS processing 4. van Agthoven, M. A., Chiron,
+L., Coutouly, M.-A., Delsuc, M.-A. &amp; Rolando, C. “Two-Dimensional ECD
+FT-ICR” Mass Spectrometry of Peptides and Glycopeptides.” <em>Anal Chem</em>
+<strong>84</strong>, 5589-95 (2012). - first version of the python set-up on which
+the current SPIKE is loosely based 5. Tramesel, D., Catherinot, V. &amp;
+Delsuc, M.-A. “Modeling of NMR processing, toward efficient unattended
+processing of NMR experiments. <em>J Magn Reson</em> <strong>188</strong>, 56-67 (2007).</p>
+<p>ref 1) is a general purpose reference, the other ones are more specific.</p>
+</section>
+<section id="contents-of-this-repository">
+<h2>5/ Contents of this repository<a class="headerlink" href="#contents-of-this-repository" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">`spike/</span></code> &lt;spike&gt;`__ - the python code of the program itself</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`doc/</span></code> &lt;doc&gt;`__ - a directory containing various files used to
+generate the documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`Notebooks/</span></code> &lt;Notebooks&gt;`__ - the repository of the <strong>SpI</strong>
+notebooks</p></li>
+<li><p>miscelaneous:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">QC.py</span></code> <code class="docutils literal notranslate"><span class="pre">QC.txt</span></code> a small utility to check the quality of the
+code using pylint.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="origin-of-the-program">
+<h2>6/ Origin of the program<a class="headerlink" href="#origin-of-the-program" title="Permalink to this heading">¶</a></h2>
+<p><strong>SPIKE</strong> is originated from the <em>Gifa</em> program, developed by M-A Delsuc
+and others in <code class="docutils literal notranslate"><span class="pre">FORTRAN</span> <span class="pre">77</span></code> since the late eighties, it still shares
+similarities, such as command names, or internal data organisation.</p>
+<p><em>Gifa</em> was abandoned around 2005, but it actually experienced a revival
+in 2020 thanks to the “ <em>ten years challenge</em> “ organised by the
+<a class="reference external" href="https://rescience.github.io/read/">ReScience C Journal</a>. You can
+find an installable and runnable version here:
+<a class="reference external" href="https://github.com/delsuc/Gifa">https://github.com/delsuc/Gifa</a></p>
+<p><em>Gifa</em> has known several mutations, and finally ended as a partial
+rewrite called <strong>NPK</strong>. The <a class="reference external" href="http://abcis.cbs.cnrs.fr/NPK/">NPK</a>
+program is based on some of the original <code class="docutils literal notranslate"><span class="pre">FORTRAN</span></code> code, wrapped in
+Java and Python, which allows to control all the program possibilities
+from the Python level. NPK is purely a computing kernel, with no
+graphical possibilities, and has been used as a kernel embedded in the
+commercial program NMRNoteBook, commercialized by NMRTEC.</p>
+<p>However, NPK was showing many weaknesses, mostly due to the 32bits
+organization, and a poor file format. So, when a strong scientific
+environment became available in Python, a rewrite in pure Python was
+undertaken. To this initial project, called NPK-V2, many new
+functionalities were added, and mostly the capability to work in other
+spectroscopies than NMR.</p>
+<p>At some point in 2014, we chose to fork NPK-V2 to SPIKE, and make it
+public.</p>
+</section>
+<section id="authors-and-licence">
+<h2>6/ Authors and Licence<a class="headerlink" href="#authors-and-licence" title="Permalink to this heading">¶</a></h2>
+<p>Current Active authors for SPIKE are:</p>
+<ul class="simple">
+<li><p>Marc-André Delsuc <code class="docutils literal notranslate"><span class="pre">madelsuc</span> <span class="pre">-at-</span> <span class="pre">unistra.fr</span></code></p></li>
+<li><p>Laura Duciel <code class="docutils literal notranslate"><span class="pre">laura.duciel</span> <span class="pre">-at-</span> <span class="pre">casc4de.eu</span></code></p></li>
+</ul>
+<p>Previous authors:</p>
+<ul class="simple">
+<li><p>Christian Rolando <code class="docutils literal notranslate"><span class="pre">christian.rolando</span> <span class="pre">-at-</span> <span class="pre">univ-lille1.fr</span></code></p></li>
+<li><p>Lionel Chiron <code class="docutils literal notranslate"><span class="pre">Lionel.Chiron</span> <span class="pre">-at-</span> <span class="pre">casc4de.eu</span></code></p></li>
+<li><p>Petar Markov <code class="docutils literal notranslate"><span class="pre">petar.markov</span> <span class="pre">-at-</span> <span class="pre">igbmc.fr</span></code></p></li>
+<li><p>Marie-Aude Coutouly . <code class="docutils literal notranslate"><span class="pre">Marie-Aude.COUTOULY</span> <span class="pre">-</span> <span class="pre">at-</span> <span class="pre">datastorm.fr</span></code></p></li>
+</ul>
+<p>Covered code is provided under this license on an “as is” basis, without
+warranty of any kind, either expressed or implied, including, without
+limitation, warranties that the covered code is free of defects. The
+entire risk as to the quality and performance of the covered code is
+with you. Should any covered code prove defective in any respect, you
+(not the initial developer or any other contributor) assume the cost of
+any necessary servicing, repair or correction.</p>
+<p>Downloading code and datasets from this page signifies acceptance of the
+hereunder License Agreement. The code distributed here is covered under
+the CeCILL license : <a class="reference external" href="http://www.cecill.info/index.en.html">http://www.cecill.info/index.en.html</a></p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">spike</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SpI <em>(Spike Interactive)</em></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">2/ Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#release-notes">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-get-spike">3/ How to get SPIKE ?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#simple-installation">simple installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#installing-additional-tools">Installing additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#licenses">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#source-and-dependencies">source and dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#developping-for-spike">developping for SPIKE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#citing-spike">4/ Citing SPIKE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contents-of-this-repository">5/ Contents of this repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#origin-of-the-program">6/ Origin of the program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authors-and-licence">6/ Authors and Licence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Doc.html">First contact SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">SPIKE Relase Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">SPIKE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html#secondary-licenses">Secondary Licenses</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">SPIKE’s documentation</a></li>
+      <li>Next: <a href="Doc.html" title="next chapter">First contact SPIKE</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2010-2023, IGBMC and others.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/Readme.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

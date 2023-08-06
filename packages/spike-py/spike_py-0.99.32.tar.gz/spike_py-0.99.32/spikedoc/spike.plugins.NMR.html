@@ -1,0 +1,814 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spike.plugins.NMR package &#8212; spike 0.99.23 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="spike-plugins-nmr-package">
+<h1>spike.plugins.NMR package<a class="headerlink" href="#spike-plugins-nmr-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-spike.plugins.NMR.Bruker_NMR_FT">
+<span id="spike-plugins-nmr-bruker-nmr-ft-module"></span><h2>spike.plugins.NMR.Bruker_NMR_FT module<a class="headerlink" href="#module-spike.plugins.NMR.Bruker_NMR_FT" title="Permalink to this headline">¶</a></h2>
+<p>This plugin implement the set of Fourier Transform used for NMR</p>
+<p>and some other related utilities
+commands starting with <a href="#id1"><span class="problematic" id="id2">bk_</span></a> emulates (kind of) the topspin commands</p>
+<p>MAD September 2015</p>
+<dl class="py class">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.Bruker_NMR_FT">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">Bruker_NMR_FT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#Bruker_NMR_FT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.Bruker_NMR_FT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="py method">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.Bruker_NMR_FT.test_1D">
+<code class="sig-name descname">test_1D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#Bruker_NMR_FT.test_1D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.Bruker_NMR_FT.test_1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test mostly syntax</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.Bruker_NMR_FT.test_2D">
+<code class="sig-name descname">test_2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#Bruker_NMR_FT.test_2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.Bruker_NMR_FT.test_2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test mostly syntax</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.bruker_corr">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">bruker_corr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#bruker_corr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.bruker_corr" title="Permalink to this definition">¶</a></dt>
+<dd><p>applies a correction on the spectrum for the time offset in the FID.
+time offset is stored in the axis property zerotime</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.bruker_proc_phase">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">bruker_proc_phase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">correct_zerotime</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#bruker_proc_phase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.bruker_proc_phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>applies a phase correction on the spectrum from proc file parameters.
+correct_zerotime == True (default) the zerotime correct ( bruker_corr ) is also applied</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.check_cpx">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">check_cpx</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">axis</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#check_cpx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.check_cpx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.check_real">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">check_real</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">axis</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#check_real"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.check_real" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.conv_n_p">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">conv_n_p</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#conv_n_p"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.conv_n_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>realises the n+p to SH conversion</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ftF1">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ftF1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ftF1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ftF1" title="Permalink to this definition">¶</a></dt>
+<dd><p>emulates Bruker ft of a 2D in F1 depending on FnMode</p>
+<p>None    0
+QF      1
+QSEQ    2
+TPPI    3
+States  4
+States-TPPI 5
+Echo-AntiEcho   6</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ftF2">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ftF2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ftF2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ftF2" title="Permalink to this definition">¶</a></dt>
+<dd><p>emulates Bruker ft of a 2D in F1 depending on FnMode</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ft_n_p">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ft_n_p</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'F1'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ft_n_p"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ft_n_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>F1-Fourier transform for N+P (echo/antiecho) 2D</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ft_phase_modu">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ft_phase_modu</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'F1'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ft_phase_modu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ft_phase_modu" title="Permalink to this definition">¶</a></dt>
+<dd><p>F1-Fourier transform for phase-modulated 2D</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ft_seq">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ft_seq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ft_seq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ft_seq" title="Permalink to this definition">¶</a></dt>
+<dd><p>performs the fourier transform of a data-set acquired on a Bruker in simultaneous mode
+Processing is performed only along the F2 (F3) axis if in 2D (3D)</p>
+<p>(Bruker QSEQ mode)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ft_sh">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ft_sh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'F1'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ft_sh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ft_sh" title="Permalink to this definition">¶</a></dt>
+<dd><p>States-Haberkorn F1 Fourier transform</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ft_sh_tppi">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ft_sh_tppi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'F1'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ft_sh_tppi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ft_sh_tppi" title="Permalink to this definition">¶</a></dt>
+<dd><p>States-Haberkorn / TPPI F1 Fourier Transform</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ft_sim">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ft_sim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ft_sim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ft_sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>performs the fourier transform of a data-set acquired on a Bruker in
+simultaneous mode
+Processing is performed only along the F2 (F3) axis if in 2D (3D)</p>
+<p>(Bruker QSIM mode)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.ft_tppi">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">ft_tppi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">'F1'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#ft_tppi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.ft_tppi" title="Permalink to this definition">¶</a></dt>
+<dd><p>TPPI F1 Fourier transform</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.rem_dsp">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">rem_dsp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coeff</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#rem_dsp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.rem_dsp" title="Permalink to this definition">¶</a></dt>
+<dd><p>remove the leading part of the fid created by the DSP
+coeff allows to extend or reduce the zone, 1.0 is exactly the zone 
+see zero_dsp</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.wdw">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">wdw</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#wdw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.wdw" title="Permalink to this definition">¶</a></dt>
+<dd><p>emulates Bruker window function</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.xf1">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">xf1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#xf1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.xf1" title="Permalink to this definition">¶</a></dt>
+<dd><p>emulates xf1 command from topspin</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.xf2">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">xf2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#xf2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.xf2" title="Permalink to this definition">¶</a></dt>
+<dd><p>emulates xf2 command from topspin</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.xfb">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">xfb</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#xfb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.xfb" title="Permalink to this definition">¶</a></dt>
+<dd><p>emulates xfb command from topspin</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bruker_NMR_FT.zero_dsp">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bruker_NMR_FT.</code><code class="sig-name descname">zero_dsp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coeff</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bruker_NMR_FT.html#zero_dsp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bruker_NMR_FT.zero_dsp" title="Permalink to this definition">¶</a></dt>
+<dd><p>set to 0.0 the leading part of the fid created by the DSP
+coeff allows to extend or reduce the zone, 1.0 is exactly the zone 
+a value slightly larger than 1.0 can remove some strong baseline problems.
+see rem_dsp</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.NMR.Bucketing">
+<span id="spike-plugins-nmr-bucketing-module"></span><h2>spike.plugins.NMR.Bucketing module<a class="headerlink" href="#module-spike.plugins.NMR.Bucketing" title="Permalink to this headline">¶</a></h2>
+<p>A set of tools for computing bucketing for 1D and 2D NMR spectra</p>
+<p>First version by DELSUC Marc-André on 2015-09-06.
+extended in 2017</p>
+<p>This plugin implements the bucketing routines developped in the work</p>
+<p><strong>Automatic differential analysis of NMR experiments in complex samples</strong>
+Laure Margueritte, Petar Markov, Lionel Chiron, Jean-Philippe Starck, Catherine Vonthron-Sénécheau, Mélanie Bourjot, and Marc-André Delsuc
+<em>Magn. Reson. Chem.</em>, (2018) <strong>80</strong> (5), 1387. <a class="reference external" href="http://doi.org/10.1002/mrc.4683">http://doi.org/10.1002/mrc.4683</a></p>
+<p>It implements 1D and 2D bucketing
+each bucket has a constant progammable size in ppm,
+for each buckets, following properties are computes:</p>
+<blockquote>
+<div><p>center, normalized area, max, min, standard deviation, bucket_size</p>
+</div></blockquote>
+<p>The results are printed in cvs format either on screen or into a file</p>
+<dl class="py class">
+<dt id="spike.plugins.NMR.Bucketing.BucketingTests">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.NMR.Bucketing.</code><code class="sig-name descname">BucketingTests</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bucketing.html#BucketingTests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bucketing.BucketingTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="py method">
+<dt id="spike.plugins.NMR.Bucketing.BucketingTests.announce">
+<code class="sig-name descname">announce</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bucketing.html#BucketingTests.announce"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bucketing.BucketingTests.announce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Bucketing.BucketingTests.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bucketing.html#BucketingTests.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bucketing.BucketingTests.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bucketing.bucket1d">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bucketing.</code><code class="sig-name descname">bucket1d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">0.5, 9.5</span></em>, <em class="sig-param"><span class="n">bsize</span><span class="o">=</span><span class="default_value">0.04</span></em>, <em class="sig-param"><span class="n">pp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">sk</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">thresh</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bucketing.html#bucket1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bucketing.bucket1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>This tool permits to realize a bucket integration from the current 1D data-set.
+You will have to give  (all spectral values are in ppm)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>zoom (low,high),  : the starting and ending ppm of the integration zone in the spectrum</p></li>
+<li><p>bsize: the size of the bucket</p></li>
+<li><dl class="simple">
+<dt>pp: if True, the number of peaks in the bucket is also added</dt><dd><ul>
+<li><p>peaks are detected if intensity is larger that thresh*noise</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>sk: if True, skewness and kurtosis computed for each bucket</p></li>
+<li><p>file: the filename to which the result is written</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>For a better bucket integration, you should be careful that :</dt><dd><ul class="simple">
+<li><p>the bucket size is not too small, size is better than number !</p></li>
+<li><p>the baseline correction has been carefully done</p></li>
+<li><p>the spectral window is correctly determined to encompass the meaningfull spectral zone.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Bucketing.bucket2d">
+<code class="sig-prename descclassname">spike.plugins.NMR.Bucketing.</code><code class="sig-name descname">bucket2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">0.5, 9.5, 0.5, 9.5</span></em>, <em class="sig-param"><span class="n">bsize</span><span class="o">=</span><span class="default_value">0.1, 0.1</span></em>, <em class="sig-param"><span class="n">pp</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">sk</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">thresh</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Bucketing.html#bucket2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Bucketing.bucket2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>This tool permits to realize a bucket integration from the current 2D data-set.
+You will have to give the following values:  (all spectral values are in ppm)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>zoom (F1limits, F2limits),  : the starting and ending ppm of the integration zone in the spectrum</p></li>
+<li><p>bsize (F1,F2): the sizes of the bucket</p></li>
+<li><dl class="simple">
+<dt>pp: if True, the number of peaks in the bucket is also added</dt><dd><ul>
+<li><p>peaks are detected if intensity is larger that thresh*noise</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>sk: if True, skewness and kurtosis computed for each bucket</p></li>
+<li><p>file: the filename to which the result is written</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>For a better bucket integration, you should be careful that :</dt><dd><ul class="simple">
+<li><p>the bucket size is not too small, size is better than number !</p></li>
+<li><p>the baseline correction has been carefully done</p></li>
+<li><p>the spectral window is correctly determined to encompass the meaningfull spectral zone.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.NMR.Integrate">
+<span id="spike-plugins-nmr-integrate-module"></span><h2>spike.plugins.NMR.Integrate module<a class="headerlink" href="#module-spike.plugins.NMR.Integrate" title="Permalink to this headline">¶</a></h2>
+<p>A set of tools for computing Integrals for 1D  NMR spectra</p>
+<p>If present, it can guess integral zones from an existing peak-list
+Adds .integrals into NPKDataset  which is an object with its own methods.</p>
+<p>First version by DELSUC Marc-André on May-2019.</p>
+<dl class="py class">
+<dt id="spike.plugins.NMR.Integrate.Integralitem">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.NMR.Integrate.</code><code class="sig-name descname">Integralitem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span></em>, <em class="sig-param"><span class="n">curve</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integralitem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integralitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integralitem.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">bias</span></em>, <em class="sig-param"><span class="n">calibration</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integralitem.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integralitem.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a dataset and a constant bias, recompute the curve and the value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="spike.plugins.NMR.Integrate.Integrals">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.NMR.Integrate.</code><code class="sig-name descname">Integrals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">autothresh</span><span class="o">=</span><span class="default_value">10.0</span></em>, <em class="sig-param"><span class="n">calibration</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bias</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">separation</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">wings</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">compute</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwds</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>the class to hold a list of Integral</p>
+<p>an item is [start, end, curve as np.array(), value]
+start and end are in index !</p>
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.calibrate">
+<code class="sig-name descname">calibrate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">calibration</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals.calibrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes integration values from curves
+either use calibration value as a scale,
+if calibration is None put the largest to 100.0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.display">
+<code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">integoff</span><span class="o">=</span><span class="default_value">0.3</span></em>, <em class="sig-param"><span class="n">integscale</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">'red'</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">labelxposition</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">labelyposition</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">regions</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">figure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">curvedict</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">labeldict</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals.display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays integrals</p>
+<p>figure     mpl axes to draw on - will create one if None
+zoom       zoom</p>
+<p>integoff    offset of drawing 0..1
+integscale  scale of the largest integral
+color       color
+regions     highlight regions
+curvedict   additional parameters for the drawing
+label       draw integral values
+labelxposition  position of label in x 0..1 with respect to the integral drawing
+labelyposition  position of label in y 0..1 with respect to the screen - None means top of integral
+labeldict   additional parameters for the labels</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.do_compute">
+<code class="sig-name descname">do_compute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals.do_compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.do_compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>realize the computation, using internal parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.integvalues">
+<em class="property">property </em><code class="sig-name descname">integvalues</code><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.integvalues" title="Permalink to this definition">¶</a></dt>
+<dd><p>the list of calibrated values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.integzones">
+<em class="property">property </em><code class="sig-name descname">integzones</code><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.integzones" title="Permalink to this definition">¶</a></dt>
+<dd><p>the list of (start, end) of integral zones</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.peakstozones">
+<code class="sig-name descname">peakstozones</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals.peakstozones"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.peakstozones" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes integrals zones from peak list, 
+separation : if two peaks are less than separation x width n they are aggregated, default = 3
+wings : integrals sides are extended by wings x width, default = 5</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.recalibrate">
+<code class="sig-name descname">recalibrate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entry</span></em>, <em class="sig-param"><span class="n">calib_value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals.recalibrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.recalibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>on a dataset already integrated, the integrals are adapted so that
+the given entry is set to the given value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.report">
+<code class="sig-name descname">report</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals.report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.report" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.to_pandas">
+<code class="sig-name descname">to_pandas</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals.to_pandas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.to_pandas" title="Permalink to this definition">¶</a></dt>
+<dd><p>export extract of current integrals list to pandas Dataframe</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.NMR.Integrate.Integrals.zonestocurves">
+<code class="sig-name descname">zonestocurves</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#Integrals.zonestocurves"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.Integrals.zonestocurves" title="Permalink to this definition">¶</a></dt>
+<dd><p>from integral lists, computes curves and values</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Integrate.calibrate">
+<code class="sig-prename descclassname">spike.plugins.NMR.Integrate.</code><code class="sig-name descname">calibrate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">entry</span></em>, <em class="sig-param"><span class="n">calib_value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#calibrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>on a dataset already integrated, the integrals are adapted so that
+the given entry is set to the given value.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Integrate.display">
+<code class="sig-prename descclassname">spike.plugins.NMR.Integrate.</code><code class="sig-name descname">display</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">integoff</span><span class="o">=</span><span class="default_value">0.3</span></em>, <em class="sig-param"><span class="n">integscale</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">'red'</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">labelxposition</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">labelyposition</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">regions</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">figure</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">curvedict</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">labeldict</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays integrals</p>
+<p>figure     mpl axes to draw on - will create one if None
+zoom       zoom</p>
+<p>integoff    offset of drawing 0..1
+integscale  scale of the largest integral
+color       color
+regions     highlight regions
+curvedict   additional parameters for the drawing
+label       draw integral values
+labelxposition  position of label in x 0..1 with respect to the integral drawing
+labelyposition  position of label in y 0..1 with respect to the screen - None means top of integral
+labeldict   additional parameters for the labels</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.Integrate.integrate">
+<code class="sig-prename descclassname">spike.plugins.NMR.Integrate.</code><code class="sig-name descname">integrate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kw</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/Integrate.html#integrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.Integrate.integrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes integral zones and values from peak list,</p>
+<p>separation : if two peaks are less than separation x width n they are aggregated, default = 3
+wings : integrals sides are extended by wings x width, default = 5
+bias: this value is substracted to data before integration
+calibration: a coefficient to multiply all integrals / if None (default) largest is set at 100</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.NMR.PALMA">
+<span id="spike-plugins-nmr-palma-module"></span><h2>spike.plugins.NMR.PALMA module<a class="headerlink" href="#module-spike.plugins.NMR.PALMA" title="Permalink to this headline">¶</a></h2>
+<p>complete DOSY processing, using the PALMA algorithm</p>
+<p>This program uses the PALMA algorithm, presented in the manuscript</p>
+<p>Cherni, A., Chouzenoux, E., &amp; Delsuc, M.-A. (2017).
+PALMA, an improved algorithm for DOSY signal processing.
+Analyst, 142(5), 772–779. <a class="reference external" href="http://doi.org/10.1039/c6an01902a">http://doi.org/10.1039/c6an01902a</a></p>
+<p>see manuscript for details.</p>
+<p>Authors:
+Afef Cherni, Emilie Chouzenoux, and Marc-André Delsuc</p>
+<p>Licence: CC-BY-NC-SA   <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">https://creativecommons.org/licenses/by-nc-sa/4.0/</a></p>
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.Import_DOSY">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">Import_DOSY</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">nucleus</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#Import_DOSY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.Import_DOSY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import and calibrate DOSY data-set from a Bruker ser file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.Import_DOSY_proc">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">Import_DOSY_proc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">nucleus</span><span class="o">=</span><span class="default_value">'1H'</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#Import_DOSY_proc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.Import_DOSY_proc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import and calibrate DOSY data-set from a Bruker 2rr file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.L1">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">L1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#L1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.L1" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes L1 norm of x</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.PPXAplus">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">PPXAplus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">K</span></em>, <em class="sig-param"><span class="n">Binv</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">eta</span></em>, <em class="sig-param"><span class="n">nbiter</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">lamda</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">prec</span><span class="o">=</span><span class="default_value">1e-12</span></em>, <em class="sig-param"><span class="n">full_output</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#PPXAplus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.PPXAplus" title="Permalink to this definition">¶</a></dt>
+<dd><p>performs the PPXA+ algorithm
+K : a MxN matrix which transform from data space to image space
+Binv : inverse of (Id + K.t K)
+y : a M vector containing the data
+a : an estimate of $sum{x}$ where x is final image - used as a bayesian prior of x
+eta : an estimate of the standard deviation of the noise in y
+nbiter : maximum number of iteration to do
+lamda: is in [0..1], the weigth of l1 vs MaxEnt regularisation</p>
+<blockquote>
+<div><p>lamda = 0 is full L1
+lamda = 1 is full MaxEnt</p>
+</div></blockquote>
+<p>prec: precision of the result, algo will stop if steps are below this evel
+full_output: if True, will compute additional terms during convergence (slower):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>parameters =  (lcrit, lent, lL1, lresidus)</dt><dd><p>with lcrit: the optimized criterion
+len: evolution of -entropy
+lL1: evolution of L1(x)
+lresidus: evolution of the distance ||Kx-y||</p>
+</dd>
+</dl>
+<p>if False, returns the number of performed iterations</p>
+</div></blockquote>
+<p>returns
+(x, parameters), where x is the computed optimal image</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.approx_lambert">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">approx_lambert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#approx_lambert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.approx_lambert" title="Permalink to this definition">¶</a></dt>
+<dd><p>approximation of W( exp(x) )
+no error below 50, and  less than 0.2% error for x&gt;50 and converges toward 0 for x-&gt;inf
+does not overflow !     does not NaN</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.auto_damp_width">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">auto_damp_width</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#auto_damp_width"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.auto_damp_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>uses the tab buffer to determine the optimum dmin and dmax for ILT processing</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.calibdosy">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">calibdosy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">litdelta</span></em>, <em class="sig-param"><span class="n">bigdelta</span></em>, <em class="sig-param"><span class="n">recovery</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">seq_type</span><span class="o">=</span><span class="default_value">'ste'</span></em>, <em class="sig-param"><span class="n">nucleus</span><span class="o">=</span><span class="default_value">'1H'</span></em>, <em class="sig-param"><span class="n">maxgrad</span><span class="o">=</span><span class="default_value">50.0</span></em>, <em class="sig-param"><span class="n">maxtab</span><span class="o">=</span><span class="default_value">50.0</span></em>, <em class="sig-param"><span class="n">gradshape</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">unbalancing</span><span class="o">=</span><span class="default_value">0.2</span></em>, <em class="sig-param"><span class="n">os_tau</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">os_version</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#calibdosy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.calibdosy" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the DOSY calibrating factor from the parameters</p>
+<blockquote>
+<div><blockquote>
+<div><dl>
+<dt>bigdelta float</dt><dd><p>“Big Delta”  : diffusion delay in msec</p>
+</dd>
+<dt>litdelta float</dt><dd><p>“little Delta”  : gradient duration in msec</p>
+</dd>
+<dt>seq_type enum “pgse”,”ste”,”bpp_ste”,”ste_2echoes”,”bpp_ste_2echoes”,”oneshot” / default ste</dt><dd><dl>
+<dt>the type of DOSY sequence used</dt><dd><p>pgse : the standard hahn echoe sequence
+ste : the standard stimulated echoe sequence
+bpp_ste : ste with bipolar gradient pulses
+ste_2echoes : ste compensated for convection
+bpp_ste_2echoes : bpp_ste compensated for convection
+oneshot : the oneshot sequence from Pelta, Morris, Stchedroff, Hammond, 2002, Magn.Reson.Chem. 40, p147</p>
+<blockquote>
+<div><p>uses unbalancing=0.2, os_tau=None, os_version=1
+unbalancing is called alpha in the publication
+os_tau is called tau in the publication
+os_version=1 corresponds to equation(1) / os_version=2 to (2)</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+<dt>nucleus enum “1H”,”2H”,”13C”,”15N”,”17O”,”19F”,”31P” / default 1H</dt><dd><p>the observed nucleus</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>recovery float</dt><dd><p>Gradient recovery delay</p>
+</dd>
+<dt>maxgrad float</dt><dd><p>Maximum Amplificator Gradient Intensity, in G/cm    / default 50.0</p>
+</dd>
+<dt>maxtab float</dt><dd><p>Maximum Tabulated Gradient Value in the tabulated file. / default 50.0
+Bruker users with gradient list in G/cm (difflist) use maxgrad here
+Bruker users with gradient list in % use 100 here
+Varian users use 32768 here</p>
+</dd>
+<dt>gradshape float</dt><dd><p>integral factor depending on the gradient shape used / default 1.0
+typical values are :</p>
+<blockquote>
+<div><p>1.0 for rectangular gradients
+0.6366 = 2/pi for sine bell gradients
+0.4839496 for 4% truncated gaussian (Bruker gauss.100 file)</p>
+</div></blockquote>
+<p>Bruker users using difflist use 1.0 here, as it is already included in difflist</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.criterion">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">criterion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">K</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">lamda</span></em>, <em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#criterion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.criterion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute regularization function, (not used during iteration without full_output)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.dcalibdosy">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">dcalibdosy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npk</span></em>, <em class="sig-param"><span class="n">nucleus</span><span class="o">=</span><span class="default_value">'1H'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#dcalibdosy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.dcalibdosy" title="Permalink to this definition">¶</a></dt>
+<dd><p>use stored parameters to determine correct DOSY calbiration</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.determine_seqtype">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">determine_seqtype</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pulprog</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#determine_seqtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.determine_seqtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>given the PULPROG name, determines which seq_type is to be used
+PULPROG should be follow the standard Bruker naming scheme</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.do_palma">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">do_palma</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">miniSNR</span><span class="o">=</span><span class="default_value">32</span></em>, <em class="sig-param"><span class="n">mppool</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nbiter</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">lamda</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">1.2</span></em>, <em class="sig-param"><span class="n">precision</span><span class="o">=</span><span class="default_value">1e-08</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#do_palma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.do_palma" title="Permalink to this definition">¶</a></dt>
+<dd><p>realize PALMA computation on each column of the 2D datasets
+dataset should have been prepared with prepare_palma()</p>
+<p>the noise in the initial spectrum is analysed on the first DOSY increment
+then each column is processed with palma() if its intensity is sufficient</p>
+<p>miniSNR: determines the minimum Signal to Noise Ratio of the signal for allowing the processing
+mppool: if passed as a multiprocessing.Pool, it will be used for parallel processing</p>
+<p>the other parameters are transparently passed to palma()</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.ent">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">ent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#ent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.ent" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes Entropy of x</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.eval_dosy_noise">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">eval_dosy_noise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">window_size</span><span class="o">=</span><span class="default_value">9</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">3</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#eval_dosy_noise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.eval_dosy_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>we estimate the noise in x by computing difference from polynomial fitting
+input: x - a real vector
+return: the noise level</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.lambert_w">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">lambert_w</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#lambert_w"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.lambert_w" title="Permalink to this definition">¶</a></dt>
+<dd><p>W Lambert function</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.palma">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">palma</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">N</span></em>, <em class="sig-param"><span class="n">nbiter</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">uncertainty</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">lamda</span><span class="o">=</span><span class="default_value">0.1</span></em>, <em class="sig-param"><span class="n">precision</span><span class="o">=</span><span class="default_value">1e-08</span></em>, <em class="sig-param"><span class="n">full_output</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#palma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.palma" title="Permalink to this definition">¶</a></dt>
+<dd><p>realize PALMA computation on a 1D dataset containing a decay
+dataset should have been prepared with prepare_palma
+on each column, the noise is estimated, then PPXA+ algorithm is applied
+nbiter: maximum iteration number of the PALMA algo</p>
+<dl class="simple">
+<dt>uncertainty: noise is estimated on the dataset, and then multiplied by this value</dt><dd><p>so uncertainty=1 is full confidence in the noise evaluation algo
+uncertainty&gt;1 allows more room for algo when data quality is poor</p>
+</dd>
+<dt>lamda is the balance between entropy and L1</dt><dd><p>lamda = 0 is full L1
+lamda = 1 is full Ent</p>
+</dd>
+</dl>
+<p>precision: is the required precision for the convergence
+full_output is used for debugging purposes, do not use in production</p>
+<blockquote>
+<div><p>check PPXAplus() doc for details</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.prepare_palma">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">prepare_palma</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">finalsize</span></em>, <em class="sig-param"><span class="n">Dmin</span></em>, <em class="sig-param"><span class="n">Dmax</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#prepare_palma"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.prepare_palma" title="Permalink to this definition">¶</a></dt>
+<dd><p>this method prepares a DOSY dataset for processing
+- computes experimental values from imported parameter file
+- prepare DOSY transformation matrix</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.process">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">param</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>do the elemental processing, used by loops</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.prox_l1">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">prox_l1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">w</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#prox_l1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.prox_l1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute proximity operator of L1 norm”</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.prox_l1_Sent">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">prox_l1_Sent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">lamda</span></em>, <em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#prox_l1_Sent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.prox_l1_Sent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the proximity operator of L1 + Shannon Entropy</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.prox_l2">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">prox_l2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">dx</span></em>, <em class="sig-param"><span class="n">eta</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#prox_l2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.prox_l2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute projection of x onto l2 ball ||z-dx||&lt;=eta
+x and dx are image vectors</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.residus">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">residus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">K</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#residus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.residus" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes distance between y and Kx</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.PALMA.test">
+<code class="sig-prename descclassname">spike.plugins.NMR.PALMA.</code><code class="sig-name descname">test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/PALMA.html#test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.PALMA.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.NMR.apmin">
+<span id="spike-plugins-nmr-apmin-module"></span><h2>spike.plugins.NMR.apmin module<a class="headerlink" href="#module-spike.plugins.NMR.apmin" title="Permalink to this headline">¶</a></h2>
+<p>Autmomatic phase correction for 1D NMR spectra</p>
+<p>based on an earlier version from NPK</p>
+<p>works by minimizing the negative part of the spectrum
+WILL NOT WORK on positive/negative spectra (JMOD, W-LOGSY, etc.)</p>
+<p>Created by DELSUC Marc-André on 2016-05-23.
+Copyright (c) 2016 IGBMC. All rights reserved.</p>
+<dl class="py function">
+<dt id="spike.plugins.NMR.apmin.apmin">
+<code class="sig-prename descclassname">spike.plugins.NMR.apmin.</code><code class="sig-name descname">apmin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">first_order</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">inwater</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">baselinecorr</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">bcpoints</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">apt</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/apmin.html#apmin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.apmin.apmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>automatic 1D phase correction
+phase by minimizing the negative wing of the 1D spectrum</p>
+<p>first_order = False   inhibit optimizing 1st order phase
+inwater = True   does not look to the central zone of the spectrum
+baselinecorr = True, an advanced baseline correction is applied on the final steps
+apt = True   (Attached proton test) performs the phasing on up-down spectra, such as APT / DEPT 13C spectra.</p>
+<p>performs a grid/simplex search on P0 first then on (P0 P1)    
+the dataset is returned phased and the values are stored in d.axis1.P0 and d.axis1.P1</p>
+<p>P1 is kept to 0 if first_order=False</p>
+<dl class="simple">
+<dt>note that if baselinecorr is True</dt><dd><ul class="simple">
+<li><p>the algo becomes quite slow !</p></li>
+<li><p>a simple linear baseline correction is always applied anyway anyhow</p></li>
+</ul>
+</dd>
+</dl>
+<p>adapted from NPK v1 
+MAD, may 2016</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.apmin.neg_wing">
+<code class="sig-prename descclassname">spike.plugins.NMR.apmin.</code><code class="sig-name descname">neg_wing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">bcorr</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">bcpoints</span><span class="o">=</span><span class="default_value">6</span></em>, <em class="sig-param"><span class="n">inwater</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">apt</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/apmin.html#neg_wing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.apmin.neg_wing" title="Permalink to this definition">¶</a></dt>
+<dd><p>measure negative wing power of NPKData d</p>
+<p>if bcorr == True, a baseline correction is applied
+if inwater == True, the 10% central zone is just zeroed
+if apt == False, computes the std() of the negative points  (distance to mean)</p>
+<blockquote>
+<div><p>== True, computes the sum(abs()) of all the points (l_1 norm)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.NMR.apmin.phase_pivot">
+<code class="sig-prename descclassname">spike.plugins.NMR.apmin.</code><code class="sig-name descname">phase_pivot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">p0</span></em>, <em class="sig-param"><span class="n">p1</span></em>, <em class="sig-param"><span class="n">pivot</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/NMR/apmin.html#phase_pivot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.NMR.apmin.phase_pivot" title="Permalink to this definition">¶</a></dt>
+<dd><p>three parameter phasing routine
+pivot = 0 is on left side
+pivot = 1 is on right side
+all intermediate values are possible
+returns actual (P0, P1)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.NMR">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-spike.plugins.NMR" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">spike</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html">SpI <em>(Spike Interactive)</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#release-notes">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#simple-installation">simple installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#installing-additional-tools">Installing additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#licenses">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#source-and-dependencies">source and dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#developping-for-spike">developping for SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Doc.html">First contact SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spike.html">spike package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">SPIKE Relase Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">SPIKE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html#secondary-licenses">Secondary Licenses</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, M-A.Delsuc.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/spike.plugins.NMR.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

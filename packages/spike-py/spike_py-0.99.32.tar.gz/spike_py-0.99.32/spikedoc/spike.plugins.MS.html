@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spike.plugins.MS package &#8212; spike 0.99.23 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="spike-plugins-ms-package">
+<h1>spike.plugins.MS package<a class="headerlink" href="#spike-plugins-ms-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-spike.plugins.MS.FTMS_calib">
+<span id="spike-plugins-ms-ftms-calib-module"></span><h2>spike.plugins.MS.FTMS_calib module<a class="headerlink" href="#module-spike.plugins.MS.FTMS_calib" title="Permalink to this headline">¶</a></h2>
+<p>A utility for calibration of MS experiments</p>
+<p>based on a list of experimentally measured m/z and theoretical ones
+The method will reduce the difference between lists.</p>
+<dl class="simple">
+<dt>adds ppm() ppm_error() and display_icalib() methods to the FTMSAxis object</dt><dd><p>and imzmeas and mzref attributes</p>
+</dd>
+</dl>
+<p>Adds the following methods():
+to FTICR datasets</p>
+<blockquote>
+<div><p>set_calib(mzmeas, mzref, axis=1)
+calib(axis=1, method=’l1’, verbose=False)
+display_calib(axis=1, compare=False)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>to FTICR axes</dt><dd><p>display_icalib(xref, mzref, symbol=’bo’)
+ppm_error(xref, mzref)
+ppm(xref, mzref)
+display_icalib(xref, mzref, symbol=’bo’)</p>
+</dd>
+<dt>and the following attributes:</dt><dd><p>RefAxis: a backup FTICRAxis, used to store the previous calibration</p>
+</dd>
+<dt>to FTICR axes</dt><dd><p>mzref : list of m/z of reference values
+imzmeas : list of pea indices of reference peaks (to be match with mzref)</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.calib">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">calib</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npk</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'l1'</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#calib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.calib" title="Permalink to this definition">¶</a></dt>
+<dd><p>the current FTMS experiment is recalibrated optimaly 
+along its axis ‘axis’ (usefull only in 2D) using parameters provided with set_calib()
+uses the current (2 or 3 parameters) calibration</p>
+<p>method is either ‘l1’ (robust) or ‘l2’ (classic)</p>
+<p>The current calibration is copied to a new unused axis called RefAxis</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.calib_loadref">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">calib_loadref</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">recalibrate</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#calib_loadref"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.calib_loadref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in a <a href="#id1"><span class="problematic" id="id2">*</span></a>.ref Bruker file holding a set of calibrating values for MS
+with the following format:</p>
+<blockquote>
+<div><p># comments</p>
+<p># TuneMixPos         m/z           charge
+C5H12O2N             118.086255    +1
+C6H19O6N3P3          322.048121    +1
+…</p>
+</div></blockquote>
+<p>and associate the reference list to the experiment, preparing for recalibration</p>
+<p>if recalibrate is True, values will be recomputed, with values interpreted as formula or peptides (A letter code)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.computes_index">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">computes_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">meas</span></em>, <em class="sig-param"><span class="n">axis</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#computes_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.computes_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>locates in index measured values</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.display_calib">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">display_calib</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">compare</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#display_calib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.display_calib" title="Permalink to this definition">¶</a></dt>
+<dd><p>generates a plot of the current calibration
+if compare is True, will try to draw the previous calibration curve along with the current one</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.distcalib">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">distcalib</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">param</span></em>, <em class="sig-param"><span class="n">xref</span></em>, <em class="sig-param"><span class="n">mzref</span></em>, <em class="sig-param"><span class="n">axis</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#distcalib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.distcalib" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the residual to minimize when calibrating
+basically a wrapper around axis.ppm_error</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.icalib">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">icalib</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npk</span></em>, <em class="sig-param"><span class="n">xind</span></em>, <em class="sig-param"><span class="n">ref</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'l1'</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#icalib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.icalib" title="Permalink to this definition">¶</a></dt>
+<dd><p>given a list of location in index ‘xind’ and of theoretical values ‘ref’
+the current FTMS experiment is recalibrated optimatly along its axis ‘axis’ (usefull only in 2D)
+uses the current (2 or 3 parameters) calibration</p>
+<p>method is either ‘l1’ (robust) or ‘l2’ (classic)</p>
+<p>The current calibration is copied to a new unused axis called RefAxis</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.l1calib">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">l1calib</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">param</span></em>, <em class="sig-param"><span class="n">xref</span></em>, <em class="sig-param"><span class="n">mzref</span></em>, <em class="sig-param"><span class="n">axis</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#l1calib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.l1calib" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the sum of residual to minimize when calibrating
+basically a wrapper around axis.ppm</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.mzcalib">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">mzcalib</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xind</span></em>, <em class="sig-param"><span class="n">ref</span></em>, <em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">'l1'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#mzcalib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.mzcalib" title="Permalink to this definition">¶</a></dt>
+<dd><p>fit axis parameters so that points located at xind be closest to ref values
+fits on two parameters if the 3rd (ML3 ie axis.calibC) is zero
+method = l2      uses levenberg-marqtart on l2 norm : classical method
+method = l1      uses powell on l1 norm : robust method</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.ppm">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">ppm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">xref</span></em>, <em class="sig-param"><span class="n">mzref</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#ppm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.ppm" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the mean error in ppm from a array of positions (xref) and the theoretical m/z (mzref)
+uses l1 norm !
+xref : array of point coordinates of the reference points
+mzref: array of reference m/z</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.ppm_error">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">ppm_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">xref</span></em>, <em class="sig-param"><span class="n">mzref</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#ppm_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.ppm_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the error from a array of positions (xref) and the theoretical m/z (mzref)
+returns an array with errors in ppm
+xref : array of point coordinates of the reference points
+mzref: array of reference m/z</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.read_ref">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">read_ref</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#read_ref"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.read_ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in a <a href="#id3"><span class="problematic" id="id4">*</span></a>.ref Bruker file holding a set of calibrating values for MS
+returns a referencing dictionary {‘FORMULA’:(value,charge), … }</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.recalibrate">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">recalibrate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">calib</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#recalibrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.recalibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>a referencing dictionary {‘FORMULA’:value, … }</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.FTMS_calib.set_calib">
+<code class="sig-prename descclassname">spike.plugins.MS.FTMS_calib.</code><code class="sig-name descname">set_calib</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">mzmeas</span></em>, <em class="sig-param"><span class="n">mzref</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/FTMS_calib.html#set_calib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.FTMS_calib.set_calib" title="Permalink to this definition">¶</a></dt>
+<dd><p>preset parameters for mass calibration
+mzref : list of reference m/z of calibrants
+mzmeas : list of measured m/z of calibrants</p>
+<p>axis is the axis to be calibrated, defaut is 1</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.MS.PhaseMS">
+<span id="spike-plugins-ms-phasems-module"></span><h2>spike.plugins.MS.PhaseMS module<a class="headerlink" href="#module-spike.plugins.MS.PhaseMS" title="Permalink to this headline">¶</a></h2>
+<p>Phase correction for MS</p>
+<p>includes 2nd order correction</p>
+<dl class="py function">
+<dt id="spike.plugins.MS.PhaseMS.movepivot">
+<code class="sig-prename descclassname">spike.plugins.MS.PhaseMS.</code><code class="sig-name descname">movepivot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p0</span></em>, <em class="sig-param"><span class="n">p1</span></em>, <em class="sig-param"><span class="n">p2</span></em>, <em class="sig-param"><span class="n">pvbef</span></em>, <em class="sig-param"><span class="n">pvaft</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/PhaseMS.html#movepivot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.PhaseMS.movepivot" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes a new set of parameters whil moving pivot from pvbef to pvaft</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.MS.PhaseMS.phase">
+<code class="sig-prename descclassname">spike.plugins.MS.PhaseMS.</code><code class="sig-name descname">phase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ph0</span></em>, <em class="sig-param"><span class="n">ph1</span></em>, <em class="sig-param"><span class="n">ph2</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">pivot</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/PhaseMS.html#phase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.PhaseMS.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>apply a phase correction along given axis
+PH0 is in degrees
+PH1 PH2 corrections are in nb of turns over the whole spectral width,</p>
+<blockquote>
+<div><p>warning, this is different from usual NMR phases</p>
+</div></blockquote>
+<dl class="simple">
+<dt>pivot is the center of the 1st &amp; 2nd order term goes 0.0 … 1.0</dt><dd><p>default value is 0 (left/slow frequency side)
+warning, this is different from usual NMR phases</p>
+</dd>
+<dt>for a N complex spectrum, correction on ith point is </dt><dd><p>ph = ph0 + ph1*(i/N - pv) + ph2*(i/N - pv)^2</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.MS.diagonal_2DMS">
+<span id="spike-plugins-ms-diagonal-2dms-module"></span><h2>spike.plugins.MS.diagonal_2DMS module<a class="headerlink" href="#module-spike.plugins.MS.diagonal_2DMS" title="Permalink to this headline">¶</a></h2>
+<p>computes diagonal of 2D-MS spectra</p>
+<p>Created by DELSUC Marc-André on 2020-12-10.</p>
+<dl class="py function">
+<dt id="spike.plugins.MS.diagonal_2DMS.diagonal">
+<code class="sig-prename descclassname">spike.plugins.MS.diagonal_2DMS.</code><code class="sig-name descname">diagonal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/MS/diagonal_2DMS.html#diagonal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.MS.diagonal_2DMS.diagonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>allows to extract the diagonal of a 2D FTMS spectrum</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.MS">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-spike.plugins.MS" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">spike</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html">SpI <em>(Spike Interactive)</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#release-notes">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#simple-installation">simple installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#installing-additional-tools">Installing additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#licenses">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#source-and-dependencies">source and dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#developping-for-spike">developping for SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Doc.html">First contact SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spike.html">spike package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">SPIKE Relase Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">SPIKE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html#secondary-licenses">Secondary Licenses</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, M-A.Delsuc.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/spike.plugins.MS.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

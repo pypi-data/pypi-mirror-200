@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spike.plugins.specials package &#8212; spike 0.99.23 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="spike-plugins-specials-package">
+<h1>spike.plugins.specials package<a class="headerlink" href="#spike-plugins-specials-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-spike.plugins.specials.bokeh_display">
+<span id="spike-plugins-specials-bokeh-display-module"></span><h2>spike.plugins.specials.bokeh_display module<a class="headerlink" href="#module-spike.plugins.specials.bokeh_display" title="Permalink to this headline">¶</a></h2>
+<p>displays interactive plots through bokeh, allows to save them in html format.</p>
+<p>This plugin uses bokeh (<a class="reference external" href="https://bokeh.pydata.org/en/latest/">https://bokeh.pydata.org/en/latest/</a>) to build and display interactive plots.
+It adds npkd.bokeh_fig, a python dictionary containing the styles (colors, lines…) and npkd.bokeh_plot containing the plot itself (bokeh figure format).</p>
+<dl>
+<dt>To make it work in the notebook add:</dt><dd><p>from bokeh.io import show,output_notebook
+output_notebook()</p>
+</dd>
+<dt>And do: </dt><dd><p>npkd.bokeh(show=True)</p>
+</dd>
+<dt>To save the plot in html format after doing npkd.bokeh(show=True):</dt><dd><p>from bokeh.resources import CDN
+from bokeh.embed import file_html
+html_text = file_html(npkd.bokeh_plot, CDN, “Title”)
+with open(“bokehplot.html”, “w”) as file:</p>
+<blockquote>
+<div><p>file.write(html_text)</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py function">
+<dt id="spike.plugins.specials.bokeh_display.bokeh_display">
+<code class="sig-prename descclassname">spike.plugins.specials.bokeh_display.</code><code class="sig-name descname">bokeh_display</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">autoscalethresh</span><span class="o">=</span><span class="default_value">3.0</span></em>, <em class="sig-param"><span class="n">absmax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xlabel</span><span class="o">=</span><span class="default_value">'_def_'</span></em>, <em class="sig-param"><span class="n">ylabel</span><span class="o">=</span><span class="default_value">'_def_'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">image</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">mode3D</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">zoom</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mpldic</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">dbkdic</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">dfigdic</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">linewidth</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">plot_width</span><span class="o">=</span><span class="default_value">600</span></em>, <em class="sig-param"><span class="n">plot_height</span><span class="o">=</span><span class="default_value">400</span></em>, <em class="sig-param"><span class="n">sizing_mode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">redraw</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">tools</span><span class="o">=</span><span class="default_value">'pan, box_zoom, box_select, reset, save'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/bokeh_display.html#bokeh_display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.bokeh_display.bokeh_display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display using bokeh instead of matplotlib</p>
+<p>scale       allows to increase the vertical scale of display
+absmax      overwrite the value for the largest point, which will not be computed</p>
+<blockquote>
+<div><p>display is scaled so that the largest point is first computed (and stored in absmax),
+and then the value at absmax/scale is set full screen</p>
+</div></blockquote>
+<dl class="simple">
+<dt>show        will call bk.show() at the end, allowing every declared display to be shown on-screen</dt><dd><p>useless in ipython/jupyter notebook</p>
+</dd>
+</dl>
+<p>title       add a title to the bokeh plot
+label       add a label text to plot
+xlabel, ylabel    axes label (default is self.currentunit - use None to remove)
+axis        used as axis if present, axis length should match experiment length</p>
+<blockquote>
+<div><p>in 2D, should be a pair (xaxis,yaxis)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>image       if True, the function will generate the 2D NMR FID of data,</dt><dd><p>if False (Default), the function present contour plots.</p>
+</dd>
+</dl>
+<p>mode3D      not implemented
+zoom        is a tuple defining the zoom window (left,right) or   ((F1_limits),(F2_limits))</p>
+<blockquote>
+<div><p>defined in the current axis unit (points, ppm, m/z etc ….)</p>
+</div></blockquote>
+<p>mpldic      a dictionnary passed as is to the matplotlib plot command 
+dbkdic      a dictionnary passed as is to populated the parameters of the bokeh graph 
+dfigdic     a dictionnary passed as is to populated the content of the bokeh figure
+linewidth   linewidth for the plots (useful for example when using seaborn)
+color       if 1D is the color of the curve,</p>
+<blockquote>
+<div><p>if 2D FID is the palette name to be used,
+if 2D contour is the color set to be used by matplotlib.</p>
+</div></blockquote>
+<p>plot_width, plot_height  width and height of the plot
+sizing_mode if provided, resize plot according to the window chosen sizes.</p>
+<blockquote>
+<div><p>e.g. “scale_width”, “scale_height”, “scale_both”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>tools       a string containing the tools to be available for bokeh interactivity.</dt><dd><p>e.g. “pan, box_zoom, box_select, reset, save” (see bokeh doc for more info)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.specials.bokeh_display.get_contour_data">
+<code class="sig-prename descclassname">spike.plugins.specials.bokeh_display.</code><code class="sig-name descname">get_contour_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/bokeh_display.html#get_contour_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.bokeh_display.get_contour_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get informations about contours created by matplotlib.
+ax is the input matplotlob contour ax (cf. fig,ax produced by matplotlib)
+xs and ys are the different contour lines got out of the matplotlib. col is the color corresponding to the lines.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.specials.pg_sane">
+<span id="spike-plugins-specials-pg-sane-module"></span><h2>spike.plugins.specials.pg_sane module<a class="headerlink" href="#module-spike.plugins.specials.pg_sane" title="Permalink to this headline">¶</a></h2>
+<p>plugin for PG_Sane algorithm,  used for NUS processing</p>
+<p>It takes a NUS acquired transient, and fill it by estimating the missing values.</p>
+<p>associated publications</p>
+<ul class="simple">
+<li><p>Lionel Chiron, Afef Cherni, Christian Rolando, Emilie Chouzenoux, Marc-André Delsuc
+Fast Analysis of Non Uniform Sampled DataSets in 2D-FT-ICR-MS. - in progress</p></li>
+<li><p>Bray, F., Bouclon, J., Chiron, L., Witt, M., Delsuc, M.-A., &amp; Rolando, C. (2017).
+Nonuniform Sampling Acquisition of Two-Dimensional Fourier Transform Ion Cyclotron Resonance Mass Spectrometry for Increased Mass Resolution of Tandem Mass Spectrometry Precursor Ions.
+Anal. Chem., acs.analchem.7b01850. <a class="reference external" href="http://doi.org/10.1021/acs.analchem.7b01850">http://doi.org/10.1021/acs.analchem.7b01850</a></p></li>
+<li><p>Chiron, L., van Agthoven, M. A., Kieffer, B., Rolando, C., &amp; Delsuc, M.-A. (2014).
+Efficient denoising algorithms for large experimental datasets and their applications in Fourier transform ion cyclotron resonance mass spectrometry.
+PNAS , 111(4), 1385–1390. <a class="reference external" href="http://doi.org/10.1073/pnas.1306700111">http://doi.org/10.1073/pnas.1306700111</a></p></li>
+</ul>
+<dl class="py function">
+<dt id="spike.plugins.specials.pg_sane.HT">
+<code class="sig-prename descclassname">spike.plugins.specials.pg_sane.</code><code class="sig-name descname">HT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">thresh</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/pg_sane.html#HT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.pg_sane.HT" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the Hard Thresholding of x,
+i.e. all points such as x_i &lt;= thresh are set to 0.0</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.specials.pg_sane.HTproj">
+<code class="sig-prename descclassname">spike.plugins.specials.pg_sane.</code><code class="sig-name descname">HTproj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">k</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/pg_sane.html#HTproj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.pg_sane.HTproj" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the Hard Thresholding of x, on the ball of radius ell_o = k
+i.e. the k largest values are kept, all other are set to 0</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.specials.pg_sane.noise">
+<code class="sig-prename descclassname">spike.plugins.specials.pg_sane.</code><code class="sig-name descname">noise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">iterations</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">tresh</span><span class="o">=</span><span class="default_value">3.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/pg_sane.html#noise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.pg_sane.noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple noise evaluation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.specials.pg_sane.pg_sane">
+<code class="sig-prename descclassname">spike.plugins.specials.pg_sane.</code><code class="sig-name descname">pg_sane</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">HTmode</span><span class="o">=</span><span class="default_value">'projection'</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">iterations</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">HTratio</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rank</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">Lthresh</span><span class="o">=</span><span class="default_value">2.0</span></em>, <em class="sig-param"><span class="n">sampling</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">final</span><span class="o">=</span><span class="default_value">'SANE'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/pg_sane.html#pg_sane"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.pg_sane.pg_sane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Papoulis Gershberg algorithm - stabilized with SANE</p>
+<p>This function takes FID with a partial sampling, and fills the holes with estimated values.
+The FID can then be processed normally, as it was completely acquired.</p>
+<p>mode (threshold or projection) determine PG algorithm
+iterations : the number of iterations used for the program</p>
+<blockquote>
+<div><p>pg_sane converges quite rapidely, and usually 5 to 20 iterations are suffisant.
+when the SNR is high, or for large data-sets (&gt;8k) more iterations might be needed</p>
+</div></blockquote>
+<dl class="simple">
+<dt>HTratio:    number of lines left by HT/projection - usually a few % of the whole spectrum</dt><dd><p>default is 0.01 ( 1% )</p>
+</dd>
+<dt>rank<span class="classifier">a rough estimate of the number of lines present in the FT spectrum of the FID - not stringent -</span></dt><dd><p>if in doubt, use a slightly larger value.</p>
+</dd>
+<dt>Lthresh<span class="classifier">the multiplier for HT/threshold, usually 2.0</span></dt><dd><p>lower recovers more weak signals but requires more iterations
+higher requires less iteration but look only to larger peaks.</p>
+</dd>
+<dt>sampling<span class="classifier">if provided, the sampling index list and npkd is supposed to be zerofilled (missing values set to zero)</span></dt><dd><p>if None, npkd.axis1.sampled should be True, and sampling it will be fetched via npkd.axis1.get_sampling()</p>
+</dd>
+<dt>final: the final step after iterations,</dt><dd><p>default is ‘SANE’: better (noise-less) data-sets, the best reconstruction quality in simulations
+‘PG’ to reapply PG step - produces the cleanest/more compressible data-sets
+‘Reinject’: the closest to acquired data - to use if there is very little noise.</p>
+</dd>
+</dl>
+<p>size: if different from None, pg_sane will also extrapolate to size</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="spike.plugins.specials.pg_sane.sane_pgTests">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.specials.pg_sane.</code><code class="sig-name descname">sane_pgTests</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/pg_sane.html#sane_pgTests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.pg_sane.sane_pgTests" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="py method">
+<dt id="spike.plugins.specials.pg_sane.sane_pgTests.test_NUS_sampling">
+<code class="sig-name descname">test_NUS_sampling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/pg_sane.html#sane_pgTests.test_NUS_sampling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.pg_sane.sane_pgTests.test_NUS_sampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>NUS example
+removing the sampling noise</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.specials.pg_sane.sane_pgTests.test_NUS_sampling2">
+<code class="sig-name descname">test_NUS_sampling2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/pg_sane.html#sane_pgTests.test_NUS_sampling2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.pg_sane.sane_pgTests.test_NUS_sampling2" title="Permalink to this definition">¶</a></dt>
+<dd><p>NUS larger example
+removing the sampling noise</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.specials.wavelet">
+<span id="spike-plugins-specials-wavelet-module"></span><h2>spike.plugins.specials.wavelet module<a class="headerlink" href="#module-spike.plugins.specials.wavelet" title="Permalink to this headline">¶</a></h2>
+<p>A plugin which install wavelet denoising</p>
+<p>This plugin is based on the PyWavelet library, which should be installed independently before trying to use this plugin
+It can be found at: <a class="reference external" href="http://www.pybytes.com/pywavelets/">http://www.pybytes.com/pywavelets/</a></p>
+<p>M-A Delsuc april 2016 from an idea by L Chiron</p>
+<dl class="py class">
+<dt id="spike.plugins.specials.wavelet.WaveLetTest">
+<em class="property">class </em><code class="sig-prename descclassname">spike.plugins.specials.wavelet.</code><code class="sig-name descname">WaveLetTest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/wavelet.html#WaveLetTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.wavelet.WaveLetTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<ul class="simple">
+<li><p>Testing Wavelet plugin-</p></li>
+</ul>
+<dl class="py method">
+<dt id="spike.plugins.specials.wavelet.WaveLetTest.announce">
+<code class="sig-name descname">announce</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/wavelet.html#WaveLetTest.announce"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.wavelet.WaveLetTest.announce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.specials.wavelet.WaveLetTest.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/wavelet.html#WaveLetTest.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.wavelet.WaveLetTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="spike.plugins.specials.wavelet.WaveLetTest.test_wave">
+<code class="sig-name descname">test_wave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/wavelet.html#WaveLetTest.test_wave"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.wavelet.WaveLetTest.test_wave" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>testing wavelet -</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.specials.wavelet.denoise1D">
+<code class="sig-prename descclassname">spike.plugins.specials.wavelet.</code><code class="sig-name descname">denoise1D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">noiseSigma</span></em>, <em class="sig-param"><span class="n">wavelet</span><span class="o">=</span><span class="default_value">'db3'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/wavelet.html#denoise1D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.wavelet.denoise1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>performed the 1D denoising
+data : a 1D numpy array
+wavelet : the wavelet basis used,</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.specials.wavelet.denoise2D">
+<code class="sig-prename descclassname">spike.plugins.specials.wavelet.</code><code class="sig-name descname">denoise2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">noiseSigma</span></em>, <em class="sig-param"><span class="n">wavelet</span><span class="o">=</span><span class="default_value">'db3'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/wavelet.html#denoise2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.wavelet.denoise2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>performed the 2D denoising
+data : a 2D numpy array
+wavelet : the wavelet basis used</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.specials.wavelet.ilog2">
+<code class="sig-prename descclassname">spike.plugins.specials.wavelet.</code><code class="sig-name descname">ilog2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/wavelet.html#ilog2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.wavelet.ilog2" title="Permalink to this definition">¶</a></dt>
+<dd><p>integer log2 definition</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="spike.plugins.specials.wavelet.wavelet">
+<code class="sig-prename descclassname">spike.plugins.specials.wavelet.</code><code class="sig-name descname">wavelet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">npkd</span></em>, <em class="sig-param"><span class="n">nsigma</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">wavelet</span><span class="o">=</span><span class="default_value">'db3'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spike/plugins/specials/wavelet.html#wavelet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#spike.plugins.specials.wavelet.wavelet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the wavelet denoising of a 1D or 2D spectrum.</p>
+<dl class="simple">
+<dt>nsigma  the threshold is nsigma times the estimate noise level,</dt><dd><p>default 1.0 - corresponds to a relatively strong denoising</p>
+</dd>
+<dt>wavelet the wavelet basis used, default ‘db3’ (Daubechies 3)</dt><dd><p>check pywt.wavelist() for the list of possible wavelet</p>
+</dd>
+</dl>
+<p>eg:
+d.wavelet(nsigma=0.5)  # d is cleaned after execution</p>
+<p>ref: Donoho DL (1995) De-noising by soft-thresholding. IEEE Trans Inf Theory 41:613–621.</p>
+<p>Based on the PyWavelet library</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-spike.plugins.specials">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-spike.plugins.specials" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">spike</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html">SpI <em>(Spike Interactive)</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#release-notes">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#simple-installation">simple installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#installing-additional-tools">Installing additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#licenses">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#source-and-dependencies">source and dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#developping-for-spike">developping for SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Doc.html">First contact SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spike.html">spike package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">SPIKE Relase Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">SPIKE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html#secondary-licenses">Secondary Licenses</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, M-A.Delsuc.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/spike.plugins.specials.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

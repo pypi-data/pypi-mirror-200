@@ -1,0 +1,1002 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>SPIKE Relase Notes &#8212; spike 0.99.32-592 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SPIKE License" href="licenses.html" />
+    <link rel="prev" title="First contact SPIKE" href="Doc.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <!-- DO NOT MODIFY this file, it is generated automatically from dev_setup ! --><section id="spike-relase-notes">
+<h1>SPIKE Relase Notes<a class="headerlink" href="#spike-relase-notes" title="Permalink to this heading">¶</a></h1>
+<section id="march-2023">
+<h2>0.99.32 - March 2023<a class="headerlink" href="#march-2023" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Interactive:</p>
+<ul>
+<li><p>NMR and MS: example interactive notebooks have been extended,
+cleaned up and fully checked</p>
+<ul>
+<li><p>better 2D display</p></li>
+<li><p>added documentation</p></li>
+</ul>
+</li>
+<li><p>NMR:</p>
+<ul>
+<li><p>ProcDOSY.ipynb rewritten</p></li>
+<li><p>ReadSMX.ipynb to import TopSpin processed file into Spike</p></li>
+<li><p>SNR evaluation in Proc1D.ipynb</p></li>
+<li><p>added choice of projection in 2D graphics</p></li>
+<li><p>baseline correction is now fully functional</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>updated the plugin mechanism - the previous system was incompatible
+with the coming python 3.12</p>
+<ul>
+<li><p>requires python &gt;= 3.5</p></li>
+<li><p>should not change anything to your set-up</p></li>
+</ul>
+</li>
+<li><p>added Algo.Linepredic.baselinerollrem() to remove baseline roll using
+Linear Prediction</p></li>
+<li><p>extended real2cpx() to 2D operations (was only 1D)</p></li>
+<li><p>improved importing processed DOSY (PALMA plugin)</p>
+<ul>
+<li><p>corrected cyclic import in PALMA</p></li>
+</ul>
+</li>
+<li><p>in BrukerSMX.py corrected for a warning signaling an upcoming
+obsolence</p></li>
+</ul>
+</section>
+<section id="nov-2022">
+<h2>0.99.31 - Nov 2022<a class="headerlink" href="#nov-2022" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>NMR:improvements in spike Interactive</p>
+<ul>
+<li><p>on spectral superposition</p></li>
+<li><p>improved import/export of peak and integral lists, as csv files</p></li>
+</ul>
+</li>
+<li><p>added BrukerNMR.Export_fid (1D)</p></li>
+<li><p>improvements in automatic baseline correction</p></li>
+<li><p>improved apodisation functions</p>
+<ul>
+<li><p>MS: added the kilgour() apodisation, from Kilgour et al
+DOI:10.1002/rcm.7190 handy for phased FTICR-MS data</p></li>
+<li><p>all: added the <code class="docutils literal notranslate"><span class="pre">maxi</span></code> parameter for hamming(), hanning(), and
+kaiser() which becomes a versatile and generalized apodisation <em>(
+was already available for apod_sin() and apod_sq_sin() )</em></p></li>
+<li><p>NMR: normalized gaussenh() (which was not !)</p></li>
+</ul>
+</li>
+<li><p>adapted to python 3.10 - cleaned the code (better grade in QC!)</p></li>
+<li><p><strong>a problem with multiprocessing crashing (core dump!) on my system,
+still investigating</strong></p></li>
+<li><p>corrected a bug in baseline correction, and improved interface</p></li>
+<li><p>NMR: Corrected a bug when importing DOSY from TopSpin</p></li>
+</ul>
+</section>
+<section id="april-2022">
+<h2>0.99.30 - April 2022<a class="headerlink" href="#april-2022" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>spike Interactive NMR</p>
+<ul>
+<li><p>modified SHOW1D to handle the move tool</p></li>
+<li><p>modified selection to right-click (in phaser, peakpicker,
+baseline)</p></li>
+<li><p>display of some acquisition parameters</p></li>
+<li><p>in 1D, corrected errors in managing peaks and calibration</p></li>
+<li><p>better handling of baseline corrections, phasing and better
+graphics</p></li>
+<li><p>dated figure dump</p></li>
+<li><p>corrected displaying integrals</p></li>
+<li><p>improvement in object hierarchy</p></li>
+<li><p>added yratio to SHOW1D, and allow a better zoom experience</p></li>
+</ul>
+</li>
+<li><p>General</p>
+<ul>
+<li><p>adapted to matplotlib 3.5 / python 3.9</p></li>
+<li><p>improved BrukerNMR.import1D_proc to handle different binary
+options</p></li>
+<li><p>added yratio to npk.display()</p></li>
+<li><p>rowc() and colc() method get rows and columns in 2D using current
+unit instead of index (I don’t know why this was not done
+earlier…)</p></li>
+<li><p>added the itoix() ixtoi() ctoix() ixtoc() to access datapoint in
+complex coordinates</p></li>
+<li><p>added a method Peaks.Peaklist1D.pkadd() to add a peak list to an
+existing one</p></li>
+<li><p>added a method Peaks.Peaklist1D.pkaggreg(distance) to aggregate
+close peaks</p></li>
+<li><p>marker “None” in peak display</p></li>
+<li><p>moved config into $(HOME)/.config/Spike</p></li>
+<li><p>corrected a bug when reading old Gifafile where diffusion is not
+defined in the header</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="sept-2021">
+<h2>0.99.29 - Sept 2021<a class="headerlink" href="#sept-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>spike Interactive FTICR - not tested yet -</p></li>
+<li><p>spike Interactive NMR</p>
+<ul>
+<li><p><strong>Phaser2D does not work yet</strong></p></li>
+<li><p>improved the quality of 2D display (smoother interaction, better
+scale selection)</p></li>
+<li><p>corrected a bug introduced in previous version for displaying 2D
+in notebooks</p></li>
+</ul>
+</li>
+<li><p>General: hilbert() ihilbert() and real2cpx() basic transforms <em>(were
+already there, but not isolated as now, should have been done long
+ago)</em></p>
+<ul>
+<li><p>added a “None” mode in displaying peaks</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="aug-2021">
+<h2>0.99.28 - Aug 2021<a class="headerlink" href="#aug-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>spike Interactive NMR</p>
+<ul>
+<li><p>interactive phasing is now much smoother and faster</p></li>
+<li><p>added superimposition of spectra in Proc1DNMR - other will be
+adapted</p></li>
+<li><p>adapted and optimized display in the notebook and in the core code</p></li>
+</ul>
+</li>
+<li><p>General:</p>
+<ul>
+<li><p>added a disp_artist field in NPKData which contains the last
+matplotlib artist generated by display()</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="july-2021">
+<h2>0.99.27 - July 2021<a class="headerlink" href="#july-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>spike interactive in FTICR - many improvements</p>
+<ul>
+<li><p>isotopic pattern simulation using imported <code class="docutils literal notranslate"><span class="pre">isotope</span></code> module (and
+fine isotopic as well - thanks to the excellent prgm neutronstar
+!)</p></li>
+<li><p>processing of narrowband acquisition is correct now</p></li>
+<li><p>better calibration - (still in progress)</p></li>
+<li><p>superimposition of spectra should work now</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="july-2021-1">
+<span id="id1"></span><h2>0.99.26 - July 2021<a class="headerlink" href="#july-2021-1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>FT-ICR:</p>
+<ul>
+<li><p>added support for NarrowBand FTICR acqusition - first steps, need
+to be completed</p></li>
+</ul>
+</li>
+<li><p>General</p>
+<ul>
+<li><p>new command zero_dsp() and rem_dsp() to zero or remove the FID
+header created by the DSP.</p></li>
+<li><p>bug corrections in the 2D peak centroid and display</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="june-2021">
+<h2>0.99.25 - June 2021<a class="headerlink" href="#june-2021" title="Permalink to this heading">¶</a></h2>
+<p><em>0.99.24 was short lived, because additional bugs, introduced in.22 were
+found and corrected</em></p>
+<ul class="simple">
+<li><p>correction for plugins not updated correctly in the pip distribution
+since 0.99.22, was making errors in interactive tools</p></li>
+<li><p>corrected a bug when fitting peaks on a zoomed region</p></li>
+<li><p>NMR: corrections in <code class="docutils literal notranslate"><span class="pre">Proc1DNMR</span></code> notebook in integration tool</p></li>
+</ul>
+</section>
+<section id="june-2021-1">
+<span id="id2"></span><h2>0.99.24 - June 2021<a class="headerlink" href="#june-2021-1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>added a <code class="docutils literal notranslate"><span class="pre">maxdist</span></code> flag in the peak aggregator in plugins.Peaks
+(default to 10*distance)</p></li>
+<li><p>NMR: corrected a bug introduced in 0.99.22 in the interactive phasing
+when moving the pivot</p></li>
+</ul>
+</section>
+<section id="may-2021">
+<h2>0.99.23 - May 2021<a class="headerlink" href="#may-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>MS: first interactive notebook for phasing of FTICR-MS spectra -
+still a bit rough</p></li>
+<li><p>NMR: slight improvements in apmin() (automatic phaser) better search
+algorithm</p></li>
+<li><p>slight improvements in bcorr() (baseline correction), when working on
+complex spectra</p></li>
+<li><p>The logo shows up when loading interactive notebooks - and also a
+nicer set-up</p></li>
+<li><p>new doc is still in development and missing, sorry (phasing is
+keeping me busy)</p></li>
+</ul>
+</section>
+<section id="april-2021-not-released-on-pypi">
+<h2>0.99.22 - April 2021 - not released on pypi -<a class="headerlink" href="#april-2021-not-released-on-pypi" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>change in the plugin set up, there can now be distributed in several
+directories (in that order)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">(distrib</span> <span class="pre">dir)/spike/plugins</span></code> - basic plugins allways loaded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$HOME/spike/plugins</span></code> - plugins specific to the user allways
+loaded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(distrib</span> <span class="pre">dir)/spike/plugins/NMR</span></code> - plugins specific to NMR,
+loaded with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">spike.NMR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(distrib</span> <span class="pre">dir)/spike/plugins/MS</span></code> - plugins specific to MS,
+loaded with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">spike.FTMS</span></code></p></li>
+<li><p>and as before, plugins with a name starting with a <code class="docutils literal notranslate"><span class="pre">_</span></code> are not
+loaded</p></li>
+</ul>
+</li>
+<li><p>MS: new <code class="docutils literal notranslate"><span class="pre">PhaseMS</span></code> plugin, which implements quadratic phase
+correction and permits to phase FTICR spectra</p></li>
+<li><p>a .tm() apodisation (trapeze) which emulates D.Kilgour apodisation
+for phase sensitive FTICR-MS</p></li>
+<li><p>rewrote and reorganized README and documentation</p></li>
+</ul>
+</section>
+<section id="feb-2021">
+<h2>0.99.21 - Feb 2021<a class="headerlink" href="#feb-2021" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>MS:</p>
+<ul>
+<li><p>plugin which implements .diagonal() for computing the diagonal of
+2D FTICR spectra</p></li>
+<li><p>changed the logic to generate downsampled 2D FTICR spectra -
+smaller files, smaller vignettes</p></li>
+<li><p>correction when reading Apex MS dataset for pulse frequency limits
+- thanks to Maria van Agthoven</p></li>
+<li><p>correction ThermoFisher/Orbitrap import code - thanks to Will Kew</p></li>
+</ul>
+</li>
+<li><p>small correction in urQRd - thanks to Will Kew</p></li>
+<li><p>small corrections when opening files</p></li>
+<li><p>many small bugs corrected</p></li>
+</ul>
+</section>
+<section id="nov-2020">
+<h2>0.99.20 - Nov 2020<a class="headerlink" href="#nov-2020" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>MS: corrected a bad bug which corrupted F1 calibration when loading a
+2D-FTICRMS experiment this bug was introduced in the 0.99.14 release
+but was not detected at that time</p></li>
+</ul>
+</section>
+<section id="may-2020">
+<h2>0.99.19 - May 2020<a class="headerlink" href="#may-2020" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>NMR: corrected a bug in BrukerNMR importer…</p></li>
+</ul>
+</section>
+<section id="april-2020">
+<h2>0.99.17 - April 2020<a class="headerlink" href="#april-2020" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>MS: corrected a bug in BrukerMS importer…</p></li>
+</ul>
+</section>
+<section id="april-2020-1">
+<span id="id3"></span><h2>0.99.16 - April 2020<a class="headerlink" href="#april-2020-1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>MS a new Apex0 bruker importer - to access old datasets, with the
+“NMR” setup (acqus pdata …)</p></li>
+<li><p>MS a global BrukerMS importer - Import1D - Import2D</p></li>
+<li><p>a few corrected bugs</p></li>
+</ul>
+</section>
+<section id="march-2020">
+<h2>0.99.15 - March 2020<a class="headerlink" href="#march-2020" title="Permalink to this heading">¶</a></h2>
+<p>This release introduces a major modification in the organisation of the
+<code class="docutils literal notranslate"><span class="pre">NPKData</span></code> object - which is the central object on which everything is
+organized.</p>
+<p><em>Previously</em> <code class="docutils literal notranslate"><span class="pre">NPKData.NPKData</span></code> was the standard class, which created
+NMR object, and other classes (such as <code class="docutils literal notranslate"><span class="pre">FTICR.FTICRData</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Orbitrap.OrbiData</span></code>) inherited from this class and had to overloaded a
+few things. <code class="docutils literal notranslate"><span class="pre">NPKData</span></code> held also all <code class="docutils literal notranslate"><span class="pre">Axis</span></code> definition, both generic
+and for NMR.</p>
+<p><em>Now</em>,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">NPKData._NPKData</span></code> is a generic object - agnostic about the
+spectroscopy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPKData</span></code> holds also the definitions of generic Axes ( <code class="docutils literal notranslate"><span class="pre">Axis</span></code> but
+also <code class="docutils literal notranslate"><span class="pre">TimeAxis</span></code> and <code class="docutils literal notranslate"><span class="pre">LaplaceAxis</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NMR.NMRData</span></code> is the new class for NMR data-sets, <code class="docutils literal notranslate"><span class="pre">NMR</span></code> also
+contains the definitions for all NMR related Axes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FTICR.FTICRData</span></code> and <code class="docutils literal notranslate"><span class="pre">Orbitrap.OrbiData</span></code> now inherit from the
+<code class="docutils literal notranslate"><span class="pre">_NPKData</span></code> class (through <code class="docutils literal notranslate"><span class="pre">FTMS</span></code>).</p></li>
+</ul>
+<p>In consequence, to create an NMR dataset from scratch, now do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NMR</span><span class="o">.</span><span class="n">NMRData</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where you were using <code class="docutils literal notranslate"><span class="pre">NPKData.NPKData</span></code> previously</p>
+<p>and do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NPKData</span><span class="o">.</span><span class="n">_NPKData</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to create an empty dataset not associated to any spectroscopy</p>
+<p><em>This should have been done long ago - but I’m so lazy…</em></p>
+<p><strong>Other modifications</strong> - This set-up allows to better adapt compound
+experiments (LC-NMR LC-MS …) - jupytext extension was added to jupyter
+Notebooks - means that a python copy is maintained - only this copy is
+version controlled - still improvements in notebooks - - NMR:
+improvement in the SpinIt importer - MS: added a Bo attribute - added
+the NbMaxPeaks flag in Peak display - added the self.kind attribute in
+the Axis class - easier to use than self.NMR ! - small bugs corrections
+- adding a complex value to a complex datasets was wrong in complex
+mode. - tests in python 2.7 are abandoned - but very few python 3
+features are really used… - REMARK, it was always mentionned that
+version 1.0 would be rolled out when interactive functions in notebooks
+would be really usefull. It will be the next big release probably !</p>
+</section>
+<section id="october-2019-not-released-on-pypi">
+<h2>0.99.14 - October 2019 - not released on pypi -<a class="headerlink" href="#october-2019-not-released-on-pypi" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>NMR: lots of improvements in Proc1DNMR notebooks</p></li>
+<li><p>improvements in NoteBook for mouse interactivity (click and scroll)</p>
+<ul>
+<li><p>requires the additional ipympl module</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="october-2019-not-released-on-pypi-1">
+<span id="id4"></span><h2>0.99.13 - October 2019 - not released on pypi -<a class="headerlink" href="#october-2019-not-released-on-pypi-1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>MS: added the EasyDisplayFTICR2D for non programers !</p></li>
+<li><p>improvements in NoteBook interactivity</p></li>
+<li><p>added smoothing in spline baselinecorrection</p></li>
+</ul>
+</section>
+<section id="september-2019">
+<h2>0.99.12 - September 2019<a class="headerlink" href="#september-2019" title="Permalink to this heading">¶</a></h2>
+<p>The 0.99.11 had a bug in the display of 1D NMR experiment - the 0.99.12
+corrects it.</p>
+</section>
+<section id="september-2019-1">
+<span id="id5"></span><h2>0.99.11 - September 2019<a class="headerlink" href="#september-2019-1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>NMR: added a Notebook for processing of DOSY</p></li>
+<li><p>many improvement in the interactive Notebooks, and in the interactive
+library (still work to do though)</p></li>
+<li><p>added autpoints computation for spline baseline correction</p></li>
+<li><p>corrected axis placement in spectral display (you should not have
+inverted axis anymore)</p></li>
+<li><p>corrected a bug when computing projections</p></li>
+</ul>
+</section>
+<section id="august-2019">
+<h2>0.99.10 - August 2019<a class="headerlink" href="#august-2019" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>changed calibration in FTICR-MS - now should better correspond to
+Bruker, both for linear and quadratic</p>
+<ul>
+<li><p>be carefull, the definitions are slightly modified, this should be
+taken into account when reading files, however you should verify
+the calibration stored into previous files</p></li>
+</ul>
+</li>
+<li><p>added Proc2DNMR Notebook - preliminary!</p></li>
+<li><p>continued to improve other Notebooks</p></li>
+<li><p>added skewness and kurtosis in bucket lists (optional)</p></li>
+<li><p>improved Test suite (should mostly work under Windows now)</p></li>
+<li><p>corrected peak-picker so that width is FWMH after centroid</p></li>
+<li><p>added an option in Peaks.pk2pandas to output or not the uncertainties</p></li>
+</ul>
+</section>
+<section id="june-2019">
+<h2>0.99.9 - June 2019<a class="headerlink" href="#june-2019" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>improved many aspect of the interactive Notebooks</p></li>
+<li><p>improved Proc1DNMR Notebook</p>
+<ul>
+<li><p>added peak-picker</p></li>
+<li><p>added integration</p></li>
+<li><p>added bucketing</p></li>
+</ul>
+</li>
+<li><p>Integrate: plugin for 1D NMR data integration</p></li>
+<li><p>added peak lists export to pandas</p></li>
+<li><p>added limit to the number of peak to be displayed on screen (default
+1000)</p></li>
+</ul>
+</section>
+<section id="april-2019">
+<h2>0.99.8 - April 2019<a class="headerlink" href="#april-2019" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>corrects a BIG BUG which hampers the import of 1D NMR data-sets,</p></li>
+</ul>
+</section>
+<section id="april-2019-1">
+<span id="id6"></span><h2>0.99.7 - April 2019<a class="headerlink" href="#april-2019-1" title="Permalink to this heading">¶</a></h2>
+<p><strong>Please do not use,</strong> see above - first version of Interactive
+Notebooks: - ProcessFTICR-MS - DisplayFTICR2D - Process1DNMR - The new
+BrukerMS importer tries Solarix importer and falls back to Apex importer
+if it fails - improved Interactive tools - improved FTICR importers to
+accept <code class="docutils literal notranslate"><span class="pre">my_expt.d/fid</span></code> as well as <code class="docutils literal notranslate"><span class="pre">my_expt.d</span></code> - improved peak-picker
+behavior - improved error messages in FTICR importers - cured a bug in
+Apex.Importxx for a special xml format</p>
+</section>
+<section id="april-2019-2">
+<span id="id7"></span><h2>0.99.6 - April 2019<a class="headerlink" href="#april-2019-2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>extended and improved tests - finalized installation through PYPI</p></li>
+<li><p>support for distribution via pip - you can now do
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">instal</span> <span class="pre">spike_py</span></code> and spike installed globally on your system.</p></li>
+<li><p>still struggling with correct calibration routines for FTICR ! -
+proceed carefully ! -</p></li>
+<li><p>phase() speeded-up by a factor 20 !</p></li>
+<li><p>added a autothresh scaling to peakpicking (catching peaks
+“autothresh” times above the noise level - default is 3)</p></li>
+<li><p>slight improvement of peak list reporting (additional key words:
+format=“report” and format=“full”)</p></li>
+<li><p>a bug in extract of complex 1D data-sets was corrected</p></li>
+<li><p>added the figure keyword to peaklist display</p></li>
+</ul>
+</section>
+<section id="march-2019">
+<h2>0.99.3 - March 2019<a class="headerlink" href="#march-2019" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Development of Interactive tools, to be used within Jupyter - <em>should
+be extended in further releases</em> -</p>
+<ul>
+<li><p>a tool for displaying multiresolution 2D FT-ICR-MS data-sets</p></li>
+<li><p>simple interface in Jupyter for 1D NMR</p></li>
+<li><p>(that part is not tested in python 2)</p></li>
+</ul>
+</li>
+<li><p>added the setup.py prgm, SPIKE is now a regular installable program -
+still working on it ! -</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale=&quot;auto&quot;</span></code> in 2D display, choose a level <code class="docutils literal notranslate"><span class="pre">autoscalethresh</span></code>
+(default is 3) times above the noise floor.</p></li>
+<li><p>added <code class="docutils literal notranslate"><span class="pre">gaussenh</span></code> apodisation plugin for one-command gaussian
+enhancement.</p></li>
+<li><p>improved display of FTMS spectra</p></li>
+<li><p>improved <code class="docutils literal notranslate"><span class="pre">findnoiselevel</span></code> and <code class="docutils literal notranslate"><span class="pre">findnoiselevel_2D</span></code></p></li>
+<li><p>modified <code class="docutils literal notranslate"><span class="pre">absmax</span></code> in NPKData - now a property</p></li>
+<li><p>added phase parameters to NMRAxis: <code class="docutils literal notranslate"><span class="pre">.P0</span></code> and <code class="docutils literal notranslate"><span class="pre">.P1</span></code></p></li>
+<li><p>removed the old Visu2D program - use the jupyter notebook rather !</p></li>
+</ul>
+</section>
+<section id="january-2019">
+<h2>0.99.2 - January 2019<a class="headerlink" href="#january-2019" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>added number of local peaks in bucketing</p></li>
+<li><p>improved Bruker importer and added support for NEO/TopSpin 4.0 files</p></li>
+<li><p>improved the <code class="docutils literal notranslate"><span class="pre">.set_unit()</span></code> method</p></li>
+<li><p>improved importing DOSY processed with TopSpin</p></li>
+<li><p>corrected a bug for min value in bucketing</p></li>
+<li><p>changed pylint/QC defaults -&gt; new values (and corrected a bad bug)</p></li>
+<li><p>cleaned the code a little</p></li>
+</ul>
+</section>
+<section id="november-2018">
+<h2>0.99.1 - November 2018<a class="headerlink" href="#november-2018" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>added the sane algorithm</p></li>
+<li><p>added the pg-sane algorithm</p></li>
+<li><p>added the <code class="docutils literal notranslate"><span class="pre">NPKData.set_unit(unit)</span></code> method for pipelining</p></li>
+<li><p>added the <code class="docutils literal notranslate"><span class="pre">NPKData.load_sampling(axis)</span></code> method for pipelining</p></li>
+<li><p>improved spinit support</p></li>
+<li><p>corrected a few bugs</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPKData.save_csv()</span></code> now works in python 3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPKData.copy()</span></code> is now more robust</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="april-2018-temp-release-branch">
+<h2>0.99 - April 2018 - temp release branch<a class="headerlink" href="#april-2018-temp-release-branch" title="Permalink to this heading">¶</a></h2>
+<p>We have been developping a lot this last year, and published quite a few
+results. The program is now quite stable in most of its features.
+Additions and improvements were added to the repository in the <code class="docutils literal notranslate"><span class="pre">devel</span></code>
+branch, however we neglected updating the more official <code class="docutils literal notranslate"><span class="pre">default</span></code>
+branch. This release is an effort to bring everything into normal mode,
+and hopefully, preparing a 1.0 version !</p>
+<p>New in 0.99:</p>
+<ul class="simple">
+<li><p>SPIKE is now fully compatible with python 2 AND python 3</p></li>
+<li><p>added the SANE noise denoising algorithm and plugin.</p>
+<ul>
+<li><p>an improvement to urQRd</p></li>
+<li><p>more faithfull to small signal intensity</p></li>
+<li><p>slightly different optimum parameters (optimal rank slightly
+smaller, less iterations needed)</p></li>
+</ul>
+</li>
+<li><p>added the handling of NUS 2D FTICR acquisition</p></li>
+<li><p>added the PALMA DOSY processing algo and plugin (NMR).</p></li>
+<li><p>added a Linear Prediction plugin</p></li>
+<li><p>added the first trial for a m/z calibration plugin (MS)</p></li>
+<li><p>added import from SpinIt (NMR)</p></li>
+<li><p>added a primitive set of interactive tools to be used in Jupyter
+notebooks ( <code class="docutils literal notranslate"><span class="pre">INTER.py</span></code> )</p></li>
+<li><p>added the possibility to pass a complete dictionary to matplotlib in
+the .display() method</p></li>
+<li><p>added the .center() method for NPKData</p></li>
+<li><p>added a plugin implementing a subset of Topspin commands: xf1, xf2,
+xfb. (NMR)</p></li>
+<li><p>added an line fitter, still very exploratory, only 1D Lorentzian for
+the moment</p></li>
+<li><p>added more controls on plots (new_fig and mpldic arguments of
+<code class="docutils literal notranslate"><span class="pre">.display()</span></code> )</p></li>
+<li><p>added a Spinit importer (preliminary) (NMR)</p></li>
+<li><p>added a compress mode in Solarix importer (MS)</p></li>
+<li><p>added new automatic tests</p></li>
+<li><p>improved and extended the Bucketing plugin, with extended features</p></li>
+<li><p>improved the baseline correction code</p></li>
+<li><p>improved import/export to Topspin/Bruker NMR files</p></li>
+<li><p>improved automatic phaser <code class="docutils literal notranslate"><span class="pre">.apmin()</span></code> (NMR)</p></li>
+<li><p>improved the plugin mechanism - with added documentation</p></li>
+<li><p>corrected the extract() method which was broken</p></li>
+<li><p>corrected a bug when importing Topspin/Bruker NMR datasets, where $NC
+was not used. (NMR)</p></li>
+<li><p>corrected a bug and improved 3 parameters FT-ICR calibration (MS)</p></li>
+<li><p>corrected the extract function for NPKData</p></li>
+<li><p>corrected a bug with contour plots and matplotlib version &gt; 1.5.0</p></li>
+<li><p>modified (improved?) plugin loading code, with additional plugin
+documentation</p></li>
+<li><p>modified the way None values are stored into hdf5 files</p></li>
+<li><p>modified <code class="docutils literal notranslate"><span class="pre">.extract()</span></code> code to work in current axis unit</p></li>
+<li><p>modified <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> to return complex value is axis is complex</p></li>
+<li><p>improved python 3 compatibility. It is not finished yet, but most of
+the program is python 2/python 3 independent, some parts are still
+missing,</p></li>
+<li><p>known bugs</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPKData.extract()</span></code> method not fully tested</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPKData.save_csv()</span></code> is buggy in python 3</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="sept-2016">
+<h2>0.9 - 8 sept 2016<a class="headerlink" href="#sept-2016" title="Permalink to this heading">¶</a></h2>
+<p><em>never reached the normal distribution - doc partly redundant with
+0.8.3</em></p>
+<ul class="simple">
+<li><p>added a baseline correction plugins, already quite developed, with 3
+different methods</p></li>
+<li><p>added an automatic phasing plugin, <code class="docutils literal notranslate"><span class="pre">.apmin()</span></code> still exploratory
+(NMR)</p></li>
+<li><p>added a wavelet filtering plugin (requires the PyWavelet library)</p></li>
+<li><p>added a 3D zoom plugin (requires the Mayavi library)</p></li>
+<li><p>added export to Topspin/Bruker files, and added import of processed
+Topspin files (NMR)</p></li>
+<li><p>added the upgrade of files from previous version</p></li>
+<li><p>added the <code class="docutils literal notranslate"><span class="pre">d.axis?.cpxsize</span></code> : the size of an axis expressed in
+spectroscopic points (real of complex) different from
+<code class="docutils literal notranslate"><span class="pre">d.axis?.size</span></code> which is the size of an axis expressed in data
+points so</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">d.axis?.cpxsize</span> <span class="pre">==</span> <span class="pre">d.axis?.size</span></code> is axis is real</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d.axis?.cpxsize</span> <span class="pre">==</span> <span class="pre">d.axis?.size/2</span></code> is axis is complex</p></li>
+</ul>
+</li>
+<li><p>improved the Peak-Picker (mostly the output capabilities)</p></li>
+<li><p>improved processing.py for nicer spectra, and possibly faster
+processing (MS)</p></li>
+<li><p>improved visu2D.py, for a greater stability and improved selection
+syntax</p></li>
+<li><p>corrected a bug in <code class="docutils literal notranslate"><span class="pre">.conv_n_p()</span></code> (NMR)</p></li>
+<li><p>and many small bugs as well</p></li>
+</ul>
+</section>
+<section id="april-2016">
+<h2>0.8.3 - April 2016<a class="headerlink" href="#april-2016" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>ALL spectro.</p>
+<ul>
+<li><p>added a new <code class="docutils literal notranslate"><span class="pre">cpxsize</span></code> property, associated to axes and dataset,
+which counts complex and real entries</p></li>
+<li><p>added: display and peak display now accept a color and markersize
+arguments</p></li>
+<li><p>improved plugins, plugins with a filename starting with _ do not
+load</p></li>
+<li><p>improved: automatic baseline correction algorithms have been
+improved ( <code class="docutils literal notranslate"><span class="pre">Algo/BC.py</span></code> )</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finnoiselevel()</span></code> set of functions has been rewritten (
+<code class="docutils literal notranslate"><span class="pre">util/signal_tools.py</span></code> )</p></li>
+<li><p>standard test now includes testing for <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> - <em>DOES
+NOT WORK ON ALL DISTRIBUTION</em> if it is your case, set
+<code class="docutils literal notranslate"><span class="pre">use_multiprocessing</span> <span class="pre">=</span> <span class="pre">False</span></code> in test.mscf</p></li>
+</ul>
+</li>
+<li><p>NMR</p>
+<ul>
+<li><p>added: BrukerNMR now imports TopSpin processed dataset (1r, 2rr)</p></li>
+<li><p>improved: and corrected Laplace axes - for a new DOSY module to
+come…</p></li>
+<li><p>corrected: conv_n_p() was wrong and has been corrected</p></li>
+<li><p>corrected: <code class="docutils literal notranslate"><span class="pre">gm_apod()</span></code> was wrong and has been corrected_</p></li>
+<li><p>corrected: an error in GifaFile access under Windows</p></li>
+</ul>
+</li>
+<li><p>MS</p>
+<ul>
+<li><p>processing.py (2D FTMS) now includes parallel processing in F2
+(helping in certain cases)</p></li>
+<li><p>and gives sharper lineshape thanks to kaiser() apodisation</p></li>
+<li><p>files from the previous program version (0.7.x) can now be
+upgraded and read. just do
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">spike.File.HDF5File</span> <span class="pre">update</span> <span class="pre">your_file.msh5</span></code></p></li>
+<li><p>improved <code class="docutils literal notranslate"><span class="pre">.report()</span></code> for FTMS datasets</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="feb-2016">
+<h2>0.8.2 - 2 Feb 2016<a class="headerlink" href="#feb-2016" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>corrected a bug in processing when running under MPI parallel</p></li>
+<li><p>added warning in set_col() and set_row() if type do not match.</p></li>
+<li><p>starting to work on the documentation</p></li>
+</ul>
+</section>
+<section id="jan-2016">
+<h2>0.8.1 - 24 Jan 2016<a class="headerlink" href="#jan-2016" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>corrected a bug for Orbitrap related to offsetfreq.</p></li>
+</ul>
+</section>
+<section id="jan-2016-1">
+<span id="id8"></span><h2>0.8.0 - 23 Jan 2016<a class="headerlink" href="#jan-2016-1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>first clean version using the new HDF5 file set-up <strong>WARNING</strong></p>
+<ul>
+<li><p>HDF5 files created with this version cannot be read with previous
+versions</p></li>
+<li><p>HDF5 files created with previous versions cannot be read with this
+version - this should be fixed later - File now contains
+acquisition parameters files in the attached hdf5 sub-group</p></li>
+</ul>
+</li>
+<li><p>datasets now carry store and retrieve the parmeters imported from
+manufacturers file in d.params</p></li>
+<li><p>improved FTMS calibration using 1, 2, and 3 parameters calibration :
+calibA calibB calibC, retrieve by Import from experimental file</p></li>
+<li><p>improved FTMS Hz unit, added the d.axis.offsetfreq parameter</p></li>
+<li><p>corrected fine details of F1 demodulation and added the parameter
+freq_f1demodu</p></li>
+<li><p>unittests extended, in particular in visu2D</p></li>
+<li><p>Starting with this version</p>
+<ul>
+<li><p>a stable version will be maintained, downloadable as a zip file in
+the download page <a class="reference external" href="https://bitbucket.org/delsuc/spike/downloads">https://bitbucket.org/delsuc/spike/downloads</a></p></li>
+<li><p>Two developpement branches will be used, the <code class="docutils literal notranslate"><span class="pre">default</span></code> for the
+stable version - improved for bugs, and the <code class="docutils literal notranslate"><span class="pre">devel</span></code> branche,
+used for developping the new features.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="jan-2016-2">
+<span id="id9"></span><h2>0.7.1 - 5 Jan 2016<a class="headerlink" href="#jan-2016-2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>greatly improved internal compression of msh5 files and speed of
+processing.py</p></li>
+<li><p>many small corrections and bug fixes.</p></li>
+</ul>
+</section>
+<section id="november-2015">
+<h2>0.7.0 - November 2015<a class="headerlink" href="#november-2015" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>a plugin mechanism has been created which allows to add very simply
+new features to the program</p>
+<ul>
+<li><p>most new features are implemented through this mechanism</p></li>
+</ul>
+</li>
+<li><p>the organisation of the spectral axes has been complete modified,
+with the introduction of a Unit class</p>
+<ul>
+<li><p>each axis holds its own series of possible units (called .units)</p></li>
+<li><p>and the current unit used for display and selection</p></li>
+<li><p>many commands now have a zoom= ketword that works in the current
+unit</p></li>
+<li><p>additionnaly, there are itoc and ctoi unit converters</p></li>
+</ul>
+</li>
+<li><p>Thanks to this, NMR data-sets are now correctly handled, DOSY are
+still in progress and should come soon</p>
+<ul>
+<li><p>addtionnaly a plugin for Bruker NMR processing is now implemented</p></li>
+</ul>
+</li>
+<li><p>A complete 1D and 2D peak-picker is now implemented, with many
+controls and features</p></li>
+<li><p>New baseline correction algo have been implemented</p></li>
+<li><p>the sane algorithm, which is an evolution from urQrd has been
+separated from urQRd, so both algo can now be used independently</p></li>
+<li><p>Tests have been reorganized and improved</p></li>
+<li><p>Importers have been extended - parameters are now brought back to the
+user</p></li>
+<li><p>many others</p></li>
+</ul>
+</section>
+<section id="march-2015">
+<h2>0.6.4 - march 2015<a class="headerlink" href="#march-2015" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>added Bruker NMR import</p></li>
+<li><p>clean-up of the module, still going on</p></li>
+<li><p>Tests improved</p></li>
+</ul>
+</section>
+<section id="march-2015-1">
+<span id="id10"></span><h2>0.6.3 - march 2015<a class="headerlink" href="#march-2015-1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>first installeable release</p></li>
+</ul>
+</section>
+<section id="dec-2014">
+<h2>0.6.0 - dec 2014<a class="headerlink" href="#dec-2014" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fork to SPIKE</p></li>
+<li><p>Large improvements of the display program, renamed visu2D</p></li>
+<li><p>Corrected a bug in the hypercomplex modulus, resulting in splitting
+in 2D-FT-ICR</p></li>
+<li><p>many improvements everywhere</p></li>
+</ul>
+</section>
+<section id="mar-2014">
+<h2>0.5.1 - 26 mar 2014<a class="headerlink" href="#mar-2014" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>processing2.py renamed to processing.py with added features</p>
+<ul>
+<li><p>urQRd</p></li>
+</ul>
+</li>
+<li><p>source code reorganized by folders</p></li>
+</ul>
+</section>
+<section id="mar-2014-1">
+<span id="id11"></span><h2>0.5.0 - 24 mar 2014<a class="headerlink" href="#mar-2014-1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>starting new devl effort</p></li>
+<li><p>published ! version of urQRd</p></li>
+</ul>
+</section>
+<section id="sep-2012">
+<h2>0.4.1 - 27 Sep 2012<a class="headerlink" href="#sep-2012" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>final (?) version of urQRd</p></li>
+<li><p>added data arithmetic</p></li>
+<li><p>many other optimisation</p></li>
+</ul>
+</section>
+<section id="apr-2012">
+<h2>0.4.0 - 20 apr 2012 -<a class="headerlink" href="#apr-2012" title="Permalink to this heading">¶</a></h2>
+<p>new version processing2.py (temporary name) this one</p>
+<ul class="simple">
+<li><p>processing is performed in steps, F2 from infile to interfile
+(intermediate file) and F1 from interfile to outfile</p></li>
+<li><p>steps are optionnal, F2 or F1 can be performed alone - allowing
+denoising on the interfile</p></li>
+<li><p>processing is faster and mpi enabled - speed-up are better for very
+large files</p></li>
+<li><p>has a better way of computing the smaller spectra - done by
+downsampling - faster and nicer</p></li>
+<li><p>vignette is now 1024x1024 - can be changed using SIZEMIN in config
+file</p></li>
+</ul>
+</section>
+<section id="mar-2012">
+<h2>0.3.11 - 29 mar 2012<a class="headerlink" href="#mar-2012" title="Permalink to this heading">¶</a></h2>
+<p>Small tools have been added to modify configuration files and to mix
+processing.py and ipython visualisation</p>
+</section>
+<section id="jan-2012">
+<h2>0.3.10 - 22 jan 2012<a class="headerlink" href="#jan-2012" title="Permalink to this heading">¶</a></h2>
+<p>processing is now (hopefully) bug free and RAPID !</p>
+</section>
+<section id="jan-2012-1">
+<span id="id12"></span><h2>0.3.9 - 18 jan 2012<a class="headerlink" href="#jan-2012-1" title="Permalink to this heading">¶</a></h2>
+<p>fticrvisu.py, processing working, getting all parameters correctly from
+FTICRData and Apex</p>
+</section>
+<section id="jan-2012-2">
+<span id="id13"></span><h2>0.3.8 - 13 jan 2012<a class="headerlink" href="#jan-2012-2" title="Permalink to this heading">¶</a></h2>
+<p>fticrvisu.py, processing working, corrected after Marie came</p>
+</section>
+<section id="dec-2011">
+<h2>0.3.7 - 12 dec 2011<a class="headerlink" href="#dec-2011" title="Permalink to this heading">¶</a></h2>
+<p>correction of Gifa file bug, bug in Apex for narrow band data-sets,
+changes in msh5 file format</p>
+</section>
+<section id="id14">
+<h2>0.3.6<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
+<p>3 Oct 2011 - added HDF5 file format (.msh5), multiresolution files,
+configuration files (.mscf), fticrvisu</p>
+</section>
+<section id="section-1">
+<span id="id15"></span><h2>0.3.5<a class="headerlink" href="#section-1" title="Permalink to this heading">¶</a></h2>
+<p>5 Sept 2011 - added cadzow in MPI / savitsky-golay / HDF5 still in
+progress</p>
+</section>
+<section id="section-2">
+<span id="id16"></span><h2>0.3.4<a class="headerlink" href="#section-2" title="Permalink to this heading">¶</a></h2>
+<p>26 July 2011 - added autotests / savehdf5 first version</p>
+</section>
+<section id="section-3">
+<span id="id17"></span><h2>0.3.3<a class="headerlink" href="#section-3" title="Permalink to this heading">¶</a></h2>
+<p>12 July 2011 - first reliable/taged FTICR version</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">spike</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Readme.html">SpI <em>(Spike Interactive)</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#release-notes">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#simple-installation">simple installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#installing-additional-tools">Installing additional tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#licenses">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#source-and-dependencies">source and dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Readme.html#developping-for-spike">developping for SPIKE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Doc.html">First contact SPIKE</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SPIKE Relase Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#march-2023">0.99.32 - March 2023</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-2022">0.99.31 - Nov 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2022">0.99.30 - April 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sept-2021">0.99.29 - Sept 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aug-2021">0.99.28 - Aug 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#july-2021">0.99.27 - July 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#july-2021-1">0.99.26 - July 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#june-2021">0.99.25 - June 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#june-2021-1">0.99.24 - June 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-2021">0.99.23 - May 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2021-not-released-on-pypi">0.99.22 - April 2021 - not released on pypi -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-2021">0.99.21 - Feb 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nov-2020">0.99.20 - Nov 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#may-2020">0.99.19 - May 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2020">0.99.17 - April 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2020-1">0.99.16 - April 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#march-2020">0.99.15 - March 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#october-2019-not-released-on-pypi">0.99.14 - October 2019 - not released on pypi -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#october-2019-not-released-on-pypi-1">0.99.13 - October 2019 - not released on pypi -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#september-2019">0.99.12 - September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#september-2019-1">0.99.11 - September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#august-2019">0.99.10 - August 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#june-2019">0.99.9 - June 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2019">0.99.8 - April 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2019-1">0.99.7 - April 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2019-2">0.99.6 - April 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#march-2019">0.99.3 - March 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#january-2019">0.99.2 - January 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#november-2018">0.99.1 - November 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2018-temp-release-branch">0.99 - April 2018 - temp release branch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sept-2016">0.9 - 8 sept 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2016">0.8.3 - April 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feb-2016">0.8.2 - 2 Feb 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-2016">0.8.1 - 24 Jan 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-2016-1">0.8.0 - 23 Jan 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-2016-2">0.7.1 - 5 Jan 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#november-2015">0.7.0 - November 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#march-2015">0.6.4 - march 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#march-2015-1">0.6.3 - march 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-2014">0.6.0 - dec 2014</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-2014">0.5.1 - 26 mar 2014</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-2014-1">0.5.0 - 24 mar 2014</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sep-2012">0.4.1 - 27 Sep 2012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apr-2012">0.4.0 - 20 apr 2012 -</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mar-2012">0.3.11 - 29 mar 2012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-2012">0.3.10 - 22 jan 2012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-2012-1">0.3.9 - 18 jan 2012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jan-2012-2">0.3.8 - 13 jan 2012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-2011">0.3.7 - 12 dec 2011</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">0.3.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section-1">0.3.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section-2">0.3.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section-3">0.3.3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">SPIKE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html#secondary-licenses">Secondary Licenses</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Doc.html" title="previous chapter">First contact SPIKE</a></li>
+      <li>Next: <a href="licenses.html" title="next chapter">SPIKE License</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2010-2023, IGBMC and others.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/release_notes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
