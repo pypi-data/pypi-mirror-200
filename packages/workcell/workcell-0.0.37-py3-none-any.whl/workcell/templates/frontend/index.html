@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    const manifestURL = "{{config.workcell_minifest_url}}";
+    fetch(manifestURL).then(async (res) => {
+      const json = await res.json();
+      const { resources  } = json || {};
+      (resources || []).forEach(r => insertResource(r));
+    }).catch(() => {
+      // TODO: fallback version when fail to download manifest
+      // TODO: fallback bits when network fail.
+    });
+
+    function insertResource({ tag, type, rel, src, content, appendTo }) {
+      let ele;
+      if (tag === 'script') {
+        ele = document.createElement('script');
+        ele.type = type;
+        if (src) {
+          ele.src = src;
+        } else if (content) {
+          ele.innerHTML = content;
+        }
+      } else if (tag === 'link') {
+        ele = document.createElement('link');
+        ele.rel = rel;
+        if (src) {
+          ele.href = src;
+          ele.crossOrigin = 'anonymous';
+        } else if (content) {
+          ele.innerHTML = content;
+        }
+      }
+
+      if (appendTo === 'head') {
+        document.head.appendChild(ele);
+      } else {
+        document.body.appendChild(ele);
+      }
+    }
+  </script>
+  <title>Workcell UI</title>
+</head>
+<body>
+  <div id="root"></div>
+  <div id="workcell-url" style="display: none;">{{ config.workcell_server_url }}</div>
+</body>
+</html>
