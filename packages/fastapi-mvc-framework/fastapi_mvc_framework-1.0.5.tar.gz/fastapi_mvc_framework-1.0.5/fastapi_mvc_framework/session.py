@@ -1,0 +1,221 @@
+from typing import Dict
+
+import uuid
+import  json 
+from fastapi import Request,Response
+from cryptography.fernet import Fernet
+import hashlib,base64 
+from .config import _log
+
+class SessionStorage():
+    key : str=""
+
+    def __init__(self,k:str="") -> None: 
+        self.key = base64.urlsafe_b64encode(hashlib.sha256(k.encode()).digest()) 
+        super().__init__()
+     
+    def get(self, session_id: str) -> Dict:
+        raise NotImplementedError
+        pass 
+    def set(self, session_id: str, data: Dict) -> None:
+        raise NotImplementedError 
+    def delete(self, session_id: str) -> None:
+        raise NotImplementedError
+    def _encrypt(self, data: Dict) -> bytes:
+        data_str = json.dumps(data).encode()
+        f = Fernet(self.key)
+        encrypted_data = f.encrypt(data_str)
+        return encrypted_data 
+    def _decrypt(self, data: bytes) -> Dict:
+        f = Fernet(self.key)
+        decrypted_data = f.decrypt(data)
+        data_str = decrypted_data.decode()
+        data_dict = json.loads(data_str)
+        return data_dict    
+
+class MemoryStorage(SessionStorage):
+    def __init__(self):
+        self.sessions = {}
+
+    def get(self, session_id: str) -> Dict:
+        return self.sessions.get(session_id, {})
+
+    def set(self, session_id: str, data: Dict) -> None:
+        self.sessions[session_id] = data
+
+    def delete(self, session_id: str) -> None:
+        self.sessions.pop(session_id, None)
+
+import os
+class FileStorage(SessionStorage):
+    filename:str = ""
+    cachedData:Dict[str,Dict] = {}
+
+    def __init__(self, dir: str, key: str=""):
+        
+        super().__init__(key)
+        self._dir = dir
+        
+        if not os.path.exists(dir):
+            os.mkdir(dir)
+
+    def ensure_file_exists(self,sid,type='set' ):
+        if not os.path.exists(self._dir):
+            os.mkdir(self._dir)
+        filename = os.path.join(self._dir , sid)
+        if not os.path.exists(filename) :
+            if type=='set':
+                with open(filename,"w") as file:
+                    file.write("")
+            else:
+                return False
+        return filename
+ 
+     
+    def get(self, session_id: str) -> Dict:
+        filename = self.ensure_file_exists(session_id,'get')
+        if not filename: return None
+        if session_id in self.cachedData:
+            return self.cachedData[session_id]
+        try:
+            with open(filename, "rb") as f:
+                encrypted_data = f.read()
+            data = self._decrypt(encrypted_data)
+            self.cachedData[session_id] = data
+        except FileNotFoundError:
+            data = {}
+        except Exception as e:
+            _log.error(e)
+            data = {}
+        return data
+
+    def set(self, session_id: str, data: Dict) -> None:
+        filename = self.ensure_file_exists(session_id)
+        self.cachedData[session_id] = data
+
+        encrypted_data = self._encrypt(data)
+        with open(filename, "wb") as f:
+            f.write(encrypted_data)
+
+    def delete(self, session_id: str) -> None:
+        filename = self.ensure_file_exists(session_id)
+        try:
+            os.remove(filename)
+        except Exception as e:
+            _log.error(e)
+        
+
+try:
+    import redis
+    class RedisStorage(SessionStorage):
+        def __init__(self, host: str, port: int, password: str, db: int): 
+            self.redis_client = redis.Redis(host=host, port=port, password=password, db=db)
+
+        def get(self, session_id: str) -> Dict:
+            data = self.redis_client.get(session_id)
+            if data is None:
+                return {}
+            return json.loads(data)
+
+        def set(self, session_id: str, data: Dict) -> None:
+            self.redis_client.set(session_id, json.dumps(data))
+
+        def delete(self, session_id: str) -> None:
+            self.redis_client.delete(session_id)
+except(ImportError):
+    class RedisStorage(SessionStorage):
+        def __init__(self, k: str = "") -> None:
+            raise ImportError("redis seen is not installed,please use `pip install redis` to install it.")
+    pass
+
+from datetime import datetime
+class Session(): 
+    _storage:SessionStorage = None
+    _sid:str = ""
+
+    _data : Dict[str,object] = {}
+    @property
+    def sid(self):
+        return self._sid
+    def __init__(self,sid:str="",storage: SessionStorage=None) -> None:
+        self._storage = storage
+        self._sid = sid or str(uuid.uuid4())
+        self._data = storage.get(self._sid) or {}
+        pass
+    def __getitem__(self,item):
+        if item in self._data :
+            value = self._data[item]
+        else: 
+            value = None
+
+        if not value:
+            data = self._storage.get(self._sid)
+            if data and hasattr(data,item):
+                value = data[item] 
+        return value
+    def __setitem__(self,item,value):
+        self._data[item] = value
+        self._storage.set(self._sid,self._data)
+    def __len__(self):
+        return len(self._data)
+    
+    def get(self,item):
+        return self.__getitem__(item)
+    def set(self,item,value):
+        return self.__setitem__(item,value)
+    def clear(self):
+        self._storage.delete(self._sid)
+class SessionManager( ):
+    #session:Session = None
+    def __init__(self , storage: SessionStorage ,expires: int = None,): 
+        self.storage = storage
+        self.expires = expires  
+         
+    @property
+    def is_expired(self):
+        if self.expires is None:
+            return False
+        return datetime.utcnow() > self.expires
+    
+    async def delete_session(self, session_id: str):
+        self.storage.delete(session_id) 
+     
+    async def initSession(self, request: Request,response:Response ):  
+        _log.debug(f"dispatch on SessionManager")
+        session:Session=None
+        sid = request.cookies.get("session_id")
+        session = Session( sid,self.storage) 
+        return session
+        # response = await call_next(request) 
+    async def process_cookies(self,response, cookies,old_cookies):
+        for key in cookies: 
+            if   key != 'session_id': 
+                response.set_cookie(key,cookies[key])
+        for key in old_cookies:
+            if not key in cookies and key != 'session_id':
+                response.set_cookie(key=key,value="",max_age=0)    
+                
+    async def process(self,session:Session,response:Response,request:Request=None): 
+         
+        response.set_cookie(
+                    key="session_id",
+                    value=session.sid,
+                    #如果maxAge为0，则表示删除该Cookie。Cookie机制没有提供删除Cookie的方法，因此通过设置该Cookie即时失效实现删除Cookie的效果。失效的Cookie会被浏览器从Cookie文件或者内存中删除 。
+                    #可以为负数，表示此cookie只是存储在浏览器内存里，只要关闭浏览器，此cookie就会消失。maxAge默认值为-1。
+                    #maxAge 可以为正数，表示此cookie从创建到过期所能存在的时间，以秒为单位，此cookie会存储到客户端电脑，以cookie文件形式保存，不论关闭浏览器或关闭电脑，直到时间到才会过期
+                    max_age=1800,
+                    # httponly=True,
+                    # secure=True,
+                    # samesite="Lax",#Cookie 不会通过正常的跨站点子请求（例如将图像或帧加载到第三方站点）发送，而是在用户导航到源站点时（即点击链接时）发送。
+                )
+        if request:
+            connect_stop = await request.is_disconnected() 
+            if connect_stop:
+                session.clear()
+        
+
+_SESSION_STORAGES = {"file":FileStorage,"memory":MemoryStorage,'redis':RedisStorage}
+
+
+
+ 
