@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: mxcurpy
+Version: 0.1.4
+Summary: Compute CURP and RFC for Mexican Citizens
+Home-page: https://github.com/hectorip/mxcurpy
+License: MIT
+Keywords: curp,mexico
+Author: Héctor Iván Patricio Moreno
+Author-email: hectorivanpatriciomoreno@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+# MXCurpy
+
+Generación de Clave Única de Registro de Población y el Registro Federal de Contibuyentes de México en Python.
+
+Documentos en los que está basado este paquete:
+
+CURP: (/docs/dof18102021.pdf)[INSTRUCTIVO NORMATIVO PARA LA ASIGNACIÓN DE LA CLAVE ÚNICA DE REGISTRO DE
+POBLACIÓN]
+
+RFC:
+
+## Estado actual del proyecto
+
+Por el momento está funcionando la creación de CURP, por lo que he decidido liberarlo para poder usarlo.
+
+## Uso
+
+```python
+from mxcurpy.curp import curp
+
+my_curp = curp(names="Juan José", lastname="Martínez", second_lastname="Pérez", birth_date="12-08-1989", birth_state="Durango", sex="h")
+
+# MAPJ890812HDGRRN00
+
+```
+
+## Consideraciones
+
+
+## Lista de estados válidos
+
+Estados:
+
+* "AGUASCALIENTES"
+* "BAJA CALIFORNIA"
+* "BAJA CALIFORNIA SUR"
+* "CAMPECHE"
+* "COAHUILA"
+* "COLIMA"
+* "CHIAPAS"
+* "CHIHUAHUA"
+* "DISTRITO FEDERAL"
+* "CDMX"
+* "CIUDAD DE MEXICO"
+* "DURANGO"
+* "GUANAJUATO"
+* "GUERRERO"
+* "HIDALGO"
+* "JALISCO"
+* "MEXICO"
+* "MICHOACAN"
+* "MORELOS"
+* "NAYARIT"
+* "NUEVO LEON"
+* "OAXACA"
+* "PUEBLA"
+* "QUERETARO"
+* "QUINTANA ROO"
+* "SAN LUIS POTOSI"
+* "SINALOA"
+* "SONORA"
+* "TABASCO"
+* "TAMAULIPAS"
+* "TLAXCALA"
+* "VERACRUZ"
+* "YUCATAN"
+* "ZACATECAS"
+* "NACIDO EN EL EXTRANJERO"
+
+## LICENCIA
+
+MIT
+
