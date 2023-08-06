@@ -1,0 +1,21 @@
+flowchart TD
+    S[Source] --> V1[Var]
+    V1 --> i1[i]
+    V1 --> 1
+
+    S --> W[While]
+    W -- condition --> le[==]
+    le --> 5
+    le --> Var --> i2[i]
+
+    W --> if --  condition --> eq[=]
+    eq --> V2[Var] --> i3[i]
+    eq --> 3
+    if -- then --> O1[OUTPUT] --> str1['3 is a lucky num']
+    if -- else --> O2[OUTPUT] --> V3[Var] --> i4[i]
+
+    W --> V4[Var]
+    V4 --> i5[i]
+    V4 --> plus[+]
+    plus --> i6[i]
+    plus --> lit[1]
