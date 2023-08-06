@@ -1,0 +1,3 @@
+[libtextworker]
+tkinter = libtextworker.interface.tk.__init__:clrmgr
+wx = libtextworker.interface.wx.__init__:clrmgr
