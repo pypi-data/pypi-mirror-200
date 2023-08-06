@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: lib-repo-tool
+Version: 2.0.2
+Summary: Put depended libs to oss file bucket
+Author: Andy Zhuang
+Author-email: xiaolong.zhuang@gmail.com
+Requires-Dist: oss2 (==2.14.0)
+Requires-Dist: dacite (==1.6.0)
+Requires-Dist: tabulate
+
