@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: x7-testing
+Version: 0.6.0
+Summary: X7 helpers for unittest tests
+Home-page: https://github.com/gribbg/x7-testing
+Author: Glenn Gribble
+Author-email: dev@gribbelus.com
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: pillow
+Requires-Dist: x7-lib
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: flake8 ; extra == 'tests'
+Requires-Dist: mypy ; extra == 'tests'
+
+X7-Testing
+==========
+
+Helpers for ``unittest`` based tests:
+
+    *   ``maketests`` to create test/update unittest stubs
+
+    *   ``TestCaseExtended`` to support more kinds of ``almostEquals``
+        and stored test results for simple regression tests
