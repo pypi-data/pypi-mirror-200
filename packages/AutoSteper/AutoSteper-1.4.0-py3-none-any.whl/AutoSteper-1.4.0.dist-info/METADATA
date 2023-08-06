@@ -1,0 +1,130 @@
+Metadata-Version: 2.1
+Name: AutoSteper
+Version: 1.4.0
+Summary: Automated Stepwise Addition Procedure for Extrafullerene.
+Home-page: https://github.com/Franklalalala/AutoSteper
+Author: Franklalalala
+Author-email: franklalalala <1660810667@qq.com>
+License: The MIT License (MIT)
+        
+        Copyright (c) 2022 Franklalalala
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Source, https://github.com/franklalalala/AutoSteper
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: importlib-metadata
+Requires-Dist: pytest-shutil
+Requires-Dist: ase
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: networkx
+Requires-Dist: tqdm
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: dpdispatcher
+Provides-Extra: testing
+Requires-Dist: setuptools ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+# AutoSteper
+Automated Stepwise Addition Procedure for Extrafullerene. 
+
+A detailed description could be found in the article: Exploring exohedral functionalization of fullerene with Automation and Neural Network Potential. ![overview](./doc/fig/overview.png)
+
+<center>Overview of the Stepwise model.</center>
+
+Demonstration of core functions could be found in `./tests`.
+
+Documentation could be found in `./doc`.
+
+## Install
+
+## For users
+
+Autosteper has an dependency on multiple python packages, namely, the importlib-metadata, ase, numpy, pandas, networkx, tqdm, matplotlib, seaborn, and dpdispatcher. Installation of all of them and this project has been integrated into a single command line:
+
+```
+pip install autosteper
+```
+
+Besides, Autosteper relies on open source project [FullereneDataPraser](https://github.com/XJTU-ICP/FullereneDataParser) to convert 3D coordinates to graph6str format and properly visualize isomers, pathways, and SWR pairs. [FullereneDataPraser](https://github.com/XJTU-ICP/FullereneDataParser) has not been published on Pypi, according to [setuptool documentation](https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#direct-url-dependencies), the unpublished project could not be used as a dependency for the published package. Therefore, it needs to be installed separately:
+
+```
+pip install git+https://github.com/XJTU-ICP/FullereneDataParser
+```
+
+Finally, the in-house built C++ project [usenauty](https://github.com/Franklalalala/usenauty) needs to be collected. [usenauty](https://github.com/Franklalalala/usenauty) is a lightweight tool to enumerate non-isomorphic addition patterns with [nauty](https://doi.org/10.1016/j.cpc.2020.107206) algorithm which is created by Brendan D. McKay. The original modification is performed in [usenauty](https://github.com/saltball/usenauty) by XJTU-ICP member Y. B. Han. Here we employ a branch version of it. 
+
+Unlike previously mentioned packages, the installation of [usenauty](https://github.com/Franklalalala/usenauty) is different for Linux and Windows. **There are two pre-compiled** releases for two platforms, users are encouraged to [download](https://github.com/Franklalalala/usenauty/releases) the corresponding releases. 
+
+After downloading, users need to assign execution permissions:
+
+```
+chmod +x path/to/cagesearch
+```
+
+A simple test is encouraged:
+
+```
+path/to/cagesearch
+```
+
+If everything goes well, a gentle notation is expected:
+
+![image-20221220010149410](./doc/fig/nauty_notation.png)
+
+<center>The usenauty notation.</center>
+
+## For developers
+
+Any contribution is greatly appreciated. To install from the source code, the AutoSteper package:
+
+```
+git clone https://github.com/Franklalalala/AutoSteper
+cd AutoSteper
+pip install . -e
+```
+
+The FullereneDataParser package:
+
+```
+git clone https://github.com/XJTU-ICP/FullereneDataParser
+cd FullereneDataParser
+pip install . -e
+```
+
+To compile the usenauty project, please follow instructions in [usenauty](https://github.com/Franklalalala/usenauty).
+
+## Note
+
+Issues are welcomed if you have any questions.
+
+Contributions needs to stay in line with [Conventional Commit messages](https://www.conventionalcommits.org/).
+
+Contact me: 1660810667@qq.com
