@@ -1,0 +1,8 @@
+{% extends 'yangsuite/base-cui.html' %} {% load static %} {% block javascript %}<script src="{% static 'ysyangtree/js/yangtree.js' %}"></script><script src="{% static 'ysyangtree/js/rpc_ui.js' %}"></script><script defer="defer" src="{% static 'yangsuite/js/fontawesome-all.js' %}"></script>{% endblock javascript %} {% block cui-css %}<link rel="stylesheet" href="{% static 'yangsuite/css/cui-standard-1.3.3.min.css' %}"/>{% endblock %} {% block css %}<link rel="stylesheet" href="{% static 'ysyangtree/css/chosen/chosen.css' %}"/><link rel="stylesheet" href="{% static 'ysyangtree/css/yangtree.css' %}"/>{% endblock css %} {% block page-title %}RESTCONF{% endblock %} {% block help_url %}{% url 'help' section='ysrestconf' %}{% endblock %} {% block body %}<body><div class="container" style="padding-left:5rem;padding-right:5rem;"><div id="app" class="app" style="position:sticky;padding-top:1rem;padding-bottom:1rem;background-color:#fff;top:0;z-index:999;"></div><div id="ysyangtree-legend" hidden></div><div id="tree"></div></div><script defer="defer" src="/static/ysrestconf/bundle/ysrestconf-ui-9fdd10bbae14afa06994.js"></script></body>{% csrf_token %} {% endblock body %} {% block script %}<script>(function() {
+    // YS Yang Tree
+    window._yangtree = yangtree;
+    window._$ = $;
+    // YS loading
+    window._startProgress = startProgress;
+    window._stopProgress = stopProgress;
+  })()</script>{% endblock script %}

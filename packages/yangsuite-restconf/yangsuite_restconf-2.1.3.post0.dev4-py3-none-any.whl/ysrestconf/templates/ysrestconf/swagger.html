@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-8">
+    <div>
+      <h2>{{Status}}</h2>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div ng-show="show_high_level_apis">
+      <h2>YANG Set</h2>
+      <accordion close-others=true>
+        <accordion-group is-open="isopen" ng-repeat="(yangset, models) in high_level_apis">
+          <accordion-heading ng-click="isopen=!isopen" ng-class="{'custom-style': item.title }">
+            <div>
+              {{ yangset }}
+              <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
+            </div>
+          </accordion-heading>
+          {% for model in models %}
+          <div ng-click="LoadSchema({{ model }})" style="cursor: pointer; border: 1px solid green; padding-top: 10px; padding-bottom: 10px; padding-left: 10px;"><h4>{{model}}</h4></div>
+          {% endfor %}
+        </accordion-group>
+      </accordion>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div swagger-ui url="SwaggerURL" api-explorer="true" ng-show="show_swagger_ui" loading="swagger_loading" validator-url="false" parser="json"></div>
+  </div>
+</div>

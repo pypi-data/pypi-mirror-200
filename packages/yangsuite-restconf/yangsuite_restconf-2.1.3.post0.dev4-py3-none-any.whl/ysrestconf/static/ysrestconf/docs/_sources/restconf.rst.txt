@@ -1,0 +1,49 @@
+YANG Suite RESTCONF
+===================
+
+RESTCONF- protocol for communicating with YANG defined interfaces (RFC 8040)
+
+=========== ===============================
+Author      Michael Ott
+Maintainers yangsuite-support-ext@cisco.com
+=========== ===============================
+
+RESTCONF is the REST sister of the NETCONF protocol and uses all the normal
+REST calls over HTTP/S protocol.  GET, PATCH, POST, PUT, and DELETE.  It
+must follow all the strict rules defined in dozens of HTTP/S related RFC’s.
+
+Rather than create an entire new REST client for users to learn, we thought
+best to use the popular Swagger interface https://swagger.io/.  Swagger uses
+a YAML or JSON input to describe the REST functionality of your REST APIs.
+This plugin will create that Swagger JSON file based on the YANG file of your
+choice, and present the Swagger interface.
+
+Setting Device RESTCONF Parameters
+----------------------------------
+
+After installing the yangsuite-restconf plugin, go to "Setup-->Device profile".
+Select the profile of the device that supports RESTCONF (or create a new
+proflie). You will see a new section containing RESTCONF parameters. Click on
+the "Device supports RESTCONF" checkbox. The default settings for other
+parameters will probably be fine.
+
+Generating Swagger APIs
+-----------------------
+
+Choose the YANG set containing the model you want RESTCONF APIs generated
+from. After selecting the model and loading, a tree will appear below.
+
+Select the device you want to send your RESTCONF message to. Expand the model tree to
+the branch or leaf that you want an API for and click on "Generate APIs".
+
+If the model is large, you can use "Search module". Enter the keyword of the
+branch you are looking for, click on "Search", and you will be given a list of
+xpaths within the model to chose from. Select the xpath and click on "Show
+selected node(s). This will open the tree to the location you are looking for.
+Click on "Generate APIs".
+
+When you try out an API, the URL will not be pointing directly to the device.
+Browsers do not allow you to go directly to another URL unless the server
+specifically returns a message that it is ok. More than likely, the RESTCONF
+device will not give that ok, so, the URL is first sent to the YANG Suite
+server and then proxied to your device.
