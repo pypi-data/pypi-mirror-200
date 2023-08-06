@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: yzy
+Version: 0.0.2
+Summary: Utils
+Author-email: Zhiyuan Yang <im.crazyang@gmail.com>
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# yzy
+
+各种工具
+
+
+
+## Support
+
+- **id2md.py**: input arxiv id and then get the markdown format output.
+- **file2md.py**: input foldername containing papers and then get the markdown format output.
+
+```
+python -m yzy.id2md
+```
+
+
+
+
