@@ -1,0 +1,3 @@
+[console_scripts]
+chatgpt = karls_chatgpt_helpers.chatgpt.__main__:main
+gptshell = karls_chatgpt_helpers.gptshell.__main__:main
