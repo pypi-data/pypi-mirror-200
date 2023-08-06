@@ -1,0 +1,7 @@
+[console_scripts]
+ecleans=upkeep.commands:ecleans
+emerges=upkeep.commands:emerges
+esync=upkeep.commands:esync
+rebuild-kernel=upkeep.commands:rebuild_kernel
+upgrade-kernel=upkeep.commands:upgrade_kernel
+
