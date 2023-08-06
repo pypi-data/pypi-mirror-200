@@ -1,0 +1,3 @@
+[console_scripts]
+transcode-item = wi1_bot.scripts.transcode_item:main
+wi1-bot = wi1_bot.scripts.start:main
