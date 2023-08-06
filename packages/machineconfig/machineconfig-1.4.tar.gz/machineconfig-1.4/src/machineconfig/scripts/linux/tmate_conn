@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# https://tmate.io/
+#api_key=echo ~/dotfiles/creds/tmate/api_key
+#sess_name=echo ~/dotfiles/creds/tmate/$1
+#ssh $username/$sess_name@sgp1.tmate.io
+
+pyfile=~/code/machineconfig/src/machineconfig/scripts/python/tmate_conn.py
+# TODO make this path relevant to current file ($0)
+python3 $pyfile $1
+
+deactivate || true
