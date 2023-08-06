@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pyasli"
+version = "0.2.8"
+description = "(Python) Yet Another Selenium Instruments"
+authors = ["Anton Kachurin <katchuring@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+selenium = "^4.8"
+webdriver-manager = "^1.7"
+wrapt = "^1.11"
+py = "^1.11.0"
+
+[tool.poetry.dev-dependencies]
+coverage = "^7.2"
+pylint = "^2.3"
+pytest = "^7.2"
+pytest-cov = "^4.0"
+allure-pytest = "^2.6"
+pytest-html = "^2.1.1"
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
