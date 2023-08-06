@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "ipcs"
+version = "0.1.4"
+description = "Simple IPC server/client"
+authors = ["Takagi Tasuku <tasuren@outlook.jp>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["ipc", "networking"]
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.10",
+    "Typing :: Typed"
+]
+
+[tool.poetry.urls]
+Source = "https://github.com/tasuren/ipcs"
+Documentation = "https://ipcs.readthedocs.io/"
+Donate = "https://www.buymeacoffee.com/tasuren"
+Chat = "https://discord.gg/kfMwZUyGFG"
+
+[tool.poetry.scripts]
+ipcs-server = "ipcs.__main__:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+websockets = ">=10,<12"
+orjson = "3.8.*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
