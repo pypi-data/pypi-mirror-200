@@ -1,0 +1,6 @@
+mlflow==1.21.0
+numpy<=1.23.5
+jsonschema==2.6.0
+requests_toolbelt<=0.10.1,>=0.9.1
+boto3==1.21.21
+protobuf<4.0.0
