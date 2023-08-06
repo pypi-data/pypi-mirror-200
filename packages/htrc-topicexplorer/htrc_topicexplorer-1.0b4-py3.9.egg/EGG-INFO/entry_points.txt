@@ -1,0 +1,4 @@
+[console_scripts]
+htrc-topicexplorer = topicexplorer.__main__:main
+htutils = topicexplorer.lib.hathitrust:main
+vsm = topicexplorer.__main__:vsm
