@@ -1,0 +1,21 @@
+● elasticsearch.service - Starts and stops a single elasticsearch instance on this system
+   Loaded: loaded (/usr/lib/systemd/system/elasticsearch.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sat 2023-04-01 04:28:27 UTC; 9h ago
+     Docs: http://www.elasticsearch.org
+ Main PID: 30555 (java)
+    Tasks: 45
+   Memory: 355.0M
+      CPU: 1min 40.284s
+   CGroup: /system.slice/elasticsearch.service
+           └─30555 /usr/bin/java -Xms512m -Xmx512m -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 -Delasticsearch -Des.foreground=yes -Des.path.home=/usr/share/elasticsearch -cp :/usr/share/elasticsearch/lib/elasticsearch-1.5.2.jar:/usr/share/elasticsearch/lib/*:/usr/share/elasticsearch/lib/sigar/* -Des.default.config= -Des.default.path.home=/usr/share/elasticsearch -Des.default.path.logs=/edx/var/log/elasticsearch -Des.default.path.data=/edx/var -Des.default.path.work= -Des.default.path.conf=/edx/etc/elasticsearch org.elasticsearch.bootstrap.Elasticsearch
+
+Apr 01 04:28:29 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:29,093][INFO ][node                     ] [Ereshkigal] initializing ...
+Apr 01 04:28:29 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:29,101][INFO ][plugins                  ] [Ereshkigal] loaded [], sites []
+Apr 01 04:28:32 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:32,030][INFO ][node                     ] [Ereshkigal] initialized
+Apr 01 04:28:32 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:32,032][INFO ][node                     ] [Ereshkigal] starting ...
+Apr 01 04:28:32 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:32,239][INFO ][transport                ] [Ereshkigal] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/172.31.20.145:9300]}
+Apr 01 04:28:32 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:32,276][INFO ][discovery                ] [Ereshkigal] elasticsearch/lv8iUcJwTYiM-t9EqYg2QA
+Apr 01 04:28:36 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:36,066][INFO ][cluster.service          ] [Ereshkigal] new_master [Ereshkigal][lv8iUcJwTYiM-t9EqYg2QA][ip-172-31-20-145][inet[/172.31.20.145:9300]], reason: zen-disco-join (elected_as_master)
+Apr 01 04:28:36 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:36,158][INFO ][http                     ] [Ereshkigal] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/172.31.20.145:9200]}
+Apr 01 04:28:36 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:36,159][INFO ][node                     ] [Ereshkigal] started
+Apr 01 04:28:37 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:37,210][INFO ][gateway                  ] [Ereshkigal] recovered [11] indices into cluster_state
