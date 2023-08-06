@@ -1,0 +1,220 @@
+$def with (resource)
+$ path = tx.request.uri.path
+$ owner = tx.host.owner
+
+<html lang=en-us class=dark>
+<head>
+<meta charset=utf-8>
+<meta name=viewport
+    content=initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width>
+<meta name=apple-mobile-web-app-capable content=yes>
+<meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+<link rel=icon href=/static/photo.png>
+$if not tx.request.uri.path:
+    <link rel=manifest href=/manifest.json>
+<link rel=stylesheet href=/static/screen.css media=screen>
+<title>\
+$if "title" in resource:
+    $:Document(resource.title).doc.text_content()&thinsp;&mdash;&thinsp;\
+$owner["name"][0]</title>
+
+$if not isinstance(resource, str) and "head" in resource:
+    $:resource.head()
+
+<link rel=stylesheet href=/static/asciinema-player.css>
+<script type=module>
+import { cookies } from '/static/web.js'
+window.addEventListener('load', () => {
+  if (cookies.get('rhythm') == 'on') {
+    document.querySelector('body').style.backgroundImage = 'url(/static/measure.png)'
+  }
+  document.addEventListener('keypress', (e) => {
+    if (e.key == '.') {
+      if (cookies.get('rhythm') == 'on') {
+        document.querySelector('body').style.backgroundImage = 'none'
+        cookies.set('rhythm', 'off')
+      } else {
+        document.querySelector('body').style.backgroundImage = 'url(/static/measure.png)'
+        cookies.set('rhythm', 'on')
+      }
+    }
+  })
+})
+</script>
+
+$if tx.user.is_owner:
+    <style>
+    .h-card img {
+        border: .15em solid #007ba7; }
+    </style>
+
+</head>
+<body
+$if "body_classes" in resource:
+     class="$' '.join(resource.body_classes)"\
+>
+
+<header>
+<div class=h-card>
+    <!--img class=u-photo src=/static/photo.png-->
+    <p style=margin-top:.5em;text-align:left><a href=/ rel=me class="p-name u-url u-uid"
+        style="font-size:3em;line-height:1.25;position:relative">
+        <strong>$owner["name"][0]</strong></a></p>
+    $if "note" in owner:
+        <p class=p-note style="font-size:.7em;margin:0 0 .2em 0;">$owner["note"][0]</p>
+    $if "email" in owner:
+        $ email = get_first(owner, "email")
+        <p><small>
+            <a rel=me class=u-email href=mailto:$email>$email</a>
+            </small></p>
+    $if "onion" in owner:
+        <p><small>
+            $ onion = get_first(owner, "onion")
+            $if onion:
+                <a rel=me href=http://$onion><code>$onion</code></a>
+            </small></p>
+    $if "key" in owner:
+        <p><small>
+            $ key = get_first(owner, "key")
+            $if key:
+                <a href=/owner/key
+                    rel=me><code>$:"&ndash;".join(key.split()[:2])</code></a>
+            </small></p>
+</div>
+<div class=status>
+<p style=font-size:.8em><a href=/about>About</a>&ensp;&ndash;&ensp;<a
+href=/now>Now</a></p>
+</div>
+</header>
+
+$def render_breadcrumbs(breadcrumbs, separator="&#x25b8;", padding="&ensp;"):
+    $ """
+    $ Render a `separator` delimited list of linkified `breadcrumbs`.
+    $
+    $ `breadcrumbs` should be a single tuple that will be read two items at a time:
+    $
+    $     ("path", "Name", "subpath", "Subname", ...)
+    $
+    $ """
+    $ remaining = int(len(breadcrumbs) / 2)
+    $ path = ""
+    $for crumb_path, crumb_title in zip(*(breadcrumbs[i::2] for i in (0, 1))):
+        $ crumb_path = str(crumb_path)
+        $ crumb_icon, crumb_classes = None, None
+        $if isinstance(crumb_title, tuple):
+            $ crumb_icon, crumb_classes, crumb_title = crumb_title
+        $ path = path + "/" + crumb_path
+        $ ups = " ".join(["up"] * remaining)
+        $ remaining = remaining - 1
+        <span>\
+        $if crumb_icon:
+            <span class="crumb-icon-$crumb_icon"></span>&thinsp;\
+        <a href=$path \
+        $if crumb_classes:
+            class="$' '.join(crumb_classes)"
+        rel="$ups">$:crumb_title</a>\
+        $:padding<span class=crumb-sep>$:separator</span></span>\
+
+<article id=content\
+$if "classes" in resource:
+     class="$' '.join(resource.classes)"\
+>
+$if path:
+    $ breadcrumbs = []
+    $ parts = path.split("/")
+    $ app = parts[0]
+    $if len(parts) > 1:
+        $ breadcrumbs += [app, app.capitalize()]
+    $if "breadcrumbs" in resource:
+        $ breadcrumbs += list(resource["breadcrumbs"])
+    $if breadcrumbs:
+        <nav class=breadcrumbs>$:render_breadcrumbs(breadcrumbs)</nav>
+$if "title" in resource:
+    $if getattr(resource, "show_title", True):
+        <header>
+        <h1
+        $if "title_classes" in resource:
+             class="$' '.join(resource.title_classes)"\
+        >$:resource.title</h1>
+        </header>
+$:resource
+</article>
+
+<nav>
+$ public_apps = {"code": "Code", "media": "Media"}
+<ul class=apps>
+$for app_prefix, app_name in public_apps.items():
+    <li>
+    $if path.startswith(app_prefix):
+        <strong>$app_name</strong>
+    $else:
+        <a href=/$app_prefix>$app_name</a>
+    </li>
+</ul>
+<ul class=dates>
+$for year, months in get_months().items():
+    <li><small><a href=/$year>$year</a></small>\
+    $# <div style=columns:6>
+    $# $for month in range(1, 13):
+    $#     $ MM = f"{month:02}"
+    $#     $if months[month]:
+    $#         <a href=/$year/$MM>\
+    $#     $MM\
+    $#     $if months[month]:
+    $#         </a>\
+    $#     &thinsp;\
+    $# </div>
+    </li>
+</ul>
+<p>
+$for category in get_categories():
+    $category
+</p>
+$if tx.user.is_owner:
+    <ul class=admin>
+    $for mount_name, mount_app in sorted(tx.app.mounts):
+        $if mount_name in public_apps:
+            $continue
+        <li><a href=/$mount_app.prefix>$mount_name.capitalize()</a></li>
+    </ul>
+</nav>
+
+<aside>
+$:livestream()
+<form action=/search style="margin:1em 0">
+<input name=q><br><button>Search</button>
+</form>
+$if tx.user.is_owner:
+    <form action=/owner/sign-out method=post>
+    <button>Sign Out</button>
+    </form>
+$elif "session" in tx.user and tx.user.session.get("uid", None):
+    <p>Signed in as <a
+    href=$tx.user.session["uid"][0]>$tx.user.session["name"][0]</a>.</p>
+    <form action=/guests/sign-out method=post>
+    <button>Sign Out</button>
+    </form>
+$else:
+    <form action=/guests/sign-in style="margin:1em 0">
+    <input name=me><br><button>Sign In</button>
+    </form>
+$if tx.user.is_owner and not tx.request.uri.suffix:
+    <p><small><strong>ATTENTION</strong></small><br>please <a href=/system/addresses/domain>configure a domain name</a></p>
+$if "aside" in resource:
+    $:resource.aside()
+</aside>
+
+$if "hide_footer" not in resource:
+    <footer>
+    <p>Site content licensed <a
+        href=//creativecommons.org/licenses/by-nc-sa/4.0/ rel=license><abbr
+        title="Creative Commons Attribution-NonCommercial-ShareAlike">CC
+        BY-NC-SA</abbr></a> unless otherwise noted.</p>
+    <p><a href=//indieweb.rocks/$tx.host.name rel=me><img alt="IndieMark score"
+        src=//indieweb.rocks/sites/$tx.host.name/scoreboard.svg style=height:4em></a></p>
+    <p class=colophon><a class=colophontext href=/colophon
+        title=Colophon><span>Colophon</span></a></p>
+    </footer>
+
+</body>
+</html>

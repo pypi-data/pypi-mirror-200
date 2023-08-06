@@ -1,0 +1,80 @@
+$def with ()
+$# var classes = ["h-feed"]
+
+<style>
+#content img {
+  width: 100%; }
+</style>
+
+$for item in get_posts():
+    $ item_type = item["type"][0]
+    <section class="h-$item_type $item['visibility'][0]">
+    $if item_type == "entry":
+        $ entry = item
+        $ type = discover_post_type(entry)
+        $if type == "bookmark":
+            $# <p class=p-content>$entry["content"]</p>
+            <p>Bookmarked <a href=$entry["bookmark-of"][0]
+            class=u-bookmark-of>$entry["bookmark-of"][0]</a></p>
+        $elif "rsvp" in entry:
+            $ in_reply_to = entry["in-reply-to"][0]
+            <p>RSVP'd <strong class=p-rsvp>$entry["rsvp"][0]</strong> to
+            <a class=u-in-reply-to href=$in_reply_to>$in_reply_to</a></p>
+        $elif item_type == "audio/clip":
+            <div><audio class=u-audio src=$entry["audio"][0]></audio></div>
+        $elif "audio" in entry:
+            $entry
+            $# <div><img class=u-photo src=$entry["photo"][0]></div>
+            $# <div class=p-summary>$entry["summary"][0]</div>
+        $elif "photo" in entry:
+            <div><img
+            $if summary := entry.get("summary"):
+                alt="$summary[0]"
+            class="u-photo p-summary" src=$entry["photo"][0]></div>
+        $elif "content" in entry and "name" in entry:
+            <h3>$:entry["name"][0]</h3>
+            $# <div class=p-content>$:entry["content"][0]</div>
+        $elif content := entry.get("content"):
+            <div class=e-content>$:content[0]["html"]</div>
+        $elif "listen-of" in entry:
+            $ listen_of = entry["listen-of"][0]
+            $if isinstance(listen_of, str):
+                <p class=p-name>Listened to <em class=p-listen-of>$listen_of</em></p>
+            $else:
+                $ author = listen_of["author"][0]
+                $ youtube_id = listen_of["url"][0].partition("?")[2]
+                <details>
+                <summary>
+                Listened to <em><a href=$author["url"]>$author["name"]</a> &ndash;
+                <a href=$listen_of["url"][0]>$listen_of["name"][0]</a></em>
+                </summary>
+                </details>
+                $# <script>
+                $# document.querySelector('summary').addEventListener('click', ev => {
+                $#   const embed = document.createElement('div');
+                $#   embed.innerHTML =
+                $#     `<iframe width=560 height=315
+                $#     src="https://www.youtube.com/embed/videoseries?$youtube_id"
+                $#     title="YouTube video player" frameborder=0
+                $#     allow="accelerometer; autoplay; clipboard-write; encrypted-media; \
+                $#     gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                $#   ev.originalTarget.after(embed)
+                $# })
+                $# </script>
+        $elif "like-of" in entry:
+            $ like_of = entry["like-of"][0]
+            <div class=p-name>Liked <a class=u-like-of href=$like_of>$like_of</a></div>
+        $elif "bookmark-of" in entry:
+            $ bookmark_of = entry["bookmark-of"][0]
+            <div class=p-name>Bookmarked <a class=u-bookmark-of
+            href=$bookmark_of>$bookmark_of</a></div>
+        $else:
+            <div>$entry</div>
+    $elif item_type == "canopy-project":
+        $ project = item
+        <div>Created project <code class=p-name>$project["name"][0]</code></div>
+    $ published = item['published'][0]
+    <p style=text-align:right><small><a class=u-url href=$item["url"][0]><time class=dt-published
+    title="$published" datetime="$published">$published.diff_for_humans()</time>\
+    </a></small></p>
+    </section>
