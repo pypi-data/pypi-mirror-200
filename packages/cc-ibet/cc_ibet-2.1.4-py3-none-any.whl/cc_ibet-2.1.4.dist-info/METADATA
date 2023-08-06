@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: cc-ibet
+Version: 2.1.4
+Author: namlehong
+Author-email: namlehong@gmail.com
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: cc-api-helper
+Requires-Dist: beautifulsoup4
+Requires-Dist: pycryptodome
+
+# cc-ibet
+
+
+
+## Requirement
+
+Python >=3.7
+
+## Installation
+
+```bash
+pip install cc-ibet
+```
+
+## License
+
+MIT
