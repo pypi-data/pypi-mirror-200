@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ttutils
+Version: 0.5
+Summary: Tools for routine tasks
+Author-email: Dmitriy Vlasov <support@tamtamteam.com>
+License: Apache-2.0
+Project-URL: homepage, https://gitlab.com/pararam-public/ttutils
+Keywords: configuration,utils
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE

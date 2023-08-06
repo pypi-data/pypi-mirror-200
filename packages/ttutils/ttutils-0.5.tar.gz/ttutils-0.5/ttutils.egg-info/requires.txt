@@ -1,0 +1,14 @@
+PyYaml
+toml
+python-dateutil
+
+[dev]
+pytest-runner
+pytest
+pytest-cov
+pytest-flake8
+flake8-print
+flake8-blind-except
+flake8-builtins
+flake8-isort
+mypy
