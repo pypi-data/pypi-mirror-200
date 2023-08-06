@@ -1,0 +1,18 @@
+{
+    "": {
+        "domain": "jupyter_resource_usage",
+        "language": "ru-RU",
+        "plural_forms": "nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));",
+        "version": "jupyterlab"
+    },
+    "%2%% used on %1 CPU": [
+        "%2%% used on %1 CPUs",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "Mem: %1 %2": [
+        "\u041f\u0430\u043c\u044f\u0442\u044c: %1 / %2"
+    ]
+}
