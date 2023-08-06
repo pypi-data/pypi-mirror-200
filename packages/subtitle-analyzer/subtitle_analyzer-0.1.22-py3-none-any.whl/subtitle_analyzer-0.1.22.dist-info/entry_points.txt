@@ -1,0 +1,6 @@
+[console_scripts]
+sta_phrase=subtitle_analyzer.entry:subtitle_phrase
+sta_reviewed_phrase=subtitle_analyzer.tbr:gen_ass
+sta_vocab=subtitle_analyzer.entry:subtitle_vocab
+tbr_phrase=subtitle_analyzer.tbr:subtitle_phrase
+
