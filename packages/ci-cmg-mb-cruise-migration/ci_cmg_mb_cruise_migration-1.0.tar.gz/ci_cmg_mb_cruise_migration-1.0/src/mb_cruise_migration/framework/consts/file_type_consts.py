@@ -1,0 +1,7 @@
+class FileTypeConsts(object):
+    MB_RAW = "MB RAW"
+    MB_PROCESSED = "MB PROCESSED"
+    MB_PRODUCT = "MB PRODUCT"
+    ANCILLARY = "ANCILLARY"
+    DOCUMENT = "DOCUMENT"
+    METADATA = "METADATA"

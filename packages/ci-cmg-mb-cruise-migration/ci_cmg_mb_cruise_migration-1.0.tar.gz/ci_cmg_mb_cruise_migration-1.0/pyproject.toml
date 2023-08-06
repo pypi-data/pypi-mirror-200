@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling", "oracledb", "pyyaml", "ci-cmg-cruise-schema-orm"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ci-cmg-mb-cruise-migration"
+version = "1.0"
+description = "migrates multibeam metadata from mb schema to cruise schema"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+packages = ["src/mb_cruise_migration"]
+
+[project.urls]
+"Github" = "https://github.com/CI-CMG/mb-cruise-migration"
