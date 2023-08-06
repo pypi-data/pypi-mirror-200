@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+arg=$(test -z "$1" || echo "-m")
+dir=$(p bin)
+
+if [[ "$1" == "ins" ]]; then
+  echo -e "#!/usr/bin/env bash\n\$(dirname \$(p bin))/\$(basename \$0) \${@:1}" > $HOME/bin/$2
+  chmod +x $HOME/bin/$2
+  exit 0
+fi
+
+if [[ "$@" == "" || "$@" == *".py"* ||  "$@" == "-"* ]]; then
+  $dir $@
+else 
+  $(dirname $dir)/$1 "${@:2}"
+fi
