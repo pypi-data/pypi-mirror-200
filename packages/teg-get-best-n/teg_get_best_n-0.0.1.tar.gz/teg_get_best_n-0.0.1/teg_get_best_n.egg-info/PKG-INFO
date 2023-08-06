@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: teg-get-best-n
+Version: 0.0.1
+Summary: Estimate the optimal number of components or clusters.
+Author-email: "Thomas E. Gladwin" <thomasgladwin@hotmail.com>
+Project-URL: Homepage, https://tegladwin.com
+Project-URL: Bug Tracker, https://github.com/thomasgladwin/teg_get_best_n
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Module of functions for estimating the optimal number of components or clusters.
+
+# PCA
+
+Selects the number of components based on comparing eigenvectors between split-halves of the data. I.e., this doesn't use the shape of the eigenvalue curve, but makes a split between components with high versus low split-half similarity.
+
+Usage:
+
+O = teg_get_best_n.get_n_components(X)
+
+This returns a dictionary with the estimated number of components in O['nComponents'], as well as the eigenvalues (O['eigenvalues']) and eigenvectors (O['eigenvectors']).
+
+The file example.py contains tests with simulated data to check how well the true number of latent variables is recovered.
