@@ -1,0 +1,17 @@
+aiohttp
+xmltodict
+
+[dev]
+black
+isort
+pylint
+
+[docs]
+sphinx
+furo
+sphinx-autoapi
+releases
+toml
+
+[tests]
+pytest

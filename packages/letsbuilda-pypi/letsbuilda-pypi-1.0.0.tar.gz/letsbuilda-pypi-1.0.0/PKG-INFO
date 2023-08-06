@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: letsbuilda-pypi
+Version: 1.0.0
+Summary: A wrapper for PyPI's API and RSS feed
+Author-email: Bradley Reynolds <bradley.reynolds@darbia.dev>
+License: MIT
+Project-URL: repository, https://github.com/letsbuilda/letsbuilda-pypi/
+Project-URL: documentation, https://docs.letsbuilda.dev/letsbuilda-pypi/
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: tests
+Provides-Extra: docs
+License-File: LICENSE
+
+# letsbuilda-pypi
+
+A wrapper for [PyPI's API and RSS feeds](https://warehouse.pypa.io/api-reference/index.html).

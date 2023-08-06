@@ -1,0 +1,56 @@
+[project]
+name = "letsbuilda-pypi"
+version = "1.0.0"
+description = "A wrapper for PyPI's API and RSS feed"
+authors = [
+    { name = "Bradley Reynolds", email = "bradley.reynolds@darbia.dev" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiohttp",
+    "xmltodict",
+]
+
+[project.urls]
+repository = "https://github.com/letsbuilda/letsbuilda-pypi/"
+documentation = "https://docs.letsbuilda.dev/letsbuilda-pypi/"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "pylint",
+]
+tests = [
+    "pytest",
+]
+docs = [
+    "sphinx",
+    "furo",
+    "sphinx-autoapi",
+    "releases",
+    "toml",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.sphinx]
+copyright = "Let's build a ..."
+author = "Bradley Reynolds"
+
+[tool.black]
+target-version = ["py310"]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "tests -r a -v --doctest-modules src"
+
+[tool.pylint.format]
+max-line-length = 120
