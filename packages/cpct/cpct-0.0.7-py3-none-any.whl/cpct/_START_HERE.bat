@@ -1,0 +1,2 @@
+python cpct.py
+pause
