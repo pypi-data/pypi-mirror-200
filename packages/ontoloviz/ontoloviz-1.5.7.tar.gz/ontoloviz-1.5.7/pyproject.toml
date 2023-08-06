@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "ontoloviz"
+version = "1.5.7"
+description = "OntoloViz drug- and phenotype-ontology visualization GUI"
+authors = ["Matthias Ley <matthias.ley@delta4.ai>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["MeSH", "ATC", "ontology", "visualization", "sunburst", "drug", "phenotype", "GUI"]
+repository = "https://github.com/Mnikley/OntoloViz"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/Mnikley/OntoloViz/issues"
+"Releases" = "https://github.com/Mnikley/OntoloViz/releases"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+plotly = "^5.13.1"
+openpyxl = "^3.1.2"
+packaging = "^23.0"
+
+[tool.poetry.scripts]
+ontoloviz = "ontoloviz.app:run_app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
