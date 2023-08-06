@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: shopcloud-django-toolbox
+Version: 1.16.0
+Summary: Django tool
+Home-page: https://github.com/Talk-Point/shopcloud-django-authenticator
+Author: Konstantin Stoldt
+Author-email: konstantin.stoldt@talk-point.de
+License: MIT-License
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: Django (<5.0,>=3.2)
+Requires-Dist: djangorestframework
+
