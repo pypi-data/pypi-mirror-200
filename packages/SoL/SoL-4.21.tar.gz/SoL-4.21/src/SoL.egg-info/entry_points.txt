@@ -1,0 +1,5 @@
+[console_scripts]
+soladmin = sol.scripts.admin:main
+
+[paste.app_factory]
+main = sol:main

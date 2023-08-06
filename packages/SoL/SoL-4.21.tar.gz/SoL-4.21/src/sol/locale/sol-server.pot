@@ -1,0 +1,3460 @@
+# Translations template for SoL.
+# Copyright (C) 2023 Lele Gaifax
+# This file is distributed under the same license as the SoL project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SoL 4.21\n"
+"Report-Msgid-Bugs-To: lele@metapensiero.it\n"
+"POT-Creation-Date: 2023-03-29 20:12+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: src/sol/models/bio.py:919 src/sol/printouts/matches.py:74
+#: src/sol/printouts/results.py:130
+msgid "#"
+msgstr ""
+
+#: src/sol/models/championship.py:280
+msgid "$championship of $club"
+msgstr ""
+
+#. TRANSLATORS: this is used to format the description
+#. of a match for single events
+#: src/sol/models/match.py:171
+msgid "$comp1 <i>vs.</i> $comp2"
+msgstr ""
+
+#: src/sol/models/match.py:173 src/sol/printouts/tranking.py:76
+msgid "$comp1 vs. $comp2"
+msgstr ""
+
+#. TRANSLATORS: this is used to format the description
+#. of a match for double events
+#: src/sol/models/match.py:167
+msgid "$comp1<br/><i>vs.</i><br/>$comp2"
+msgstr ""
+
+#: src/sol/views/svg.py:117 src/sol/views/svg.py:124
+msgid "$count female"
+msgid_plural "$count females"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/svg.py:115 src/sol/views/svg.py:121
+msgid "$count male"
+msgid_plural "$count males"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/svg.py:113
+msgid "$count player"
+msgid_plural "$count players"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/bio.py:256
+msgid "$count player has been merged into $player"
+msgid_plural "$count players has been merged into $player"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/printouts/nranking.py:116 src/sol/printouts/nranking.py:167
+#: src/sol/printouts/participants.py:61
+msgid "$country: $num competitor"
+msgid_plural "$country: $num competitors"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/models/player.py:549
+msgid "$lastname $firstname"
+msgstr ""
+
+#: src/sol/models/player.py:555
+msgid "$lastname $firstname $nickname"
+msgstr ""
+
+#: src/sol/printouts/participants.py:27
+msgid "$num Participant"
+msgid_plural "$num Participants"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/bio.py:423
+msgid "$num skipped because already present"
+msgid_plural "$num skipped because already present"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/bio.py:418
+msgid "$num tourney successfully loaded"
+msgid_plural "$num tourneys successfully loaded"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/models/rate.py:102
+msgid "$player in $rating on $date"
+msgstr ""
+
+#: src/sol/models/tourney.py:420
+msgid "$tourney — $championship, $date"
+msgstr ""
+
+#: src/sol/models/player.py:993
+msgid "${board}. ${url} against ${opponent}"
+msgstr ""
+
+#: src/sol/printouts/basic.py:309
+#, python-format
+msgid "%(location)s, %(date)s"
+msgstr ""
+
+#. TRANSLATORS: this is strftime() format, see
+#. http://docs.python.org/3/library/time.html#time.strftime
+#: src/sol/printouts/scorecards.py:207
+msgid "%I:%M %p"
+msgstr ""
+
+#: src/sol/views/lit/player.mako:120
+#, python-format
+msgid "%d bronze medal"
+msgid_plural "%d bronze medals"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/country.mako:67
+#, python-format
+msgid "%d championship"
+msgid_plural "%d championships"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/index.mako:27 src/sol/views/lit/index.mako:49
+#, python-format
+msgid "%d country"
+msgid_plural "%d countries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/player.mako:116
+#, python-format
+msgid "%d gold medal"
+msgid_plural "%d gold medals"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/player.mako:139 src/sol/views/lit/player_matches.mako:116
+#, python-format
+msgid "%d lost"
+msgid_plural "%d lost"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/countdown.mako:58 src/sol/views/lit/tourney.mako:104
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/countdown.mako:61
+#, python-format
+msgid "%d minute of prealarm"
+msgid_plural "%d minutes of prealarm"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/country.mako:71
+#, python-format
+msgid "%d player"
+msgid_plural "%d players"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/player.mako:118
+#, python-format
+msgid "%d silver medal"
+msgid_plural "%d silver medals"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/player.mako:149
+#, python-format
+msgid "%d single"
+msgid_plural "%d singles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/player.mako:142 src/sol/views/lit/player_matches.mako:119
+#, python-format
+msgid "%d tied"
+msgid_plural "%d tied"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/printouts/cranking.py:101 src/sol/printouts/rranking.py:82
+#: src/sol/views/lit/club.mako:92 src/sol/views/lit/club.mako:111
+#: src/sol/views/lit/club.mako:130
+#, python-format
+msgid "%d tourney"
+msgid_plural "%d tourneys"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/tourney.mako:119
+#, python-format
+msgid "%d turn"
+msgid_plural "%d turns"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/player.mako:136 src/sol/views/lit/player_matches.mako:113
+#, python-format
+msgid "%d won"
+msgid_plural "%d won"
+msgstr[0] ""
+msgstr[1] ""
+
+#. TRANSLATORS: this is a Python strftime() format, see
+#. http://docs.python.org/3/library/time.html#time.strftime
+#: src/sol/printouts/badges.py:176 src/sol/printouts/basic.py:306
+#: src/sol/printouts/boardlabels.py:119 src/sol/printouts/rranking.py:93
+#: src/sol/views/lit/player.mako:198 src/sol/views/lit/player_opponent.mako:103
+#: src/sol/views/lit/tourney.mako:62
+#, python-format
+msgid "%m-%d-%Y"
+msgstr ""
+
+#. TRANSLATORS: this is a Python strftime() format, see
+#. http://docs.python.org/3/library/time.html#time.strftime
+#: src/sol/printouts/basic.py:176 src/sol/views/lit/base.mako:87
+#, python-format
+msgid "%m-%d-%Y %I:%M %p"
+msgstr ""
+
+#. TRANSLATORS: this is a Python strftime() format, see
+#. http://docs.python.org/3/library/time.html#time.strftime
+#: src/sol/printouts/cranking.py:157 src/sol/views/lit/championship.mako:40
+#: src/sol/views/lit/latest.mako:49 src/sol/views/svg.py:90
+#: src/sol/views/svg.py:235
+#, python-format
+msgid "%m-%d-%y"
+msgstr ""
+
+#: src/sol/views/countdown.mako:89
+msgid "(Re)start the countdown immediately"
+msgstr ""
+
+#: src/sol/models/match.py:87
+msgid "1st competitor ID"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:134
+msgid "1st/2nd place"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:134
+msgid "1st/2nd place and 3rd/4th place"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:221
+msgid "1st/2nd place final"
+msgstr ""
+
+#: src/sol/models/match.py:93
+msgid "2nd competitor ID"
+msgstr ""
+
+#: src/sol/views/tourney.py:61
+msgid "2nd player"
+msgstr ""
+
+#: src/sol/models/competitor.py:79
+msgid "2nd player ID"
+msgstr ""
+
+#: src/sol/views/tourney.py:70
+msgid "3rd player"
+msgstr ""
+
+#: src/sol/models/competitor.py:85
+msgid "3rd player ID"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:223
+msgid "3rd/4th place final"
+msgstr ""
+
+#: src/sol/views/tourney.py:79
+msgid "4th player"
+msgstr ""
+
+#: src/sol/models/competitor.py:91
+msgid "4th player ID"
+msgstr ""
+
+#: src/sol/models/tourney.py:297
+msgid "70％ of average trend"
+msgstr ""
+
+#: src/sol/models/player.py:547
+msgid "<b>$lastname</b> $firstname"
+msgstr ""
+
+#: src/sol/models/player.py:553
+msgid "<b>$lastname</b> $firstname $nickname"
+msgstr ""
+
+#: src/sol/models/player.py:352
+msgid ""
+"A player named «$name» is already present: please double check and if the"
+" new player is effectively a different person specify a different "
+"nickname to disambiguate"
+msgstr ""
+
+#: src/sol/models/player.py:346
+msgid ""
+"A player named «$name» is already present: please double check and if the"
+" new player is effectively a different person specify a nickname to "
+"disambiguate"
+msgstr ""
+
+#: src/sol/views/pre_countdown.mako:61
+msgid "Add five more minutes"
+msgstr ""
+
+#: src/sol/views/pre_countdown.mako:57
+msgid "Add one more minute"
+msgstr ""
+
+#: src/sol/views/auth.py:43 src/sol/views/data.py:95 src/sol/views/data.py:587
+msgid "Administrator"
+msgstr ""
+
+#: src/sol/models/player.py:188
+msgid "Agreed"
+msgstr ""
+
+#: src/sol/models/player.py:185
+msgid "Agreed privacy"
+msgstr ""
+
+#: src/sol/views/lit.py:705
+msgid "All boards must be entered, as integer numbers between 0 and 99!"
+msgstr ""
+
+#: src/sol/models/tourney.py:219
+msgid "All possible matches"
+msgstr ""
+
+#: src/sol/printouts/results.py:94
+msgid "All results"
+msgstr ""
+
+#: src/sol/views/auth.py:44
+msgid "Anonymous"
+msgstr ""
+
+#: src/sol/views/data.py:245
+msgid "Associated"
+msgstr ""
+
+#: src/sol/views/lit/player.mako:76 src/sol/views/lit/player_matches.mako:75
+msgid "Associated and federated with"
+msgstr ""
+
+#: src/sol/views/lit/player.mako:84 src/sol/views/lit/player_matches.mako:85
+msgid "Associated to"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:510
+msgid "Average"
+msgstr ""
+
+#: src/sol/models/tourney.py:296
+msgid "Average trend"
+msgstr ""
+
+#: src/sol/views/tourney.py:486
+msgid "Bad request!"
+msgstr ""
+
+#: src/sol/views/lit.py:880
+msgid "Bad value for Queen in game $game!"
+msgstr ""
+
+#: src/sol/printouts/badges.py:99
+msgid "Badges"
+msgstr ""
+
+#: src/sol/printouts/nranking.py:106 src/sol/printouts/nranking.py:157
+#: src/sol/printouts/tranking.py:139 src/sol/printouts/tranking.py:144
+#: src/sol/printouts/tranking.py:175 src/sol/printouts/tranking.py:181
+#: src/sol/printouts/tranking.py:235 src/sol/printouts/tranking.py:240
+#: src/sol/views/lit/player.mako:169 src/sol/views/lit/tourney.mako:218
+msgid "Bch"
+msgstr ""
+
+#: src/sol/models/tourney.py:317
+msgid "Best of three matches"
+msgstr ""
+
+#: src/sol/models/player.py:159
+msgid "Birthdate"
+msgstr ""
+
+#: src/sol/models/bio.py:931
+msgid "Board"
+msgstr ""
+
+#: src/sol/models/board.py:69
+msgid "Board #"
+msgstr ""
+
+#: src/sol/views/lit/training_match.mako:69
+msgid "Board #$number"
+msgstr ""
+
+#: src/sol/models/board.py:55
+msgid "Board ID"
+msgstr ""
+
+#: src/sol/printouts/badges.py:203
+msgid "Bounty:"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:245 src/sol/views/lit/match.mako:67
+#: src/sol/views/lit/match.mako:76
+msgid "Break"
+msgstr ""
+
+#: src/sol/models/match.py:99
+msgid "Breaker"
+msgstr ""
+
+#: src/sol/models/bio.py:960 src/sol/models/competitor.py:107
+msgid "Bucholz"
+msgstr ""
+
+#: src/sol/printouts/badges.py:197 src/sol/printouts/badges.py:209
+msgid "Bucholz:"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:380 src/sol/views/lit/tourney.mako:384
+msgid "C"
+msgstr ""
+
+#. TRANSLATORS: this is the label for the "coins of the first competitor in
+#. given game" in the Matches grid, keep it as compact as possible
+#: src/sol/views/tourney.py:226
+msgid "C1/$game"
+msgstr ""
+
+#. TRANSLATORS: this is the label for the "coins of the second competitor
+#. in given game" in the Matches grid, keep it as compact as possible
+#: src/sol/views/tourney.py:242
+msgid "C2/$game"
+msgstr ""
+
+#: src/sol/views/lit.py:873
+msgid "Cannot accept both coins in game $game!"
+msgstr ""
+
+#: src/sol/models/tourney.py:1043 src/sol/models/tourney.py:1093
+msgid "Cannot create another round: no more possible combinations!"
+msgstr ""
+
+#: src/sol/models/tourney.py:1091
+msgid ""
+"Cannot create next round: there are further $remaining possible matches "
+"but they cannot be grouped together with the current pairing rules. "
+"Nevertheless, you can switch to the “All possible matches” method to "
+"generate remaining rounds."
+msgstr ""
+
+#: src/sol/models/tourney.py:636
+msgid "Cannot create other rounds after prize-giving!"
+msgstr ""
+
+#: src/sol/models/bio.py:1499
+msgid "Cannot delete not owned records!"
+msgstr ""
+
+#: src/sol/models/tourney.py:1138
+msgid "Cannot generate final turn after prize-giving!"
+msgstr ""
+
+#: src/sol/models/bio.py:1428 src/sol/models/bio.py:1450
+msgid "Cannot manage players!"
+msgstr ""
+
+#: src/sol/models/player.py:664
+msgid ""
+"Cannot merge given people because \"$player\" is present in tourney "
+"\"$tourney\""
+msgstr ""
+
+#: src/sol/models/player.py:674
+msgid ""
+"Cannot merge given people because $count of them are playing in tourney "
+"\"$tourney\""
+msgstr ""
+
+#: src/sol/models/bio.py:1444
+msgid "Cannot modify not owned records!"
+msgstr ""
+
+#: src/sol/models/tourney.py:644
+msgid ""
+"Cannot proceed, following competitors do not have an email address: "
+"${names}"
+msgstr ""
+
+#: src/sol/models/tourney.py:1303 src/sol/models/tourney.py:1355
+msgid "Cannot replicate tourney, no open championships!"
+msgstr ""
+
+#: src/sol/models/tourney.py:1172
+msgid "Cannot update prizes after prize-giving!"
+msgstr ""
+
+#: src/sol/models/tourney.py:522
+msgid "Cannot update rankings after prize-giving!"
+msgstr ""
+
+#: src/sol/printouts/boardlabels.py:141
+msgid "Carromboard"
+msgstr ""
+
+#: src/sol/models/match.py:72
+msgid "Carromboard #"
+msgstr ""
+
+#: src/sol/printouts/boardlabels.py:79
+msgid "Carromboard labels"
+msgstr ""
+
+#: src/sol/models/championship.py:101
+msgid "Centesimal prizes"
+msgstr ""
+
+#: src/sol/models/bio.py:914 src/sol/views/data.py:809
+#: src/sol/views/lit/latest.mako:27 src/sol/views/lit/player.mako:163
+#: src/sol/views/lit/player_opponent.mako:68 src/sol/views/lit/tourney.mako:65
+msgid "Championship"
+msgstr ""
+
+#: src/sol/models/championship.py:50 src/sol/models/tourney.py:136
+msgid "Championship ID"
+msgstr ""
+
+#: src/sol/views/lit/championship.mako:147
+msgid "Championship ranking"
+msgstr ""
+
+#: src/sol/views/data.py:810
+msgid "Championship this tourney belongs to."
+msgstr ""
+
+#: src/sol/views/auth.py:124 src/sol/views/data.py:154
+#: src/sol/views/lit/club.mako:43 src/sol/views/lit/index.mako:35
+msgid "Championships"
+msgstr ""
+
+#: src/sol/models/player.py:176
+msgid "Citizenship"
+msgstr ""
+
+#: src/sol/models/championship.py:100 src/sol/models/club.py:140
+msgid "Classic millesimal prizes"
+msgstr ""
+
+#: src/sol/models/championship.py:192 src/sol/models/tourney.py:275
+msgid "Closed"
+msgstr ""
+
+#: src/sol/views/countdown.mako:40
+msgid "Closing the page will NOT stop the countdown."
+msgstr ""
+
+#: src/sol/models/bio.py:912 src/sol/views/data.py:392
+#: src/sol/views/data.py:692 src/sol/views/data.py:819
+#: src/sol/views/data.py:951 src/sol/views/lit/championship.mako:87
+#: src/sol/views/lit/latest.mako:26 src/sol/views/lit/tourney.mako:73
+msgid "Club"
+msgstr ""
+
+#: src/sol/models/championship.py:63 src/sol/models/club.py:42
+#: src/sol/models/club.py:73 src/sol/models/player.py:217
+#: src/sol/models/rating.py:70
+msgid "Club ID"
+msgstr ""
+
+#: src/sol/views/data.py:842
+msgid ""
+"Club that hosts this tourney, when different from the one that organizes "
+"the championship."
+msgstr ""
+
+#: src/sol/views/data.py:693
+msgid "Club that organizes the tourneys of the championship."
+msgstr ""
+
+#: src/sol/views/data.py:952
+msgid "Club this rating is restricted to."
+msgstr ""
+
+#: src/sol/views/data.py:820
+msgid "Club this tourney is organized by."
+msgstr ""
+
+#: src/sol/views/lit/club.mako:37
+msgid "Club web site"
+msgstr ""
+
+#: src/sol/views/auth.py:116 src/sol/views/lit/country.mako:29
+#: src/sol/views/lit/index.mako:24
+msgid "Clubs"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:155 src/sol/printouts/scorecards.py:159
+#: src/sol/views/lit/match.mako:86 src/sol/views/lit/match.mako:90
+#: src/sol/views/lit/player_matches.mako:132 src/sol/views/lit/tourney.mako:391
+#: src/sol/views/lit/tourney.mako:395
+msgid "Coins"
+msgstr ""
+
+#: src/sol/models/board.py:76
+msgid "Coins 1"
+msgstr ""
+
+#: src/sol/models/board.py:84
+msgid "Coins 2"
+msgstr ""
+
+#: src/sol/models/board.py:77
+msgid "Coins of the first competitor."
+msgstr ""
+
+#: src/sol/models/board.py:85
+msgid "Coins of the second competitor."
+msgstr ""
+
+#: src/sol/models/bio.py:921 src/sol/models/bio.py:956
+#: src/sol/printouts/badges.py:279 src/sol/views/tourney.py:301
+msgid "Competitor"
+msgstr ""
+
+#: src/sol/models/bio.py:933
+msgid "Competitor 1"
+msgstr ""
+
+#: src/sol/views/tourney.py:144
+msgid "Competitor 1 vs Competitor 2."
+msgstr ""
+
+#: src/sol/models/bio.py:935
+msgid "Competitor 2"
+msgstr ""
+
+#: src/sol/models/competitor.py:59
+msgid "Competitor ID"
+msgstr ""
+
+#: src/sol/models/bio.py:918
+msgid "Competitors"
+msgstr ""
+
+#: src/sol/views/auth.py:676
+msgid "Confirm password reset for your SoL account"
+msgstr ""
+
+#: src/sol/views/auth.py:454
+msgid "Confirm your SoL account"
+msgstr ""
+
+#: src/sol/models/user.py:140
+msgid "Confirmed"
+msgstr ""
+
+#: src/sol/models/bio.py:736
+msgid "Could not add user, its email is missing!"
+msgstr ""
+
+#: src/sol/views/tourney.py:610 src/sol/views/tourney.py:654
+msgid ""
+"Could not duplicate the tourney because there is already an event today, "
+"sorry!"
+msgstr ""
+
+#: src/sol/models/tourney.py:259
+msgid "Countdown start"
+msgstr ""
+
+#: src/sol/models/club.py:114 src/sol/models/player.py:165
+#: src/sol/views/lit/club.mako:28 src/sol/views/lit/player.mako:64
+#: src/sol/views/lit/player_matches.mako:63
+#: src/sol/views/lit/players_list.mako:18 src/sol/views/tourney.py:119
+msgid "Country"
+msgstr ""
+
+#: src/sol/views/tourney.py:120
+msgid "Country name"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:113
+msgid "Coupling method"
+msgstr ""
+
+#: src/sol/views/data.py:109 src/sol/views/data.py:999
+msgid "Courtyard"
+msgstr ""
+
+#: src/sol/models/user.py:75
+msgid "Created"
+msgstr ""
+
+#: src/sol/views/tourney.py:607 src/sol/views/tourney.py:651
+msgid "Created \"$tourney\" in championship \"$championship\""
+msgstr ""
+
+#: src/sol/models/championship.py:204 src/sol/models/club.py:125
+#: src/sol/models/tourney.py:221
+msgid "Cross ranking order"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:196
+#, python-format
+msgid "Currently playing %s round"
+msgstr ""
+
+#: src/sol/models/bio.py:910 src/sol/models/rate.py:63
+#: src/sol/models/tourney.py:161 src/sol/views/lit/latest.mako:24
+#: src/sol/views/lit/player.mako:164 src/sol/views/lit/player_opponent.mako:69
+#: src/sol/views/lit/tourney.mako:61
+msgid "Date"
+msgstr ""
+
+#: src/sol/models/player.py:160
+msgid "Date of birth of the player, needed for “Junior” rankings."
+msgstr ""
+
+#: src/sol/models/tourney.py:162
+msgid "Date of the event."
+msgstr ""
+
+#: src/sol/models/rate.py:64
+msgid "Date of the rating."
+msgstr ""
+
+#: src/sol/views/lit/rating.mako:33
+msgid "Default deviation"
+msgstr ""
+
+#: src/sol/models/club.py:135
+msgid "Default method used to assign final prizes."
+msgstr ""
+
+#: src/sol/models/championship.py:202 src/sol/models/club.py:123
+msgid "Default method used to pair competitors at each round."
+msgstr ""
+
+#: src/sol/views/lit/rating.mako:29
+msgid "Default rate"
+msgstr ""
+
+#: src/sol/views/lit/rating.mako:37
+msgid "Default volatility"
+msgstr ""
+
+#: src/sol/models/tourney.py:242 src/sol/views/lit/tourney.mako:123
+msgid "Delay compatriots pairing"
+msgstr ""
+
+#: src/sol/models/tourney.py:232 src/sol/views/lit/tourney.mako:118
+msgid "Delay top players pairing"
+msgstr ""
+
+#: src/sol/models/player.py:414
+msgid "Deletion not allowed: $player is a competitor in $count tourney!"
+msgid_plural "Deletion not allowed: $player is a competitor in $count tourneys!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/models/user.py:263
+msgid "Deletion not allowed: $user owns $count record in table \"$table\"!"
+msgid_plural "Deletion not allowed: $user owns $count records in table \"$table\"!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/models/championship.py:86 src/sol/models/club.py:97
+#: src/sol/models/rating.py:77 src/sol/models/tourney.py:168
+msgid "Description"
+msgstr ""
+
+#: src/sol/models/championship.py:87
+msgid "Description of the championship."
+msgstr ""
+
+#: src/sol/models/club.py:98
+msgid "Description of the club."
+msgstr ""
+
+#: src/sol/models/rating.py:78
+msgid "Description of the rating."
+msgstr ""
+
+#: src/sol/models/tourney.py:169
+msgid "Description of the tourney."
+msgstr ""
+
+#: src/sol/views/lit/championship.mako:81 src/sol/views/lit/tourney.mako:56
+msgid "Details"
+msgstr ""
+
+#: src/sol/models/rate.py:77 src/sol/models/rating.py:117
+#: src/sol/printouts/rranking.py:114 src/sol/views/lit/rating.mako:73
+msgid "Deviation"
+msgstr ""
+
+#: src/sol/models/player.py:189
+msgid "Did not agree"
+msgstr ""
+
+#: src/sol/models/player.py:187
+msgid "Did not say anything yet"
+msgstr ""
+
+#: src/sol/views/lit/player_matches.mako:144
+msgid "Diff"
+msgstr ""
+
+#: src/sol/views/lit/player_matches.mako:106
+msgid "Direct matches"
+msgstr ""
+
+#: src/sol/models/player.py:954
+msgid "Do not forget to upload your video on ${socialurl}."
+msgstr ""
+
+#: src/sol/models/player.py:998
+msgid "Do not forget to upload your videos on ${socialurl}."
+msgstr ""
+
+#: src/sol/views/lit/match.mako:50
+msgid "Do you confirm that the match has ended?"
+msgstr ""
+
+#: src/sol/views/countdown.mako:48
+msgid "Do you really want to restart the countdown?"
+msgstr ""
+
+#: src/sol/views/countdown.mako:49
+msgid "Do you really want to stop the countdown?"
+msgstr ""
+
+#: src/sol/views/lit/club.mako:105
+msgid "Doubles"
+msgstr ""
+
+#: src/sol/models/tourney.py:292
+msgid "Drop outs"
+msgstr ""
+
+#: src/sol/models/tourney.py:188 src/sol/views/lit/tourney.mako:103
+msgid "Duration"
+msgstr ""
+
+#: src/sol/models/tourney.py:189
+msgid "Duration in minutes of each round."
+msgstr ""
+
+#: src/sol/models/club.py:212 src/sol/models/player.py:211
+#: src/sol/models/user.py:83
+msgid "Email"
+msgstr ""
+
+#: src/sol/models/club.py:213
+msgid "Email address of the club."
+msgstr ""
+
+#: src/sol/models/player.py:212
+msgid "Email address of the player."
+msgstr ""
+
+#: src/sol/models/user.py:84
+msgid "Email address of the user, used also as login name."
+msgstr ""
+
+#: src/sol/views/auth.py:475 src/sol/views/auth.py:697
+msgid "Email sent!"
+msgstr ""
+
+#: src/sol/models/club.py:103
+msgid "Emblem"
+msgstr ""
+
+#: src/sol/views/lit/match.mako:144
+msgid "End match"
+msgstr ""
+
+#: src/sol/views/bio.py:306 src/sol/views/data.py:328
+msgid "Error occurred while saving changes!"
+msgstr ""
+
+#: src/sol/views/lit/training_match.mako:63
+msgid "Error, please correct and retry!"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:303 src/sol/views/lit/tourney.mako:305
+#: src/sol/views/lit/tourney.mako:500 src/sol/views/lit/training_match.mako:70
+msgid "Errors"
+msgstr ""
+
+#: src/sol/i18n.py:156 src/sol/i18n.py:192
+msgid "Europe"
+msgstr ""
+
+#: src/sol/models/rating.py:168
+msgid "Exponential on scores difference"
+msgstr ""
+
+#: src/sol/views/lit/club.mako:55
+msgid "Federated players"
+msgstr ""
+
+#: src/sol/views/lit/player.mako:92 src/sol/views/lit/player_matches.mako:95
+msgid "Federated with"
+msgstr ""
+
+#: src/sol/models/club.py:220 src/sol/views/data.py:407
+msgid "Federation"
+msgstr ""
+
+#: src/sol/models/player.py:223
+msgid "Federation ID"
+msgstr ""
+
+#: src/sol/views/lit/club.mako:37
+msgid "Federation web site"
+msgstr ""
+
+#: src/sol/views/lit/country.mako:37 src/sol/views/lit/index.mako:31
+msgid "Federations"
+msgstr ""
+
+#: src/sol/models/player.py:153
+msgid "Female"
+msgstr ""
+
+#: src/sol/models/club.py:104
+msgid "File name of the PNG, JPG or GIF logo of the club."
+msgstr ""
+
+#: src/sol/models/player.py:230
+msgid "File name of the PNG, JPG or GIF portrait of the player."
+msgstr ""
+
+#: src/sol/models/match.py:80 src/sol/views/lit/tourney.mako:128
+msgid "Final"
+msgid_plural "Finals"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/models/tourney.py:314
+msgid "Final kind"
+msgstr ""
+
+#: src/sol/models/competitor.py:131
+msgid "Final prize"
+msgstr ""
+
+#: src/sol/models/competitor.py:132
+msgid "Final prize assigned at end of tourney."
+msgstr ""
+
+#: src/sol/printouts/badges.py:277 src/sol/printouts/tranking.py:60
+msgid "Final ranking"
+msgstr ""
+
+#: src/sol/printouts/nranking.py:47
+msgid "Final ranking by nationality"
+msgstr ""
+
+#: src/sol/models/tourney.py:324
+msgid "Final rounds"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:308
+#, python-format
+msgid "Final under %d ranking"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:349
+msgid "Final women ranking"
+msgstr ""
+
+#: src/sol/models/tourney.py:303
+msgid "Finals"
+msgstr ""
+
+#: src/sol/models/tourney.py:1141
+msgid "Finals are not considered for this tourney!"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:90
+msgid "Finals score cards"
+msgstr ""
+
+#: src/sol/models/board.py:95 src/sol/models/match.py:102
+#: src/sol/views/tourney.py:265
+msgid "First competitor"
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:50 src/sol/models/player.py:130
+#: src/sol/models/user.py:90 src/sol/views/lit/player.mako:42
+#: src/sol/views/lit/player_matches.mako:41
+msgid "First name"
+msgstr ""
+
+#: src/sol/views/tourney.py:99
+msgid "First name of the first player."
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:51 src/sol/models/player.py:131
+msgid "First name of the player."
+msgstr ""
+
+#: src/sol/models/user.py:91
+msgid "First name of the user."
+msgstr ""
+
+#: src/sol/views/tourney.py:89
+msgid "First player nationality."
+msgstr ""
+
+#: src/sol/views/tourney.py:98
+msgid "First player's name"
+msgstr ""
+
+#: src/sol/views/tourney.py:103
+msgid "First player's surname"
+msgstr ""
+
+#: src/sol/views/data.py:427
+msgid "First tourney"
+msgstr ""
+
+#: src/sol/models/championship.py:99 src/sol/models/club.py:139
+msgid "Fixed prizes: 1000,900,800,750…"
+msgstr ""
+
+#: src/sol/models/championship.py:98 src/sol/models/club.py:138
+msgid "Fixed prizes: 18,16,14,13…"
+msgstr ""
+
+#: src/sol/models/tourney.py:1321
+msgid "For a knockout tourney there must be a power-of-two number of competitors!"
+msgstr ""
+
+#: src/sol/models/championship.py:244 src/sol/models/championship.py:248
+msgid "For a new championship the \"description\" field is mandatory"
+msgstr ""
+
+#: src/sol/models/championship.py:252
+msgid "For a new championship you must select an existing club"
+msgstr ""
+
+#: src/sol/models/club.py:263 src/sol/models/club.py:266
+msgid "For a new club the \"description\" field is mandatory"
+msgstr ""
+
+#: src/sol/models/player.py:310 src/sol/models/player.py:314
+msgid ""
+"For a new player both the \"firstname\" and the \"lastname\" fields are "
+"mandatory"
+msgstr ""
+
+#: src/sol/models/rating.py:214 src/sol/models/rating.py:218
+msgid "For a new rating the \"description\" field is mandatory"
+msgstr ""
+
+#: src/sol/models/tourney.py:362
+msgid "For a new tourney the \"championship\" field is mandatory"
+msgstr ""
+
+#: src/sol/models/tourney.py:353 src/sol/models/tourney.py:357
+msgid "For a new tourney the \"description\" field is mandatory"
+msgstr ""
+
+#: src/sol/models/user.py:167 src/sol/models/user.py:170
+msgid ""
+"For a new user \"firstname\", \"lastname\", \"email\" and \"password\" "
+"fields are mandatory"
+msgstr ""
+
+#: src/sol/views/tourney.py:80
+msgid "Full name of the fourth player."
+msgstr ""
+
+#: src/sol/views/tourney.py:53
+msgid "Full name of the player."
+msgstr ""
+
+#: src/sol/views/tourney.py:302
+msgid "Full name of the players."
+msgstr ""
+
+#: src/sol/views/tourney.py:62
+msgid "Full name of the second player."
+msgstr ""
+
+#: src/sol/views/tourney.py:71
+msgid "Full name of the third player."
+msgstr ""
+
+#: src/sol/models/__init__.py:137
+msgid "GUID"
+msgstr ""
+
+#: src/sol/models/player.py:151 src/sol/views/lit/player.mako:58
+#: src/sol/views/lit/player_matches.mako:57 src/sol/views/tourney.py:93
+msgid "Gender"
+msgstr ""
+
+#: src/sol/views/tourney.py:94
+msgid "Gender of the first player."
+msgstr ""
+
+#: src/sol/views/__init__.py:54 src/sol/views/bio.py:333
+msgid "Guest users are not allowed to perform this operation, sorry!"
+msgstr ""
+
+#: src/sol/models/rating.py:167
+msgid "Guido's formula"
+msgstr ""
+
+#: src/sol/views/auth.py:492
+msgid ""
+"Hello again,\n"
+"\n"
+"this to confirm that your registration has been successfully completed: "
+"you\n"
+"can now access your own account at\n"
+"\n"
+"  {login_url}\n"
+"\n"
+"and start using SoL.\n"
+"\n"
+"Use this email address as the “username” and provide the same password "
+"you\n"
+"specified in the request.\n"
+"\n"
+"Please consult the online documentation at\n"
+"\n"
+"  {manual_url}\n"
+"\n"
+"in particular the section about players management at\n"
+"\n"
+"  {players_mgmt_url}\n"
+"\n"
+"If you need help, or would like to register players not already present\n"
+"in the database, either send an email to the administrator at the "
+"following\n"
+"address\n"
+"\n"
+"  {admin_email}\n"
+"\n"
+"or subscribe to the very low traffic \"SoL users\" mailing list and ask "
+"there\n"
+"\n"
+"  https://groups.google.com/g/sol-users\n"
+"\n"
+"Best regards and happy carromming!\n"
+msgstr ""
+
+#: src/sol/models/player.py:85
+msgid ""
+"Hello {firstname},\n"
+"\n"
+"you are participating in the long-distance “{tourney}” Carrom event.\n"
+"\n"
+"Here are the links to your {nmatches} matches: you shall play {nboards} "
+"boards in each match\n"
+"and insert the number of errors in each board in the form available at "
+"the\n"
+"indicated link. Do this as soon as you have finished playing the match "
+"before\n"
+"starting the next one.\n"
+"\n"
+"  {urls}\n"
+"{details}\n"
+"\n"
+"Remember to read and follow the rules set by the organizers.\n"
+"\n"
+"Thanks for playing, happy carromming and stay safe!\n"
+msgstr ""
+
+#: src/sol/models/player.py:73
+msgid ""
+"Hello {firstname},\n"
+"\n"
+"you are participating in the long-distance “{tourney}” Carrom event.\n"
+"\n"
+"In the next round you are going to play against the Phantom, which means\n"
+"you have a free round.\n"
+"\n"
+"Thanks for playing, happy carromming and stay safe!\n"
+msgstr ""
+
+#: src/sol/models/player.py:55
+msgid ""
+"Hello {firstname},\n"
+"\n"
+"you are participating in the long-distance “{tourney}” Carrom event.\n"
+"\n"
+"In the next round you are going to play against {opponent}: you\n"
+"shall play {nboards} boards and insert the number of errors in each board"
+"\n"
+"in the form at the following address:\n"
+"\n"
+"  {url}\n"
+"{details}\n"
+"\n"
+"Remember to read and follow the rules set by the organizers.\n"
+"\n"
+"Thanks for playing, happy carromming and stay safe!\n"
+msgstr ""
+
+#: src/sol/views/auth.py:596
+msgid ""
+"Hello {firstname},\n"
+"\n"
+"you received this message because somebody, possibly you, requested a\n"
+"password reset of your account on the SoL instance at {hostname}.\n"
+"\n"
+"If it was not you, sorry for the inconvenience: just ignore this email,\n"
+"and the request won't be fulfilled and eventually trashed.\n"
+"\n"
+"Otherwise, you have two days starting from now to visit the following\n"
+"link to complete the procedure:\n"
+"\n"
+"  {reset_password_url}\n"
+"\n"
+"Best regards and happy carromming!\n"
+msgstr ""
+
+#: src/sol/views/auth.py:368
+msgid ""
+"Hello {firstname},\n"
+"\n"
+"you received this message because somebody, possibly you, requested a new"
+"\n"
+"account on the SoL instance at {hostname}.\n"
+"\n"
+"If it was not you, sorry for the inconvenience: just ignore this email,\n"
+"and the request won't be fulfilled and eventually trashed.\n"
+"\n"
+"Otherwise, you have two days starting from now to visit the following "
+"link\n"
+"and complete the registration form:\n"
+"\n"
+"  {confirm_url}\n"
+"\n"
+"Best regards and happy carromming!\n"
+msgstr ""
+
+#: src/sol/models/rating.py:155
+msgid "Higher points"
+msgstr ""
+
+#: src/sol/models/rating.py:156
+msgid "Higher value of the range used to interpolate players rates."
+msgstr ""
+
+#: src/sol/models/rating.py:87
+msgid "Historical (imported) rating"
+msgstr ""
+
+#: src/sol/views/data.py:841 src/sol/views/lit/tourney.mako:82
+msgid "Hosted by"
+msgstr ""
+
+#: src/sol/models/tourney.py:142
+msgid "Hosting club ID"
+msgstr ""
+
+#: src/sol/models/match.py:253
+msgid "How could match \"$match\" end with a draw in a knockout tourney?!?"
+msgstr ""
+
+#: src/sol/models/match.py:249
+msgid "How could match \"$match\" end without result?!?"
+msgstr ""
+
+#: src/sol/models/tourney.py:137
+msgid "ID of the championship the tourney belongs to."
+msgstr ""
+
+#: src/sol/models/tourney.py:143
+msgid "ID of the club hosting the tournament."
+msgstr ""
+
+#: src/sol/models/championship.py:64
+msgid "ID of the club the championship is organized by."
+msgstr ""
+
+#: src/sol/models/player.py:218
+msgid "ID of the club the player is member of."
+msgstr ""
+
+#: src/sol/models/rating.py:71
+msgid "ID of the club the rating is restricted to."
+msgstr ""
+
+#: src/sol/views/data.py:860
+msgid "ID of the club this tourney is organized by."
+msgstr ""
+
+#: src/sol/models/club.py:43
+msgid "ID of the club."
+msgstr ""
+
+#: src/sol/models/club.py:82
+msgid "ID of the default rating used by championships organized by this club."
+msgstr ""
+
+#: src/sol/models/championship.py:72
+msgid "ID of the default rating used by tourneys in this championship."
+msgstr ""
+
+#: src/sol/models/player.py:224
+msgid "ID of the federation the player is associated with."
+msgstr ""
+
+#: src/sol/models/match.py:88
+msgid "ID of the first competitor."
+msgstr ""
+
+#: src/sol/models/competitor.py:92
+msgid "ID of the fourth player."
+msgstr ""
+
+#: src/sol/models/board.py:63
+msgid "ID of the match the board belongs to."
+msgstr ""
+
+#: src/sol/models/competitor.py:74
+msgid "ID of the player."
+msgstr ""
+
+#: src/sol/models/championship.py:57
+msgid "ID of the previous championship."
+msgstr ""
+
+#: src/sol/models/tourney.py:149
+msgid "ID of the rating this tourney uses."
+msgstr ""
+
+#: src/sol/models/rate.py:57
+msgid "ID of the related player."
+msgstr ""
+
+#: src/sol/models/rate.py:50
+msgid "ID of the related rating."
+msgstr ""
+
+#: src/sol/models/match.py:94
+msgid "ID of the second competitor."
+msgstr ""
+
+#: src/sol/models/competitor.py:80
+msgid "ID of the second player."
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:75
+msgid "ID of the target player."
+msgstr ""
+
+#: src/sol/models/competitor.py:86
+msgid "ID of the third player."
+msgstr ""
+
+#: src/sol/models/competitor.py:67
+msgid "ID of the tourney the competitor belongs to."
+msgstr ""
+
+#: src/sol/models/match.py:60
+msgid "ID of the tourney the match belongs to."
+msgstr ""
+
+#: src/sol/models/championship.py:80 src/sol/models/club.py:91
+#: src/sol/models/player.py:242 src/sol/models/rating.py:65
+#: src/sol/models/tourney.py:155
+msgid "ID of the user that is responsible for this record."
+msgstr ""
+
+#: src/sol/models/club.py:52
+msgid "ID of the user."
+msgstr ""
+
+#: src/sol/views/lit/player.mako:194 src/sol/views/lit/player_opponent.mako:99
+msgid "Idem"
+msgstr ""
+
+#: src/sol/models/championship.py:212
+msgid ""
+"If set, it is the number of boards to play in a “Danwei Grade” "
+"competition, a.k.a. “Corona Carrom” tourneys. Leave this blank for normal"
+" championships."
+msgstr ""
+
+#: src/sol/printouts/cranking.py:87
+#, python-format
+msgid "Ignoring %d worst result"
+msgid_plural "Ignoring %d worst results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/player.mako:166
+msgid "In team with"
+msgstr ""
+
+#: src/sol/models/rating.py:135
+msgid "Inherit"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:66
+msgid "Initial ranking"
+msgstr ""
+
+#: src/sol/printouts/nranking.py:53
+msgid "Initial ranking by nationality"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:314
+#, python-format
+msgid "Initial under %d ranking"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:355
+msgid "Initial women ranking"
+msgstr ""
+
+#: src/sol/views/bio.py:207
+msgid "Integrity error prevents saving changes!"
+msgstr ""
+
+#: src/sol/views/auth.py:47
+msgid "Internal error occurred, please contact the administrator"
+msgstr ""
+
+#: src/sol/views/bio.py:311 src/sol/views/data.py:333
+#: src/sol/views/tourney.py:798
+msgid "Internal error!"
+msgstr ""
+
+#: src/sol/views/data.py:106 src/sol/views/data.py:996
+msgid "International"
+msgstr ""
+
+#: src/sol/views/countdown.mako:103 src/sol/views/pre_countdown.mako:65
+msgid "Interrupt and close"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:296
+msgid "Invalid age: $age"
+msgstr ""
+
+#: src/sol/views/lit.py:448 src/sol/views/lit.py:457
+msgid "Invalid board number: $board"
+msgstr ""
+
+#: src/sol/views/auth.py:37
+msgid "Invalid credentials"
+msgstr ""
+
+#: src/sol/views/data.py:291 src/sol/views/data.py:294
+#: src/sol/views/data.py:297
+msgid "Invalid data!"
+msgstr ""
+
+#: src/sol/views/auth.py:38
+msgid "Invalid email address"
+msgstr ""
+
+#: src/sol/models/tourney.py:1039
+msgid "Invalid method $couplings for knockout tourney!"
+msgstr ""
+
+#: src/sol/printouts/boardlabels.py:48
+msgid "Invalid number of carromboards: $nboards"
+msgstr ""
+
+#: src/sol/views/lit.py:507
+msgid "Invalid number of tourneys: $n"
+msgstr ""
+
+#: src/sol/views/auth.py:45
+msgid "Invalid old password"
+msgstr ""
+
+#: src/sol/models/tourney.py:370 src/sol/models/tourney.py:409
+msgid "Invalid pairing method, $couplings is allowed only in knockout tourney"
+msgstr ""
+
+#: src/sol/models/tourney.py:375 src/sol/models/tourney.py:414
+msgid "Invalid pairing method, $couplings is allowed only in swiss tourney"
+msgstr ""
+
+#: src/sol/views/tourney.py:793
+msgid "Invalid request for board edit URL"
+msgstr ""
+
+#: src/sol/views/tourney.py:822
+msgid "Invalid request for competitor 1 edit URL"
+msgstr ""
+
+#: src/sol/views/tourney.py:853
+msgid "Invalid request for competitor 2 edit URL"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:59
+msgid "Invalid starttime: $starttime"
+msgstr ""
+
+#: src/sol/views/bio.py:237
+msgid "Invalid target player id"
+msgstr ""
+
+#: src/sol/printouts/matches.py:35 src/sol/printouts/nranking.py:35
+#: src/sol/printouts/results.py:46 src/sol/printouts/tranking.py:46
+#: src/sol/views/lit.py:432 src/sol/views/lit.py:438
+msgid "Invalid turn number: $turn"
+msgstr ""
+
+#: src/sol/models/player.py:339
+msgid ""
+"It seems that «$lname $fname» is a bad spelling of «$newname»: please "
+"double check and if it is effectively correct (that is, he is a different"
+" person), specify a different nickname to disambiguate"
+msgstr ""
+
+#: src/sol/models/rating.py:164
+msgid "Kind of formula used to compute match outcomes."
+msgstr ""
+
+#: src/sol/models/tourney.py:208
+msgid "Kind of tournament."
+msgstr ""
+
+#: src/sol/models/tourney.py:210
+msgid "Knockout"
+msgstr ""
+
+#: src/sol/models/tourney.py:1332
+msgid "Knockout of $tourney"
+msgstr ""
+
+#: src/sol/models/player.py:202 src/sol/models/user.py:112
+#: src/sol/views/data.py:465 src/sol/views/data.py:626
+msgid "Language"
+msgstr ""
+
+#: src/sol/models/user.py:147
+msgid "Last login"
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:58 src/sol/models/player.py:137
+#: src/sol/models/user.py:97 src/sol/views/lit/player.mako:46
+#: src/sol/views/lit/player_matches.mako:45
+msgid "Last name"
+msgstr ""
+
+#: src/sol/views/tourney.py:104
+msgid "Last name of the first player."
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:59 src/sol/models/player.py:138
+msgid "Last name of the player."
+msgstr ""
+
+#: src/sol/models/user.py:98
+msgid "Last name of the user."
+msgstr ""
+
+#: src/sol/views/data.py:431
+msgid "Last tourney"
+msgstr ""
+
+#: src/sol/views/lit/latest.mako:16
+#, python-format
+msgid "Latest %d tournament"
+msgid_plural "Latest %d tournaments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/players_list.mako:28
+msgid "Letter"
+msgstr ""
+
+#: src/sol/models/rating.py:84 src/sol/views/lit/rating.mako:21
+msgid "Level"
+msgstr ""
+
+#: src/sol/models/rating.py:88
+msgid "Level 1, international tourneys"
+msgstr ""
+
+#: src/sol/models/rating.py:89
+msgid "Level 2, national/open tourneys"
+msgstr ""
+
+#: src/sol/models/rating.py:90
+msgid "Level 3, regional tourneys"
+msgstr ""
+
+#: src/sol/models/rating.py:91
+msgid "Level 4, courtyard tourneys"
+msgstr ""
+
+#: src/sol/models/bio.py:908 src/sol/models/tourney.py:174
+#: src/sol/views/lit/latest.mako:25 src/sol/views/lit/tourney.mako:92
+msgid "Location"
+msgstr ""
+
+#: src/sol/models/tourney.py:175
+msgid "Location of the tourney."
+msgstr ""
+
+#: src/sol/models/user.py:107
+msgid "Login password of the user."
+msgstr ""
+
+#: src/sol/views/lit/player_matches.mako:138
+msgid "Lost"
+msgstr ""
+
+#: src/sol/models/rating.py:143
+msgid "Lower points"
+msgstr ""
+
+#: src/sol/models/rating.py:144
+msgid ""
+"Lower value of the range used to interpolate players rates when (almost) "
+"all competitors are unrated."
+msgstr ""
+
+#. TRANSLATORS: this is the label for the "misses of the first competitor in
+#. given board" in the Matches grid, keep it as compact as possible
+#: src/sol/views/tourney.py:197
+msgid "M1/$game"
+msgstr ""
+
+#. TRANSLATORS: this is the label for the "misses of the second competitor
+#. in given game" in the Matches grid, keep it as compact as possible
+#: src/sol/views/tourney.py:211
+msgid "M2/$game"
+msgstr ""
+
+#: src/sol/models/player.py:154
+msgid "Male"
+msgstr ""
+
+#: src/sol/views/auth.py:40
+msgid "Mandatory field"
+msgstr ""
+
+#: src/sol/printouts/matches.py:75 src/sol/printouts/results.py:130
+#: src/sol/views/lit/tourney.mako:496 src/sol/views/lit/tourney.mako:606
+#: src/sol/views/tourney.py:143
+msgid "Match"
+msgstr ""
+
+#: src/sol/models/board.py:62 src/sol/models/match.py:52
+msgid "Match ID"
+msgstr ""
+
+#: src/sol/models/rating.py:163 src/sol/views/lit/rating.mako:46
+msgid "Match outcomes"
+msgstr ""
+
+#: src/sol/views/lit/player.mako:129 src/sol/views/lit/player_matches.mako:131
+#: src/sol/views/lit/player_opponent.mako:43
+msgid "Matches"
+msgstr ""
+
+#: src/sol/printouts/matches.py:56
+#, python-format
+msgid "Matches %s final round"
+msgstr ""
+
+#: src/sol/printouts/matches.py:58
+#, python-format
+msgid "Matches %s round"
+msgstr ""
+
+#: src/sol/views/lit/player_opponent.mako:25
+#, python-format
+msgid "Matches between %s and %s"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:694
+#, python-format
+msgid "Matches played by %s"
+msgstr ""
+
+#: src/sol/views/lit/player_opponent.mako:117
+msgid "Matches results"
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:42
+msgid "Merge ID"
+msgstr ""
+
+#: src/sol/models/championship.py:95
+msgid "Method used to assign final prizes."
+msgstr ""
+
+#: src/sol/models/tourney.py:218
+msgid "Method used to pair competitors at each round."
+msgstr ""
+
+#: src/sol/views/auth.py:41
+msgid "Missing fields"
+msgstr ""
+
+#: src/sol/views/bio.py:202
+msgid "Missing information prevents saving changes!"
+msgstr ""
+
+#: src/sol/models/tourney.py:996
+msgid "Missing seeds position for some competitor"
+msgstr ""
+
+#: src/sol/models/__init__.py:147
+msgid "Modified"
+msgstr ""
+
+#: src/sol/views/bio.py:209
+msgid ""
+"Most probably a field contains an invalid value: consult the application "
+"log for details."
+msgstr ""
+
+#: src/sol/views/tourney.py:313
+msgid ""
+"Most recent Glicko rate of the competitor (if tourney is associated with "
+"a rating)."
+msgstr ""
+
+#: src/sol/views/tourney.py:109
+msgid "Most recent Glicko rate value of the competitor."
+msgstr ""
+
+#: src/sol/views/data.py:432
+msgid "Most recent participation."
+msgstr ""
+
+#: src/sol/views/auth.py:152
+msgid "My championships"
+msgstr ""
+
+#: src/sol/views/auth.py:146
+msgid "My clubs"
+msgstr ""
+
+#: src/sol/views/auth.py:164
+msgid "My players"
+msgstr ""
+
+#: src/sol/views/auth.py:170
+msgid "My ratings"
+msgstr ""
+
+#: src/sol/views/auth.py:158
+msgid "My tourneys"
+msgstr ""
+
+#: src/sol/views/data.py:107 src/sol/views/data.py:997
+msgid "National"
+msgstr ""
+
+#: src/sol/views/tourney.py:88 src/sol/views/tourney.py:320
+msgid "Nationality"
+msgstr ""
+
+#: src/sol/models/club.py:115
+msgid "Nationality of the club."
+msgstr ""
+
+#: src/sol/views/tourney.py:321
+msgid "Nationality of the competitor."
+msgstr ""
+
+#: src/sol/printouts/nranking.py:107 src/sol/printouts/nranking.py:158
+#: src/sol/printouts/tranking.py:140 src/sol/printouts/tranking.py:145
+#: src/sol/printouts/tranking.py:176 src/sol/printouts/tranking.py:182
+#: src/sol/printouts/tranking.py:236 src/sol/printouts/tranking.py:241
+#: src/sol/views/lit/player.mako:170 src/sol/views/lit/tourney.mako:219
+msgid "Net"
+msgstr ""
+
+#: src/sol/models/competitor.py:115
+msgid "Net score"
+msgstr ""
+
+#: src/sol/models/competitor.py:116
+msgid "Net score of all games."
+msgstr ""
+
+#: src/sol/printouts/badges.py:199 src/sol/printouts/badges.py:211
+msgid "Net score:"
+msgstr ""
+
+#: src/sol/views/lit/match.mako:50 src/sol/views/lit/match.mako:141
+msgid "New board"
+msgstr ""
+
+#: src/sol/views/lit/championship.mako:132
+msgid "Next championship"
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:66 src/sol/models/player.py:145
+#: src/sol/views/lit/player.mako:51 src/sol/views/lit/player_matches.mako:50
+msgid "Nickname"
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:67
+msgid "Nickname of the player, for login and to disambiguate homonyms."
+msgstr ""
+
+#: src/sol/models/player.py:146
+msgid "Nickname of the player, to disambiguate homonyms."
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:124
+msgid "No"
+msgstr ""
+
+#: src/sol/views/lit.py:159 src/sol/views/lit.py:167
+msgid "No $entity with guid $guid"
+msgstr ""
+
+#: src/sol/models/tourney.py:295
+msgid "No adjustment"
+msgstr ""
+
+#: src/sol/printouts/cranking.py:44
+msgid "No championship with guid $id"
+msgstr ""
+
+#: src/sol/printouts/cranking.py:49
+msgid "No championship with id $id"
+msgstr ""
+
+#: src/sol/views/lit/club.mako:141
+msgid "No championships!"
+msgstr ""
+
+#: src/sol/views/lit/country.mako:80
+msgid "No clubs!"
+msgstr ""
+
+#: src/sol/models/tourney.py:1151
+msgid "No further final matches are needed!!"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:697
+msgid "No matches for this player"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:705
+msgid "No matches for this round"
+msgstr ""
+
+#: src/sol/views/svg.py:212 src/sol/views/svg.py:219
+msgid "No player with guid $guid"
+msgstr ""
+
+#: src/sol/printouts/cranking.py:99
+msgid "No prized tourneys in the championship"
+msgstr ""
+
+#: src/sol/printouts/rranking.py:48
+msgid "No rating with guid $id"
+msgstr ""
+
+#: src/sol/printouts/rranking.py:53
+msgid "No rating with id $id"
+msgstr ""
+
+#: src/sol/printouts/badges.py:56 src/sol/printouts/basic.py:260
+msgid "No tourney with guid $id"
+msgstr ""
+
+#: src/sol/printouts/badges.py:61 src/sol/printouts/basic.py:265
+msgid "No tourney with id $id"
+msgstr ""
+
+#: src/sol/views/bio.py:139
+msgid "No tourneys at all"
+msgstr ""
+
+#: src/sol/views/bio.py:117
+msgid "No tourneys in championship $idchampionship"
+msgstr ""
+
+#: src/sol/printouts/rranking.py:80
+msgid "No tourneys in the rating"
+msgstr ""
+
+#: src/sol/views/bio.py:131
+msgid "No tourneys organized by club $idclub"
+msgstr ""
+
+#: src/sol/models/tourney.py:1432
+msgid "Not a training tournament!"
+msgstr ""
+
+#: src/sol/views/lit/player_matches.mako:135
+msgid "Number"
+msgstr ""
+
+#: src/sol/views/data.py:155
+msgid "Number of championships organized by the club."
+msgstr ""
+
+#: src/sol/views/tourney.py:228
+msgid "Number of coins of the first competitor in game $game."
+msgstr ""
+
+#: src/sol/views/tourney.py:244
+msgid "Number of coins of the second competitor in game $game."
+msgstr ""
+
+#: src/sol/views/data.py:863
+msgid "Number of participant players."
+msgstr ""
+
+#: src/sol/views/data.py:424
+msgid "Number of played tourneys."
+msgstr ""
+
+#: src/sol/models/championship.py:184
+msgid "Number of players in each team, 1 for singles, 2 for doubles."
+msgstr ""
+
+#: src/sol/views/data.py:972
+msgid "Number of rated players in this rating."
+msgstr ""
+
+#: src/sol/views/data.py:1021
+msgid "Number of rates of the player."
+msgstr ""
+
+#: src/sol/models/tourney.py:233
+msgid ""
+"Number of rounds for which pairing of top players should be postponed, if"
+" possible. Meaningful only if using a rating."
+msgstr ""
+
+#: src/sol/views/data.py:723
+msgid "Number of tourneys in the championship."
+msgstr ""
+
+#: src/sol/views/data.py:967
+msgid "Number of tourneys using this rating."
+msgstr ""
+
+#: src/sol/views/data.py:836
+msgid "Number of turns that has been generated so far."
+msgstr ""
+
+#: src/sol/views/tourney.py:199
+msgid "Number of unsuccessful shots of the first competitor in game $game."
+msgstr ""
+
+#: src/sol/views/tourney.py:213
+msgid "Number of unsuccessful shots of the second competitor in game $game."
+msgstr ""
+
+#: src/sol/models/championship.py:174
+msgid ""
+"Number of worst results to skip in computing the final ranking of the "
+"championship."
+msgstr ""
+
+#: src/sol/views/auth.py:46
+msgid "Old password does not match"
+msgstr ""
+
+#: src/sol/views/data.py:428
+msgid "Oldest participation."
+msgstr ""
+
+#: src/sol/views/bio.py:382
+msgid "Only admin can restore whole ZIPs, sorry!"
+msgstr ""
+
+#: src/sol/printouts/badges.py:245 src/sol/views/lit/player_matches.mako:130
+#: src/sol/views/lit/training_match.mako:46
+msgid "Opponent"
+msgstr ""
+
+#: src/sol/views/lit/player_matches.mako:178
+msgid "Opponents"
+msgstr ""
+
+#: src/sol/views/lit.py:886
+msgid "Out of range value for coins 1 in game $game!"
+msgstr ""
+
+#: src/sol/views/lit.py:892
+msgid "Out of range value for coins 2 in game $game!"
+msgstr ""
+
+#: src/sol/views/lit.py:903
+msgid "Out of range value for score 1!"
+msgstr ""
+
+#: src/sol/views/lit.py:909
+msgid "Out of range value for score 2!"
+msgstr ""
+
+#: src/sol/views/data.py:54 src/sol/views/data.py:571
+msgid "Owner"
+msgstr ""
+
+#: src/sol/models/championship.py:79 src/sol/models/club.py:90
+#: src/sol/models/player.py:241 src/sol/models/rating.py:64
+#: src/sol/models/tourney.py:154
+msgid "Owner ID"
+msgstr ""
+
+#: src/sol/models/user.py:121
+msgid "Owners admin"
+msgstr ""
+
+#: src/sol/printouts/utils.py:84
+#, python-format
+msgid "Page %d of %d"
+msgstr ""
+
+#: src/sol/models/championship.py:201 src/sol/models/club.py:122
+#: src/sol/models/tourney.py:217
+msgid "Pairings"
+msgstr ""
+
+#: src/sol/models/user.py:106
+msgid "Password"
+msgstr ""
+
+#: src/sol/models/user.py:192 src/sol/models/user.py:214
+msgid "Password is too weak, use a longer one"
+msgstr ""
+
+#: src/sol/printouts/rranking.py:94
+#, python-format
+msgid "Period from %s to %s"
+msgstr ""
+
+#. TRANSLATORS: this is the name used for the "missing"
+#. player, when there's an odd number of them
+#: src/sol/models/bio.py:948 src/sol/models/match.py:162
+#: src/sol/models/match.py:189 src/sol/models/player.py:963
+#: src/sol/printouts/badges.py:272 src/sol/printouts/matches.py:63
+#: src/sol/printouts/results.py:101 src/sol/views/lit/tourney.mako:298
+#: src/sol/views/lit/tourney.mako:373 src/sol/views/lit/tourney.mako:585
+#: src/sol/views/lit/tourney.mako:654
+msgid "Phantom"
+msgstr ""
+
+#: src/sol/models/tourney.py:283
+msgid "Phantom score"
+msgstr ""
+
+#: src/sol/printouts/cranking.py:152 src/sol/printouts/nranking.py:90
+#: src/sol/printouts/rranking.py:112 src/sol/printouts/tranking.py:130
+#: src/sol/views/lit/championship.mako:14 src/sol/views/lit/rating.mako:71
+#: src/sol/views/lit/tourney.mako:15 src/sol/views/tourney.py:52
+msgid "Player"
+msgstr ""
+
+#: src/sol/models/competitor.py:73 src/sol/models/mergedplayer.py:74
+#: src/sol/models/player.py:123 src/sol/models/rate.py:56
+msgid "Player ID"
+msgstr ""
+
+#: src/sol/models/competitor.py:200 src/sol/models/match.py:183
+msgid "Player NOT assigned yet!"
+msgstr ""
+
+#: src/sol/models/rate.py:42
+msgid "Player rate ID"
+msgstr ""
+
+#: src/sol/models/championship.py:183 src/sol/views/data.py:862
+#: src/sol/views/data.py:971 src/sol/views/lit/club.mako:49
+#: src/sol/views/lit/country.mako:43 src/sol/views/lit/index.mako:46
+#: src/sol/views/lit/rating.mako:61 src/sol/views/lit/tourney.mako:159
+#: src/sol/views/svg.py:188
+msgid "Players"
+msgstr ""
+
+#: src/sol/views/lit/club_players.mako:12 src/sol/views/lit/players.mako:12
+#: src/sol/views/lit/players_list.mako:12
+msgid "Players directory"
+msgstr ""
+
+#: src/sol/views/svg.py:162
+msgid "Players distribution around the globe"
+msgstr ""
+
+#: src/sol/models/user.py:129
+msgid "Players manager"
+msgstr ""
+
+#: src/sol/views/lit/championship.mako:96
+msgid "Players per team"
+msgstr ""
+
+#: src/sol/views/countdown.mako:57
+#, python-format
+msgid "Playing %s round"
+msgstr ""
+
+#: src/sol/views/bio.py:308 src/sol/views/bio.py:313 src/sol/views/data.py:330
+#: src/sol/views/data.py:335
+msgid "Please inform the admin or consult the application log."
+msgstr ""
+
+#: src/sol/models/user.py:223 src/sol/models/user.py:225
+msgid "Please provide a valid \"email\" address"
+msgstr ""
+
+#: src/sol/models/user.py:216
+msgid "Please provide a valid \"password\""
+msgstr ""
+
+#: src/sol/views/auth.py:39
+msgid "Please use a different email address"
+msgstr ""
+
+#: src/sol/models/bio.py:958 src/sol/models/competitor.py:99
+#: src/sol/printouts/scorecards.py:152 src/sol/printouts/scorecards.py:162
+#: src/sol/views/lit/tourney.mako:389 src/sol/views/lit/tourney.mako:397
+msgid "Points"
+msgstr ""
+
+#: src/sol/models/competitor.py:100
+msgid "Points of the competitor."
+msgstr ""
+
+#: src/sol/printouts/badges.py:193 src/sol/printouts/badges.py:207
+msgid "Points:"
+msgstr ""
+
+#: src/sol/models/tourney.py:293
+msgid ""
+"Policy used to adjust the bucholz of competitors who played against "
+"withdrawn players."
+msgstr ""
+
+#: src/sol/models/player.py:229
+msgid "Portrait"
+msgstr ""
+
+#: src/sol/models/competitor.py:147
+msgid "Position"
+msgstr ""
+
+#: src/sol/views/tourney.py:332
+msgid "Position in the ranking."
+msgstr ""
+
+#: src/sol/models/tourney.py:197
+msgid "Prealarm"
+msgstr ""
+
+#: src/sol/models/tourney.py:198
+msgid "Prealarm before the end of the round, usually no more games after that."
+msgstr ""
+
+#: src/sol/views/pre_countdown.mako:43
+#, python-format
+msgid "Preparing %s round"
+msgstr ""
+
+#: src/sol/views/data.py:706 src/sol/views/lit/championship.mako:122
+msgid "Previous championship"
+msgstr ""
+
+#: src/sol/models/championship.py:56
+msgid "Previous championship ID"
+msgstr ""
+
+#: src/sol/views/data.py:707
+msgid "Previous championship."
+msgstr ""
+
+#: src/sol/models/bio.py:965 src/sol/views/lit/player.mako:171
+#: src/sol/views/lit/tourney.mako:222
+msgid "Prize"
+msgstr ""
+
+#: src/sol/views/lit/championship.mako:102 src/sol/views/lit/tourney.mako:144
+msgid "Prize-giving method"
+msgstr ""
+
+#: src/sol/models/championship.py:94 src/sol/models/club.py:134
+msgid "Prizes"
+msgstr ""
+
+#: src/sol/models/board.py:70
+msgid "Progressive number of the board."
+msgstr ""
+
+#: src/sol/printouts/nranking.py:108 src/sol/printouts/tranking.py:177
+#: src/sol/printouts/tranking.py:183
+msgid "Prz"
+msgstr ""
+
+#: src/sol/printouts/nranking.py:105 src/sol/printouts/nranking.py:156
+#: src/sol/printouts/tranking.py:138 src/sol/printouts/tranking.py:143
+#: src/sol/printouts/tranking.py:174 src/sol/printouts/tranking.py:180
+#: src/sol/printouts/tranking.py:234 src/sol/printouts/tranking.py:239
+#: src/sol/views/lit/player.mako:168 src/sol/views/lit/tourney.mako:217
+#: src/sol/views/lit/tourney.mako:378 src/sol/views/lit/tourney.mako:386
+msgid "Pts"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:381 src/sol/views/lit/tourney.mako:383
+msgid "Q"
+msgstr ""
+
+#. TRANSLATORS: this is the label for the "who pocketed the queen
+#. in given game" in the Matches grid, keep it as compact as possible
+#: src/sol/views/tourney.py:257
+msgid "Q/$game"
+msgstr ""
+
+#: src/sol/models/board.py:92 src/sol/printouts/scorecards.py:156
+#: src/sol/views/lit/tourney.mako:392 src/sol/views/lit/tourney.mako:394
+msgid "Queen"
+msgstr ""
+
+#: src/sol/models/bio.py:954 src/sol/views/lit/player.mako:172
+#: src/sol/views/tourney.py:331
+msgid "Rank"
+msgstr ""
+
+#: src/sol/models/tourney.py:267
+msgid "Ranked round"
+msgstr ""
+
+#: src/sol/models/bio.py:953 src/sol/views/lit/rating.mako:105
+#: src/sol/views/lit/tourney.mako:259
+msgid "Ranking"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:57 src/sol/printouts/tranking.py:64
+#, python-format
+msgid "Ranking after %s round"
+msgstr ""
+
+#: src/sol/printouts/nranking.py:44 src/sol/printouts/nranking.py:51
+#, python-format
+msgid "Ranking by nationality after %s round"
+msgstr ""
+
+#: src/sol/models/tourney.py:224
+msgid "Ranking extremes (KO only)"
+msgstr ""
+
+#: src/sol/models/championship.py:203 src/sol/models/club.py:124
+#: src/sol/models/tourney.py:220
+msgid "Ranking order"
+msgstr ""
+
+#: src/sol/models/rate.py:70 src/sol/models/rating.py:108
+#: src/sol/printouts/rranking.py:113 src/sol/views/lit/rating.mako:72
+#: src/sol/views/tourney.py:108 src/sol/views/tourney.py:312
+msgid "Rate"
+msgstr ""
+
+#: src/sol/views/lit/rating.mako:41
+msgid "Rate range"
+msgstr ""
+
+#: src/sol/views/data.py:1020
+msgid "Rates"
+msgstr ""
+
+#: src/sol/views/data.py:159 src/sol/views/data.py:715
+#: src/sol/views/data.py:875 src/sol/views/lit/tourney.mako:149
+msgid "Rating"
+msgstr ""
+
+#: src/sol/views/bio.py:452
+msgid "Rating $idrating does not exist"
+msgstr ""
+
+#: src/sol/models/championship.py:71 src/sol/models/club.py:81
+#: src/sol/models/rate.py:49 src/sol/models/rating.py:58
+#: src/sol/models/tourney.py:148
+msgid "Rating ID"
+msgstr ""
+
+#: src/sol/models/rating.py:85
+msgid "Rating level."
+msgstr ""
+
+#: src/sol/printouts/rranking.py:86
+msgid "Rating ranking"
+msgstr ""
+
+#: src/sol/views/data.py:716
+msgid "Rating this championship's tourneys will use by default, if any."
+msgstr ""
+
+#: src/sol/views/data.py:160
+msgid "Rating this club's championships will use by default, if any."
+msgstr ""
+
+#: src/sol/views/data.py:876
+msgid "Rating this tourney will use and update, if any."
+msgstr ""
+
+#: src/sol/views/svg.py:63
+msgid "Rating “$rating”"
+msgstr ""
+
+#: src/sol/views/lit/index.mako:53
+msgid "Ratings"
+msgstr ""
+
+#: src/sol/views/bio.py:462
+msgid "Recomputed rating “$rating”"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:473 src/sol/views/lit/tourney.mako:718
+msgid "Refresh"
+msgstr ""
+
+#: src/sol/models/bio.py:385
+msgid ""
+"Refusing to guess the right player: more than one person with first name "
+"\"$fname\" and last name \"$lname\", and no nickname was specified"
+msgstr ""
+
+#: src/sol/views/data.py:108 src/sol/views/data.py:998
+msgid "Regional"
+msgstr ""
+
+#: src/sol/models/user.py:139
+msgid "Registered"
+msgstr ""
+
+#: src/sol/models/competitor.py:148
+msgid ""
+"Relative position used to order competitors when generating the first "
+"round, overriding their current rate."
+msgstr ""
+
+#: src/sol/models/tourney.py:1280
+msgid "Replica of $tourney"
+msgstr ""
+
+#: src/sol/views/bio.py:391
+msgid "Required \"archive\" parameter is missing!"
+msgstr ""
+
+#: src/sol/views/lit/match.mako:132
+msgid "Reset queen"
+msgstr ""
+
+#: src/sol/views/countdown.mako:83
+msgid "Restart the countdown"
+msgstr ""
+
+#: src/sol/printouts/results.py:130
+msgid "Result"
+msgstr ""
+
+#: src/sol/printouts/results.py:66
+msgid "Result of final"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:86
+msgid "Result of the final for the 1st/2nd place"
+msgid_plural "Results of the final for the 1st/2nd place"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/printouts/tranking.py:90
+msgid "Result of the final for the 3rd/4th place"
+msgid_plural "Results of the final for the 3rd/4th place"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/printouts/results.py:90 src/sol/printouts/results.py:176
+#, python-format
+msgid "Results %s final round"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:701
+#, python-format
+msgid "Results %s final round (%s)"
+msgstr ""
+
+#: src/sol/printouts/results.py:80 src/sol/printouts/results.py:92
+#: src/sol/printouts/results.py:179
+#, python-format
+msgid "Results %s round"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:701
+#, python-format
+msgid "Results %s round (%s)"
+msgstr ""
+
+#: src/sol/printouts/results.py:74
+msgid "Results of 16th-finals"
+msgstr ""
+
+#: src/sol/printouts/results.py:76
+msgid "Results of 32nd-finals"
+msgstr ""
+
+#: src/sol/printouts/results.py:78
+msgid "Results of 64th-finals"
+msgstr ""
+
+#: src/sol/printouts/results.py:72
+msgid "Results of pre-quarterfinals"
+msgstr ""
+
+#: src/sol/printouts/results.py:70
+msgid "Results of quarterfinals"
+msgstr ""
+
+#: src/sol/printouts/results.py:68
+msgid "Results of semifinals"
+msgstr ""
+
+#: src/sol/models/tourney.py:253 src/sol/views/lit/player_opponent.mako:70
+#: src/sol/views/lit/training_match.mako:42
+msgid "Round"
+msgstr ""
+
+#: src/sol/models/match.py:66
+msgid "Round #"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:464
+msgid "Round $round"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:213
+#, python-format
+msgid "Round %(turn)d — Carromboard %(board)d"
+msgstr ""
+
+#: src/sol/models/match.py:67
+msgid "Round number."
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:172
+msgid "Rounds"
+msgstr ""
+
+#. TRANSLATORS: this is label for the "score of the first competitor" in the
+#. Matches
+#. grid, keep it as compact as possible
+#: src/sol/models/match.py:112
+msgid "S1"
+msgstr ""
+
+#. TRANSLATORS: this is label for the "score of the second competitor" in the
+#. Matches
+#. grid, keep it as compact as possible
+#: src/sol/models/match.py:123
+msgid "S2"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:379 src/sol/views/lit/tourney.mako:385
+msgid "Sc"
+msgstr ""
+
+#: src/sol/printouts/playbill.py:55
+msgid "Scan the QRCode and visit the URL to follow the tournament live!"
+msgstr ""
+
+#: src/sol/views/lit/base.mako:83
+msgid "Scarry On Line"
+msgstr ""
+
+#: src/sol/models/bio.py:962 src/sol/printouts/scorecards.py:154
+#: src/sol/printouts/scorecards.py:160 src/sol/views/lit/tourney.mako:390
+#: src/sol/views/lit/tourney.mako:396 src/sol/views/lit/tourney.mako:503
+#: src/sol/views/lit/tourney.mako:609
+msgid "Score"
+msgstr ""
+
+#: src/sol/models/bio.py:937
+msgid "Score 1"
+msgstr ""
+
+#: src/sol/models/bio.py:939
+msgid "Score 2"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:92
+msgid "Score cards"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:88
+#, python-format
+msgid "Score cards for %s round"
+msgstr ""
+
+#: src/sol/models/match.py:113
+msgid "Score of the first competitor."
+msgstr ""
+
+#: src/sol/models/match.py:124
+msgid "Score of the second competitor."
+msgstr ""
+
+#: src/sol/views/lit/player_opponent.mako:71
+msgid "Scores"
+msgstr ""
+
+#: src/sol/models/board.py:96 src/sol/models/match.py:103
+#: src/sol/views/tourney.py:266
+msgid "Second competitor"
+msgstr ""
+
+#: src/sol/models/championship.py:193
+msgid ""
+"Should be activated once the championship has been completed and no other"
+" tourney can be associated with it."
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:199
+msgid "Show countdown"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:281 src/sol/views/lit/tourney.mako:294
+#: src/sol/views/lit/tourney.mako:356 src/sol/views/lit/tourney.mako:369
+#: src/sol/views/lit/tourney.mako:542 src/sol/views/lit/tourney.mako:581
+#: src/sol/views/lit/tourney.mako:638 src/sol/views/lit/tourney.mako:650
+#, python-format
+msgid "Show matches played by %s"
+msgstr ""
+
+#: src/sol/views/lit/rating.mako:92
+msgid "Show rates chart"
+msgstr ""
+
+#: src/sol/models/championship.py:97 src/sol/models/club.py:137
+msgid "Simple tourneys, no special prizes"
+msgstr ""
+
+#: src/sol/models/tourney.py:316
+msgid "Single match"
+msgstr ""
+
+#: src/sol/views/lit/club.mako:86
+msgid "Singles"
+msgstr ""
+
+#: src/sol/views/lit/player_matches.mako:16
+#, python-format
+msgid "Singles matches played by %s"
+msgstr ""
+
+#: src/sol/models/championship.py:173
+msgid "Skip"
+msgstr ""
+
+#: src/sol/views/lit/championship.mako:108
+msgid "Skip worst prizes"
+msgstr ""
+
+#: src/sol/views/countdown.mako:13 src/sol/views/pre_countdown.mako:13
+msgid "SoL Countdown"
+msgstr ""
+
+#: src/sol/views/lit/index.mako:16
+msgid "SoL Lit"
+msgstr ""
+
+#: src/sol/models/tourney.py:180 src/sol/views/lit/tourney.mako:98
+msgid "Social site"
+msgstr ""
+
+#: src/sol/views/bio.py:204
+msgid "Some mandatory fields were not filled in, please recheck."
+msgstr ""
+
+#: src/sol/views/data.py:276
+msgid "Specified club does not exist!"
+msgstr ""
+
+#: src/sol/views/data.py:310
+msgid "Specified user does not exist!"
+msgstr ""
+
+#: src/sol/models/championship.py:205 src/sol/models/club.py:126
+#: src/sol/models/tourney.py:222
+msgid "Staggered ranking order"
+msgstr ""
+
+#: src/sol/models/rating.py:166
+msgid "Standard Glicko"
+msgstr ""
+
+#: src/sol/views/lit/match.mako:141
+msgid "Start game"
+msgstr ""
+
+#: src/sol/models/user.py:137
+msgid "Status"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:426
+msgid "Still playing..."
+msgstr ""
+
+#: src/sol/views/lit/training_match.mako:73
+msgid "Submit"
+msgstr ""
+
+#: src/sol/views/lit/base.mako:60
+msgid "Summary"
+msgstr ""
+
+#: src/sol/models/user.py:141
+msgid "Suspended"
+msgstr ""
+
+#: src/sol/models/tourney.py:209
+msgid "Swiss"
+msgstr ""
+
+#: src/sol/models/tourney.py:207 src/sol/views/lit/tourney.mako:108
+msgid "System"
+msgstr ""
+
+#: src/sol/models/rating.py:99 src/sol/views/lit/rating.mako:25
+msgid "Tau"
+msgstr ""
+
+#: src/sol/printouts/cranking.py:150 src/sol/printouts/nranking.py:88
+#: src/sol/printouts/tranking.py:128 src/sol/views/lit/championship.mako:16
+#: src/sol/views/lit/tourney.mako:17
+msgid "Team"
+msgstr ""
+
+#: src/sol/views/lit/club.mako:124
+msgid "Teams"
+msgstr ""
+
+#: src/sol/models/championship.py:274
+msgid "The \"description\" field of a championship cannot be empty"
+msgstr ""
+
+#: src/sol/models/club.py:275
+msgid "The \"description\" field of a club cannot be empty"
+msgstr ""
+
+#: src/sol/models/rating.py:246
+msgid "The \"description\" field of a rating cannot be empty"
+msgstr ""
+
+#: src/sol/models/tourney.py:400
+msgid "The \"description\" field of a tourney cannot be empty"
+msgstr ""
+
+#: src/sol/models/player.py:393
+msgid "The \"firstname\" field of a player cannot be empty"
+msgstr ""
+
+#: src/sol/models/user.py:207
+msgid "The \"firstname\" field of a user cannot be empty"
+msgstr ""
+
+#: src/sol/models/player.py:388
+msgid "The \"lastname\" field of a player cannot be empty"
+msgstr ""
+
+#: src/sol/models/user.py:202
+msgid "The \"lastname\" field of a user cannot be empty"
+msgstr ""
+
+#: src/sol/models/rating.py:100
+msgid "The TAU value for the Glicko2 algorithm."
+msgstr ""
+
+#: src/sol/views/data.py:393
+msgid "The club this player is affiliated with."
+msgstr ""
+
+#: src/sol/models/player.py:203
+msgid "The code of the preferred language by the player."
+msgstr ""
+
+#: src/sol/models/user.py:113
+msgid "The code of the preferred language by the user."
+msgstr ""
+
+#: src/sol/models/player.py:166
+msgid "The country the player plays for."
+msgstr ""
+
+#: src/sol/models/rating.py:118
+msgid "The default deviation value for the Glicko2 algorithm."
+msgstr ""
+
+#: src/sol/models/rating.py:109
+msgid "The default rate value for the Glicko2 algorithm."
+msgstr ""
+
+#: src/sol/models/rating.py:127
+msgid "The default volatility value for the Glicko2 algorithm."
+msgstr ""
+
+#: src/sol/views/data.py:408
+msgid "The federation this player is associated with."
+msgstr ""
+
+#: src/sol/views/data.py:572
+msgid "The fullname of the responsible user."
+msgstr ""
+
+#: src/sol/models/player.py:152
+msgid "The gender of the player, used to compute different rankings."
+msgstr ""
+
+#: src/sol/models/__init__.py:138
+msgid "The globally unique identifier of the record."
+msgstr ""
+
+#: src/sol/models/tourney.py:254
+msgid "The highest generated round number."
+msgstr ""
+
+#: src/sol/views/auth.py:36
+msgid "The inserted user and password, or one of the two, are wrong!"
+msgstr ""
+
+#: src/sol/models/tourney.py:315
+msgid "The kind of finals."
+msgstr ""
+
+#: src/sol/models/match.py:73
+msgid "The number identifying the carromboard where this match is played."
+msgstr ""
+
+#: src/sol/models/tourney.py:304
+msgid ""
+"The number of finals that will be played: 0 means no finals, 1 means one "
+"final for the 1st and 2nd place, 2 also for the 3rd and fourth place."
+msgstr ""
+
+#: src/sol/views/data.py:466
+msgid "The preferred language of the player, used to send email messages."
+msgstr ""
+
+#: src/sol/views/data.py:627
+msgid ""
+"The preferred language of the user, used to send email messages and for "
+"the user interface when he logs in."
+msgstr ""
+
+#: src/sol/models/tourney.py:650 src/sol/models/tourney.py:1177
+msgid "The ranking is not up-to-date!"
+msgstr ""
+
+#: src/sol/models/tourney.py:284
+msgid "The score assigned to a player in matches against the Phantom."
+msgstr ""
+
+#: src/sol/models/user.py:138
+msgid "The status of the user, only confirmed users can login."
+msgstr ""
+
+#: src/sol/models/tourney.py:260
+msgid "The timestamp of the start of the clock countdown."
+msgstr ""
+
+#: src/sol/views/data.py:55
+msgid "The user responsible for the record, who can modify or delete it."
+msgstr ""
+
+#: src/sol/models/user.py:189 src/sol/models/user.py:246
+msgid "The user “$email” already exists, please use a different email"
+msgstr ""
+
+#: src/sol/models/rate.py:78
+msgid "The value of Glicko deviation."
+msgstr ""
+
+#: src/sol/models/rate.py:71
+msgid "The value of Glicko rate."
+msgstr ""
+
+#: src/sol/models/rate.py:85
+msgid "The value of the Glicko volatility."
+msgstr ""
+
+#: src/sol/models/tourney.py:1326
+msgid "There are only $n competitors in the tourney!"
+msgstr ""
+
+#: src/sol/models/player.py:329
+msgid ""
+"There are other players named «$lname $fname», please double check and if"
+" it is effectively correct (that is, he is a different person), specify a"
+" different nickname to disambiguate"
+msgstr ""
+
+#: src/sol/views/bio.py:176
+msgid ""
+"There cannot be two championships with the same description organized by "
+"the same club!"
+msgstr ""
+
+#: src/sol/views/bio.py:186
+msgid "There cannot be two championships with the same description!"
+msgstr ""
+
+#: src/sol/views/bio.py:180
+msgid "There cannot be two clubs with the same description!"
+msgstr ""
+
+#: src/sol/views/bio.py:196
+msgid "There cannot be two matches involving the same competitors!"
+msgstr ""
+
+#: src/sol/views/bio.py:191
+msgid ""
+"There cannot be two players with the same firstname, lastname and "
+"nickname!"
+msgstr ""
+
+#: src/sol/views/bio.py:199
+msgid "There cannot be two rates of the same player in the same date!"
+msgstr ""
+
+#: src/sol/views/bio.py:183
+msgid "There cannot be two ratings with the same description!"
+msgstr ""
+
+#: src/sol/views/bio.py:171
+msgid ""
+"There cannot be two tourneys of the same championship on the same day, "
+"sorry!"
+msgstr ""
+
+#: src/sol/views/lit/player_matches.mako:140
+#: src/sol/views/lit/player_opponent.mako:56
+msgid "Tied"
+msgstr ""
+
+#: src/sol/models/user.py:76
+msgid "Timestamp of record creation."
+msgstr ""
+
+#: src/sol/models/__init__.py:148
+msgid "Timestamp of the last change to the record."
+msgstr ""
+
+#: src/sol/models/user.py:148
+msgid "Timestamp of the last successful login."
+msgstr ""
+
+#: src/sol/models/tourney.py:268
+msgid "To which round the ranking is up-to-date with."
+msgstr ""
+
+#: src/sol/models/tourney.py:223
+msgid "Top players (KO only)"
+msgstr ""
+
+#: src/sol/printouts/cranking.py:127 src/sol/printouts/scorecards.py:238
+#: src/sol/printouts/scorecards.py:243 src/sol/views/lit/championship.mako:44
+msgid "Total"
+msgstr ""
+
+#: src/sol/models/competitor.py:123
+msgid "Total score"
+msgstr ""
+
+#: src/sol/models/competitor.py:124
+msgid "Total score of all games."
+msgstr ""
+
+#: src/sol/views/lit/latest.mako:23
+msgid "Tournament"
+msgstr ""
+
+#: src/sol/models/bio.py:903 src/sol/models/bio.py:906
+#: src/sol/views/lit/player.mako:162 src/sol/views/lit/player_opponent.mako:67
+#: src/sol/views/lit/training_match.mako:34
+msgid "Tourney"
+msgstr ""
+
+#: src/sol/models/bio.py:670
+msgid ""
+"Tourney \"$tourney\" of championship \"$championship\" by \"$club\" on "
+"$date already present, cannot update it"
+msgstr ""
+
+#: src/sol/views/bio.py:99
+msgid "Tourney $idtourney does not exist"
+msgstr ""
+
+#: src/sol/models/competitor.py:66 src/sol/models/match.py:59
+#: src/sol/models/tourney.py:129
+msgid "Tourney ID"
+msgstr ""
+
+#: src/sol/printouts/rranking.py:116 src/sol/views/auth.py:130
+#: src/sol/views/data.py:423 src/sol/views/data.py:722
+#: src/sol/views/data.py:966 src/sol/views/lit/index.mako:39
+#: src/sol/views/lit/player.mako:101 src/sol/views/lit/rating.mako:57
+#: src/sol/views/lit/rating.mako:75
+msgid "Tourneys"
+msgstr ""
+
+#: src/sol/views/lit/player.mako:215
+msgid "Tourneys results"
+msgstr ""
+
+#: src/sol/models/championship.py:211 src/sol/views/lit/championship.mako:115
+msgid "Training boards"
+msgstr ""
+
+#: src/sol/models/bio.py:930
+#, python-format
+msgid "Turn %d"
+msgstr ""
+
+#: src/sol/views/data.py:835
+msgid "Turns"
+msgstr ""
+
+#: src/sol/models/tourney.py:181
+msgid "URL of the social site dedicated to the tournament, if any."
+msgstr ""
+
+#: src/sol/models/club.py:207
+msgid "URL of the web site of the club."
+msgstr ""
+
+#: src/sol/views/bio.py:371
+msgid "Unallowed, wrong encryption!"
+msgstr ""
+
+#: src/sol/views/data.py:279
+msgid "Unauthorized attempt to change club!"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:305 src/sol/printouts/tranking.py:312
+#, python-format
+msgid "Under %d ranking after %s round"
+msgstr ""
+
+#: src/sol/models/board.py:56
+msgid "Unique ID of the board."
+msgstr ""
+
+#: src/sol/models/championship.py:51
+msgid "Unique ID of the championship."
+msgstr ""
+
+#: src/sol/models/club.py:74
+msgid "Unique ID of the club."
+msgstr ""
+
+#: src/sol/models/competitor.py:60
+msgid "Unique ID of the competitor."
+msgstr ""
+
+#: src/sol/models/match.py:53
+msgid "Unique ID of the match."
+msgstr ""
+
+#: src/sol/models/mergedplayer.py:43
+msgid "Unique ID of the merged player."
+msgstr ""
+
+#: src/sol/models/rate.py:43
+msgid "Unique ID of the player rate."
+msgstr ""
+
+#: src/sol/models/player.py:124
+msgid "Unique ID of the player."
+msgstr ""
+
+#: src/sol/models/rating.py:59
+msgid "Unique ID of the rating."
+msgstr ""
+
+#: src/sol/models/tourney.py:130
+msgid "Unique ID of the tourney."
+msgstr ""
+
+#: src/sol/models/user.py:68
+msgid "Unique ID of the user."
+msgstr ""
+
+#: src/sol/views/bio.py:387
+msgid "Unknown file type: $file"
+msgstr ""
+
+#: src/sol/i18n.py:162 src/sol/printouts/nranking.py:121
+#: src/sol/printouts/nranking.py:172 src/sol/printouts/participants.py:64
+msgid "Unspecified country"
+msgstr ""
+
+#: src/sol/views/bio.py:232
+msgid "Unspecified merge ids"
+msgstr ""
+
+#: src/sol/views/bio.py:410
+msgid "Upload of $file failed: $error"
+msgstr ""
+
+#: src/sol/models/club.py:51 src/sol/models/user.py:67
+msgid "User ID"
+msgstr ""
+
+#: src/sol/models/rate.py:84 src/sol/models/rating.py:126
+#: src/sol/printouts/rranking.py:115 src/sol/views/lit/rating.mako:74
+msgid "Volatility"
+msgstr ""
+
+#: src/sol/models/club.py:206
+msgid "Website"
+msgstr ""
+
+#: src/sol/models/competitor.py:108
+msgid "Weight of the opponents."
+msgstr ""
+
+#: src/sol/models/club.py:221
+msgid "Whether the club is also a federation."
+msgstr ""
+
+#: src/sol/models/tourney.py:276
+msgid "Whether the final prizes have been assigned."
+msgstr ""
+
+#: src/sol/models/match.py:81
+msgid "Whether the match is a normal one or a final."
+msgstr ""
+
+#: src/sol/models/player.py:177
+msgid "Whether the player belongs legally to the given country or not."
+msgstr ""
+
+#: src/sol/models/player.py:186
+msgid "Whether the player explicitly accepted the privacy policy."
+msgstr ""
+
+#: src/sol/models/tourney.py:243
+msgid ""
+"Whether the system should try to postpone the pairing of players "
+"belonging to the same country, if possible."
+msgstr ""
+
+#: src/sol/models/tourney.py:325
+msgid "Whether the tourney is in final rounds state."
+msgstr ""
+
+#: src/sol/models/user.py:130
+msgid "Whether the user can add, edit and remove players."
+msgstr ""
+
+#: src/sol/models/user.py:122
+msgid "Whether the user can change ownership of other items."
+msgstr ""
+
+#: src/sol/views/data.py:246
+msgid "Whether the user is associated with the club."
+msgstr ""
+
+#: src/sol/models/competitor.py:140
+msgid "Whether this competitor will play further matches."
+msgstr ""
+
+#: src/sol/models/rating.py:136
+msgid "Whether to lookup rates in higher levels ratings."
+msgstr ""
+
+#: src/sol/views/tourney.py:259
+msgid "Which competitor pocketed the Queen in game $game, if any."
+msgstr ""
+
+#: src/sol/models/board.py:93
+msgid "Which competitor pocketed the Queen, if any."
+msgstr ""
+
+#: src/sol/models/match.py:100
+msgid "Which competitor started the match."
+msgstr ""
+
+#: src/sol/views/lit/latest.mako:28
+msgid "Winner"
+msgstr ""
+
+#: src/sol/views/svg.py:229
+msgid "Wins trend between $player and $opponent"
+msgstr ""
+
+#: src/sol/models/competitor.py:139
+msgid "Withdrawn"
+msgstr ""
+
+#: src/sol/printouts/tranking.py:346 src/sol/printouts/tranking.py:353
+#, python-format
+msgid "Women ranking after %s round"
+msgstr ""
+
+#: src/sol/views/lit/player_matches.mako:136
+msgid "Won"
+msgstr ""
+
+#: src/sol/views/lit/player_opponent.mako:48
+#: src/sol/views/lit/player_opponent.mako:52
+#, python-format
+msgid "Won by %s"
+msgstr ""
+
+#: src/sol/i18n.py:158 src/sol/i18n.py:193
+msgid "World"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:124
+msgid "Yes"
+msgstr ""
+
+#: src/sol/models/championship.py:265
+msgid "You are not allowed to add a championship to the selected club"
+msgstr ""
+
+#: src/sol/models/rating.py:225
+msgid ""
+"You are not allowed to add a global rating, not associated to a specific "
+"club"
+msgstr ""
+
+#: src/sol/models/player.py:366
+msgid "You are not allowed to add a player to the selected club"
+msgstr ""
+
+#: src/sol/models/player.py:379
+msgid "You are not allowed to add a player to the selected federation"
+msgstr ""
+
+#: src/sol/models/rating.py:237
+msgid "You are not allowed to add a rating to the selected club"
+msgstr ""
+
+#: src/sol/models/tourney.py:391
+msgid "You are not allowed to add a tourney to the selected championship"
+msgstr ""
+
+#: src/sol/printouts/badges.py:244
+msgid "You met…"
+msgstr ""
+
+#: src/sol/views/__init__.py:57
+msgid "You must logon to perform this operation!"
+msgstr ""
+
+#: src/sol/views/auth.py:101
+msgid "You must re-authenticate yourself"
+msgstr ""
+
+#: src/sol/views/auth.py:576
+msgid "Your new SoL account has been activated"
+msgstr ""
+
+#: src/sol/models/player.py:968 src/sol/models/player.py:1006
+msgid "Your next SoLitude-Carrom match"
+msgstr ""
+
+#. TRANSLATORS: this is the final "conjunction" used when joining multiple
+#. statements, for example "x, y and z".
+#: src/sol/models/utils.py:119 src/sol/views/svg.py:118
+msgid "and"
+msgstr ""
+
+#. TRANSLATORS: this is the bucholz in the badge
+#: src/sol/printouts/badges.py:285 src/sol/printouts/badges.py:305
+msgid "bch"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:135
+msgid "best of three matches"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:508
+msgid "board $board"
+msgstr ""
+
+#: src/sol/views/lit/match.mako:20 src/sol/views/lit/tourney.mako:465
+msgid "carromboard $num"
+msgstr ""
+
+#: src/sol/views/lit/player_opponent.mako:118
+msgid "chart"
+msgstr ""
+
+#: src/sol/views/lit/player.mako:69 src/sol/views/lit/player_matches.mako:68
+msgid "citizenship"
+msgstr ""
+
+#: src/sol/views/lit/index.mako:90
+msgid "club"
+msgid_plural "clubs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/countdown.mako:93
+msgid "do it in 15 seconds"
+msgstr ""
+
+#: src/sol/printouts/scorecards.py:214
+#, python-format
+msgid "estimated start %(start)s — end %(end)s"
+msgstr ""
+
+#. TRANSLATORS: this is the "opponent score" in the badge
+#: src/sol/printouts/badges.py:252
+msgid "his"
+msgstr ""
+
+#: src/sol/printouts/basic.py:298
+msgid "hosted by"
+msgstr ""
+
+#: src/sol/views/countdown.mako:97
+msgid "in 60 seconds"
+msgstr ""
+
+#: src/sol/views/lit/index.mako:42
+msgid "latest 20"
+msgstr ""
+
+#. TRANSLATORS: this is the net score in the badge
+#: src/sol/printouts/badges.py:288 src/sol/printouts/badges.py:308
+msgid "net"
+msgstr ""
+
+#: src/sol/printouts/utils.py:55
+msgid "of the eighth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:56
+msgid "of the eleventh"
+msgstr ""
+
+#: src/sol/printouts/utils.py:58
+msgid "of the fifteenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:54
+msgid "of the fifth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:53
+msgid "of the first"
+msgstr ""
+
+#: src/sol/printouts/utils.py:57
+msgid "of the fourteenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:54
+msgid "of the fourth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:55
+msgid "of the ninth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:53
+msgid "of the second"
+msgstr ""
+
+#: src/sol/printouts/utils.py:55
+msgid "of the seventh"
+msgstr ""
+
+#: src/sol/printouts/utils.py:58
+msgid "of the sixteenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:54
+msgid "of the sixth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:56
+msgid "of the tenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:53
+msgid "of the third"
+msgstr ""
+
+#: src/sol/printouts/utils.py:57
+msgid "of the thirteenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:56
+msgid "of the twelfth"
+msgstr ""
+
+#: src/sol/views/countdown.mako:91 src/sol/views/countdown.mako:95
+msgid "or"
+msgstr ""
+
+#: src/sol/views/lit/index.mako:100 src/sol/views/lit/players.mako:28
+msgid "player"
+msgid_plural "players"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/sol/views/lit/training_match.mako:52
+msgid "previous matches"
+msgstr ""
+
+#. TRANSLATORS: this is the prize in the badge
+#: src/sol/printouts/badges.py:311
+msgid "prz"
+msgstr ""
+
+#. TRANSLATORS: this is the points in the badge
+#: src/sol/printouts/badges.py:282 src/sol/printouts/badges.py:302
+msgid "pts"
+msgstr ""
+
+#: src/sol/views/lit/match.mako:19
+msgid "round $round"
+msgstr ""
+
+#: src/sol/views/lit/tourney.mako:135
+msgid "single match"
+msgstr ""
+
+#. TRANSLATORS: this is the route to the user's manual, leave it UNCHANGED
+#. if the manual is NOT translated in your language!
+#: src/sol/views/auth.py:566
+msgid "sol:static/manual/en/index.html"
+msgstr ""
+
+#. TRANSLATORS: this is the route to the players manager section in the
+#. user's manual, leave it UNCHANGED if the manual is NOT translated in
+#. your language!
+#: src/sol/views/auth.py:570
+msgid "sol:static/manual/en/users.html#players-manager"
+msgstr ""
+
+#: src/sol/printouts/utils.py:47
+msgid "the eighth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:48
+msgid "the eleventh"
+msgstr ""
+
+#: src/sol/printouts/utils.py:49
+msgid "the fifteenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:46
+msgid "the fifth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:45
+msgid "the first"
+msgstr ""
+
+#: src/sol/printouts/utils.py:49
+msgid "the fourteenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:46
+msgid "the fourth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:47
+msgid "the ninth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:45
+msgid "the second"
+msgstr ""
+
+#: src/sol/printouts/utils.py:46
+msgid "the seventh"
+msgstr ""
+
+#: src/sol/printouts/utils.py:49
+msgid "the sixteenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:46
+msgid "the sixth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:47
+msgid "the tenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:45
+msgid "the third"
+msgstr ""
+
+#: src/sol/printouts/utils.py:48
+msgid "the thirteenth"
+msgstr ""
+
+#: src/sol/printouts/utils.py:48
+msgid "the twelfth"
+msgstr ""
+
+#: src/sol/printouts/basic.py:169 src/sol/views/lit/base.mako:83
+msgid "version"
+msgstr ""
+
+#: src/sol/views/lit/player_opponent.mako:17
+msgid "vs"
+msgstr ""
+
+#. TRANSLATORS: this is the "score of this player" in the badge
+#: src/sol/printouts/badges.py:248
+msgid "your"
+msgstr ""
+
+#: src/sol/views/auth.py:42
+msgid "{first_name} {last_name}"
+msgstr ""
+
+#: src/sol/models/user.py:179 src/sol/models/user.py:233
+msgid "“$email” is reserved, please use a different email"
+msgstr ""
+
