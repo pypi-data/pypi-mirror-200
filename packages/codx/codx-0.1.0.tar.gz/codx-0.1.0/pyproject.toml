@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "codx"
+version = "0.1.0"
+description = "A package used to retrieve exon for protein sequences from RefSeqGene database"
+authors = ["Toan Phung <toan.phungkhoiquoctoan@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+biopython = "^1.81"
+pandas = "^1.5.3"
+uniprotparser = "^1.0.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
