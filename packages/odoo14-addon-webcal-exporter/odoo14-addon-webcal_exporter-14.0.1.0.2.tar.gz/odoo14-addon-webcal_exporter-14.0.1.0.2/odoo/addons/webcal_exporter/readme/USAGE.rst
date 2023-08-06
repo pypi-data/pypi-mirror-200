@@ -1,0 +1,1 @@
+Once the user's calendar credentials are set up correctly, the module will automatically export events created within the last hour to the user's external webcal. The scheduled action runs hourly to check for recent events and export them accordingly.
