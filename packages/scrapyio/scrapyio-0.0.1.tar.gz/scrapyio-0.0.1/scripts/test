@@ -1,0 +1,10 @@
+#! /bin/bash -e
+
+set -x
+
+./scripts/check
+
+
+coverage run -m pytest $@
+
+./scripts/coverage
