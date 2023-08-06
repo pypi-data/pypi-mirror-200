@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: keyrock-fastapi
+Version: 2023.4.1.1137
+Requires-Dist: keyrock-core
+Requires-Dist: keyrock-encryption
+Requires-Dist: fastapi[all]
+Requires-Dist: redis
+Requires-Dist: requests
+Requires-Dist: PyJWT (==2.6.0)
+
