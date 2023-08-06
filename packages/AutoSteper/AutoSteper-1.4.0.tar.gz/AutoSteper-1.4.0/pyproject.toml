@@ -1,0 +1,42 @@
+[project]
+name = "AutoSteper"
+dynamic = ["version"]
+readme = "README.md"
+description = "Automated Stepwise Addition Procedure for Extrafullerene."
+authors = [{name = "franklalalala", email = "1660810667@qq.com"}]
+license = {file = "LICENSE.txt"}
+classifiers = [
+    "Programming Language :: Python",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Development Status :: 3 - Alpha"
+]
+requires-python = ">=3.8"
+dependencies = [
+	"importlib-metadata",
+	"pytest-shutil",
+	"ase",
+	"numpy",
+	"pandas",
+	"networkx",
+	"tqdm",
+	"matplotlib",
+	"seaborn",
+	"dpdispatcher", 
+]
+
+[tool.setuptools]
+packages = ["autosteper"]
+
+[tool.setuptools.dynamic]
+version = {file = ["version.txt"]}
+
+[project.urls]
+Source = "https://github.com/franklalalala/AutoSteper"
+
+
+[build-system]
+# AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
+requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5", "wheel"]
+build-backend = "setuptools.build_meta"

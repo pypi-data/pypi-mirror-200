@@ -1,0 +1,15 @@
+importlib-metadata
+pytest-shutil
+ase
+numpy
+pandas
+networkx
+tqdm
+matplotlib
+seaborn
+dpdispatcher
+
+[testing]
+setuptools
+pytest
+pytest-cov
