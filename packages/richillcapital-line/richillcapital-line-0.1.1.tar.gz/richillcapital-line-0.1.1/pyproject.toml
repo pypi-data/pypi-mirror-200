@@ -1,0 +1,37 @@
+[tool.pdm.dev-dependencies]
+dev = [
+    "pylint>=2.17.1",
+    "black>=23.1.0",
+    "isort>=5.12.0",
+    "mypy>=1.1.1",
+    "pytest>=7.2.2",
+    "pytest-asyncio>=0.21.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.pdm.scripts]
+test = "pytest"
+sort = "isort ."
+example = "./examples/notify_example.py"
+
+[project]
+name = "richillcapital-line"
+version = "0.1.1"
+description = ""
+authors = [
+    { name = "Mengsyue Amao Tsai", email = "mengsyue.tsai@outlook.com" },
+]
+dependencies = [
+    "richillcapital-http>=0.1.1",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[build-system]
+requires = [
+    "pdm-pep517>=1.0",
+]
+build-backend = "pdm.pep517.api"
