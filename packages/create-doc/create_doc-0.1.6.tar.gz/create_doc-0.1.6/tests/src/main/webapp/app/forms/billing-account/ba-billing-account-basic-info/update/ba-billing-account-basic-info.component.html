@@ -1,0 +1,74 @@
+<div class="grid justify-content-center">
+  <div class="col-12 xl:col-10">
+    <div class="card" *ngIf="fg.hasCurrentRecord">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="fg.editForm">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccountBasicInfo.name" for="f4_name">Name</label>
+            <input pInputText type="text" name="name" id="f4_name" data-cy="name" formControlName="name" />
+            <div *ngIf="fg.editForm.get('name')!.invalid && (fg.editForm.get('name')!.dirty || fg.editForm.get('name')!.touched)">
+              <small
+                class="form-text text-danger"
+                *ngIf="fg.editForm.get('name')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccountBasicInfo.organization" for="f4_organization">Organization</label>
+            <p-autoComplete
+              id="f4_organization"
+              formControlName="organization"
+              (completeMethod)="fg.searchOrganization($event)"
+              [suggestions]="fg.organizationSuggestions"
+              [dropdown]="true"
+              field="name"
+              data-cy="organization"
+              autocomplete="on"
+              [autoHighlight]="true"
+              [forceSelection]="true"
+            >
+            </p-autoComplete>
+          </div>
+          <div class="field col-12">
+            <label jhiTranslate="aportalApp.bABillingAccountBasicInfo.description" for="f4_description">Description</label>
+            <textarea
+              pInputTextarea
+              name="description"
+              id="f4_description"
+              data-cy="description"
+              formControlName="description"
+              [rows]="5"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="field col-12">
+          <button
+            type="button"
+            id="bABillingAccountBasicInfoCancelSave"
+            data-cy="bABillingAccountBasicInfoFormCancelButton"
+            pButton
+            class="p-button-secondary"
+            (click)="previousState()"
+          >
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
+
+          <button
+            type="submit"
+            id="bABillingAccountBasicInfoSaveEntity"
+            data-cy="bABillingAccountBasicInfoFormSaveButton"
+            [disabled]="fg.editForm.invalid || isSaving || fg.editForm.pristine"
+            pButton
+            class="p-button-primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

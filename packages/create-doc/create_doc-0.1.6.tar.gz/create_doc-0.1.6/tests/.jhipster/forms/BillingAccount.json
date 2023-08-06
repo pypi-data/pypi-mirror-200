@@ -1,0 +1,2824 @@
+{
+  "name" : "BillingAccount",
+  "title" : "Billing Accounts",
+  "body" : {
+    "entity" : "BillingAccount",
+    "template" : "table",
+    "properties" : [ ],
+    "parentForm" : "",
+    "parentComType" : "globalContext",
+    "parent" : [ "id", "company" ],
+    "linked" : [ "customerAccount", "company" ],
+    "store" : {
+      "type" : "ownStore",
+      "name" : "BillingAccount"
+    },
+    "formGroup" : {
+      "type" : "none",
+      "name" : "BillingAccount"
+    },
+    "fields" : [ {
+      "name" : "id",
+      "title" : "Id",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "120px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "autoTranslationKey" : null,
+        "required" : false
+      }
+    }, {
+      "name" : "code",
+      "title" : "Code",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "130px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : ""
+      }
+    }, {
+      "name" : "name",
+      "title" : "Name",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "200px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : ""
+      }
+    }, {
+      "name" : "description",
+      "title" : "Description",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "220px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : ""
+      }
+    }, {
+      "name" : "formattedAddressLin",
+      "title" : "Address",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "200px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : ""
+      }
+    }, {
+      "name" : "company",
+      "title" : "Company",
+      "validations" : [ ],
+      "default" : null,
+      "properties" : {
+        "tableColumnWidth" : "200px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "filter" : "",
+        "controlType" : "dropdown",
+        "sort" : [ "name,asc" ],
+        "searchInFields" : [ "name", "code" ],
+        "relatedInputCtrl" : null,
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : "",
+        "onSelect" : "",
+        "completeMethod" : "",
+        "suggestions" : ""
+      }
+    }, {
+      "name" : "organization",
+      "title" : "Organization",
+      "validations" : [ ],
+      "default" : null,
+      "properties" : {
+        "tableColumnWidth" : "200px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "filter" : "",
+        "controlType" : "dropdown",
+        "sort" : [ "name,asc" ],
+        "searchInFields" : [ "name", "code" ],
+        "relatedInputCtrl" : null,
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : "",
+        "onSelect" : "",
+        "completeMethod" : "",
+        "suggestions" : ""
+      }
+    }, {
+      "name" : "status",
+      "title" : "Status",
+      "validations" : [ ],
+      "default" : "StandardRecordStatus.ACTIVE",
+      "properties" : {
+        "tableColumnWidth" : "150px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : ""
+      }
+    }, {
+      "name" : "validFrom",
+      "title" : "Valid From",
+      "validations" : [ ],
+      "default" : "dayjs()",
+      "properties" : {
+        "tableColumnWidth" : "180px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : ""
+      }
+    }, {
+      "name" : "validUntil",
+      "title" : "Valid Until",
+      "validations" : [ ],
+      "default" : "dayjs(new Date(2200,1,1))",
+      "properties" : {
+        "tableColumnWidth" : "180px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : ""
+      }
+    }, {
+      "name" : "seq",
+      "title" : "Sequence",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "160px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null,
+        "required" : false,
+        "onBlur" : ""
+      }
+    } ],
+    "views" : [ {
+      "view" : "list",
+      "fields" : {
+        "included" : [ "name", "description", "formattedAddressLin", "code" ],
+        "excluded" : [ ]
+      },
+      "roles" : {
+        "included" : [ ],
+        "excluded" : [ ]
+      }
+    } ],
+    "subforms" : [ {
+      "name" : "BATabs",
+      "title" : "Billing Account Details",
+      "body" : {
+        "template" : "layout-tabs",
+        "properties" : [ ],
+        "parentForm" : "",
+        "parentComType" : "none",
+        "parent" : [ ],
+        "linked" : [ ],
+        "store" : {
+          "type" : "noStore",
+          "name" : "BATabs"
+        },
+        "formGroup" : {
+          "type" : "none",
+          "name" : ""
+        },
+        "subforms" : [ {
+          "name" : "BABillingAccount",
+          "title" : "Billing Account",
+          "body" : {
+            "template" : "layout-accordion",
+            "properties" : [ ],
+            "parentForm" : "",
+            "parentComType" : "none",
+            "parent" : [ ],
+            "linked" : [ ],
+            "store" : {
+              "type" : "noStore",
+              "name" : "BABillingAccount"
+            },
+            "formGroup" : {
+              "type" : "none",
+              "name" : ""
+            },
+            "subforms" : [ {
+              "name" : "BABillingAccountBasicInfo",
+              "title" : "Basic Info",
+              "body" : {
+                "entity" : "BillingAccount",
+                "template" : "form",
+                "properties" : [ ],
+                "parentForm" : "BillingAccount",
+                "parentComType" : "eventManager",
+                "parent" : [ "id" ],
+                "linked" : [ "id" ],
+                "store" : {
+                  "type" : "otherComponent",
+                  "name" : "BillingAccount"
+                },
+                "formGroup" : {
+                  "type" : "ownFormGroup",
+                  "name" : "BABillingAccountBasicInfo"
+                },
+                "fields" : [ {
+                  "name" : "id",
+                  "title" : "Id",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "120px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "autoTranslationKey" : null,
+                    "required" : false
+                  }
+                }, {
+                  "name" : "code",
+                  "title" : "Code",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "130px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "name",
+                  "title" : "Name",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "description",
+                  "title" : "Description",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "220px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "formattedAddressLin",
+                  "title" : "Address",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "company",
+                  "title" : "Company",
+                  "validations" : [ ],
+                  "default" : true,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "filter" : "",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "globalInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "required" : false,
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "completeMethod" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "organization",
+                  "title" : "Organization",
+                  "validations" : [ ],
+                  "default" : true,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "filter" : "tparty==#ORGANIZATION# and rootParty==${rootPartyId}",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "globalInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "required" : false,
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "completeMethod" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "status",
+                  "title" : "Status",
+                  "validations" : [ ],
+                  "default" : "StandardRecordStatus.ACTIVE",
+                  "properties" : {
+                    "tableColumnWidth" : "150px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "validFrom",
+                  "title" : "Valid From",
+                  "validations" : [ ],
+                  "default" : "dayjs()",
+                  "properties" : {
+                    "tableColumnWidth" : "180px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "validUntil",
+                  "title" : "Valid Until",
+                  "validations" : [ ],
+                  "default" : "dayjs(new Date(2200,1,1))",
+                  "properties" : {
+                    "tableColumnWidth" : "180px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "seq",
+                  "title" : "Sequence",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "160px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                } ],
+                "views" : [ {
+                  "view" : "default",
+                  "fields" : {
+                    "included" : [ "name", "organization", "description" ],
+                    "excluded" : [ ]
+                  },
+                  "roles" : {
+                    "included" : [ ],
+                    "excluded" : [ ]
+                  }
+                } ],
+                "subforms" : [ ],
+                "showTitle" : false,
+                "formPosition" : "bottom",
+                "links" : [ ],
+                "entityTitle" : "Billing Account",
+                "entityPlural" : null,
+                "entityAutoTranslationKey" : null,
+                "entityPluralAutoTranslationKey" : null,
+                "entityI18nVariant" : "default",
+                "showSaveAndCancelButton" : true,
+                "showOnEmptyRecord" : false,
+                "subtitle" : "Basic info",
+                "showCreateButton" : true,
+                "showDeleteRecord" : true,
+                "showDetailsButton" : false,
+                "eventName" : "BABillingAccountBasicInfo",
+                "showSaveAndCancelButtons" : true
+              },
+              "autoTranslationKey" : "",
+              "formId" : 4,
+              "externalServices" : [ ]
+            }, {
+              "name" : "BABillingAccount$adr",
+              "title" : "Address",
+              "body" : {
+                "entity" : "BillingAccount",
+                "entityTitle" : "Billing Account",
+                "entityTitlePlural" : null,
+                "entityI18nVariant" : "default",
+                "entityAutoTranslationKey" : null,
+                "entityPluralAutoTranslationKey" : null,
+                "template" : "form",
+                "properties" : [ ],
+                "parentForm" : "BillingAccount",
+                "parentComType" : "eventManager",
+                "eventName" : "BABillingAccount$adr",
+                "parent" : [ "id" ],
+                "linked" : [ "id" ],
+                "showTitle" : false,
+                "formPosition" : "bottom",
+                "showOnEmptyRecord" : false,
+                "showSaveAndCancelButtons" : true,
+                "links" : [ ],
+                "store" : {
+                  "type" : "otherComponent",
+                  "name" : "BillingAccount"
+                },
+                "formGroup" : {
+                  "type" : "otherComponent",
+                  "name" : "BABillingAccountBasicInfo"
+                },
+                "fields" : [ {
+                  "name" : "code",
+                  "title" : "Code",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "150px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : "",
+                    "autoTranslationKey" : null
+                  }
+                }, {
+                  "name" : "name",
+                  "title" : "Name",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : "",
+                    "autoTranslationKey" : null
+                  }
+                }, {
+                  "name" : "description",
+                  "title" : "Description",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "220px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "textarea",
+                    "onBlur" : "",
+                    "autoTranslationKey" : null
+                  }
+                }, {
+                  "name" : "id",
+                  "title" : "Id",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "120px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null
+                  }
+                }, {
+                  "name" : "taxIdentifier",
+                  "title" : "Tax Identifier",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "formattedAddress",
+                  "title" : "Formatted Address",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "220px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "textarea",
+                    "onBlur" : "",
+                    "autoTranslationKey" : null
+                  }
+                }, {
+                  "name" : "formattedAddressLin",
+                  "title" : "Address",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "220px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "countryName",
+                  "title" : "Country Name",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchCountryName($event)",
+                    "onBlur" : "afs.onBlurCountryName(fg.editForm)",
+                    "onSelect" : "afs.onSelectCountryName($event, fg.editForm)",
+                    "suggestions" : "afs.countryNameSuggestions",
+                    "inputControlType" : "autocomplete"
+                  }
+                }, {
+                  "name" : "countyName",
+                  "title" : "County Name",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchCountyName($event)",
+                    "onBlur" : "afs.onBlurCountyName(fg.editForm)",
+                    "onSelect" : "afs.onSelectCountyName($event, fg.editForm)",
+                    "suggestions" : "afs.countyNameSuggestions",
+                    "inputControlType" : "autocomplete"
+                  }
+                }, {
+                  "name" : "regionName",
+                  "title" : "Region Name",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchRegionName($event)",
+                    "onBlur" : "afs.onBlurRegionName(fg.editForm)",
+                    "onSelect" : "afs.onSelectRegionName($event, fg.editForm)",
+                    "suggestions" : "afs.regionNameSuggestions",
+                    "inputControlType" : "autocomplete"
+                  }
+                }, {
+                  "name" : "placeName",
+                  "title" : "Place Name",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchPlaceName($event)",
+                    "onBlur" : "afs.onBlurPlaceName(fg.editForm)",
+                    "onSelect" : "afs.onSelectPlaceName($event, fg.editForm)",
+                    "suggestions" : "afs.placeNameSuggestions",
+                    "inputControlType" : "autocomplete"
+                  }
+                }, {
+                  "name" : "postNumber",
+                  "title" : "Post Number",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchPostNumber($event)",
+                    "onBlur" : "afs.onBlurPostNumber(fg.editForm)",
+                    "onSelect" : "afs.onSelectPostNumber($event, fg.editForm)",
+                    "suggestions" : "afs.postNumberSuggestions",
+                    "inputControlType" : "autocomplete"
+                  }
+                }, {
+                  "name" : "postName",
+                  "title" : "Post Name",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchPostName($event)",
+                    "onBlur" : "afs.onBlurPostName(fg.editForm)",
+                    "onSelect" : "afs.onSelectPostName($event, fg.editForm)",
+                    "suggestions" : "afs.postNameSuggestions",
+                    "inputControlType" : "autocomplete"
+                  }
+                }, {
+                  "name" : "streetName",
+                  "title" : "Street Name",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchStreetName($event)",
+                    "onBlur" : "afs.onBlurStreetName(fg.editForm)",
+                    "onSelect" : "afs.onSelectStreetName($event, fg.editForm)",
+                    "suggestions" : "afs.streetNameSuggestions",
+                    "inputControlType" : "autocomplete"
+                  }
+                }, {
+                  "name" : "homeNumber",
+                  "title" : "Home Number",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : "afs.formatAddresses(fg.editForm)"
+                  }
+                }, {
+                  "name" : "homeLetter",
+                  "title" : "Home Letter",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : "afs.formatAddresses(fg.editForm)"
+                  }
+                }, {
+                  "name" : "isGeocoded",
+                  "title" : "Is Geocoded",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "latitude",
+                  "title" : "Latitude",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "longitude",
+                  "title" : "Longitude",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "customerCompanyPath",
+                  "title" : "Customer Company Path",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "customerOrgPath",
+                  "title" : "Customer Org Path",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "company",
+                  "title" : "Company",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "",
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "organization",
+                  "title" : "Organization",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "",
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "customerAccount",
+                  "title" : "Customer Account",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "",
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "country",
+                  "title" : "Country",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "tgeo==1",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchCountryName($event)",
+                    "onBlur" : "afs.onBlurCountry(fg.editForm)",
+                    "onSelect" : "afs.onSelectCountry($event, fg.editForm)",
+                    "suggestions" : "afs.countryNameSuggestionsSource"
+                  }
+                }, {
+                  "name" : "region",
+                  "title" : "Region",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "tgeo==15",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchRegionName($event)",
+                    "onBlur" : "afs.onBlurRegion(fg.editForm)",
+                    "onSelect" : "afs.onSelectRegion($event, fg.editForm)",
+                    "suggestions" : "afs.regionNameSuggestionsSource"
+                  }
+                }, {
+                  "name" : "place",
+                  "title" : "Place",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "tgeo==3",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchPlaceName($event)",
+                    "onBlur" : "afs.onBlurPlace(fg.editForm)",
+                    "onSelect" : "afs.onSelectPlace($event, fg.editForm)",
+                    "suggestions" : "afs.placeNameSuggestionsSource"
+                  }
+                }, {
+                  "name" : "street",
+                  "title" : "Street",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "tgeo==4",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchStreetName($event)",
+                    "onBlur" : "afs.onBlurStreet(fg.editForm)",
+                    "onSelect" : "afs.onSelectStreet($event, fg.editForm)",
+                    "suggestions" : "afs.streetNameSuggestionsSource"
+                  }
+                }, {
+                  "name" : "post",
+                  "title" : "Post",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "tgeo==5",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchPostName($event)",
+                    "onBlur" : "afs.onBlurPost(fg.editForm)",
+                    "onSelect" : "afs.onSelectPost($event, fg.editForm)",
+                    "suggestions" : "afs.postNameSuggestionsSource"
+                  }
+                }, {
+                  "name" : "county",
+                  "title" : "County",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "tgeo==2",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "afs.searchCountyName($event)",
+                    "onBlur" : "afs.onBlurCounty(fg.editForm)",
+                    "onSelect" : "afs.onSelectCounty($event, fg.editForm)",
+                    "suggestions" : "afs.countyNameSuggestionsSource"
+                  }
+                }, {
+                  "name" : "customerCompany",
+                  "title" : "Customer Company",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "",
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "customerOrg",
+                  "title" : "Customer Org",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "",
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "customerPerson",
+                  "title" : "Customer Person",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "filter" : "",
+                    "controlType" : "autocomplete",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "filterFields" : [ ],
+                    "completeMethod" : "",
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "status",
+                  "title" : "Status",
+                  "validations" : [ ],
+                  "default" : "StandardRecordStatus.ACTIVE",
+                  "properties" : {
+                    "tableColumnWidth" : "150px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : "",
+                    "autoTranslationKey" : null
+                  }
+                }, {
+                  "name" : "validFrom",
+                  "title" : "Valid From",
+                  "validations" : [ ],
+                  "default" : "dayjs()",
+                  "properties" : {
+                    "tableColumnWidth" : "180px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : "",
+                    "autoTranslationKey" : null
+                  }
+                }, {
+                  "name" : "validUntil",
+                  "title" : "Valid Until",
+                  "validations" : [ ],
+                  "default" : "dayjs(new Date(2200,1,1))",
+                  "properties" : {
+                    "tableColumnWidth" : "180px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : "",
+                    "autoTranslationKey" : null
+                  }
+                }, {
+                  "name" : "seq",
+                  "title" : "Seqence",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "160px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "required" : false,
+                    "inputControlType" : "input",
+                    "onBlur" : "",
+                    "autoTranslationKey" : null
+                  }
+                } ],
+                "views" : [ {
+                  "view" : "default",
+                  "fields" : {
+                    "included" : [ "country", "placeName", "postNumber", "postName", "streetName", "homeNumber", "homeLetter", "formattedAddressLin", "formattedAddress" ],
+                    "excluded" : [ ]
+                  },
+                  "roles" : {
+                    "included" : [ ],
+                    "excluded" : [ ]
+                  }
+                } ],
+                "subforms" : [ ]
+              },
+              "externalServices" : [ {
+                "name" : "addressFormattingService",
+                "description" : "Address formatting sevice used to format addresses",
+                "importFile" : "app/shared/address-formatting/address-formatting.service",
+                "className" : "AddressFormattingService",
+                "instance" : "afs",
+                "scope" : "public",
+                "id" : 0
+              } ],
+              "formId" : "2",
+              "autoTranslationKey" : null
+            }, {
+              "name" : "BABillingAccountStatus",
+              "title" : "Status",
+              "body" : {
+                "entity" : "BillingAccount",
+                "template" : "form",
+                "properties" : [ ],
+                "parentForm" : "BillingAccount",
+                "parentComType" : "eventManager",
+                "parent" : [ "id" ],
+                "linked" : [ "id" ],
+                "store" : {
+                  "type" : "otherComponent",
+                  "name" : "BillingAccount"
+                },
+                "formGroup" : {
+                  "type" : "otherComponent",
+                  "name" : "BABillingAccountBasicInfo"
+                },
+                "fields" : [ {
+                  "name" : "id",
+                  "title" : "Id",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "120px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "autoTranslationKey" : null,
+                    "required" : false
+                  }
+                }, {
+                  "name" : "code",
+                  "title" : "Code",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "130px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : true,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "name",
+                  "title" : "Name",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "description",
+                  "title" : "Description",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "220px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "formattedAddressLin",
+                  "title" : "Address",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "company",
+                  "title" : "Company",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "filter" : "",
+                    "controlType" : "dropdown",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "completeMethod" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "organization",
+                  "title" : "Organization",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "filter" : "",
+                    "controlType" : "dropdown",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "completeMethod" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "status",
+                  "title" : "Status",
+                  "validations" : [ ],
+                  "default" : "StandardRecordStatus.ACTIVE",
+                  "properties" : {
+                    "tableColumnWidth" : "150px",
+                    "formFieldClass" : "",
+                    "disabled" : true,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "validFrom",
+                  "title" : "Valid From",
+                  "validations" : [ ],
+                  "default" : "dayjs()",
+                  "properties" : {
+                    "tableColumnWidth" : "180px",
+                    "formFieldClass" : "",
+                    "disabled" : true,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "validUntil",
+                  "title" : "Valid Until",
+                  "validations" : [ ],
+                  "default" : "dayjs(new Date(2200,1,1))",
+                  "properties" : {
+                    "tableColumnWidth" : "180px",
+                    "formFieldClass" : "",
+                    "disabled" : true,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "seq",
+                  "title" : "Sequence",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "160px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                } ],
+                "views" : [ {
+                  "view" : "default",
+                  "fields" : {
+                    "included" : [ "status", "validFrom", "validUntil", "id", "code" ],
+                    "excluded" : [ ]
+                  },
+                  "roles" : {
+                    "included" : [ ],
+                    "excluded" : [ ]
+                  }
+                } ],
+                "subforms" : [ ],
+                "showTitle" : false,
+                "formPosition" : "bottom",
+                "links" : [ ],
+                "entityTitle" : "Billing Account",
+                "entityPlural" : null,
+                "entityAutoTranslationKey" : null,
+                "entityPluralAutoTranslationKey" : null,
+                "entityI18nVariant" : "default",
+                "showSaveAndCancelButton" : true,
+                "showOnEmptyRecord" : false,
+                "subtitle" : "Basic info",
+                "showCreateButton" : true,
+                "showDeleteRecord" : true,
+                "showDetailsButton" : false,
+                "eventName" : "BABillingAccountStatus",
+                "showSaveAndCancelButtons" : true
+              },
+              "autoTranslationKey" : "",
+              "formId" : 5,
+              "externalServices" : [ ]
+            }, {
+              "name" : "BABillingAccountAssignedPersons",
+              "title" : "Assigned Persons",
+              "body" : {
+                "entity" : "PersonBillingAccount",
+                "template" : "table",
+                "properties" : [ ],
+                "parentForm" : "BillingAccount",
+                "parentComType" : "eventManager",
+                "parent" : [ "id" ],
+                "linked" : [ "billingAccount" ],
+                "store" : {
+                  "type" : "otherComponent",
+                  "name" : "BillingAccount"
+                },
+                "formGroup" : {
+                  "type" : "none",
+                  "name" : "BABillingAccountAssignedPersons"
+                },
+                "fields" : [ {
+                  "name" : "id",
+                  "title" : "Id",
+                  "validations" : [ ],
+                  "properties" : {
+                    "tableColumnWidth" : "120px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "autoTranslationKey" : null,
+                    "required" : false
+                  }
+                }, {
+                  "name" : "person",
+                  "title" : "Person",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "filter" : "",
+                    "controlType" : "dropdown",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "completeMethod" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "billingAccount",
+                  "title" : "Billing Account",
+                  "validations" : [ ],
+                  "default" : null,
+                  "properties" : {
+                    "tableColumnWidth" : "200px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "filter" : "",
+                    "controlType" : "dropdown",
+                    "sort" : [ "name,asc" ],
+                    "searchInFields" : [ "name", "code" ],
+                    "relatedInputCtrl" : null,
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : "",
+                    "onSelect" : "",
+                    "completeMethod" : "",
+                    "suggestions" : ""
+                  }
+                }, {
+                  "name" : "status",
+                  "title" : "Status",
+                  "validations" : [ ],
+                  "default" : "StandardRecordStatus.ACTIVE",
+                  "properties" : {
+                    "tableColumnWidth" : "150px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "validFrom",
+                  "title" : "Valid From",
+                  "validations" : [ ],
+                  "default" : "dayjs()",
+                  "properties" : {
+                    "tableColumnWidth" : "180px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                }, {
+                  "name" : "validUntil",
+                  "title" : "Valid Until",
+                  "validations" : [ ],
+                  "default" : "dayjs(new Date(2200,1,1))",
+                  "properties" : {
+                    "tableColumnWidth" : "180px",
+                    "formFieldClass" : "",
+                    "disabled" : false,
+                    "inputControlType" : "input",
+                    "autoTranslationKey" : null,
+                    "required" : false,
+                    "onBlur" : ""
+                  }
+                } ],
+                "views" : [ {
+                  "view" : "list",
+                  "fields" : {
+                    "included" : [ "person", "status" ],
+                    "excluded" : [ ]
+                  },
+                  "roles" : {
+                    "included" : [ ],
+                    "excluded" : [ ]
+                  }
+                } ],
+                "subforms" : [ {
+                  "name" : "BABAAssignedPersonTab",
+                  "title" : "Assigned Person Details",
+                  "body" : {
+                    "template" : "layout-tabs",
+                    "properties" : [ ],
+                    "parentForm" : "",
+                    "parentComType" : "none",
+                    "parent" : [ ],
+                    "linked" : [ ],
+                    "store" : {
+                      "type" : "noStore",
+                      "name" : "BABAAssignedPersonTab"
+                    },
+                    "formGroup" : {
+                      "type" : "none",
+                      "name" : ""
+                    },
+                    "subforms" : [ {
+                      "name" : "BABAAssignedPersonDet",
+                      "title" : "Details",
+                      "body" : {
+                        "entity" : "PersonBillingAccount",
+                        "template" : "form",
+                        "properties" : [ ],
+                        "parentForm" : "BABillingAccountAssignedPersons",
+                        "parentComType" : "eventManager",
+                        "parent" : [ "id" ],
+                        "linked" : [ "id" ],
+                        "store" : {
+                          "type" : "otherComponent",
+                          "name" : "BillingAccount"
+                        },
+                        "formGroup" : {
+                          "type" : "ownFormGroup",
+                          "name" : "BABAAssignedPersonDet"
+                        },
+                        "fields" : [ {
+                          "name" : "id",
+                          "title" : "Id",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "120px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "autoTranslationKey" : null,
+                            "required" : false
+                          }
+                        }, {
+                          "name" : "person",
+                          "title" : "Person",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "dfltCompany==${billingAccount?.company?.id ?? -9876}",
+                            "controlType" : "autocomplete",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : "",
+                            "filterFields" : [ "billingAccount" ]
+                          }
+                        }, {
+                          "name" : "billingAccount",
+                          "title" : "Billing Account",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "status",
+                          "title" : "Status",
+                          "validations" : [ ],
+                          "default" : "StandardRecordStatus.ACTIVE",
+                          "properties" : {
+                            "tableColumnWidth" : "150px",
+                            "formFieldClass" : "",
+                            "disabled" : true,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "validFrom",
+                          "title" : "Valid From",
+                          "validations" : [ ],
+                          "default" : "dayjs()",
+                          "properties" : {
+                            "tableColumnWidth" : "180px",
+                            "formFieldClass" : "",
+                            "disabled" : true,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "validUntil",
+                          "title" : "Valid Until",
+                          "validations" : [ ],
+                          "default" : "dayjs(new Date(2200,1,1))",
+                          "properties" : {
+                            "tableColumnWidth" : "180px",
+                            "formFieldClass" : "",
+                            "disabled" : true,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        } ],
+                        "views" : [ {
+                          "view" : "default",
+                          "fields" : {
+                            "included" : [ "person", "status", "validFrom", "validUntil" ],
+                            "excluded" : [ ]
+                          },
+                          "roles" : {
+                            "included" : [ ],
+                            "excluded" : [ ]
+                          }
+                        } ],
+                        "subforms" : [ ],
+                        "showTitle" : false,
+                        "formPosition" : "bottom",
+                        "links" : [ ],
+                        "entityTitle" : "Assigned Person",
+                        "entityPlural" : null,
+                        "entityAutoTranslationKey" : null,
+                        "entityPluralAutoTranslationKey" : null,
+                        "entityI18nVariant" : "female",
+                        "showSaveAndCancelButton" : true,
+                        "showOnEmptyRecord" : false,
+                        "subtitle" : "Basic info",
+                        "showCreateButton" : true,
+                        "showDeleteRecord" : true,
+                        "showDetailsButton" : false,
+                        "eventName" : "BABAAssignedPersonDet"
+                      },
+                      "autoTranslationKey" : "",
+                      "formId" : 8,
+                      "externalServices" : [ ]
+                    }, {
+                      "name" : "BABAAssignedPersonRoles",
+                      "title" : "Roles",
+                      "body" : {
+                        "entity" : "PersonBaAssignedRoles",
+                        "template" : "table",
+                        "properties" : [ ],
+                        "parentForm" : "BABillingAccountAssignedPersons",
+                        "parentComType" : "eventManager",
+                        "parent" : [ "id", "billingAccount" ],
+                        "linked" : [ "personBa", "billingAccount" ],
+                        "store" : {
+                          "type" : "otherComponent",
+                          "name" : "BillingAccount"
+                        },
+                        "formGroup" : {
+                          "type" : "none",
+                          "name" : "BABAAssignedPersonRoles"
+                        },
+                        "fields" : [ {
+                          "name" : "id",
+                          "title" : "Id",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "120px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "autoTranslationKey" : null,
+                            "required" : false
+                          }
+                        }, {
+                          "name" : "billingAccount",
+                          "title" : "Billing Account",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "orgrole",
+                          "title" : "Orgrole",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "personBa",
+                          "title" : "Person BA",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "status",
+                          "title" : "Status",
+                          "validations" : [ ],
+                          "default" : "StandardRecordStatus.ACTIVE",
+                          "properties" : {
+                            "tableColumnWidth" : "150px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "validFrom",
+                          "title" : "Valid From",
+                          "validations" : [ ],
+                          "default" : "dayjs()",
+                          "properties" : {
+                            "tableColumnWidth" : "180px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "validUntil",
+                          "title" : "Valid Until",
+                          "validations" : [ ],
+                          "default" : "dayjs(new Date(2200,1,1))",
+                          "properties" : {
+                            "tableColumnWidth" : "180px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        } ],
+                        "views" : [ {
+                          "view" : "list",
+                          "fields" : {
+                            "included" : [ "orgrole", "status", "validFrom", "validUntil" ],
+                            "excluded" : [ ]
+                          },
+                          "roles" : {
+                            "included" : [ ],
+                            "excluded" : [ ]
+                          }
+                        } ],
+                        "subforms" : [ {
+                          "name" : "BABAAssignedPersonRoleDet",
+                          "title" : "Role Details",
+                          "body" : {
+                            "entity" : "PersonBaAssignedRoles",
+                            "template" : "form",
+                            "properties" : [ ],
+                            "parentForm" : "BABAAssignedPersonRoles",
+                            "parentComType" : "eventManager",
+                            "parent" : [ "id" ],
+                            "linked" : [ "id" ],
+                            "store" : {
+                              "type" : "otherComponent",
+                              "name" : "BillingAccount"
+                            },
+                            "formGroup" : {
+                              "type" : "ownFormGroup",
+                              "name" : "BABAAssignedPersonRoleDet"
+                            },
+                            "fields" : [ {
+                              "name" : "id",
+                              "title" : "Id",
+                              "validations" : [ ],
+                              "properties" : {
+                                "tableColumnWidth" : "120px",
+                                "formFieldClass" : "",
+                                "disabled" : false,
+                                "autoTranslationKey" : null,
+                                "required" : false
+                              }
+                            }, {
+                              "name" : "billingAccount",
+                              "title" : "Billing Account",
+                              "validations" : [ ],
+                              "default" : null,
+                              "properties" : {
+                                "tableColumnWidth" : "200px",
+                                "formFieldClass" : "",
+                                "disabled" : false,
+                                "filter" : "",
+                                "controlType" : "dropdown",
+                                "sort" : [ "name,asc" ],
+                                "searchInFields" : [ "name", "code" ],
+                                "relatedInputCtrl" : null,
+                                "autoTranslationKey" : null,
+                                "required" : false,
+                                "onBlur" : "",
+                                "onSelect" : "",
+                                "completeMethod" : "",
+                                "suggestions" : ""
+                              }
+                            }, {
+                              "name" : "orgrole",
+                              "title" : "Role",
+                              "validations" : [ ],
+                              "default" : null,
+                              "properties" : {
+                                "tableColumnWidth" : "200px",
+                                "formFieldClass" : "",
+                                "disabled" : false,
+                                "filter" : "",
+                                "controlType" : "autocomplete",
+                                "sort" : [ "name,asc" ],
+                                "searchInFields" : [ "name", "code" ],
+                                "relatedInputCtrl" : null,
+                                "autoTranslationKey" : null,
+                                "required" : false,
+                                "onBlur" : "",
+                                "onSelect" : "",
+                                "completeMethod" : "",
+                                "suggestions" : "",
+                                "filterFields" : [ ]
+                              }
+                            }, {
+                              "name" : "personBa",
+                              "title" : "Person Ba",
+                              "validations" : [ ],
+                              "default" : null,
+                              "properties" : {
+                                "tableColumnWidth" : "200px",
+                                "formFieldClass" : "",
+                                "disabled" : false,
+                                "filter" : "",
+                                "controlType" : "dropdown",
+                                "sort" : [ "name,asc" ],
+                                "searchInFields" : [ "name", "code" ],
+                                "relatedInputCtrl" : null,
+                                "autoTranslationKey" : null,
+                                "required" : false,
+                                "onBlur" : "",
+                                "onSelect" : "",
+                                "completeMethod" : "",
+                                "suggestions" : ""
+                              }
+                            }, {
+                              "name" : "status",
+                              "title" : "Status",
+                              "validations" : [ ],
+                              "default" : "StandardRecordStatus.ACTIVE",
+                              "properties" : {
+                                "tableColumnWidth" : "150px",
+                                "formFieldClass" : "",
+                                "disabled" : true,
+                                "inputControlType" : "input",
+                                "autoTranslationKey" : null,
+                                "required" : false,
+                                "onBlur" : ""
+                              }
+                            }, {
+                              "name" : "validFrom",
+                              "title" : "Valid From",
+                              "validations" : [ ],
+                              "default" : "dayjs()",
+                              "properties" : {
+                                "tableColumnWidth" : "180px",
+                                "formFieldClass" : "",
+                                "disabled" : true,
+                                "inputControlType" : "input",
+                                "autoTranslationKey" : null,
+                                "required" : false,
+                                "onBlur" : ""
+                              }
+                            }, {
+                              "name" : "validUntil",
+                              "title" : "Valid Until",
+                              "validations" : [ ],
+                              "default" : "dayjs(new Date(2200,1,1))",
+                              "properties" : {
+                                "tableColumnWidth" : "180px",
+                                "formFieldClass" : "",
+                                "disabled" : true,
+                                "inputControlType" : "input",
+                                "autoTranslationKey" : null,
+                                "required" : false,
+                                "onBlur" : ""
+                              }
+                            } ],
+                            "views" : [ {
+                              "view" : "default",
+                              "fields" : {
+                                "included" : [ "orgrole", "status", "validFrom", "validUntil" ],
+                                "excluded" : [ ]
+                              },
+                              "roles" : {
+                                "included" : [ ],
+                                "excluded" : [ ]
+                              }
+                            } ],
+                            "subforms" : [ ],
+                            "showTitle" : false,
+                            "formPosition" : "bottom",
+                            "links" : [ ],
+                            "entityTitle" : "Assigned Role",
+                            "entityPlural" : null,
+                            "entityAutoTranslationKey" : null,
+                            "entityPluralAutoTranslationKey" : null,
+                            "entityI18nVariant" : "female",
+                            "showSaveAndCancelButton" : true,
+                            "showOnEmptyRecord" : false,
+                            "subtitle" : "Basic info",
+                            "showCreateButton" : true,
+                            "showDeleteRecord" : true,
+                            "showDetailsButton" : false,
+                            "eventName" : "BABAAssignedPersonRoleDet"
+                          },
+                          "autoTranslationKey" : "",
+                          "formId" : 10,
+                          "externalServices" : [ ]
+                        } ],
+                        "showTitle" : false,
+                        "formPosition" : "bottom",
+                        "links" : [ ],
+                        "globalSearch" : false,
+                        "globalSearchFields" : [ ],
+                        "entityTitle" : "Assigned Role",
+                        "entityPlural" : null,
+                        "entityAutoTranslationKey" : null,
+                        "entityPluralAutoTranslationKey" : null,
+                        "entityI18nVariant" : "female",
+                        "showCreateButton" : true,
+                        "showDeleteRecord" : true,
+                        "showDetailsButton" : false,
+                        "eventName" : "BABAAssignedPersonRoles"
+                      },
+                      "autoTranslationKey" : "",
+                      "formId" : 9
+                    } ],
+                    "showTitle" : false,
+                    "formPosition" : "bottom",
+                    "links" : [ ],
+                    "showCreateButton" : true,
+                    "showDeleteRecord" : true,
+                    "showDetailsButton" : false,
+                    "eventName" : "BABAAssignedPersonTab"
+                  },
+                  "autoTranslationKey" : "",
+                  "formId" : 7
+                } ],
+                "showTitle" : false,
+                "formPosition" : "bottom",
+                "links" : [ ],
+                "globalSearch" : false,
+                "globalSearchFields" : [ ],
+                "entityTitle" : "Assigned Person",
+                "entityPlural" : null,
+                "entityAutoTranslationKey" : null,
+                "entityPluralAutoTranslationKey" : null,
+                "entityI18nVariant" : "female",
+                "showCreateButton" : true,
+                "showDeleteRecord" : true,
+                "showDetailsButton" : false,
+                "eventName" : "BABillingAccountAssignedPersons"
+              },
+              "autoTranslationKey" : "",
+              "formId" : 6,
+              "externalServices" : [ ]
+            } ],
+            "showTitle" : false,
+            "formPosition" : "bottom",
+            "links" : [ ],
+            "showCreateButton" : true,
+            "showDeleteRecord" : true,
+            "showDetailsButton" : false,
+            "eventName" : "BABillingAccount",
+            "entityI18nVariant" : "default"
+          },
+          "autoTranslationKey" : "",
+          "formId" : 3,
+          "externalServices" : [ ]
+        }, {
+          "name" : "CAServiceAccounts",
+          "title" : "Environments",
+          "body" : {
+            "entity" : "ServiceAccount",
+            "template" : "table",
+            "properties" : [ ],
+            "parentForm" : "BillingAccount",
+            "parentComType" : "eventManager",
+            "parent" : [ "id", "company" ],
+            "linked" : [ "billingAccount", "company" ],
+            "store" : {
+              "type" : "otherComponent",
+              "name" : "BillingAccount"
+            },
+            "formGroup" : {
+              "type" : "none",
+              "name" : "CAServiceAccounts"
+            },
+            "fields" : [ {
+              "name" : "id",
+              "title" : "Id",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "120px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "autoTranslationKey" : null,
+                "required" : false
+              }
+            }, {
+              "name" : "code",
+              "title" : "Code",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "130px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : ""
+              }
+            }, {
+              "name" : "name",
+              "title" : "Name",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "200px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : ""
+              }
+            }, {
+              "name" : "description",
+              "title" : "Description",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "220px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : ""
+              }
+            }, {
+              "name" : "formattedAddressLin",
+              "title" : "Address",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "200px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : ""
+              }
+            }, {
+              "name" : "company",
+              "title" : "company",
+              "validations" : [ ],
+              "default" : null,
+              "properties" : {
+                "tableColumnWidth" : "200px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "filter" : "",
+                "controlType" : "dropdown",
+                "sort" : [ "name,asc" ],
+                "searchInFields" : [ "name", "code" ],
+                "relatedInputCtrl" : null,
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : "",
+                "onSelect" : "",
+                "completeMethod" : "",
+                "suggestions" : ""
+              }
+            }, {
+              "name" : "organization",
+              "title" : "Organization",
+              "validations" : [ ],
+              "default" : null,
+              "properties" : {
+                "tableColumnWidth" : "200px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "filter" : "",
+                "controlType" : "dropdown",
+                "sort" : [ "name,asc" ],
+                "searchInFields" : [ "name", "code" ],
+                "relatedInputCtrl" : null,
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : "",
+                "onSelect" : "",
+                "completeMethod" : "",
+                "suggestions" : ""
+              }
+            }, {
+              "name" : "billingAccount",
+              "title" : "Billing Account",
+              "validations" : [ ],
+              "default" : null,
+              "properties" : {
+                "tableColumnWidth" : "200px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "filter" : "",
+                "controlType" : "dropdown",
+                "sort" : [ "name,asc" ],
+                "searchInFields" : [ "name", "code" ],
+                "relatedInputCtrl" : null,
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : "",
+                "onSelect" : "",
+                "completeMethod" : "",
+                "suggestions" : ""
+              }
+            }, {
+              "name" : "status",
+              "title" : "Status",
+              "validations" : [ ],
+              "default" : "StandardRecordStatus.ACTIVE",
+              "properties" : {
+                "tableColumnWidth" : "150px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : ""
+              }
+            }, {
+              "name" : "validFrom",
+              "title" : "Valid From",
+              "validations" : [ ],
+              "default" : "dayjs()",
+              "properties" : {
+                "tableColumnWidth" : "180px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : ""
+              }
+            }, {
+              "name" : "validUntil",
+              "title" : "Valid Until",
+              "validations" : [ ],
+              "default" : "dayjs(new Date(2200,1,1))",
+              "properties" : {
+                "tableColumnWidth" : "180px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : ""
+              }
+            }, {
+              "name" : "seq",
+              "title" : "Sequence",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "160px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null,
+                "required" : false,
+                "onBlur" : ""
+              }
+            } ],
+            "views" : [ {
+              "view" : "list",
+              "fields" : {
+                "included" : [ "code", "name", "description", "formattedAddressLin", "status" ],
+                "excluded" : [ ]
+              },
+              "roles" : {
+                "included" : [ ],
+                "excluded" : [ ]
+              }
+            } ],
+            "subforms" : [ {
+              "name" : "CaBaTabs",
+              "title" : "Environment Details",
+              "body" : {
+                "template" : "layout-tabs",
+                "properties" : [ ],
+                "parentForm" : "",
+                "parentComType" : "none",
+                "parent" : [ ],
+                "linked" : [ ],
+                "store" : {
+                  "type" : "noStore",
+                  "name" : "CaBaTabs"
+                },
+                "formGroup" : {
+                  "type" : "none",
+                  "name" : ""
+                },
+                "subforms" : [ {
+                  "name" : "CaBaAccordtion",
+                  "title" : "Environment",
+                  "body" : {
+                    "template" : "layout-accordion",
+                    "properties" : [ ],
+                    "parentForm" : "",
+                    "parentComType" : "none",
+                    "parent" : [ ],
+                    "linked" : [ ],
+                    "store" : {
+                      "type" : "noStore",
+                      "name" : "CaServiceAccount"
+                    },
+                    "formGroup" : {
+                      "type" : "none",
+                      "name" : ""
+                    },
+                    "subforms" : [ {
+                      "name" : "CaBaBasicInfo",
+                      "title" : "Basic Info",
+                      "body" : {
+                        "entity" : "ServiceAccount",
+                        "template" : "form",
+                        "properties" : [ ],
+                        "parentForm" : "CAServiceAccounts",
+                        "parentComType" : "eventManager",
+                        "parent" : [ "id" ],
+                        "linked" : [ "id" ],
+                        "store" : {
+                          "type" : "otherComponent",
+                          "name" : "BillingAccount"
+                        },
+                        "formGroup" : {
+                          "type" : "ownFormGroup",
+                          "name" : "CaBaBasicInfo"
+                        },
+                        "fields" : [ {
+                          "name" : "id",
+                          "title" : "Id",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "120px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "autoTranslationKey" : null,
+                            "required" : false
+                          }
+                        }, {
+                          "name" : "code",
+                          "title" : "Code",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "130px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "name",
+                          "title" : "Name",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "description",
+                          "title" : "Description",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "220px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "formattedAddressLin",
+                          "title" : "Address",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "company",
+                          "title" : "Company",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "organization",
+                          "title" : "Organization",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "tparty==#ORGANIZATION# and rootParty==${rootPartyId}",
+                            "controlType" : "autocomplete",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "globalInFields" : [ "code", "name" ],
+                            "filterFields" : [ ],
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "billingAccount",
+                          "title" : "Billing Account",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "status",
+                          "title" : "Status",
+                          "validations" : [ ],
+                          "default" : "StandardRecordStatus.ACTIVE",
+                          "properties" : {
+                            "tableColumnWidth" : "150px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "validFrom",
+                          "title" : "Valid From",
+                          "validations" : [ ],
+                          "default" : "dayjs()",
+                          "properties" : {
+                            "tableColumnWidth" : "180px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "validUntil",
+                          "title" : "Valid Until",
+                          "validations" : [ ],
+                          "default" : "dayjs(new Date(2200,1,1))",
+                          "properties" : {
+                            "tableColumnWidth" : "180px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "seq",
+                          "title" : "Sequence",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "160px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        } ],
+                        "views" : [ {
+                          "view" : "default",
+                          "fields" : {
+                            "included" : [ "code", "name", "organization", "description" ],
+                            "excluded" : [ ]
+                          },
+                          "roles" : {
+                            "included" : [ ],
+                            "excluded" : [ ]
+                          }
+                        } ],
+                        "subforms" : [ ],
+                        "showTitle" : false,
+                        "formPosition" : "bottom",
+                        "links" : [ ],
+                        "entityTitle" : "Environment",
+                        "entityPlural" : null,
+                        "entityAutoTranslationKey" : null,
+                        "entityPluralAutoTranslationKey" : null,
+                        "entityI18nVariant" : "default",
+                        "showSaveAndCancelButton" : true,
+                        "showOnEmptyRecord" : false,
+                        "subtitle" : "Basic info",
+                        "showCreateButton" : true,
+                        "showDeleteRecord" : true,
+                        "showDetailsButton" : false,
+                        "eventName" : "CaBaBasicInfo",
+                        "showSaveAndCancelButtons" : true
+                      },
+                      "autoTranslationKey" : "",
+                      "formId" : 14,
+                      "externalServices" : [ ]
+                    }, {
+                      "name" : "CaBaStatus",
+                      "title" : "Status",
+                      "body" : {
+                        "entity" : "ServiceAccount",
+                        "template" : "form",
+                        "properties" : [ ],
+                        "parentForm" : "CAServiceAccounts",
+                        "parentComType" : "eventManager",
+                        "parent" : [ "id" ],
+                        "linked" : [ "id" ],
+                        "store" : {
+                          "type" : "otherComponent",
+                          "name" : "BillingAccount"
+                        },
+                        "formGroup" : {
+                          "type" : "otherComponent",
+                          "name" : "CaBaBasicInfo"
+                        },
+                        "fields" : [ {
+                          "name" : "id",
+                          "title" : "Id",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "120px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "autoTranslationKey" : null,
+                            "required" : false
+                          }
+                        }, {
+                          "name" : "code",
+                          "title" : "Code",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "130px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "name",
+                          "title" : "Name",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "description",
+                          "title" : "Description",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "220px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "formattedAddressLin",
+                          "title" : "Address",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "company",
+                          "title" : "Company",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "organization",
+                          "title" : "Organization",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "billingAccount",
+                          "title" : "Billing Account",
+                          "validations" : [ ],
+                          "default" : null,
+                          "properties" : {
+                            "tableColumnWidth" : "200px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "filter" : "",
+                            "controlType" : "dropdown",
+                            "sort" : [ "name,asc" ],
+                            "searchInFields" : [ "name", "code" ],
+                            "relatedInputCtrl" : null,
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : "",
+                            "onSelect" : "",
+                            "completeMethod" : "",
+                            "suggestions" : ""
+                          }
+                        }, {
+                          "name" : "status",
+                          "title" : "Status",
+                          "validations" : [ ],
+                          "default" : "StandardRecordStatus.ACTIVE",
+                          "properties" : {
+                            "tableColumnWidth" : "150px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "validFrom",
+                          "title" : "Valid From",
+                          "validations" : [ ],
+                          "default" : "dayjs()",
+                          "properties" : {
+                            "tableColumnWidth" : "180px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "validUntil",
+                          "title" : "Valid Until",
+                          "validations" : [ ],
+                          "default" : "dayjs(new Date(2200,1,1))",
+                          "properties" : {
+                            "tableColumnWidth" : "180px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        }, {
+                          "name" : "seq",
+                          "title" : "Sequence",
+                          "validations" : [ ],
+                          "properties" : {
+                            "tableColumnWidth" : "160px",
+                            "formFieldClass" : "",
+                            "disabled" : false,
+                            "inputControlType" : "input",
+                            "autoTranslationKey" : null,
+                            "required" : false,
+                            "onBlur" : ""
+                          }
+                        } ],
+                        "views" : [ {
+                          "view" : "default",
+                          "fields" : {
+                            "included" : [ "status", "validFrom", "validUntil" ],
+                            "excluded" : [ ]
+                          },
+                          "roles" : {
+                            "included" : [ ],
+                            "excluded" : [ ]
+                          }
+                        } ],
+                        "subforms" : [ ],
+                        "showTitle" : false,
+                        "formPosition" : "bottom",
+                        "links" : [ ],
+                        "entityTitle" : "Environment",
+                        "entityPlural" : null,
+                        "entityAutoTranslationKey" : null,
+                        "entityPluralAutoTranslationKey" : null,
+                        "entityI18nVariant" : "default",
+                        "showSaveAndCancelButton" : true,
+                        "showOnEmptyRecord" : false,
+                        "subtitle" : "Basic info",
+                        "showCreateButton" : true,
+                        "showDeleteRecord" : true,
+                        "showDetailsButton" : false,
+                        "eventName" : "CaBaStatus",
+                        "showSaveAndCancelButtons" : true
+                      },
+                      "autoTranslationKey" : "",
+                      "formId" : 15,
+                      "externalServices" : [ ]
+                    } ],
+                    "showTitle" : false,
+                    "formPosition" : "bottom",
+                    "links" : [ ],
+                    "showCreateButton" : true,
+                    "showDeleteRecord" : true,
+                    "showDetailsButton" : false,
+                    "eventName" : "CaBaAccordtion",
+                    "entityI18nVariant" : "default"
+                  },
+                  "autoTranslationKey" : "",
+                  "formId" : 13
+                } ],
+                "showTitle" : false,
+                "formPosition" : "bottom",
+                "links" : [ ],
+                "showCreateButton" : true,
+                "showDeleteRecord" : true,
+                "showDetailsButton" : false,
+                "eventName" : "CaBaTabs"
+              },
+              "autoTranslationKey" : "",
+              "formId" : 12
+            } ],
+            "showTitle" : false,
+            "formPosition" : "bottom",
+            "links" : [ ],
+            "globalSearch" : false,
+            "globalSearchFields" : [ "code", "name" ],
+            "entityTitle" : "Environment",
+            "entityPlural" : null,
+            "entityAutoTranslationKey" : null,
+            "entityPluralAutoTranslationKey" : null,
+            "entityI18nVariant" : "default",
+            "showCreateButton" : true,
+            "showDetailsButton" : true,
+            "detailsFormUrl" : "service-account",
+            "detailsSetGlobalContext" : "setBillingAccountAndRemoveOthers",
+            "showDeleteRecord" : true,
+            "eventName" : "CAServiceAccounts"
+          },
+          "autoTranslationKey" : "",
+          "formId" : 11,
+          "externalServices" : [ ]
+        } ],
+        "showTitle" : false,
+        "formPosition" : "bottom",
+        "links" : [ ],
+        "showCreateButton" : true,
+        "showDeleteRecord" : true,
+        "showDetailsButton" : false,
+        "eventName" : "BATabs",
+        "entityI18nVariant" : "default"
+      },
+      "autoTranslationKey" : "",
+      "formId" : 2,
+      "externalServices" : [ ]
+    } ],
+    "showTitle" : true,
+    "formPosition" : "bottom",
+    "links" : [ ],
+    "globalSearch" : true,
+    "globalSearchFields" : [ "code", "name" ],
+    "entityTitle" : "Billing Account",
+    "entityPlural" : null,
+    "entityAutoTranslationKey" : null,
+    "entityPluralAutoTranslationKey" : null,
+    "entityI18nVariant" : "default",
+    "showCreateButton" : true,
+    "parentEntity" : "CustomerAccount",
+    "showDeleteRecord" : true,
+    "showDetailsButton" : false,
+    "eventName" : "BillingAccount"
+  },
+  "databaseType" : "sql",
+  "autoTranslationKey" : "",
+  "formId" : 1,
+  "externalServices" : [ ]
+}

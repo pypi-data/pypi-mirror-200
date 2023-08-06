@@ -1,0 +1,88 @@
+<div class="grid justify-content-center">
+  <div class="col-12 xl:col-10">
+    <div class="card" *ngIf="fg.hasCurrentRecord">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="fg.editForm">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABAAssignedPersonDet.person" for="f8_person">Person</label>
+            <p-autoComplete
+              id="f8_person"
+              formControlName="person"
+              (completeMethod)="fg.searchPerson($event)"
+              [suggestions]="fg.personSuggestions"
+              [dropdown]="true"
+              field="name"
+              data-cy="person"
+              autocomplete="on"
+              [autoHighlight]="true"
+              [forceSelection]="true"
+            >
+            </p-autoComplete>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABAAssignedPersonDet.status" for="f8_status">Status</label>
+            <p-dropdown
+              id="f8_status"
+              name="status"
+              [options]="store.standardRecordStatusesSharedCollection"
+              formControlName="status"
+              optionLabel="label"
+              optionValue="value"
+              [showClear]="true"
+              placeholder="..."
+              data-cy="status"
+            ></p-dropdown>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABAAssignedPersonDet.validFrom" for="f8_validFrom">Valid From</label>
+            <p-calendar
+              id="f8_validFrom"
+              name="validFrom"
+              data-cy="validFrom"
+              formControlName="validFrom"
+              [showIcon]="true"
+              [showTime]="true"
+              dateFormat="d.m.yy"
+            ></p-calendar>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABAAssignedPersonDet.validUntil" for="f8_validUntil">Valid Until</label>
+            <p-calendar
+              id="f8_validUntil"
+              name="validUntil"
+              data-cy="validUntil"
+              formControlName="validUntil"
+              [showIcon]="true"
+              [showTime]="true"
+              dateFormat="d.m.yy"
+            ></p-calendar>
+          </div>
+        </div>
+
+        <div class="field col-12">
+          <button
+            type="button"
+            id="bABAAssignedPersonDetCancelSave"
+            data-cy="bABAAssignedPersonDetFormCancelButton"
+            pButton
+            class="p-button-secondary"
+            (click)="previousState()"
+          >
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
+
+          <button
+            type="submit"
+            id="bABAAssignedPersonDetSaveEntity"
+            data-cy="bABAAssignedPersonDetFormSaveButton"
+            [disabled]="fg.editForm.invalid || isSaving || fg.editForm.pristine"
+            pButton
+            class="p-button-primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

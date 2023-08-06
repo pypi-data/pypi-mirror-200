@@ -1,0 +1,89 @@
+<div class="grid justify-content-center">
+  <div class="col-12 xl:col-10">
+    <div class="card" *ngIf="fg.hasCurrentRecord">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="fg.editForm">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccountStatus.status" for="f5_status">Status</label>
+            <p-dropdown
+              id="f5_status"
+              name="status"
+              [options]="store.standardRecordStatusesSharedCollection"
+              formControlName="status"
+              optionLabel="label"
+              optionValue="value"
+              [showClear]="true"
+              placeholder="..."
+              data-cy="status"
+            ></p-dropdown>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccountStatus.validFrom" for="f5_validFrom">Valid From</label>
+            <p-calendar
+              id="f5_validFrom"
+              name="validFrom"
+              data-cy="validFrom"
+              formControlName="validFrom"
+              [showIcon]="true"
+              [showTime]="true"
+              dateFormat="d.m.yy"
+            ></p-calendar>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccountStatus.validUntil" for="f5_validUntil">Valid Until</label>
+            <p-calendar
+              id="f5_validUntil"
+              name="validUntil"
+              data-cy="validUntil"
+              formControlName="validUntil"
+              [showIcon]="true"
+              [showTime]="true"
+              dateFormat="d.m.yy"
+            ></p-calendar>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4" [hidden]="fg.editForm.get('id')!.value == null">
+            <label jhiTranslate="aportalApp.bABillingAccountStatus.id" for="f5_id">Id</label>
+            <input pInputText type="number" name="id" id="f5_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccountStatus.code" for="f5_code">Code</label>
+            <input pInputText type="text" name="code" id="f5_code" data-cy="code" formControlName="code" />
+            <div *ngIf="fg.editForm.get('code')!.invalid && (fg.editForm.get('code')!.dirty || fg.editForm.get('code')!.touched)">
+              <small
+                class="form-text text-danger"
+                *ngIf="fg.editForm.get('code')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="field col-12">
+          <button
+            type="button"
+            id="bABillingAccountStatusCancelSave"
+            data-cy="bABillingAccountStatusFormCancelButton"
+            pButton
+            class="p-button-secondary"
+            (click)="previousState()"
+          >
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
+
+          <button
+            type="submit"
+            id="bABillingAccountStatusSaveEntity"
+            data-cy="bABillingAccountStatusFormSaveButton"
+            [disabled]="fg.editForm.invalid || isSaving || fg.editForm.pristine"
+            pButton
+            class="p-button-primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
