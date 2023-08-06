@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: AIFrameWork
+Version: 0.0.5
+Summary: A library for performaing machine learning tasks with ease
+Author: Maurya Vijayaramachandran
+Author-email: maurya.mvr@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AIFrameWork
+
+This is a Python library that provides functionality for performing machine learning tasks with ease. 
+
+## Installation
+
+You can install this library using pip:
+
+```bash
+pip install AIFrameWork
+```
+Usage
+
+Here is an example of how to use this library. 
+
+SINGLE TARGET REGRESSION 
+
+from my_library import RegressionSingleTarget
+
+# Create an instance of the regression model
+model = RegressionSingleTarget()
+
+# Fit the model to the training data
+model.fit(X_train, y_train)
+
+# Predict on the test data
+y_pred = model.predict(X_test)
+
+
+
