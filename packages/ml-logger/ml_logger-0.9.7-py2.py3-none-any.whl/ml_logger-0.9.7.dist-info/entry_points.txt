@@ -1,0 +1,4 @@
+[console_scripts]
+ml-download=ml_logger.scripts.download:entrypoint
+ml-upload=ml_logger.scripts.upload:entrypoint
+
