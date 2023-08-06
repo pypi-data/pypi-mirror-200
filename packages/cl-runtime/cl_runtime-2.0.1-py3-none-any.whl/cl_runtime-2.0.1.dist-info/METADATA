@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: cl-runtime
+Version: 2.0.1
+Summary: CompatibL Runtime Community Edition
+Home-page: https://github.com/compatibl/cl-runtime
+Author: The CompatibL Runtime Authors
+License: UNKNOWN
+Project-URL: Source Code, https://github.com/compatibl/cl-runtime
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy (>=1.24.2)
+Requires-Dist: orjson (>=3.8.6)
+Requires-Dist: pandas (>=1.5.3)
+Requires-Dist: pdoc (>=12.0.2)
+Requires-Dist: pytest (>=6.1.1)
+
+# CompatibL Runtime Community Edition
+
+## Overview
+
+CompatibL Runtime Community Edition is an open source project 
+for connecting analytics libraries with databases, REST APIs,
+public and private cloud APIs, and a lightweight HTML5 front
+end for data browsing and visualization.
+
+It includes:
+
+* Polymorphic, type-safe database support
+* Polymorphic, type-safe REST APIs
+* Adapter for running the code from an HTML5 front end 
+* Command line interface (CLI)
+* Logging
+* Public and private cloud support
+
+
