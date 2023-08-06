@@ -1,0 +1,4 @@
+include configuration-schema.json
+include command_line_tools/source/*.hpp
+include command_line_tools/source/*.cpp
+include command_line_tools/premake4.lua
