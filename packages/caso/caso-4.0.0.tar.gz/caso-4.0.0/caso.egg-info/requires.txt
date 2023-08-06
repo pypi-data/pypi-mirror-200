@@ -1,0 +1,16 @@
+pbr>=4.1.0
+six>=1.9.0
+dirq
+python-dateutil>=2.4.2
+oslo.config>=2.3.0
+oslo.concurrency>=3.20.0
+oslo.log>=1.8.0
+oslo-utils>=4.10.1
+python-cinderclient>=5.0.0
+python-novaclient>=2.28.1
+python-keystoneclient>=3.0.0
+python-glanceclient>=0.18.0
+python-neutronclient>=6.7.0
+keystoneauth1>=3.4.0
+stevedore
+pydantic
