@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "treecker"
+dynamic = ["version"]
+authors = [
+  { name="Dunstan Becht", email="dunstan.becht@orange.fr" },
+]
+description = "Package to check the integrity of a directory."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: OS Independent",
+  "Topic :: Utilities",
+  "Topic :: System :: Filesystems",
+  "Intended Audience :: End Users/Desktop",
+]
+
+[tool.setuptools_scm]
+write_to = "src/treecker/_version.py"
+
+[project.scripts]
+treecker = "treecker.__main__:main"
+
+[project.urls]
+"Homepage" = "https://gitlab.com/dustils/treecker"
+"Bug Tracker" = "https://gitlab.com/dustils/treecker/issues"
+"Documentation" = "https://dustils.gitlab.io/treecker"
