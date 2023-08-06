@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: nvidia-dali-cuda120
+Version: 1.23.0
+Summary: NVIDIA DALI  for CUDA 12.0. Git SHA: ee99d8f18ffbb2ee352ec8bd6c6a683773d4bc8c
+Home-page: https://github.com/NVIDIA/dali
+Author: NVIDIA Corporation
+License: Apache License 2.0
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.6, <3.12
+Requires-Dist: astunparse (>=1.6.0)
+Requires-Dist: gast (<=0.4.0,>=0.2.1)
+
