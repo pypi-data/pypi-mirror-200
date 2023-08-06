@@ -1,0 +1,10 @@
+attrs>=22.0.0
+click>=8.0.0
+configue>=4.0.0
+pyyaml>=5.1.0
+rich>=13.0.0
+
+[skypilot]
+
+[skypilot:python_version < "3.11"]
+skypilot==0.2.5

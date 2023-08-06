@@ -1,0 +1,93 @@
+[project]
+name = 'configue-cli'
+description = 'A configue extension that adds the ability to dynamically configure your application via the command line.'
+authors = [{ name = 'Illuin Technology', email = 'contact@illuin.tech' }]
+maintainers = [{ name = 'Illuin Technology', email = 'contact@illuin.tech' }]
+readme = 'README.md'
+requires-python = '>=3.7'
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Science/Research',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+    'Typing :: Typed'
+]
+dependencies = [
+    'attrs>=22.0.0',
+    'click>=8.0.0',
+    'configue>=4.0.0',
+    'pyyaml>=5.1.0',
+    'rich>=13.0.0',
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+skypilot = ["skypilot==0.2.5; python_version < '3.11'"]
+
+[project.urls]
+homepage = "https://github.com/illuin-tech/configue-cli"
+repository = "https://github.com/illuin-tech/configue-cli"
+
+[build-system]
+requires = ['setuptools', 'setuptools_scm[toml]', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools_scm]
+fallback_version = '0.0.0-dev'
+
+[tool.setuptools]
+zip-safe = false
+platforms = ['any']
+
+[tool.setuptools.packages.find]
+include = ['configue_cli', 'configue_cli.*']
+
+[tool.setuptools.package-data]
+configue_cli = ['py.typed']
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_untyped_defs = true
+enable_error_code = ['ignore-without-code']
+mypy_path = '$MYPY_CONFIG_FILE_DIR/typings'
+no_implicit_optional = true
+show_error_codes = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = ['configue', 'configue.*', 'sky']
+ignore_missing_imports = true
+
+[tool.coverage.run]
+include = ['configue_cli/*']
+
+[tool.coverage.report]
+exclude_lines = [
+    'pragma: no cover',
+    'raise NotImplementedError',
+    'if __name__ == "__main__":',
+    'if TYPE_CHECKING:',
+    'def __repr__'
+]
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+select = ["E", "F", "W", "I", "N"]
+line-length = 120
+
+[tool.ruff.per-file-ignores]
+'__init__.py' = ["F401"]
