@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: apache-airflow-providers-sktvane
+Version: 0.0.27
+Summary: Provider for Apache Airflow. Implements apache-airflow-providers-sktvane package by skt
+Author: lapetus
+Author-email: lapetus@sktai.io
+License: MIT
+Project-URL: Homepage, https://github.com/sktaiflow/apache-airflow-providers-sktvane
+Project-URL: Source Code, https://github.com/sktaiflow/apache-airflow-providers-sktvane
+Keywords: airflow,sktvane
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# apache-airflow-providers-sktvane
+
+###
+
+```shell
+# build
+$ python setup.py sdist bdist_wheel
+
+# upload
+$ twine upload dist/*
+
+# remove
+$ rm -rf build dist apache_airflow_providers_sktvane.egg-info 
+```
