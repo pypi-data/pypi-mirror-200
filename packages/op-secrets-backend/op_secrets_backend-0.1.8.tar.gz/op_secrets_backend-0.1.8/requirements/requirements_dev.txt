@@ -1,0 +1,15 @@
+apache-airflow==2.2.5
+apache-airflow-providers-google
+black==22.3.0;python_version>"3.5"
+bumpversion==0.5.3
+coverage==5.3
+flake8
+pytest-mock==3.7.0
+pytest
+pytest-bdd==5.0.0
+Sphinx==1.8.1
+sphinx-rtd-theme==0.4.2
+tox==3.5.2
+wheel>=0.22
+twine
+build

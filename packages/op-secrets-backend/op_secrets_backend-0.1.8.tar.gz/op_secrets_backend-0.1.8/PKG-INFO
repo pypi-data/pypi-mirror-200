@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: op_secrets_backend
+Version: 0.1.8
+Summary: airflow custom secrets backend
+Author-email: Sida Zhang <sidazhang@geotab.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+This is an Airflow custom secrets backend

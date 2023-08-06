@@ -1,0 +1,47 @@
+gs_packages
+dag_folder
+to_release*
+
+# Python
+*.py[cod]
+Pipfile
+pipfile.lock
+
+# Sphinx
+docs/_build
+
+# Cache
+.cache
+.pytest_cache
+__pycache__
+
+# Vscode
+.vscode
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Complexity
+output/*.html
+output/*/index.html
+
