@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: samplotlib
+Version: 0.0.5
+Summary: Plotting scripts extending matplotlib
+Home-page: https://github.com/passaglia/samplotlib
+Author: Sam Passaglia
+Project-URL: Bug Tracker, https://github.com/passaglia/samplotlib/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+
+# samplotlib
+Utilities to help with python plotting
+
+```
+pip install samplotlib
+```
