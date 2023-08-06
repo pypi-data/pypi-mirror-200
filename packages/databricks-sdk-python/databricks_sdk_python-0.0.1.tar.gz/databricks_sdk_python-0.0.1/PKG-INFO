@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: databricks-sdk-python
+Version: 0.0.1
+Summary: Objet based databricks sdk
+Home-page: https://github.com/ffinfo/databricks-sdk-python
+License: MIT
+Keywords: databricks
+Author: Peter van 't Hof'
+Author-email: peter.vanthof@godatadriven.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pydantic (>=1.4.0,<2.0.0)
+Requires-Dist: requests (>=2.22)
+Project-URL: Repository, https://github.com/ffinfo/databricks-sdk-python
+Description-Content-Type: text/markdown
+
+# databricks-sdk-python
+
+
