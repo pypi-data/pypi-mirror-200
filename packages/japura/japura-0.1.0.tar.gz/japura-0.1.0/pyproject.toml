@@ -1,0 +1,31 @@
+[project]
+name = "japura"
+description = "The Python library for securing and managing web resources."
+readme = "README.md"
+authors = [{ name = "Joumaico Maulas", email = "joumaico@gmx.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "bcrypt>=4.0.1",
+    "cryptography>=40.0.1",
+    "pymysql>=1.0.3",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/joumaico/japura/"
+Documentation = "https://joumaico.github.io/japura/"
+
+[build-system]
+requires = ["setuptools>=67.4.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "japura.__version__"}
