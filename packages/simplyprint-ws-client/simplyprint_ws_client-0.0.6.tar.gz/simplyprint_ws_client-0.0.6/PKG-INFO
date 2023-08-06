@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: simplyprint-ws-client
+Version: 0.0.6
+Summary: SimplyPrint Websocket Client
+Home-page: https://simplyprint.io
+License: AGPL-3.0-or-later
+Keywords: simplyprint,websocket,client
+Author: SimplyPrint
+Author-email: contact@simplyprint.io
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: netifaces (>=0.11.0,<0.12.0)
+Requires-Dist: opencv-python (>=4.7.0.72,<5.0.0.0)
+Requires-Dist: psutil (>=5.9.4,<6.0.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Requires-Dist: sentry-sdk (>=1.18.0,<2.0.0)
+Requires-Dist: tornado (>=6.2,<7.0)
+Project-URL: Bug Tracker, https://github.com/SimplyPrint/printer-ws-client/issues
+Project-URL: Repository, https://github.com/SimplyPrint/printer-ws-client
+Description-Content-Type: text/markdown
+
+# Printer WS Client
+
+A package for easy implementations of SimplyPrint printers.
+
+## Usage
+
+```python
+from printer_ws_client import *
+
+class MyClient(Client):
+    def __init__(self):
+        self.info.ui = "My Ui"
+        self.info.ui_version = "0.0.1"
+
+        self.info.api = "My Api"
+        self.info.api_version = "4.2.0"
+
+        self.local_path = "path_to_local_files"
+
+    # define a callback
+    async def on_connect(self, event: ConnectEvent):
+        print(f"Connected, got name: {event.name}")
+
+    # define another callback
+    async def on_start_print(self, _: StartPrintEvent):
+        # start the print somehow
+        start_print(self.selected_file)
+
+my_client = MyClient()
+
+# start the client
+# this runs the background thread and starts even processing
+my_client.start()
+
+# run some loop
+while True:
+    sleep(1)
+    # get data from printer
+    my_client.tool_temperatures = poll_tool_temperatures()
+    my_client.bed_temperature = poll_bed_temperature()
+```
+
