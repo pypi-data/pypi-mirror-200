@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: kabbes-menu
+Version: 0.2.0
+Summary: Unnamed repository; edit this file 'description' to name the repository.
+Home-page: https://pypi.org/project/kabbes-menu/
+Author: James Kabbes
+Author-email: james.kabbes@gmail.com
+Project-URL: GitHub, https://github.com/jameskabbes/menu
+Project-URL: Documentation, https://jameskabbes.github.io/menu
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: kabbes-client
+Requires-Dist: kabbes-py-starter
+Requires-Dist: kabbes-real-time-input
+Requires-Dist: kabbes-parent-class
+
+# menu
+A Python menu navigator
+
+[Documentation](https://jameskabbes.github.io/menu)<br>
+[PyPI](https://pypi.org/project/kabbes-menu)
+
+# Author
+James Kabbes
