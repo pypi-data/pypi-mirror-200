@@ -1,0 +1,21 @@
+[project]
+name = "com.softalks.numbers"
+version = "1.0.1"
+description = "Writes all the natural numbers to console"
+readme = "README.md"
+license = {text = "MIT License"}
+requires-python = ">=3.10.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+authors = [
+  {name = "Santiago Ruiz", email = "hiebra@hotmail.com"}
+] 
+dependencies = [
+    "com.softalks.sh >= 1, < 2"
+]
+[project.urls]
+"Homepage" = "https://github.com/hiebra/101-py"
+"Bug Tracker" = "https://github.com/hiebra/101-py/issues"

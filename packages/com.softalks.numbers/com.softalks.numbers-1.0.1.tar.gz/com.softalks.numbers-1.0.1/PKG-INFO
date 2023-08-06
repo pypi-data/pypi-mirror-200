@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: com.softalks.numbers
+Version: 1.0.1
+Summary: Writes all the natural numbers to console
+Author-email: Santiago Ruiz <hiebra@hotmail.com>
+License: MIT License
+Project-URL: Homepage, https://github.com/hiebra/101-py
+Project-URL: Bug Tracker, https://github.com/hiebra/101-py/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# Python 101: Natural numbers writer
+Prints "all" the natural numbers to the console
+
+The commands used to run pip and the Python interpreter (`pip3` and `python3`) are tested to be valid on Linux Mint 21.1 (Ubuntu 22.04). Check your OS/distribution documentation if they do not work properly in your system
+## Installation
+### Last version
+```
+pip3 install https://github.com/hiebra/101-py/archive/refs/heads/main.zip
+```
+### Specific version
+```
+pip3 install https://github.com/hiebra/rpdb/archive/refs/tags/v0.0.1.zip
+```
+## Execution
+```
+python3 -m com.softalks.numbers
+```
+## Remote debugging (only for Pydev/LiClipse)
+
+Click [here](https://github.com/hiebra/rpdb/blob/main/README.md#requirements) to know how to debug this code remotely
+## Uninstallation
+```
+pip3 uninstall com.softalks.numbers
+```
