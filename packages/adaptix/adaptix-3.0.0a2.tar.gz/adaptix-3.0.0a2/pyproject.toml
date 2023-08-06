@@ -1,0 +1,55 @@
+[build-system]
+requires = ['setuptools==65.1.0']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'adaptix'
+version = '3.0.0a2'
+description = 'An utility class for creating instances of dataclasses'
+readme = 'README.md'
+requires-python = '>=3.8'
+
+classifiers = [
+    'Operating System :: OS Independent',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: Apache Software License',
+    'Programming Language :: Python :: 3',
+]
+
+[project.urls]
+'Homepage' = 'https://github.com/tishka17/dataclass_factory'
+'Bug Tracker' = 'https://github.com/tishka17/dataclass_factory/issues'
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+adaptix = ['py.typed']
+
+[[project.authors]]
+name = 'A. Tikhonov'
+email = '17@itishka.org'
+
+
+[tool.isort]
+multi_line_output = 3
+line_length = 120
+include_trailing_comma = true
+combine_as_imports = true
+remove_redundant_aliases = true
+
+[tool.pytest.ini_options]
+python_classes = 'WeDoNotUseClassTestCase'
+python_files = ['test_*.py', '*_test.py', 'bench_*.py', 'tests_helpers.py']
+testpaths = ['tests', 'tests_helpers', 'examples']
+filterwarnings = ['ignore::adaptix.TypedDictAt38Warning']
+
+[tool.bandit]
+skips = ['B102', 'B404', 'B603', 'B607']
+
+[tool.bandit.assert_used]
+skips = ['*/test_*.py', '*/*_test.py', 'docs/examples/*', '*/bench_*.py']
+
+[tool.vulture]
+min_confidence = 60
+ignore_decorators = ['@_aspect_storage.add', '@overload', '@abstractmethod']
