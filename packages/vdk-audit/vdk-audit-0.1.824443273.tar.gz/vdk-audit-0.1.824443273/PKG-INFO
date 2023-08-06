@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: vdk-audit
+Version: 0.1.824443273
+Summary: Versatile Data Kit SDK Audit plugin restricts forbidden operations.
+Home-page: https://github.com/vmware/versatile-data-kit
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+## Versatile Data Kit Audit Plugin
+
+Visibility into the actions provides opportunities for test frameworks, logging
+frameworks, and security tools to monitor and optionally limit actions taken by the
+runtime.
+This plugin provides an ability to audit and potentially limit user operations.
+These operations are typically deep within the Python runtime or standard library, such
+as dynamic code compilation, module imports or OS command invocations. In order to have a
+better understanding of what exactly the job does, we will log all job operations.
+
+### Usage
+
+To use the plugin, just install it using
+
+```bash
+pip install vdk-audit
+```
