@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: rescupybs
+Version: 0.0.1.3.1
+Summary: Band structure plot from rescuplus json file.
+Home-page: https://github.com/lkccrr/rescupybs
+Author: kan
+Author-email: luokan@hrbeu.edu.cn
+License: MIT
+Keywords: DFT rescuplus band plot
+Platform: Unix
+Platform: Windows
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy (<1.24,>=1.22.0)
+Requires-Dist: matplotlib (>=3.4.0)
+Requires-Dist: pint (>=0.10)
+Requires-Dist: rescupy (>=1.0.0)
+
+[![rescupybs](https://img.shields.io/pypi/v/rescupybs?style=flat-square)](https://pypi.org/project/rescupybs/)
+[![rescupybs](https://img.shields.io/pypi/pyversions/rescupybs?style=flat-square)](https://pypi.org/project/rescupybs/)
+[![rescupybs](https://img.shields.io/pypi/l/rescupybs?style=flat-square)](https://pypi.org/project/rescupybs/)
+[![rescupybs](https://img.shields.io/pypi/dm/rescupybs?style=flat-square)](https://pypi.org/project/rescupybs/)
+[![rescupybs](https://img.shields.io/pypi/wheel/rescupybs?style=flat-square)](https://pypi.org/project/rescupybs/)
+[![rescupybs](https://img.shields.io/github/last-commit/lkccrr/rescupybs?style=flat-square)](https://github.com/lkccrr/rescupybs)
+[![rescupybs](https://img.shields.io/github/release-date/lkccrr/rescupybs?style=flat-square)](https://github.com/lkccrr/rescupybs)
+
+### rescupybs
+
+Rescupybs is used for plotting the band structure from ***rescuplus*** calculation result *json* file.
+ 
