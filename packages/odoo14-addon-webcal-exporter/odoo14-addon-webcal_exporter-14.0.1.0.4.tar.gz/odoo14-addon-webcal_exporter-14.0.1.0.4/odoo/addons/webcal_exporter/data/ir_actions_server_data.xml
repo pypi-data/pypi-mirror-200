@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Automated Actions -->
+        <record id="calendar_event_update_rule" model="base.automation">
+            <field name="name">Update Event in External Calendar</field>
+            <field name="model_id" ref="calendar.model_calendar_event" />
+            <field name="trigger">on_write</field>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    if record.external_uuid:
+                        record.update_event_in_external_calendar()
+            </field>
+            <field name="active" eval="True" />
+        </record>
+
+        <record id="calendar_event_delete_rule" model="base.automation">
+            <field name="name">Delete Event in External Calendar</field>
+            <field name="model_id" ref="calendar.model_calendar_event" />
+            <field name="trigger">on_unlink</field>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    if record.external_uuid:
+                        record.delete_event_in_external_calendar()
+            </field>
+            <field name="active" eval="True" />
+        </record>
+
+    </data>
+</odoo>
