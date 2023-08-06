@@ -1,0 +1,2 @@
+# PillowScreenX
+PillowScreenX is a powerful screenshot capturing tool that leverages the power of the Pillow library to provide high-quality screenshot captures. With PillowScreenX, you can take full screenshots or capture specific regions of your screen with ease. The module also provides options to store your screenshots in a zip file or in a separate folder. Whether you need to capture screenshots for documentation, debugging, or any other purpose, PillowScreenX is the ideal solution.
