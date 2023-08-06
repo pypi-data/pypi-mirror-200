@@ -1,0 +1,2 @@
+Improve spatial residuals in polarimetric data by computing a demodulation matrix for every spatial pixel and then
+smoothing the resulting demodulation matrices in the spatial dimension.

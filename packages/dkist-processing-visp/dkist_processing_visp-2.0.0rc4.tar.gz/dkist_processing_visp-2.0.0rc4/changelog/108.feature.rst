@@ -1,0 +1,2 @@
+Improvement to accuracy of beam angle calculation. The angle is now measured directly from the hairlines instead of using a Hough transform,
+which has less accuracy due to the width of the hairlines.
