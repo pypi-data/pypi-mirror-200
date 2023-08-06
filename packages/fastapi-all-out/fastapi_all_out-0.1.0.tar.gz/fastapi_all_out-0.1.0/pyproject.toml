@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+ignore-vcs = true
+include = ["fastapi_all_out"]
+
+[project]
+name = "fastapi-all-out"
+version = "0.1.0"
+authors = [
+  { name="Alexandr Tamrazov", email="alta77@mail.ru" },
+]
+maintainers = [
+  { name="Alexandr Tamrazov", email="alta77@mail.ru" },
+]
+keywords = ["DDD", "Domain-driven design", "Database", "WEB", "Architecture", "Backend"]
+description = "Makes fastapi much easier, then Django"
+readme = "README.md"
+license = { file="LICENSE.md" }
+requires-python=">=3.11"
+dependencies = [
+    'fastapi[all]>=0.89',
+    'passlib>=1.7.4',
+    'PyJWT>=2.6.0',
+    'cryptography>=40.0.1'
+]
+
+
+[project.optional-dependencies]
+mailing = [
+    'fastapi_mail>=1.2.6',
+]
+tortoise-asyncpg = [
+    'tortoise-orm[asyncpg]>=0.19.3',
+    'aerich>=0.7.1'
+]
+phone = [
+    'phonenumbers>=8.13.8',
+]
+all = [
+    'fastapi_mail>=1.2.6',
+    'tortoise-orm[asyncpg]>=0.19.3',
+    'aerich>=0.7.1',
+    'phonenumbers>=8.13.8',
+]
+
+[project.urls]
+'Github' = 'https://github.com/alta7700/fastapi_all_out/'
