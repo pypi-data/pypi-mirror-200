@@ -1,0 +1,14 @@
+graft src
+graft scripts
+graft tests
+graft docs
+prune src/textacy/data/
+prune docs/build/
+
+include CHANGES.md
+include README.md
+include LICENSE.txt
+include pyproject.toml
+include src/textacy/py.typed
+
+global-exclude __pycache__ *.py[cod]
