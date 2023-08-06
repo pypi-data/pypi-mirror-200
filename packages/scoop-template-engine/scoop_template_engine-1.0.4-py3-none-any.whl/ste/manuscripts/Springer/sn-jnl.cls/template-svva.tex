@@ -1,0 +1,178 @@
+% A LaTeX template for submissions to Springer journals.
+% Derived from sn-article.tex.
+<<MinimumVersion: 1.0.3>>
+<<% >>
+<<TemplateDescription acom:      Advances in Computational Mathematics>>
+<<TemplateDescription amo:       Applied Mathematics & Optimization>>
+<<TemplateDescription calcolo:   Calcolo>>
+<<TemplateDescription camcos:    Communications on Applied Mathematics and Computation>>
+<<TemplateDescription cm:        Computational Mechanics>>
+<<TemplateDescription coam:      Computational and Applied Mathematics>>
+<<TemplateDescription coap:      Computational Optimization and Applications>>
+<<TemplateDescription cvpde:     Calculus of Variations and Partial Differential Equations>>
+<<TemplateDescription dcg:       Discrete & Computational Geometry>>
+<<TemplateDescription focm:      Foundations of Computational Mathematics>>
+<<TemplateDescription ijot:      International Journal of Thermophysics>>
+<<TemplateDescription inge:      Information Geometry>>
+<<TemplateDescription jmiv:      Journal of Mathematical Imaging and Vision>>
+<<TemplateDescription jogo:      Journal of Global Optimization>>
+<<TemplateDescription maana:     Mathematische Annalen>>
+<<TemplateDescription mathbio:   Journal of Mathematical Biology>>
+<<TemplateDescription mathprog:  Mathematical Programming>>
+<<TemplateDescription mmor:      Mathematical Methods of Operations Research>>
+<<TemplateDescription ms:        Mathematical Sciences>>
+<<TemplateDescription numa:      Numerische Mathematik>>
+<<TemplateDescription numalg:    Numerical Algorithms>>
+<<TemplateDescription pdea:      Partial Differential Equations and Applications>>
+<<TemplateDescription rm:        Results in Mathematics>>
+<<TemplateDescription svva:      Set-Valued and Variational Analysis>>
+<<% >>
+<<Dependency: sn-jnl.cls>>
+<<Dependency: sn-mathphys.bst>>
+<<% >>
+<<Dependency acom:      postpreamble-acom.sty>>
+<<Dependency acom:      preamble-acom.sty>>
+<<Dependency acom:      prepreamble-acom.sty>>
+<<Dependency amo:       postpreamble-amo.sty>>
+<<Dependency amo:       preamble-amo.sty>>
+<<Dependency amo:       prepreamble-amo.sty>>
+<<Dependency calcolo:   postpreamble-calcolo.sty>>
+<<Dependency calcolo:   preamble-calcolo.sty>>
+<<Dependency calcolo:   prepreamble-calcolo.sty>>
+<<Dependency camcos:    postpreamble-camcos.sty>>
+<<Dependency camcos:    preamble-camcos.sty>>
+<<Dependency camcos:    prepreamble-camcos.sty>>
+<<Dependency cm:        postpreamble-cm.sty>>
+<<Dependency cm:        preamble-cm.sty>>
+<<Dependency cm:        prepreamble-cm.sty>>
+<<Dependency coam:      postpreamble-coam.sty>>
+<<Dependency coam:      preamble-coam.sty>>
+<<Dependency coam:      prepreamble-coam.sty>>
+<<Dependency coap:      postpreamble-coap.sty>>
+<<Dependency coap:      preamble-coap.sty>>
+<<Dependency coap:      prepreamble-coap.sty>>
+<<Dependency cvpde:     postpreamble-cvpde.sty>>
+<<Dependency cvpde:     preamble-cvpde.sty>>
+<<Dependency cvpde:     prepreamble-cvpde.sty>>
+<<Dependency dcg:       postpreamble-dcg.sty>>
+<<Dependency dcg:       preamble-dcg.sty>>
+<<Dependency dcg:       prepreamble-dcg.sty>>
+<<Dependency focm:      postpreamble-focm.sty>>
+<<Dependency focm:      preamble-focm.sty>>
+<<Dependency focm:      prepreamble-focm.sty>>
+<<Dependency ijot:      postpreamble-ijot.sty>>
+<<Dependency ijot:      preamble-ijot.sty>>
+<<Dependency ijot:      prepreamble-ijot.sty>>
+<<Dependency inge:      postpreamble-inge.sty>>
+<<Dependency inge:      preamble-inge.sty>>
+<<Dependency inge:      prepreamble-inge.sty>>
+<<Dependency jmiv:      postpreamble-jmiv.sty>>
+<<Dependency jmiv:      preamble-jmiv.sty>>
+<<Dependency jmiv:      prepreamble-jmiv.sty>>
+<<Dependency jogo:      postpreamble-jogo.sty>>
+<<Dependency jogo:      preamble-jogo.sty>>
+<<Dependency jogo:      prepreamble-jogo.sty>>
+<<Dependency maana:     postpreamble-maana.sty>>
+<<Dependency maana:     preamble-maana.sty>>
+<<Dependency maana:     prepreamble-maana.sty>>
+<<Dependency mathbio:   postpreamble-mathbio.sty>>
+<<Dependency mathbio:   preamble-mathbio.sty>>
+<<Dependency mathbio:   prepreamble-mathbio.sty>>
+<<Dependency mathprog:  postpreamble-mathprog.sty>>
+<<Dependency mathprog:  preamble-mathprog.sty>>
+<<Dependency mathprog:  prepreamble-mathprog.sty>>
+<<Dependency mmor:      postpreamble-mmor.sty>>
+<<Dependency mmor:      preamble-mmor.sty>>
+<<Dependency mmor:      prepreamble-mmor.sty>>
+<<Dependency ms:        postpreamble-ms.sty>>
+<<Dependency ms:        preamble-ms.sty>>
+<<Dependency ms:        prepreamble-ms.sty>>
+<<Dependency numa:      postpreamble-numa.sty>>
+<<Dependency numa:      preamble-numa.sty>>
+<<Dependency numa:      prepreamble-numa.sty>>
+<<Dependency numalg:    postpreamble-numalg.sty>>
+<<Dependency numalg:    preamble-numalg.sty>>
+<<Dependency numalg:    prepreamble-numalg.sty>>
+<<Dependency pdea:      postpreamble-pdea.sty>>
+<<Dependency pdea:      preamble-pdea.sty>>
+<<Dependency pdea:      prepreamble-pdea.sty>>
+<<Dependency rm:        postpreamble-rm.sty>>
+<<Dependency rm:        preamble-rm.sty>>
+<<Dependency rm:        prepreamble-rm.sty>>
+<<Dependency svva:      postpreamble-svva.sty>>
+<<Dependency svva:      preamble-svva.sty>>
+<<Dependency svva:      prepreamble-svva.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+sn-mathphys,
+<<DocumentClassOptions>>]{sn-jnl}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set title and subtitle information.
+\title[<<ShortTitle>>]{<<Title>>}
+\subtitle{<<SubTitle>>}
+
+% Set author information.
+<<AuthorsInstitutionsSpringerNature>>
+
+% Insert the abstract.
+\abstract{%
+<<InputAbstract>>
+}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert the Mathematics Subject Classification.
+\pacs[MSC Classification]{<<MSC>>}
+
+% Insert the dedication information.
+\pacs[Dedication]{<<Dedication>>}
+
+% Insert the funding information.
+\pacs[Funding]{<<Funding>>}
+
+\maketitle
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\begin{appendices}
+<<InputAppendix>>
+\end{appendices}
+
+% Insert the bibliography.
+<<CustomBibliography>>
+
+\end{document}

@@ -1,0 +1,54 @@
+--- ws-ppl.bst	2022-05-06 14:26:39.498006584 +0200
++++ ws-ppl-scoop.bst	2022-05-04 20:49:55.142789977 +0200
+@@ -714,7 +714,7 @@
+ { address empty$
+     {year empty$ 
+         { "" }
+-        { push.date *} 
++        { year } 
+         if$
+     }
+     { "(" address * ", " * year * ")" * }
+@@ -805,7 +805,14 @@
+   if$
+   format.btitle "title" output.check
+   crossref missing$
+-    { format.bvolume output
++    { 
++      volume empty$
++      {
++      }
++      {
++        format.bvolume output
++      }
++      if$
+       format.number.series output
+       format.edition output
+       blank.sep
+@@ -839,7 +846,7 @@
+   blank.sep
+   publisher empty$
+   {format.address.date output}
+-  {push.address.publisher.year "publihser" output.check}
++  {push.address.publisher.year "publisher" output.check}
+   if$
+   new.block
+   note output
+@@ -912,7 +919,7 @@
+       organization output
+   publisher empty$
+   {format.address.date output}
+-  {push.address.publisher.year "publihser" output.check}
++  {push.address.publisher.year "publisher" output.check}
+   if$
+       blank.sep
+       format.pages output
+@@ -1000,7 +1007,7 @@
+   blank.sep
+   publisher empty$
+   {format.address.date output}
+-  {push.address.publisher.year "publihser" output.check}
++  {push.address.publisher.year "publisher" output.check}
+   if$
+   blank.sep
+   format.pages output

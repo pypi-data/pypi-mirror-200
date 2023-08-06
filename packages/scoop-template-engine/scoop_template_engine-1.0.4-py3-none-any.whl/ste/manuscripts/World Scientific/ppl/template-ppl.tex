@@ -1,0 +1,90 @@
+% A LaTeX template for submissions to Parallel Processing Letters.
+% Derived from ws-ppl.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Parallel Processing Letters>>
+<<% >>
+<<Dependency: ws-ppl.cls>>
+<<Dependency: ws-ppl-scoop.bst>>
+<<Dependency: postpreamble-ppl.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{ws-ppl}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set running headers as well as PDF title and authors.
+\markboth{<<AuthorsShortNamesCommaSeparatedLastCommaAnd>>}{<<ShortTitle>>}
+\catchline{}{}{}{}{}
+
+% Set title and subtitle information.
+\title{<<TitleNewlineSubTitle>><<DedicationFootnote>>}
+
+% Set author information.
+<<AuthorsInstitutionsM3AS>>
+
+\maketitle
+
+% Set submission history.
+\begin{history}
+\received{(Day Month Year)}
+\revised{(Day Month Year)}
+\accepted{(Day Month Year)}
+\comby{(xxxxxxxxxx)}
+\end{history}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\keywords{<<KeywordsSemicolonSeparated>>}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the funding information.
+<<FundingSectionStarred>>
+
+% Insert the bibliography.
+\bibliographystyle{ws-ppl-scoop}
+<<CustomBibliography>>
+
+% Insert the appendix.
+% For some reason, ws-ppl.cls defines the \appendix command to be a replacement for the 
+% \section command, to be used in the appendix. We revert to the standard behavior.
+\let\section\appendix
+\let\subsection\subappendix
+\let\subsubsection\subsubappendix
+<<InputAppendix>>
+
+\end{document}

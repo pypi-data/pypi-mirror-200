@@ -1,0 +1,98 @@
+% A LaTeX template for submissions to Journal of Optimization Theory and Applications (JOTA).
+% Derived from template.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Journal of Optimization Theory and Applications>>
+<<% >>
+<<Dependency: svjour3.cls>>
+<<Dependency: svglov3.clo>>
+<<Dependency: spmpsci.bst>>
+<<Dependency: preamble-jota.sty>>
+<<Dependency: postpreamble-jota.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --haltotypeornote --onlinetotechreport --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+nospthms,
+smallextended,
+envcountsect,
+<<DocumentClassOptions>>]{svjour3}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Flush right qed marks, e.g. at end of proof.
+\smartqed
+
+% Set journal name.
+\journalname{<<ShortJournalNameCAPS>>}
+
+\begin{document}
+
+% Set title, subtitle and funding information.
+\title{<<Title>>\thanks{<<Funding>>}}
+\subtitle{<<SubTitle>>}
+\titlerunning{<<ShortTitle>>}
+
+% Set dedication information.
+\dedication{<<Dedication>>}
+
+% Set author information.
+\author{<<AuthorsSpringer>>}
+\authorrunning{<<AuthorsShortNamesCommaSeparated>>}
+\institute{%
+<<InstitutionsSpringer>>
+}
+
+% Set date information.
+\date{Received: date / Accepted: date}
+
+\maketitle
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\keywords{<<KeywordsBackslashAndSeparated>>}
+
+% Insert the Mathematics Subject Classification.
+\subclass{<<MSCBackslashAndSeparated>>}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{spmpsci}
+<<CustomBibliography>>
+
+\end{document}

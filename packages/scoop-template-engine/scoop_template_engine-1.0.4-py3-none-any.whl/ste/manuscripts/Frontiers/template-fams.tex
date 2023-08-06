@@ -1,0 +1,99 @@
+% A LaTeX template for submissions to Frontiers in Applied Mathematics and Statistics (FAMS).
+% Derived from frontiers.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Control, Optimisation and Calculus of Variations>>
+<<% >>
+<<Dependency: frontiersinFPHY_FAMS.cls>>
+<<Dependency: Frontiers-Vancouver.bst>>
+<<Dependency: logo1.eps>>
+<<Dependency: postpreamble-fams.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --haltotypeornote --onlinetotechreport --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[utf8,<<DocumentClassOptions>>]{frontiersinFPHY_FAMS}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Include further packages and settings relevant for the template.
+\usepackage{subcaption}
+\usepackage{lineno}
+\usepackage{microtype}
+\usepackage[onehalfspacing]{setspace}
+\linenumbers
+
+% Set author information.
+\def\keyFont{\fontsize{8}{11}\helveticabold}
+\def\firstAuthorLast{<<AuthorNamesFrontiers>>} 
+\def\Authors{<<AuthorsFrontiers>>} 
+\def\Address{<<InstitutionsFrontiers>>} 
+\def\corrAuthor{<<CorrespondingAuthorsFrontiers>>}
+\def\corrEmail{<<CorrespondingAuthorsEMailsFrontiers>>}
+
+\begin{document}
+
+% Activate one-column format.
+\onecolumn
+\firstpage{1}
+
+% Set title and subtitle.
+\title[<<ShortTitle>>]{<<TitleNewlineSubTitle>>}
+
+% Finalize the author and institution definitions.
+\author[\firstAuthorLast]{\Authors} 
+\address{} 
+\correspondance{}  % :-)
+\extraAuth{}
+
+\maketitle
+
+% Insert the dedication information.
+<<Dedication>>
+
+% Insert the abstract and keywords.
+\begin{abstract}
+<<InputAbstract>>
+\tiny
+\keyFont{\section{Keywords:} <<KeywordsCommaSeparated>>} 
+\end{abstract}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the funding information.
+<<FundingSectionStarred>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{Frontiers-Vancouver}
+<<CustomBibliography>>
+
+\end{document}

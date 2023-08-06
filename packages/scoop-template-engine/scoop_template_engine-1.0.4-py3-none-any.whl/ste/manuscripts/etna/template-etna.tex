@@ -1,0 +1,94 @@
+% A LaTeX template for submissions to Electronic Transactions on Numerical Analysis (ETNA).
+% Derived from example.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Electronic Transactions on Numerical Analysis>>
+<<% >>
+<<Dependency: etna-scoop.cls>>
+<<Dependency: prepreamble-etna.sty>>
+<<Dependency: postpreamble-etna.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --onlinetotechreport --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+leqno,
+letterpaper,
+<<DocumentClassOptions>>]{etna-scoop}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Set bibliographic data.
+\setbibdata{1}{xx}{46}{2017}
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Set title, subtitle, dates, and funding information.
+\title{<<TitleNewlineSubTitle>>\thanks{Received \ldots Accepted \ldots Published online on \ldots Recommended by \ldots. <<Funding>>}}
+
+% Set author information.
+\author{<<AuthorsETNA>>}
+
+% Set headline info.
+\shorttitle{<<ShortTitle>>} 
+\shortauthor{<<ShortAuthorsETNA>>}
+
+\begin{document}
+\maketitle
+
+% Insert the dedication information.
+<<DedicationVerse>>
+
+% Typeset institutions.
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+<<InstitutionsETNA>>
+
+% Insert the abstract.
+\begin{abstract} 
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\begin{keywords}
+<<KeywordsCommaSeparated>>
+\end{keywords}
+
+% Insert the Mathematics Subject Classification.
+\begin{AMS}
+<<MSC>>
+\end{AMS}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{siam}
+<<CustomBibliography>>
+
+\end{document}

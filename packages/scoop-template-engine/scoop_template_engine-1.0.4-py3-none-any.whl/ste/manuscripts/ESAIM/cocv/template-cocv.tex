@@ -1,0 +1,76 @@
+% A LaTeX template for submissions to Control, Optimisation and Calculus of Variations (ESAIM: COCV).
+% Derived from template.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Control, Optimisation and Calculus of Variations>>
+<<% >>
+<<Dependency: cocv.cls>>
+<<Dependency: postpreamble-cocv.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --onlinetotechreport --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{cocv}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set title, subtitle, funding and dedication information.
+\title{<<TitleNewlineSubTitle>><<FundingThanks>><<DedicationThanks>>}
+
+% Set author information.
+<<AuthorsInstitutionsESAIM>>
+
+% Provide the date.
+\date{<<Date>>}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert the Mathematics Subject Classification.
+\subjclass[2010]{<<MSC>>}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+\maketitle
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{siam}
+<<CustomBibliography>>
+
+\end{document}

@@ -1,0 +1,89 @@
+% A LaTeX template for submissions to Analysis and Applications.
+% Derived from ws-aa.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Analysis and Applications>>
+<<% >>
+<<Dependency: ws-aa.cls>>
+<<Dependency: ws-aa.bst>>
+<<Dependency: postpreamble-aa.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{ws-aa}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set running headers as well as PDF title and authors.
+\markboth{<<AuthorsShortNamesCommaSeparatedLastCommaAnd>>}{<<ShortTitle>>}
+\catchline{}{}{}{}{}
+
+% Set title and subtitle information.
+\title{<<TitleNewlineSubTitle>><<DedicationFootnote>>}
+
+% Set author information.
+<<AuthorsInstitutionsM3AS>>
+
+\maketitle
+
+% Set submission history.
+\begin{history}
+\received{(Day Month Year)}
+\revised{(Day Month Year)}
+\accepted{(Day Month Year)}
+\comby{(xxxxxxxxxx)}
+\end{history}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\keywords{<<KeywordsSemicolonSeparated>>}
+
+% Insert the Mathematics Subject Classification.
+\ccode{AMS Subject Classification: <<MSC>>}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the funding information.
+<<FundingSectionStarred>>
+
+% Insert the bibliography.
+\bibliographystyle{ws-aa}
+<<CustomBibliography>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+\end{document}

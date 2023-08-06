@@ -1,0 +1,78 @@
+\ProvidesPackage{postpreamble-ijuq}
+
+% Declare all options.
+\newif\if@scoopcompatibility@none
+\newif\if@scoopcompatibility@minimal
+\newif\if@scoopcompatibility@packages
+\newif\if@scoopcompatibility@changes
+\newif\if@scoopcompatibility@theorems
+\newif\if@scoopcompatibility@testing
+\DeclareOption{none}{\@scoopcompatibility@nonetrue}
+\DeclareOption{minimal}{\@scoopcompatibility@minimaltrue}
+\DeclareOption{packages}{\@scoopcompatibility@packagestrue\ExecuteOptions{minimal}}
+\DeclareOption{changes}{\@scoopcompatibility@changestrue}
+\DeclareOption{theorems}{\@scoopcompatibility@theoremstrue}
+\DeclareOption{testing}{\@scoopcompatibility@testingtrue}
+
+% Process all options.
+\ProcessOptions\relax
+
+% Execute option 'none'. 
+\if@scoopcompatibility@none
+\endinput
+\fi
+
+% Execute option 'minimal'. 
+\if@scoopcompatibility@minimal
+\fi
+
+% Execute option 'packages'. 
+\if@scoopcompatibility@packages
+\fi
+
+% Execute option 'changes'.
+\if@scoopcompatibility@changes
+\fi
+
+% Execute option 'theorems'.
+% By default, a \newtheorem is provided, based on amsthm.sty.
+% It does provide cleveref.sty support but some theorem-like environments are defined previously.
+% Since the default numbering scheme uses shared counters, we have to clear and redefine all theorem-like environments.
+\if@scoopcompatibility@theorems
+	% Define a command which will clear a single and multiple theorem-like environments.
+	% https://tex.stackexchange.com/questions/459258
+	\def\clear@theorems#1{\@for\next:=#1\do{\expandafter\clear@theorem\expandafter{\next}}}
+	\def\clear@theorem#1{\expandafter\let\csname #1\endcsname\relax\expandafter\let\csname end#1\endcsname\relax}
+	\clear@theorems{lemma,corollary,remark}
+	\theoremstyle{plain}
+	\newtheorem*{theorem*}{\sc Theorem}
+	\newtheorem{lemma}[theorem]{\sc Lemma}
+	\newtheorem*{lemma*}{\sc Lemma}
+	\newtheorem{proposition}[theorem]{\sc Proposition}
+	\newtheorem*{proposition*}{\sc Proposition}
+	\newtheorem{corollary}[theorem]{\sc Corollary}
+	\newtheorem*{corollary*}{\sc Corollary}
+	\newtheorem{remark}[theorem]{\sc Remark}
+	\newtheorem*{remark*}{\sc Remark}
+	\theoremstyle{definition}
+	\newtheorem{definition}[theorem]{\sc Definition}
+	\newtheorem*{definition*}{\sc Definition}
+	\theoremstyle{remark}
+	\newtheorem{example}[theorem]{\sc Example}
+	\newtheorem*{example*}{\sc Example}
+	\newtheorem{assumption}[theorem]{\sc Assumption}
+	\newtheorem*{assumption*}{\sc Assumption}
+	\@ifpackageloaded{cleveref}{%
+    % https://tex.stackexchange.com/questions/315749
+		\expandafter\ifx\csname if@cref@capitalise\expandafter\endcsname\csname iftrue\endcsname
+			\crefname{assumption}{Assumption}{Assumptions}
+		\else
+			\crefname{assumption}{assumption}{assumptions}
+		\fi
+	}{}
+\fi
+
+% Execute option 'testing'. 
+\if@scoopcompatibility@testing
+\fi
+

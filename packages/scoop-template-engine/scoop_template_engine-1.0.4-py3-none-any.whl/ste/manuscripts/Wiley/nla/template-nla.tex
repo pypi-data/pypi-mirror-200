@@ -1,0 +1,91 @@
+% A LaTeX template for submissions to 
+% Numerical Linear Algebra and Applications (NLA)
+% Derived from wileyNJD-VANCOUVER.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription nla: Numerical Linear Algebra and Applications>>
+<<% >>
+<<Dependency: WileyNJD-v2-nla.cls>>
+<<Dependency: WileyNJD-VANCOUVER.bst>>
+<<Dependency: postpreamble-nla.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitourl --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+VANCOUVER,
+STIX1COL,
+proof,
+<<DocumentClassOptions>>]{WileyNJD-v2-nla}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Set article type.
+\articletype{Original Paper}
+
+% Set relevant dates.
+\received{TBD}
+\revised{TBD}
+\accepted{TBD}
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set title, subtitle and funding information.
+\title{<<TitleNewlineSubTitle>>\protect<<FundingThanks>>}
+
+% Set author information.
+<<AuthorsInstitutionsWiley>>
+\authormark{<<AuthorsFamilyNamesCommaSeparatedLastAnd>>}
+
+% Insert the abstract.
+\abstract[Abstract]{
+%
+<<InputAbstract>>
+}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert how-to-cite info.
+\jnlcitation{\cname{<<ShortAuthorsWiley>>}, (\cyear{TBD}), \ctitle{<<Title>>}, \cjournal{\detokenize{<<JournalName>>}}, \cvol{TBD}.}
+
+\maketitle
+
+% Insert the dedication information.
+<<DedicationFootnoteText>>
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+<<CustomBibliographyWithoutExtension>>
+
+\end{document}

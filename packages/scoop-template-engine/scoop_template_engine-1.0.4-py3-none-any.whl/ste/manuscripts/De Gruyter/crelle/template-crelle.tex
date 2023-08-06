@@ -1,0 +1,80 @@
+% A LaTeX template for submissions to Journal für die reine und angewandte Mathematik (Crelle).
+% Derived from article.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Journal für die reine und angewandte Mathematik>>
+<<% >>
+<<Dependency: degruyter-crelle.cls>>
+<<Dependency: crelle.bst>>
+<<Dependency: prepreamble-crelle.sty>>
+<<Dependency: preamble-crelle.sty>>
+<<Dependency: postpreamble-crelle.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+SecEq,
+CM,
+GP,
+<<DocumentClassOptions>>]{degruyter-crelle}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Set bibliographic data.
+\firstpage{}\volume{}\volumeyear{}\copyrightyear{}\doiyear{}\doi{}\received{XXX}\revised{XXX}
+
+% Set title and subtitle information.
+\title[<<ShortTitle>>]{<<Title>>}
+
+% Set author information.
+<<AuthorsInstitutionsCrelle>>
+
+% Set funding information.
+\researchsupported{<<Funding>>}
+
+\begin{document}
+
+% Insert the abstract.
+\abstract{%
+<<InputAbstract>>
+}
+
+% Insert the document body.
+<<InputBody>>
+
+% Set dedication information.
+\acknowl{<<Dedication>>}
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+<<CustomBibliography>>
+
+\end{document}

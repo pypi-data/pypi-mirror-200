@@ -1,0 +1,82 @@
+% A LaTeX template for submissions to International Journal of Computational Geometry and Applications.
+% Derived from ws-ijcga.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: International Journal of Computational Geometry and Applications>>
+<<% >>
+<<Dependency: ws-ijcga.cls>>
+<<Dependency: ws-ijcga.bst>>
+<<Dependency: postpreamble-ijcga.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{ws-ijcga}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+\providecommand{\email}[1]{\it #1\par}
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set running headers as well as PDF title and authors.
+\markboth{<<AuthorsShortNamesCommaSeparatedLastCommaAnd>>}{<<ShortTitle>>}
+\catchline{}{}{}{}{}
+
+% Set title and subtitle information.
+\title{<<TitleNewlineSubTitle>><<DedicationFootnote>>}
+
+% Set author information.
+<<AuthorsInstitutionsM3AS>>
+
+\maketitle
+
+% Set submission history.
+\pub{Received (received date)}{Revised (revised date)}{Communicated by (Name)}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\keywords{<<KeywordsSemicolonSeparated>>}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the funding information.
+<<FundingSectionStarred>>
+
+% Insert the bibliography.
+\bibliographystyle{ws-ijcga}
+<<CustomBibliography>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+\end{document}

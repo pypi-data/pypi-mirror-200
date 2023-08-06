@@ -1,0 +1,108 @@
+% A LaTeX template for submissions to International Journal for Uncertainty Quantification (IJUQ).
+% Derived from Template\ for\ IJ4UQ.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: International Journal for Uncertainty Quantification>>
+<<% >>
+<<Dependency: ij4uq.cls>>
+<<Dependency: IJ4UQ_Bibliography_Style-scoop.bst>>
+<<Dependency: arial.sty>>
+<<Dependency: preamble-ijuq.sty>>
+<<Dependency: postpreamble-ijuq.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --onlinetotechreport --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+review,
+article,
+equation,
+ij4uq,
+<<DocumentClassOptions>>]{ij4uq}
+
+% Include further packages and settings relevant for the template.
+\let\acknowledgments\acknowledgements
+\usepackage[hang]{footmisc}
+\setlength{\footnotemargin}{0in}
+\frenchspacing
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyhead[R]{\small {\it International Journal for Uncertainty Quantification}, x(x): \thepage--\pageref{LastPage} (\myyear\today)}
+\fancyfoot[R]{\small\textbf{\thepage} }
+\fancyfoot[L]{\fottitle}
+}
+\renewcommand{\dmyy}{17}
+\renewcommand{\myyear}{2017}
+\renewcommand{\today}{}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set volume information.
+\volume{Volume x, Issue x, \myyear\today}
+
+% Set title and short title information.
+\title{<<Title>>}
+\titlehead{<<ShortTitle>>}
+
+% Set author information.
+\authorhead{<<ShortAuthorsBegell>>}
+<<AuthorsInstitutionsBegell>>
+
+% Set manuscript dates.
+\dataO{}
+\dataF{}
+
+% Insert the abstract.
+\abstract{%
+<<InputAbstract>>
+}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+\maketitle
+
+% Insert the dedication information.
+<<DedicationVerse>>
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{IJ4UQ_Bibliography_Style-scoop}
+<<CustomBibliography>>
+
+% Set funding information.
+<<FundingAcknowledgments>>
+
+\end{document}

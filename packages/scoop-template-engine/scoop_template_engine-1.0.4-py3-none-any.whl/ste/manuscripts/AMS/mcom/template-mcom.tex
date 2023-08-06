@@ -1,0 +1,76 @@
+% A LaTeX template for submissions to Mathematics of Computation (MCOM).
+% Derived from mcom-l-template.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Mathematics of Computation>>
+<<% >>
+<<Dependency: mcom-l.cls>>
+<<Dependency: postpreamble-mcom.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --giveninits --haltotypeornote --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{mcom-l}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set title and subtitle information.
+\title[<<ShortTitle>>]{<<TitleNewlineSubTitle>>}
+
+% Set author and funding information.
+<<AuthorsInstitutionsAMS>>
+
+% Insert the Mathematics Subject Classification.
+\subjclass[2020]{<<MSC>>}
+
+% Set date information.
+\date{}
+
+% Set dedication information.
+\dedicatory{<<Dedication>>}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+\maketitle
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{amsplain}
+<<CustomBibliography>>
+
+\end{document}

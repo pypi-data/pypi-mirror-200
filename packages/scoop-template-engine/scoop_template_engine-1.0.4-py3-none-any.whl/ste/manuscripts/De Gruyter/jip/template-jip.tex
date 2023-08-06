@@ -1,0 +1,112 @@
+% A LaTeX template for submissions to De Gruyter journals.
+% Derived from journal-article.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription acvar: Advances in Calculus of Variations>>
+<<TemplateDescription cmam:  Computational Methods in Applied Mathematics>>
+<<TemplateDescription jip:   Journal of Inverse and Ill-posed Problems>>
+<<TemplateDescription jnm:   Journal of Numerical Mathematics>>
+<<% >>
+<<Dependency: dgruyter.sty>>
+<<Dependency: logos/dg-degruyter.pdf>>
+<<% >>
+<<Dependency acvar: postpreamble-acvar.sty>>
+<<Dependency cmam:  postpreamble-cmam.sty>>
+<<Dependency jip:   postpreamble-jip.sty>>
+<<Dependency jnm:   postpreamble-jnm.sty>>
+<<% >>
+<<CreateCustomBibliography: --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+USenglish,
+<<DocumentClassOptions>>]{article}
+
+% Include further packages and settings relevant for the template.
+\usepackage[small]{dgruyter}
+\usepackage{microtype}
+
+% Preamble follows.
+\RequirePackage{biblatex}
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Define the biblatex resources.
+<<BibLaTeXResources>>
+
+\begin{document}
+
+% Set article type.
+\articletype{Research Article}
+
+% Set title and subtitle information.
+\title{<<Title>>}
+\subtitle{<<SubTitle>>}
+\runningtitle{<<ShortTitle>>}
+
+% Set author information.
+<<AuthorsInstitutionsCMAM>>
+\runningauthor{<<AuthorsFamilyNamesCommaSeparatedLastAnd>>}
+
+% Insert the abstract.
+\abstract{%
+<<InputAbstract>>
+}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert the Mathematics Subject Classification.
+\classification[MSC 2010]{<<MSC>>}
+
+% Set relevant dates.
+\communicated{TBD}
+<<DedicationCommand>>
+\received{TBD}
+\accepted{TBD}
+\journalname{\detokenize{<<JournalName>>}}
+\journalyear{TBD}
+\journalvolume{TBD}
+\journalissue{TBD}
+\startpage{1}
+\aop
+\DOI{TBD}
+
+\maketitle
+
+% Insert the document body.
+<<InputBody>>
+
+% Set funding information.
+<<FundingEnvironment>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+<<BibLaTeXPrintBibliography>>
+
+\end{document}
