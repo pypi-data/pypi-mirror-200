@@ -1,0 +1,45 @@
+{# params: title, header_logo_src, salutation, content, year #}
+<mjml>
+  <mj-title>{{ title }}</mj-title>
+  <mj-head>
+    <mj-style>
+      [owa] .mj-column-per-100 {
+        width: 100%!important;
+      }
+      [owa] .mj-column-per-50 {
+        width: 50%!important;
+      }
+      [owa] .mj-column-per-33 {
+        width: 33.333333333333336%!important;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#f0f0f0">
+    <mj-container>
+      <mj-section>
+        <mj-column>
+          <!-- logo -->
+          <mj-image padding-bottom="18px" width="260" src="{{ header_logo_src }}" align="left"></mj-image>
+
+          <mj-text color="#454545" font-size="28px" font-family="Roboto Condensed, Helvetica, arial">
+            {{ salutation }}
+          </mj-text>
+
+          <!-- typically a collection of MJMLText classes -->
+          {{ content }}
+        </mj-column>
+      </mj-section>
+
+      <!-- footer -->
+      <mj-section>
+        <mj-column>
+          <mj-divider border-width="1px" border-color="#c5c5c5"></mj-divider>
+
+          <mj-text color="#c5c5c5" align="center" font-size="14px" font-family="Roboto Condensed, Helvetica, arial">
+            © {{ year }} Kroket Ltd.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>
