@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: cubelib
+Version: 1.0.5rc2
+Summary: python library for building/parsing minecraft protocol packets
+Home-page: https://gitlab.com/seeklay/cubelib
+Author: seeklay
+Author-email: rudeboy@seeklay.icu
+License: GNU General Public License v3.0
+Download-URL: https://gitlab.com/seeklay/cubelib
+Platform: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet
+Description-Content-Type: text/markdown
+
+# cubelib
+
+Minecraft protocol library for [Python](https://www.python.org/).
+
+![](https://gitlab.com/seeklay/cubelib/badges/main/pipeline.svg) ![coverage report](https://gitlab.com/seeklay/cubelib/badges/main/coverage.svg) ![](https://tokei.rs/b1/gitlab/seeklay/cubelib) [![Latest Release](https://gitlab.com/seeklay/cubelib/-/badges/release.svg)](https://gitlab.com/seeklay/cubelib/-/releases)
+![]( https://img.shields.io/badge/Made%20with-Python-1f425f.svg ) ![]( https://img.shields.io/gitlab/license/seeklay/cubelib.svg) 
+
+![](https://gitlab.com/seeklay/cubelib/-/raw/main/insteadoflogo.png)   
+
+## About
+
+**cubelib** is designed to be a usable and easy to extend library that provides a high-level abstraction above Minecraft protocol. 
+
+# [Visit project homepage on gitlab for docs/examples](https://gitlab.com/seeklay/cubelib)
+
+
