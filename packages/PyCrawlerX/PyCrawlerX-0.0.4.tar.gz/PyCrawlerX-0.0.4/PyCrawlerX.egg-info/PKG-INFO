@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: PyCrawlerX
+Version: 0.0.4
+Summary: PyCrawlerX is a Python CLI tool to crawl through directories and execute files.
+Home-page: https://github.com/4akhilkumar/pycrawlerx
+Author: Sai Akhil Kumar Reddy N
+Author-email: 4akhilkumar@gmail.com
+License: MIT
+Keywords: Python,Directory,Files,Execution,PyCrawlerX,CLI,Command Line Interface,Menu
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PyCrawlerX
+PyCrawlerX is a Python CLI tool to crawl through directories and execute files.
+
+## Installation
+```python -m pip install pycrawlerx```
+
+## Example Usage
+
+### Read input from command line
+```python
+import sys
+from PyCrawlerX import PyCrawlerX
+
+if __name__ == "__main__":
+    pcx = PyCrawlerX()
+    code_folder = sys.argv[1]
+    pcx.run_pycrawlerx(folder_path = code_folder)
+
+```
+
+### Read input from the script
+```python
+from PyCrawlerX import PyCrawlerX
+
+if __name__ == "__main__":
+    pcx = PyCrawlerX()
+    code_folder = './test'
+    pcx.run_pycrawlerx(folder_path = code_folder)
+
+```
+
+### Load environment variables
+```python
+from PyCrawlerX import PyCrawlerX
+
+if __name__ == "__main__":
+    pcx = PyCrawlerX()
+    code_folder = './test'
+    pcx.run_pycrawlerx(folder_path = code_folder)
+    pcx.load_environment_variables(key_value = {"key": "value"})
+
+```
