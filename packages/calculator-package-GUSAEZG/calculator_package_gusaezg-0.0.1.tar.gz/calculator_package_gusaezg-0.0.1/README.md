@@ -1,0 +1,41 @@
+*Module 1: Data Wrangling with Python*
+
+Sprint 1: Python Mastery
+
+Part 5: Calculator
+
+The following project consists of a calculator written with Python. It contains a Calculator class. This class has an
+internal memory, whose initial value is 0, and can perform a number of operations, which will modify the value in
+memory:
+
+-Add a value to the value stored in memory
+-Subtract a value to the value stored in memory
+-Multiply a value by the value stored in memory
+-Divide the value stored in memory by another value
+-Calculate the nth root of the value stored in memory
+-Reset the value stored in memory to 0
+
+Since all operations (except resetting the value in memory) require an argument, two assertions have been included in
+order to make sure a valid argument is passed:
+-For all operations, the argument passed must be a number (either an int or a float). Otherwise, an AssertionError will
+be raised
+-Furthermore, to calculate the nth root of the value in memory, the argument passed cannot be 0. This is to prevent 
+division by 0 (since the nth root of a number is equal to said number to the 1/nth power)
+
+Here is a practical example of how the application works
+
+```python
+calculator = Calculator()
+calculator.add(10)
+calculator.subtract(5)
+calculator.multiply(4)
+calculator.divide(5)
+calculator.calculate_nth_root(2)
+calculator.reset_memory()
+```
+
+In order to make sure the application works properly, unit tests have been written for all operations and assertions. 
+unittest has been imported for this purpose.
+
+
+
