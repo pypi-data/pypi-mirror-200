@@ -1,0 +1,13 @@
+tqdm
+
+[all]
+boto3
+
+[s3]
+boto3
+
+[test]
+pyini
+pytest
+pytest-cov
+moto[s3]>=4.1.5.dev40
