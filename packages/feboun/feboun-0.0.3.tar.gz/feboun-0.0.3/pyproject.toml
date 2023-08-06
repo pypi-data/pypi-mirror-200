@@ -1,0 +1,22 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "feboun"
+authors = [{name = "Azat Y", email = "steels-06.gasbag@icloud.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+
+[project.urls]
+Home = "https://fe.azat.cc"
+
+[project.scripts]
+feboun = "feboun.cli.main:app"
+
+
+[tool.flit.sdist]
+include = ["doc/"]
+exclude = ["Meetings/", "Meetings/*", "doc/_build/", "doc/_build/*"]
