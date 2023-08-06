@@ -1,0 +1,4 @@
+[console_scripts]
+bits = linux_tools.bits:main
+irqstat = linux_tools.irqstat:main
+netgraph = linux_tools.netgraph:main
