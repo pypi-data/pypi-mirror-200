@@ -1,0 +1,4 @@
+RUN: %mkdir %S/output/
+RUN: %strictdoc version | filecheck %s --dump-input=fail
+
+CHECK:{{\d+\.\d+\.\d+}}
