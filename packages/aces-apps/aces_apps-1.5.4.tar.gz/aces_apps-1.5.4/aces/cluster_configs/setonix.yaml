@@ -1,0 +1,17 @@
+cluster_class: "dask_jobqueue.SLURMCluster"
+cluster_kwargs:
+  n_workers: 10
+  processes: 2
+  name: "Setonix"
+  memory: "60GB"
+  cores: 5
+  queue: "workq"
+  account: "askaprt"
+  walltime: "02:30:00"
+  job_extra_directives:
+  - "-M setonix"
+  - "--partition askaprt"
+  - "--export ALL"
+  interface: "nmn0"
+  job_script_prologue:
+  - "export OMP_NUM_THREADS=1"

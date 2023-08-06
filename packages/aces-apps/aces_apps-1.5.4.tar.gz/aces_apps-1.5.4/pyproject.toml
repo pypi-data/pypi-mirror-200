@@ -1,0 +1,152 @@
+[tool.poetry]
+name = "aces-apps"
+version = "1.5.4"
+description = "A collection of utilities developed out of the ACES working group to support the processing of ASKAP data."
+authors = [
+    "David McConnell <David.McConnell@csiro.au>",
+    "Wasim Raja <Wasim.Raja@csiro.au>",
+    "Andrew O'Brien <andrew.obrien@csiro.au>",
+    "Aidan Hotan <aidan.hotan@csiro.au>",
+    "Aaron Chipendale <aaron.chipendale@csiro.au>",
+    "Julie Banfield <julie.banfield@csiro.au>",
+    "Alec Thomson <alec.thomson@csiro.au>",
+    "Tim Galvin <tim.galvin@csiro.au>"
+]
+license = "GPL"
+readme = "README.md"
+include = [
+    {path = "aces/data/antenna-positions.txt"},
+    {path = "aces/data/footprints/*/*parset"},
+    {path = "aces/holography/mean_beam_model.pkl"},
+    {path = "aces/holography/antenna_positions_itrf.txt"},
+    {path = "aces/holography/VirgoA.mod"},
+    {path = "aces/sefd/SEFD_defaults.parset"},
+    {path = "aces/survey/*parset"},
+    {path = "aces/survey/*slurm"},
+    {path = "aces/askapdata/*ice"},
+    {path = "aces/cluster_configs/*yaml"}
+]
+packages = [
+    { include = "aces" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+nose = "^1.3.7"
+pytz = "^2022.4"
+requests = "^2.28.1"
+numpy = "^1.23.4"
+scipy = "^1.9.2"
+Cython = "^0.29.32"
+matplotlib = "^3.6.1"
+seaborn = "^0.12.0"
+jupyter = "^1.0.0"
+ephem = "^4.1.3"
+lxml = "^4.9.1"
+astropy = "^5.1"
+zeroc-ice = "^3.7.8"
+dask = "^2022.10.0"
+dask-jobqueue = "^0.8.1"
+distributed = "^2022.10.0"
+graphviz = "^0.20.1"
+bokeh = "^2.4.3"
+mpi4py = "^3.1.3"
+dask-mpi = "^2022.4.0"
+h5py = "^3.7.0"
+nbdime = "^3.1.1"
+multiprocessing-logging = "^0.3.3"
+tqdm = "^4.64.1"
+python-casacore = "3.5.00"
+prefect = "^2.6.4"
+pyyaml = "^6.0"
+prefect-dask = "^0.2.1"
+clink = "^0.33.0"
+pytest = "^7.2.1"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^6.1"
+sphinx-rtd-theme = "*"
+sphinx-autoapi = "^2"
+myst-parser = "^1"
+docutils = "*"
+
+[tool.poetry.extras]
+docs = [
+    "sphinx",
+    "sphinx_rtd_theme",
+    "sphinx-autoapi",
+    "m2r2",
+]
+
+[tool.poetry.scripts]
+plot_summary = 'aces.holography.plot_summary:cli'
+clean_holography = 'aces.holography.clean_holography:cli'
+grid_holography = 'aces.holography.grid_holography:cli'
+divmodel = 'aces.holography.divmodel:cli'
+dump_point = 'aces.holography.dump_point:cli'
+merge_holography = 'aces.holography.merge_holography:cli'
+beamset_from_ms = 'aces.holography.beamset_from_ms:cli'
+bptable = 'aces.holography.bptable:cli'
+beam_summary = 'aces.holography.beam_summary:main'
+aces_mpi_test = { reference = "scripts/aces_test_mpi_install.py", type="file" }
+array_mean = { reference = "scripts/array_mean.py", type="file" }
+array_plan = { reference = "scripts/array_plan.py", type="file" }
+beam_pointing = { reference = "scripts/beam_pointing.py", type="file" }
+beam_show = { reference = "scripts/beam_show.py", type="file" }
+do_beamset_from_ms = { reference = "scripts/do_beamset_from_ms.py", type="file" }
+do_clean_holography = { reference = "scripts/do_clean_holography.py", type="file" }
+do_grid_holography = { reference = "scripts/do_grid_holography.py", type="file" }
+do_merge_holography = { reference = "scripts/do_merge_holography.py", type="file" }
+edit_beamset = { reference = "scripts/edit_beamset.py", type="file" }
+find_bandpass_sbid = { reference = "scripts/find_bandpass_sbid.py", type="file" }
+fit_contour = { reference = "scripts/fit_contour.py", type="file" }
+fit_plot = { reference = "scripts/fit_plot.py", type="file" }
+fit_surface = { reference = "scripts/fit_surface.py", type="file" }
+flag_info = { reference = "scripts/flag_info.py", type="file" }
+footprint-plan = { reference = "scripts/footprint-plan.py", type="file" }
+fov = { reference = "scripts/fov.py", type="file" }
+get_footprint = { reference = "scripts/get_footprint.py", type="file" }
+illuminate = { reference = "scripts/illuminate.py", type="file" }
+image_merit = { reference = "scripts/image_merit.py", type="file" }
+make_field_overlays = { reference = "scripts/make_field_overlays.py", type="file" }
+mro-riseset = { reference = "scripts/mro-riseset.py", type="file" }
+obs-preamble = { reference = "scripts/obs-preamble.py", type="file" }
+plot_clean_stats = { reference = "scripts/plot_clean_stats.py", type="file" }
+process_holography = { reference = "scripts/process_holography.py", type="file" }
+process_sefd = { reference = "scripts/process_sefd.py", type="file" }
+s_optimise = { reference = "scripts/s_optimise.py", type="file" }
+schedblock_query = { reference = "scripts/schedblock_query.py", type="file" }
+sefdProcessing = { reference = "scripts/sefdProcessing.py", type="file" }
+sefd_convert = { reference = "scripts/sefd_convert.py", type="file" }
+sefd_merge = { reference = "scripts/sefd_merge.py", type="file" }
+sefd_spectrum = { reference = "scripts/sefd_spectrum.py", type="file" }
+sefd_summary = { reference = "scripts/sefd_summary.py", type="file" }
+simple_beam_plot = { reference = "scripts/simple_beam_plot.py", type="file" }
+singleport_convert = { reference = "scripts/singleport_convert.py", type="file" }
+solar = { reference = "scripts/solar.py", type="file" }
+start_SEFD = { reference = "scripts/start_SEFD.py", type="file" }
+start_pipeline = { reference = "scripts/start_pipeline.py", type="file" }
+survey-plan = { reference = "scripts/survey-plan.py", type="file" }
+survey_analysis = { reference = "scripts/survey_analysis.py", type="file" }
+survey_check = { reference = "scripts/survey_check.py", type="file" }
+survey_find = { reference = "scripts/survey_find.py", type="file" }
+survey_flux_scale = { reference = "scripts/survey_flux_scale.py", type="file" }
+survey_post = { reference = "scripts/survey_post.py", type="file" }
+survey_selavy = { reference = "scripts/survey_selavy.py", type="file" }
+survey_selavy_beam = { reference = "scripts/survey_selavy_beam.py", type="file" }
+survey_status = { reference = "scripts/survey_status.py", type="file" }
+survey_swarp = { reference = "scripts/survey_swarp.py", type="file" }
+survey_to_casda = { reference = "scripts/survey_to_casda.py", type="file" }
+survey_validation = { reference = "scripts/survey_validation.py", type="file" }
+tile_plot = { reference = "scripts/tile_plot.py", type="file" }
+tile_sky = { reference = "scripts/tile_sky.py", type="file" }
+tile_trial = { reference = "scripts/tile_trial.py", type="file" }
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+mypy = "^0.982"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
