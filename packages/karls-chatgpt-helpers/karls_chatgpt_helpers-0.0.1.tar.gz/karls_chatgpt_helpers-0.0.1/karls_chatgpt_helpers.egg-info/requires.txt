@@ -1,0 +1,15 @@
+requests>=2.20
+
+[datalib]
+
+[dev]
+black~=21.6b0
+pytest==6.*
+pytest-asyncio
+pytest-mock
+
+[embeddings]
+openai
+
+[wandb]
+wandb
