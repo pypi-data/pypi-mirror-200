@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "apvn"
+version = "0.0.1"
+description = ""
+authors = ["雷岳 <xieping.xp@alibaba-inc.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
