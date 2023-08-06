@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+discer/__init__.py
+discer/grouping.py
+discer/ordering.py
+discer/relations.py
+discer.egg-info/PKG-INFO
+discer.egg-info/SOURCES.txt
+discer.egg-info/dependency_links.txt
+discer.egg-info/not-zip-safe
+discer.egg-info/top_level.txt
+tests/test_imports.py
+tests/test_sdisc.py
