@@ -1,0 +1,36 @@
+{
+  "rfLibraryRoots": [
+  ],
+  "rfResourceRoots": [
+  ],
+  "fullyQualified": false,
+  "generationDirectory": "{root}/tests/test_setup/Generated",
+  "createOutputZip": true,
+  "resourceDirectory": "",
+  "clearGenerationDirectory": true,
+  "logSuiteNumbering": true,
+  "logCompoundInteractions": false,
+  "subdivisionsMapping": {
+    "libraries": {
+
+    },
+    "resources": {
+
+    }
+  },
+  "forcedImport": {
+    "libraries": [
+    ],
+    "resources":
+    [
+    ],
+    "variables": [
+    ]
+  },
+  "testCaseSplitPathRegEx": "",
+  "loggingConfiguration": {
+    "console": {
+      "logLevel": "info"
+    }
+  }
+}

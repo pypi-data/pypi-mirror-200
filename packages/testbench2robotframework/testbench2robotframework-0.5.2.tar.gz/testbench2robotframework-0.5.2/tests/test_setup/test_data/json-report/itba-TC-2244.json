@@ -1,0 +1,41 @@
+{
+  "key" : "4611686020000002244",
+  "numbering" : "18.9",
+  "uniqueID" : "itba-TC-2244",
+  "name" : "setup_contains_failing_keyword_outside_of_testbench",
+  "spec" : {
+    "key" : "-1",
+    "description" : "",
+    "reviewComment" : "",
+    "status" : "Planned",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ],
+    "requirements" : [ ],
+    "preConditions" : [ ],
+    "postConditions" : [ ]
+  },
+  "exec" : {
+    "key" : "-1",
+    "comments" : "Start Time:   2023-02-27 10:36:47.208\nEnd Time:     2023-02-27 10:36:47.216\n\nitba-TC-2244-PC-21675 \t \tFAIL \t\n\nSetup failed:\nAssertionError",
+    "udfs" : [ ],
+    "keywords" : [ ]
+  },
+  "testCases" : [ {
+    "uniqueID" : "itba-TC-2244-PC-21675",
+    "index" : 1,
+    "spec" : {
+      "key" : "21675",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21676",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Fail",
+      "defects" : [ ]
+    }
+  } ]
+}

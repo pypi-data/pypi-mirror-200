@@ -1,0 +1,41 @@
+{
+  "key" : "4611686020000002231",
+  "numbering" : "18.3",
+  "uniqueID" : "itba-TC-2231",
+  "name" : "TCS_with_failing_setup",
+  "spec" : {
+    "key" : "-1",
+    "description" : "",
+    "reviewComment" : "",
+    "status" : "Planned",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ],
+    "requirements" : [ ],
+    "preConditions" : [ ],
+    "postConditions" : [ ]
+  },
+  "exec" : {
+    "key" : "-1",
+    "comments" : "Start Time:   2023-02-27 10:36:47.027\nEnd Time:     2023-02-27 10:36:47.043\n\nitba-TC-2231-PC-21643 \t \tFAIL \t\n\nSetup failed:\nValueError: Argument 'browser' got value 'browserbr' that cannot be converted to SupportedBrowsers: SupportedBrowsers does not have member 'browserbr'. Available: 'chromium', 'firefox' and 'webkit'",
+    "udfs" : [ ],
+    "keywords" : [ ]
+  },
+  "testCases" : [ {
+    "uniqueID" : "itba-TC-2231-PC-21643",
+    "index" : 1,
+    "spec" : {
+      "key" : "21643",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21644",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Fail",
+      "defects" : [ ]
+    }
+  } ]
+}

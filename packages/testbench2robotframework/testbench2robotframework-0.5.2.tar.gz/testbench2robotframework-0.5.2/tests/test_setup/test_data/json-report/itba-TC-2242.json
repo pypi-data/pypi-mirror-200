@@ -1,0 +1,41 @@
+{
+  "key" : "4611686020000002242",
+  "numbering" : "18.7",
+  "uniqueID" : "itba-TC-2242",
+  "name" : "compund_interaction_in_setup",
+  "spec" : {
+    "key" : "-1",
+    "description" : "",
+    "reviewComment" : "",
+    "status" : "Planned",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ],
+    "requirements" : [ ],
+    "preConditions" : [ ],
+    "postConditions" : [ ]
+  },
+  "exec" : {
+    "key" : "-1",
+    "comments" : "Start Time:   2023-02-27 10:36:47.148\nEnd Time:     2023-02-27 10:36:47.170\n\nitba-TC-2242-PC-21671 \t \tFAIL \t\n\nSetup failed:\nError: Could not find active page",
+    "udfs" : [ ],
+    "keywords" : [ ]
+  },
+  "testCases" : [ {
+    "uniqueID" : "itba-TC-2242-PC-21671",
+    "index" : 1,
+    "spec" : {
+      "key" : "21671",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21672",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Fail",
+      "defects" : [ ]
+    }
+  } ]
+}

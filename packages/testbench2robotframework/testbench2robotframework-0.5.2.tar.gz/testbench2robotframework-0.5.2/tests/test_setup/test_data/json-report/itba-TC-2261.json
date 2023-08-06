@@ -1,0 +1,41 @@
+{
+  "key" : "4611686020000002261",
+  "numbering" : "18.10",
+  "uniqueID" : "itba-TC-2261",
+  "name" : "teardown_contains_failing_keyword_outside_of_testbench",
+  "spec" : {
+    "key" : "-1",
+    "description" : "",
+    "reviewComment" : "",
+    "status" : "Planned",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ],
+    "requirements" : [ ],
+    "preConditions" : [ ],
+    "postConditions" : [ ]
+  },
+  "exec" : {
+    "key" : "-1",
+    "comments" : "Start Time:   2023-02-27 10:36:47.226\nEnd Time:     2023-02-27 10:36:47.244\n\nitba-TC-2261-PC-21683 \t \tFAIL \t\n\nAssertionError\n\nAlso teardown failed:\nAssertionError",
+    "udfs" : [ ],
+    "keywords" : [ ]
+  },
+  "testCases" : [ {
+    "uniqueID" : "itba-TC-2261-PC-21683",
+    "index" : 1,
+    "spec" : {
+      "key" : "21683",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21684",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Fail",
+      "defects" : [ ]
+    }
+  } ]
+}

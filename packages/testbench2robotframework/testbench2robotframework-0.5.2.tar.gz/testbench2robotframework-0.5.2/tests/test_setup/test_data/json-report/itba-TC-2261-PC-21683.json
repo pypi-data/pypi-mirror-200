@@ -1,0 +1,194 @@
+{
+  "uniqueID" : "itba-TC-2261-PC-21683",
+  "spec" : {
+    "key" : "21683",
+    "comments" : "",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "requirements" : [ ]
+  },
+  "exec" : {
+    "key" : "21684",
+    "status" : "Performed",
+    "execStatus" : "NotBlocked",
+    "verdict" : "Fail",
+    "plannedDuration" : 0,
+    "actualDuration" : 0,
+    "currentUser" : {
+      "key" : "",
+      "name" : ""
+    },
+    "comments" : "FAIL\n\nStart Time:   2023-02-27 10:36:47.226\nEnd Time:     2023-02-27 10:36:47.244\nElapsed Time: 0:00:00.018000\n\nMessage:\n\nAssertionError\n\nAlso teardown failed:\nAssertionError",
+    "defects" : [ ],
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ]
+  },
+  "interactions" : [ {
+    "key" : "2305843010000028099",
+    "uniqueID" : "itba-IA-28099",
+    "name" : "Mein Keyword",
+    "interactionType" : "Atomic",
+    "path" : "RF.Resources.myKeywords [Robot-Resource]",
+    "spec" : {
+      "callId" : 401539,
+      "sequencePhase" : "Setup",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000028099",
+    "uniqueID" : "itba-IA-28099",
+    "name" : "Mein Keyword",
+    "interactionType" : "Atomic",
+    "path" : "RF.Resources.myKeywords [Robot-Resource]",
+    "spec" : {
+      "callId" : 401455,
+      "sequencePhase" : "TestStep",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000028102",
+    "uniqueID" : "itba-IA-28102",
+    "name" : "Failing Keyword",
+    "interactionType" : "Atomic",
+    "path" : "RF.Resources.myKeywords [Robot-Resource]",
+    "spec" : {
+      "callId" : 401537,
+      "sequencePhase" : "TestStep",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000028099",
+    "uniqueID" : "itba-IA-28099",
+    "name" : "Mein Keyword",
+    "interactionType" : "Atomic",
+    "path" : "RF.Resources.myKeywords [Robot-Resource]",
+    "spec" : {
+      "callId" : 401459,
+      "sequencePhase" : "Teardown",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000028102",
+    "uniqueID" : "itba-IA-28102",
+    "name" : "Failing Keyword",
+    "interactionType" : "Atomic",
+    "path" : "RF.Resources.myKeywords [Robot-Resource]",
+    "spec" : {
+      "callId" : 401457,
+      "sequencePhase" : "Teardown",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ ],
+    "interactions" : [ ]
+  } ],
+  "parameters" : [ ]
+}

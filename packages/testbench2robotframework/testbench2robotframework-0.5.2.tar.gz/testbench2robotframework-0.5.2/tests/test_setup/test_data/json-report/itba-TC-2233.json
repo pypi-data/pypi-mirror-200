@@ -1,0 +1,57 @@
+{
+  "key" : "4611686020000002233",
+  "numbering" : "18.5",
+  "uniqueID" : "itba-TC-2233",
+  "name" : "multiple_testcases",
+  "spec" : {
+    "key" : "-1",
+    "description" : "",
+    "reviewComment" : "",
+    "status" : "Planned",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ],
+    "requirements" : [ ],
+    "preConditions" : [ ],
+    "postConditions" : [ ]
+  },
+  "exec" : {
+    "key" : "-1",
+    "comments" : "Start Time:   2023-02-27 10:36:47.103\nEnd Time:     2023-02-27 10:36:47.111\n\nitba-TC-2233-PC-21647 \t \tPASS \t\n\n2023-02-27 10:36:47.107\n\nitba-TC-2233-PC-21649 \t \tPASS \t\n\n2023-02-27 10:36:47.111",
+    "udfs" : [ ],
+    "keywords" : [ ]
+  },
+  "testCases" : [ {
+    "uniqueID" : "itba-TC-2233-PC-21647",
+    "index" : 1,
+    "spec" : {
+      "key" : "21647",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21648",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Pass",
+      "defects" : [ ]
+    }
+  }, {
+    "uniqueID" : "itba-TC-2233-PC-21649",
+    "index" : 2,
+    "spec" : {
+      "key" : "21649",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21650",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Pass",
+      "defects" : [ ]
+    }
+  } ]
+}

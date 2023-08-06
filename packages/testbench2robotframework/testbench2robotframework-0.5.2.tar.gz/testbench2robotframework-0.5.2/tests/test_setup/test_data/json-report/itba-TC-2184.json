@@ -1,0 +1,41 @@
+{
+  "key" : "4611686020000002229",
+  "numbering" : "18.1",
+  "uniqueID" : "itba-TC-2184",
+  "name" : "TCS_with_single_setup_and_teardown_step",
+  "spec" : {
+    "key" : "-1",
+    "description" : "",
+    "reviewComment" : "",
+    "status" : "Planned",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ],
+    "requirements" : [ ],
+    "preConditions" : [ ],
+    "postConditions" : [ ]
+  },
+  "exec" : {
+    "key" : "-1",
+    "comments" : "Start Time:   2023-02-27 10:36:45.678\nEnd Time:     2023-02-27 10:36:46.434\n\nitba-TC-2184-PC-21637 \t \tPASS \t\n\n2023-02-27 10:36:46.434",
+    "udfs" : [ ],
+    "keywords" : [ ]
+  },
+  "testCases" : [ {
+    "uniqueID" : "itba-TC-2184-PC-21637",
+    "index" : 1,
+    "spec" : {
+      "key" : "21637",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21638",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Pass",
+      "defects" : [ ]
+    }
+  } ]
+}

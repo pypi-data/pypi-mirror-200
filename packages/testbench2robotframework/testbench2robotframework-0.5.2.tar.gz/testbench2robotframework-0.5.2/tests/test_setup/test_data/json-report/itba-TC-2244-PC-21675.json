@@ -1,0 +1,128 @@
+{
+  "uniqueID" : "itba-TC-2244-PC-21675",
+  "spec" : {
+    "key" : "21675",
+    "comments" : "",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "requirements" : [ ]
+  },
+  "exec" : {
+    "key" : "21676",
+    "status" : "Performed",
+    "execStatus" : "NotBlocked",
+    "verdict" : "Fail",
+    "plannedDuration" : 0,
+    "actualDuration" : 0,
+    "currentUser" : {
+      "key" : "",
+      "name" : ""
+    },
+    "comments" : "FAIL\n\nStart Time:   2023-02-27 10:36:47.208\nEnd Time:     2023-02-27 10:36:47.216\nElapsed Time: 0:00:00.008000\n\nMessage:\n\nSetup failed:\nAssertionError",
+    "defects" : [ ],
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ]
+  },
+  "interactions" : [ {
+    "key" : "2305843010000028099",
+    "uniqueID" : "itba-IA-28099",
+    "name" : "Mein Keyword",
+    "interactionType" : "Atomic",
+    "path" : "RF.Resources.myKeywords [Robot-Resource]",
+    "spec" : {
+      "callId" : 400969,
+      "sequencePhase" : "Setup",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000028102",
+    "uniqueID" : "itba-IA-28102",
+    "name" : "Failing Keyword",
+    "interactionType" : "Atomic",
+    "path" : "RF.Resources.myKeywords [Robot-Resource]",
+    "spec" : {
+      "callId" : 400977,
+      "sequencePhase" : "Setup",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000028099",
+    "uniqueID" : "itba-IA-28099",
+    "name" : "Mein Keyword",
+    "interactionType" : "Atomic",
+    "path" : "RF.Resources.myKeywords [Robot-Resource]",
+    "spec" : {
+      "callId" : 400971,
+      "sequencePhase" : "TestStep",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ ],
+    "interactions" : [ ]
+  } ],
+  "parameters" : [ ]
+}

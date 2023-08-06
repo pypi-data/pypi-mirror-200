@@ -1,0 +1,41 @@
+{
+  "key" : "4611686020000002243",
+  "numbering" : "18.8",
+  "uniqueID" : "itba-TC-2243",
+  "name" : "setup_contains_keyword_outside_of_testbench",
+  "spec" : {
+    "key" : "-1",
+    "description" : "",
+    "reviewComment" : "",
+    "status" : "Planned",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ],
+    "requirements" : [ ],
+    "preConditions" : [ ],
+    "postConditions" : [ ]
+  },
+  "exec" : {
+    "key" : "-1",
+    "comments" : "Start Time:   2023-02-27 10:36:47.191\nEnd Time:     2023-02-27 10:36:47.196\n\nitba-TC-2243-PC-21673 \t \tPASS \t\n\n2023-02-27 10:36:47.196",
+    "udfs" : [ ],
+    "keywords" : [ ]
+  },
+  "testCases" : [ {
+    "uniqueID" : "itba-TC-2243-PC-21673",
+    "index" : 1,
+    "spec" : {
+      "key" : "21673",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21674",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Pass",
+      "defects" : [ ]
+    }
+  } ]
+}

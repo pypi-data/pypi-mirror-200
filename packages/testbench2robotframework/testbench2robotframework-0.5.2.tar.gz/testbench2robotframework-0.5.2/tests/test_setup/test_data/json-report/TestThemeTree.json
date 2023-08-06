@@ -1,0 +1,258 @@
+{
+  "root" : {
+    "elementType" : "Root",
+    "baseInformation" : {
+      "key" : "8007",
+      "numbering" : "-1",
+      "parentKey" : "-1",
+      "name" : "[root]",
+      "uniqueID" : "iTB-TT-Root",
+      "orderPos" : 0,
+      "matchesFilter" : true
+    },
+    "filters" : [ ]
+  },
+  "nodes" : [ {
+    "elementType" : "TestTheme",
+    "baseInformation" : {
+      "key" : "2187",
+      "numbering" : "18",
+      "parentKey" : "8007",
+      "name" : "SetupAndTeardown",
+      "uniqueID" : "itba-TT-2153",
+      "orderPos" : 18,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002229",
+      "numbering" : "18.1",
+      "parentKey" : "2187",
+      "name" : "TCS_with_single_setup_and_teardown_step",
+      "uniqueID" : "itba-TC-2184",
+      "orderPos" : 1,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002230",
+      "numbering" : "18.2",
+      "parentKey" : "2187",
+      "name" : "TCS_with_multiple_setup_and_teardown_steps",
+      "uniqueID" : "itba-TC-2185",
+      "orderPos" : 2,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002231",
+      "numbering" : "18.3",
+      "parentKey" : "2187",
+      "name" : "TCS_with_failing_setup",
+      "uniqueID" : "itba-TC-2231",
+      "orderPos" : 3,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002232",
+      "numbering" : "18.4",
+      "parentKey" : "2187",
+      "name" : "TCS_with_failing_setup_2",
+      "uniqueID" : "itba-TC-2232",
+      "orderPos" : 4,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002233",
+      "numbering" : "18.5",
+      "parentKey" : "2187",
+      "name" : "multiple_testcases",
+      "uniqueID" : "itba-TC-2233",
+      "orderPos" : 5,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002241",
+      "numbering" : "18.6",
+      "parentKey" : "2187",
+      "name" : "multiple_testcases_with_multiple steps",
+      "uniqueID" : "itba-TC-2241",
+      "orderPos" : 6,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002242",
+      "numbering" : "18.7",
+      "parentKey" : "2187",
+      "name" : "compund_interaction_in_setup",
+      "uniqueID" : "itba-TC-2242",
+      "orderPos" : 7,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002243",
+      "numbering" : "18.8",
+      "parentKey" : "2187",
+      "name" : "setup_contains_keyword_outside_of_testbench",
+      "uniqueID" : "itba-TC-2243",
+      "orderPos" : 8,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002244",
+      "numbering" : "18.9",
+      "parentKey" : "2187",
+      "name" : "setup_contains_failing_keyword_outside_of_testbench",
+      "uniqueID" : "itba-TC-2244",
+      "orderPos" : 9,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  }, {
+    "elementType" : "TestCaseSet",
+    "baseInformation" : {
+      "key" : "4611686020000002261",
+      "numbering" : "18.10",
+      "parentKey" : "2187",
+      "name" : "teardown_contains_failing_keyword_outside_of_testbench",
+      "uniqueID" : "itba-TC-2261",
+      "orderPos" : 10,
+      "matchesFilter" : true
+    },
+    "specification" : {
+      "key" : "-1",
+      "status" : "Planned"
+    },
+    "execution" : {
+      "key" : "-1",
+      "status" : "Planned",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Undefined"
+    },
+    "filters" : [ ]
+  } ]
+}

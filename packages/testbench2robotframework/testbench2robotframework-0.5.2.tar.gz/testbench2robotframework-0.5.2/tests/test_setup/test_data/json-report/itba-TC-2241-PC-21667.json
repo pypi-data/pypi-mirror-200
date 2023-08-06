@@ -1,0 +1,434 @@
+{
+  "uniqueID" : "itba-TC-2241-PC-21667",
+  "spec" : {
+    "key" : "21667",
+    "comments" : "",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "requirements" : [ ]
+  },
+  "exec" : {
+    "key" : "21669",
+    "status" : "Performed",
+    "execStatus" : "NotBlocked",
+    "verdict" : "Pass",
+    "plannedDuration" : 0,
+    "actualDuration" : 0,
+    "currentUser" : {
+      "key" : "",
+      "name" : ""
+    },
+    "comments" : "PASS\n\nStart Time:   2023-02-27 10:36:47.122\nEnd Time:     2023-02-27 10:36:47.127\nElapsed Time: 0:00:00.005000\n\nMessage:",
+    "defects" : [ ],
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ]
+  },
+  "interactions" : [ {
+    "key" : "2305843010000027750",
+    "uniqueID" : "iTB_RF-IA-48a9ca5659",
+    "name" : "Log",
+    "interactionType" : "Atomic",
+    "path" : "RF.Libraries.BuiltIn [Robot-Library]",
+    "spec" : {
+      "callId" : 400074,
+      "sequencePhase" : "Setup",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ {
+      "name" : "message",
+      "value" : "hello from setup1",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "message",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b1ed44c3f6"
+    }, {
+      "name" : "level",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "level",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-94cd1176b2"
+    }, {
+      "name" : "html",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "html",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-539d2fa1dc"
+    }, {
+      "name" : "console",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "console",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b6f2c0a16e"
+    }, {
+      "name" : "repr",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "repr",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-091378cfbc"
+    }, {
+      "name" : "formatter",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "formatter",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-0f12324928"
+    } ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000027750",
+    "uniqueID" : "iTB_RF-IA-48a9ca5659",
+    "name" : "Log",
+    "interactionType" : "Atomic",
+    "path" : "RF.Libraries.BuiltIn [Robot-Library]",
+    "spec" : {
+      "callId" : 399997,
+      "sequencePhase" : "Setup",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ {
+      "name" : "message",
+      "value" : "hello from setup1",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "message",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b1ed44c3f6"
+    }, {
+      "name" : "level",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "level",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-94cd1176b2"
+    }, {
+      "name" : "html",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "html",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-539d2fa1dc"
+    }, {
+      "name" : "console",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "console",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b6f2c0a16e"
+    }, {
+      "name" : "repr",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "repr",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-091378cfbc"
+    }, {
+      "name" : "formatter",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "formatter",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-0f12324928"
+    } ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000027750",
+    "uniqueID" : "iTB_RF-IA-48a9ca5659",
+    "name" : "Log",
+    "interactionType" : "Atomic",
+    "path" : "RF.Libraries.BuiltIn [Robot-Library]",
+    "spec" : {
+      "callId" : 400005,
+      "sequencePhase" : "TestStep",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ {
+      "name" : "message",
+      "value" : "Hi",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "message",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b1ed44c3f6"
+    }, {
+      "name" : "level",
+      "value" : "INFO",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "level",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-94cd1176b2"
+    }, {
+      "name" : "html",
+      "value" : "False",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "html",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-539d2fa1dc"
+    }, {
+      "name" : "console",
+      "value" : "False",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "console",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b6f2c0a16e"
+    }, {
+      "name" : "repr",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "repr",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-091378cfbc"
+    }, {
+      "name" : "formatter",
+      "value" : "str",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "formatter",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-0f12324928"
+    } ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000027750",
+    "uniqueID" : "iTB_RF-IA-48a9ca5659",
+    "name" : "Log",
+    "interactionType" : "Atomic",
+    "path" : "RF.Libraries.BuiltIn [Robot-Library]",
+    "spec" : {
+      "callId" : 400082,
+      "sequencePhase" : "Teardown",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ {
+      "name" : "message_1",
+      "value" : "teardown1",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "message",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b1ed44c3f6"
+    }, {
+      "name" : "level_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "level",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-94cd1176b2"
+    }, {
+      "name" : "html_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "html",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-539d2fa1dc"
+    }, {
+      "name" : "console_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "console",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b6f2c0a16e"
+    }, {
+      "name" : "repr_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "repr",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-091378cfbc"
+    }, {
+      "name" : "formatter_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "formatter",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-0f12324928"
+    } ],
+    "interactions" : [ ]
+  }, {
+    "key" : "2305843010000027750",
+    "uniqueID" : "iTB_RF-IA-48a9ca5659",
+    "name" : "Log",
+    "interactionType" : "Atomic",
+    "path" : "RF.Libraries.BuiltIn [Robot-Library]",
+    "spec" : {
+      "callId" : 400013,
+      "sequencePhase" : "Teardown",
+      "callType" : "Flow",
+      "description" : "",
+      "comments" : "",
+      "references" : [ ],
+      "preConditions" : [ ],
+      "postConditions" : [ ]
+    },
+    "exec" : {
+      "verdict" : "Undefined",
+      "time" : "",
+      "duration" : 0,
+      "currentUser" : {
+        "key" : "",
+        "name" : ""
+      },
+      "tester" : {
+        "key" : "",
+        "name" : ""
+      },
+      "comments" : "",
+      "references" : [ ]
+    },
+    "parameters" : [ {
+      "name" : "message_1",
+      "value" : "teardown1",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "message",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b1ed44c3f6"
+    }, {
+      "name" : "level_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "level",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-94cd1176b2"
+    }, {
+      "name" : "html_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "html",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-539d2fa1dc"
+    }, {
+      "name" : "console_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "console",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-b6f2c0a16e"
+    }, {
+      "name" : "repr_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "repr",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-091378cfbc"
+    }, {
+      "name" : "formatter_1",
+      "value" : "undef.",
+      "parameterType" : "AtomicInstance",
+      "parameterUseType" : "CallByValue",
+      "dataTypeName" : "formatter",
+      "dataTypePath" : "RF.Libraries.BuiltIn [Robot-Library]._Datatypes",
+      "dataTypeUniqueID" : "iTB_RF-DT-0f12324928"
+    } ],
+    "interactions" : [ ]
+  } ],
+  "parameters" : [ ]
+}

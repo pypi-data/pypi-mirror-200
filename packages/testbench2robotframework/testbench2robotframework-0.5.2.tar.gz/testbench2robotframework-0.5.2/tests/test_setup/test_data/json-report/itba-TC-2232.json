@@ -1,0 +1,41 @@
+{
+  "key" : "4611686020000002232",
+  "numbering" : "18.4",
+  "uniqueID" : "itba-TC-2232",
+  "name" : "TCS_with_failing_setup_2",
+  "spec" : {
+    "key" : "-1",
+    "description" : "",
+    "reviewComment" : "",
+    "status" : "Planned",
+    "udfs" : [ ],
+    "keywords" : [ ],
+    "references" : [ ],
+    "requirements" : [ ],
+    "preConditions" : [ ],
+    "postConditions" : [ ]
+  },
+  "exec" : {
+    "key" : "-1",
+    "comments" : "Start Time:   2023-02-27 10:36:47.070\nEnd Time:     2023-02-27 10:36:47.086\n\nitba-TC-2232-PC-21645 \t \tFAIL \t\n\nSetup failed:\nInvalid log level 'levelttt'.",
+    "udfs" : [ ],
+    "keywords" : [ ]
+  },
+  "testCases" : [ {
+    "uniqueID" : "itba-TC-2232-PC-21645",
+    "index" : 1,
+    "spec" : {
+      "key" : "21645",
+      "comments" : "",
+      "requirements" : [ ]
+    },
+    "exec" : {
+      "key" : "21646",
+      "comments" : "",
+      "status" : "Performed",
+      "execStatus" : "NotBlocked",
+      "verdict" : "Fail",
+      "defects" : [ ]
+    }
+  } ]
+}
