@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=67.4.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyefs"
+version = "0.0.1"
+description = "A Python module for encrypting and decrypting files using the Fernet encryption algorithm."
+readme = "README.md"
+authors = [{ name = "joumaico", email = "joumaico@gmx.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "cryptography>=40.0.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/joumaico/pyefs"
