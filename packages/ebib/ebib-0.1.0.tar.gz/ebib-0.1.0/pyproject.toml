@@ -1,0 +1,22 @@
+[project]
+name = "ebib"
+version = "0.1.0"
+authors = [
+	{ name = "Ernesto Lanchares", email = "elancha98@gmail.com" },
+]
+description = "ebib is a bibliography manager system aimed to work with Gitlab/Github pages"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["Click", "requests", "pymupdf"]
+
+[project.scripts]
+ebib = "ebib.cli:cli"
+
+
+[project.urls]
+"Homepage" = "https://gitlab.com/elancha/ebib"
+"Bug Tracker" = "https://gitlab.com/elancha/ebib/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
