@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: onlyls
+Version: 0.1
+Summary: A package for performing OLS regression for numpy, pandas, and dask
+Home-page: UNKNOWN
+Author: Aadya Chinubhai
+Author-email: aadyachinubhai@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: dask
+Requires-Dist: scipy
+
+UNKNOWN
+
