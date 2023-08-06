@@ -1,0 +1,19 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "Temporizzatore",
+            "state": {
+                "active": "Attivo",
+                "idle": "Inattivo",
+                "paused": "In pausa"
+            }
+        }
+    },
+    "state": {
+        "_": {
+            "active": "Attivo",
+            "idle": "Inattivo",
+            "paused": "In pausa"
+        }
+    }
+}
