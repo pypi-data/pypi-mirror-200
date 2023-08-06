@@ -1,0 +1,21 @@
+# Development packages are used to build from source, run the test suite and build documentation
+
+## Build tools
+build
+setuptools>=42
+setuptools_scm[toml] >= 3.4.1
+wheel
+
+## pylint, flake8 checkers are used by "make check".
+flake8
+pylint>=2.14.0
+
+## pytest packages are used by the "make test" test suite.
+pytest>=3.6
+pytest-cov
+
+## Build and install documentation using "make doc" and "make install-doc".
+jaraco.packaging >= 9
+rst.linker >= 1.9
+Sphinx
+sphinx-rtd-theme
