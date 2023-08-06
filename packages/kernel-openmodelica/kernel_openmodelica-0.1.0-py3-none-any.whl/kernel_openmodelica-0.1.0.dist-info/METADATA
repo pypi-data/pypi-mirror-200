@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: kernel-openmodelica
+Version: 0.1.0
+Summary: A Jupyter kernel for OpenModelica.
+Home-page: https://github.com/WallyTutor/learning-scientific-computing/tree/main/tools/jupyter-kernel-openmodelica
+Author: ArunKumar Palanisamy
+Author-email: arunkumar.palanisamy@liu.se
+Maintainer: "Walter Dal'Maz Silva"
+Maintainer-email: walter.dalmazsilva@gmail.com
+License: MIT
+Download-URL: https://github.com/WallyTutor/learning-scientific-computing/tools/jupyter-kernel-openmodelica
+Project-URL: Repository, https://github.com/WallyTutor/learning-scientific-computing/tools/jupyter-kernel-openmodelica
+Keywords: Scientific computing,Computing platform
+Platform: Any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: Topic :: System :: Shells
+Requires: ipykernel
+Requires: jupyter_client (>=4.3.0)
+Requires: majordome (>=0.3.0)
+Requires: matplotlib (>=3.5.2)
+Requires: numpy (>=1.22.4)
+Requires: OMPython
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+Requires-Dist: ipykernel
+Requires-Dist: jupyter-client (>=4.3.0)
+Requires-Dist: majordome (>=0.3.0)
+Requires-Dist: matplotlib (>=3.5.2)
+Requires-Dist: numpy (>=1.22.4)
+Requires-Dist: OMPython
+
+A Jupyter kernel for OpenModelica.
+
+Important
+---------
+This project is a fork from the original 
+`jupyter-openmodelica <https://github.com/OpenModelica/jupyter-openmodelica>`_.
+The goal of forking was to perform an important refactor and improve PEP 8 compliance, but also to
+fix a few bugs because the original source seems abandonned. If this works I will reach the OM
+maintainers and propose to replace the project with the updated code. Plotting is still extremely
+fragile and not customizable! Only works properly with Jupyter Notebook and kernel restart is not
+working, requires to force shutdown the kernel.
+Any help is welcomed!
+
+Prerequisites
+-------------
+- `Jupyter Notebook <http://jupyter.readthedocs.org/en/latest/install.html>`_
+- `OpenModelica <https://openmodelica.org>`_
+- `OMPython <https://github.com/OpenModelica/OMPython>`_
+
+Installation
+------------
+Before proceeding follow the installation instructions in OMPython as given in the prerequisites.
+Make sure the environment variable for OpenModelica is set e.g.: 
+`OPENMODELICAHOME=C:/OpenModelica1.20.0-64bit/`. Once everything is set, install the package with
+`pip` from PyPI or clone and build this repository.
+
+    pip install kernel_openmodelica
+
+
+
