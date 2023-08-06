@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: codecomrade
+Version: 0.0.1
+Summary: Git commands with CODEOWNERS awareness.
+Home-page: https://github.com/jmelahman/codecomrade
+Download-URL: https://github.com/jmelahman/codecomrade/archive/refs/tags/v0.0.1.tar.gz
+Author: Jamison Lahman
+Author-email: jamison@lahman.dev
+License: MIT
+Keywords: github,codeowners
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Topic :: System :: Software Distribution
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# codecomrade
+
+## Development
+
+### Install
+
+```shell
+python setup.py install --user
+```
