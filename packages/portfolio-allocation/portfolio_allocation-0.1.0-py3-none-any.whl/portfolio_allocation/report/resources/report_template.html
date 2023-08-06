@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>%TITLE%</title>
+    <style>
+        #container {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+
+        #container > #settings {
+            flex-basis: 20%;
+        }
+
+        #container > #chartContainer {
+            flex-basis: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="settings">
+        <label for="allocationBy">Allocate by</label> <select id="allocationBy"></select>
+    </div>
+    <div id="chartContainer">
+        <canvas id="chart" class="chart"></canvas>
+    </div>
+</div>
+<script src="%CHART_JS%"></script>
+<script src="%MAIN_JS%"></script>
+<script>
+    init('%LOCALE%', '%CURRENCY%', %DATA%)
+</script>
+</body>
+</html>
