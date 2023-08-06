@@ -1,0 +1,28 @@
+[project]
+name = "ddc-indices"
+version = "0.5.1"
+description = "Package for calculating meteorological indices"
+authors = [{ name="Balint Alfoldy", email="balint.alfoldy@lechnerkozpont.hu" }]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "importlib-metadata >= 6.0.0",
+    "matplotlib >= 3.6.2",
+    "pydantic >= 1.10.0",
+    "scipy >= 1.9.1",
+    "xarray >= 2023.1.0",
+    "zarr >= 2.13.6",
+    "dask >= 2023.1.1"
+]
+
+[tool.setuptools.packages.find]
+include = ["ddc_indices*"] 
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
