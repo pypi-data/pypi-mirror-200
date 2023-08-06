@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: pytigon-gui
+Version: 0.230402
+Summary: Pytigon GUI
+Home-page: UNKNOWN
+Author: Sławomir Chołaj
+Author-email: slawomir.cholaj@gmail.com
+License: LGPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+Requires-Dist: PyDispatcher
+Requires-Dist: black
+Requires-Dist: libsass
+Requires-Dist: pyshortcuts
+Requires-Dist: pytigon-batteries
+Requires-Dist: wxasync
+Requires-Dist: wxpython
+
+UNKNOWN
+
