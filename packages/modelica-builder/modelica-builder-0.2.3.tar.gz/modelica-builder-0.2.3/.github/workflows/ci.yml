@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches: ["develop", "main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+      - name: Set up package
+        run: |
+          pip install -U pip setuptools
+          pip install tox coveralls
+          pip install -r requirements.txt
+          pre-commit install
+      - name: Run tox
+        run: tox
+      - name: Run pre-commit
+        run: pre-commit run --all-files
+      - name: Coveralls
+        if: ${{ success() }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: coveralls --service=github
