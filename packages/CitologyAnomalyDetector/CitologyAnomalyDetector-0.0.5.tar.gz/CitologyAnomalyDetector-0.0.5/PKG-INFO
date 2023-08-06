@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: CitologyAnomalyDetector
+Version: 0.0.5
+Summary: Deep Learning model for anomaly detection of citology images
+Home-page: https://github.com/joheras/CitologyAnomalyDetector
+Author: Jónathan Heras Vicente
+Author-email: joheras@gmail.com
+Maintainer: Jónathan Heras Vicente
+Maintainer-email: joheras@gmail.com
+License: GNU General Public License v3 (GPLv3)
+Description: # Citology Anomaly Detector
+        
+        Install with `pip install CitologyAnomalyDetector`.
+        
+        Use it with:
+        ```bash
+        anomaly-detection <path>
+        ```
+        
+        where <path> is the path to a folder with two subfolders train and valid. The train folder should contain at least one imagen, and the valid folder contain the images to analyse. 
+        
+Keywords: anomaly detection fastai
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
