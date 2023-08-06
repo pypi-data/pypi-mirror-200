@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: htitles
+Version: 0.0.2
+Summary: A cool package to change the python terminal text easily
+Home-page: 
+Author: FrostWreath
+Author-email: 
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+This is simple python library that can make you set the title of your python terminal easily!
+
+There is only 1 simple use for this, and it is down below!
+
+htitle(name) #This will change your python terminal name!
