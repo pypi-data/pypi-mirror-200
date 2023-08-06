@@ -1,0 +1,17 @@
+pages:
+  image: sphinxdoc/sphinx
+
+  tags:
+    - ci.inria.fr
+    - linux
+    - small
+
+  script:
+    - bash ./scripts/hydronaut-build_documentation.sh -i public
+
+  artifacts:
+    paths:
+    - public
+
+  only:
+  - main
