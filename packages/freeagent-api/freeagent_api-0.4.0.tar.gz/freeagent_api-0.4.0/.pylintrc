@@ -1,0 +1,44 @@
+[MASTER]
+# Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
+# number of processors available to use.
+jobs=0
+
+# When enabled, pylint would attempt to guess common misconfiguration and emit
+# user-friendly hints instead of false-positive error messages.
+suggestion-mode=yes
+
+
+[MESSAGES CONTROL]
+# C0114, C0115, and C0116 are docstring warnings - I use pydocstyle for these
+# R0903 is a recommendation for the minimum number of functions per class
+disable=C0114,C0115,C0116,R0903
+
+
+[REPORTS]
+# Set the output format. Available formats are text, parseable, colorized, json
+# and msvs (visual studio). You can also give a reporter class, e.g.
+# mypackage.mymodule.MyReporterClass.
+output-format=colorized
+
+# Tells whether to display a full report or only the messages.
+reports=no
+
+[LOGGING]
+# The type of string formatting that logging methods do. `old` means using %
+# formatting, `new` is for `{}` formatting.
+logging-format-style=old
+
+# Logging modules to check that the string format arguments are in logging
+# function parameter format.
+logging-modules=logging
+
+
+[STRING]
+# This flag controls whether the implicit-str-concat should generate a warning
+# on implicit string concatenation in sequences defined over several lines.
+check-str-concat-over-line-jumps=yes
+
+
+[BASIC]
+# Include a hint for the correct naming format with invalid-name.
+include-naming-hint=yes

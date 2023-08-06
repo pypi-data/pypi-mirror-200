@@ -1,0 +1,24 @@
+tag:
+    pattern: 'v%d.%d.%d'
+    filter: ""
+release-notes:
+    sections:
+        - name: Features
+          section-type: commits
+          commit-types: [feat]
+        - name: Bug fixes
+          section-type: commits
+          commit-types: [fix]
+        - name: Breaking changes
+          section-type: breaking-changes
+        - name: Other
+          section-type: commits
+          commit-types: [build, ci, chore, docs, perf, refactor, revert, style, test]
+commit-message:
+    scope:
+        values: []
+    footer:
+        issue: {}
+    issue:
+        regex: '#[0-9]+'
+

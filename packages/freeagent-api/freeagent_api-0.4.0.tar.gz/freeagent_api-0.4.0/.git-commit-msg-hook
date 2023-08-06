@@ -1,0 +1,2 @@
+#!/bin/sh
+git sv validate-commit-message --path "$(pwd)" --file "$1" --source "$2"

@@ -1,0 +1,29 @@
+[build-system]
+requires      = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[project]
+name = "freeagent_api"
+authors = [{ name = "Richard Davis", email = "inutt.dev@gmail.com" }]
+description = "Interface to the FreeAgent accounting software API"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Topic :: Internet",
+]
+dynamic = ["version"]
+dependencies = ["requests_oauth2client"]
+
+[project.urls]
+#"Homepage" = "https://gitlab.com/inutt/to_be_filled_in"
+"Bug Tracker" = "https://gitlab.com/inutt/python-freeagent-api/-/issues"
+"Repository"  = "https://gitlab.com/inutt/python-freeagent-api"
+#"Changelog" = "https://gitlab.com/inutt/to_be_filled_in"

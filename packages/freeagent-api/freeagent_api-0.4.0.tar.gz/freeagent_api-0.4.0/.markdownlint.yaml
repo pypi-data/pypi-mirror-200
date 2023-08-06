@@ -1,0 +1,28 @@
+MD003:
+  style: "atx"
+MD004:
+  style: "dash"
+MD007:
+  indent: 4
+  start_indented: false
+MD010:
+  spaces_per_tab: 4
+MD012:
+  maximum: 2
+MD029:
+  style: 'ordered'
+MD030:
+  ul_single: 3
+  ul_multi: 3
+  ol_single: 3
+  ol_multi: 3
+MD035:
+  style: '---'
+MD046:
+  style: 'fenced'
+MD048:
+  style: 'backtick'
+MD049:
+  style: 'asterisk'
+MD050:
+  style: 'asterisk'
