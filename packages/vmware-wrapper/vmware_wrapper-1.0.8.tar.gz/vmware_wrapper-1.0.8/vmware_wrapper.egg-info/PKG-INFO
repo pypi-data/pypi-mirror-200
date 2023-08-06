@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: vmware-wrapper
+Version: 1.0.8
+Summary: A package to work with VMware Workstation. Local/vSphere storages
+Home-page: https://github.com/Oleggg2000/vmware_wrapper
+Author: Kanaev Oleg
+Author-email: saga6021@gmail.com
+License: UNKNOWN
+Keywords: python,vmware,vmrest,vmrest.cfg,VMware,VMware Workstation,vsphere-automation-sdk-python,vmware sdk
+Platform: UNKNOWN
+Classifier: Development Status :: 6 - Mature
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Editors :: Integrated Development Environments (IDE)
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# vmware_wrapper
+VMware helper to manage vSphere or local infrastructures
+
+
