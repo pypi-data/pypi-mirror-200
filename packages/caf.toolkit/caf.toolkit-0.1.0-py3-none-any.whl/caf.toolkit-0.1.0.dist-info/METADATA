@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: caf.toolkit
+Version: 0.1.0
+Summary: A toolkit of transport planning and appraisal functionalities
+Home-page: https://github.com/Transport-for-the-North/caf.toolkit
+Author: Transport for the North
+Maintainer: Ben Taylor
+License: GPL-3.0
+Project-URL: Bug Tracker, https://github.com/Transport-for-the-North/caf.toolkit/issues
+Project-URL: Source, https://github.com/Transport-for-the-North/caf.toolkit
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy (>=1.19.0)
+Requires-Dist: pandas (>=1.4.0)
+Requires-Dist: tqdm (>=4.50.2)
+Requires-Dist: sparse (>=0.13.0)
+Requires-Dist: numba (>=0.56.4)
+Requires-Dist: pydantic (>=1.10)
+Requires-Dist: strictyaml (>=1.6)
+Provides-Extra: testing
+Requires-Dist: pytest (~=7.1.2) ; extra == 'testing'
+Requires-Dist: pytest-cov (~=2.12.1) ; extra == 'testing'
+Requires-Dist: psutil (>=5.9.0) ; extra == 'testing'
+Requires-Dist: mypy (>=0.910) ; extra == 'testing'
+Requires-Dist: mypy-extensions (>=0.4.3) ; extra == 'testing'
+Requires-Dist: pylint (>=2.14.5) ; extra == 'testing'
+Requires-Dist: pydocstyle (>=6.1.1) ; extra == 'testing'
+Requires-Dist: pydocstyle[toml] ; extra == 'testing'
+Requires-Dist: tox (~=3.24.3) ; extra == 'testing'
+
+
+![Transport for the North Logo](https://github.com/Transport-for-the-North/caf.toolkit/blob/main/docs/TFN_Landscape_Colour_CMYK.png)
+
+<h1 align="center">CAF.Toolkit</h1>
+
+<p align="center">
+<a href=""><img alt="" src=""></a>
+<a href="https://pypi.org/project/caf.toolkit/"><img alt="PyPI Latest Release" src="https://img.shields.io/pypi/v/caf.toolkit.svg"></a>
+<a href="https://app.codecov.io/gh/Transport-for-the-North/caf.toolkit"><img alt="Coverage" src="https://codecov.io/gh/transport-for-the-north/caf.toolkit/branch/main/graphs/badge.svg?branch=main"></a>
+<a href="https://github.com/Transport-for-the-North/caf.toolkit/actions/workflows/tests.yml/badge.svg"><img alt="Testing Badge" src="https://github.com/Transport-for-the-North/caf.toolkit/actions/workflows/tests.yml/badge.svg"></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img alt="License: GNU GPL v3.0" src="https://img.shields.io/badge/license-GPLv3-blueviolet.svg"></a>
+<a href="https://github.com/PyCQA/pylint"><img alt="linting: pylint" src="https://img.shields.io/badge/linting-pylint-yellowgreen"></a>
+<a href="https://google.github.io/styleguide/pyguide.html"><img alt="code format: Google Style Guide" src="https://img.shields.io/badge/code%20style-Google%20Style%20Guide-blue"></a>
+<a href="https://github.com/psf/black"><img alt="code style: black" src="https://img.shields.io/badge/code%20format-black-000000.svg"></a>
+</p>
+
+
+The Common Analytical Framework (CAF) Toolkit is a toolkit of transport
+planning and appraisal functionalities. It's the beginning of a project to make
+a lot of the useful stuff from
+[NorMITs Demand](https://github.com/Transport-for-the-North/NorMITs-Demand)
+more widely available and easily accessible.
