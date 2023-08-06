@@ -3,36 +3,10 @@
 This repo contains 40000 packages uploaded to PyPI between 
 2023-03-29 07:40 and 2023-04-03 14:49.
 
-The repo is 34% (13996/40000) complete.
+The repo is 39% (15996/40000) complete.
 
-## Packages:
+Package contents can be found [in the code branch](https://github.com/pypi-data/pypi-mirror-200/tree/code/packages).
 
-| Name  | Count |
-| ----- | ----- |
-| pydantic-core | 474 |
-| zeroconf | 294 |
-| wxchat | 275 |
-| hiddifypanel | 234 |
-| ml-indie-tools | 212 |
-| regex-rs | 198 |
-| rapidfuzz | 178 |
-| charidotella | 161 |
-| flashlight-text | 160 |
-| ddtrace | 138 |
-| yroom | 132 |
-| jsonc2json | 132 |
-| dyagram | 112 |
-| ase-extension | 96 |
-| jellyfish | 95 |
-| chily | 94 |
-| pybedrock | 93 |
-| mrflagly | 92 |
-| orso | 91 |
-| example-haskell-wheel | 80 |
-| llamacpp | 78 |
-| pgpq | 75 |
-| websockets | 70 |
-| openPMD-api | 69 |
-| py-svg-hush | 68 |
+A browsable package list for all repositories [all packages here](https://pypi-data.github.io/website/repositories/pypi-mirror-200).
 
 
