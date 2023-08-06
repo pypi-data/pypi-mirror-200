@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pyxet
+Version: 0.0.0a1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Requires-Dist: fsspec
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: maturin ; extra == 'dev'
+Provides-Extra: duckdb
+Requires-Dist: duckdb ; extra == 'duckdb'
+Provides-Extra: pandas
+Requires-Dist: pandas ; extra == 'pandas'
+Provides-Extra: polars
+Requires-Dist: polars ; extra == 'polars'
+Provides-Extra: pyarrow
+Requires-Dist: pyarrow ; extra == 'pyarrow'
+
