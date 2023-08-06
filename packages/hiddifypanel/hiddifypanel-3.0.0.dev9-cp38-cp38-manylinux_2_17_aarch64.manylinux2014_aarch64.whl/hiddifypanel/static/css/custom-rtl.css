@@ -1,0 +1,27 @@
+/*new design*/
+
+
+.sub-sidebar {
+    margin-left: 0px;
+    margin-right: 80px!important;
+}
+.main-header.navbar-expand{
+    margin-right: 100px!important;
+}
+.sidebar-collapse .main-header.navbar-expand{
+    margin-right: 0px!important;
+}
+.content-wrapper{
+    margin-left:0px !important;
+    margin-right:100px !important;
+}
+.sidebar-collapse .content-wrapper{
+    margin-left:0px !important;
+    margin-right:0px !important;
+}
+.sidebar{
+    direction:rtl;
+}
+.brand-image{
+    float: unset;
+}
