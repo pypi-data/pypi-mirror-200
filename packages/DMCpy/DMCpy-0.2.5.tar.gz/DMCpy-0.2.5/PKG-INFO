@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: DMCpy
+Version: 0.2.5
+Summary: Python software packaged designed for reduction of neutron powder diffraction data from DMC at PSI.
+Home-page: https://www.psi.ch/en/sinq/dmc/
+Author: Jakob Lass
+Author-email: jakob.lass@psi.ch
+License: MPL-2.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+License-File: LICENSE.txt
+
+DMCpy
+============
+Python software packaged designed for reduction of neutron powder diffraction data from DMC at PSI
+
+## Installation
+This package is to be install through the Python Package Manager by issuing 
+
+```
+pip install DMCpy
+```
+
+An up to date version should be preinstalled at the instrument computer for DMC.
+
