@@ -1,0 +1,3 @@
+[console_scripts]
+sinai-corpus-generate = sinai_corpus.generate:main
+sinai-corpus-load = sinai_corpus.load:main
