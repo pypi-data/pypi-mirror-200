@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: manim3
+Version: 0.0.1
+Summary: A personal variant of manim
+Author: YishiMichael
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Classifier: Programming Language :: Python
+Requires-Dist: colour
+Requires-Dist: manimpango
+Requires-Dist: mapbox-earcut
+Requires-Dist: moderngl
+Requires-Dist: moderngl_window
+Requires-Dist: numpy
+Requires-Dist: pillow
+Requires-Dist: pygments
+Requires-Dist: scipy
+Requires-Dist: shapely
+Requires-Dist: svgelements
+Requires-Dist: toml
+
+# manim3
+
+
+## Introduction
+Manim3 is a personal variant of [manim](https://github.com/3b1b/manim). It aims at standardizing the project structure, improving rendering performance and providing additional features.
+
+Note: This project is still in its primary stage and not stable.
+
+
+## Using manim3
+A demo file is provided as `examples.py`. After installing, just run
+```sh
+py examples.py
+```
+A window running a scene shall pop up.
+
+
+## Requirements
+Manim3 runs on Python 3.10 and OpenGL 3.3+.
+
+
+## License
+MIT license
+
