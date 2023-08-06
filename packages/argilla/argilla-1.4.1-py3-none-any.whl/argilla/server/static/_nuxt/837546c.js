@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[134],{1219:function(t,n,e){"use strict";e.r(n);e(53);var o={mounted:function(){this.$router.push("/datasets/".concat(this.$route.params.id,"/").concat(this.$route.params.dataset))}},c=e(41),component=Object(c.a)(o,(function(){return(0,this._self._c)("div")}),[],!1,null,null,null);n.default=component.exports}}]);
