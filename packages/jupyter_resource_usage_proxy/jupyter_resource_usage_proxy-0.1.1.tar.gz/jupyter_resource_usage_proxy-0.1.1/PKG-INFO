@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: jupyter_resource_usage_proxy
+Version: 0.1.1
+Summary: A Jupyter Server Extension Proxying Resource Usage.
+Project-URL: Homepage, https://github.com/davidbrochart/jupyter_resource_usage_proxy
+Author-email: David Brochart <david.brochart@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022 David Brochart
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: ipython,jupyter
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Requires-Dist: httpx>=0.23.1
+Requires-Dist: jupyter-server>=1.0.0
+Description-Content-Type: text/markdown
+
+# Jupyter Resource Usage Proxy
+
+In one terminal/environment:
+
+```console
+pip install fps_uvicorn
+pip install fps_resource_usage
+pip install fps-noauth
+
+# launch a terminal server at http://127.0.0.1:8000
+fps-uvicorn --port=8000 --no-open-browser
+```
+
+In another terminal/environment:
+
+```console
+pip install jupyter_resource_usage
+pip install jupyter_resource_usage_proxy
+pip install jupyterlab
+
+# launch JupyterLab at http://127.0.0.1:8888, deactivate the resource usage server extension, and proxy resource usage at http://127.0.0.1:8000
+jupyter lab --port=8888 --ServerApp.jpserver_extensions="jupyter_resource_usage=False" --ResourceUsageProxyExtensionApp.proxy_url='http://127.0.0.1:8000'
+```
+
+Resource usage should now be served from http://127.0.0.1:8000.
