@@ -1,0 +1,4 @@
+[console_scripts]
+change-merged = gerrit_to_platform.change_merged:app
+comment-added = gerrit_to_platform.comment_added:app
+patchset-created = gerrit_to_platform.patchset_created:app
