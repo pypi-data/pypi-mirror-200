@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: py_mv_planejamento
+Version: 0.0.3
+Summary: A small example package
+Author-email: Junior Vidotti <jrvidotti@gmail.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Planejamento MV
+
+Pacote para uso interno.
+
+- python3 -m build
+- twine upload dist/*
