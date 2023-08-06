@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: xia-user
+Version: 0.1.16
+Summary: X-I-A
+Home-page: https://develop.x-i-a.com/docs/xia-user/0.1.16/index.html
+Author: X-I-A
+Author-email: admin@x-i-a.com
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+Requires-Dist: passlib
+Requires-Dist: xia-fields-network
+Requires-Dist: xia-engine
+Requires-Dist: xia-fields
+
+.. image:: https://img.shields.io/pypi/v/xia-user.svg?color=blue
+   :alt: PyPI-Server
+   :target: https://pypi.org/project/xia-user/
+
+====================================
+X-I-A
+====================================
+
+
+
+Quick start
+=============================
+
+Install the package::
+
+    pip install
+
+
