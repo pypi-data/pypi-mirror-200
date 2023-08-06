@@ -1,0 +1,50 @@
+# Python
+__pycache__
+pdoc3-html/
+dist/
+build/
+*.egg*
+.coverage
+coverage.xml
+.pytest_cache
+.tox
+*.py,cover
+
+# step runner build & runtime
+src/ploigos_step_runner/version.py
+step-runner-results
+step-runner-working
+results.yml/
+.venvs
+.venv
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+.pydevproject
+
+# IntelliJ
+.idea
+*.ipr
+*.iml
+*.iws
+
+# NetBeans
+nb-configuration.xml
+
+# Visual Studio Code
+.vscode
+
+# OSX
+.DS_Store
+
+# Vim
+*.swp
+*.swo
+tags
+
+# patch
+*.orig
+*.rej

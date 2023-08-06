@@ -1,0 +1,17 @@
+PyYAML
+gitpython
+sh==1.14.2
+jinja2
+prometheus_client
+
+[tests]
+wheel
+pylint
+flake8
+bandit
+pytest
+pytest-cov
+testfixtures
+mock
+codecov
+tox
