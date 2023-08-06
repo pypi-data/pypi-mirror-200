@@ -1,0 +1,47 @@
+# --------------------------- BEGIN NOTES ---------------------------
+
+####### TO INSTALL #######
+# pip install .                           # core only, or
+# python espresso_machine/build_package/build.py     # with contributions
+
+####### TO TEST #######
+# python espresso_machine/build_package/validate.py --pre
+# python espresso_machine/build_package/validate.py --post
+
+####### TO FORMAT #######
+# black --check src/espresso
+# black src/espresso
+
+####### PYLINT #######
+# pylint src/espresso
+
+# --------------------------- END NOTES -----------------------------
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "scikit-build>=0.13",
+    "cmake>=3.18",
+    "ninja",
+    "versioningit",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target_version = ['py38']
+experimental_string_processing = true
+exclude = '''
+(
+  /(
+    \.git
+    | \.mypy_cache
+    | \.vscode
+    | build
+    | lib.*
+    | dist
+    | _skbuild
+  )/
+  | tests
+)
+'''
