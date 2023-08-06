@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+IMAGE = 'yeisondev/djangoship:server'
+SOURCE = os.path.abspath(os.curdir)
+APP = os.path.split(SOURCE)[-1].replace('_', '')
+
+try:
+    command = sys.argv[1]
+except:
+    command = ''
+
+extra = ''
+if os.path.exists('docker.args'):
+    with open('docker.args', 'r') as file:
+        extra = file.read().replace('\n', '')
+
+DOCKER_RUN = f'docker run -d -p 9000:80 --name {APP} -e DJANGOPROJECT={APP} --network mynetwork --mount type=bind,source={SOURCE},target=/app/djangoship {extra} {IMAGE}'
+DOCKER_EXEC = f'docker exec -it {APP} bash'
+DOCKER_STOP = f'docker stop {APP}'
+DOCKER_START = f'docker start {APP}'
+DOCKER_RM = f'docker rm {APP}'
+
+match command:
+
+    case 'start':
+        os.system(DOCKER_START)
+
+    case 'stop':
+        os.system(DOCKER_STOP)
+
+    case 'restart':
+        os.system(DOCKER_STOP)
+        os.system(DOCKER_START)
+
+    case 'rm':
+        os.system(DOCKER_STOP)
+        os.system(DOCKER_RM)
+
+    case 'bash':
+        os.system(DOCKER_EXEC)
+
+    case _:
+        os.system(DOCKER_RUN)
+        os.system(DOCKER_EXEC)
+
