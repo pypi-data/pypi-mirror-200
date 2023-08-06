@@ -1,0 +1,110 @@
+{
+  "server": {
+    "port": 3306,
+    "servlet": {
+      "context_path": "."
+    }
+  },
+  "datasource": {
+    "url": "mysql+pymysql://user:password@localhost:3306/foo?charset=utf8mb4"
+  },
+  "redis": {
+    "database": 0,
+    "host": "localhost",
+    "port": 6379,
+    "password": null,
+    "jedis": {
+      "pool": {
+        "max_active": 8,
+        "max_wait": -1,
+        "max_idle": 8,
+        "min_idle": 0
+      },
+      "timeout": 0
+    }
+  },
+  "log": {
+    "version": 1,
+    "disable_existing_loggers": true,
+    "formatters": {
+      "simple": {
+        "format": "%(asctime)s %(levelname)s %(message)s"
+      },
+      "upgrade": {
+        "format": "%(asctime)s - %(filename)s - %(process)d - %(name)s - %(levelname)s - %(message)s"
+      }
+    },
+    "handlers": {
+      "console_handler": {
+        "class": "logging.StreamHandler",
+        "level": 10,
+        "formatter": "upgrade",
+        "stream": "ext://sys.stdout"
+      },
+      "file_handler": {
+        "class": "logging.handlers.RotatingFileHandler",
+        "level": 10,
+        "formatter": "upgrade",
+        "filename": "all.log",
+        "maxBytes": 4194304,
+        "backupCount": 50,
+        "encoding": "utf8"
+      },
+      "server_handler": {
+        "class": "logging.handlers.RotatingFileHandler",
+        "level": 20,
+        "formatter": "simple",
+        "filename": "server.log",
+        "maxBytes": 4194304,
+        "backupCount": 20,
+        "encoding": "utf8"
+      },
+      "platform_handler": {
+        "class": "logging.handlers.RotatingFileHandler",
+        "level": 20,
+        "formatter": "simple",
+        "filename": "platform.log",
+        "maxBytes": 4194304,
+        "backupCount": 20,
+        "encoding": "utf8"
+      },
+      "security_handler": {
+        "class": "logging.handlers.RotatingFileHandler",
+        "level": 20,
+        "formatter": "simple",
+        "filename": "security.log",
+        "maxBytes": 4194304,
+        "backupCount": 20,
+        "encoding": "utf8"
+      },
+      "audit_handler": {
+        "class": "logging.handlers.RotatingFileHandler",
+        "level": 20,
+        "formatter": "simple",
+        "filename": "audit.log",
+        "maxBytes": 4194304,
+        "backupCount": 20,
+        "encoding": "utf8"
+      },
+      "access_handler": {
+        "class": "logging.handlers.RotatingFileHandler",
+        "level": 20,
+        "formatter": "simple",
+        "filename": "access.log",
+        "maxBytes": 4194304,
+        "backupCount": 20,
+        "encoding": "utf8"
+      }
+    },
+    "loggers": {
+      "server": {
+        "level": 10,
+        "handlers": [
+          "server_handler",
+          "console_handler"
+        ]
+      }
+    }
+  },
+  "joeypan_settings_name": "default_joeypan_settings"
+}

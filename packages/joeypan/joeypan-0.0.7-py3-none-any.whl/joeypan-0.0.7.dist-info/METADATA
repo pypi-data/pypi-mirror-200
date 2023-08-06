@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: joeypan
+Version: 0.0.7
+Summary: A small package for web framework
+Home-page: http://www.joeypan.cn:9830/Elijahxb/joeypan
+Author: elijahxb
+Author-email: elijahxb@outlook.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic (==1.10.6)
+
+- 添加默认配置模板文件
