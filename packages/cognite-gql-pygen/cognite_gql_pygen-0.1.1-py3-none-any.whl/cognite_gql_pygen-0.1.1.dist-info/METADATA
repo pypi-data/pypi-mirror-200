@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: cognite-gql-pygen
+Version: 0.1.1
+Summary: Cognite graphQL Python generation SDK
+Author: Cognite
+Author-email: support@cognite.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: arrow (>=1.2.2,<2.0.0)
+Requires-Dist: cachelib (>=0.10.2,<0.11.0)
+Requires-Dist: cognite-sdk[pandas] (>=5.9.0,<6.0.0)
+Requires-Dist: docopt (>=0.6.2,<0.7.0)
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: msal (>=1.16.0,<2.0.0)
+Requires-Dist: numpy (>=1.23.2,<2.0.0)
+Requires-Dist: pydantic (>=1.10)
+Requires-Dist: retry (>=0.9.2,<0.10.0)
+Requires-Dist: strawberry-graphql (>=0.156.4,<0.157.0)
+Requires-Dist: typer[all]
+Description-Content-Type: text/markdown
+
+Cognite GraphQL Python Generator
+==========================
+[![build](https://github.com/cognitedata/cognite-gql-pygen/actions/workflows/release.yaml/badge.svg)](https://github.com/cognitedata/cognite-gql-pygen/actions/workflows/release.yaml)
+[![GitHub](https://img.shields.io/github/license/cognitedata/cognite-gql-pygen)](https://github.com/cognitedata/cognite-gql-pygen/blob/master/LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
+This is the Cognite GraphQL Python Generator, `gqlpygen`, which is a CLI for automatically generating Python SDK code
+from `.graphql` to interact with Cognite Data Fusion's (CDF) Flexible Data Models (FDM). It also supports other cases,
+such as generating `.graphql` from `pydantic` classes.
+
+**[DISCLAIMER!]** This project is in a highly experimental no guarantees are made for consistency between versions. The
+project may also become deprecated if the experimentation turns out to be a dead end.
+
+
+### FDM Non-GraphQl API
+
+This package also contains `cognite.fdm` which is a simplified wrapper for non-GraphQL endpoints in FDM API v3.
+
+See [fdm/README.md](./fdm/README.md) for more details.
+
+## Installation
+
+To install this package:
+```bash
+$ pip install cognite-gql-pygen
+```
+## Usage
+
+Currently (v0.1.0), there is no functionality, just some demo functions:
+
+Type the following command for help.
+```bash
+cogpygen --help
+```
+
+
+## Changelog
+Wondering about upcoming or previous changes to the SDK? Take a look at the [CHANGELOG](https://github.com/cognitedata/cognite-gql-pygen/blob/master/CHANGELOG.md).
+
+## Contributing
+Want to contribute? Check out [CONTRIBUTING](https://github.com/cognitedata/cognite-gqlpygen/blob/master/CONTRIBUTING.md).
+
