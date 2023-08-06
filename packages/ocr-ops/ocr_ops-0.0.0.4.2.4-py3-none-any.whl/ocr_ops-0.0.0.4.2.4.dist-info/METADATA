@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: ocr-ops
+Version: 0.0.0.4.2.4
+Summary: OCR-Ops
+Home-page: https://github.com/prateekt/ocr-ops
+Author: Prateek Tandon
+Author-email: prateek1.tandon@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: algo-ops
+Requires-Dist: easyocr
+Requires-Dist: torch (==1.11.0)
+Requires-Dist: torchvision (==0.12.0)
+Requires-Dist: pytesseract
+Requires-Dist: numpy
+Requires-Dist: natsort
+Requires-Dist: pyspellchecker
+Requires-Dist: shapely
+Requires-Dist: ezplotly
+Requires-Dist: black
+Requires-Dist: twine
+Requires-Dist: nose2
+
+# ocr-ops
+
+OCR-Ops is infrastructure to perform Optimal Character Recognition (OCR) at scale on a large number of images and videos.
+Built on top of the algo-ops framework, OCR-Ops is modular and extensible in its data processing operations.
+
+Key Features:
+
+* Supports building an OCRPipeline that can utilize multiple popular OCR annotation methods (e.g. PyTesseract, EasyOCR,
+  etc.) and return the results in structured and efficient fashion within a unified framework.
+* Enables multi-levels of information of the OCR application (e.g. text-only, bounding boxes, etc.)
+* Allows definition of an image pre-processing pipeline (before OCR) and a text-cleaning pipeline (after OCR) of
+  detected but noisy text to enable optimal and robust OCR performance.
+* Supports several nice presets that are plug-and-play for the above purpose!
