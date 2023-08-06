@@ -1,0 +1,63 @@
+---
+# .github/workflows/ci.yml
+
+name: ci
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: "Python ${{ matrix.python-version }}"
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Check Python
+        run: |
+          set -xe
+          python -VV
+          python -m site
+
+      - name: Install dependencies
+        run: |
+          set -xe
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install --upgrade pre-commit coverage[toml] virtualenv tox tox-gh-actions
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files --show-diff-on-failure --verbose
+        if: ${{ matrix.python-version == '3.11' }}
+
+      - name: Run tox targets for ${{ matrix.python-version }}
+        run: python -m tox
+
+      - name: Create XML coverage
+        run: python -m coverage xml
+        if: ${{ matrix.python-version == '3.11' }}
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        if: ${{ matrix.python-version == '3.11' }}
+        with:
+          fail_ci_if_error: True
+          verbose: True
