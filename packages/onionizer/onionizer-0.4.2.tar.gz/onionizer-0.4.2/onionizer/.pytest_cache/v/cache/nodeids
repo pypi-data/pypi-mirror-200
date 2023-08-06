@@ -1,0 +1,14 @@
+[
+  "tests/test_onionizer.py::test_as_decorator",
+  "tests/test_onionizer.py::test_decorator",
+  "tests/test_onionizer.py::test_kw_only",
+  "tests/test_onionizer.py::test_mutate_arguments",
+  "tests/test_onionizer.py::test_mutate_output",
+  "tests/test_onionizer.py::test_pos_only",
+  "tests/test_onionizer.py::test_postprocessor",
+  "tests/test_onionizer.py::test_postprocessor_with_multiple_values",
+  "tests/test_onionizer.py::test_preprocessor",
+  "tests/test_onionizer.py::test_support_for_context_managers",
+  "tests/test_onionizer.py::test_uncompatible_signature",
+  "tests/test_onionizer.py::test_uncompatible_signature_but_disable_sigcheck"
+]

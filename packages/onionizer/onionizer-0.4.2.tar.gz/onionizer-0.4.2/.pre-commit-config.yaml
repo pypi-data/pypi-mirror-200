@@ -1,0 +1,16 @@
+repos:
+-   repo: https://github.com/ambv/black
+    rev: 23.3.0
+    hooks:
+    - id: black
+      language_version: python3.8
+-   repo: https://github.com/python/mypy
+    rev: release-0.910
+    hooks:
+      - id: mypy
+        args: ["--ignore-missing-imports"]
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  # Ruff version.
+  rev: 'v0.0.260'
+  hooks:
+    - id: ruff
