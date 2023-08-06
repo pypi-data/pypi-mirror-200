@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "py-spring-dataflow"
+version = "0.5"
+description = "For working with Spring Cloud Data Flow"
+license = "MIT"
+maintainers = ["AI RnD Lab <airndlabot@gmail.com>"]
+authors = ["Grig Alex <alexengrigdev@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/airndlab/py-spring-dataflow"
+repository = "https://github.com/airndlab/py-spring-dataflow.git"
+keywords = ["spring", "spring-cloud", "spring-cloud-data-flow", "dataflow"]
+packages = [{ include = "py_spring_dataflow" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
