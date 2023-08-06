@@ -1,0 +1,15 @@
+fastai>=2.7.12
+pyts>=0.12.0
+imbalanced-learn>=0.8.0
+psutil>=5.4.8
+torch<2.1,>=1.7
+
+[dev]
+nbdev>2
+ipykernel>6
+
+[extras]
+sktime>=0.10.1
+tsfresh>=0.18.0
+PyWavelets>=1.1.1
+nbformat>=5.1.3
