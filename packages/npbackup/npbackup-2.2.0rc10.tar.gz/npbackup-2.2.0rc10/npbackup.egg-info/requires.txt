@@ -1,0 +1,20 @@
+command_runner>=1.5.0
+cryptidy>=1.2.2
+python-dateutil
+ofunctions.logger_utils>=2.3.0
+ofunctions.misc>=1.5.2
+ofunctions.process>=1.4.0
+ofunctions.threading>=2.0.0
+ofunctions.platform>=1.4.1
+ofunctions.random
+python-pidfile>=3.0.0
+pysimplegui>=4.6.0
+requests
+ruamel.yaml
+psutil
+pyyaml
+i18nice>=0.6.2
+packaging
+
+[:platform_system == "Windows"]
+pywin32
