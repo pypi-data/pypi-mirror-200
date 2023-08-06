@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: smarty-gpt
+Version: 2.0.0
+Summary: A wrapper of LLMs that biases its behaviour using prompts and contexts in a transparent manner to the end-users
+Home-page: https://github.com/citiususc/Smarty-GPT
+Author: Marcos Fernández-Pichel
+Author-email: marcosfernandez.pichel@usc.es
+License: Apache License (Version 3.0)
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: openai
+Requires-Dist: argparse
+Requires-Dist: multiprocess (==0.70.13)
+Requires-Dist: datasets
+Requires-Dist: nltk
+Requires-Dist: requests
+Requires-Dist: transformers (==4.20.1)
+Requires-Dist: huggingface-hub (==0.7.0)
+Requires-Dist: configparser
+
+UNKNOWN
+
+
