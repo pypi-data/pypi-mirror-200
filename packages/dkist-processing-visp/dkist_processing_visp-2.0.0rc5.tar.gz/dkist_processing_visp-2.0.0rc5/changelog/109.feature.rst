@@ -1,0 +1,3 @@
+Use new and improved PAC fit mode for improved polarimetric accuracy. Also update code to support/interact with
+`dkist-processing-pac` >= 2.0.0. This is mostly renaming kwargs on API calls. Also removed unneeded dummy dimensions
+and renamed a matrix multiple function.
