@@ -1,0 +1,124 @@
+Metadata-Version: 2.1
+Name: termate
+Version: 0.1.13
+Summary: Package for terminology management with TermBase eXchange (TBX)
+Home-page: https://github.com/DeNederlandscheBank/termate
+Author: Willem Jan Willemse
+Author-email: w.j.willemse@dnb.nl
+License: MIT license
+Keywords: termate
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.8
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: Click (>=7.0)
+Requires-Dist: xlsxwriter
+Requires-Dist: rdflib
+Requires-Dist: iribaker
+Requires-Dist: lxml
+Requires-Dist: regex
+
+=======
+Termate
+=======
+
+
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
+        :target: https://opensource.org/licenses/MIT
+        :alt: License: MIT
+
+.. image:: https://readthedocs.org/projects/termate/badge
+        :target: https://termate.readthedocs.io/en/latest/?badge=main
+        :alt: Documentation Status
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+        :target: https://github.com/psf/black
+        :alt: Code style: black
+
+
+*Your Python companion for using termbases in NLP analyses*
+
+
+*Termate* is a Python package for terminology management with the TermBase eXchange (TBX) format
+
+**DISCLAIMER - BETA PHASE**
+
+*This package is currently in a beta phase.*
+
+* Free software: MIT license
+
+Documentation can be found here `here <https://termate.readthedocs.io/en/latest/>`_
+
+
+Main features
+-------------
+
+* Using existing TBX termbases in NLP analyses (TBX version 3)
+
+* Creating TBX termbases based on extracted terms from documents
+
+* Converting TBX termbases to Semantic Web data (OntoLex Lemon)
+
+Termate works together with `nafigator <https://github.com/DeNederlandscheBank/nafigator/>`_.
+
+
+=======
+History
+=======
+
+0.1.0 (2022-01-02)
+------------------
+
+* First release on PyPI.
+
+0.1.1 (2022-05-22)
+------------------
+
+* SKOS added.
+
+0.1.3 (2022-08-07)
+------------------
+
+* Change to generate XBRL termbases
+
+0.1.4 (2022-08-21)
+------------------
+
+* Improved documentation
+
+0.1.5 (2022-08-23)
+------------------
+
+* Changed name of package to termate
+
+0.1.8 (2023-01-30)
+------------------
+
+* Added lemon objects
+
+0.1.9 (2023-02-07)
+------------------
+
+* Small correction in lemon conversion
+
+0.1.10 (2023-02-14)
+-------------------
+
+* Added Excel to SKOS converter
+
+0.1.12 (2023-03-21)
+-------------------
+
+* Ontolex-Lemon RDF now contains the original SKOS
+* Bugfix in importing SKOS RDF
+
+0.1.13 (2023-03-30)
+-------------------
+
+* Bugfixes in importing SKOS Excel to SKOS RDF
