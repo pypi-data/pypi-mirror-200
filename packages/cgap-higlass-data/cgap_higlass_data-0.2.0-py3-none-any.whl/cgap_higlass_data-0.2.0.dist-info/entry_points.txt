@@ -1,0 +1,5 @@
+[console_scripts]
+convert-bed-to-bw=higlass_data.conversions:convert_bed_to_bw
+create-cohort-vcf=higlass_data.create_cohort_vcf:create_cohort_vcf
+create-coverage-bed=higlass_data.create_coverage_bed:create_coverage_bed
+
