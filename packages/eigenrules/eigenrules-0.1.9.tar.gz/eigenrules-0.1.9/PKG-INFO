@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: eigenrules
+Version: 0.1.9
+Summary: Client library to communicate with eigendata ML systems
+License: Apache 2.0
+Author: bjornaer
+Author-email: max@eigendata.ai
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: numpy (>=1.24.2,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: pydantic (>=1.10.6,<2.0.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Description-Content-Type: text/markdown
+
+# eigenrules
+
+Powered by [eigendata.ai](https://eigendata.ai)
+
+# installation
+
+`pip install eigenrules`
+
+or
+
+`poetry add eigenrules`
+
+# usage
+
+please refer to the [examples folder](./examples/) for usage examples
+
