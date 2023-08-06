@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: schemawizard_package
+Version: 2.3.4
+Summary: Reads a csv and generates a table design for Postgres, MySQL, sqlite or BigQuery
+Project-URL: Homepage, https://github.com/daveskura/schemawizard
+Project-URL: Author Linkedin, https://www.linkedin.com/in/2166883
+Author-email: Dave Skura <dskura@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: garbledave-package>=1.0.0
+Requires-Dist: mysqldave-package>=1.3.7
+Requires-Dist: postgresdave-package>=1.7.6
+Requires-Dist: sqlitedave-package>=1.2.6
+Description-Content-Type: text/markdown
+
+# schemawizard
+
+Reads a csv and generates a table design for Postgres, MySQL, sqlite or BigQuery
+
+### install with pip
+pip install schemawizard-package
+
+### command line test
+py -m schemawizard_package.schemawizard
+
+### Methods
+https://github.com/daveskura/schemawizard/blob/main/methods.md
+
