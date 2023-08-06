@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64.0"] # editable install using setuptool available since v64.0.0
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dfdb"
+version = "0.1.6"
+description = "Pandas-like interface for manipulating SQL databases."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Ho Yin Chau"},
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.9",
+]
+dependencies = [
+    'numpy',
+    'pandas',
+    'SQLAlchemy',
+    'hyclib>=0.1.11',
+]
+
+[project.urls]
+repository = "https://github.com/hchau630/dfdb"
