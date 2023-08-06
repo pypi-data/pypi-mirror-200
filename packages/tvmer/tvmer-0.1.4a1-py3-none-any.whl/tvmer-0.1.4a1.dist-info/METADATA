@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: tvmer
+Version: 0.1.4a1
+License: MIT
+Author-email: zrr1999 <2742392377@qq.com>
+Requires-Python: >=3.8
+Requires-Dist: rich
+Requires-Dist: typer
+Provides-Extra: tvm
+Requires-Dist: apache-tvm; extra == "tvm"
+Description-Content-Type: text/markdown
+
+# tvmer
+
+
+
