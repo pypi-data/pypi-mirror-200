@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: example-package-chanshing
+Version: 1.1.10
+Summary: An example Python project
+Home-page: https://github.com/chanshing/example-package
+Author: Shing Chan
+Maintainer: Shing Chan
+Maintainer-email: cshing.m@gmail.com
+License: See LICENSE file.
+Download-URL: https://github.com/chanshing/example-package
+Description: # example package
+        
+Keywords: example,setuptools,versioneer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.8, <4
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: docs
