@@ -1,0 +1,9 @@
+TEST_FILE_PREFIX = 'test_'
+DEFAULT_PIPELINE_PATTERN = 'https?://pipeline[.].*'
+SCENARIO_METHOD_PREFIX = 'scenario_'
+VALIDATION_METHOD_PREFIX = 'validation_'
+DEFAULT_TEST_DESCRIPTION = ''
+DEFAULT_BROWSERS = ['chromium', 'firefox', 'webkit']
+HARVEST_USER_SS_COOKIE_NAME = '_harvest_ss_user'
+HARVEST_USER_WEB_COOKIE_NAME = '_harvest_web_user'
+OLD_HARVEST_USER_ID_KEY = 'oldHarvestUserId'
