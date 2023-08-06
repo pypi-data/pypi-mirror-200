@@ -1,0 +1,42 @@
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'shellserver'
+version = '0.0.13'
+authors = [
+  {name = 'Henrique do Val'},
+  {email = 'henrique.val@hotmail.com'}
+]
+description = 'Server to aid shell navigation.'
+readme = {file = "README.md", content-type = 'text/markdown'}
+requires-python = '>=3.9'
+license = {text = 'MIT'}
+dependencies = [
+  'darkdetect>=0.7.1',
+  'win-basic-tools>=0.3.3',
+  "tomlkit>=0.11.5; python_version < '3.11'"
+]
+
+[project.urls]
+Home-page = "https://github.com/HenriquedoVal/shellserver"
+
+[project.scripts]
+shellserver = 'shellserver.cli:main'
+
+# [project.optional-dependencies]
+# all = [
+#   "whatchdog>=3.2.1",
+#   "ssd_checker>=1.0.3",
+#   "pygit2>=1.11.1"
+# ]
+
+[tool.setuptools.packages.find]
+include = ["shellserver"]
+exclude = ["shellserver.tests"]
+
+[tool.pylsp-mypy]
+enabled = true
+live_mode = false
+dmypy = true
