@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: TL-GPRSM
+Version: 0.1.0
+Summary: TL-GPRSM: Tlansfer Learning Gaussian Process Regression Surrogate Model
+Home-page: https://github.com/SaidaTaisei/TL-GPRSM
+Author: Taisei Saida
+Author-email: saida.taisei.tj@alumni.tsukuba.ac.jp
+Maintainer: Taisei Saida
+Maintainer-email: saida.taisei.tj@alumni.tsukuba.ac.jp
+License: MIT License
+Download-URL: https://github.com/SaidaTaisei/TL-GPRSM
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.8
+Requires-Dist: numpy (<=1.23.0,>=1.7)
+Requires-Dist: GPy (>=1.10.0)
+Requires-Dist: h5py (>=3.1.0)
+
+# TL-GPRSM
+The tool for Tlansfer Learning Gaussian Process Regression Surrogate Model
+## Install
+You can install TL-GPRSM from PyPi with pip.  
+`pip install TL-GPRSM`  
+or from github with pip.  
+`pip install git+https://github.com/SaidaTaisei/TL-GPRSM`  
+
+## Document
+Document https://saidataisei.github.io/TL-GPRSM/
+
+## Tutorials (how to use TL-GPRSM)
+Tutorials are provided in jupyter notebook implementation.
+Tutorial: https://github.com/SaidaTaisei/TL-GPRSM/tree/master/Tutorial
+
+## Citation
+```
+@article{SAIDA2023107014,
+title = {Transfer learning Gaussian process regression surrogate model with explainability for structural reliability analysis under variation in uncertainties},
+journal = {Computers & Structures},
+volume = {281},
+pages = {107014},
+year = {2023},
+issn = {0045-7949},
+doi = {https://doi.org/10.1016/j.compstruc.2023.107014},
+url = {https://www.sciencedirect.com/science/article/pii/S0045794923000445},
+author = {Taisei Saida and Mayuko Nishio}
+}
+```
+
+
