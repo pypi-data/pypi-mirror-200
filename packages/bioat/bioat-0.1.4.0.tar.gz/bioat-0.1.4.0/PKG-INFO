@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: bioat
+Version: 0.1.4.0
+Summary: Bioinformatic toolkit with python (It's still under development!)
+Home-page: https://github.com/hermanzhaozzzz/BioinformaticAnalysisTools
+License: MIT
+Author: Herman Zhao
+Author-email: hermanzhaozzzz@gmail.com
+Requires-Python: >=3.9.6,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: biopython (>=1.81,<2.0)
+Requires-Dist: cython (>=0.29.33,<0.30.0)
+Requires-Dist: fire (>=0.5.0,<0.6.0)
+Requires-Dist: numpy (>=1.24.1,<2.0.0)
+Requires-Dist: pandarallel (>=1.6.4,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: pysam (>=0.20.0,<0.21.0)
+Requires-Dist: tqdm (>=4.64.1,<5.0.0)
+Project-URL: Repository, https://github.com/hermanzhaozzzz/BioinformaticAnalysisTools
+Description-Content-Type: text/markdown
+
+# BioinformaticAnalysisTools
+
+## Introduction
+A python command line toolkit for Bioinformatics and data science!
+
+\<under development\>
+
+- Author: Hua-nan ZHAO @Tsinghua University
+- E-Mail: hermanzhaozzzz@gmail.com
+
+## Installation
+```shell
+pip install --upgrade bioat
+```
+
+
+## usage
+```shell
+# list commands
+bioat list
+# check version
+bioat version
+# check information about bioat
+bioat about
+
+# example usage
+bioat 
+```
+
+## history
+
+
+## backup
+```shell
+ poetry add git+ssh://git@github.com:pysam-developers/pysam.git
+```
+
+
