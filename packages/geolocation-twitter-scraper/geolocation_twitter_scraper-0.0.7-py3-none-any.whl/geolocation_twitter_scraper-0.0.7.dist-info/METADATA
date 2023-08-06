@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: geolocation-twitter-scraper
+Version: 0.0.7
+Summary: Simple package using Selenium to scrape tweet data based on geolocation and datetime
+Home-page: https://github.com/christywastaken/geolocation-twitter-scraper
+Author: Christian Harrison
+Author-email: christywastakenwastaken@gmail.com
+Project-URL: Homepage, https://github.com/christywastaken/geolocation-twitter-scraper
+Project-URL: Bug Tracker, https://github.com/christywastaken/geolocation-twitter-scraper/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: selenium-wire (>=5.1.0)
+Requires-Dist: pandas (>=1.5.3)
+Requires-Dist: webdriver-manager (>=3.8.5)
+
+TODO: This needs filling out. 
