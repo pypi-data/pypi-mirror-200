@@ -1,0 +1,47 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coscontents"
+version = "2023.1003"
+description = "COS Contents Manage for storing Jupyterlab Notebooks in IBM Cloud Object Storage"
+readme = "README.md"
+authors = [{ name = "Gines Carrascal", email = "gines_carrascal@es.ibm.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["IBM", "COS", "cloud", "jupyter", "notebook"]
+dependencies = [
+    "ibm-cos-sdk>=2.13.0",
+    "s3fs",
+    "jupyter_server",
+    "nbformat",
+    "tornado",
+    "traitlets",
+]
+requires-python = ">=3.7.4"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[tool.bumpver]
+current_version = "2023.1003"
+version_pattern = "YYYY.BUILD[-TAG]"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"',
+]
+
