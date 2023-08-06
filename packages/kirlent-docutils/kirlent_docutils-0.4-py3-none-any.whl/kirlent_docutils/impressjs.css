@@ -1,0 +1,10 @@
+/* Kirlent base stylesheet for impress.js output. */
+
+.substep {
+  opacity: 0;
+}
+
+.substep.substep-visible {
+  transition: opacity 1s;
+  opacity: 1;
+}
