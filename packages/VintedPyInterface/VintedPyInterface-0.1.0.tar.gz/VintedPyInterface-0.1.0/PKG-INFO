@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: VintedPyInterface
+Version: 0.1.0
+Summary: Interface for Vinted front end
+Home-page: https://github.com/ProfesseurIssou/VintedPyInterface
+Author: Alix Hamidou
+Author-email: alix.hamidou@gmail.com
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+
+# VintedPyInterface
+    Interface python pour vinted
+
+## Installation
+    Pour installer le module, il suffit de lancer la commande suivante dans le terminal :
+    ```bash
+    pip install vintedpyinterface
+    ```
+
+## Utilisation
+### Recherche
+    Pour le moment, la recherche est limitée à la recherche par nom, taille et marque.
+    ```python
+    from VintedPyInterface import VintedPyInterface, SearchSetting
+
+    search = SearchSetting("chaussures", "42", "nike")
+    vinted = VintedPyInterface()
+    print(vinted.Search(search))
+    ```
