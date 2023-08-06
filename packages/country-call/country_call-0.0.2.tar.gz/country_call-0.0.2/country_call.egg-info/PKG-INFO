@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: country-call
+Version: 0.0.2
+Summary: Introducing a powerful and easy-to-use Python library for country detection from ambiguous text, designed for developers and data scientists alike.
+Author: Md Shamim Hasan, Kazi Arman Rahat, Mukitul Islam, Anik Roy
+Author-email: shihab18015@gmail.com
+Keywords: country,origin,nlp
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: Licence.txt
+
+# Change Log
+    Date:01/04/23
+    version:0.0.2
+
+# Country Prediction
+Our library utilizes state-of-the-art natural language processing algorithms to accurately identify the country mentioned within a given text, even when the reference is indirect or imprecise. With a robust set of features and customizable options, our library is the ideal solution for businesses and organizations that require fast and accurate country detection for their applications and projects. Save time and streamline your workflows with our intuitive and reliable country detection library.",
+
+## How to use
+function_1: To find only a country from text. 
+**country_call.find_country(text)**
+function_2: To find a list of countries from text. 
+**country_call.find_countries(text)**
+
