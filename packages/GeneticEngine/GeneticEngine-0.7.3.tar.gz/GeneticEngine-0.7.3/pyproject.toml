@@ -1,0 +1,104 @@
+[project]
+name = "GeneticEngine"
+version = "0.7.3"
+description = "Genetic Programming with Types and Grammars"
+authors = [
+    {name = "Guilherme Espada", email = "gjespada@fc.ul.pt"},
+    {name = "Leon Ingelse", email = "leoningelse@gmail.com"},
+    {name = "Paulo Santos", email = "pacsantos@fc.ul.pt"},
+    {name = "Pedro Barbosa", email = "psbarbosa@ciencias.ulisboa.pt"},
+    {name = "Alcides Fonseca", email = "me@alcidesfonseca.com"}
+]
+readme = "Readme.md"
+requires-python = ">=3.9"
+keywords = ["evolutionary computation, genetic programming, regression, machine learning"]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11"
+]
+
+[project.urls]
+homepage = "https://github.com/alcides/GeneticEngine/"
+repository = "https://github.com/alcides/GeneticEngine/"
+documentation = "https://github.com/alcides/GeneticEngine/"
+
+[project.license]
+text = "https://opensource.org/licenses/MIT"
+
+[build-system]
+build-backend = 'setuptools.build_meta'
+requires = [
+    'setuptools >= 67.6.0',
+]
+
+[tool.setuptools]
+py-modules = ["geneticengine"]
+
+[tool.docformatter]
+syntax = 'google'
+black = true
+recursive = true
+docstring-length = [60, 100]
+blank = false
+pre-summary-newline = true
+close-quotes-on-newline = true
+wrap-one-line = true
+
+[tool.black]
+line-length = 120
+
+
+[tool.pycln]
+all = true
+
+[tool.ruff]
+line-length = 120
+
+
+# Enable Pyflakes `E` and `F` codes by default.
+select = ["E", "F"]
+ignore = ["E741", "E501"]
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+per-file-ignores = {}
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.10.
+target-version = "py310"
+
+[tool.ruff.flake8-import-conventions.aliases]
+altair = "alt"
+"matplotlib.pyplot" = "plt"
+numpy = "np"
+pandas = "pd"
+seaborn = "sns"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
