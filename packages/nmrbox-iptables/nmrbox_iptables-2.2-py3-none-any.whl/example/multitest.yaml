@@ -1,0 +1,15 @@
+---
+# test is optional ;  if set, not action taken
+test: True  
+multi:
+  # required
+  comment: test parse
+  ports: 1,2,3
+
+# following are optional; defaults shown
+  # where the chain goes
+#  chain: PHANTOM 
+#  chain first: False
+  # where the rule goes in the chain
+#  first accept: False
+...
