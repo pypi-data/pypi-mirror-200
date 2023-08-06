@@ -1,0 +1,10 @@
+[project]
+name = "com.softalks.sh"
+description = "CLI Shell utilities for Python 3"
+version = "1.0.0"
+authors = [
+  {name = "Santiago Ruiz", email= "hiebra@hotmail.com"}
+]
+dependencies = [
+    'com.softalks.debug >= 1, < 2'
+]
