@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+extension/src/gopaccli
+extension/src/gopaccli/go.mod
+extension/src/gopaccli/go.sum
+extension/src/gopaccli/gopaccli.go
+extension/src/gopaccli/gopaccli_test.go
+gopac/__init__.py
+gopac/exceptions.py
+gopac/gopac.py
+pygopac.egg-info/PKG-INFO
+pygopac.egg-info/SOURCES.txt
+pygopac.egg-info/dependency_links.txt
+pygopac.egg-info/requires.txt
+pygopac.egg-info/top_level.txt
