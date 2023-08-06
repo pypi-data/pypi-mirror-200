@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: vdk-lineage-model
+Version: 0.0.824443273
+Summary: VDK Lineage Model plugin defines common lineage model and classes used for managing lineageinformation in other VDK plugins.
+Home-page: https://github.com/vmware/versatile-data-kit
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# VDK Lineage Model
+
+VDK Lineage Model plugin aims to abstract emitting lineage data from VDK data jobs, so that different lineage loggers
+can be configured at run time in any plugin that supports emitting lineage data.
+The plugin describes the lineage data model and an interface for loggers that are responsible to send the lineage
+information to the desired system.
+
+At POC level currently. Breaking changes should be expected.
+
+TODOs:
+ - Describe Non-SQL lineage (ingest, load data,etc)
+ - Extend support for all query types
