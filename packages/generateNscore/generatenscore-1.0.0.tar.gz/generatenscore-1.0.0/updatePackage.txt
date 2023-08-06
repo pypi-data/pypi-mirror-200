@@ -1,0 +1,15 @@
+동일한 버전은 허락하지 않는다.
+
+1. pyroject에서 버전을 바꾼다. 
+
+2. dist에 들어있던 예전 파일들은 모두 삭제
+
+3. 명령 프롬프트를 열고 해당 디렉토리으로 이동한다.
+
+py -m pip install --upgrade build     필요하면...
+
+4. py -m build
+
+py -m pip install --upgrade twine   필요하면
+
+5. twine upload dist/*
