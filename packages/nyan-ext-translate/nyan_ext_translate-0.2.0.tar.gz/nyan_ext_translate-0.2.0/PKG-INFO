@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: nyan-ext-translate
+Version: 0.2.0
+Summary: 
+Author: sserve-kr
+Author-email: personal@sserve.me
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: nyanlang (>=1.3.5,<2.0.0)
+Description-Content-Type: text/markdown
+
+# 냥랭 번역기
+
+다른 언어에서 냥랭으로 번역해주는 번역기다냥.
+
+## 설치
+
+```
+$ pip install nyan-ext-translate
+```
+
+## 사용
+
+```
+$ nyan translate <language> <filename> [-d | --dest?]
+```
