@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: thinmam
+Version: 0.0.3
+Summary: Solid thermodynamic and mechanical properties package
+Home-page: https://github.com/VikramGovindarajan/thinmam
+Author: VikramGovindarajan
+Author-email: vickymailbuddy@gmail.com
+Project-URL: Bug Tracker, https://github.com/VikramGovindarajan/thinmam/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# thinmam
+
+This is a database of **solid thermophysical and mechanical properties**. It is implemented in *python*. 
+
+## Installation:
+
+python setup.py install --user
+
+## Usage:
+
+import thinmam
+
+solstate = thinmam.state("SS")
