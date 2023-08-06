@@ -1,0 +1,20 @@
+#!/bin/bash -l
+
+export PYTHONPATH={{ PACKAGE_PATH }}:$PYTHONPATH
+
+{% if OUTPUT_FOLDER is defined and OUTPUT_FOLDER %}
+mkdir -p {{ OUTPUT_FOLDER }}
+{% endif %}
+
+{% if USE_MODELRUNNER is defined and USE_MODELRUNNER %}
+# Run the program in the background
+nohup python -m modelrunner {{ MODEL_FILE }} \
+    {{ JOB_ARGS }} \
+    > {{ LOG_FOLDER }}/{{ JOB_NAME }}.out.txt \
+    2> {{ LOG_FOLDER }}/{{ JOB_NAME }}.err.txt &
+{% else %}
+nohup python3 {{ MODEL_FILE }} \
+    {{ JOB_ARGS }} \
+    > {{ LOG_FOLDER }}/{{ JOB_NAME }}.out.txt \
+    2> {{ LOG_FOLDER }}/{{ JOB_NAME }}.err.txt &
+{% endif %}
