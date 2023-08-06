@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: fl4health
+Version: 0.1.3
+Summary: Federated Learning for Health
+License: MIT
+Author: Vector AI Engineering
+Author-email: fl4health@vectorinstitute.ai
+Requires-Python: >=3.8.1,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: flwr (>=1.2.0,<2.0.0)
+Requires-Dist: opacus (>=1.3.0,<2.0.0)
+Requires-Dist: tensorflow-privacy (>=0.8.7,<0.9.0)
+Requires-Dist: torch (>=1.12.1,<2.0.0)
+Description-Content-Type: text/markdown
+
+# FL4Health
+Repository containing a federated learning engine aimed at health experimentation with an ultimate target of integration into the DHDP, the static code checker runs on python3.8
+
+# Installing dependencies
+```
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+# using pre-commit hooks
+To check your code at commit time
+```
+pre-commit install
+```
+
+You can also get pre-commit to fix your code
+```
+pre-commit run
+```
+
