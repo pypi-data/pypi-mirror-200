@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: Kaera
+Version: 1.0.6
+Summary: Project initiator
+Home-page: UNKNOWN
+Author: Emmanuel PLUOT
+License: MIT
+Platform: linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+License-File: LICENSE
+
+# Kaera
+
+Gitlab project instatiator
+
+Requires a config file as follow:
+
+```yaml
+---
+
+group:
+  name: mygroup
+  desc: groupdesc
+  img: path/to/img
+  vars:
+    some: vars
+
+projects:
+  - name: myproject
+    desc: my project
+    img: path/to/project/img
+    src: https://gitlab.com/path/to/src/project/template
+    labels:
+      labelname: color
+    boards:
+      boardname:
+        - labelname
+    vars:
+      some: vars
+```
+
+To install:
+
+> pip install kaera
+
+Or using this repo
+
+> pip install -e .
+
+
+To use:
+
+> kaera myconfig.yaml --token GITLAB_TOKEN
+
+
+
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+# [1.0.6] - 2023-03-31
+## Changed
+ - Ensure master branch is used
+
+# [1.0.5] - 2022-12-13
+## Changed
+ - Update sonotoria to 0.3.7
+
+# [1.0.4] - 2022-11-24
+## Changed
+ - Update sonotoria to 0.3.6
+
+# [1.0.3] - 2022-11-24
+## Changed
+ - Update sonotoria to 0.3.5
+
+# [1.0.2] - 2022-11-22
+## Fixed
+ - Add temporary empty set config method
+
+# [1.0.1] - 2022-11-22
+## Fixed
+ - Add missing dependencies
+
+# [1.0.0] - 2022-10-23
+## Added
+ - Project initiated
+
+
