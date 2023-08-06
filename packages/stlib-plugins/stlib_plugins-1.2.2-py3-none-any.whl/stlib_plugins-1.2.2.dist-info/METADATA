@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: stlib-plugins
+Version: 1.2.2
+Summary: Official stlib plugins
+Author: Lara Maia
+Author-email: dev@lara.monster
+License: GPLv3
+Project-URL: homepage, https://github.com/calendulish/stlib-plugins
+Project-URL: repository, https://github.com
+Project-URL: changelog, https://github.com/calendulish/stlib-plugins/releases
+Keywords: steam-tools,steam,stlib,valve
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Games/Entertainment
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: stlib (~=1.3.0)
+
+Official stlib plugins
+======================
+
+[![build status](https://badges.lara.monster/calendulish/.github/stlib-plugins-build)](https://github.com/calendulish/stlib-plugins/actions/workflows/build.yml)
+[![Quality](https://api.codiga.io/project/34835/score/svg)](https://app.codiga.io/hub/project/34835/stlib-plugins)
+[![GitHub license](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-3.0.html)
+
+Current plugins:
+
+- SteamTrades
+- SteamGifts
+
+How to Create Plugins
+=====================
+
+Just create a new class by extending the class `utils.Base` from `stlib`.  
+Nothing special here, you can use stlib-plugins as an example.
+
+How to Use Plugins
+==================
+
+```python
+from stlib import plugins
+
+# You can modify the default search path prior the plugin manager initialization
+# Must be called before use any method from 'plugins' module
+# Warning: Your custom search paths will take precedence over default search paths
+plugins.add_search_paths(<mypath>, <anotherpath>, ...)
+
+# You can get a list of all available plugins
+all_plugins = plugins.get_available_plugins()
+
+# You can check if there has a plugin called <plugin_name>
+if plugins.has_plugin(<plugin_name>):
+   # So you can load the plugin by plugin name
+   plugin = plugins.get_plugin(<plugin_name>)
+```
+
+Default search paths are:
+
+```python
+# For Windows:
+<current_directory>\\plugins  
+%LOCALAPPDATA%\\stlib\\plugins
+
+# For Linux:
+<current_directory>/plugins  
+/usr/share/stlib/plugins  
+$HOME/.local/share/stlib/plugins
+```
