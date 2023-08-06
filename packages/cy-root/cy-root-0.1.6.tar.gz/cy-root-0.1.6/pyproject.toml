@@ -1,0 +1,12 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "Cython",
+    "dynamic-default-args",
+    "numpy",
+    "sympy",
+]
+
+[tool.cibuildwheel]
+build = ["cp311-*"]
