@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "check-dht"
+version = "0.1.5"
+description = "Nagios plugin to monitor humidity and temperature data from a Raspberry Pi Pico"
+license = "GPL-3.0-or-later"
+authors = ["Johannes Arnold <johannes.arnold@stud.uni-hannover.de>"]
+readme = "README.md"
+repository = "https://github.com/j0hax/check-dht"
+keywords = ["nagios", "monitoring"]
+packages = [{include = "check_dht"}]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pyserial = "^3.5"
+nagiosplugin = "^1.3.3"
+
+[tool.poetry.scripts]
+check_dht = "check_dht.__main__:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
