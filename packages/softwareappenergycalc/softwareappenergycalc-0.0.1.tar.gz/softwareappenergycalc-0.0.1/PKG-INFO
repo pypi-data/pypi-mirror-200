@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: softwareappenergycalc
+Version: 0.0.1
+Summary: Software Application Energy Calculation  Package
+Author: Sudeshna Mitra
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: protobuf
+
+# Software Application Energy Calculation
+
+Opearations supported with required parameters are given below.
+
+### Energy Calculation 
+- measure_software_energy()
+
+
+
+
