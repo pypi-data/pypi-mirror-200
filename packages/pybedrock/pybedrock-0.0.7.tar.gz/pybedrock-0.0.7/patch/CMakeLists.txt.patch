@@ -1,0 +1,65 @@
+--- a/pybedrock/clib/leveldb-mcpe/CMakeLists.txt
++++ b/pybedrock/clib/leveldb-mcpe/CMakeLists.txt
+@@ -4,7 +4,7 @@
+ 
+ cmake_minimum_required(VERSION 3.9)
+ # Keep the version below in sync with the one in db.h
+-project(leveldb VERSION 1.23.0 LANGUAGES C CXX)
++project(leveldb VERSION 1.22.0 LANGUAGES C CXX)
+ 
+ # C standard can be overridden when this is used as a sub-project.
+ if(NOT CMAKE_C_STANDARD)
+@@ -34,6 +34,9 @@
+ option(LEVELDB_BUILD_BENCHMARKS "Build LevelDB's benchmarks" ON)
+ option(LEVELDB_INSTALL "Install LevelDB's header and library" ON)
+ 
++include(TestBigEndian)
++test_big_endian(LEVELDB_IS_BIG_ENDIAN)
++
+ include(CheckIncludeFile)
+ check_include_file("unistd.h" HAVE_UNISTD_H)
+ 
+@@ -60,7 +63,7 @@
+ 
+   # Disable RTTI.
+   string(REGEX REPLACE "/GR" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR-")
++  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR -fpic")
+ else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+   # Enable strict prototype warnings for C code in clang and gcc.
+   if(NOT CMAKE_C_FLAGS MATCHES "-Wstrict-prototypes")
+@@ -69,11 +72,11 @@
+ 
+   # Disable C++ exceptions.
+   string(REGEX REPLACE "-fexceptions" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-exceptions")
++  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-exceptions -fpic")
+ 
+   # Disable RTTI.
+   string(REGEX REPLACE "-frtti" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
++  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti -fpic")
+ endif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+ 
+ # Test whether -Wthread-safety is available. See
+@@ -307,11 +310,6 @@
+   # This project is tested using GoogleTest.
+   add_subdirectory("third_party/googletest")
+ 
+-  # This project uses Google benchmark for benchmarking.
+-  set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "" FORCE)
+-  set(BENCHMARK_ENABLE_EXCEPTIONS OFF CACHE BOOL "" FORCE)
+-  add_subdirectory("third_party/benchmark")
+-
+   # GoogleTest triggers a missing field initializers warning.
+   if(LEVELDB_HAVE_NO_MISSING_FIELD_INITIALIZERS)
+     set_property(TARGET gtest
+@@ -332,7 +330,7 @@
+ 
+         "${test_file}"
+     )
+-    target_link_libraries("${test_target_name}" leveldb gtest gmock benchmark)
++    target_link_libraries("${test_target_name}" leveldb gtest gmock)
+     target_compile_definitions("${test_target_name}"
+       PRIVATE
+         ${LEVELDB_PLATFORM_NAME}=1
