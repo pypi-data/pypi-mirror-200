@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: cellmap
+Version: 1.0.1.dev202304010749
+Summary: CellMap - RNA landscape inference method
+Home-page: https://github.com/yusuke-imoto-lab/CellMap
+Author: Yusuke Imoto
+Requires-Python: >=3.8,<3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: anndata (>=0.8.0,<0.9.0)
+Requires-Dist: matplotlib (>=3.4.3)
+Requires-Dist: numpy (>=1.20)
+Requires-Dist: scikit-learn (>=0.24)
+Requires-Dist: scipy (>=1.8.1,<2.0.0)
+Project-URL: Documentation, https://github.com/yusuke-imoto-lab/CellMap/
+Project-URL: Repository, https://github.com/yusuke-imoto-lab/CellMap
+Description-Content-Type: text/markdown
+
+# CellMap - RNA landscape inference method
+
+The CellMap is a RNA landscape inference method based on the graph Hodge decomposition. 
+
+## Installation
+
+To install CellMap package, use `pip` as follows:
+
+```
+$ pip install cellmap
+```
+
+## Requirements
+* Python3
+* matplotlib
+* numpy
+* scipy
+* scikit-learn
+
+
+## Turtorial
+
+Turtorials are prepared by jupyter notebook.
+
+* [Tutorial for pancreas endocrine cell data](https://github.com/yusuke-imoto-lab/CellMap/blob/main/tutorial/CellMap_tutorial_pancreas.ipynb)
+
+
+## Visualization
+
+We prepare original visualization system *[CellMap viewer](https://github.com/yusuke-imoto-lab/CellMapViewer)*. 
+
+<div style="text-align:left"><img style="width:100%; height: auto" src="https://github.com/yusuke-imoto-lab/CellMapViewer/blob/main/Images/TopImage.png"/></div>
