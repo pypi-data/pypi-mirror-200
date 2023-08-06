@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+tkinter = "*"
+Pillow = "^8.3.2"
+webbrowser = "*"
+fpdf = "^1.7.2"
+numpy = "^1.21.0"
+matplotlib = "^3.4.2"
+pandas = "^1.3.1"
+scikit-image = "^0.18.2"
+opencv-python-headless = "^4.5.3.56"
+tensorflow = "^2.6.0"
+keras = "^2.6.0"
+skimage="*"
+cv2="*"
+
+
+[project]
+name = "Codetest_laguilhon"
+version = "0.0.9"
+authors = [
+  { name="laguilhon", email="lea.aguilhon@gmail.com" },
+]
+description = "Test de package"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+
+[tool.poetry]
+data=["IMG/*", "f_annexes]
