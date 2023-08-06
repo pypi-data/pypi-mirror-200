@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: sommelier
+Version: 1.2.24
+Summary: Testing wrapper of Behave library
+Home-page: https://github.com/Cobalt0s/sommelier
+Author: Constantin Koval
+Author-email: constantin.y.koval@gmail.com
+License: MIT
+Platform: UNKNOWN
+License-File: LICENSE.txt
+Requires-Dist: behave (==1.2.6)
+Requires-Dist: confluent-kafka (==1.7.0)
+Requires-Dist: requests (>=2.28.1)
+Requires-Dist: flask (>=2.2.2)
+Requires-Dist: websockets (>=10.4)
+
+
+Sommelier
+Behave wrapper for testing microservices in python
+See: https://github.com/Cobalt0s/sommelier
+
+
+
