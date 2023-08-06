@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: random-prefix-generator
+Version: 0.2
+Summary: A package for generating random IPv4 and IPv6 addresses and subnets
+Home-page: https://github.com/colinmacgiolla/random_ip_generator
+Author: Colin MacGiollaEain
+Author-email: colin@flat-planet.net
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: System :: Networking
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Random IP/Prefix Generator
+
+`randomprefixgenerator` is a simple Python module for generating random IPv4 and IPv6 addresses and subnets.
+
+## Features
+* Generate random IPv4 or IPv6 addresses.
+* Generate random IPv4 or IPv6 subnets with a specified prefix length.
+* Control the range of prefix lengths for generated subnets.
+
+
+## Installation
+
+You can install myIp using pip:
+```
+pip install randomprefixgenerator
+```
+
+
+## Usage
+```
+from randomprefixgenerator import RandomPrefixGenerator
+
+# Create a new myIp object for generating IPv4 addresses
+ipv4_gen = RandomPrefixGenerator(4, mode='ip')
+
+# Generate a random IPv4 address
+ipv4_addr = next(ipv4_gen)
+
+# Create a new myIp object for generating IPv6 subnets with prefix lengths between 64 and 120
+ipv6_gen = RandomPrefixGenerator(6, mode='prefix', min_length=64, max_length=120)
+
+# Generate a random IPv6 subnet
+ipv6_subnet = next(ipv6_gen)
+```
+
+## Dependancies
+* Python 3.x
+* `ipaddress` module
+* `random` module
