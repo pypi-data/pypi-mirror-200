@@ -1,0 +1,13 @@
+torch
+transformers
+datasets
+evaluate
+seqeval
+
+[dev]
+pre-commit
+ruff
+black
+
+[wandb]
+wandb
