@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: synthetic-combinations
+Version: 0.0.2
+Summary: Imputing counterfactual outcomes for combinatorial interventions
+Home-page: https://github.com/aagarwal1996/synthetic-combinations
+Author: Abhineet Agarwal, Anish Agarwal, Suhas Vijaykumar
+Author-email: aa3797@berkeley.edu
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: celer (==0.7.2)
+Requires-Dist: certifi (==2022.12.7)
+Requires-Dist: charset-normalizer (==3.1.0)
+Requires-Dist: contourpy (==1.0.7)
+Requires-Dist: cycler (==0.11.0)
+Requires-Dist: Cython (==0.29.34)
+Requires-Dist: download (==0.3.5)
+Requires-Dist: fonttools (==4.39.3)
+Requires-Dist: idna (==3.4)
+Requires-Dist: joblib (==1.2.0)
+Requires-Dist: kiwisolver (==1.4.4)
+Requires-Dist: libsvmdata (==0.4.1)
+Requires-Dist: matplotlib (==3.7.1)
+Requires-Dist: numpy (==1.24.2)
+Requires-Dist: packaging (==23.0)
+Requires-Dist: pandas (==1.5.3)
+Requires-Dist: Pillow (==9.5.0)
+Requires-Dist: pyparsing (==3.0.9)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: pytz (==2023.3)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: scikit-learn (==1.2.2)
+Requires-Dist: scipy (==1.10.1)
+Requires-Dist: seaborn (==0.12.2)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: threadpoolctl (==3.1.0)
+Requires-Dist: tqdm (==4.65.0)
+Requires-Dist: urllib3 (==1.26.15)
+Requires-Dist: xarray (==2023.3.0)
+
+# Synthetic Combinations (`synth_combo`)
+## (Brief description)
+This repository contains the code for the synthetic-combinations algorithm (see the figure below for a visual description). 
+
+![Screenshot](synthetic_combination_figure.png)
+
+## Getting Started
+### Installation
+- what are the version and system requirements? (Tested on 3.11, but need to verify min)
+- What are the steps to install?
+- How do I run the test suite?
+
+### Basic Usage
+
+## Docs
