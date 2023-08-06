@@ -1,0 +1,15 @@
+pandas
+textract-plus
+spacy
+phonenumbers
+langdetect
+bs4
+pypdf2
+
+[dev]
+black
+jupyterlab
+pytest>=6.2.4
+python-dotenv
+ipykernel
+twine
