@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "logiclayer-complexity"
+version = "0.2.0"
+description = "LogicLayer module to enable Economic Complexity calculations, using data from a tesseract-olap server."
+authors = [
+  "Francisco Abarzua <francisco@datawheel.us>",
+  "Miguel Castillo <miguel@datawheel.us>",
+]
+license = "MIT"
+readme = "PACKAGE.md"
+repository = "https://github.com/Datawheel/logiclayer-complexity"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+economic-complexity = "^0.1.0"
+logiclayer = "^0.2.0"
+tesseract-olap = "^0.6.0"
+
+[tool.poetry.dev-dependencies]
+ipykernel = "^6.0.0"
+pytest = "^7.2.0"
+pytest-asyncio = "^0.20.0"
+ruff = "^0.0.259"
+tesseract-olap = {version = "^0.6.0", extras = ["clickhouse"]}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
