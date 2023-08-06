@@ -1,0 +1,114 @@
+Metadata-Version: 2.1
+Name: neatpush
+Version: 0.2.0
+Summary: Notify me of new manga chapters.
+Project-URL: Homepage, https://github.com/gjeusel/neatpush
+Project-URL: Source, https://github.com/gjeusel/neatpush
+Author-email: gjeusel <gjeusel@gmail.com>
+License-File: LICENSE
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development
+Requires-Python: >=3.10
+Requires-Dist: boto3
+Requires-Dist: dateparser
+Requires-Dist: gazpacho
+Requires-Dist: httpx
+Requires-Dist: orjson
+Requires-Dist: pydantic[dotenv]<2.0.0
+Requires-Dist: starlette
+Requires-Dist: structlog
+Requires-Dist: typer
+Requires-Dist: uvicorn
+Provides-Extra: all
+Requires-Dist: neatpush[dev]; extra == 'all'
+Requires-Dist: neatpush[doc]; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: black==22.10.*; extra == 'dev'
+Requires-Dist: cookiecutter; extra == 'dev'
+Requires-Dist: coverage[toml]<7.0,>=6.5.0; extra == 'dev'
+Requires-Dist: cruft; extra == 'dev'
+Requires-Dist: mypy==0.991; extra == 'dev'
+Requires-Dist: pdbpp; extra == 'dev'
+Requires-Dist: pip-tools; extra == 'dev'
+Requires-Dist: pre-commit==2.20.*; extra == 'dev'
+Requires-Dist: ptpython; extra == 'dev'
+Requires-Dist: pytest-mock==3.10.*; extra == 'dev'
+Requires-Dist: pytest-sugar==0.9.*; extra == 'dev'
+Requires-Dist: pytest==7.1.*; extra == 'dev'
+Requires-Dist: rich; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Requires-Dist: types-dateparser; extra == 'dev'
+Requires-Dist: types-pytz; extra == 'dev'
+Requires-Dist: vcrpy; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: markdown-include; extra == 'doc'
+Requires-Dist: mdx-truly-sane-lists; extra == 'doc'
+Requires-Dist: mkdocs; extra == 'doc'
+Requires-Dist: mkdocs-exclude; extra == 'doc'
+Requires-Dist: mkdocs-material; extra == 'doc'
+Requires-Dist: mkdocstrings[python]; extra == 'doc'
+Description-Content-Type: text/markdown
+
+<h1 align="center"> NeatPush </h1>
+
+<p align="center">
+  <a href="https://github.com/gjeusel/neatpush/actions?query=workflow%3ACI+branch%3Amain">
+      <img src="https://github.com/gjeusel/neatpush/workflows//CI/badge.svg?event=push&branch=main" alt="Test Suite" onerror="this.style.display='none'">
+  </a>
+  <a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/gjeusel/neatpush" alt="Test Coverage" onerror="this.style.display='none'">
+      <img src="https://coverage-badge.samuelcolvin.workers.dev/gjeusel/neatpush.svg" alt="Coverage">
+  </a>
+  <a href="https://pypi.org/project/neatpush/">
+      <img src="https://img.shields.io/pypi/v/neatpush" alt="Package version" onerror="this.style.display='none'">
+  </a>
+  <a href="https://gjeusel.github.io/neatpush/">
+    <img src="https://img.shields.io/badge/mkdocs-pages-brightgreen" alt="MKDocs github page">
+  </a>
+  <a href="https://github.com/pre-commit/pre-commit">
+      <img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white" alt="pre-commit">
+  </a>
+</p>
+
+<p align="center">
+  <em>Notify me of new manga chapters.</em>
+</p>
+
+---
+
+## Installation
+
+```bash
+pip install neatpush
+```
+
+### Developper
+
+##### Install
+
+```bash
+make install
+```
+
+##### Launch tests:
+
+```bash
+pytest
+```
+
+##### Write docs:
+
+```bash
+mkdocs serve --watch .
+```
+
+### Update Cookiecutter Template
+
+```bash
+cruft update --skip-apply-ask --allow-untracked-files --project-dir .
+```
+
