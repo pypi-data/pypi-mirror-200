@@ -1,0 +1,10 @@
+{% if features['query_type'] == 'around_query' %}
+  {% include 'meta/around_query_proximity_prefix.jinja2' %}
+
+  {% include 'meta/around_query_bare_location.jinja2' %}
+{% else %}
+  {% if features['area'] %}
+    in
+    {% include 'meta/in_query_bare_location.jinja2' %}
+  {% endif %}
+{% endif %}
