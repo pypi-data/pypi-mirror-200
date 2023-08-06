@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "yaclipy-tools"
+description = 'An extensible, asyncio interface to subprocesses, plus a set of wrappers around common system tools that works well with yaclipy'
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Aaron", email = "aaron@framelunch.jp" },
+]
+classifiers = [
+  "Natural Language :: English",
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Environment :: Console",
+  "Framework :: AsyncIO",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools", 
+  "Topic :: Software Development",
+]
+dependencies = ["yaclipy>=1.1.1", "print-ext>=2.1.1"]
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://github.com/aaron-fl/yaclipy_tools#readme"
+Issues = "https://github.com/aaron-fl/yaclipy_tools/issues"
+Source = "https://github.com/aaron-fl/yaclipy_tools"
+
+[tool.hatch.version]
+path = "src/yaclipy_tools/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+  "pytest-cov",
+  "pytest-asyncio",
+]
+[tool.hatch.envs.default.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=src/yaclipy_tools --cov=tests"
+no-cov = "cov --no-cov"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["37", "38", "39", "310", "311"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+  "src/yaclipy_tools/__about__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/docs",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/yaclipy_tools"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "--doctest-modules --ignore=local --ignore=examples --ignore=src --basetemp=local/pytest_tmp"
