@@ -1,0 +1,15 @@
+numpy==1.*
+
+[ci]
+flake8==5.*
+isort==5.*
+flake8-pyproject
+
+[qiskit]
+qiskit==0.*
+
+[quri_parts]
+quri_parts==0.*
+
+[quri_parts_with_qulacs]
+quri_parts[qulacs]==0.*
