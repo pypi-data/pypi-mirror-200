@@ -1,0 +1,10 @@
+prune */__pycache__
+global-exclude *.test.py
+global-exclude */test/
+global-exclude test/
+global-exclude /test/
+recursive-exclude */test/
+recursive-exclude test/
+recursive-exclude /test/
+recursive-exclude */__pycache__ *
+
