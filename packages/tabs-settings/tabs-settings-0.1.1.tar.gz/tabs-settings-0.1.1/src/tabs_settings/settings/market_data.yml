@@ -1,0 +1,1599 @@
+dates:
+  from: 20230322
+  to: 20230325
+    
+trade: 
+
+book:
+  limit: 10
+  
+  
+basket:
+  name: all
+  trading_pairs: 
+    binance:
+      future: 
+        - base_asset: XRP
+          quote_asset: USDT
+        - base_asset: BNB
+          quote_asset: USDT
+        - base_asset: LTC
+          quote_asset: USDT
+        - base_asset: DOGE
+          quote_asset: USDT
+        - base_asset: SOL
+          quote_asset: USDT
+        - base_asset: MATIC
+          quote_asset: USDT
+        - base_asset: MASK
+          quote_asset: USDT
+        - base_asset: APT
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT
+        - base_asset: LINK
+          quote_asset: USDT
+        - base_asset: DOT
+          quote_asset: USDT
+        - base_asset: FIL
+          quote_asset: USDT
+        - base_asset: BCH
+          quote_asset: USDT
+        - base_asset: AVAX
+          quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDT
+        - base_asset: SXP
+          quote_asset: USDT
+        - base_asset: EOS
+          quote_asset: USDT
+        - base_asset: APE
+          quote_asset: USDT
+        - base_asset: 1000SHIB
+          quote_asset: USDT
+        - base_asset: FTM
+          quote_asset: USDT
+        - base_asset: ETC
+          quote_asset: USDT
+        - base_asset: LDO
+          quote_asset: USDT
+        - base_asset: TRX
+          quote_asset: USDT
+        - base_asset: GALA
+          quote_asset: USDT
+        - base_asset: SAND
+          quote_asset: USDT
+        - base_asset: NEAR
+          quote_asset: USDT
+        - base_asset: GMT
+          quote_asset: USDT
+        - base_asset: MKR
+          quote_asset: USDT
+        - base_asset: UNI
+          quote_asset: USDT
+        - base_asset: AXS
+          quote_asset: USDT
+        - base_asset: XLM
+          quote_asset: USDT
+        - base_asset: MANA
+          quote_asset: USDT
+        - base_asset: CRV
+          quote_asset: USDT
+        - base_asset: OMG
+          quote_asset: USDT
+        - base_asset: 1INCH
+          quote_asset: USDT
+        - base_asset: SUSHI
+          quote_asset: USDT
+        - base_asset: CHZ
+          quote_asset: USDT
+        - base_asset: SNX
+          quote_asset: USDT
+        - base_asset: AAVE
+          quote_asset: USDT
+        - base_asset: WAVES
+          quote_asset: USDT
+        - base_asset: LINA
+          quote_asset: USDT
+        - base_asset: C98
+          quote_asset: USDT
+        - base_asset: XMR
+          quote_asset: USDT
+        - base_asset: GRT
+          quote_asset: USDT
+        - base_asset: ALGO
+          quote_asset: USDT
+        - base_asset: DASH
+          quote_asset: USDT
+        - base_asset: ZEC
+          quote_asset: USDT
+        - base_asset: NEO
+          quote_asset: USDT
+        - base_asset: CELR
+          quote_asset: USDT
+        - base_asset: EGLD
+          quote_asset: USDT
+        - base_asset: TOMO
+          quote_asset: USDT
+        - base_asset: IMX
+          quote_asset: USDT
+        - base_asset: VET
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT
+        - base_asset: YFI
+          quote_asset: USDT
+        - base_asset: SOL
+          quote_asset: USDT
+        - base_asset: LRC
+          quote_asset: USDT
+        - base_asset: PEOPLE
+          quote_asset: USDT
+        - base_asset: XTZ
+          quote_asset: USDT
+        - base_asset: RUNE
+          quote_asset: USDT
+        - base_asset: THETA
+          quote_asset: USDT
+        - base_asset: HBAR
+          quote_asset: USDT
+        - base_asset: KAVA
+          quote_asset: USDT
+        - base_asset: COMP
+          quote_asset: USDT
+        - base_asset: REN
+          quote_asset: USDT
+        - base_asset: OCEAN
+          quote_asset: USDT
+        - base_asset: DOGE
+          quote_asset: USDT
+        - base_asset: ROSE
+          quote_asset: USDT
+        - base_asset: BAL
+          quote_asset: USDT
+        - base_asset: STG
+          quote_asset: USDT
+        - base_asset: ZIL
+          quote_asset: USDT
+        - base_asset: LUNA2
+          quote_asset: USDT
+        - base_asset: MATIC
+          quote_asset: USDT
+        - base_asset: JASMY
+          quote_asset: USDT
+        - base_asset: TRB
+          quote_asset: USDT
+        - base_asset: KSM
+          quote_asset: USDT
+        - base_asset: TRX
+          quote_asset: USDT
+        - base_asset: ANKR
+          quote_asset: USDT
+        - base_asset: SFP
+          quote_asset: USDT
+        - base_asset: BAND
+          quote_asset: USDT
+        - base_asset: APT
+          quote_asset: USDT
+        - base_asset: RLC
+          quote_asset: USDT
+        - base_asset: OP
+          quote_asset: USDT
+        - base_asset: ENJ
+          quote_asset: USDT
+        - base_asset: ONT
+          quote_asset: USDT
+        - base_asset: FTM
+          quote_asset: USDT
+        - base_asset: HOT
+          quote_asset: USDT
+        - base_asset: COTI
+          quote_asset: USDT
+        - base_asset: KNC
+          quote_asset: USDT
+        - base_asset: REEF
+          quote_asset: USDT
+        - base_asset: CHR
+          quote_asset: USDT
+        - base_asset: RVN
+          quote_asset: USDT
+        - base_asset: XEM
+          quote_asset: USDT
+        - base_asset: ONE
+          quote_asset: USDT
+        - base_asset: IOTA
+          quote_asset: USDT
+        - base_asset: MTL
+          quote_asset: USDT
+        - base_asset: BLZ
+          quote_asset: USDT
+        - base_asset: ATA
+          quote_asset: USDT
+        - base_asset: AUDIO
+          quote_asset: USDT
+        - base_asset: GAL
+          quote_asset: USDT
+        - base_asset: GALA
+          quote_asset: USDT
+        - base_asset: WOO
+          quote_asset: USDT
+        - base_asset: QTUM
+          quote_asset: USDT
+        - base_asset: RSR
+          quote_asset: USDT
+        - base_asset: BAT
+          quote_asset: USDT
+        - base_asset: BAKE
+          quote_asset: USDT
+        - base_asset: DUSK
+          quote_asset: USDT
+        - base_asset: BEL
+          quote_asset: USDT
+        - base_asset: STORJ
+          quote_asset: USDT
+        - base_asset: IOST
+          quote_asset: USDT
+        - base_asset: SKL
+          quote_asset: USDT
+        - base_asset: ARPA
+          quote_asset: USDT
+        - base_asset: DENT
+          quote_asset: USDT
+        - base_asset: OGN
+          quote_asset: USDT
+        - base_asset: ALPHA
+          quote_asset: USDT
+        - base_asset: FLM
+          quote_asset: USDT
+        - base_asset: CTSI
+          quote_asset: USDT
+        - base_asset: ZRX
+          quote_asset: USDT
+        - base_asset: ICX
+          quote_asset: USDT
+        - base_asset: NKN
+          quote_asset: USDT
+        - base_asset: CTK
+          quote_asset: USDT
+        - base_asset: DYDX
+          quote_asset: USDT
+        - base_asset: IOTX
+          quote_asset: USDT
+        - base_asset: XRP
+          quote_asset: USDT
+        - base_asset: QNT
+          quote_asset: USDT
+        - base_asset: FOOTBALL
+          quote_asset: USDT
+        - base_asset: DGB
+          quote_asset: USDT
+        - base_asset: AMB
+          quote_asset: USDT
+        - base_asset: STMX
+          quote_asset: USDT
+        - base_asset: CVX
+          quote_asset: USDT
+        - base_asset: INJ
+          quote_asset: USDT
+        - base_asset: LEVER
+          quote_asset: USDT
+        - base_asset: SPELL
+          quote_asset: USDT
+        - base_asset: 1000XEC
+          quote_asset: USDT
+        - base_asset: PHB
+          quote_asset: USDT
+        - base_asset: KLAY
+          quote_asset: USDT
+        - base_asset: BNX
+          quote_asset: USDT
+        - base_asset: TLM
+          quote_asset: USDT
+        - base_asset: GTC
+          quote_asset: USDT
+        - base_asset: CELO
+          quote_asset: USDT
+        - base_asset: AR
+          quote_asset: USDT
+        - base_asset: ENS
+          quote_asset: USDT
+        - base_asset: FLOW
+          quote_asset: USDT
+        - base_asset: LIT
+          quote_asset: USDT
+        - base_asset: ALICE
+          quote_asset: USDT
+        - base_asset: UNFI
+          quote_asset: USDT
+        - base_asset: ZEN
+          quote_asset: USDT
+        - base_asset: LINK
+          quote_asset: USDT
+        - base_asset: LPT
+          quote_asset: USDT
+        - base_asset: AVAX
+          quote_asset: USDT
+        - base_asset: LDO
+          quote_asset: USDT
+        - base_asset: TLM
+          quote_asset: USDT
+        - base_asset: APE
+          quote_asset: USDT
+        - base_asset: DAR
+          quote_asset: USDT
+        - base_asset: NEAR
+          quote_asset: USDT
+        - base_asset: BNB
+          quote_asset: USDT
+        - base_asset: ANT
+          quote_asset: USDT
+        - base_asset: API3
+          quote_asset: USDT
+        - base_asset: ETC
+          quote_asset: USDT
+        - base_asset: GMT
+          quote_asset: USDT
+        - base_asset: DOT
+          quote_asset: USDT
+        - base_asset: FIL
+          quote_asset: USDT
+        - base_asset: SAND
+          quote_asset: USDT
+        - base_asset: ICP
+          quote_asset: USDT
+        - base_asset: UNI
+          quote_asset: USDT
+        - base_asset: BLUEBIRD
+          quote_asset: USDT
+        - base_asset: LTC
+          quote_asset: USDT
+        - base_asset: ARB
+          quote_asset: USDT
+        - base_asset: CFX
+          quote_asset: USDT
+        - base_asset: STX
+          quote_asset: USDT
+        - base_asset: ID
+          quote_asset: USDT
+        - base_asset: AGIX
+          quote_asset: USDT
+        - base_asset: MAGIC
+          quote_asset: USDT
+        - base_asset: ACH
+          quote_asset: USDT
+        - base_asset: HOOK
+          quote_asset: USDT
+        - base_asset: FET
+          quote_asset: USDT
+        - base_asset: LQTY
+          quote_asset: USDT
+        - base_asset: SSV
+          quote_asset: USDT
+        - base_asset: RNDR
+          quote_asset: USDT
+        - base_asset: TRU
+          quote_asset: USDT
+        - base_asset: GMX
+          quote_asset: USDT
+        - base_asset: AGIX
+          quote_asset: USDT
+        - base_asset: FXS
+          quote_asset: USDT
+        - base_asset: MINA
+          quote_asset: USDT
+        - base_asset: T
+          quote_asset: USDT
+        - base_asset: HIGH
+          quote_asset: USDT
+        - base_asset: CKB
+          quote_asset: USDT
+        - base_asset: COCOS
+          quote_asset: USDT
+        - base_asset: PHB
+          quote_asset: USDT
+        - base_asset: 1000SHIB
+          quote_asset: USDT
+        - base_asset: ASTR
+          quote_asset: USDT
+        - base_asset: USDC
+          quote_asset: USDT
+        - base_asset: AMB
+          quote_asset: USDT
+        - base_asset: LEVER
+          quote_asset: USDT
+        - base_asset: BTC
+          quote_asset: USD
+        - base_asset: BTC
+          quote_asset: USD
+          maturity: 230630
+        - base_asset: BTC
+          quote_asset: USD
+          maturity: 230331
+        - base_asset: BTC
+          quote_asset: USDT
+        - base_asset: BTC
+          quote_asset: USDT
+          maturity: 230630
+        - base_asset: BTC
+          quote_asset: USDT
+          maturity: 230331
+        - base_asset: ETH
+          quote_asset: USD
+        - base_asset: ETH
+          quote_asset: USD
+          maturity: 230630
+        - base_asset: ETH
+          quote_asset: USD
+          maturity: 230331
+        - base_asset: ETH
+          quote_asset: USDT
+        - base_asset: ETH
+          quote_asset: USDT
+          maturity: 230630
+        - base_asset: ETH
+          quote_asset: USDT
+          maturity: 230331
+      spot:
+        - base_asset: BTC
+          quote_asset: USDT
+        - base_asset: ETH
+          quote_asset: USDT
+        - base_asset: BTC
+          quote_asset: BUSD
+        - base_asset: BTC
+          quote_asset: TUSD
+        - base_asset: ARB
+          quote_asset: USDT
+        - base_asset: XRP
+          quote_asset: USDT
+        - base_asset: BUSD
+          quote_asset: USDT
+        - base_asset: USDC
+          quote_asset: USDT
+        - base_asset: CFX
+          quote_asset: USDT
+        - base_asset: ETH
+          quote_asset: BUSD
+        - base_asset: TUSD
+          quote_asset: USDT
+        - base_asset: BNB
+          quote_asset: USDT
+        - base_asset: SXP
+          quote_asset: USDT
+        - base_asset: XRP
+          quote_asset: BUSD
+        - base_asset: MASK
+          quote_asset: USDT
+        - base_asset: SOL
+          quote_asset: USDT
+        - base_asset: ID
+          quote_asset: USDT
+        - base_asset: USDT
+          quote_asset: TRY
+        - base_asset: FTM
+          quote_asset: USDT
+        - base_asset: MATIC
+          quote_asset: USDT
+        - base_asset: RDNT
+          quote_asset: USDT
+        - base_asset: LTC
+          quote_asset: USDT
+        - base_asset: DOGE
+          quote_asset: USDT
+        - base_asset: OP
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT
+        - base_asset: JOE
+          quote_asset: USDT
+        - base_asset: PORTO
+          quote_asset: USDT
+        - base_asset: CFX
+          quote_asset: BUSD
+        - base_asset: GALA
+          quote_asset: USDT
+        - base_asset: APT
+          quote_asset: USDT
+        - base_asset: LDO
+          quote_asset: USDT
+        - base_asset: LINK
+          quote_asset: USDT
+        - base_asset: FIL
+          quote_asset: USDT
+        - base_asset: DYDX
+          quote_asset: USDT
+        - base_asset: AGIX
+          quote_asset: USDT
+        - base_asset: C98
+          quote_asset: USDT
+        - base_asset: BNB
+          quote_asset: BUSD
+        - base_asset: STX
+          quote_asset: USDT
+        - base_asset: SOL
+          quote_asset: BUSD
+        - base_asset: SHIB
+          quote_asset: USDT
+        - base_asset: MAGIC
+          quote_asset: USDT
+        - base_asset: SXP
+          quote_asset: BUSD
+        - base_asset: AVAX
+          quote_asset: USDT
+        - base_asset: ACH
+          quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDT
+        - base_asset: TRX
+          quote_asset: USDT
+        - base_asset: EOS
+          quote_asset: USDT
+        - base_asset: BTC
+          quote_asset: USDC
+        - base_asset: LINA
+          quote_asset: USDT
+        - base_asset: INJ
+          quote_asset: USDT
+        - base_asset: 1INCH
+          quote_asset: USDT
+        - base_asset: DOT
+          quote_asset: USDT
+        - base_asset: BUSD
+          quote_asset: TRY
+        - base_asset: STRAX
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: BUSD
+        - base_asset: ALGO
+          quote_asset: USDT
+        - base_asset: HOOK
+          quote_asset: USDT
+        - base_asset: SSV
+          quote_asset: USDT
+        - base_asset: PORTO
+          quote_asset: BUSD
+        - base_asset: FET
+          quote_asset: USDT
+        - base_asset: LQTY
+          quote_asset: USDT
+        - base_asset: HBAR
+          quote_asset: USDT
+        - base_asset: CHZ
+          quote_asset: USDT
+        - base_asset: MATIC
+          quote_asset: BUSD
+        - base_asset: APE
+          quote_asset: USDT
+        - base_asset: MASK
+          quote_asset: BUSD
+        - base_asset: NEAR
+          quote_asset: USDT
+        - base_asset: XLM
+          quote_asset: USDT
+        - base_asset: AGIX
+          quote_asset: BUSD
+        - base_asset: GRT
+          quote_asset: USDT
+        - base_asset: ETC
+          quote_asset: USDT
+        - base_asset: SAND
+          quote_asset: USDT
+        - base_asset: XMR
+          quote_asset: USDT
+        - base_asset: LTC
+          quote_asset: BUSD
+        - base_asset: RNDR
+          quote_asset: USDT
+        - base_asset: FTM
+          quote_asset: BUSD
+        - base_asset: IMX
+          quote_asset: USDT
+        - base_asset: DOGE
+          quote_asset: BUSD
+        - base_asset: STRAX
+          quote_asset: BUSD
+        - base_asset: CELO
+          quote_asset: USDT
+        - base_asset: SHIB
+          quote_asset: BUSD
+        - base_asset: STG
+          quote_asset: USDT
+        - base_asset: OMG
+          quote_asset: USDT
+        - base_asset: GMT
+          quote_asset: USDT
+        - base_asset: SANTOS
+          quote_asset: USDT
+        - base_asset: SNX
+          quote_asset: USDT
+        - base_asset: GMX
+          quote_asset: USDT
+        - base_asset: JOE
+          quote_asset: BUSD
+        - base_asset: OP
+          quote_asset: BUSD
+        - base_asset: EGLD
+          quote_asset: USDT
+        - base_asset: USDT
+          quote_asset: BRL
+        - base_asset: TWT
+          quote_asset: USDT
+        - base_asset: GFT
+          quote_asset: BUSD
+        - base_asset: LAZIO
+          quote_asset: USDT
+        - base_asset: LEVER
+          quote_asset: USDT
+        - base_asset: LUNC
+          quote_asset: BUSD
+        - base_asset: JASMY
+          quote_asset: USDT
+        - base_asset: MANA
+          quote_asset: USDT
+        - base_asset: LUNC
+          quote_asset: USDT
+        - base_asset: MINA
+          quote_asset: USDT
+        - base_asset: UNI
+          quote_asset: USDT
+        - base_asset: MKR
+          quote_asset: USDT
+        - base_asset: GALA
+          quote_asset: BUSD
+        - base_asset: ETH
+          quote_asset: TUSD
+        - base_asset: VGX
+          quote_asset: USDT
+        - base_asset: ROSE
+          quote_asset: USDT
+        - base_asset: CRV
+          quote_asset: USDT
+        - base_asset: HIGH
+          quote_asset: USDT
+        - base_asset: AXS
+          quote_asset: USDT
+        - base_asset: LINK
+          quote_asset: BUSD
+        - base_asset: SUPER
+          quote_asset: USDT
+        - base_asset: TRU
+          quote_asset: USDT
+        - base_asset: UTK
+          quote_asset: USDT
+        - base_asset: APT
+          quote_asset: BUSD
+        - base_asset: ICP
+          quote_asset: USDT
+        - base_asset: RPL
+          quote_asset: USDT
+        - base_asset: FXS
+          quote_asset: USDT
+        - base_asset: SYN
+          quote_asset: USDT
+        - base_asset: AVAX
+          quote_asset: BUSD
+        - base_asset: VET
+          quote_asset: USDT
+        - base_asset: C98
+          quote_asset: BUSD
+        - base_asset: BCH
+          quote_asset: USDT
+        - base_asset: NEO
+          quote_asset: USDT
+        - base_asset: LRC
+          quote_asset: USDT
+        - base_asset: CKB
+          quote_asset: USDT
+        - base_asset: SFP
+          quote_asset: USDT
+    kraken:
+      future:
+      - base_asset: BTC
+        quote_asset: USD
+      - base_asset: BTC
+        quote_asset: USD
+        maturity: 230630
+      - base_asset: BTC
+        quote_asset: USD
+        maturity: 230929
+      - base_asset: BTC
+        quote_asset: USD
+        maturity: 230331
+      - base_asset: ETH
+        quote_asset: USD
+      - base_asset: ETH
+        quote_asset: USD
+        maturity: 230630
+      - base_asset: ETH
+        quote_asset: USD
+        maturity: 230331
+      - base_asset: ETH
+        quote_asset: USD
+        maturity: 230929
+      - base_asset: LINK
+        quote_asset: USD
+      - base_asset: ADA
+        quote_asset: USD
+      - base_asset: FIL
+        quote_asset: USD
+      - base_asset: AVAX
+        quote_asset: USD
+      - base_asset: SOL
+        quote_asset: USD
+      - base_asset: MATIC
+        quote_asset: USD
+      - base_asset: XRP
+        quote_asset: USD
+      - base_asset: LTC
+        quote_asset: USD
+      - base_asset: BCH
+        quote_asset: USD
+      - base_asset: DOT
+        quote_asset: USD
+      - base_asset: EOS
+        quote_asset: USD
+      - base_asset: XMR
+        quote_asset: USD
+      - base_asset: ATOM
+        quote_asset: USD
+      - base_asset: UNI
+        quote_asset: USD
+      - base_asset: FTM
+        quote_asset: USD
+      - base_asset: CRV
+        quote_asset: USD
+      - base_asset: DOGE
+        quote_asset: USD
+      - base_asset: ARB
+        quote_asset: USD
+      - base_asset: GALA
+        quote_asset: USD
+      - base_asset: GRT
+        quote_asset: USD
+      - base_asset: OMG
+        quote_asset: USD
+      - base_asset: SNX
+        quote_asset: USD
+      - base_asset: MASK
+        quote_asset: USD
+      - base_asset: YFI
+        quote_asset: USD
+      - base_asset: APE
+        quote_asset: USD
+      - base_asset: XTZ
+        quote_asset: USD
+      - base_asset: APT
+        quote_asset: USD
+      - base_asset: XLM
+        quote_asset: USD
+      - base_asset: ALGO
+        quote_asset: USD
+      - base_asset: DASH
+        quote_asset: USD
+      - base_asset: TRX
+        quote_asset: USD
+      - base_asset: FLR
+        quote_asset: USD
+      - base_asset: GMT
+        quote_asset: USD
+      - base_asset: AXS
+        quote_asset: USD
+      - base_asset: KSM
+        quote_asset: USD
+      - base_asset: MKR
+        quote_asset: USD
+      - base_asset: KNC
+        quote_asset: USD
+      - base_asset: ANT
+        quote_asset: USD
+      - base_asset: BLUR
+        quote_asset: USD
+      - base_asset: NEAR
+        quote_asset: USD
+      - base_asset: OCEAN
+        quote_asset: USD
+      - base_asset: REN
+        quote_asset: USD
+      - base_asset: ETC
+        quote_asset: USD
+      - base_asset: CHZ
+        quote_asset: USD
+      - base_asset: EGLD
+        quote_asset: USD
+      - base_asset: ZEC
+        quote_asset: USD
+      - base_asset: STORJ
+        quote_asset: USD
+      - base_asset: DYDX
+        quote_asset: USD
+      - base_asset: 1INCH
+        quote_asset: USD
+      - base_asset: BAT
+        quote_asset: USD
+      - base_asset: WAVES
+        quote_asset: USD
+      - base_asset: AAVE
+        quote_asset: USD
+      - base_asset: SUSHI
+        quote_asset: USD
+      - base_asset: ENS
+        quote_asset: USD
+      - base_asset: BAL
+        quote_asset: USD
+      - base_asset: LRC
+        quote_asset: USD
+      - base_asset: MINA
+        quote_asset: USD
+      - base_asset: MANA
+        quote_asset: USD
+      - base_asset: IMX
+        quote_asset: USD
+      - base_asset: LDO
+        quote_asset: USD
+      - base_asset: GMX
+        quote_asset: USD
+      - base_asset: AUDIO
+        quote_asset: USD
+      - base_asset: ICP
+        quote_asset: USD
+      - base_asset: LPT
+        quote_asset: USD
+      - base_asset: BAND
+        quote_asset: USD
+      - base_asset: COMP
+        quote_asset: USD
+      - base_asset: QTUM
+        quote_asset: USD
+      - base_asset: SC
+        quote_asset: USD
+      - base_asset: KAVA
+        quote_asset: USD
+      - base_asset: OGN
+        quote_asset: USD
+      - base_asset: SAND
+        quote_asset: USD
+      - base_asset: ICX
+        quote_asset: USD
+      - base_asset: QNT
+        quote_asset: USD
+      - base_asset: FLOW
+        quote_asset: USD
+      - base_asset: ANKR
+        quote_asset: USD
+      - base_asset: ETHW
+        quote_asset: USD
+      - base_asset: FET
+        quote_asset: USD
+      - base_asset: ENJ
+        quote_asset: USD
+      - base_asset: ALICE
+        quote_asset: USD
+      - base_asset: GLMR
+        quote_asset: USD
+      - base_asset: RUNE
+        quote_asset: USD
+      - base_asset: CVX
+        quote_asset: USD
+      - base_asset: STX
+        quote_asset: USD
+      - base_asset: RNDR
+        quote_asset: USD
+      spot: 
+      - base_asset: BTC
+        quote_asset: USD
+      - base_asset: USDT
+        quote_asset: USD
+      - base_asset: USDT
+        quote_asset: EUR
+      - base_asset: ETH
+        quote_asset: USD
+      - base_asset: USDC
+        quote_asset: USD
+      - base_asset: ETH
+        quote_asset: USDC
+      - base_asset: USDC
+        quote_asset: EUR
+      - base_asset: BTC
+        quote_asset: USDT
+      - base_asset: USDC
+        quote_asset: USDT
+      - base_asset: XRP
+        quote_asset: USD
+      - base_asset: USDT
+        quote_asset: GBP
+      - base_asset: SOL
+        quote_asset: USD
+      - base_asset: DAI
+        quote_asset: USD
+      - base_asset: DAI
+        quote_asset: USDT
+      - base_asset: MATIC
+        quote_asset: USD
+      - base_asset: BTC
+        quote_asset: USDC
+      - base_asset: ETH
+        quote_asset: USDT
+      - base_asset: USDT
+        quote_asset: CHF
+      - base_asset: USDC
+        quote_asset: GBP
+      - base_asset: ARB
+        quote_asset: USD
+      - base_asset: LTC
+        quote_asset: USD
+      - base_asset: ADA
+        quote_asset: USD
+      - base_asset: DOT
+        quote_asset: USD
+      - base_asset: LINK
+        quote_asset: USD
+      - base_asset: XMR
+        quote_asset: USD
+      - base_asset: FTM
+        quote_asset: USD
+      - base_asset: USDT
+        quote_asset: AUD
+      - base_asset: DOGE
+        quote_asset: USD
+      - base_asset: XLM
+        quote_asset: USD
+      - base_asset: USDT
+        quote_asset: CAD
+      - base_asset: STX
+        quote_asset: USD
+      - base_asset: XRP
+        quote_asset: USDT
+      - base_asset: XTZ
+        quote_asset: USD
+      - base_asset: AVAX
+        quote_asset: USD
+      - base_asset: ALGO
+        quote_asset: USD
+      - base_asset: DOT
+        quote_asset: USDT
+      - base_asset: ATOM
+        quote_asset: USD
+      - base_asset: FIL
+        quote_asset: USD
+      - base_asset: OMG
+        quote_asset: USD
+      - base_asset: GALA
+        quote_asset: USD
+      - base_asset: MASK
+        quote_asset: USD
+      - base_asset: FLR
+        quote_asset: USD
+      - base_asset: EOS
+        quote_asset: USD
+      - base_asset: MV
+        quote_asset: USD
+      - base_asset: IMX
+        quote_asset: USD
+      - base_asset: EWT
+        quote_asset: USD
+      - base_asset: GRT
+        quote_asset: USD
+      - base_asset: MINA
+        quote_asset: USD
+      - base_asset: ICP
+        quote_asset: USD
+      - base_asset: KSM
+        quote_asset: USD
+      - base_asset: QNT
+        quote_asset: USD
+      - base_asset: LUNA
+        quote_asset: USD
+      - base_asset: ACH
+        quote_asset: USD
+      - base_asset: SGB
+        quote_asset: USD
+      - base_asset: USDC
+        quote_asset: AUD
+      - base_asset: LTC
+        quote_asset: USDT
+      - base_asset: BLUR
+        quote_asset: USD
+      - base_asset: FET
+        quote_asset: USD
+      - base_asset: APE
+        quote_asset: USD
+      - base_asset: INJ
+        quote_asset: USD
+      - base_asset: ETC
+        quote_asset: USD
+      - base_asset: OXT
+        quote_asset: USD
+      - base_asset: PAXG
+        quote_asset: USD
+      - base_asset: ZEC
+        quote_asset: USD
+      - base_asset: ADA
+        quote_asset: USDT
+      - base_asset: SCRT
+        quote_asset: USD
+      - base_asset: USDC
+        quote_asset: CHF
+      - base_asset: RNDR
+        quote_asset: USD
+      - base_asset: SHIB
+        quote_asset: USD
+      - base_asset: KAVA
+        quote_asset: USD
+      - base_asset: SOL
+        quote_asset: USDT
+      - base_asset: BCH
+        quote_asset: USD
+      - base_asset: DOGE
+        quote_asset: USDT
+      - base_asset: FXS
+        quote_asset: USD
+      - base_asset: NEAR
+        quote_asset: USD
+      - base_asset: LDO
+        quote_asset: USD
+      - base_asset: TRX
+        quote_asset: USD
+      - base_asset: CRV
+        quote_asset: USD
+      - base_asset: SNX
+        quote_asset: USD
+      - base_asset: USDC
+        quote_asset: CAD
+      - base_asset: RUNE
+        quote_asset: USD
+      - base_asset: 1INCH
+        quote_asset: USD
+      - base_asset: RPL
+        quote_asset: USD
+      - base_asset: MATIC
+        quote_asset: USDT
+      - base_asset: UNI
+        quote_asset: USD
+      - base_asset: MIR
+        quote_asset: USD
+      - base_asset: YFI
+        quote_asset: USD
+      - base_asset: AAVE
+        quote_asset: USD
+      - base_asset: STORJ
+        quote_asset: USD
+      - base_asset: SHIB
+        quote_asset: USDT
+      - base_asset: LRC
+        quote_asset: USD
+    
+    okx:
+      future: 
+        - base_asset: LTC
+          quote_asset: USDT
+        - base_asset: XRP
+          quote_asset: USDT
+        - base_asset: DOGE
+          quote_asset: USDT
+        - base_asset: CFX
+          quote_asset: USDT
+        - base_asset: MASK
+          quote_asset: USDT
+        - base_asset: OP
+          quote_asset: USDT
+        - base_asset: FIL
+          quote_asset: USDT
+        - base_asset: ETC
+          quote_asset: USDT
+        - base_asset: SOL
+          quote_asset: USDT
+        - base_asset: BCH
+          quote_asset: USDT
+        - base_asset: APT
+          quote_asset: USDT
+        - base_asset: MATIC
+          quote_asset: USDT
+        - base_asset: SHIB
+          quote_asset: USDT
+        - base_asset: EOS
+          quote_asset: USDT
+        - base_asset: TRX
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT
+        - base_asset: APE
+          quote_asset: USDT
+        - base_asset: DOT
+          quote_asset: USDT
+        - base_asset: DYDX
+          quote_asset: USDT
+        - base_asset: UNI
+          quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDT
+        - base_asset: AVAX
+          quote_asset: USDT
+        - base_asset: BNB
+          quote_asset: USDT
+        - base_asset: SUSHI
+          quote_asset: USDT
+        - base_asset: DASH
+          quote_asset: USDT
+        - base_asset: CRV
+          quote_asset: USDT
+        - base_asset: SAND
+          quote_asset: USDT
+        - base_asset: GALA
+          quote_asset: USDT
+        - base_asset: FTM
+          quote_asset: USDT
+        - base_asset: CORE
+          quote_asset: USDT
+        - base_asset: AXS
+          quote_asset: USDT
+        - base_asset: MANA
+          quote_asset: USDT
+        - base_asset: NEAR
+          quote_asset: USDT
+        - base_asset: ICP
+          quote_asset: USDT
+        - base_asset: CHZ
+          quote_asset: USDT
+        - base_asset: ZEC
+          quote_asset: USDT
+        - base_asset: OMG
+          quote_asset: USDT
+        - base_asset: YFII
+          quote_asset: USDT
+        - base_asset: IMX
+          quote_asset: USDT
+        - base_asset: ETHW
+          quote_asset: USDT
+        - base_asset: XMR
+          quote_asset: USDT
+        - base_asset: AAVE
+          quote_asset: USDT
+        - base_asset: GRT
+          quote_asset: USDT
+        - base_asset: ENS
+          quote_asset: USDT
+        - base_asset: 1INCH
+          quote_asset: USDT
+        - base_asset: MKR
+          quote_asset: USDT
+        - base_asset: USDC
+          quote_asset: USDT
+        - base_asset: NEO
+          quote_asset: USDT
+        - base_asset: BSV
+          quote_asset: USDT
+        - base_asset: ALGO
+          quote_asset: USDT
+        - base_asset: YFI
+          quote_asset: USDT
+        - base_asset: SNX
+          quote_asset: USDT
+        - base_asset: TON
+          quote_asset: USDT
+        - base_asset: XLM
+          quote_asset: USDT
+        - base_asset: USTC
+          quote_asset: USDT
+        - base_asset: THETA
+          quote_asset: USDT
+        - base_asset: GMT
+          quote_asset: USDT
+        - base_asset: LRC
+          quote_asset: USDT
+        - base_asset: MINA
+          quote_asset: USDT
+        - base_asset: ZEN
+          quote_asset: USDT
+        - base_asset: RSR
+          quote_asset: USDT
+        - base_asset: CELO
+          quote_asset: USDT
+        - base_asset: WAVES
+          quote_asset: USDT
+        - base_asset: EGLD
+          quote_asset: USDT
+        - base_asset: KSM
+          quote_asset: USDT
+        - base_asset: BAND
+          quote_asset: USDT
+        - base_asset: LINK
+          quote_asset: USDT
+        - base_asset: LOOKS
+          quote_asset: USDT
+        - base_asset: REN
+          quote_asset: USDT
+        - base_asset: YGG
+          quote_asset: USDT
+        - base_asset: BAL
+          quote_asset: USDT
+        - base_asset: XCH
+          quote_asset: USDT
+        - base_asset: CEL
+          quote_asset: USDT
+        - base_asset: KLAY
+          quote_asset: USDT
+        - base_asset: ZIL
+          quote_asset: USDT
+        - base_asset: BAT
+          quote_asset: USDT
+        - base_asset: KNC
+          quote_asset: USDT
+        - base_asset: FITFI
+          quote_asset: USDT
+        - base_asset: XTZ
+          quote_asset: USDT
+        - base_asset: LPT
+          quote_asset: USDT
+        - base_asset: COMP
+          quote_asset: USDT
+        - base_asset: QTUM
+          quote_asset: USDT
+        - base_asset: FLOKI
+          quote_asset: USDT
+        - base_asset: IOST
+          quote_asset: USDT
+        - base_asset: ENJ
+          quote_asset: USDT
+        - base_asset: CRO
+          quote_asset: USDT
+        - base_asset: CVC
+          quote_asset: USDT
+        - base_asset: SLP
+          quote_asset: USDT
+        - base_asset: FLM
+          quote_asset: USDT
+        - base_asset: TRB
+          quote_asset: USDT
+        - base_asset: STORJ
+          quote_asset: USDT
+        - base_asset: IOTA
+          quote_asset: USDT
+        - base_asset: ANT
+          quote_asset: USDT
+        - base_asset: UMA
+          quote_asset: USDT
+        - base_asset: BNT
+          quote_asset: USDT
+        - base_asset: RVN
+          quote_asset: USDT
+        - base_asset: ZRX
+          quote_asset: USDT
+        - base_asset: API3
+          quote_asset: USDT
+        - base_asset: LUNA
+          quote_asset: USDT
+        - base_asset: AGLD
+          quote_asset: USDT
+        - base_asset: JST
+          quote_asset: USDT
+        - base_asset: BICO
+          quote_asset: USDT
+        - base_asset: BADGER
+          quote_asset: USDT
+        - base_asset: ONT
+          quote_asset: USDT
+        - base_asset: DORA
+          quote_asset: USDT
+        - base_asset: SWEAT
+          quote_asset: USDT
+        - base_asset: STARL
+          quote_asset: USDT
+        - base_asset: GODS
+          quote_asset: USDT
+        - base_asset: NFT
+          quote_asset: USDT
+        - base_asset: KISHU
+          quote_asset: USDT
+        - base_asset: CSPR
+          quote_asset: USDT
+        - base_asset: ALPHA
+          quote_asset: USDT
+        - base_asset: BLUR
+          quote_asset: USDT
+        - base_asset: STX
+          quote_asset: USDT
+        - base_asset: LDO
+          quote_asset: USDT
+        - base_asset: PEOPLE
+          quote_asset: USDT
+        - base_asset: MAGIC
+          quote_asset: USDT
+        - base_asset: LUNC
+          quote_asset: USDT
+        - base_asset: GMX
+          quote_asset: USDT
+        - base_asset: GFT
+          quote_asset: USDT
+        - base_asset: AR
+          quote_asset: USDT
+        - base_asset: WOO
+          quote_asset: USDT
+        - base_asset: BTC
+          quote_asset: USDT 
+        - base_asset: BTC
+          quote_asset: USDT 
+          maturity: 230630
+        - base_asset: BTC
+          quote_asset: USDT 
+          maturity: 230929
+        - base_asset: BTC
+          quote_asset: USDT
+      spot: 
+        - base_asset: BTC
+          quote_asset: USDT
+        - base_asset: ETH
+          quote_asset: USDT
+        - base_asset: CFX
+          quote_asset: USDT
+        - base_asset: ARB
+          quote_asset: USDT
+        - base_asset: XRP
+          quote_asset: USDT
+        - base_asset: LTC
+          quote_asset: USDT
+        - base_asset: MASK
+          quote_asset: USDT
+        - base_asset: APT
+          quote_asset: USDT
+        - base_asset: USDC
+          quote_asset: USDT
+        - base_asset: FIL
+          quote_asset: USDT
+        - base_asset: BTC
+          quote_asset: USDC
+        - base_asset: RDNT
+          quote_asset: USDT
+        - base_asset: BLUR
+          quote_asset: USDT
+        - base_asset: OP
+          quote_asset: USDT
+        - base_asset: BCH
+          quote_asset: USDT
+        - base_asset: DOGE
+          quote_asset: USDT
+        - base_asset: ETH
+          quote_asset: USDC
+        - base_asset: SOL
+          quote_asset: USDT
+        - base_asset: EOS
+          quote_asset: USDT
+        - base_asset: CORE
+          quote_asset: USDT
+        - base_asset: ADA
+          quote_asset: USDT
+        - base_asset: FTM
+          quote_asset: USDT
+        - base_asset: LDO
+          quote_asset: USDT
+        - base_asset: MATIC
+          quote_asset: USDT
+        - base_asset: OKB
+          quote_asset: USDT
+        - base_asset: ETC
+          quote_asset: USDT
+        - base_asset: LINK
+          quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDT
+        - base_asset: STX
+          quote_asset: USDT
+        - base_asset: 1INCH
+          quote_asset: USDT
+        - base_asset: SHIB
+          quote_asset: USDT
+        - base_asset: DYDX
+          quote_asset: USDT
+        - base_asset: GALA
+          quote_asset: USDT
+        - base_asset: DOT
+          quote_asset: USDT
+        - base_asset: ALGO
+          quote_asset: USDT
+        - base_asset: AVAX
+          quote_asset: USDT
+        - base_asset: TRX
+          quote_asset: USDT
+        - base_asset: USDT
+          quote_asset: USDC
+        - base_asset: BNB
+          quote_asset: USDT
+        - base_asset: WBTC
+          quote_asset: USDT
+        - base_asset: APE
+          quote_asset: USDT
+        - base_asset: MAGIC
+          quote_asset: USDT
+        - base_asset: XLM
+          quote_asset: USDT
+        - base_asset: SAND
+          quote_asset: USDT
+        - base_asset: NEAR
+          quote_asset: USDT
+        - base_asset: HBAR
+          quote_asset: USDT
+        - base_asset: DASH
+          quote_asset: USDT
+        - base_asset: XMR
+          quote_asset: USDT
+        - base_asset: OMG
+          quote_asset: USDT
+        - base_asset: IMX
+          quote_asset: USDT
+        - base_asset: SSV
+          quote_asset: USDT
+        - base_asset: PEOPLE
+          quote_asset: USDT
+        - base_asset: CHZ
+          quote_asset: USDT
+        - base_asset: OP
+          quote_asset: USDC
+        - base_asset: ZBC
+          quote_asset: USDT
+        - base_asset: ZEC
+          quote_asset: USDT
+        - base_asset: UNI
+          quote_asset: USDT
+        - base_asset: NEO
+          quote_asset: USDT
+        - base_asset: GMX
+          quote_asset: USDT
+        - base_asset: DEP
+          quote_asset: USDT
+        - base_asset: GFT
+          quote_asset: USDT
+        - base_asset: FLOKI
+          quote_asset: USDT
+        - base_asset: CVC
+          quote_asset: USDT
+        - base_asset: VELO
+          quote_asset: USDT
+        - base_asset: GMT
+          quote_asset: USDT
+        - base_asset: JOE
+          quote_asset: USDT
+        - base_asset: BABYDOGE
+          quote_asset: USDT
+        - base_asset: MANA
+          quote_asset: USDT
+        - base_asset: LUNA
+          quote_asset: USDT
+        - base_asset: ETHW
+          quote_asset: USDT
+        - base_asset: BETH
+          quote_asset: USDT
+        - base_asset: AAVE
+          quote_asset: USDT
+        - base_asset: LTC
+          quote_asset: USDC
+        - base_asset: CRV
+          quote_asset: USDT
+        - base_asset: MASK
+          quote_asset: USDC
+        - base_asset: MKR
+          quote_asset: USDT
+        - base_asset: OKT
+          quote_asset: USDT
+        - base_asset: RDNT
+          quote_asset: USDC
+        - base_asset: EGLD
+          quote_asset: USDT
+        - base_asset: BLUR
+          quote_asset: USDC
+        - base_asset: FLR
+          quote_asset: USDT
+        - base_asset: GRT
+          quote_asset: USDT
+        - base_asset: YFI
+          quote_asset: USDT
+        - base_asset: LUNC
+          quote_asset: USDT
+        - base_asset: SNX
+          quote_asset: USDT
+        - base_asset: XRP
+          quote_asset: USDC
+        - base_asset: AR
+          quote_asset: USDT
+        - base_asset: WAVES
+          quote_asset: USDT
+        - base_asset: ICP
+          quote_asset: USDT
+        - base_asset: ENS
+          quote_asset: USDT
+        - base_asset: LRC
+          quote_asset: USDT
+        - base_asset: TON
+          quote_asset: USDT
+        - base_asset: BNB
+          quote_asset: USDC
+        - base_asset: SUSHI
+          quote_asset: USDT
+        - base_asset: STORJ
+          quote_asset: USDT
+        - base_asset: VELA
+          quote_asset: USDT
+        - base_asset: APT
+          quote_asset: USDC
+        - base_asset: RIO
+          quote_asset: USDT
+        - base_asset: BCH
+          quote_asset: USDC
+        - base_asset: CSPR
+          quote_asset: USDT
+        - base_asset: BSV
+          quote_asset: USDT
+        - base_asset: CELO
+          quote_asset: USDT
+        - base_asset: SOL
+          quote_asset: USDC
+        - base_asset: DOGE
+          quote_asset: USDC
+        - base_asset: YGG
+          quote_asset: USDT
+        - base_asset: REN
+          quote_asset: USDT
+        - base_asset: CELR
+          quote_asset: USDT
+        - base_asset: STX
+          quote_asset: USDC
+        - base_asset: DOME
+          quote_asset: USDT
+        - base_asset: YFII
+          quote_asset: USDT
+        - base_asset: SOS
+          quote_asset: USDT
+        - base_asset: WOO
+          quote_asset: USDT
+        - base_asset: MXT
+          quote_asset: USDT
+        - base_asset: MDT
+          quote_asset: USDT
+        - base_asset: ZIL
+          quote_asset: USDT
+        - base_asset: BAND
+          quote_asset: USDT
+        - base_asset: ENJ
+          quote_asset: USDT
+        - base_asset: ALGO
+          quote_asset: USDC
+        - base_asset: APM
+          quote_asset: USDT
+        - base_asset: ZEN
+          quote_asset: USDT
+        - base_asset: MATIC
+          quote_asset: USDC
+        - base_asset: MINA
+          quote_asset: USDT
+        - base_asset: FLOW
+          quote_asset: USDT
+        - base_asset: CORE
+          quote_asset: USDC
+        - base_asset: XCH
+          quote_asset: USDT
+        - base_asset: KLAY
+          quote_asset: USDT
+        - base_asset: DYDX
+          quote_asset: USDC
+        - base_asset: USTC
+          quote_asset: USDT
+        - base_asset: SSV
+          quote_asset: USDC
+        - base_asset: RON
+          quote_asset: USDT
+        - base_asset: OKB
+          quote_asset: USDC
+        - base_asset: GMX
+          quote_asset: USDC
+        - base_asset: KSM
+          quote_asset: USDT
+        - base_asset: JST
+          quote_asset: USDT
+        - base_asset: ATOM
+          quote_asset: USDC
+        - base_asset: QTUM
+          quote_asset: USDT
+        - base_asset: KNC
+          quote_asset: USDT
+        - base_asset: LAT
+          quote_asset: USDT
+        - base_asset: 1INCH
+          quote_asset: USDC

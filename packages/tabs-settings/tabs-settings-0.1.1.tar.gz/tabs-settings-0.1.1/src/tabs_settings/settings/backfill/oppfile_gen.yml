@@ -1,0 +1,14 @@
+oppfile_id: # if none, set to now()
+
+local_settings:
+  paths: code/tabs-settings/src/tabs_settings/paths.yml
+  roll: code/tabs-settings/src/tabs_settings/learn/roll.yml
+  baskets: code/tabs-settings/src/tabs_settings/learn/baskets.yml
+
+job_settings:
+  signal_builder: code/tabs-settings/src/tabs_settings/learn/signal_builder.yml
+
+
+instance:
+  ram_to_file_size_ratio: 0.01
+  gpu: False

@@ -1,0 +1,278 @@
+basket: 
+  name: dev
+  trading_pairs: 
+    binance:
+      future: 
+        # - base_asset: ETH
+        #   quote_asset: USDT
+        #   is_active: False
+        # - base_asset: ADA
+        #   quote_asset: USDT
+        - base_asset: ETH
+          quote_asset: USDT
+          maturity: "20230331"
+      # spot:
+        # - base_asset: ADA
+        #   quote_asset: USDT
+        # - base_asset: ETH
+        #   quote_asset: USDT
+        #   is_active: false
+    kraken:
+      future:
+        - base_asset: ETH
+          quote_asset: USD
+          is_active: true
+        - base_asset: ETH
+          quote_asset: USD
+          maturity: "20230331"
+      spot:
+        # - base_asset: ADA
+        #   quote_asset: USD
+        - base_asset: ETH
+          quote_asset: USD
+          is_active: false
+    # okx:
+    #   future: 
+    #     - base_asset: ADA
+    #       quote_asset: USDT
+    #       maturity: "20230331"
+    #     - base_asset: ETH
+    #       quote_asset: USDT
+    #   spot: 
+    #     - base_asset: ADA
+    #       quote_asset: USDT
+    #     - base_asset: ETH
+    #       quote_asset: USDT
+
+roll: 
+  date_to: "20230325"
+  n_dates: 10
+  n_days_fit: 1
+  n_days_score_evaluation: 1
+  n_days_tactic_tuning: 1
+  n_days_test: 1
+  seed: 0
+
+oppfile: 
+  signal_builder:  
+    # per cell and side 
+    # trades price diff 
+    # top of book price diff 
+    # top of book quantity (cumsum up to depth)
+    
+    # per trading_pair
+    # direction (mean of signed quantity)
+    # volume (sum of signed quantity)
+    windows_size:
+      - 10
+      - 50
+      - 260
+      - 500
+      - 1000
+      # - 2000
+    levels: 
+      - 0
+      # - 1
+      # - 2
+      # - 3
+
+  fees: 
+    - 0
+    - 0.0004
+    # - 0.0005
+  
+  deadspaces: 
+    - 0ms
+    - 1ms 
+
+  fillsims: 
+    - 0ms
+    - 10ms
+
+  horizons: 
+    - 0ms
+    - 1ms
+    - 100ms 
+    - 1s
+    - 10s
+    - 30s
+    - 1m
+    - 5m
+    - 10m
+
+
+fit: 
+  model_params:
+    penalty: 'l2'
+    dual: False
+    tol: 0.0001
+    C: 10.0
+    fit_intercept: True
+    intercept_scaling: 1
+    class_weight:
+    random_state: 0
+    solver: 'newton-cholesky'
+    max_iter: 100
+    multi_class: 'auto'
+    verbose: 0
+    warm_start: False
+    n_jobs: -1
+    l1_ratio:
+
+  horizons:
+    - 10s
+    - 30s
+    - 1m
+    - 5m
+    
+  pca_params:
+    n_components: 0.001
+
+ 
+
+
+score_evaluation: 
+  objective: fc
+    
+  dimensions:
+    horizons:
+      - 1m
+      - 5m
+      - 10m
+
+
+    fee:
+      - 0.0004
+      # - 0.0001 # 0.0005 + 0.002 for the spread cross
+      # - 0.0006
+      - 0 # nofee
+
+
+  n_iterations: 100
+
+  optimizer_settings:
+    base_estimator: gp # or dummy but does not work as good
+    n_initial_points: 1000
+    initial_point_generator: random
+    acq_func: gp_hedge
+    acq_optimizer: lbfgs
+    random_state: 0
+    model_queue_size:
+    acq_func_kwargs:
+      n_restarts_optimizer: 1
+
+
+  search_space:
+    sided:
+      quantile:
+        low: 0.00001
+        high: 0.1
+        prior: log-uniform
+        base: 10
+
+
+        
+backtest: 
+  initial_portfolios:
+      binance:
+        spot:
+          collateral_available: 0
+          collateral_allocated: 0
+          leverage: 20
+        future: 
+          collateral_available: 600
+          collateral_allocated: 0
+          leverage: 20
+      kraken: 
+        spot:
+          collateral_available: 0
+          collateral_allocated: 0
+          leverage: 20
+        future: 
+          collateral_available: 600
+          collateral_allocated: 0
+          leverage: 20
+
+
+fees:
+  binance:
+    future:
+      maker: 0.0002
+      taker: 0.0004
+    spot: 
+      maker: 0 
+      taker: 0
+  kraken:
+    future: 
+      maker: 0.0002
+      taker: 0.0005
+    spot: 
+      maker: 0 
+      taker: 0
+
+
+tactic_tuning: 
+  objective:
+    risk_penalty: 0 # 0.001 this is too much, maybe try 1 or 2 orders of magnitude smaller
+    unrealized_to_realised_pnl_ratio: 0.01
+
+  n_iterations: 30
+
+  optimizer_settings:
+    base_estimator: gp
+    n_random_starts: 1
+    n_initial_points: 10
+    initial_point_generator: random
+    acq_func: gp_hedge
+    acq_optimizer: sampling
+    random_state: 0
+    model_queue_size:
+
+  dimensions:
+
+  search_space:
+    sided:
+      # closing threshold have lower bound = 80% of opening threshold
+      closing_slope:
+        low: 0.00000001
+        high: 0.0001 # force it to be essentially 0
+        prior: log-uniform
+        base: 10
+      closing_threshold:
+        low: 0.0001
+        high: 0.1
+        prior: uniform
+        base: 10
+      # opening threshold are override by score-evaluation thresholds
+      opening_slope:
+        low: 0.00000001
+        high: 0.0001
+        prior: log-uniform
+        base: 10
+      opening_threshold:
+        low: 0.0001
+        high: 0.1
+        prior: uniform
+        base: 10
+    not_sided:
+      cooldown:
+        low: 1000
+        high: 1000000
+        prior: log-uniform
+        base: 10
+      max_order_size:
+        low: 11
+        high: 11.01
+        prior: uniform
+        base: 10
+      position_limit:
+        low: 1000
+        high: 1000.1
+        prior: uniform
+        base: 10
+      quote_quantity_size:
+        low: 11
+        high: 11.01
+        prior: uniform
+        base: 10
+      
