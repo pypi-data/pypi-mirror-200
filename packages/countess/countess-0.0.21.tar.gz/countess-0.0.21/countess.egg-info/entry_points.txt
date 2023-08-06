@@ -1,0 +1,18 @@
+[console_scripts]
+countess_cmd = countess.core.cmd:main
+
+[countess_plugins]
+embed_py = countess.plugins.embed_python:EmbeddedPythonPlugin
+group_by = countess.plugins.group_by:GroupByPlugin
+join = countess.plugins.join:DaskJoinPlugin
+load_csv = countess.plugins.csv:LoadCsvPlugin
+load_fastq = countess.plugins.fastq:LoadFastqPlugin
+load_hdf = countess.plugins.hdf5:LoadHdfPlugin
+log_score = countess.plugins.log_score:LogScorePlugin
+pivot = countess.plugins.pivot:DaskPivotPlugin
+regex_reader = countess.plugins.regex:RegexReaderPlugin
+regex_tool = countess.plugins.regex:RegexToolPlugin
+save_csv = countess.plugins.csv:SaveCsvPlugin
+
+[gui_scripts]
+countess_gui = countess.gui.main:main

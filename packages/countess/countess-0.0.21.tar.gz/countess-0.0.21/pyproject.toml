@@ -1,0 +1,86 @@
+[project]
+name = 'countess'
+dynamic = ["version"]
+readme = "README.md"
+authors = [
+    { name = "Nick Moore", email="nick@zoic.org" },
+    { name = "Alan Rubin", email="alan@rubin.id.au" },
+]
+maintainers = [
+    { name = "Nick Moore", email="nick@zoic.org" },
+]
+description = "CountESS"
+requires-python = ">=3.10"
+license = { text = "BSD-3-Clause" }
+classifiers = [
+    'Development Status :: 2 - Pre-Alpha',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: BSD License',
+    'Operating System :: OS Independent',
+    'Topic :: Scientific/Engineering :: Bio-Informatics',
+]
+dependencies = [
+    'dask>=2022.8.0',
+    'distributed>=2022.8.0',
+    'fqfa~=1.2.3',
+    'more_itertools>=8.14.0',
+    'numpy~=1.23',
+    'pandas~=1.4',
+    'ttkthemes~=3.2',
+]
+
+[project.optional-dependencies]
+dev = [
+    'black<24',
+    'mypy~=1.0.1',
+    'pylint~=2.16',
+    'types-ttkthemes~=3.2',
+    'pytest~=7.2',
+]
+
+hdf = [
+     'tables~=3.7',
+]
+
+[project.entry-points.countess_plugins]
+load_fastq = "countess.plugins.fastq:LoadFastqPlugin"
+load_hdf = "countess.plugins.hdf5:LoadHdfPlugin"
+load_csv = "countess.plugins.csv:LoadCsvPlugin"
+log_score = "countess.plugins.log_score:LogScorePlugin"
+group_by = "countess.plugins.group_by:GroupByPlugin"
+embed_py = "countess.plugins.embed_python:EmbeddedPythonPlugin"
+pivot = "countess.plugins.pivot:DaskPivotPlugin"
+join = "countess.plugins.join:DaskJoinPlugin"
+save_csv = "countess.plugins.csv:SaveCsvPlugin"
+regex_tool = "countess.plugins.regex:RegexToolPlugin"
+regex_reader = "countess.plugins.regex:RegexReaderPlugin"
+
+[project.entry-points.gui_scripts]
+countess_gui = "countess.gui.main:main"
+
+[project.entry-points.console_scripts]
+countess_cmd = "countess.core.cmd:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "countess.VERSION" }
+readme = { file = "README.md", content-type="text/markdown" }
+
+[tool.pylint]
+disable = [
+    "consider-using-f-string",
+    "fixme",
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "unused-argument",
+    "invalid-name",
+    "no-else-return",
+    "too-many-ancestors",
+    "too-many-arguments",
+    "too-many-branches",
+    "too-many-instance-attributes",
+    "too-many-locals",
+]
+
+[tool.black]
+line-length = 100
