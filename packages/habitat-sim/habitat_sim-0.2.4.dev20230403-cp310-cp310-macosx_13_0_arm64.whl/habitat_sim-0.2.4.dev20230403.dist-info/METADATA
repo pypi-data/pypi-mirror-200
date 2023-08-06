@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: habitat-sim
+Version: 0.2.4.dev20230403
+Summary: A high performance simulator for training embodied agents
+Author: FAIR A-STAR
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: attrs (>=19.1.0)
+Requires-Dist: gitpython
+Requires-Dist: imageio
+Requires-Dist: imageio-ffmpeg
+Requires-Dist: matplotlib
+Requires-Dist: numba
+Requires-Dist: numpy
+Requires-Dist: numpy-quaternion
+Requires-Dist: pillow
+Requires-Dist: scipy (>=1.3.0)
+Requires-Dist: tqdm
+
