@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "universal-greetings"
+version = "0.2.0"
+description = "Universal Greetings Library"
+authors = ["Alan S. Ferreira <alansferreira1984@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/alelltech-backstage-demo/python-library-universal-greetings"
+packages = [
+  { include = "**/*.py", from = "src"},
+]
+exclude = ["src/**/*.test.py"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+urllib3 = "^1.26.12"
+requests = "^2.28.1"
+ruamel-yaml = "^0.17.21"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
