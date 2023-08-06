@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: swin
+Version: 0.0.4
+Summary: Swin: SoftWare INsights
+Project-URL: Homepage, https://github.com/lunarserge/swin
+Project-URL: Bug Tracker, https://github.com/lunarserge/swin/issues
+Author: Serge Lunev
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: matplotlib>=3.7.1
+Requires-Dist: numerize>=0.12
+Requires-Dist: numpy>=1.24.2
+Requires-Dist: pandas>=1.5.3
+Requires-Dist: prettytable>=3.6.0
+Requires-Dist: pypistats>=1.2.1
+Description-Content-Type: text/markdown
+
+# swin (SoftWare INsights)
+
+Simple analytics for PyPI packages based on `pypistats` (https://pypi.org/project/pypistats). In addition to daily downloads chart, `swin` adds a linear trend line and a summary stats table.
+
+## Installation from PyPI
+
+`pip install --upgrade swin`
+
+## Command-Line Use
+
+`swin [--help] [--version] packages`
+
+`swin` will create 'charts' folder (or use the existing one) in the current directory and put there one PNG file per input package with daily downloads chart and a trend over time.
+
+`swin` will also print a sorted table with download statistics of the packages specified in the command line.
