@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: canals
+Version: 0.0.1
+Summary: A node orchestration engine for Haystack
+Project-URL: Documentation, https://github.com/deepset-ai/canals#readme
+Project-URL: Issues, https://github.com/deepset-ai/canals/issues
+Project-URL: Source, https://github.com/deepset-ai/canals
+Author-email: ZanSara <sara.zanzottera@deepset.ai>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: Freely Distributable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: networkx
+Provides-Extra: all
+Requires-Dist: canals[dev,draw]; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: black[jupyter]==22.6.0; extra == 'dev'
+Requires-Dist: coverage; extra == 'dev'
+Requires-Dist: hatch; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: pre-commit; extra == 'dev'
+Requires-Dist: pylint==2.15.10; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Provides-Extra: draw
+Requires-Dist: pygraphviz; extra == 'draw'
+Description-Content-Type: text/markdown
+
+# 🌊 Canals 🌊
+
+<p align="center" float="left">
+  <img alt="" src="https://raw.githubusercontent.com/deepset-ai/.github/main/deepset-logo-colored.png" width="30%"/>
+  <img alt="" src="https://raw.githubusercontent.com/deepset-ai/.github/main/haystack-logo-colored-on-dark.png#gh-dark-mode-only" width="30%"/>
+  <img alt="" src="https://raw.githubusercontent.com/deepset-ai/.github/main/haystack-logo-colored.png#gh-light-mode-only" width="30%"/>
+</p>
+
+[![PyPI - Version](https://img.shields.io/pypi/v/canals.svg)](https://pypi.org/project/canals)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/canals.svg)](https://pypi.org/project/canals)
+
+Canals is a **node orchestration engine**. Nodes are Python objects that can execute a task, like reading a file, performing calculations, or making API calls. Canals connects these objects together: it builds a graph of nodes and takes care of managing their execution order, making sure that each object receives the input it expects from the other nodes of the pipeline.
+
+Canals powers version 2.0 of the [Haystack framework](https://github.com/deepset-ai/haystack).
+
+## Installation
+
+Running:
+
+```console
+pip install canals
+```
+
+gives you the bare minimum necessary to run Canals.
+
+To be able to draw pipelines, please make sure you have [graphviz](https://graphviz.org/download/) installed:
+
+```console
+sudo apt install graphviz  # You may need `graphviz-dev` too: sudo apt install graphviz-dev
+pip install canals[draw]
+```
