@@ -1,0 +1,187 @@
+Metadata-Version: 2.1
+Name: pyCoDaMath
+Version: 1.0
+Summary: Compositional data (CoDa) analysis tools for Python
+Author-email: Christian Brinch <cbri@food.dtu.dk>
+Project-URL: Homepage, https://bitbucket.org/genomicepidemiology/pycodamath
+Project-URL: Bug Tracker, https://bitbucket.org/genomicepidemiology/pycodamath/issues?status=new&status=open&is_spam=!spam
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib (>=3.1.1)
+Requires-Dist: numpy (>=1.17.2)
+Requires-Dist: pandas (>=0.25.1)
+Requires-Dist: python-ternary (>=1.0.6)
+Requires-Dist: scipy (>=1.3.1)
+Requires-Dist: webcolors (>=1.13)
+Requires-Dist: adjustText (==0.7.3)
+
+#  pyCoDaMath
+
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+
+
+pyCoDaMath provides compositional data (CoDa) analysis tools for Python
+
+- **Source code:** https://bitbucket.org/genomicepidemiology/pycoda
+
+## Getting Started
+
+This package extends the Pandas dataframe object with various CoDa tools. It also provides a set of plotting functions for CoDa figures.
+
+### Installation
+
+Clone the git repo to your local hard drive:
+
+    git clone https://brinch@bitbucket.org/genomicepidemiology/pycoda.git
+
+Enter pycoda directory and type
+
+    pip install ./
+
+### Usage
+
+The pyCoDaMath module is loaded as
+
+    import pycodamath
+
+At this point, in order to get CLR values from a Pandas DataFrame df, do
+
+    df.coda.clr()
+
+
+## Documentation
+
+### CLR transformation - point estimate
+    df.coda.clr()
+
+Returns centered logratio coefficients. If the data frame contains zeros, values
+will be replaced by the Aitchison mean point estimate.
+
+### CLR transformation - standard deviation
+    df.coda.clr_std(n_samples=5000)
+
+Returns the standard deviation of n_samples random draws in CLR space.
+
+**Parameters**
+
+- n_samples (int) - Number of random draws from a Dirichlet distribution.
+
+
+### ALR transformation - point estimate
+    df.coda.alr(part=None)
+
+Same as clr() but returning additive logratio values. If part is None, then the last part of the composition is used, otherwise part is used as denominator.
+
+**Parameters**
+
+- part (str) - Name of the part to be used as denominator.   
+
+
+### ALR transformation - standard deviation
+    df.coda.alr_std(part=None, n_samples=5000)
+
+Same as clr_std, but in ALR space.
+
+**Parameters**
+
+- part (str) - Name of the part to be used as denominator.   
+
+- n_samples (int) - Number of random draws from a Dirichlet distribution.
+
+
+### ILR transformation - point estimate
+    df.coda.ilr(psi=None)
+
+Same as clr() but for isometric logratio transform. An orthonormal basis can be
+provided as psi. If no basis is given, a default sequential binary partition basis will be used.
+
+**Parameters**
+
+- psi (array_like) - Orthonormal basis.
+
+### ILR transformation - standard deviation
+    df.coda.ilr_std(psi=None, n_samples=5000)
+
+This method does not exist (yet).
+
+
+### Bayesian zero replacement
+    df.coda.zero_replacement(n_samples=5000)
+
+Returns a count table with zero values replaced by finite values using Bayesian inference.
+
+**Parameters**
+
+- n_samples (int) - Number of random draws from a Dirichlet distribution.
+
+
+### Closure
+    df.coda.closure(N)
+
+Apply closure to constant N to the composition.
+
+**Parameters**
+
+- N (int) - Closure constant.
+
+### Total variance
+    df.coda.totvar()
+
+Calculates the total variance of a set of compositions.
+
+### Geometric mean
+    df.coda.gmean()
+
+Calculates the geometric mean of a set of compositions.
+
+### Centering
+    df.coda.center()
+
+Centers (and scales) the composition by dividing by the geometric mean and powering by the reciprocal variance.
+
+
+
+## Plotting functions
+
+### PCA biplot
+    class pycoda.pca.Biplot(data, default=True)
+
+Plots a PCA biplot. Set default to False for an empty plot.
+The parameter data (DataFrame) is the data to be analyzed. Use counts, not CLR values.
+
+A number of methods are available for customizing the biplot:
+
+- plotloadings(cutoff=0, scale=None, labels=None)
+- plotloadinglabels(labels=None)
+- plotscores(group=None, palette=None, legend=True, labels=None)
+- plotscorelables(labels=None)
+- plotellipses(group=None, palette=None)
+- plotcentroids(group=None, palette=None)
+- plothulls(group=None, palette=None)
+- plotcontours(group=None, palette=None, size=None, levels=None)
+- removepatches()
+- removescores()
+- removelabels()
+
+The keyword labels is a list of labelnames. If labels is None, all labels are plottet. Use labels=[] for no labels.
+
+The keyword group is a Pandas dataframe with index equal to the index of data.
+
+The keyword palette is a dict with colors to use to each unique member of group.
+
+Example
+    import pycoda as coda
+    import pandas as pd
+
+    data = pd.read_csv('example/kilauea_iki_chem.csv')
+    mypca = coda.pca.Biplot(data)
+    mypca.plothulls()
+    mypca.removelabels()
+    mypca.plotloadinglabels(['FeO'])
+
+### Ternary diagram
+    pycoda.plot.ternary()
