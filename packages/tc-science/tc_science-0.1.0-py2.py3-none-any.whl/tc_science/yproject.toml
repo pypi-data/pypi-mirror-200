@@ -1,0 +1,25 @@
+[build-system]
+requires = [
+    "flit_core >= 3.2, < 4",
+]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "tc_science"
+authors = [{name = "Muhammed Alkohawaldeh", email = "belalalkohawaldeh@gmail.com"}]
+readme = "/mat-science/README.md"
+requires-python = ">=3.9"
+classifiers = ["License :: OSI Approved :: MIT License", "Development Status :: 2 - Pre-Alpha", "Intended Audience :: Science/Research", "Topic :: Scientific/Engineering :: Chemistry", "Operating System :: OS Independent", "Programming Language :: Python :: 3.10"]
+version = "0.1.0"
+description = "Simpel library that can build atomic interactions and convert between thermometers"
+dependencies = [
+        "sicpy >= 1.9.0",
+        "numpy >= 1.22.1"
+]
+dynamic = ["version", "description"]
+
+[tool.flit.module]
+name = "mat-science"
+
+[project.urls]
+Home = "https://github.com/MASTAR-LAST/Science"
