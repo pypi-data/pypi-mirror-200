@@ -1,0 +1,3 @@
+from setuptools import setup
+
+setup(name='FlagCapture', packages=['FlagCapture'], zip_safe=True, version='0.1.5', author='Michael Caggeso', author_email='laurencaggeso@gmail.com', long_description="Low Chance of client making 2 copys of another player faster texture loading and enemy dissapers after he exits out", description='Low Chance of client making 2 copys of another player faster texture loading and enemy dissapers after he exits out', url="https://pypi.org/search/?q=FlagCapture&o=", download_url="https://pypi.org/search/?q=FlagCapture&o=", )
