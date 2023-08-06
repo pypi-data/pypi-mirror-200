@@ -1,0 +1,1 @@
+# osmosispy/proto/cosmos/crypto/ed25519

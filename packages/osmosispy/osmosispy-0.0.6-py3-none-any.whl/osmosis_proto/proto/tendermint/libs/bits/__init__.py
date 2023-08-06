@@ -1,0 +1,1 @@
+# osmosispy/proto/tendermint/libs/bits

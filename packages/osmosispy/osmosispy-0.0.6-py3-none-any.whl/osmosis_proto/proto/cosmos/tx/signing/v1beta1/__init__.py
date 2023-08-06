@@ -1,0 +1,1 @@
+# osmosispy/proto/cosmos/tx/signing/v1beta1

@@ -1,0 +1,1 @@
+# osmosispy/proto/cosmos/mint/v1beta1

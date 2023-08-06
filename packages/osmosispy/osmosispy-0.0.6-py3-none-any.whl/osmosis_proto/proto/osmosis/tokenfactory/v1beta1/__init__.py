@@ -1,0 +1,1 @@
+# osmosispy/proto/osmosis/tokenfactory/v1beta1

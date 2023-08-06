@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: osmosispy
+Version: 0.0.6
+Summary: Osmosis Python SDK
+License: MIT
+Author: sbneo2022
+Requires-Python: ==3.11.2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: asyncio (==3.4.3)
+Requires-Dist: bech32 (==1.2.0)
+Requires-Dist: binance-connector (>=2.0.0,<3.0.0)
+Requires-Dist: bip32 (==3.4)
+Requires-Dist: ecdsa (==0.18.0)
+Requires-Dist: grpcio (==1.51.1)
+Requires-Dist: grpcio-tools (==1.51.1)
+Requires-Dist: importlib (==1.0.4)
+Requires-Dist: mnemonic (==0.20)
+Requires-Dist: mypy-protobuf (==3.4.0)
+Requires-Dist: protobuf (==4.21.12)
+Requires-Dist: protobuf-init (==0.3.0)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: ripemd-hash (>=1.0.0,<2.0.0)
+Requires-Dist: setuptools (>=67.6.0,<68.0.0)
+Requires-Dist: types-protobuf (==4.21.0.2)

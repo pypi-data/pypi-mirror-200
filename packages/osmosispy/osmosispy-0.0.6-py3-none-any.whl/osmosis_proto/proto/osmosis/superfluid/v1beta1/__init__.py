@@ -1,0 +1,1 @@
+# osmosispy/proto/osmosis/superfluid/v1beta1

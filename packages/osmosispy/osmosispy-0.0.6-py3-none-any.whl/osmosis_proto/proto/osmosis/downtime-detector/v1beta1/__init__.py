@@ -1,0 +1,1 @@
+# osmosispy/proto/osmosis/downtime-detector/v1beta1

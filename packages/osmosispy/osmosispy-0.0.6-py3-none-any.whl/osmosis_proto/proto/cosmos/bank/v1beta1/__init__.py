@@ -1,0 +1,1 @@
+# osmosispy/proto/cosmos/bank/v1beta1
