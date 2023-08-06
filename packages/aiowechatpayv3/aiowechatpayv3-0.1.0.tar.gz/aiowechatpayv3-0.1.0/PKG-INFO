@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: aiowechatpayv3
+Version: 0.1.0
+Summary: 
+Author: yuxf
+Author-email: yuxf@unitechs.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: cryptography (>=40.0.1,<41.0.0)
+Requires-Dist: httpx (>=0.23.3,<0.24.0)
+Description-Content-Type: text/markdown
+
+# 微信支付 API v3 Python SDK
+
+[![PyPI version](https://badge.fury.io/py/wechatpayv3.svg)](https://badge.fury.io/py/wechatpayv3)
+[![Download count](https://img.shields.io/pypi/dm/wechatpayv3)](https://img.shields.io/pypi/dm/wechatpayv3)
+
+## 介绍
+异步版本微信支付包，fork自[wechatpayv3](https://github.com/minibear2021/wechatpayv3)
+微信支付接口 V3 版 python 库。
+
+文档完善中，暂时参考[微信支付 API v3 文档](https://wechatpay-api.gitbook.io/wechatpay-api-v3/)。
+

@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "aiowechatpayv3"
+version = "0.1.0"
+description = ""
+authors = ["yuxf <yuxf@unitechs.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+cryptography = "^40.0.1"
+httpx = "^0.23.3"
+
+[tool.poetry.dev-dependencies]
+flake8 = "*"
+isort = "*"
+black = "^23.3.0"
+pytest = "*"
+pytest-xdist = "*"
+pytest-cov = "*"
+pytest-asyncio = "*"
+asynctest = "*"
+bandit = "*"
+mypy = "*"
+uvicorn = "^0.21.1"
+fastapi = "^0.95.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+url = "https://mirrors.aliyun.com/pypi/simple/"
+name = "aliyun"
+default = true
+
+[tool.bandit]
+exclude_dirs = ["tests", "fast_tmp_cli/tpl"]
+tests = ["B201", "B301"]
+skips = ["B101", "B601"]
+
+
+[tool.flake8]
+ignore = "E203,E501,W503,DAR101,DAR201,DAR402"
+max-line-length = 100
+per-file-ignores = [
+    "tortoise/__init__.py:F401",
+    "tortoise/fields/__init__.py:F401",
+    "tortoise/backends/base/client.py:DAR401,DAR202",
+    "tortoise/contrib/test/__init__.py:DAR401",
+]
+docstring_style = "sphinx"
