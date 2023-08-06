@@ -1,0 +1,18 @@
+[project]
+name = "semipyramidgenerator"
+version = "0.0.1"
+authors = [
+  { name="Noor Hossam", email="emailforemails64@gmail.com" },
+]
+description = "A package that generates a normal semi-pyramid or a reversed semi-pyramid"
+readme = "README.md"
+requires-python = ">=0.1"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/"
+"Bug Tracker" = "https://github.com/"

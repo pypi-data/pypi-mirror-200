@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: semipyramidgenerator
+Version: 0.0.1
+Summary: A package that generates a normal semi-pyramid or a reversed semi-pyramid
+Author-email: Noor Hossam <emailforemails64@gmail.com>
+Project-URL: Homepage, https://github.com/
+Project-URL: Bug Tracker, https://github.com/
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=0.1
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# semi_pyramid_generator
+The *semi_pyramid_generator* package allows you to generate semi-pyramids by just using 2 functions which are `make_normal_semi_pyramid(<enter pyramid length>)` which is a normal semi-pyramid and `make_reversed_semi_pyramid(<enter pyramid length>)` which is a reversed semi-pyramid
+> *     End of long description         
