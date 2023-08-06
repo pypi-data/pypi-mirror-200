@@ -1,0 +1,109 @@
+Metadata-Version: 2.1
+Name: usb_resetter
+Version: 1.3.0
+Summary: small tool to reset USB controllers, hubs or devices
+Home-page: https://github.com/netinvent/udev_monitor
+Author: NetInvent - Orsiris de Jong
+Author-email: contact@netinvent.fr
+License: BSD
+Keywords: shell,usb,reset,hub,controller,plug and pray
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: Topic :: System
+Classifier: Topic :: System :: Operating System
+Classifier: Topic :: System :: Shells
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# usb_resetter
+small tool to reset USB controllers, hubs or devices
+
+## So here we are, with sh*TTY built usb devices, that don't work properly.
+
+I've had numerous problems with USB devices that simply don't work unless you disconnect / reconnect them.
+While I'd probably like to throw away those devices, sometimes there's no choice than the rejoice of using those devices.
+
+A couple solutions:
+
+1. Buy a robot hand that unplugs / plugs the device :) - Nice solution but costly... But again, very nice...
+2. Reset the USB device (works sometimes)
+3. Reset the USB hub where the device is plugged in (is generally sufficient)
+4. Reset all USB controllers (a bit broad, but works miracles on reluctant devices)
+5. Burn the device and promise to buy better hardware (also very nice solution)
+
+I've scripted solutions 2 to 4 in order to achieve what I need into a Python script.
+
+## Setup
+
+Grab yourself a copy of `usb_resetter` via pypi with `pip install usb_resetter` or download via
+
+```
+curl -o /usr/local/bin/usb_resetter -L https://raw.githubusercontent.com/netinvent/usb_resetter/main/usb_resetter/usb_resetter.py && chmod +x /usr/local/bin/usb_resetter
+```
+
+## Usage
+
+### List all USB devices
+```
+usb_resetter -l
+```
+Result
+```
+Found device 1d6b:0002 at /dev/bus/usb/001/001 Manufacturer=Linux 5.14.0-70.26.1.el9_0.x86_64 xhci-hcd, Product=xHCI Host Controller
+Found device 0665:5161 at /dev/bus/usb/001/002 Manufacturer=INNO TECH, Product=USB to Serial
+Found device 1d6b:0003 at /dev/bus/usb/002/001 Manufacturer=Linux 5.14.0-70.26.1.el9_0.x86_64 xhci-hcd, Product=xHCI Host Controller
+Found device 1199:9071 at /dev/bus/usb/002/002 Manufacturer=Sierra Wireless, Incorporated, Product=EM7455
+```
+
+
+### Reset a reluctant USB device
+
+```
+usb_resetter -d [vendor_id]:[product_id] --reset-device
+```
+Example:
+```
+usb_resetter -d 1199:9071 --reset-device
+```
+
+Result:
+```
+Resetting usb device /dev/bus/usb/002/002
+```
+
+### Reset the USB hub where a device is connected in
+```
+usb_resetter -d [vendor_id]:[product_id] --reset-hub
+```
+Example:
+```
+usb_resetter -d 1199:9071 --reset-hub
+```
+
+Result:
+```
+unbind hub /sys/bus/usb/devices/2-4
+bind hub /sys/bus/usb/devices/2-4
+```
+
+
+### Reset the whole USB controller (usually makes reluctant devices work again)
+```
+usb_resetter --reset-all
+```
+
+Result
+``` 
+unbind hub /sys/bus/pci/drivers/xhci_hcd/0000:00:14.0
+bind hub /sys/bus/pci/drivers/xhci_hcd/0000:00:14.0
+```
+
+Afterwards, all your USB devices should work as if they were just plugged in, since this reset also temporarily cuts power from given USB device, making it reboot.
