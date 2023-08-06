@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "web3-etl-schemas"
+version = "0.1.2"
+description = "Schemas and Models for Web3 ETL."
+authors = ["Max \"Maxitosh\" Kureikin <max.kureikin@chainstack.com>"]
+readme = "README.md"
+packages = [{include = "web3_etl_schemas"}]
+
+[tool.poetry.dependencies]
+python = "~3.11"
+pydantic = "^1.10.7"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
