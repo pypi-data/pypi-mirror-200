@@ -1,0 +1,124 @@
+# This workflow will:
+# - black-formatting: Analyze code with black.
+
+# - test: (on supported python versions)
+#   Analyze code with Pylint 
+#   Validate pyproject.toml for errors
+#   Test with pytest 
+
+# - build-n-publish: Build and Publish Python package
+# to PyPI.
+
+name: Publish Package on PyPI
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  black-formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Black
+        uses: psf/black@stable
+        with:
+          options: "--check --verbose"
+          src: "."
+
+
+  pylint-n-validate-pyproject:
+    needs: black-formatting
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Install pylint
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pylint validate-pyproject
+
+      - name: Analyze code with pylint
+        run: >-
+          pylint 
+          src/
+      
+      - name: Validate pyproject.toml
+        run: |
+          validate-pyproject pyproject.toml
+
+
+  test:
+    needs: pylint-n-validate-pyproject
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest
+
+      - name: Test with pytest
+        run: |
+          pytest -v .
+
+  
+  build-n-publish:
+    needs: test
+    name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: Install pypa/build
+      run: >-
+        python -m
+        pip install
+        build
+        --user
+
+    - name: Build a binary wheel and a source tarball
+      run: >-
+        python -m
+        build
+        --sdist
+        --wheel
+        --outdir dist/
+        .
+
+    # Publish to PyPI
+    - name: Publish distribution 📦 to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}
