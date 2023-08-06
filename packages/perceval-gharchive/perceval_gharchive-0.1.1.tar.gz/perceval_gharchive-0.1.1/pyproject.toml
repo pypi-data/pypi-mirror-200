@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "perceval-gharchive"
+version = "0.1.1"
+description = "A GitHub Archive backend for GrimoireLab Perceval."
+authors = ["wmeijer221 <me@wmeijer.com>"]
+license = "GPL-3.0 License"
+readme = "README.md"
+packages = [{include = "perceval_gharchive"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8.1,<4.0"
+perceval = "^0.21.3"
+requests = "^2.28.2"
+logging = "^0.4.9.6"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
+flake8 = "^6.0.0"
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
