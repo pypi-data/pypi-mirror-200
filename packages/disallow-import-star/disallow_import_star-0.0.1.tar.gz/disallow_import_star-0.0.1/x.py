@@ -1,0 +1,1 @@
+from disallow_import_star import __all__
