@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: tonicapp-helpers
+Version: 3.7.0
+Summary: Toolbox with general functions and models to avoid repetition.
+Home-page: UNKNOWN
+Author: tonicapp
+Author-email: web@tonicapp.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Django Helpers
+
+## Requirements
+* Python
+* Django>=3.2.2,<4.0
+* Django Rest Framework
+
+
+## Installation
+
+```
+$ pip install tonicapp-helpers
+```
+
+Add the application to your project's `INSTALLED_APPS` in `settings.py`.
+
+```
+INSTALLED_APPS = [
+    ...
+    'helpers',
+]
+```
+
+
+## Source
+
+```
+https://pypi.org/project/tonicapp-helpers/
+```
+
+
+## Update Library
+
+```
+python3 setup.py sdist
+```
+
+```
+python3 -m twine upload dist/*
+Enter your username: ******
+Enter your password: ******
+```
+
+
