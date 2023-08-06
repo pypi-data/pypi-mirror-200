@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: convpic2ico
+Version: 0.10
+Summary: Converts an image to .ico - Windows
+Home-page: https://github.com/hansalemaos/convpic2ico
+Author: Johannes Fischer
+Author-email: <aulasparticularesdealemaosp@gmail.com>
+License: MIT
+Keywords: ico,icon,convert
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE.rst
+
+
+# Converts an image to .ico - Windows 
+
+## pip install convpic2ico
+
+### Tested against Windows 10 / Python 3.10 / Anaconda 
+
+
+```python
+from convpic2ico import create_icon
+
+coloredicon = create_icon(
+    imagepath=r"C:\Users\hansc\Downloads\pinpng.com-anime-girl-face-png-6144106.png",
+    magickpath=r"C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe",
+)
+
+
+coloredicon
+Out[3]: 'C:\\Users\\hansc\\Downloads\\tmptmpappicon_color.ico'
+
+
+```
