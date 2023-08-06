@@ -1,0 +1,31 @@
+[package]
+name = "jellyfish"
+version = "0.11.1"
+edition = "2021"
+description = "Approximate and phonetic matching of strings."
+authors = ["James Turk <dev@jamesturk.net>"]
+repository = "https://github.com/jamesturk/jellyfish/"
+license = "MIT"
+readme = "README.md"
+
+
+[package.metadata.maturin]
+name = "jellyfish._rustyfish"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "jellyfish"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.18.1"
+unicode-segmentation = "^1.6.0"
+unicode-normalization = "^0.1"
+tinyvec = "1.6.0"
+smallvec = "1.10.0"
+
+[dev-dependencies]
+csv = "1.1"
+
+[features]
+python = []
