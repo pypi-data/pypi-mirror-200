@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: matchart
+Version: 1.0.0
+Summary: Convenient plotting wrapper around matplotlib.
+Keywords: plot,chart,diagram,matplotlib,visualization
+Author-email: baterflyrity <baterflyrity@yandex.ru>
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Dist: matplotlib
+Project-URL: Home, https://github.com/baterflyrity/matchart
+
+# MatChart
+
+MatChart is a convenient one-line wrapper around *matplotlib* plotting library.
+
+### Usage
+
+```python
+from matchart import plot
+
+plot([x1, y1], [y2], [x3, y3], y4, label=['$x^{2}$', '$x^{1.9}$', 'Points'], xlabel='X', ylabel='Y', title='Power of $x$ comparison.', grid=True, color=[None, 'green', 'red', 'gray'], marker=['o', None, '*'], linestyle=[None, '--'], linewidth=[None, 3, 0], markersize=20, fillstyle='top')
+```
+
+### Example
+
+Firstly prepare data:
+
+```python
+import numpy as np
+
+x = np.arange(21)
+y1 = x ** 2
+y2 = x ** 1.9
+x3 = 5, 15
+y3 = 300, 100
+y4 = x ** 2.1
+```
+
+Then plot data:
+
+```python
+from matchart import plot
+
+plot([x, y1], [y2], [x3, y3], y4, ..., 
+	kind:str = 'plot', # pyplot function name, e. g. plot or scatter
+	legend: Optional[bool] = None, 
+	title: Optional[str] = None, 
+	xlabel: Optional[str] = None, 
+	ylabel: Optional[str] = None, 
+	figsize: Tuple[float, float] = (10, 8), 
+	dpi: float = 100, 
+	subplots_parameters: Optional[Dict[str, Any]] = None, 
+	show: bool = True, 
+	grid: Optional[bool] = False, 
+	grid_which: str = 'major', 
+	grid_axis: str = 'both', 
+	grid_kwargs: Optional[Dict[str, Any]] = None, 
+	theme='seaborn-v0_8-deep', 
+	**plotter_parameters)
+```
+
+`plotter_parameters` can be `list` or `tuple` to define per-dataset values.
+
+![](example.png)
+
