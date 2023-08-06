@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: io-collection
+Version: 0.7.2
+Summary: Collection of tasks for I/O.
+License: BSD-3-Clause
+Author: Jessica S. Yu
+Author-email: jesyu@uw.edu
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aicsimageio (>=4.9.4,<5.0.0)
+Requires-Dist: boto3 (>=1.24.59,<2.0.0)
+Requires-Dist: matplotlib (>=3.7.0,<4.0.0)
+Requires-Dist: numpy (>=1.24.2,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: prefect (>=2.8.2,<3.0.0)
+Requires-Dist: quilt3 (>=5.0.0,<6.0.0)
+Requires-Dist: s3fs (>=2023.1.0,<2024.0.0)
+Description-Content-Type: text/markdown
+
+[![Build Status](https://github.com/allen-cell-animated/io-collection/workflows/build/badge.svg)](https://github.com/allen-cell-animated/io-collection/actions?query=workflow%3Abuild)
+[![Codecov](https://img.shields.io/codecov/c/gh/allen-cell-animated/io-collection?token=KQTGXCOLLU)](https://codecov.io/gh/allen-cell-animated/io-collection)
+[![Lint Status](https://github.com/allen-cell-animated/io-collection/workflows/lint/badge.svg)](https://github.com/allen-cell-animated/io-collection/actions?query=workflow%3Alint)
+[![Documentation](https://github.com/allen-cell-animated/io-collection/workflows/documentation/badge.svg)](https://allen-cell-animated.github.io/io-collection/)
+[![Code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
