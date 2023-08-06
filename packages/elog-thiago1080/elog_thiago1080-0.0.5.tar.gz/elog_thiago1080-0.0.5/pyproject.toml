@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "elog_thiago1080"
+version = "0.0.5"
+authors = [
+  { name="Thiago Henrique Martinelli", email="thiago.henrique.martinelli@gmail.com" },
+]
+description = "This is a Python package that provides decorators for logging function execution and timing function execution."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+dependencies =[
+    "loguru >= 0.5.3"
+]
+
+
+
+[project.urls]
+"Homepage" = "https://github.com/thiago1080/log_exc_decorator"
+"Bug Tracker" = "https://github.com/thiago1080/log_exc_decorator/issues"
