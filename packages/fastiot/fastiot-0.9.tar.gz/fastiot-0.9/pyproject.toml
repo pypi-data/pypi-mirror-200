@@ -1,0 +1,140 @@
+# ATTENTION: Parts of this file are managed automatically!
+# This refers to build-system, project.version, tool and nuitka.
+
+[build-system]
+requires = [
+    "setuptools>=67",
+    "setuptools_scm[toml]>=6.2",
+    "wheel",
+]
+
+[project]
+name = "fastiot"
+version = "0.9"
+maintainers = [
+    { name = "Tilman Klaeger", email = "tilman.klaeger@ivv-dd.fraunhofer.de" },
+    { name = "Jialiang Yin", email = "jialiang.yin@ivv-dd.fraunhofer.de" },
+]
+keywords = [
+    "Industrial IoT",
+    "IoT",
+    "Industry4.0",
+    "IIoT",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+description = "FastIoT Platform"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pydantic>=1.9.0,<2",
+    "msgpack>=1,<2",
+    "nats-py>=2.1.0,<3",
+    "PyYAML>=5,<7",
+    "typer>=0.4.1,<1",
+    "Jinja2>=2,<4",
+    "Redis>4",
+    "tomli~=2.0.1",
+    "tomli_w",
+    "build",
+    "pip-tools",
+]
+
+[[project.authors]]
+name = "Tilman Klaeger"
+email = "tilman.klaeger@ivv-dd.fraunhofer.de"
+
+[[project.authors]]
+name = "Konstantin Merker"
+email = "konstantin.merker@ivv-dd.fraunhofer.de"
+
+[[project.authors]]
+name = "Fraunhofer Institute for Process Engineering and Packaging IVV"
+email = "info@ivv-dd.fraunhofer.de"
+
+[project.urls]
+Homepage = "https://github.com/FraunhoferIVV/fastiot"
+Source = "https://github.com/FraunhoferIVV/fastiot"
+Documentation = "https://fastiot.readthedocs.io"
+
+[project.optional-dependencies]
+compile = [
+    "Nuitka>=1.1.7,<2",
+    "ordered-set",
+]
+dev = [
+    "pytest>=7.2,<8",
+    "typer[all]>=0.4.1,<1",
+]
+fastapi = [
+    "fastapi",
+    "aiofiles",
+    "uvicorn[standard]",
+]
+influxdb = [
+    "influxdb-client[async]>=1.32,<2",
+]
+mariadb = [
+    "PyMySQL>=1.0,<2",
+]
+mongodb = [
+    "pymongo>=4.1,<5",
+]
+opcua = [
+    "opcua>=0.98.8,<1",
+    "asyncua",
+]
+postgredb = [
+    "psycopg2-binary>=2.9.3,<3",
+]
+dash = [
+    "dash~=2.6.1",
+    "plotly~=5.9.0",
+    "numpy",
+    "pandas",
+    "dash-bootstrap-components",
+    "xlsxwriter",
+    "nest_asyncio",
+    "pymongo>=4.1,<5",
+]
+docs = [
+    "sphinx>=5",
+    "sphinx-automodapi",
+    "sphinx-autodoc-typehints",
+    "recommonmark",
+    "myst-parser",
+    "autodoc_pydantic",
+    "sphinx-material",
+    "sphinx_click",
+    "sphinx-rtd-theme",
+]
+
+[project.scripts]
+fiot = "fastiot.cli.fiot:main"
+
+[tool.setuptools.packages.find]
+where = [
+    "src",
+]
+exclude = [
+    "fastiot_core_services*",
+    "fastiot_sample_services*",
+    "fastiot_tests*",
+]
+
+[nuitka]
+show-scons = false
+nofollow-import-to = [
+    "fastiot_core_services*",
+    "fastiot_sample_services*",
+    "fastiot_tests*",
+]

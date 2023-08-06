@@ -1,0 +1,34 @@
+{% for mode in modes %}
+group "{{ mode }}" {
+    targets = [
+    {% for target in targets %}
+      "{{ target.manifest.name }}-{{ mode }}",
+    {% endfor %}
+    ]
+}
+{% endfor %}
+
+{% for target in targets %}
+{% for mode in modes %}
+target "{{ target.manifest.name }}-{{ mode }}" {
+    context = "."
+    dockerfile = "./build/docker/Dockerfile.{{ target.manifest.name }}"
+    tags = [
+    {% for tag in tags %}
+      "{{ docker_registry }}{{ project_config.project_namespace }}/{{ target.manifest.name }}:{{ tag }}",
+    {% endfor %}
+    ]
+{% if mode == "debug" or target.manifest.compile == False %}
+    target = "debug"
+{% endif %}
+    cache-from = [ {{ target.cache_from }} ]
+    cache-to = [ {{ target.cache_to }} ]
+    platforms = [
+    {% for platform in target.manifest.platforms %}
+      "{{ platform.as_docker_platform() }}",
+    {% endfor %}
+    ]
+    pull = true
+}
+{% endfor %}
+{% endfor %}
