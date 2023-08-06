@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: scientific-tools
+Version: 0.0.0a22.dev11
+Summary: Scientific tools is the Swiss army knife of scientists, researchers, engineers and students who work with python.
+Author-email: Cyprien BONTRON <c.b.e.python@gmail.com>
+Maintainer-email: Cyprien BONTRON <c.b.e.python@gmail.com>
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
+        
+        Futher information at: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+Project-URL: Download-URL, https://pypi.org/project/scientific_tools/
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: License :: Free for non-commercial use
+Classifier: Development Status :: 2 - Pre-Alpha
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+
+# Scientific tools
+
+[![Version](https://img.shields.io/pypi/v/scientific-tools.svg)](https://pypi.org/project/scientific-tools/) [![PyVersion](https://img.shields.io/pypi/pyversions/scientific-tools.svg)](https://pypi.org/project/scientific-tools/)
+
+# Project's description
+**`scientific_tools` is the Swiss army knife of scientists, researchers, engineers and students who work with python.**
+This document shows most important functionalities of this framework.
+*This framework is currently in development, but most of functionnalities works without any bugs. When a functonality isn't stable or had known bugs, it was wrote in italic.*
+
+# Mathematics
+
+## Solve
+The `scientific_tools.mathematics.solve` package can resolve equations with some functions using different algorithm :
+- `dichotomy` function search the unique solution of f(x) = 0, where f is an continuous and strictly monotone function.
+- `implicit_finite_difference_solver` function can solve a partial differential equation with the implicit finite difference method. The shape of partial differential equation must be Ctt Utt + Ctx Uxt + Cxx Uxx + Cx Ux + Ct Ut + Cu U = Cc.
+*NB: This solver is experimental (alpha) !*
+- `explicit_finite_difference_solver` function can solve the same shape of partial differential equation but with the explicit finite difference method.
+*NB: This solver is experimental (alpha) !*
+
+# Physics
+
+## Uncertainty
+The `scientific_tools.physics.uncertainty` package can calculate uncertainties :
+- calculate standard uncertainties with propagation rules
+- calculate relative uncertainties with propagation rules
+- calculate z-scores (z-core between a value and a reference value & z-score between two value)
+
+## Spectral analysis
+The `scientific_tools.physics.spectral_analysis` package can calculate some Discrete Fourier Transforms and calculate spectrum frequancies, amplitudes and phases.
+*Some functions in this package are in development.*
+
+# Graphics package
+
+## Functions graphs
+The `scientific_tools.graphics.function_graphs` package can trace 2D and 3D functions graphs.
+
+## Uncertainty graphs
+The `scientific_tools.graphics.uncertainty_graphs` package can draw :
+- an uncertainty graph with a function, the function plus its uncertainty and the fonction minus its uncertainty.
+- experimental values with uncertainties bar.
+- a z-score graph : draws the points (or a function) that correspond to z-score and draws the maximum and minimum lines of z-core validity.
+
+## Spectral analysis graphs
+The `scientific_tools.graphics.spectral_analysis_graphs` package can draw :
+- graphs with amplitudes of Discrete Fourier Transform
+- spectral graphs with phases of Discrete Fourier Transform
+*Thoses functions are experimental (beta).*
+
+# About us
+
+## License
+**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License (CC-BY-NC-SA)**
+
+(Futher information at: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode )
+**©Cyprien BONTRON** (c.b.e.python@gmail.com)
+
+## Thanks
+This framework rely on few others frameworks that are free.
+The code is written in Python 3.11 and use :
+- numpy
+- matplotlib 
+
+
+
+
+
