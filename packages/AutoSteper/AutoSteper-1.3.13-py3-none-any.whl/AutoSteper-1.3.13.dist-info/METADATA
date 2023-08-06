@@ -1,0 +1,117 @@
+Metadata-Version: 2.1
+Name: AutoSteper
+Version: 1.3.13
+Summary: Automated Stepwise Addition Procedure for Extrafullerene.
+Home-page: https://github.com/Franklalalala/AutoSteper
+Author: Franklalalala
+Author-email: franklalalala <1660810667@qq.com>
+License: The MIT License (MIT)
+        
+        Copyright (c) 2022 Franklalalala
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Source, https://github.com/franklalalala/AutoSteper
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: importlib-metadata
+Requires-Dist: pytest-shutil
+Requires-Dist: ase
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: networkx
+Requires-Dist: tqdm
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: dpdispatcher
+Provides-Extra: testing
+Requires-Dist: setuptools ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+# AutoSteper
+Automated Stepwise Addition Procedure for Extrafullerene. 
+
+A detailed description could be found in the article: Exploring exohedral functionalization of fullerene with Automation and Neural Network Potential. ![overview](./overview.png)
+
+<center>Overview of the Stepwise model.</center>
+
+Demonstration of core functions could be found in `./tests`.
+
+Documentation could be found in `./doc`.
+
+## Install
+
+### 1. Enumeration
+
+AutoSteper relies on OpenSource projects [FullereneDataParser](https://github.com/XJTU-ICP/FullereneDataParser) and [usenauty](https://github.com/Franklalalala/usenauty) to properly enumerate non-isomorphic addition patterns.
+
+[FullereneDataParser](https://github.com/XJTU-ICP/FullereneDataParser) is an excellent python package to handle fullerene-related research problems, this project utilizes it to convert 3D coordinates to graph6str format. For install:
+
+```
+git clone https://github.com/XJTU-ICP/FullereneDataParser
+cd FullereneDataParser
+pip install .
+```
+
+[usenauty](https://github.com/Franklalalala/usenauty) is a lightweight tool to enumerate non-isomorphic addition patterns with [nauty](https://doi.org/10.1016/j.cpc.2020.107206) algorithm. The original project is in [usenauty](https://github.com/saltball/usenauty), here we employ a branch version of it. For install:
+
+```
+git clone https://github.com/Franklalalala/usenauty
+cd usenauty
+mkdir build
+cd build
+cmake .. -G "Unix Makefiles"
+make
+```
+
+Note: The [CXX standard](https://en.wikipedia.org/wiki/C%2B%2B17) is set to be **17**, which means the gcc version need to be 8 or higher, or a higher version of IDE, such as [Visual Studio 2017](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio#2017). The cmake version need to be **3.1** or higher. **There are two pre-compiled releases** for Windows and Linux platform in [usenauty](https://github.com/Franklalalala/usenauty), respectively.
+
+The absolute path of compiled `cagesearch` file corresponds to the `gen_core_path` button in `generator` module.
+
+### 2. Main project
+
+To install the main project:
+
+```
+pip install AutoSteper
+```
+
+To install from source code:
+
+```
+git clone https://github.com/Franklalalala/AutoSteper
+cd AutoSteper
+pip install .
+```
+
+## Note
+
+Issues are welcomed if you have any questions.
+
+Contributions needs to stay in line with [Conventional Commit messages](https://www.conventionalcommits.org/).
+
+Contact me: 1660810667@qq.com
