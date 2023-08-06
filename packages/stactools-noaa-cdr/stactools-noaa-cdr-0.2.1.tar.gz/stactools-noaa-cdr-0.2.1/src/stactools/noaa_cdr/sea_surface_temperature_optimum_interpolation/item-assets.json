@@ -1,0 +1,65 @@
+{
+  "netcdf": {
+    "type": "application/netcdf",
+    "updated": "2022-09-28T09:14:00Z",
+    "roles": [
+      "data"
+    ]
+  },
+  "sst": {
+    "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "raster:bands": [
+      {
+        "nodata": -999,
+        "data_type": "int16",
+        "unit": "Celsius",
+        "scale": 0.009999999776482582
+      }
+    ],
+    "roles": [
+      "data"
+    ]
+  },
+  "anom": {
+    "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "raster:bands": [
+      {
+        "nodata": -999,
+        "data_type": "int16",
+        "unit": "Celsius",
+        "scale": 0.009999999776482582
+      }
+    ],
+    "roles": [
+      "data"
+    ]
+  },
+  "err": {
+    "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "raster:bands": [
+      {
+        "nodata": -999,
+        "data_type": "int16",
+        "unit": "Celsius",
+        "scale": 0.009999999776482582
+      }
+    ],
+    "roles": [
+      "data"
+    ]
+  },
+  "ice": {
+    "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "raster:bands": [
+      {
+        "nodata": -999,
+        "data_type": "int16",
+        "unit": "%",
+        "scale": 0.009999999776482582
+      }
+    ],
+    "roles": [
+      "data"
+    ]
+  }
+}

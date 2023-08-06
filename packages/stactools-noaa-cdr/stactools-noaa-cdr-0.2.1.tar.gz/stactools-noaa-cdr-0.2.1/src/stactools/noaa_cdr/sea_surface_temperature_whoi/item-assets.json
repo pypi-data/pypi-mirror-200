@@ -1,0 +1,27 @@
+{
+  "sea_surface_temperature": {
+    "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "raster:bands": [
+      {
+        "nodata": "nan",
+        "data_type": "float32",
+        "unit": "degree Celsius"
+      }
+    ],
+    "roles": [
+      "data"
+    ]
+  },
+  "fill_missing_qc": {
+    "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "raster:bands": [
+      {
+        "nodata": "nan",
+        "data_type": "float32"
+      }
+    ],
+    "roles": [
+      "data"
+    ]
+  }
+}
