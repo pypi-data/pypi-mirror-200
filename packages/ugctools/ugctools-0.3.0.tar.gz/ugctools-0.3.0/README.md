@@ -1,0 +1,143 @@
+# Ugc tools
+
+一个将mardown转换成为png的工具，特别适合于小红书发贴，也可定制为支持其他自媒体。
+
+"一觉醒来"系列头部都在一周之内，从零涨粉到超过10万。这个系列的特点是对时效要求高，又要求每个贴子间格式统一，因此，多数都在使用类似工具来创作和发布。
+
+![](https://images.jieyu.ai/images/2023/03/20230401154522.png)
+
+## 使用说明
+
+ugctools首先将markdown创作的内容与模板/主题结合，生成html文档，再通过chrome/weasyprint将其转换成为pdf，最后再转换成可用于小红书发贴的图片。
+
+ugctools设计为支持多个应用。你可以为每个应用配置多个主题。
+
+每个主题由一系列的html模板和样式来决定。
+
+将文案中固定部分提取为模板(html)，创作内容部分使用markdown。
+```html
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+{css}
+</style>
+</head>
+<body>
+<div id="rb">
+    <div id="header">
+        <div id="date_extra">
+            <div id="date">{date:YYYY/MM/DD ddd}</div>
+            <div id="extra">{extra}</div>
+        </div>
+        <div id="title">一觉醒来财经圈发生了什么</div>
+        <div id="subtitle">
+            <div id="author">By {author}</div>
+        </div>
+    </div>
+    <div id="content">
+        {content}
+    </div>
+</div>
+</body>
+</html>
+
+```
+content部分即为我们要创作的内容，格式为markdown。生成最终图像前，工具将其转化为html，再插入到{content}
+所标识的位置处。
+
+### 段落和分页
+在markdown中，连续两个换行符才会引起一个新的段落。单个换行符并不会引起新的段落（但有些解析器，比如GMF会将单个换行符替换为一个<br/>，这会导致一个硬换行，但前后两行仍然是一个段落，即一个html的<p>标签）。
+
+使用<!-- page -->来进行分页，这是我们对markdown语法的扩展。
+
+比如下面的markdown:
+```
+this is page 1
+<!-- page-->
+this is page2
+```
+将生成两张图片。
+
+每一页都可以使用自己的模板。比如，第0页的模板名为page-0.tpl,第一页的模板为page-1.tpl。如果对应的模板不存在，则使用default.tpl。
+
+## 语法
+### author
+可以在cfg.json中定义author，然后可以将其插入到模板中。
+
+### date
+可以在模板中使用 {date: formatDate}宏。系统将使用当前日期（也可通过命令行传入其它日期）。
+
+### extra
+在模板中，允许插入一个自定义字段。该字段将通过命令行传入。
+## Usage
+
+通过命令行:
+```
+ugc news markdown_file --extra "早间60秒" --serve
+```
+
+这将会生成png图片，并可通过http://ip:1086来预览。
+支持的选项有:
+    * --date '2023-03-31'
+    * --serve: 这将开启一个http服务器，供预览生成的图片
+    * --extra: 向模板提供额外的信息
+
+markdown_file只传文件名，不传路径。markdown_file的搜索路径在 cfg.json中指定。
+
+## 配置
+配置和模板文件在~/.ugc/redbook/news下。首次运行后，将自动生成该目录及示例文件。
+
+## 自定义样式
+
+样式中提供了 rb, header, title, date_extra, subtitle, re等带id的元素可供定制。
+
+## 预定义样式
+
+支持对图片进行居中、左浮动对齐和右浮动对齐。
+
+下面的示例演示了将图片缩放为屏幕宽度的1/4大小，并左浮动：
+```
+然而，各大AI实验室为了开发和应用更加强大的人工智能，最近几个月已经陷入了“失控”的竞赛，甚至连AI系统的创始人也并不能完全理解、预测和有效控制其风险，相应的计划和管理工作没有跟上。
+
+![](https://t7.baidu.com/it/u=1362366007,2277133945&fm=193&f=GIF){: .img-left-25 }
+
+《每日经济新闻》注意到，在签名名单里的尾部，赫然出现了阿尔特曼的名字。然而，由于签名是公开征集，尚无法证明是否是阿尔特曼本人签署，其本人亦未回应。签名中OpenAI最后一个字母为小写，或有故意之嫌疑。
+```
+![](https://images.jieyu.ai/images/2023/03/20230401235444.png)
+
+注意这里无论是左浮动还是右浮动，图片都要插入在文字段前面。注意`{: .img-left-25 }`将向生成的<img>标签中插入一个 class = .img-left-25的样式。注意`{}`必须紧接`()`。
+
+居中对齐：
+
+```
+然而，各大AI实验室为了开发和应用更加强大的人工智能，最近几个月已经陷入了“失控”的竞赛，甚至连AI系统的创始人也并不能完全理解、预测和有效控制其风险，相应的计划和管理工作没有跟上。
+
+![](https://t7.baidu.com/it/u=1362366007,2277133945&fm=193&f=GIF){: .img-center-25 }
+
+《每日经济新闻》注意到，在签名名单里的尾部，赫然出现了阿尔特曼的名字。然而，由于签名是公开征集，尚无法证明是否是阿尔特曼本人签署，其本人亦未回应。签名中OpenAI最后一个字母为小写，或有故意之嫌疑。
+```
+
+![](https://images.jieyu.ai/images/2023/03/20230402000616.png)
+
+样式中25表明图片宽度占屏幕的1/4， 50意味着50%, 75%和100%以此类推。
+# 安装
+ugctools依赖来chrome来生成pdf文件。如果系统中不能安装chrome（比如一些Linux服务器），则需要安装weasyprint:
+
+推荐通过conda安装weasyprint:
+
+```bash
+conda install -c conda-forge weasyprint
+```
+然后安装：
+```
+pip install ugctools
+```
+
+如果指定的字体在机器上不存在，则需要提前安装字体。比如：
+```
+cp fonts/*ttf /usr/local/share/fonts/
+sudo fc-cache -fv
+```
+
+推荐优先使用chrome，生成的图像还原度高。
