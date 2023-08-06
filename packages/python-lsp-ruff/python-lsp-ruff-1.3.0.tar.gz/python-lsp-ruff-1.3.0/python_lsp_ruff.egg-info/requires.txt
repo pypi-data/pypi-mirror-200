@@ -1,0 +1,7 @@
+ruff>=0.0.260
+python-lsp-server
+lsprotocol>=2022.0.0a1
+
+[dev]
+pytest
+pre-commit
