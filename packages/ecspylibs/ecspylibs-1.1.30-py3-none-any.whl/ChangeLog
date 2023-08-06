@@ -1,0 +1,279 @@
+2023-03-31  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecspylibs/configfile.py: Add code to process INI type
+	configuration files.
+
+	* pyproject.toml: Update version to v1.1.29.
+
+	* src/ecspylibs/configfile.py: Add configuration type of csv.
+	Create arrays for each configuration type which lists the I/O
+	methods available for the configuration type (for example a "read"
+	method).  Redefine the self.suffix_types array to use method types
+	arrays in place of direct call to the method (some configuration
+	types might have different method types that can be called).
+	Update the "read" method to use the updated self.suffix_types
+	array (see above).  Rename variable "open_file" to "f".
+
+2023-03-23  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Update external libraries to the highest level
+	they work at.
+
+	* README.md: Add src/ecspylibs/configfile.py to README.md file.
+
+2023-02-21  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecspylibs/password.py: Replace __init__ with dataclasses.
+
+	* src/ecspylibs/parallel.py: Replace __init__ with dataclasses.
+
+	* src/ecspylibs/initsetup.py: Replace __init__ with dataclasses.
+
+	* pyproject.toml: Update version to v1.1.26.
+
+2023-02-20  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecspylibs/reapchildren.py (ReapChildren): Fix docstring
+	comment.
+
+	* pyproject.toml: Update version to v1.1.25.
+
+	* src/ecspylibs/reapchildren.py (ReapChildren): Remove unnecessary
+	"self." from local variables.  Rename variables to be more
+	readable.
+
+	* pyproject.toml: Update version to v1.1.24.
+
+	* src/ecspylibs/password.py: Fix file format.  Remove unnecessary
+	"self." from local variables.  Fix print commands.
+
+2023-02-17  Thomas R. Stevenson  <tom@thomas.fedora36>
+
+	* src/ecspylibs/sendemail.py (SendEmail): Update hints per pycharm
+	suggestions.
+
+	* src/ecspylibs/reapchildren.py (ReapChildren): Update hints per
+	pycharm suggestions.
+
+	* src/ecspylibs/password.py (Password): Update hints per pycharm
+	suggestions.
+
+	* src/ecspylibs/parsexml.py (ParseXML): Update hints per pycharm
+	suggestions.
+
+	* src/ecspylibs/parseemail.py (ParseEmail): Update hints per
+	pycharm suggestions.
+
+	* src/ecspylibs/parallel.py (Parallel): Update hints per pycharm
+	suggestions.
+
+	* src/ecspylibs/initsetup.py (InitSetup): Update hints per pycharm
+	suggestions.
+
+	* src/ecspylibs/cleanuptempdirs.py (CleanupTempDirs): Update hints
+	per pycharm suggestions.
+
+	* src/ecspylibs/checkservice.py (CheckService): Update hints per
+	pycharm suggestions.
+
+	* src/ecspylibs/buildfunctionlist.py (BuildFunctionList): Update
+	hints per pycharm suggestions.
+
+	* pyproject.toml: Update version to v1.1.22.
+
+	* src/ecspylibs/password.py (Password): Add hints to functions via
+	pycharm.
+
+2023-02-09  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Update version from v1.1.17 to v1.1.19.
+
+	* README.md: Update README.md file.
+
+	* pyproject.toml: Upgrade version to v1.1.17.
+
+2023-02-08  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Upgrade to version v1.1.16.
+
+	* README.md: Reformat file.
+
+	* pyproject.toml: Upgrade to version v1.1.14.
+
+	* README.md: Update file to reflect changes in the package.
+
+	* pyproject.toml: Update version from v1.1.10 to v1.1.13.  Remove
+	tool.poetry.source.  Adding optional packages. Update for
+	publication on pypi.
+
+	* src/ecspylibs/parallel.py: Fix typo: rename variable self.pool
+	to self.pool_executor
+
+	* pyproject.toml: Update version to 1.1.8.
+
+	* src/ecspylibs/parallel.py: New library to execute functions in
+	parallel.  Pass the type of Pool Executor to the parallel.__init__
+	function.
+
+2023-02-02  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecspylibs/sendemail.py (SendEmail): Update variable and
+	function names to match PyCharm recommendations.
+
+	* src/ecspylibs/reapchildren.py (ReapChildren): Update variable
+	and function names to match PyCharm recommendations.
+
+	* src/ecspylibs/parsexml.py (ParseXML.__init__): Update variable
+	and function names to match PyCharm recommendations.
+
+	* src/ecspylibs/parseemail.py (ParseEmail.__init__): Update
+	variable and function names to match PyCharm recommendations.
+
+2023-02-01  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecspylibs/sendemail.py: Update variable and function names
+	to match PyCharm recommendations.
+
+	* src/ecspylibs/reapchildren.py: Update variable and function
+	names to match PyCharm recommendations.
+
+	* src/ecspylibs/password.py: Update variable and function names to
+	match PyCharm recommendations.
+
+	* src/ecspylibs/parsexml.py: Update variable and function names to
+	match PyCharm recommendations.
+
+	* src/ecspylibs/parseemail.py: Update variable and function names
+	to match PyCharm recommendations.
+
+	* src/ecspylibs/initsetup.py: Update variable and function names
+	to match PyCharm recommendations.
+
+	* src/ecspylibs/cleanuptempdirs.py: Update variable and function
+	names to match PyCharm recommendations.
+
+	* src/ecspylibs/checkservice.py: Update variable and function
+	names to match PyCharm recommendations.
+
+	* src/ecspylibs/buildfunctionlist.py: Update variable and function
+	names to match PyCharm recommendations.
+
+	* pyproject.toml: Update VERSION to 1.1.7.
+
+2023-01-18  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml (include): set versions of packages to particular
+	version number.
+
+	* ecspylibs/sendemail.py: Rename package from ECSpylibs to ecspylibs.
+
+	* ecspylibs/parsexml.py: Rename package from ECSpylibs to ecspylibs.
+
+	* ecspylibs/parseemail.py: Rename package from ECSpylibs to ecspylibs.
+
+	* ecspylibs/checkservice.py: Rename package from ECSpylibs to
+	ecspylibs.
+
+2022-11-23  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* setup.cfg (classifiers): Add python 3.10.
+
+2022-11-18  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* Version 1.1.0
+
+	* ECSpylibs/initsetup.py (InitSetup.__init__): Add some print
+	commands so that the user knows why there is an issue.
+
+2022-10-19  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* setup.cfg (universal): Update the flake8 settings.
+
+	* ECSpylibs/initsetup.py: Change the variables with output to
+	report.
+
+2022-10-18  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* ECSpylibs/initsetup.py: A complete rewrite of initsertup.py.
+
+2022-04-04  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECSpylibs/buildfunctionlist.py
+	ECSpylibs/initsetup.py ECSpylibs/parsexml.py VERSION
+
+2022-04-04  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECSpylibs/buildfunctionlist.py
+	ECSpylibs/initsetup.py ECSpylibs/parsexml.py VERSION
+
+2022-04-04  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Deleting ECSpylibs.egg-info/PKG-INFO
+
+2022-01-05  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECSpylibs.egg-info/PKG-INFO
+	ECSpylibs/sendemail.py VERSION
+
+2022-01-05  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECSpylibs.egg-info/PKG-INFO
+	ECSpylibs/sendemail.py VERSION
+
+2021-12-02  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Merge branch 'testing' of git.wayne.edu:ECS_Projects/ECSpylibs
+	into testing
+
+2021-12-02  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Update .gitignore
+
+2021-12-02  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying .gitignore
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Deleting build/lib/ECSpylibs/__init__.py
+	build/lib/ECSpylibs/buildfunctionlist.py build/lib/ECSpylibs/checkservice.py
+	build/lib/ECSpylibs/cleanuptempdirs.py build/lib/ECSpylibs/getversion.py
+	build/lib/ECSpylibs/initsetup.py build/lib/ECSpylibs/parseemail.py
+	build/lib/ECSpylibs/parsexml.py build/lib/ECSpylibs/password.py
+	build/lib/ECSpylibs/reapchildren.py build/lib/ECSpylibs/sendemail.py
+	dist/ECSpylibs-1.0.12-py2.py3-none-any.whl dist/ECSpylibs-1.0.12.tar.gz
+	dist/ECSpylibs-1.0.12.zip
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Adding .gitignore
+
+2021-11-24  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECSpylibs.egg-info/PKG-INFO
+	dist/ECSpylibs-1.0.12-py2.py3-none-any.whl dist/ECSpylibs-1.0.12.tar.gz
+	dist/ECSpylibs-1.0.12.zip setup.cfg
+
+2021-11-24  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECSpylibs.egg-info/PKG-INFO
+	dist/ECSpylibs-1.0.12-py2.py3-none-any.whl dist/ECSpylibs-1.0.12.tar.gz
+	dist/ECSpylibs-1.0.12.zip setup.cfg
+
+2021-11-24  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECSpylibs.egg-info/PKG-INFO
+	dist/ECSpylibs-1.0.12-py2.py3-none-any.whl dist/ECSpylibs-1.0.12.tar.gz
+	dist/ECSpylibs-1.0.12.zip
+
+2020-11-09  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* py.build ECSpylibs@testing
+
+2020-11-09  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Add branch testing
+
+2020-11-08  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Initial commit

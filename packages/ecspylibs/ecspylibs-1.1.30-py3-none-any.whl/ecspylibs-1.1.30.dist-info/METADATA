@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: ecspylibs
+Version: 1.1.30
+Summary: Local python libraries used across multiple programs.
+Home-page: https://git.wayne.edu/ECS_Projects/ECSpylibs.git
+License: GPL-3.0-or-later
+Keywords: buildfunctionlist,checkservice,cleanuptempdirs,initsetup,parallel,parseemail,parsexml,password,reapchildren,sendemail
+Author: Thomas R. Stevenson
+Author-email: aa0026@wayne.edu
+Maintainer: Thomas R. Stevenson
+Maintainer-email: aa0026@wayne.edu
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: License :: OSI Approved :: Python Software Foundation License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Dist: Autologging (>=1.3.2,<2.0.0)
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: lxml (==4.5.2)
+Requires-Dist: numpy (==1.19.1)
+Requires-Dist: pandas (==1.0.5)
+Requires-Dist: psutil (==5.7.2)
+Requires-Dist: pycrypto (>=2.6.1,<3.0.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Requires-Dist: urllib3 (>=1.26.15,<2.0.0)
+Requires-Dist: xlrd (==1.2.0)
+Project-URL: About Me, https://About.Me/Thomas.R.Stevenson
+Project-URL: Documentation, https://git.wayne.edu/ECS_Projects/ECSpylibs/-/blob/master/README.md
+Project-URL: License, https://git.wayne.edu/ECS_Projects/ECSpylibs/-/blob/master/LICENSE.txt
+Description-Content-Type: text/markdown
+
+# ECSpylibs
+
+# Package files
+    -rw-r--r--. 1 tom tom 2568 Feb  2 13:57 src/ecspylibs/buildfunctionlist.py
+    -rw-r--r--. 1 tom tom 8390 Feb  2 13:57 src/ecspylibs/checkservice.py
+    -rw-r--r--. 1 tom tom 3090 Feb  2 13:57 src/ecspylibs/cleanuptempdirs.py
+    -rw-r--r--. 1 tom tom 6123 Mar 16 17:03 src/ecspylibs/configfile.py
+    -rw-r--r--. 1 tom tom  465 Jan 26 11:05 src/ecspylibs/__init__.py
+    -rw-r--r--. 1 tom tom 3678 Feb  2 13:57 src/ecspylibs/initsetup.py
+    -rw-r--r--. 1 tom tom 1676 Feb  8 12:50 src/ecspylibs/parallel.py
+    -rw-r--r--. 1 tom tom 4965 Feb  2 13:57 src/ecspylibs/parseemail.py
+    -rw-r--r--. 1 tom tom 3644 Feb  2 13:57 src/ecspylibs/parsexml.py
+    -rw-r--r--. 1 tom tom 3650 Feb  2 13:57 src/ecspylibs/password.py
+    -rw-r--r--. 1 tom tom 1879 Feb  2 13:57 src/ecspylibs/reapchildren.py
+    -rw-r--r--. 1 tom tom 2993 Feb  2 13:57 src/ecspylibs/sendemail.py
+
+# Git information
+[GIT Home][ECSPYLIBS],
+[README File][README],
+[LICENSE File][LICENSE],
+[ChangeLog File][CHANGELOG],
+[pyproject.toml File][PYPROJECT].
+
+# About Me
+[My contact information][About Me].
+
+[ECSPYLIBS]: https://git.wayne.edu/ECS_Projects/ECSpylibs
+[README]: https://git.wayne.edu/ECS_Projects/ECSpylibs/-/blob/master/README.md
+[LICENSE]: https://git.wayne.edu/ECS_Projects/ECSpylibs/-/blob/master/LICENSE.txt
+[CHANGELOG]: https://git.wayne.edu/ECS_Projects/ECSpylibs/-/blob/master/ChangeLog
+[PYPROJECT]: https://git.wayne.edu/ECS_Projects/ECSpylibs/-/blob/master/pyproject.toml
+[About Me]: https://About.Me/Thomas.R.Stevenson
+
