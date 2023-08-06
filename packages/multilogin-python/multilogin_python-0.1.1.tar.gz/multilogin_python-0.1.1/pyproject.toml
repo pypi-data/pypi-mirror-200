@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "multilogin-python"
+version = "0.1.1"
+description = ""
+authors = ["Waqar Khan <sms.raees@gmail.com>"]
+readme = "README.md"
+packages = [{include = "multilogin_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.28.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
