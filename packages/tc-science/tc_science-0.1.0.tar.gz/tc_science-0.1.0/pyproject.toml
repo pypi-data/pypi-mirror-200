@@ -1,0 +1,19 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "tc_science"
+authors = [{name = "Muhammed Alkohawaldeh", email = "belalalkohawaldeh@gmail.com"}]
+license = {file = "LICENSE"}
+readme = "tc_science/README.md"
+description = "Use the properties of thermomechanics and set up simple chemical reactions"
+classifiers = ["License :: OSI Approved :: MIT License", "Development Status :: 2 - Pre-Alpha", "Intended Audience :: Science/Research", "Topic :: Scientific/Engineering :: Chemistry", "Operating System :: OS Independent", "Programming Language :: Python :: 3.10"]
+dynamic = ["version"]
+
+[project.urls]
+Home = "https://github.com/MASTAR-LAST/Science"
+Dedugging = "https://github.com/MASTAR-LAST/Science/issues"
+Pull_Requests = "https://github.com/MASTAR-LAST/Science/pulls"
+
+Bloger = "https://twisters50.blogspot.com/2023/01/python-class-objects.html"
