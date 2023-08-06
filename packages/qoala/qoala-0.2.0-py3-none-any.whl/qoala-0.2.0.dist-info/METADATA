@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: qoala
+Version: 0.2.0
+Summary: Simulator for Qoala programs
+Home-page: https://github.com/QuTech-Delft/qoala-sim
+Author: QuTech
+Author-email: b.vandervecht@tudelft.nl
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy (<1.23,>=1.22)
+Requires-Dist: pydantic (>=1.8.2)
+Requires-Dist: pydynaa (<1.0,>=0.3)
+Requires-Dist: netsquid (<2.0,>=1.0.6)
+Requires-Dist: netsquid-magic (<14.0.0,>=13.3)
+Requires-Dist: netqasm (==0.13.0a4)
+Provides-Extra: dev
+Requires-Dist: pytest (<8.0,>=7.1) ; extra == 'dev'
+Requires-Dist: coverage (>=7.1) ; extra == 'dev'
+Requires-Dist: types-PyYAML (<7.0,>=6.0) ; extra == 'dev'
+Requires-Dist: flake8 (<5.0,>=4.0) ; extra == 'dev'
+Requires-Dist: isort (<5.11,>=5.10) ; extra == 'dev'
+Requires-Dist: black (<22.4,>=22.3) ; extra == 'dev'
+Requires-Dist: mypy (<0.951,>=0.950) ; extra == 'dev'
+
+# Qoala Simulator
