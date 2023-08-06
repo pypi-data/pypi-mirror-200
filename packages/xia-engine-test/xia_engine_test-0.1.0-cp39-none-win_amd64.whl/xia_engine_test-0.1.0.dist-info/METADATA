@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: xia-engine-test
+Version: 0.1.0
+Summary: X-I-A Engine Test Suite
+Home-page: https://develop.x-i-a.com/docs/xia-engine-test/0.1.0/index.html
+Author: X-I-A
+Author-email: admin@x-i-a.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+Requires-Dist: xia-fields
+Requires-Dist: xia-engine
+
+.. image:: https://img.shields.io/pypi/v/xia-engine-test.svg?color=blue
+   :alt: PyPI-Server
+   :target: https://pypi.org/project/xia-engine-test/
+
+====================================
+X-I-A Engine Test Suite
+====================================
+
+Test Suite provide toolkit to fully test every component of X-I-A Engine
+
+Quick start
+=============================
+
+Install the package::
+
+    pip install xia-engine-test
+
+
+
+Test Fields
+=============================
+
+
+
+
