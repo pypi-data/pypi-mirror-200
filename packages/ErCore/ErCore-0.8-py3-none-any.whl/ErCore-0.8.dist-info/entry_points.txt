@@ -1,0 +1,3 @@
+[console_scripts]
+ErCore make-project = ErCore.cli:make_project
+ErCore make-runner = ErCore.cli:make_runner
