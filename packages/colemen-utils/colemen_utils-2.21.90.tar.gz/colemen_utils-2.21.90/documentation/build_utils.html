@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Build Utitilities</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        <style>
+
+</style>
+<style>
+body{
+    background-color: #1a1a1b;
+    color:aliceblue;
+}
+
+
+a{
+    color: aqua;
+}
+</style>
+    </head>
+    <body class="vscode-body vscode-dark">
+        <h1 id="build-utitilities">Build Utitilities</h1>
+<h2 id="whats-it-all-about">Whats it all about?</h2>
+<p>I got sick of updating the <a href="http://setup.py">setup.py</a> file with the modules it should include and creating the <strong>init</strong>.py files.
+So that is why build utils was added.</p>
+<h2 id="how-do-i-use-it">How do I use it?</h2>
+<p>In the <a href="http://setup.py">setup.py</a> file, import colemen_utils then you have a few options of how to proceed.</p>
+<h2 id="methods">Methods:</h2>
+<hr>
+<h3 id="purge_dist">purge_dist</h3>
+<p>A really simple method, this will clear out all files in the dist folder.</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> colemen_utils <span class="hljs-keyword">as</span> c
+
+c.purge_dist()
+
+<span class="hljs-comment"># Setting up</span>
+setup(
+    name=<span class="hljs-string">&quot;something&quot;</span>,
+    version=VERSION,
+    author=<span class="hljs-string">&quot;Colemen Atwood&quot;</span>,
+    author_email=<span class="hljs-string">&quot;&lt;atwoodcolemen@gmail.com&gt;&quot;</span>,
+    description=DESCRIPTION,
+    long_description=LONG_DESCRIPTION,
+    packages=find_packages(),
+    py_modules=[<span class="hljs-string">&#x27;stuff&#x27;</span>],
+    <span class="hljs-comment"># add any additional packages that</span>
+    <span class="hljs-comment"># need to be installed along with your package. Eg: &#x27;caer&#x27;</span>
+    install_requires=[
+        <span class="hljs-string">&#x27;colemen_utils&#x27;</span>
+    ],
+
+    keywords=[<span class="hljs-string">&#x27;python&#x27;</span>],
+    classifiers=[
+        <span class="hljs-string">&quot;Development Status :: 3 - Alpha&quot;</span>,
+        <span class="hljs-string">&quot;Intended Audience :: Education&quot;</span>,
+        <span class="hljs-string">&quot;Programming Language :: Python :: 2&quot;</span>,
+        <span class="hljs-string">&quot;Programming Language :: Python :: 3&quot;</span>,
+        <span class="hljs-string">&quot;Operating System :: MacOS :: MacOS X&quot;</span>,
+        <span class="hljs-string">&quot;Operating System :: Microsoft :: Windows&quot;</span>,
+    ]
+)
+</code></pre>
+<h3 id="list_py_modules">list_py_modules</h3>
+<p>This method will iterate the paths provided to collect all of the modules into a list that can be used by the setup method for building the package.</p>
+<p>The paths can point to a single</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> colemen_utils <span class="hljs-keyword">as</span> c
+
+PY_MODULES = c.build_utils.list_py_modules(<span class="hljs-string">f&quot;<span class="hljs-subst">{os.getcwd()}</span>/apricity/objects&quot;</span>)
+
+<span class="hljs-comment"># Setting up</span>
+setup(
+    name=<span class="hljs-string">&quot;something&quot;</span>,
+    version=VERSION,
+    author=<span class="hljs-string">&quot;Colemen Atwood&quot;</span>,
+    author_email=<span class="hljs-string">&quot;&lt;atwoodcolemen@gmail.com&gt;&quot;</span>,
+    description=DESCRIPTION,
+    long_description=LONG_DESCRIPTION,
+    packages=find_packages(),
+    py_modules=[<span class="hljs-string">&#x27;stuff&#x27;</span>] + PY_MODULES,
+    <span class="hljs-comment"># add any additional packages that</span>
+    <span class="hljs-comment"># need to be installed along with your package. Eg: &#x27;caer&#x27;</span>
+    install_requires=[
+        <span class="hljs-string">&#x27;colemen_utils&#x27;</span>
+    ],
+
+    keywords=[<span class="hljs-string">&#x27;python&#x27;</span>],
+    classifiers=[
+        <span class="hljs-string">&quot;Development Status :: 3 - Alpha&quot;</span>,
+        <span class="hljs-string">&quot;Intended Audience :: Education&quot;</span>,
+        <span class="hljs-string">&quot;Programming Language :: Python :: 2&quot;</span>,
+        <span class="hljs-string">&quot;Programming Language :: Python :: 3&quot;</span>,
+        <span class="hljs-string">&quot;Operating System :: MacOS :: MacOS X&quot;</span>,
+        <span class="hljs-string">&quot;Operating System :: Microsoft :: Windows&quot;</span>,
+    ]
+)
+</code></pre>
+
+        
+        
+    </body>
+    </html>
