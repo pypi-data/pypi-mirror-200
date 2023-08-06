@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: dataprep_tools
+Version: 0.0.14
+Summary: Utils to prepare data for filecoin deals
+Author: Anjor
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+
+# Filecoin Data Preparation Tools
+
+A python package with modular tools used in preparing data to make [filecoin](https://filecoin.io) storage deals.
+
+## Installation
+
+Install using pip.
+
+```
+pip install dataprep-tools
+```
