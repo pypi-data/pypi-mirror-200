@@ -1,0 +1,288 @@
+This library may be used to compare strings by a similarity measure,
+defined as Sørensen–Dice coefficient calculated on multi-sets of the
+strings' "bigrams" (all couples of adjacent characters).
+
+Bigram (multi-)set is relatively easy to generate (*O(n)* time
+complexity lower bound in terms of the string length).
+
+Also, compared to just using a (multi-)set of characters, bigrams do
+retain certain level of word structure. E.g. backwards spelled words are
+not deemed similar (unlike when single character set is used).
+
+Just note that single-character words are all perfectly similar in this
+metric, as their bigram sets are empty---and therefore the same. It may
+be a good idea to augment words like that with an additional character
+(like a whitespace) to mitigate that problem.
+
+Using implementation of bigram multisets above, a sequence matcher
+implementation is also available. Given a sequence of text tokens, the
+matcher then allows "fuzzy" matching of strings (using their bigrams
+again) to sub-sequences of the text tokens.
+
+See detailed documentation in `doc` directory. Rendered
+    documentation:
+
+  - <https://htmlpreview.github.io/?https://github.com/vencik/libsdcxx/blob/master/doc/sequence_matcher.html>
+
+# List of features
+
+  - Bigram multi-set objects implemented as sorted lists of character
+    tuples with count (*O(n log n)* creation time complexity in terms of
+    the string length)
+
+  - Union operation has *O(m+n)* time complexity (sum of multi-sets'
+    cardinalities at most)
+
+  - Intersection doesn’t produce objects; only its size is calculated in
+    *O(m+n)* time
+
+  - Template implementation, allowing for both ASCII/ANSI characters and
+    UNICODE characters
+
+  - Implementations using `std::multiset` and `std::unordered_multiset`
+    also available
+
+  - Performance tests show that, long story short, the "custom"
+    implementation is the best (notably faster unions, intersection size
+    computation in similar or better time)
+
+  - Sequence matcher (using the best performing bigrams) with several
+    optimisations
+
+  - Python v3 binding is provided (as `pysdcxx` module, packaged)
+
+  - Python `multiset` based implementation also compared---and is
+    expectedly much slower
+
+# Build and installation
+
+You shall need C++ compiler with support for at least C++17. Recent
+enough gcc (v8.3 or newer) is OK (older versions might do as well,
+though). You shall also need `cmake` and `make`.
+
+Python v3.7 or newer is supported. For the Python package build, you
+shall need `pip` and Python `distutils` and the `wheel` package. If you
+wish to run Python UTs (which is highly recommended), you shall also
+need `pytest`.
+
+E.g. on Debian-based (or similar, `apt` using) systems, the following
+should get you the required prerequisites unless you wish to use
+`pyenv`.
+
+\# apt-get install g++ cmake make git \# apt-get install python3-pip
+python3-distutils \# unless you use pyenv $ pip install wheel pytest \#
+ditto, better do that in pyenv sandbox\</programlisting\>
+
+On Mac OS X, you’ll need Xcode tools and Homebrew. Then, install the
+required prerequisites by
+
+$ brew install coreutils cmake make\</programlisting\>
+
+If you do wish to use `pyenv` to create and manage project sandbox
+(which is advisable), see short intro to that in the subsection below.
+
+Anyhow, with all the prerequisites installed, clone the project:
+
+$ git clone https://github.com/vencik/libsdcxx.git\</programlisting\>
+
+Build the project, run UTs and build Python package:
+
+$ cd libsdcxx $ ./build.sh -up\</programlisting\>
+
+Note that the `build.sh` script has options; run `$ ./build.sh -h` to
+see them.
+
+Most importantly, run with `-s` or `--enable-pt` options to perform
+performance tests. Performance tests compare computation times of object
+construction, union operations and intersection size computations of the
+implementations. If you install `multiset` Python package (using `pip`),
+the perf. tests shall also produce results for pure-Python
+implementation using `multiset.Multiset` (not necessary).
+
+> **Note**
+> 
+> The perf. tests are written on the Python level, so the measured times
+> also contain some Python code runtime (and not trivial). I’d expect
+> results in native code to be notably better; but the test code is
+> identical, so the measurements should be meaningful for comparison.
+
+If you wish, use `pip` to install the Python package:
+
+\# pip install pysdcxx-\*.whl\</programlisting\>
+
+Note that it’s recommended to use `pyenv`, especially for development
+purposes.
+
+## Managing project sandbox with `pyenv`
+
+First install `pyenv`. You may use either your OS package repo (Homebrew
+on Mac OS X) or web `pyenv` installer. Setup `pyenv` (set environment
+variables) as instructed.
+
+Then, create `pysdcxx` project sandbox, thus:
+
+$ pyenv install 3.9.6 \# your choice of the Python interpreter version,
+\>= 3.7 $ pyenv virtualenv 3.9.6 pysdcxx\</programlisting\>
+
+Now, you can always (de)activate the virtual environment (switch to the
+sandbox) by
+
+\# pyenv activate pysdcxx \# pyenv deactivate\</programlisting\>
+
+In the sandbox, install Python packages using `pip` as usual.
+
+$ pip install wheel pytest\</programlisting\>
+
+# Usage
+
+## C++
+
+### Using `bigrams`
+
+``` C++
+#include <libsdcxx/bigrams.hxx>
+
+using bigrams = libsdcxx::bigrams;                            // wbigrams for UNICODE
+
+const auto bgrms_empty = bigrams();                           // empty bigrams set
+
+const auto bgrms1 = bigrams("Hello world!");                  // construct from string
+size_t cnt = bgrms1.size();                                   // number of bigrams
+
+std::cout << bgrms1;                                          // serialisation
+
+for (const auto & bigram_cnt: bgrms1) {                       // tuple of (bigram, count)
+    const auto & bigram = std::get(bigram_cnt);
+
+    std::cout << "Bigram : " << std::get(bigram) << std::get(bigram) << std::endl;
+    std::cout << "Count  : " << std::get(bigram_cnt) << std::endl;
+}
+
+// (Const.) iterators are supported via cbegin, cend and begin, end method calls
+
+const auto bgrms2 = bigrams("Hell or woes.");
+
+size_t isect_size = bigrams::intersect_size(bgrms1, bgrms2);  // intersection cardinality
+double sdc = bigrams.sorensen_dice_coef(bgrms1, bgrms2);      // similarity, in [0,1]
+
+auto uni0n = bgrms1 + bgrms2;                                 // 2 bigrams union
+auto uni0n = bigrams::unite(bgrms1, bgrms2 /* , ... */);      // variadic union
+
+uni0n += bigrams("more stuff");                               // objects are mutable
+```
+
+### Using `sequence_matcher`
+
+``` C++
+#include <libsdcxx/sequence_matcher.hxx>
+#include <libsdcxx/bigrams.hxx>
+
+using sequence_matcher = libsdcxx::sequence_matcher;    // wsequence_matcher for UNICODE
+using bigrams = libsdcxx::bigrams;                      // wbigrams for UNICODE
+
+auto matcher = sequence_matcher();
+matcher.reserve(10);    // reserve space for bigrams matrix for text of 10 tokens
+                        // (reservation is not strictly necessary, but advisable)
+
+const auto bgrms_hello = bigrams("Hello");
+const auto bgrms_world = bigrams("world");
+
+matcher.emplace_back("Prologue");   // create token bigrams in-place
+matcher.emplace_back(" .", true);   // it's a good idea to pad single-char strings...
+matcher.emplace_back("  ");         // to 2 characters (so that they produce a bigram)
+matcher.push_back(bigrams_hello);   // push existing bigrams back
+matcher.emplace_back("  ", true);   // true here stands for "strip" token; matched...
+matcher.push_back(bigrams_world);   // sub-sequences are restricted not to begin/end...
+matcher.emplace_back(" !", true);   // with such tokens
+matcher.emplace_back("  ", true);
+matcher.emplace_back("Epilogue");
+matcher.emplace_back(" .", true);
+
+const auto bgrms_helo_wordl = bigrams::unite(           // note thatbigrams of the whole
+    bigrams("Helo"), bigrams("  "), bigrams("wordl"));  // sentence would differ
+
+auto match = matcher.begin(bgrms_helo_wordl, 0.7);      // match with threshold 0.7
+for (; match != matcher.end(); ++match) {
+    std::cout << match << std::endl;    // simple string form of match info, try it
+
+    std::cout
+        << "Match bigrams: "  << *match        << std::endl  // sub-sequence bigrams
+        << "Match at index: " << match.begin() << std::endl  // beginning token index
+        << "Match end: "      << match.end()   << std::endl  // index just past the end
+        << "Match size: "     << match.size()  << std::endl  // number of tokens
+        << "Match score: "    << match.sorensen_dice_coef() << std::endl;
+}
+
+// ... you may of course continue matching other sequences...
+```
+
+## Pyton v3
+
+### Using `Bigrams`
+
+``` Python
+from pysdcxx import Bigrams   # Python Bigrams are implemented by wbigrams, support UNICODE
+
+bgrms_empty = Bigrams()                 # empty bigrams set
+
+bgrms1 = Bigrams("Hello world!")        # construct from string
+cnt = len(bgrms1)                       # number of bigrams
+
+print(str(bgrms1), f"{bgrms1}")         # string serialisation
+
+for bigram, cnt in bgrms1:              # Bigrams are tuple[str, int] generators
+    assert len(bigram) == 2
+
+bgrms2 = Bigrams("Hell or woes.")
+
+isect_size = Bigrams.intersect_size(bgrms1, bgrms2)     # intersection cardinality
+sdc = Bigrams.sorensen_dice_coef(bgrms1, bgrms2)        # simiarity, in [0,1]
+
+union = bgrms1 + bgrms2                                 # 2 bigrams union
+
+union += Bigrams("more stuff")                          # objects are mutable
+```
+
+### Using `SequenceMatcher`
+
+``` Python
+from pysdcxx import SentenceMatcher, Bigrams
+
+matcher = SequenceMatcher()             # empty matcher
+matcher = SequenceMatcher(reserve=4)    # empty matcher, reserved space for 4 tokens
+                                        # (not necessary, but speeds up token addition)
+
+matcher.append("Hello")                 # append token (Bigrams are constructed)
+matcher.append(Bigrams("  "))           # append token bigrams directly
+matcher.append("world", strip=False)    # "strip" token means that no match may begin...
+matcher.append(" !", strip=True)        # nor end by that token
+
+# Alternatively, you may pass `Iterable` of tokens directly to the constructor.
+# If the `Iterable` length can be taken, reservation of space is done; otherwise,
+# you may still use the `reserve` constructor parameter if you know how many
+# tokens there shall be...  Again, if you don't, the constructor will handle it anyway
+# (construction may just take a bit longer).
+strip = True
+matcher = SequenceMatcher([
+    "This", ("  ",strip), "uses", ("  ",strip),
+    "Sørensen", (" -",strip), "Dice", ("  ",strip),
+    "coefficient", (" .",strip),
+])
+
+for match in matcher.match(["Sørenson", "and", "Dice"], 0.65):  # matching
+    print(f"Match begin : {match.begin}")       # 4 (index of the 1st match token)
+    print(f"Match end   : {match.end}")         # 7 (1 past the last match token)
+    print(f"Match score : {match.score}")       # >0.65, <1.0 as it's not a perfect match
+
+# You may continue matching other sequences
+# Note that this is only a quick summary; see `SequenceMatcher` docstrings for more...
+```
+
+# License
+
+The software is available open-source under the terms of 3-clause BSD
+license.
+
+# Author
+
+Václav Krpec \<<vencik@razdva.cz>\>
