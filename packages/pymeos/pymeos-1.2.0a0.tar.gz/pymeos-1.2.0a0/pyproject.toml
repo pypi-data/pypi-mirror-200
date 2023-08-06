@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pymeos"
+version = "1.2.0-alpha"
+authors = [
+    { name = "Victor Divi", email = "vdiviloper@gmail.com" },
+    { name = "Zhicheng Luo", email = "zhicheng.luo@ulb.be" },
+    { name = "Krishna Chaitanya Bommakanti", email = "bkchaitan94@gmail.com" },
+]
+description = "Python wrapper for the MEOS C Library."
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+readme = "README.md"
+license = { text = "PostgreSQL" }
+
+requires-python = ">=3.7"
+dependencies = [
+    'pymeos-cffi==0.0.19',
+    'python-dateutil',
+    'spans',
+    'postgis',
+    'shapely',
+    'geopandas'
+]
+
+[project.optional-dependencies]
+dbp = [
+    'psycopg'
+]
+
+dbp2 = [
+    'psycopg2'
+]
+
+dba = [
+    'asyncpg'
+]
+
+plot = [
+    'matplotlib'
+]
+
+[project.urls]
+"Homepage" = "https://github.com/MobilityDB/PyMEOS"
+"Bug Tracker" = "https://github.com/MobilityDB/PyMEOS/issues"
+"Changelog" = "https://github.com/MobilityDB/PyMEOS/blob/master/pymeos/CHANGELOG.md"
