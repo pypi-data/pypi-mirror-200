@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: plastic-balanced-network
+Version: 0.0.1
+Summary: Plastic Balanced Network Package (Akil et al., 2021)
+Maintainer: Alan Akil
+Maintainer-email: alan.akil@yahoo.com
+Platform: Windows
+Platform: Linux
+Platform: Mac OS-X
+Platform: UNIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7,<3.10
+Description-Content-Type: text/markdown
+Provides-Extra: tests
+Provides-Extra: docs
+Provides-Extra: dev
+License-File: LICENSE.txt
+
+This is a package with functions to simulate a plastic balanced network as defined in Akil et al., 2021.
