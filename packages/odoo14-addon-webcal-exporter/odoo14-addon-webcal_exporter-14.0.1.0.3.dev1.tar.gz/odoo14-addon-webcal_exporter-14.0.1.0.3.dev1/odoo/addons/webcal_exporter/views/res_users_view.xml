@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_inherit" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.webcal.exporter</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="webcal_exporter" string="Calendar Export">
+                    <group>
+                        <group>
+                            <label for="calendar_url"/>
+                            <div>
+                                <field name="calendar_url"  style="width: 90%;"/>
+                            </div>
+                            <field name="calendar_user" class="oe_inline" />
+                            <field name="calendar_password" password="true" />
+                            <i attrs="{'invisible': [('calendar_credentials_verified', '=', False)]}" class="fa fa-check text-success"/>
+                        </group>
+                        <group>
+                            <field name="calendar_credentials_verified" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <button name="check_calendar_credentials" string="Check Credentials" type="object" class="oe_highlight " attrs="{'invisible': [('calendar_credentials_verified', '=', True)]}"/>
+                        <button name="check_calendar_credentials" string="Verified" type="object" class="btn btn-success " attrs="{'invisible': [('calendar_credentials_verified', '=', False)]}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

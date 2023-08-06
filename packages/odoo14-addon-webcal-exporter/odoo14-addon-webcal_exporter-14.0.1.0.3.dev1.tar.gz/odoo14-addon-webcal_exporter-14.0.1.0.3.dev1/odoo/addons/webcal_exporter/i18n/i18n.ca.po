@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* webcal_exporter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-30 16:50+0000\n"
+"PO-Revision-Date: 2023-03-30 16:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: webcal_exporter
+#: model_terms:ir.ui.view,arch_db:webcal_exporter.view_users_form_inherit
+msgid "Calendar Export"
+msgstr ""
+
+#. module: webcal_exporter
+#: model_terms:ir.ui.view,arch_db:webcal_exporter.view_users_form_inherit
+msgid "Check Credentials"
+msgstr ""
+
+#. module: webcal_exporter
+#: model:ir.model.fields,field_description:webcal_exporter.field_res_users__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: webcal_exporter
+#: model:ir.actions.server,name:webcal_exporter.export_recent_events_action_ir_actions_server
+#: model:ir.cron,cron_name:webcal_exporter.export_recent_events_action
+#: model:ir.cron,name:webcal_exporter.export_recent_events_action
+msgid "Export Recent Events"
+msgstr ""
+
+#. module: webcal_exporter
+#: model:ir.model.fields,field_description:webcal_exporter.field_res_users__id
+msgid "ID"
+msgstr ""
+
+#. module: webcal_exporter
+#: model:ir.model.fields,field_description:webcal_exporter.field_res_users____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: webcal_exporter
+#: model:ir.model,name:webcal_exporter.model_res_users
+msgid "Users"
+msgstr ""
+
+#. module: webcal_exporter
+#: model_terms:ir.ui.view,arch_db:webcal_exporter.view_users_form_inherit
+msgid "Verified"
+msgstr ""
