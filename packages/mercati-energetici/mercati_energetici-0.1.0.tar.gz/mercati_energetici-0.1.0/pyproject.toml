@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "mercati-energetici"
+version = "v0.1.0"
+description = "Unofficial python wrapper for the Italian energy markets API."
+authors = ["Davide Marcato"]
+readme = "README.md"
+packages = [{include = "mercati_energetici"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+yarl = "^1.8.2"
+aiohttp = "^3.8.4"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+pytest-asyncio = "^0.21.0"
+mkdocs-material = "^9.1.4"
+mkdocstrings = {extras = ["python"], version = "^0.20.0"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
