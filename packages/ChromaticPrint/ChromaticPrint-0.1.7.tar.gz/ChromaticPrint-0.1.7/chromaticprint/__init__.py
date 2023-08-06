@@ -1,0 +1,1 @@
+from .chromaticprint import puts
