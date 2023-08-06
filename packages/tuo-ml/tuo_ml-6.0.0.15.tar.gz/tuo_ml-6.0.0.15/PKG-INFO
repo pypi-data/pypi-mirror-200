@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: tuo-ml
+Version: 6.0.0.15
+Summary: Machine Learning for TUO
+Home-page: https://github.com/APN-Pucky/tyrant_optimize
+Author: Alexander Puck Neuwirth
+Author-email: alexander@neuwirth-informatik.de
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: deprecation
+Requires-Dist: numpy (>=1.24,<2.0)
+Requires-Dist: pandas (>=1.5,<2.0)
+Requires-Dist: pyyaml
+Requires-Dist: scikit-learn (>=1.1,<2.0)
+Requires-Dist: sklearn2pmml (>=0.92,<0.93)
+Requires-Dist: smpl_io (>=1.1.0,<2.0.0)
+Requires-Dist: tqdm
+Requires-Dist: xgboost (>=1.6,<2.0)
+Project-URL: Repository, https://github.com/APN-Pucky/tyrant_optimize
+Description-Content-Type: text/markdown
+
+# Requirements
+
+1. Python 3.X with pip/Anaconda on Windows
+2. Java 1.8 or higher
+
+# Download
+
+Download the source zip from github and unzip it. Or better clone the repo
+```
+$ git clone https://github.com/APN-Pucky/tyrant_optimize.git tuo
+$ cd tuo/ml
+```
+
+# Install
+
+```
+tuo/ml $ pip install .
+```
+
+If you do not have administrator rights append --user to above command.
+
+Alternatively, if some errors occur in later steps:
+
+```
+tuo/ml $ poetry install 
+```
+
+
+
+# Run it
+
+```
+python train.py --help
+python train.py
+```
+
+The output should look similar to:
+
+```
+Loading database from database.yml...done
+Parsing database...
+100%|█████████████████████████████████████| 1705/1705 [00:20<00:00, 84.00it/s]
+100%|███████████████████████████████████████████| 1/1 [00:20<00:00, 20.30s/it]
+Training...
+WIN......Average Error: +-1.752% (+-0.027%)
+STALL....Average Error: +-0.750% (+-0.017%)
+LOSS.....Average Error: +-1.225% (+-0.022%)
+POINTS...Average Error: +-1.760 (+-0.031)
+```
+
+The uncertainty of the training is indicated.
+<<<<<<< HEAD
+You can copy the `*.pmml` files into your `data/` folder to use them in tuo now.
+=======
+You can copy the `*.pmml` files into your `data/` folder to use them in tuo now.
+>>>>>>> tuo6
+
