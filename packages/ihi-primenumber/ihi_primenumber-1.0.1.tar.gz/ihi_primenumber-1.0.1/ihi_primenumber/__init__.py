@@ -1,0 +1,2 @@
+from ihi_primenumber import isPrimeNumber
+from ihi_primenumber import primeNumberList
