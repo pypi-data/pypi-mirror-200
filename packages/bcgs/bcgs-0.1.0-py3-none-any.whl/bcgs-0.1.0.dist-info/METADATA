@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: bcgs
+Version: 0.1.0
+Summary: Bayesian Conjugate Gibbs Sampler
+Home-page: https://github.com/abmantz/bcgs
+Author: Adam Mantz
+Author-email: amantz@slac.stanford.edu
+License: BSD 3-Clause
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+.. image:: https://img.shields.io/pypi/v/bcgs.svg
+   :alt: PyPi
+   :target: https://pypi.python.org/pypi/bcgs
+.. image:: https://img.shields.io/pypi/l/bcgs.svg
+   :alt: BSD-3
+   :target: https://opensource.org/licenses/BSD-3-Clause
+
+=====================================================================================
+Bayesian Conjugate Gibbs Sampler (BCGS)
+=====================================================================================
+
+-------------------------------------------
+Lightweight, pure-Python conjugate sampling
+-------------------------------------------
+
+BCGS is an implementation of Markov chain monte carlo using conjugate Gibbs sampling for performing Bayesian inference. Compared to software like JAGS and BUGS, BCGS is extremely crude and limited. It exists mainly for pedagogical purposes. It may also be a convenient solution for simple inference problems, as it is written in pure Python, with no dependences beyond ``numpy`` and ``scipy``, and requires no special installation.
+
+Installation
+============
+
+Either ``pip install bcgs`` or just download the source ``bcgs/bcgs.py`` file from the repository.
+
+
+Documentation
+=============
+
+See the associated `github.io page <https://abmantz.github.io/bcgs/>`_. The notebook from which it is generated can be found `here <https://github.com/abmantz/bcgs/tree/main/examples>`_.
