@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: linuxmedia_sridhar
+Version: 0.1.1
+Summary: Linuxmedia is a wrapper for 60 above 60+ Linux Commands
+Home-page: https://git.selfmade.ninja/SRIDHARDSCV/packaging_own_cli_tool
+Author: Sridhar
+Author-email: dcsvsridhar@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+## Linuxmedia is a wrapper for 60 above 60+ Linux Commands
+
+#### Prerequisites
+
+
+On Ubuntu/Debian:
+
+```
+sudo apt install update
+sudo apt install upgrade
+```
+
+
+
+#### Usage
+
+To get all available info about Linuxmedia Command and Its usage :
+```
+linuxmedia <command> [Options..]
+
+```
+
+
