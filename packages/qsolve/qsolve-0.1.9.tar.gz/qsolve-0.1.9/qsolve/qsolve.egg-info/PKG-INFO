@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: qsolve
+Version: 0.1.9
+Summary: qsolve
+Home-page: https://github.com/jfmennemann/qsolve
+Author: Jan-Frederik Mennemann
+Author-email: jfmennemann@gmx.de
+License: UNKNOWN
+Keywords: ultracold atoms,simulations,Gross-Pitaevskii equation,thermal state sampling,time of flight
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown
+
+# QSolve
+
+QSolve provides numerical methods for the simulation of ultracold quantum gases
+at zero and finite temperature.
+Qsolve is written in the Python programming language and makes heavy use of the
+PyTorch machine learning framework.
+
+
+
