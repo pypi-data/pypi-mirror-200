@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: cvbot
+Version: 2.4.0
+Summary: An assistant made to help and make automating computer vision tasks easy
+Author: Hisham Moe
+Author-email: Hisham Moe <runeste2018@gmail.com>
+License: LICENSE
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: mss
+Requires-Dist: pynput
+Requires-Dist: pywin32
+Requires-Dist: easyocr
+Requires-Dist: thefuzz[speedup]
+
