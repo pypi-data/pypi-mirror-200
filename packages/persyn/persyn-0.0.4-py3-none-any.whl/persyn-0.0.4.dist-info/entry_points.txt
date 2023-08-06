@@ -1,0 +1,19 @@
+[console_scripts]
+add_goal = chat.stdio.add_goal:main
+cns = interaction.cns:main
+discord = chat.discord.bot:main
+dreams = dreams.dreams:launch
+elaborate = chat.stdio.elaborate:main
+import_text = chat.stdio.import_text:main
+inject_idea = chat.stdio.inject_idea:main
+interact = interaction.interact_server:launch
+kill_bot = kill_bot:main
+launch_bot = launch_bot:main
+mastodon = chat.mastodon.bot:main
+opine = chat.stdio.opine:main
+read_rss = chat.stdio.read_rss:main
+read_url = chat.stdio.read_url:main
+send_chat = chat.stdio.send_chat:main
+slack = chat.slack.bot:main
+stable_diffusion = dreams.stable_diffusion:main
+summarize = chat.stdio.summarize:main
