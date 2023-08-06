@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% from 'macros.html' import render_cluster %}
+
+{% block title %}Feature Clustering{% endblock %}
+
+{% block nav %}
+    <li><a href="/index/{{ index_id }}/details">Index Details</a></li>
+    <li><a href="/index/{{ index_id }}">Model Overview</a></li>
+    <li><a href="/index/{{ index_id }}/export_clusters">Export Clusters</a></li>
+{% endblock %}
+
+{% block content %}
+<details>
+    <summary>Edit Clusters</summary>
+    <form method="post" action="/index/{{ index_id }}/cluster/delete">
+        <label for="cluster_selection">Choose clusters:</label>
+        <select name="cluster_id" id="cluster_selection" multiple>
+            {% for cluster_id, _, features in clusters %}
+            <option value="{{ cluster_id }}">
+                {% for feature_id, field, value, count in features %}
+                {{ field }}: {{ value }}
+                {% endfor %}
+            </option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="return_to" value="model">
+        <label for="target_clusters">Refine selection into how many clusters:</label>
+        <input id="target_clusters" name="target_clusters" type="number" />
+        <button type="submit" formaction="/index/{{ index_id }}/cluster/refine" method="post">Refine Selected Clusters</button>
+        <br>
+        <button type="submit">Delete Clusters 🗑️</button>
+        <button type="submit" formaction="/index/{{ index_id }}/cluster/merge" method="post">Merge Clusters</button>
+    </form>
+
+    {% if visible_features %}
+    <form method="post" action="/index/{{ index_id }}/cluster/create">
+        {% for feature_id in visible_features %}
+        <input type="hidden" name="feature_id" value={{ feature_id }}>
+        {% endfor %}
+        <button type="submit">Create New Cluster From All Visible Features</button>
+    </form>
+    {% endif %}
+</details>
+
+<ul class="cluster-list">
+
+    {% for cluster_id, cluster_score, features in clusters[:1] %}
+        <li>
+            {{ render_cluster(index_id, cluster_id, features, cluster_score, highlight_cluster_id, highlight_feature_id) }}
+        </li>
+    {% endfor %}
+
+    {% if rendered_docs %}
+    <li>
+        <div class="cluster-header">
+            {% if rendered_docs|length < total_docs %}Sample of {{ total_docs }} documents{% else %}All {{ total_docs }} matching documents.{% endif %}
+        </div>
+        <ul class="doc-list">
+            {% for doc_id, doc in rendered_docs %}
+            <li>{{ doc }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+
+    {% for cluster_id, cluster_score, features in clusters[1:] %}
+    <li>
+        {{ render_cluster(index_id, cluster_id, features, cluster_score, highlight_cluster_id, highlight_feature_id) }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
