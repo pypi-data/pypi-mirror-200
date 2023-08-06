@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: pyensign
+Version: 0.1a1
+Summary: Ensign driver, SDK, and helpers for Python
+Home-page: https://github.com/rotationalio/pyensign
+Author: Patrick Deziel
+Author-email: deziel.patrick@gmail.com
+Maintainer: Patrick Deziel
+Maintainer-email: deziel.patrick@gmail.com
+License: BSD
+Download-URL: https://github.com/rotationalio/pyensign/tarball/v0.1a1
+Keywords: python,setup,pypi
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+Requires-Dist: grpcio (>=1.53.0)
+Requires-Dist: protobuf (>=4.22.1)
+Requires-Dist: python-ulid (>=1.1.0)
+Requires-Dist: requests (>=2.28.2)
+
+# PyEnsign
+
+PyEnsign is the official Python SDK for [Ensign](https://rotational.io/ensign), a distributed event store and stream-processing platform. This library allows you to interact with the Ensign API directly from Python in order to create [publishers](https://ensign.rotational.dev/eventing/glossary/#publisher) and [subscribers](https://ensign.rotational.dev/eventing/glossary/#subscriber).
+
+## Installation
+
+```
+pip install pyensign
+```
+
+## Usage
+
+Create a client from a client ID and client secret. If not provided, these will be obtained from the `ENSIGN_CLIENT_ID` and `ENSIGN_CLIENT_SECRET` variables.
+
+```python
+from pyensign.ensign import Ensign
+
+client = Ensign(client_id=<your client ID>, client_secret=<your client secret>)
+```
+
+The `Event` class can be used to create events from the raw data and mimetype.
+
+```python
+from pyensign.events import Event
+
+event = Event(b'{"temp": 72, "units": "fahrenheit"}', "APPLICATION_JSON")
+```
+
+Publish events to a topic. This function accepts anything that is iterable. Errors are concatenated into a list and returned after all the events have been published.
+
+```python
+errors = await client.publish("weather", event)
+```
+
+Subcribe to a topic or list of topics.
+
+```python
+async for event in client.subscribe("weather"):
+    print("Received event: {}".format(event))
+```
+
