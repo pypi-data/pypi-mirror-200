@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "textstats"
+version = "0.1.2"
+description = "This is a Pakcage for Extracting Info from the text."
+authors = ["varun <varunkatiyar819@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+emoji = "^2.2.0"
+prettytable = "^3.6.0"
+argparse = "^1.4.0"
+spacy = "^3.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
