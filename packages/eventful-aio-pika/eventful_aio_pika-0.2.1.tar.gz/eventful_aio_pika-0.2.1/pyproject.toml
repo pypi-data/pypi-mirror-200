@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "eventful-aio-pika"
+version = "0.2.1"
+description = ""
+authors = ["niqzart <qwert45hi@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "eventful_aio_pika"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aio-pika = "^9.0.5"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+pytest = "^7.2.2"
+isort = "^5.12.0"
+
+[tool.flake8]
+ignore = ["D", "I", "Q"]
+max-line-length = 88
+
+[tool.isort]
+profile = "black"
+py_version = 311
+combine_as_imports = true
+known_first_party = ["eventful_aio_pika", "tests"]
+no_lines_before = "LOCALFOLDER"
+reverse_relative = true
+line_length = 88
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
