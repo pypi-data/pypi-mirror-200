@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pyscenewriter
+Version: 0.0.8
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: Convert fountain screenplay markup into HTML or PDF
+Keywords: fountain,screenplay,screenwriting
+Home-Page: https://github.com/Joeboy/pyscenewriter
+Author: Joe Button
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Homepage, https://github.com/Joeboy/pyscenewriter
+
+Very basic python bindings for [Scenewriter](https://github.com/Joeboy/scenewriter).
+Use it to convert fountain screenplay markup format to HTML or PDF.
+
