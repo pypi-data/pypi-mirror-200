@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: ninja-put-patch-file-upload-middleware
+Version: 0.1.0
+Summary: A middleware that allows user to upload files using PUT / Patch
+License: MIT
+Author: baseplate-admin
+Author-email: 61817579+baseplate-admin@users.noreply.github.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: asgiref (>=3.6,<4.0)
+Requires-Dist: django (>=3.2)
+Description-Content-Type: text/markdown
+
+# ninja_put_patch_file_upload_middleware
+This middleware allows users to upload files using the HTTP PUT or PATCH method. Backports the functionality from [django-ninja#719](https://github.com/vitalik/django-ninja/pull/719)
+
+## Requirements
+
+* Django 3.2+ 
+* Asgiref 3.6.0+
+* Python 3.7+
+
+## Installation
+
+1. Install the package using pip :
+```bash
+pip install ninja_put_patch_file_upload_middleware
+```
+2. Add the middleware to your middleware stack:
+
+```python
+# settings.py
+
+MIDDLEWARE = [
+    ...
+    "ninja_put_patch_file_upload_middleware.middlewares.process_put_patch",
+]
+```
+
+
+## LICENSE
+
+This package is licensed under the MIT License. See the LICENSE file for more information.
+
