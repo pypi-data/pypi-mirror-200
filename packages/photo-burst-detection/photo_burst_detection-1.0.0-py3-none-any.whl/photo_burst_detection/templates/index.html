@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Overview{% endblock %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <ul>
+        {% for dir in directories %}
+        <li>
+            <a href="/burst{{ dir.link }}?seconds={{ request.args.get('seconds', '2') }}" class="dropdown-item">
+                {{ dir.link }}
+                <span class="badge {{ 'text-bg-secondary' if dir.bursts < 5 else 'text-bg-primary' }}">
+                    {{ dir.bursts }} / {{ dir.size }}
+                </span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
