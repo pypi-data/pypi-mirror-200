@@ -1,0 +1,258 @@
+openapi: 3.0.0
+info:
+  description: Mainly for kickers
+  title: NFL Data
+  version: 0.1.0
+servers:
+- url: /
+paths: {}
+components:
+  schemas:
+    TeamShortCodeEnum:
+      description: The three letter code used for a team identification.
+      enum:
+      - ARI
+      - ATL
+      - BAL
+      - BUF
+      - CAR
+      - CHI
+      - CIN
+      - CLE
+      - DAL
+      - DEN
+      - DET
+      - GNB
+      - HOU
+      - IND
+      - JAX
+      - KAN
+      - LAC
+      - LAR
+      - LVR
+      - MIA
+      - MIN
+      - NOR
+      - NWE
+      - NYG
+      - NYJ
+      - PHI
+      - PIT
+      - SEA
+      - SFO
+      - TAM
+      - TEN
+      - WAS
+      title: TeamShortCodeEnum
+      type: string
+    Base:
+      properties:
+        id:
+          description: A UUID. This is referred to as the id of any object's property
+            descriptions in the model. It is intended to be unique.
+          title: id
+          type: string
+      required:
+      - id
+      title: Base
+      type: object
+    FieldGoal:
+      allOf:
+      - $ref: '#/components/schemas/FieldGoal_allOf'
+    Game:
+      allOf:
+      - $ref: '#/components/schemas/Base'
+      - $ref: '#/components/schemas/Game_allOf'
+    Kicker:
+      allOf:
+      - $ref: '#/components/schemas/Kicker_allOf'
+    Team:
+      allOf:
+      - $ref: '#/components/schemas/Team_allOf'
+    Weather:
+      allOf:
+      - $ref: '#/components/schemas/Base'
+      - $ref: '#/components/schemas/Weather_allOf'
+    FieldGoal_allOf:
+      properties:
+        distance:
+          description: Quantity of yards the kick was attempted
+          title: distance
+          type: number
+        kicker:
+          description: The id of the kicker making the kick
+          title: kicker
+          type: string
+        made:
+          description: Whether or not the kick was made
+          title: made
+          type: boolean
+      required:
+      - distance
+      - kicker
+      - made
+      title: FieldGoal_allOf
+      type: object
+      example: null
+    Game_allOf:
+      properties:
+        dateTime:
+          description: "Date and time of the weather report in ISO8601 format, always\
+            \ UTC. For forecasts, this is the date and time the weather report is\
+            \ for."
+          title: dateTime
+          type: string
+        decision:
+          description: Game outcome. -1 if visiting team won. 0 if tie. 1 if home
+            team won.
+          title: decision
+          type: number
+        homeTeam:
+          $ref: '#/components/schemas/TeamShortCodeEnum'
+        homeScore:
+          description: The score of the home team at the end of the game.
+          title: homeScore
+          type: string
+        fieldGoals:
+          description: An array of Field Goal ids that took place during the game
+          items:
+            type: string
+          title: fieldGoals
+          type: array
+        line:
+          description: What was the Vegas line going into the game? Negative favors
+            visitor.
+          title: line
+          type: number
+        ot:
+          description: Did the game go into overtime?
+          title: ot
+          type: boolean
+        ou:
+          description: Over Under on point total
+          title: ou
+          type: number
+        roof:
+          description: What kind of roof was there?
+          enum:
+          - outdoors
+          - retractable roof (closed)
+          - retractable roof (open)
+          - dome
+          title: roof
+          type: string
+        surface:
+          description: What kind of surface was the game played don?
+          enum:
+          - grass
+          - fieldturf
+          - sportturf
+          - astroturf
+          title: surface
+          type: string
+        visitingScore:
+          description: The score of the visiting team at the end of the game.
+          title: visitingScore
+          type: string
+        visitingTeam:
+          $ref: '#/components/schemas/TeamShortCodeEnum'
+        weatherAtEnd:
+          description: Weather id of the report at the end of the game.
+          title: weatherAtEnd
+          type: string
+        weatherAtHalf:
+          description: Weather id of the report at half time.
+          title: weatherAtHalf
+          type: string
+        weatherAtStart:
+          description: Weather id of the report at the start of the game.
+          title: weatherAtStart
+          type: string
+      required:
+      - dateTime
+      - decision
+      - homeScore
+      - homeTeam
+      - visitingScore
+      - visitingTeam
+      title: Game_allOf
+      type: object
+      example: null
+    Kicker_allOf:
+      properties:
+        firstName:
+          description: The first name of the kicker
+          title: firstName
+          type: string
+        lastName:
+          description: The last name of the kicker
+          title: lastName
+          type: string
+      required:
+      - firstName
+      - lastName
+      title: Kicker_allOf
+      type: object
+      example: null
+    Team_allOf:
+      properties:
+        name:
+          description: List of names for the team
+          items:
+            type: string
+          title: name
+          type: array
+        shortCode:
+          description: The TeamShortCodeEnum enumeration
+          title: shortCode
+          type: '#/components/schemas/TeamShortCodeEnum'
+      required:
+      - shortCode
+      title: Team_allOf
+      type: object
+      example: null
+    Weather_allOf:
+      properties:
+        condition:
+          description: "Weather conditions such as sunny, from a provided enumerated\
+            \ type"
+          enum:
+          - sunny
+          - mostly cloudy
+          - clear
+          - dome
+          title: condition
+          type: string
+        dateTime:
+          description: "Date and time of the weather report in ISO8601 format, always\
+            \ UTC. For forecasts, this is the date and time the weather report is\
+            \ for."
+          title: dateTime
+          type: string
+        forecast:
+          description: Is this a forecast or an actual weather report? True if it
+            is a forecast
+          title: forecast
+          type: boolean
+        humidity:
+          description: Humidity in percent
+          title: humidity
+          type: number
+        temperature:
+          description: Temperature in fahrenheit
+          title: temperature
+          type: number
+        windDirection:
+          description: "Wind direction in degrees, 0 is North. Remember this is direction\
+            \ from which the wind originates!"
+          title: windDirection
+          type: number
+        windSpeed:
+          description: Wind speed in miles per hour
+          title: windSpeed
+          type: number
+      required:
+      - dateTime
+      title: Weather_allOf
+      type: object
+      example: null
