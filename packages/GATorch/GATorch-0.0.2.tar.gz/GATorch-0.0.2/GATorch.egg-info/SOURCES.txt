@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+GATorch/__init__.py
+GATorch/ga.py
+GATorch.egg-info/PKG-INFO
+GATorch.egg-info/SOURCES.txt
+GATorch.egg-info/dependency_links.txt
+GATorch.egg-info/requires.txt
+GATorch.egg-info/top_level.txt
+GATorch/profilers/__init__.py
+GATorch/profilers/energyprofiler.py
+GATorch/profilers/measurehook.py
+GATorch/profilers/measurehookloss.py
+GATorch/profilers/pyjoules.py
