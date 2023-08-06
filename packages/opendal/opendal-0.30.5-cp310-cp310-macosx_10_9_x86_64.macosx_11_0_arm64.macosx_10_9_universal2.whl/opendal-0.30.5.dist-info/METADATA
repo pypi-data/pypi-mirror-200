@@ -1,0 +1,94 @@
+Metadata-Version: 2.1
+Name: opendal
+Version: 0.30.5
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: behave; extra == 'test'
+Requires-Dist: pdoc; extra == 'docs'
+Provides-Extra: test
+Provides-Extra: docs
+Summary: OpenDAL Python Binding
+Home-Page: https://opendal.apache.org/
+Author: OpenDAL Contributors <dev@opendal.apache.org>
+Author-email: OpenDAL Contributors <dev@opendal.apache.org>
+License: Apache-2.0
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Repository, https://github.com/apache/incubator-opendal
+Project-URL: Documentation, https://docs.rs/opendal/
+Project-URL: Homepage, https://opendal.apache.org/
+
+# OpenDAL Python Binding
+
+This crate intends to build a native python binding.
+
+## Installation
+
+```bash
+pip install opendal
+```
+
+## Usage
+
+```python
+import opendal
+
+op = opendal.Operator("fs", root="/tmp")
+op.write("test.txt", b"Hello World")
+print(op.read("test.txt"))
+print(op.stat("test.txt").content_length)
+```
+
+Or using the async API:
+
+```python
+import asyncio
+
+async def main():
+    op = opendal.AsyncOperator("fs", root="/tmp")
+    await op.write("test.txt", b"Hello World")
+    print(await op.read("test.txt"))
+
+asyncio.run(main())
+```
+
+## Development
+
+Setup virtualenv:
+
+```shell
+python -m venv venv
+```
+
+Activate venv:
+
+```shell
+source venv/bin/activate
+````
+
+Install `maturin`:
+
+```shell
+pip install maturin[patchelf]
+```
+
+Build bindings:
+
+```shell
+maturin develop
+```
+
+Run some tests:
+
+```shell
+maturin develop -E test
+behave tests
+```
+
+Build API docs:
+
+```shell
+maturin develop -E docs
+pdoc opendal
+```
