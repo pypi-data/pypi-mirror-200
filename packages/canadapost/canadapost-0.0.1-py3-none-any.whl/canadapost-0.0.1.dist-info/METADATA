@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: canadapost
+Version: 0.0.1
+Summary: CanadaPost API implementation
+Author-email: Loïc Faure-Lacroix <lamerstar@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >3.7
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: asyncio
+Requires-Dist: aiohttp
+Provides-Extra: test
+Requires-Dist: coverage[toml] ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-asyncio ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+Requires-Dist: typing-extensions (<5,>=4.3) ; extra == 'test'
+
