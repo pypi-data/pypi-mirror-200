@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ortools_vrp_wrapper"
+authors = [
+  { name="Marcos Nogueira", email="marcos.nogueira1@gmail.com" },
+]
+version = "0.0.4"
+dependencies = [
+    'dataclasses-json',
+    'ortools',
+]
+license = {file = "./LICENSE"}
