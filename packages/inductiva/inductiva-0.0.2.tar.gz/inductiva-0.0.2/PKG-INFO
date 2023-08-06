@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: inductiva
+Version: 0.0.2
+Summary: Python client for the Inductiva API
+Home-page: https://github.com/inductiva/inductiva
+Author: Inductiva Research Labs
+Author-email: contact@inductiva.ai
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+![Python package](https://github.com/inductiva/inductiva/actions/workflows/python-package.yml/badge.svg)
+
+# Inductiva
+
+This repository holds a user-friendly client to Inductiva's scientific computing API.
