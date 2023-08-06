@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=59.6.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="pylars_misc"
+version="2023.3.30"
+authors=[
+    { name="Dean MacGregor", email="dm121@yahoo.com"}
+]
+description="python polars with convenience functions bolted on"
+readme = "README.md"
+requires-python = ">=3.7"
