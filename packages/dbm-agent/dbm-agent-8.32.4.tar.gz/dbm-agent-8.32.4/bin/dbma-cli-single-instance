@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+"""
+实例单实例架构下的 MySQL 安装与卸载
+"""
+
+import logging
+import argparse
+from pathlib import Path
+from dbma.components.mysql.install import default_pkg
+from dbma.components.mysql.install import install_mysql, uninstall_mysql
+
+
+def parser_cmd_args():
+    """
+    实现命令行参数的处理
+    """
+    parser = argparse.ArgumentParser(__name__)
+    parser.add_argument('--port', type=int, default=3306, help="instance port")
+    parser.add_argument(
+        '--pkg-name', type=str, default=default_pkg.name, help="mysql install package name default {}".format(default_pkg.name))
+    parser.add_argument('--ibps', type=str, default='128M',
+                        help="innodb-buffer-pool-size  et: 128M , 512M, 1G, 2G")
+    parser.add_argument('action', type=str, choices=[
+                        'master', 'slave', 'source', 'replica', 'uninstall'])
+    args = parser.parse_args()
+    return args
+
+
+def main():
+    #
+    args = parser_cmd_args()
+
+    logging.basicConfig(level=logging.INFO,
+                        format="[%(asctime)s %(levelname)s] - [%(threadName)s] - [%(pathname)s %(lineno)d line]  ~  %(message)s")
+
+    if args.action in ('master', 'source'):
+        pkg = Path("/usr/local/dbm-agent/pkgs/") / args.pkg_name
+        port = args.port
+        innodb_buffer_pool_size = args.ibps
+        install_mysql(port=port, pkg=pkg,
+                      innodb_buffer_pool_size=innodb_buffer_pool_size)
+    elif args.action == 'uninstall':
+        uninstall_mysql(args.port)
+
+
+if __name__ == "__main__":
+    main()
