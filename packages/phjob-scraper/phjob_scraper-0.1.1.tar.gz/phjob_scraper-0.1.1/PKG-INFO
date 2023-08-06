@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: phjob-scraper
+Version: 0.1.1
+Summary: Job Scraper for jobs from the Philippines from various job posting websites as a python library.
+Home-page: https://github.com/tbdsux/job-scraper
+Author: Joshue Abance (tbdsux)
+Author-email: iamcoderx@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: cloudscraper (>=1.2.69,<2.0.0)
+Requires-Dist: lxml (>=4.9.2,<5.0.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Project-URL: Documentation, https://github.com/tbdsux/job-scraper
+Project-URL: Repository, https://github.com/tbdsux/job-scraper
+Description-Content-Type: text/markdown
+
+# job-scraper
+
+Job Scraper for jobs from the Philippines from various job posting websites as a python library.
+
+## Install
+
+```sh
+python3 -m pip install phjob-scraper
+```
+
+## Available websites
+
+- **[Jora](https://ph.jora.com)**
+
+  ```python
+  from job_scraper import Jora
+
+  src = Jora()
+  results = src.search("quality assurance", location="manila")
+
+  for i in results:
+      print(i["title"])
+  ```
+
+##
+
+**@tbdsux | &copy; 2023**
+
