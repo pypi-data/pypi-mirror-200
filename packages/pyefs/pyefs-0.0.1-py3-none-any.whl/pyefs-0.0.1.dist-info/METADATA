@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: pyefs
+Version: 0.0.1
+Summary: A Python module for encrypting and decrypting files using the Fernet encryption algorithm.
+Author-email: joumaico <joumaico@gmx.com>
+License: MIT License
+        
+        Copyright (c) 2023 joumaico
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/joumaico/pyefs
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: cryptography (>=40.0.1)
+
+# Python Encrypted File System
+
+[![Made with Python](https://img.shields.io/badge/Python->=3.10-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")
+[![Python package](https://github.com/joumaico/pyefs/actions/workflows/python-package.yml/badge.svg)](https://github.com/joumaico/pyefs/actions/workflows/python-package.yml)
+[![Upload Python Package](https://github.com/joumaico/pyefs/actions/workflows/python-publish.yml/badge.svg)](https://github.com/joumaico/pyefs/actions/workflows/python-publish.yml)
+
+PyEFS: A Python module for encrypting and decrypting files using the Fernet encryption algorithm.
+
+## Installation
+
+```console
+$ pip install pyefs
+```
+
+## Usage
+
+### Creating a new encryption key
+
+To create a new encryption key, you can use the `generate_key()` method of the `SecureFile` class:
+
+```python
+from pyefs import SecureFile
+
+key = SecureFile.generate_key()
+```
+
+### Encrypting a file
+
+To encrypt a file, you can create a `SecureFile` object with the filename and encryption key, then call the `encrypt()` method:
+
+```python
+from pyefs import SecureFile
+
+key = SecureFile.generate_key()
+
+# create a file with some text
+with open(filename, 'w') as f:
+    f.write("This is a test file.")
+
+# encrypt the file
+sf = SecureFile(filename, key)
+sf.encrypt()
+```
+
+By default, the `encrypt()` method reads the content of the file and overwrites it with the encrypted content. You can also provide a `bytes` object to encrypt and write to the file instead of the file's content:
+
+```python
+# encrypt a custom content
+content = b"This is a custom content."
+sf.encrypt(content)
+```
+
+### Decrypting a file
+
+To decrypt a file, you can create a `SecureFile` object with the filename and encryption key, then call the `decrypt()` method:
+
+```python
+# decrypt the file
+sf = SecureFile(filename, key)
+sf.decrypt()
+```
+
+If the decryption fails, the `decrypt()` method returns `None`.
+
+## Links
+* PyPI Releases: https://pypi.org/project/pyefs
+* Source Code: https://github.com/joumaico/pyefs
