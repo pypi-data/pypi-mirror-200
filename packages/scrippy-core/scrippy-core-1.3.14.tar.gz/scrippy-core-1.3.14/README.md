@@ -1,0 +1,861 @@
+![Build Status](https://drone.mcos.nc/api/badges/scrippy/scrippy-core/status.svg) ![License](https://img.shields.io/static/v1?label=license&color=orange&message=MIT) ![Language](https://img.shields.io/static/v1?label=language&color=informational&message=Python)
+
+
+![Scrippy, mon ami le scrangourou](./scrippy-core.png "Scrippy, mon ami le scrangourou")
+
+# `scrippy_core`
+
+`scrippy_core` est le module _Python3_ principal du cadriciel [`Scrippy`](https://codeberg.org/scrippy) permettant la normalisation de l'écriture de scripts _Python_.
+
+Ce module apporte l'ensemble des fonctionnalités de base telles que la gestion des fichiers de configuration, de logs, d'historiques d'exécution, le contrôle d'accès aux scripts, la gestion des exécution concurrentielles, etc.
+
+## Prérequis
+
+### Système
+
+#### Debian et dérivées
+
+- python3
+- python3-pip
+- python-dev
+- build-essential
+
+### Modules Python
+
+#### Liste des modules nécessaires
+
+Les modules listés ci-dessous seront automatiquement installés.
+
+- prettytable
+- coloredlogs
+- argcomplete
+- filelock
+
+## Installation
+
+### Manuelle
+
+```bash
+git clone https://codeberg.org/scrippy/scrippy-core.git
+cd scrippy-core
+sudo python3 -m pip install -r requirements.txt
+sudo python3 ./setup.py build install
+```
+
+### Avec `pip`
+
+```bash
+sudo pip install scrippy-core
+```
+
+### Configuration de l'environnement
+
+Au démarrage de chaque script, _Scrippy_ recherche son fichier de configuration globale aux endroits suivants dans l'ordre suivant:
+
+1. `/etc/scrippy/scrippy.yml`, permet aux gestionnaires de paquets de fournir une configuration de _Scrippy_ par défaut (i.e: _vendor config_)
+2. `~/.config/scrippy/scrippy.yml`, permet aux utilisateurs de configurer _Scrippy_ sans avoir besoin des _permissions administrateur_
+3. `/usr/local/etc/scrippy/scrippy.yml`, permet à l'administrateur du système de configurer _Scrippy_.
+
+Lorsque plusieurs fichiers de configuration existent au sein du même système, les fichiers de configuration sont fusionnés de manière à ce qu'un utilisateur puisse surcharger une configuration par défaut sans pouvoir surcharger une configuration mise en place par l'administrateur système.
+
+Le fichier de configuration de _Scrippy_ doit définir un certain nombres de répertoires qui seront utiles aux scripts reposant sur _Scrippy_.
+
+| Clef                  | Utilité                                                                  | Variable associée                |
+| --------------------- | ------------------------------------------------------------------------ | -------------------------------- |
+| `env::logdir`         | Répertoire des journaux d'exécution des scripts basés sur _Scrippy_      | scrippy_core.SCRIPPY_LOGDIR      |
+| `env::histdir`        | Répertoire des fichiers d'historisation des exécutions                   | scrippy_core.SCRIPPY_HISTDIR     |
+| `env::reportdir`      | Répertoire des fichiers de rapports                                      | scrippy_core.SCRIPPY_REPORTDIR   |
+| `env::tmpdir`         | Répertoire temporaire des scripts basés sur _Scrippy_                    | scrippy_core.SCRIPPY_TMPDIR      |
+| `env::templatedirdir` | Répertoire des fichiers modèles                                          | scrippy_core.SCRIPPY_TEMPLATEDIR |
+| `env::confdir`        | Répertoire des fichiers de configuration des scripts basés sur _Scrippy_ | scrippy_core.SCRIPPY_CONFDIR     |
+| `env::datadir`        | répertoire des données utilisées par les scripts basés sur _Scrippy_     | scrippy_core.SCRIPPY_DATADIR     |
+
+Modèle de fichier de configuration de l'environnement d'exécution _Scrippy_:
+
+```yaml
+env:
+  logdir: /var/log/scrippy
+  histdir: /var/scrippy/hist
+  reportdir: /var/scrippy/reports
+  tmpdir: /var/tmp/scrippy
+  datadir: /var/scrippy/data
+  templatedir: /var/scrippy/templates
+  confdir: /usr/local/etc/scrippy/conf
+```
+
+2. Création des répertoires définis dans le fichier de configuration `/usr/local/etc/scrippy/scrippy.yml` par l'utilisateur _root_ (ou via `sudo`)
+
+Script python de création des répertoires nécessaires :
+
+```python
+import os
+import yaml
+
+conf_file = "/usr/local/etc/scrippy/scrippy.yml"
+with open(conf_file, "r") as conf:
+  scrippy_conf = yaml.load(conf, Loader=yaml.FullLoader)
+  for rep in scrippy_conf["env"]:
+    os.makedirs(scrippy_conf["env"][rep], 0o0775)
+```
+
+### Activation de l'auto-complétion (facultatif)
+
+Si votre shell dispose de la commande `whence`, le _parser_ des arguments (argparse) pourra être utilisé pour alimenter l'auto-complétion. Voir la [documentation d'`argcomplete`](https://argcomplete.readthedocs.io/en/latest/).
+
+Pour l'activer lancer la commande suivante (installée avec le module python `argcomplete`) :
+
+```bash
+sudo activate-global-python-argcomplete
+```
+
+Rafraîchissez votre environnement _Bash_.
+
+```bash
+source /etc/profile
+```
+
+---
+
+## Formalisme
+
+Les scripts utilisant le module `scrippy_core` doivent répondre à un certain formalisme afin de garantir une harmonisation de leur format tout en facilitant la prise en charge de certaines fonctionnalités avancées telles que le contrôle de la validité de la configuration ou la gestion des paramètres optionnels.
+
+Ainsi chaque script doit comporter dans sa [_doc string_](https://www.python.org/dev/peps/pep-0257/) un cartouche déclaratif et un ensemble de _sections_ prédéfinies.
+
+Une fonction `main()` doit **impérativement**:
+
+- Être définie dans la section `Définition des fonctions et classes`
+- Être appelée dans la section `Point d'entrée`
+- Directement encadrée son contenu par `with scrippy_core.ScriptContext(__file__, workspace=True) as _context:` qui gère et active l'ensemble des fonctionnalités des scripts écrit à partir du module `scrippy_core`.
+
+```python
+def main():
+  with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+    # Code principal
+
+if __name__ == '__main__':
+  # gestion des arguments si il y en a
+  main()
+```
+
+### Modèle de base
+
+Le modèle de base ci-dessous peut servir de base à un extrait de code (_snippet_):
+
+```python
+#!/bin/env python3
+"""
+--------------------------------------------------------------------------------
+  @author         : <Auteur>
+  @date           : <Date de la version actuelle du script>
+  @version        : <X.Y.Z>
+  @description    : <Brève description (une ligne) de l'utilité du script>
+
+--------------------------------------------------------------------------------
+  Mise a jour :
+  <X.Y.Z>  <Date> - <Auteur> - <Raison>: <Description de la mise à jour>
+
+--------------------------------------------------------------------------------
+  Liste des utilisateurs ou groupe autorisés:
+    @user:<nom d'utilisateur>
+    @group:<nom du groupe>
+
+--------------------------------------------------------------------------------
+  Exécutions concurrentes :
+    @max_instance: <INT>
+    @timeout: <INT>
+    @exit_on_wait: <BOOL>
+    @exit_on_timeout: <BOOL>
+
+--------------------------------------------------------------------------------
+  Liste des paramètres de configuration obligatoires:
+    @conf:<section>|<clé>|<type>|<secret>
+
+--------------------------------------------------------------------------------
+  Liste des paramètres des options et arguments d'exécution:
+    @args:<nom>|<type>|<aide>|<nombre arguments>|<valeur par défaut>|<conflit>|<implique>|<requis>|<secret>
+
+--------------------------------------------------------------------------------
+  Fonctionnement:
+  ---------------
+    <Description détaillée du script>
+...
+"""
+#-------------------------------------------------------------------------------
+#  Initialisation de l’environnement
+#-------------------------------------------------------------------------------
+import logging
+import scrippy_core
+
+#-------------------------------------------------------------------------------
+#  Définition des fonctions et classes
+#-------------------------------------------------------------------------------
+
+class <Class>(<object>):
+  def __init__(self, [<param>, ...]):
+  [...]
+
+def <fonction>([<param>, ...]):
+  [...]
+
+#-------------------------------------------------------------------------------
+#  Traitement principal
+#-------------------------------------------------------------------------------
+
+def main(args):
+  with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+    # recupération de la config si necessaire
+    config = _context.config
+
+    [...]
+
+#-------------------------------------------------------------------------------
+#  Point d'entrée
+#-------------------------------------------------------------------------------
+
+if __name__ == '__main__':
+  # gestion des arguments si il y en a. Les arguments sont accessibles avec la variable 'scrippy_core.args'
+  main(scrippy_core.args)
+```
+
+### Éléments du cartouche
+
+Les éléments `@author`, `@date`, `@version`, `@description` sont **obligatoires** et seront automatiquement affichés par l'option `--help`.
+
+#### Version:
+
+Le numéro de version d'un script est au format X.Y.Z avec:
+
+- `X`, l’identifiant de version majeure
+- `Y` est l’identifiant de version mineure
+- `Z`, l’identifiant de version de correction
+
+**Version majeure X**: Il vaut "0" lors du développement, le script est considéré non valide et ne devrait ni être appelé par d’autres scripts ni être utilisé en production.
+
+Une fois le script validé la version doit être 1.0.0 (première version stable).
+
+`X` doit être incrémenté si des changements dans le code n’assure plus la rétro-compatibilité.
+
+Les identifiants de version mineure `Y` et de correction `Z` doivent être remis à zéro lorsque l’identifiant de version majeure `X` est incrémenté.
+
+**Version mineure Y**: Doit être incrémenté lors de l’ajout de nouvelles fonctionnalités ou d’amélioration du code qui n’ont pas d’impact sur la rétro-compatibilité.
+
+L’identifiant de version de correction `Z` doit être remis à zéro lorsque l’identifiant de version mineure est incrémenté.
+
+**Version de correction Z**: Doit être incrémenté si seules des corrections rétro-compatibles sont introduites.
+
+Une correction est définie comme un changement interne qui corrige un comportement incorrect (Bug).
+
+`Z` peut être incrémenté lors de correction typographique ou grammaticale.
+
+#### Mise à jour:
+
+En plus du numéro de version, de la date de modification et de l'auteur de la modification chaque ligne de l'historique du script doit indiquer la raison de la modification.
+
+`<Raison>` peut prendre l'une des valeurs suivantes:
+
+- `cre`: Création du script
+- `evo`: Évolution du script (ajout de fonctionnalité, amélioration du code, etc)
+- `bugfix`: Correction de comportement inattendu (bug)
+- `typo`: Correction de faute de frappe, ajout de commentaires et toute action n'apportant aucune modification au code.
+
+## Utilisateurs et groupes autorisés
+
+Le module `scrippy_core` ajoute une couche de vérification quant à l'exécution du script permettant de s'assurer qu'un script est exécuté par un utilisateur spécifique ou un utilisateur appartenant à un groupe spécifique.
+
+Placée dans le cartouche, une ligne telle que `@user:harry.fink` empêchera l’exécution par tout utilisateur autre que `harry.fink`.
+
+Il est possible de définir plusieurs utilisateurs autorisés en multipliant les déclarations:
+
+```
+@user:harry.fink
+@user:luiggi.vercotti
+```
+
+Il est également possible d'autoriser des groupes d'utilisateurs avec une ligne telle que `@group:monty` qui assurera que seul un utilisateur du groupe `monty` exécute le script.
+
+De la même manière que pour les utilisateurs il est possible de multiplier les déclarations de groupe:
+
+```
+@group:monty
+@group:python
+```
+
+En cas d'absence de ligne déclarative `@user` et `@group` les permissions sur le fichier font foi et dans tous les cas les permissions sur les fichiers sont prévalentes.
+
+**Attention**: Si un groupe et un utilisateur sont déclarés, **les deux conditions doivent être remplies** pour que l'utilisateur soit autorisé à exécuter le script.
+
+## Gestion des exécutions concurrentes
+
+Les déclarations optionnelles `@max_instance`, `@timeout`, `@exit_on_wait` et `@exit_on_timeout` permettent de définir le nombre d'exécution concurrentes d'un même script ainsi que le comportement du script le cas échéant:
+
+| Déclaration        | Type                        | Utilité                                                                                                          | Valeur par défaut |
+| ------------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `@max_instance`    | Nombre entier               | Nombre maximum d'exécutions parallèles                                                                           | 0 (infini)        |
+| `@timeout`         | Nombre entier               | Délai d'attente maximum exprimé en secondes si `@exit_on_timeout` est positionnée à vrai                         | 0 (infini)        |
+| `@exit_on_timeout` | booléen (`true`, `1`, `on`) | Fait sortir le script en erreur lorsque le délai d'attente est atteint                                           | False             |
+| `@exit_on_wait`    | booléen (`true`, `1`, `on`) | Fait immédiatement sortir le script en erreur en cas d'attente y compris si le délai d'attente n'est pas atteint | False             |
+
+Les occurrences mises en attente d'exécution sont exécutées séquentiellement dans l'ordre de leur inscription dans la file d'exécution.
+
+Dans l'exemple suivant, deux occurrences du script sont permises. Une troisième exécution sera mise en attente 10 secondes, délai au delà duquel le script sortira en erreur s'il n'a pas peu obtenir un créneau d'exécution.
+
+```
+  @max_instance: 2
+  @timeout: 10
+  @exit_on_wait: false
+  @exit_on_timeout: true
+```
+
+## Gestion et vérification des paramètres de configuration obligatoires
+
+Un fichier de configuration est un fichier simple fichier _ini_ découpé en autant de sections que nécessaire:
+
+Pour être chargé un tel fichier de configuration doit simplement se trouver dans le répertoire défini par la constante `scrippy_core.SCRIPPY_CONFDIR` et avoir le même nom que le script qui doit le charger débarrassé de son extension et suffixé de l'extension `.conf`.
+
+De cette manière le script `exp_test_logs.py` chargera automatiquement le fichier de configuration `exp_test_logs.conf`.
+
+```ini
+[log]
+level = ERROR
+[database]
+host = srv.flying.circus
+port = 5432
+user = arthur.pewtey
+base = ministry_of_silly_walks
+password = parrot
+# La section comporte des espaces
+[ma section]
+  # un commentaire indenté
+  ma variable = ma valeur
+```
+
+Dans un tel fichier:
+
+- L'indentation est possible
+- Une ligne commençant par `#` ou `;` est considérée comme un commentaire, y compris si elle est indentée.
+- Toutes les valeurs sont des chaînes de caractères:
+  - Il appartient au développeur de convertir la valeur des variables dans le type désiré lors du traitement (voir **_Récupération d’une valeur d’un type particulier_**).
+  - Les espaces sont acceptés que se soit dans le nom des section, dans le nom d'une clé ou dans une valeur.
+
+### Contrôle de la validité du fichier de configuration
+
+Afin de valider le fichier de configuration le script doit comporter dans sa [_docstring_](https://www.python.org/dev/peps/pep-0257/) un ensemble de lignes commençant par `@conf` et décrivant le fichier de configuration tel qu'il est attendu.
+
+Les lignes de déclarations du format de configuration doivent respecter le formalisme suivant:
+
+```
+@conf:<section>|<clé>|<type_valeur>[|<secret>]
+```
+
+`<type_valeur>` doit être l'un des types reconnus suivants:
+
+- `str` (chaîne de caractères)
+- `int` (entier)
+- `float` (nombre à virgule flottante)
+- `bool` (booléen)
+
+`secret` est **optionnel** et s'il est défini doit prendre la valeur `true` ou `false`.
+
+Si `secret` est défini et a pour valeur `true`, la valeur de paramètre de configuration sera considérée comme un _secret_ et apparaîtra masquée dans les fichiers de journalisations.
+
+Exemple:
+
+À partir de la déclaration suivante:
+
+```
+@conf:log|level|str
+@conf:database|port|int
+@conf:sql|verbose|boolean
+@conf:sql|database|str|false
+@conf:sql|password|str|true
+```
+
+Le fichier de configuration suivant sera vérifié:
+
+```
+[log]
+  level = error
+[database]
+  port = 5432
+[sql]
+  verbose = True
+  database = monty
+  password = d34dp4rr0t
+```
+
+Toutes les occurrences du mot de passe `d34dp4rr0t` seront remplacé par `*******` dans les fichiers de journalisations comme sur la sortie standard.
+
+Aucun contrôle des valeurs des paramètres n'est effectué, il n'est donc pas utile de les indiquer. Seule la structure de la configuration et le type des clés sont vérifiés.
+
+Lors du contrôle de la configuration et si le niveau de journalisation est positionné à `debug`, la configuration chargée sera affichée sur la sortie standard et dans le journal (attention à la présence de mots de passe dans la configuration lors de l'utilisation du niveau de journalisation `debug`).
+
+```python
+"""
+@conf:database|port|int
+@conf:database|base|str
+@conf:database|host|str
+@conf:database|password|str
+@conf:database|user|str
+@conf:local|dir|str
+@conf:src|port|int
+@conf:src|host|str
+@conf:src|dir|str
+@conf:src|user|str
+@conf:dst|port|int
+@conf:dst|host|str
+@conf:dst|dir|str
+@conf:dst|user|str
+"""
+import scrippy_core
+with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+  # recupération de la configuration
+  config = _context.config
+```
+
+Si l'une des sections ou l'une des clés décrites par `@conf` est absente du fichier de configuration ou que le type décrit pour une clé ne correspond pas au type trouvé dans le fichier de configuration pour cette clé alors une erreur critique est levée et le script sort immédiatement en erreur.
+
+Les sections ou clés surnuméraires trouvées dans le fichier de configuration et non déclarées seront simplement ignorées lors de la vérification mais resteront utilisables par le script.
+
+Ainsi dans l'exemple ci-dessus la section `[mail]` n'étant pas définie dans `@conf` ni sa présence ni sa validité ne seront contrôlées.
+
+### Récupération de la valeur d'un paramètre de configuration
+
+La récupération de la valeur d'un paramètre du fichier de configuration se fait par l'intermédiaire de la méthode `_context.config.get()`.
+
+```python
+"""
+@conf:database|port|int
+@conf:database|base|str
+@conf:database|host|str
+@conf:database|password|str
+@conf:database|user|str
+"""
+import logging
+import scrippy_core
+
+with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+  config = _context.config
+  logging.info(config.get('database', 'host'))
+```
+
+Dans l'exemple ci-dessus, la valeur de la clé `host` de la section `database` sera affiché à l'écran.
+
+Si la section ou la clé n'existe pas, une erreur est levée et **le script lèvera immédiatement une erreur critique**.
+
+#### Récupération d'une valeur d'un type particulier
+
+À moins que le paramètre 'param_type' soit positionné à l'une des valeurs autorisées (`str` (défaut), `int`, `float` ou `bool`), le type renvoyé est systématiquement une chaîne de caractère.
+
+Appeler la méthode `Config.get()` avec le mauvais type lèvera une erreur et **le script lèvera immédiatement une erreur critique**.
+
+```python
+"""
+@conf:log|level|str
+@conf:database|port|int
+@conf:database|base|str
+@conf:database|host|str
+@conf:database|password|str
+@conf:database|user|str
+"""
+import logging
+import scrippy_core
+
+with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+  config = _context.config
+  logging.info(config.get('database', 'port', 'int'))
+```
+
+### Sections et clés réservées:
+
+Certaines sections et clés sont automatiquement lues et interprétées lors de l'import du module `scrippy_core`.
+
+Ces clés de configuration sont facultatives, tout comme le fichier de configuration.
+
+- Niveau de journalisation, lu et appliqué automatiquement
+
+```ini
+[log]
+  level = <str>
+```
+
+- Activation de la journalisation et d'historisation (True par défaut)
+
+```ini
+[log]
+  file = <bool>
+```
+
+Plus de détails dans la section **Gestion des journaux d'exécution**
+
+### Exemples
+
+Tous les exemples de cette documentation se basent sur tout ou partie du fichier de configuration suivant:
+
+```ini
+[log]
+  level = info
+  file = true
+[database]
+  host = srv.flying.circus
+  port = 5432
+  user = arthur.pewtey
+  base = ministry_of_silly_walks
+  password = dead parrot
+[local]
+  dir = /tmp/transfert
+[src]
+  host = srv.source.circus
+  port = 22
+  user = harry.fink
+  dir = /home/harry.fink/data
+[dst]
+  host = srv.destination.circus
+  port = 22
+  user = luigi.vercotti
+  dir = /home/luigi.vercotti/received
+[mail]
+  host = srv.mail.circus
+  port = 25
+  from = Luiggi Vercotti
+  from_addr = luiggi.vercotti@circus.com
+  to = Harry Fink
+  to_addr = harry.fink@circus.com
+  subject =  Compte rendu d'exécution
+```
+
+## Gestion des options d'exécution
+
+La gestion des options d'un script se fait au moyen de déclarations dans sa [_docstring_](https://www.python.org/dev/peps/pep-0257/).
+
+La déclaration d'une option est composée de 8 champs dont certains sont obligatoires:
+
+```
+@args:<nom>|<type>|<aide>|<nombre arguments>|<valeur par défaut>|<conflit>|<implique>|<requis>|<secret>
+```
+
+avec:
+
+- **nom**: Le nom de l'option (obligatoire)
+- **type**: Une des valeurs suivantes: `str`, `int`, `float`, `choice`, `bool` (défaut: str). Si le type est `choice`, la liste des choix possibles doit être saisie dans le champs **valeur par défaut** sous forme de liste de mots séparés par des virgules.
+- **aide**: Une chaîne de caractères résumant l'objectif de cette option (obligatoire).
+- **nombre arguments**: Le nombre d'arguments que prend l'option. Ce champs est obligatoire pour tous les types sauf `bool` ou le nombre d'arguments déclarés est ignoré. Sa valeur est généralement un nombre entier mais peut prendre la valeur `+` lorsque le nombre d'arguments est supérieur à 1 mais n'est pas connu à l'avance ou `?` lorsque le nombre d'argument peut être égal à zéro.
+- **valeur par défaut**: La valeur par défaut de l'option (optionnel). Les option de type `bool` prennent `true` comme valeur par défaut.
+- **conflit**: La liste des options qui entrent en conflit avec l'option courante (optionnel, liste d'options séparés par des virgules).
+- **implique**: La liste des options induites par l'option courante (optionnel, liste d'options séparés par des virgules).
+- **requis**: Un booléen (`true` ou `false`) indiquant si l'option est obligatoire ou non.
+- **secret**: Un booléen (`true` ou `false`) indiquant si la valeur de l'option doit être gardée secrète.
+
+La valeur d'une option dont l'attribut _secret_ est positionné à `true` sera automatiquement masquée dans les fichiers de journalisations comme sur la sortie standard.
+
+La déclaration des options générera automatiquement l'aide du script accessible avec l'option `--help`.
+
+Les options suivantes seront également automatiquement générées:
+
+- `--version`: Affiche le numéro de version du script à partir des informations contenues dans le cartouche.
+- `--source-code`: Affiche le code source du script.
+- `--hist [NB_EXECUTION (default:10)]`: Affiche l'historique des exécutions du script.
+- `--log [SESSION]`: Affiche le contenu du fichier log correspondant à la session dont l'identifiant est passé en argument. Par défaut la dernière session est affichée.
+- `--debug`: Force le niveau de journalisation à DEBUG (Les changements de niveau de log au cours de l'exécution sont alors ignorés).
+- `--nolog`: Désactive totalement la journalisation à l'exception des niveaux de journalisation `error` et `critical`.
+- `--no-log-file`: Empêche la création des fichiers de journalisation et d'historisation.
+
+Les options `--help`, `--version`, `--hist`, `--log`, `--debug` et `--no-log-file` ne doivent donc pas être déclarées.
+
+### Exemples
+
+Le script suivant pourra être appelé avec les options et arguments suivants:
+
+- `--env`: Obligatoire. Accepte l'une des valeurs suivantes: qualif, preprod ou prod
+- `--appname`: Optionnelle. Une chaîne de caractères libre ayant pour valeur par défaut "aviva"
+- `--now`: Option booléenne. Si utilisée sa valeur sera _true_ (false par défaut) et l'option `--date` ne pourra pas être utilisée.
+- `--date`: Une suite de 3 entiers à partir de laquelle une date sera créée (ie. 24 02 2019). Cette option entre en conflit avec l'option `--now`.
+- `--email`: Une chaîne de caractère libre. Cette option est obligatoire si l'option `--now` est utilisée.
+
+```python
+#!/bin/env python3
+"""
+--------------------------------------------------------------------------------
+  @author         : Florent Chevalier
+  @date           : 27-07-2019
+  @version        : 1.0.0
+  @description    : test des options
+
+--------------------------------------------------------------------------------
+  Mise a jour :
+  1.0.0  27/07/2019   - Florent Chevalier   - Cre : Mise en production
+--------------------------------------------------------------------------------
+  Liste des utilisateurs ou groupe autorisés:
+    @user:asr
+    @group:asr
+--------------------------------------------------------------------------------
+  Liste des paramètres des options et arguments d'exécution:
+    nom|type|help|num_args|defaut|conflit|implique|requis
+
+    @args:appname|str|Nom de l'application|1|aviva|||false
+    @args:date|int|Date de plannification (jour, mois, annee)|3||now|email|false
+    @args:email|str|Email de notification|1||||false
+    @args:now|bool|Appliquer immediatement||false|date||false
+    @args:env|choice|Environnement||qualif,preprod,prod|||true
+--------------------------------------------------------------------------------
+"""
+import logging
+import datetime
+import scrippy_core
+
+def print_contact(email):
+  logging.info(" - Contact: {}".format(email))
+
+def print_appname(appname):
+  logging.info(" - Application: {}".format(appname))
+
+def print_env(env):
+  logging.info(" - Environnement: {}".format(env))
+
+def print_date(date):
+  logging.info(" - Date: {}".format(date))
+
+def main(args):
+  with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+    if args.date:
+      date = "{}/{}/{}".format(args.date[0], args.date[1], args.date[2])
+    if args.now:
+      date = datetime.datetime.now().strftime('%d/%m/%Y')
+    logging.info("[+] Rapport:")
+    print_date(date)
+    print_appname(args.appname)
+    print_env(args.env)
+    print_contact(args.email)
+
+if __name__ == '__main__':
+  main(scrippy_core.args)
+```
+
+## Gestion des journaux d'exécution
+
+La journalisation d'exécution s'effectue à partir du [module `logging` de la bibliothèque standard](https://docs.python.org/3/library/logging.html).
+
+Deux types de journaux sont simultanément disponibles:
+
+- **La sortie standard**: Affichage en couleurs vers `sys.stdout`
+- **Le fichier journal**: Un fichier situé dans `scrippy_core.SCRIPPY_LOGDIR` dont le nom est extrapolé du nom du script de la manière suivante: `<nom_du_script>_<timestamp>_<pid>.log`.
+
+Plusieurs niveaux de journalisation sont disponibles (Voir la [documentation](https://docs.python.org/3/library/logging.html#logging-levels)) et le niveau de log par défaut est `INFO`.
+
+Si un fichier de configuration existe pour le script et qu'il contient une section `[log]` indiquant un niveau de log avec la clef `level` alors le niveau de journalisation indiqué est automatiquement appliqué.
+
+Si le fichier de configuration contient une section `[log]` ayant une clef `file` dont la valeur est `false` alors aucun fichier de journalisation ne sera créé et seule la sortie standard recevra le journal.
+
+### Définition du niveau de journalisation par fichier configuration:
+
+```
+[log]
+  level = warning
+```
+
+La valeur du niveau de journalisation dans le fichier de configuration est insensible à la casse.
+
+Les niveaux de log disponibles sont, du moins verbeux au plus verbeux, [les niveaux de journalisation du module standard logging](https://docs.python.org/3/library/logging.html#logging-levels)
+
+- `critical`
+- `error`
+- `warning`
+- `info`
+- `debug`
+
+À noter que le niveau de journalisation `DEBUG` affiche l'intégralité du fichier de configuration ainsi que d'autres détails qui pourraient s'avérer être une source de fuite d'information. Il est déconseillé de l'utiliser en production.
+
+Tous les scripts écrits à partir du module `scrippy_core` dans le règles de l'art disposent des options de journalisation suivantes:
+
+- `--no-log-file`: Lorsque cette option est utilisée, aucun journal d'exécution n'est enregistré sur le disque. Cette option n’empêche pas l'affichage à l'écran.
+- `--debug`: Lorsque cette option est utilisée, le niveau de journalisation est forcé à `DEBUG`. Dans ce cas le script ne tient pas compte d'un éventuel paramètres de configuration indiquant le contraire.
+
+Ces deux options peuvent être cumulées.
+
+### Changer le niveau de log:
+
+Le niveau de log peut être modifié en cours d'exécution du script à l'aide de la méthode `logging.getLogger().setLevel(<LEVEL>)`
+
+### Exemple
+
+En plus d'accepter naturellement un paramètre de configuration définissant le niveau de journalisation, le script suivant dispose d'une option `--loglevel` permettant de surcharger le niveau de journalisation à l'exécution.
+
+Si l'option `--debug` est utilisée, l'option `--loglevel` n'aura aucun effet.
+
+```python
+"""
+@args:loglevel|str|Le niveau de log|1||||false
+"""
+import logging
+import scrippy_core
+
+def change_loglevel(level):
+  """
+  Passe le niveau de journalisation à <level>
+  """
+  try:
+    logging.getLogger().setLevel(level.upper())
+  except ValueError:
+    logging.error("Niveau de log inconnu: {}".format(level.upper()))
+
+def main(args):
+  with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+    # recupération de la configuration du script
+    config = _context.config
+    if args.loglevel:
+      # L'option --loglevel a reçu un argument
+      change_loglevel(args.loglevel)
+    logging.debug("Nobody expects the Spanish Inquisition!")
+    logging.info("And now for something completely different...")
+    logging.error("It’s not pinin’! It’s passed on! This parrot is no more!")
+
+if __name__ == '__main__':
+  main(scrippy_core.args)
+```
+
+## Gestion des erreurs
+
+Le _wrapper_ `with scrippy_core.ScriptContext(__file__) as _context:` intercepte les exceptions pour n'afficher que le type et le message sans la _stack trace_.
+
+En cas d'exception interceptée, le socle déclenche un `sys.exit(1)`.
+
+Pour afficher la _stack trace_ il faut que le log level soit à `DEBUG`
+
+## Gestion de l'historisation des exécutions
+
+Le fichier d'historisation des exécutions situé dans `scrippy_core.SCRIPPY_HISTDIR` sera créé et nommé `<nom_du_script>.db` à la première exécution du script.
+Ce fichier est une base de données _sqlite3_ qui recense l'ensemble des exécutions d'un script et pour chacune des exécution les informations suivantes:
+- identifiant de session
+- Date de début de l'exécution
+- Date de fin de l'exécution
+- Durée de l'exécution
+- Utilisateur à l'origine de l'exécution
+- Utilisateur ayant effectivement exécuté le script (cas de sudo)
+- Code de retour de l'exécution (0 si Ok, autre valeur si KO)
+- Ensemble des paramètres passés en arguments au script
+- Nom de l'erreur si l'exécution ne s'est pas terminée correctement (0 dans le cas contraire)
+
+Si le fichier d'historisation est préexistant à l'exécution il sera mis à jour avec les paramètres de la nouvelle exécution.
+
+L'historisation est activée automatiquement par l'encadrement de l'appel de la fonction `main` avec la déclaration `with scrippy_core.ScriptContext(__file__, workspace=True) as _context:`
+
+```python
+with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+  main()
+```
+
+À chaque exécution d'un script est attribuée une session permettant d'identifier chaque exécution de manière unique.
+
+Cette session est composée:
+
+- d'un _timestamp_ représentant l'heure d'exécution
+- de l'identifiant du processus (PID)
+
+```txt
+1568975414.6954327_10580
+```
+
+Cet identifiant de session est reporté dans la colonne `Session` de l'historique et permet de retrouver le log correspondant (Voir l'option `--log` dans **_Gestion des options d'exécution_**).
+
+### Rétention
+
+Le nombre d'exécutions conservées dans le fichier d'historisation est de **50** par défaut.
+
+Il est possible de surcharger cette valeur en précisant le nombre de rétention souhaité à l'aide de la déclaration `with scrippy_core.ScriptContext(__file__, retention=100) as _context:`
+
+```python
+with scrippy_core.ScriptContext(__file__, workspace=True, retention=100) as _context:
+  main()
+```
+
+### Affichage de l'historique d'exécution
+
+Tous les scripts basé sur le module `scrippy_core` disposent automatiquement d'une option `--hist` permettant l'affichage des dernières exécutions.
+
+```shell
+exp_test_script.py --hist
+```
+
+Le nombre d'exécutions à afficher peut être précisé par le passage d'un paramètre (int) à l'option `--hist`
+
+```shell
+exp_test_script.py --hist 2
+```
+
+Pour chacune des exécutions d'un script l'historique d'exécution enregistre les informations suivantes:
+
+- La date d'exécution
+- L'utilisateur d'origine
+- L'utilisateur effectif (_sudo_)
+- L'identifiant unique de session
+- Le code de sortie (0 par défaut)
+- La liste des options et arguments passés au script
+
+## Espace de travail temporaire
+
+La déclaration `with scrippy_core.ScriptContext(__file__, workspace=True) as _context:` crée automatiquement un espace de travail temporaire dont le chemin est récupérable à l'aide de l'attribut `workspace_path` du contexte d'exécution `_context`.
+
+```python
+with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+  workspace_path = _context.workspace_path
+  ...
+```
+
+Dans l'exemple précédent la variable `workspace_path` contiendra le chemin vers le répertoire temporaire de travail dont le nom sera construit de la manière suivante: `scrippy_core.SCRIPPY_TMPDIR/<NOM DU SCRIPT>_<SESSION ID>`
+
+**Ex**:
+
+```bash
+/var/tmp/scrippy/exp_transfert_ftp_1574391960.6696503_102257
+```
+
+Cet espace de travail temporaire, qui sera _automatiquement détruit avec son contenu à la fin du script_, est un répertoire qui pourra être utilisé pour y créer des fichiers.
+
+```python
+#!/bin/env python3
+import logging
+import scrippy_core
+
+def create_file(workspace_path):
+  tmp_file = "fichier.tmp"
+  logging.info("[+] Création du fichier temporaire: {}".format(os.path.join(workspace_path, tmp_file)))
+  with open(os.path.join(workspace_path, tmp_file), 'a') as tmpfile:
+    logging.info("[+] Écriture dans le fichier temporaire")
+    tmpfile.write("Nobody expects the Spanish inquisition !")
+
+def main(args):
+  with scrippy_core.ScriptContext(__file__, workspace=True) as _context:
+    config = _context.config
+    create_file(_context.workspace_path)
+
+if __name__ == '__main__':
+  main(scrippy_core.args)
+```
+
+## Conseils et lignes directrices
+
+- Un log n'est **jamais trop verbeux**
+- Utiliser plusieurs niveaux de log afin de séparer ce qui est utile à l'exploitation de ce qui est utile au déverminage
+- **Privilégier la lisibilité** et la maintenabilité plutôt que la compacité et la technicité
+- Décomposer le code en **petites fonctions**
+- **Chaque fonction doit logger son point d'entrée** et lorsque cela est possible les paramètres qu'elle reçoit
+- **Variabiliser au maximum** et déporter le maximum de variables dans le fichier de configuration ou les options d’exécution.
+- **Simplifier l'algorithme** du programme principal à sa plus simple expression
+- **Gérer les erreurs le plus finement possible** et au plus près possible
+- **Limiter autant que possible les variables globales**
+- **Minimiser la fuite d'information dans les fichiers de journalisation** en utilisant les attributs `secret` des options et arguments dont les valeurs sont des informations sensibles (login, mot de passe, serveur de connexion, etc)
+- Créer **impérativement** une fonction `main()` qui contiendra l'algorithme principal du script
+- Créer l'environnement (objets et variables utilisées au niveau global) dans la section `Point d'entrée`.
+
+## Modules complémentaires
+
+Le cadriciel _Scrippy_ dont `scrippy-core` est le noyau dispose de modules facilitant l'écriture de scripts _Python_ évolués dans le respect des principes de base de _Scrippy_.
+
+| Module             | Utilité                                                       |
+| ------------------ | ------------------------------------------------------------- |
+| `scrippy-template` | Gestion de fichier modèles (basé sur _Jinja2_)                |
+| `scrippy-remote`   | Implémentation des protocoles _SSH/SFTP_ et _FTP_             |
+| `scrippy-mail`     | Implémentation des protocoles _SMTP_, _POP_ et _Spamassassin_ |
+| `scrippy-git`      | Gestion de dépôts _Git_                                       |
+| `scrippy-db`       | Gestion de base de données (_PostgreSQL_ et _Oracle_)         |
+| `scrippy-api`      | Utilisation d'_API ReST_ (basé sur _resquets_)                |
