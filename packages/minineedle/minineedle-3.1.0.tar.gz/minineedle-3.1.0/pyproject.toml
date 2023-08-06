@@ -1,0 +1,75 @@
+
+[tool.poetry]
+name = "minineedle"
+version = "3.1.0"
+description = "Needleman-Wunsch and Smith-Waterman algorithms in python for any iterable objects."
+authors = ["S. Castillo-Lara <sergiocastillo@ub.edu>"]
+license = "GPL3"
+readme = "README.md"
+homepage = "https://github.com/scastlara/minineedle"
+repository = "https://github.com/scastlara/minineedle"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+pytest-cov = "*"
+black = "*"
+mypy = "*"
+ruff = "*"
+
+[tool.black]
+line-length = 120
+target_version = ["py311"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+select = [
+    "C9",  # mccabe
+    "E",   # pycodestyle error
+    "W",   # pycodestyle warning
+    "F",   # pyflakes
+    "B",   # bugbear
+    "I",   # isort
+    "C4",  # comprehensions
+    "SIM", # simplify
+    "N",   # pep8-naming
+]
+ignore = [
+    "E501",   # line length (black handles it)
+]
+
+src = ["minineedle", "tests"]
+
+[tool.pytest.ini_options]
+addopts = """
+    -s
+    --cov
+    --cov-report term-missing
+    --cov-report=xml:./tests/coverage.xml
+    --junitxml=./tests/junit.xml
+"""
+
+[tool.coverage.run]
+omit = [
+    "tests/*",
+]
+
+[tool.coverage.report]
+fail_under = 90
+exclude_lines = ["if TYPE_CHECKING:", "pragma: no cover"]
+
+
+[tool.mypy]
+strict=true
+
+[tool.commitizen]
+version = "3.1.0"
+version_files = ["pyproject.toml:version"]
+tag_format = "v$version"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
