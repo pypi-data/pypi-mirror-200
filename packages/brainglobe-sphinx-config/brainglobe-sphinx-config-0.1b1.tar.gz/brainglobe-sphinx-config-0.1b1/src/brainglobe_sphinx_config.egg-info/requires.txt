@@ -1,0 +1,12 @@
+pydata-sphinx-theme==0.13.1
+
+[dev]
+pytest
+pytest-cov
+coverage
+tox
+black
+mypy
+pre-commit
+ruff
+setuptools_scm
