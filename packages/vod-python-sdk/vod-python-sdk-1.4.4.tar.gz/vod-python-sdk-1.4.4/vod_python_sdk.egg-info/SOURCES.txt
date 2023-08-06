@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+qcloud_vod/__init__.py
+qcloud_vod/common.py
+qcloud_vod/exception.py
+qcloud_vod/model.py
+qcloud_vod/vod_upload_client.py
+test/test_vod_upload_client.py
+vod_python_sdk.egg-info/PKG-INFO
+vod_python_sdk.egg-info/SOURCES.txt
+vod_python_sdk.egg-info/dependency_links.txt
+vod_python_sdk.egg-info/requires.txt
+vod_python_sdk.egg-info/top_level.txt
