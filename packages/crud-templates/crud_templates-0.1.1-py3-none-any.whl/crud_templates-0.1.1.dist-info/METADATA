@@ -1,0 +1,519 @@
+Metadata-Version: 2.1
+Name: crud-templates
+Version: 0.1.1
+Summary: Powerful yet discrete templates for CRUD controllers
+Author-email: Romain Damian <damian.romain@gmail.com>
+License: MIT License
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: marshmallow (>=3.0)
+Requires-Dist: sqlalchemy (>=2.0)
+
+Crudence : powerful yet discrete templates for CRUD endpoint controllers
+========================================================================
+
+*I think you’re a very special young man, or I wouldn’t have asked you
+to help me, now would I ?*
+
+Installation
+------------
+
+.. code:: bash
+
+   pip install crud-templates
+
+Usage
+-----
+
+   A thorough documentation is in construction
+
+The module provides template classes for CRUD controllers using
+SQLAlchemy connexions to a database. They are meant to provide easy to
+use methods for executing ``GET``, ``PUT``, ``PATCH``, ``DELETE``
+statements on single a table, or searches for entities using ``POST``
+statements, within a model-views-controllers framework.
+
+For all templates, the simplest usage is to inherit the template,
+supercharge the ``__init__`` method to provide the target table and the
+SQLAlchemy session, and use the appropriate CRUD method.
+
+Examples
+--------
+
+``PUT`` entity creation or replacement
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Define the controller using ``InsertMapperTemplate`` :
+
+.. code:: python
+
+   from logging import getLogger
+
+   from crudence import InsertMapperTemplate
+
+   from db.session import db_session
+   from db.models import Persons
+
+   class PersonsMapper(InsertMapperTemplate):
+       IDENTIFYING_FIELDS = ["id"]
+
+       def __init__(self):
+           super().__init__(target=Persons, session=db_session)
+           self.logger = getLogger(__name__)
+
+The method for a ``PUT`` endpoint can then be something like :
+
+.. code:: python
+
+   from flask import app, request
+   from http import HTTPStatus
+
+   from mapper import PersonsMapper
+
+   @app.put("/person")
+   def put_person() -> tuple:
+       body = request.get_json()
+       put_controller = PersonsMapper()
+       # you might want to validate the input body before calling the mapper
+       created_id = put_controller.put(body=body)
+
+       if created_id:
+           response = {"message": "created", "id": created_id}, HTTPStatus.CREATED
+       else:
+           response = {"message": "replaced"}, HTTPStatus.NO_CONTENT
+       return response
+
+If ``id`` does not appear in the input body, a new row will be created
+within the target table. If it is provided, the corresponding row will
+be replaced.
+
+``PATCH`` entity update
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Define the same controller as for ``PUT`` statements, since the logic is
+the same as the one for creation or replacement. An ``EntityNotFound``
+will be raised if the targeted entity is not found.
+
+The method for a ``PATCH`` endpoint can then be something like :
+
+.. code:: python
+
+   from flask import app, request
+   from http import HTTPStatus
+
+   from mapper import PersonsMapper
+
+   @app.patch("/person")
+   def patch_person() -> tuple:
+       body = request.get_json()
+       put_controller = PersonsMapper()
+       # you might want to validate the input body before calling the mapper
+       put_controller.patch(body=body)
+
+       response = {"message": "updated"}, HTTPStatus.NO_CONTENT
+       return response
+
+``GET`` or ``DELETE`` a target entity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``GET`` and ``DELETE`` operations revolve around the same logic to
+identify a target row, then either serialize its informations to a json
+output or to delete it. It inherits from the ``InsertMapperTemplate`` to
+use its target finding methods.
+
+Define a controller using ``GetterDeleterTemplate``. ``TARGET_FIELDS``
+must contain the columns to serialize ; ``DATE_FIELDS`` refers the date
+fields that are to be serialized as isoformat strings ; ``ENUM_FIELDS``
+contains the fields of class Enum that are to be serialized as strings.
+
+.. code:: python
+
+   from logging import getLogger
+
+   from crudence import GetterDeleterTemplate
+
+   from db.session import db_session
+   from db.models import Persons
+
+   class PersonsGetter(GetterDeleterTemplate):
+       IDENTIFYING_FIELDS = ["id"]
+       TARGET_FIELDS = ["id", "firstname", "lastname", "birthday"]
+       DATE_FIELDS = ["birthday"]
+       ENUM_FIELDS = ["gender"]
+
+       def __init__(self):
+           super().__init__(target=Persons, session=db_session)
+           self.logger = getLogger(__name__)
+
+The ``get`` and ``delete`` methods accepts any keywords arguments so
+that you can pass the target field(s) with its value from the endpoint
+input.
+
+.. code:: python
+
+   from flask import app
+   from http import HTTPStatus
+
+   from finder import PersonsGetter
+
+   @app.get("/person/<person_id>")  # id is given as path parameter
+   def get_person(person_id: int) -> tuple:
+       get_controller = PersonsGetter()
+       try:
+           serialised_entity = get_controller.get(id=person_id)
+       except EntityNotFound:
+           response = {"message": "Entity not found"}, HTTPStatus.NOT_FOUND
+       else:
+           response = serialised_entity, HTTPStatus.OK
+
+       return response
+
+Let’s illustrate how you can easily use several identifying fields to
+get or delete an entity (works for put and patch controllers too), for
+instance for a relationship table where the primary key is composed of
+two columns :
+
+.. code:: python
+
+   from logging import getLogger
+
+   from crudence import GetterDeleterTemplate
+
+   from db.session import db_session
+   from db.models import PersonRelatives
+
+   class RelativesDeleter(GetterDeleterTemplate):
+       IDENTIFYING_FIELDS = ["person_id", "relative_id"]
+
+       def __init__(self):
+           super().__init__(target=PersonRelatives, session=db_session)
+           self.logger = getLogger(__name__)
+
+The method for the ``DELETE`` endpoint would then be
+
+.. code:: python
+
+   # identifiers are given as query parameters /person_relative?person_id=1&relative_id=2
+   @app.delete("/person_relative")
+   def delete_relative() -> tuple:
+       controller = RelativesDeleter()
+       try:
+           # will be parsed as delete(person_id=1, relative_id=2)
+           controller.delete(**request.args)
+       except EntityNotFound:
+           response = {"message": "not found"}, HTTPStatus.NOT_FOUND
+       except MultipleResultsFound:
+           response = {"message": "bad request"}, HTTPStatus.BAD_REQUEST
+       else:
+           response = {"message", "deleted"}, HTTPStatus.OK
+
+       return response
+
+``POST`` to search entity ids (or other serialisable information)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``PostSearchControllerTemplate`` allows to search for entities
+according to a set of customisable filters, that can easily be spread
+across several joined tables.
+
+By default, filters are key-values pairs corresponding to the target
+table’s columns. The types *string, integers, dates, lists and enums*
+are automatically converted to the appropriate filtering behaviour, and
+dictionary allows to define more complex filters (ranges, joins or
+custom).
+
+Let’s define a search controller for persons that can filter on the
+``Persons`` table as well as the ``PersonRelatives`` table.
+
+.. code:: python
+
+   from logging import getLogger
+
+   from sqlalchemy.orm import Query
+   from crudence import PostSearchControllerTemplate
+
+   from db.session import db_session
+   from db.models import Persons, PersonRelatives
+
+   class SearchPersonsController(PostSearchControllerTemplate):
+       JOINS_FILTERS = [
+           {
+               "slot": "person_relatives",
+               "target": PersonRelatives,
+               "map_method": "map_relatives"
+           }
+       ]
+       RANGE_FILTERS = [
+           {
+               "slot": "birthday_range",
+               "target": Persons.birthday,
+               "is_date": True
+           }
+       ]
+       DATE_FILTERS = ["birthday"]
+
+       def __init__(self):
+           super().__init__(target=Persons, session=db_session)
+           self.logger = getLogger(__name__)
+       
+       def map_relatives(self, partial: Query, filters: dict) -> Query:
+           # This method defines how to join with the PersonRelatives in order to
+           # apply filters onto it later
+           partial = partial.join(PersonRelatives, Persons.id == PersonRelatives.person_id)
+           return partial
+
+The method for the ``POST`` controller can be simply called with
+``search(body)``. Contrary to other controllers, the input body
+structure is constrained to conform ``PostInputSchema``, which must be
+inherited from for your controller. See the schema itself for details on
+available fields.
+
+Here is an example of an input search and the corresponding method
+
+.. code:: python
+
+   from json_models import SearchPersonInputSchema, SearchPersonOutputSchema
+   from search_persons import SearchPersonsController
+
+   input_search = {
+       "fields": ["id", "firstname", "lastname", "birthday"]
+       "order_by": [
+           {
+               "field": "id",
+               "direction": "desc"
+           }
+       ],
+       "filters": {
+           "firstname": ["John", "Mike"]
+           "person_relatives": {
+               "relative_id": [1, 2, 4, 8]
+           },
+           "birthday_range": {
+               "lower_bound": "1985-01-03",
+               "upper_bound": "1990-01-01"
+           }
+       },
+       "pagination": {
+            "size": 10,
+            "page": 3,
+            "compute": False  # Compute total calculations only if you need it
+       }
+   }
+
+   @app.post("/person")
+   def search_persons() -> tuple:
+       body = request.get_json()
+       validated_body = SearchPersonInputSchema().load(body)
+       controller = SearchPersonsController()
+       result = controller.search(**validated_body)
+
+       return SearchPersonOutputSchema().load(result), HTTPStatus.OK
+
+-  by default all filters are combined with an ``and`` operator, if you
+   want otherwise add ``operator_choice = "or"`` in the input body
+-  to serialise fields from any join table, supercharge the
+   ``_serialize`` method
+-  joining with table ``PersonRelatives`` occurs only *if a filter on
+   that table appear in the input body* (and the join is defined in
+   ``JOINS_FILTERS``)
+-  the mapping method provided in the joins filter definition is where
+   you define the joining behaviour for that filter. The corresponding
+   filter from the input body has to be passed on as second argument to
+   the method, so you can define complex joins depending on values if
+   needed. This might need some heavy customisation though, see below
+   for a example
+
+Customisation
+-------------
+
+All templates inherits from the ``PostSearchTemplateTools`` that
+contains the filter building methods, which are used by all controllers
+to find the target identities.
+
+This means that if you define the appropriate input body structure (as
+json for ``PUT`` and ``PATCH`` or keywords parameters for ``GET``) and
+SQLAlchemy query, you can define complex filtering to look for entities
+to update, to get, to delete. This implies to supercharge or rewrite
+some methods from the controller as specified in each controller’s
+documentation.
+
+Example customisations for a ``GET``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The same goes for ``GET`` serialisation : its ``TARGET_FIELDS`` are
+passed as such as arguments to the ``_serialize`` method. If you
+supercharge or rewrite it, you could then serialise fields from other
+tables than the target one, provided it was included in the partial
+query as a join.
+
+Let’s define a ``GET`` controller to serialise found entities from a
+``POST`` search response, continuing on the previous example.
+
+.. code:: python
+
+   from logging import getLogger
+
+   from crudence import GetterDeleterTemplate
+
+   from db.session import db_session
+   from db.models import Persons, PersonOccupations, Occupations
+
+   class GetFamilyController(GetterDeleterTemplate):
+       IDENTIFYING_FIELDS = ["id"]
+       TARGET_FIELDS = ["firstname", "lastname"]
+       JOIN_FIELDS = [
+           {
+               "table": "Occupations",
+               "fields": ["label"],
+               "output_key": "occupation"
+           }
+       ]
+       def __init__(self):
+           super().__init__(target=Persons, session=db_session)
+           self.logger = getLogger(__name__)
+       
+       def _init_partial_query(self) -> Query:
+           # Adding Occupations to the query allow to get its columns in the result
+           return self.session.query(Persons, Occupations) \
+               .join(PersonOccupations) \
+               .join(Occupations)
+       
+       def _serialize(self, element: Tuple[Persons, Occupations], selected_fields: dict) -> dict:
+           # flat serialisation of fields from the main target table
+           output = super()._serialize(element.Persons, self.TARGET_FIELDS) 
+           
+           # nested serialisation of fields from join table(s)
+           for join_fields_def in self.JOIN_FIELDS:
+               join_table = getattr(element, join_fields_def["table"])  # element.Occupations
+               serialised_join = super()._serialize(element=join_table, selected_fields=join_fields_def["fields"])
+               output[join_fields_def["output_key"]] = serialised_join
+           return output
+
+Then a simple ``GetFamilyController().get(id=2)`` would return :
+
+.. code:: json
+
+   {
+       "firstname": "John",
+       "lastname": "Doe",
+       "occupation": {
+           "label": "secret agent"
+       }
+   }
+
+Beware that this can tremendously increase the charge on the database if
+the join is heavy. In that case you should manually get the desired
+fields from the join table after serialisation, using a simple filter on
+the join table from the found entities.
+
+Here’s another way to customise the controller that avoids a join to
+query attributes from another table, for the same input and output.
+
+.. code:: python
+
+   from logging import getLogger
+
+   from crudence import GetterDeleterTemplate
+
+   from db.session import db_session
+   from db.models import Persons, PersonOccupations, Occupations
+
+   class GetFamilyController(GetterDeleterTemplate):
+       IDENTIFYING_FIELDS = ["id"]
+       TARGET_FIELDS = ["firstname", "lastname"]
+
+       def __init__(self):
+           super().__init__(target=Persons, session=db_session)
+           self.logger = getLogger(__name__)
+           
+       def _serialize(self, element: Persons, selected_fields: dict) -> dict:
+           # flat serialisation of fields from the main target table
+           output = super()._serialize(element.Persons, self.TARGET_FIELDS) 
+           
+           # Manual get of the joined attributes for Occupations table
+           person_occupation = self.session.query(Occupations) \
+               .filter(Occupations.person_id == element.id) \
+               .first()
+           output["occupation"] = super()._serialize(
+               element=person_occupation,
+               selected_fields=["label"]
+           )
+            
+           return output
+
+Handling heavy joins
+~~~~~~~~~~~~~~~~~~~~
+
+The ``PostSearchControllerTemplate`` works best for easy use cases when
+the filtering query is not to costly to execute, often due to joins. The
+default behaviour is to join only if the filter on the join table is
+asked, but even this might not be sufficient to lighten the query.
+
+There are many ways to customise the controller so that it behaves the
+way you need. In most cases writing appropriate mapping methods for the
+join should be enough, but if not you would generally have to do one or
+all of the following :
+
+-  empty ``JOINS_FILTERS`` so that the native way of joining to the
+   query is deactivated
+-  rewrite or supercharge ``_init_partial_query`` to add joins
+-  supercharge the whole ``search`` method to build the exact partial
+   query you need then execute the search
+
+Here’s still an example of a controller with two joins : an easy join
+that uses an intermediate table, and a two-step join using an
+intermediary filter to avoid joining on huge tables.
+
+.. code:: python
+
+   from logging import getLogger
+
+   from sqlalchemy.orm import Query
+   from crudence import PostSearchControllerTemplate
+
+   from db.session import db_session
+   from db.models import Persons, PersonRelatives, RelativeStatus, PersonLocation, Locations
+
+   class SearchPersonsController(PostSearchControllerTemplate):
+       JOINS_FILTERS = [
+           {
+               "slot": "person_relatives",
+               "target": RelativeStatus,
+               "map_method": "map_relatives"
+           },
+           {
+               "slot": "person_locations",
+               "target": Locations,
+               "map_method": "map_locations 
+           }
+       ]
+
+       def __init__(self):
+           super().__init__(target=Persons, session=db_session)
+           self.logger = getLogger(__name__)
+       
+       def map_relatives(self, partial: Query, filters: dict) -> Query:
+           # Simple join on relative status with an intermediary table
+           # If the filter is provided in the input this will be added to the partial,
+           # allowing to filter on relative statuses
+           partial = partial \
+               .join(PersonRelatives, Persons.id == PersonRelatives.person_id) \
+               .join(RelativeStatus, RelativeStatus.relative_id == PersonRelatives.relative_id)
+           return partial
+       
+       def map_locations(self, partial: Query, filters: dict) -> Query:
+           # The passed on filter is the whole filters slot in the input
+           # The person_locations filter is removed from it since its filtering
+           # action is made here and we don't want to apply it again
+           target_locations = filters.pop("person_locations")["uid"]
+
+           # Getting the target db ids to avoid joining on the Locations table
+           locations_ids = self.session.query(Locations.id).filter(Locations.uid.in_(target_locations)).all()
+
+           # Joining only with the PersonLocation table that is not huge. Or we could
+           # add another intermediate query an straight away filter on found person ids
+           # before returning the partial
+           partial = partial \
+               .join(PersonLocation) \
+               .filter(PersonLocation.location_id.in_(locations_ids))
+           return partial
