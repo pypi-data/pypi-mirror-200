@@ -1,0 +1,29 @@
+name: cd
+
+on:
+  push:
+    tags:
+      - "[1-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  pypi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Prepare artifacts
+        run: |
+          pipx run -- hatch build
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          pipx run -- twine upload dist/*
