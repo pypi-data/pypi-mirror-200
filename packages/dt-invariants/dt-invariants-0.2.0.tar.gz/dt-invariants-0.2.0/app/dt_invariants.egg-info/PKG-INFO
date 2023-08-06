@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: dt-invariants
+Version: 0.2.0
+Summary: A set of tools to compute DT invariants of quivers
+Home-page: https://github.com/s-meinhardt/dt-invariants
+Author: Sven Meinhardt
+Author-email: sven@meinhardt.ai
+License: GNU GPLv3
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE.txt
+
+# DT-Invariants
+
+This package provides tools to compute the DT-invariants of quivers without potential. You can install the package using `pip` via
+
+```
+pip install dt-invariants
+```
+
+TODO: describe usage
+
+
