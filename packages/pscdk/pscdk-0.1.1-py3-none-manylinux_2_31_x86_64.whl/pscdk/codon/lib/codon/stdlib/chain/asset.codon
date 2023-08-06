@@ -1,0 +1,138 @@
+from .system import check
+from .name import Name
+
+MAX_AMOUNT: i64 = (1 << 62) - 1
+
+def is_valid_symbol_code(sym_code: u64) -> bool:
+    i = 0
+    j = 0
+    if sym_code == 0u64:
+        return False
+
+    if (sym_code & 0xFF00000000000000u64) != 0u64:
+        return False
+
+    while i<=6:
+        j = i
+        c = sym_code & 0xFFu64
+        # ('A' <= c && c <= 'Z')
+        if not (c >= 65u64 and c <= 90u64):
+            return False
+        sym_code >>= 8u64
+        if sym_code & 0xFFu64 == 0u64:
+            break
+        i += 1
+
+    j += 1
+    while j <= 6:
+        sym_code >>= 8u64
+        if (sym_code & 0xFFu64) != 0u64:
+            return False
+        j += 1
+    return True
+
+def is_amount_within_range(amount: i64) -> bool:
+    return -MAX_AMOUNT <= amount and amount <= MAX_AMOUNT
+
+@packer
+class SymbolCode(object): 
+    value: u64
+
+    def __init__(self, sym: str):
+        assert len(sym) <= 7, "bad symbol name"
+        self.value = 0u64
+        sym_length = len(sym)
+        for i in range(sym_length):
+            v: u64 = u64(ord(sym[sym_length-1-i]))
+            assert v >= 65u64 and v <= 90u64, "Invalid character"
+            self.value <<= 8u64
+            self.value |= v
+
+    def is_valid(self) -> bool:
+        return is_valid_symbol_code(self.value)
+
+    def __eq__(self, other: SymbolCode) -> bool:
+        return self.value == other.value
+
+@packer
+class Symbol(object): 
+    value: u64
+
+    def __init__(self, value: u64):
+        self.value = value
+
+    def __init__(self, sym: str, precision: int):
+        assert len(sym) <= 7, "bad symbol name"
+        self.value = 0u64
+        sym_length = len(sym)
+        for i in range(sym_length):
+            v: u64 = u64(ord(sym[sym_length-1-i]))
+            assert v >= 65u64 and v <= 90u64, "Invalid character"
+            self.value |= v
+            self.value <<= 8u64
+        self.value |= u64(precision)
+
+    def code(self) -> u64:
+        return self.value >> 8u64
+
+    def is_valid(self) -> bool:
+        return is_valid_symbol_code(self.value >> 8u64)
+
+    def __eq__(self, other: Symbol) -> bool:
+        return self.value == other.value
+
+@packer
+class Asset(object): 
+    amount: i64
+    symbol: Symbol
+
+    def __init__(self, amount: i64, symbol: Symbol):
+        self.amount = amount
+        self.symbol = symbol
+        check( is_amount_within_range(amount), "magnitude of asset amount must be less than 2^62" )
+        check( symbol.is_valid(), "invalid symbol name" )
+
+    def get_primary(self) -> u64:
+        return self.symbol.code()
+
+    def is_valid(self) -> bool:
+        return is_amount_within_range(self.amount) and self.symbol.is_valid()
+
+    def __add__(self, other: Asset) -> Asset:
+        assert self.symbol.value == other.symbol.value, "symbol not the same"
+        amount: i64 = self.amount + other.amount
+        assert -MAX_AMOUNT <= amount, "addition underflow"
+        assert amount <= MAX_AMOUNT, "addition overflow"
+        return Asset(amount, self.symbol)
+  
+    def __sub__(self, other: Asset) -> Asset:
+        assert self.symbol.value == other.symbol.value, "symbol not the same"
+        amount = self.amount - other.amount
+        assert amount >= -MAX_AMOUNT, "subtraction underflow"
+        assert amount <= MAX_AMOUNT, "subtraction overflow"
+        return Asset(amount, self.symbol)
+
+    # def __mul__(self, other: Asset) -> Asset:
+    #     %0 = mul i{=N} %self, %other
+    #     ret i{=N} %0
+
+    # def __floordiv__(self, other: Asset) -> Asset:
+    #     %0 = sdiv i{=N} %self, %other
+    #     ret i{=N} %0
+
+    # def __truediv__(self, other: Asset) -> float:
+    #     %0 = sitofp i{=N} %self to double
+    #     %1 = sitofp i{=N} %other to double
+    #     %2 = fdiv double %0, %1
+    #     ret double %2
+
+    def __eq__(self, other: Asset) -> bool:
+        return self.amount == other.amount and self.symbol.value == other.symbol.value
+
+    def __ne__(self, other: Asset) -> bool:
+        return not (self.amount == other.amount and self.symbol.value == other.symbol.value)
+
+@packer
+class ExtendedAsset(object): 
+	quantity: Asset
+	contract: Name

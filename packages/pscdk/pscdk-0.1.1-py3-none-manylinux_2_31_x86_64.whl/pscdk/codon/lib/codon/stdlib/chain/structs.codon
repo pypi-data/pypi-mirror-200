@@ -1,0 +1,85 @@
+from C import memcmp(cobj, cobj, u32) -> i32
+import packer
+
+class RawData[N: Static[int]](object): 
+    data: bytes
+
+    def __init__(self, data: bytes=bytes(N)):
+        assert data.len == N
+        self.data = data
+
+    def __pack__(self, enc: packer.Encoder):
+        assert self.data.len == N
+        enc.write(self.data.ptr, self.data.len)
+
+    def __unpack__(dec: packer.Decoder) -> RawData[N]:
+        data = bytes(N)
+        dec.read(data.ptr, data.len)
+        return RawData[N](data)
+
+    def __size__(self) -> int:
+        return N
+    
+    def __eq__(self, other: RawData[N]):
+        if self.data.len != other.data.len:
+            return False
+        return memcmp(self.data.ptr, other.data.ptr, u32(self.data.len)) == 0i32
+
+@packer
+class VarInt32(object):
+    def __init__(self):
+        raise NotImplementedError()
+
+@packer
+class Float128(object):
+    val: RawData[16]
+
+@packer
+class TimePoint(object): 
+    elapsed: u64
+
+@packer
+class TimePointSec(object): 
+    seconds: u32
+
+@packer
+class BlockTimestampType:
+    slot: u32
+
+class VarUint32(object):
+    val: u32
+
+    def __init__(self, val: u32 = 0u32):
+        self.val = val
+
+    def __eq__(self, other: VarUint32) -> bool:
+        return self.val == other.val
+
+    def __pack__(self, enc: packer.Encoder):
+        enc.pack_var_u32(self.val)
+
+    def __unpack__(dec: packer.Decoder) -> VarUint32:
+        return VarUint32(dec.unpack_var_u32())
+        
+    def __size__(self) -> int:
+        return packer.packed_var_u32_length(self.val)
+
+class Float128(object):
+    lo: float
+    hi: float
+
+    def __init__(self, lo: float = 0.0, hi: float = 0.0):
+        self.lo = lo
+        self.hi = hi
+
+    def __pack__(self, enc: packer.Encoder):
+        packer._write(enc, self.lo)
+        packer._write(enc, self.hi)
+
+    def __unpack__(dec: packer.Decoder) -> Float128:
+        lo = float.__unpack__(dec)
+        hi = float.__unpack__(dec)
+        return Float128(lo, hi)
+
+    def __size__(self) -> int:
+        return 16

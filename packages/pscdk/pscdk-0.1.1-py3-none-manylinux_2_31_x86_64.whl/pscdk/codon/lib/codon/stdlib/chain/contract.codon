@@ -1,0 +1,33 @@
+from C import set_apply(u64, u64, u64) -> None
+from C import get_apply(Ptr[u64], Ptr[u64], Ptr[u64]) -> None
+from C import main(Int[32], Ptr[Ptr[byte]]) -> Int[32]
+from .name import Name
+
+class Contract(object):
+    receiver: Name
+    first_receiver: Name
+    action: Name
+
+    def __init__(self):
+        receiver = 0u64
+        first_receiver = 0u64
+        action = 0u64
+        get_apply(__ptr__(receiver), __ptr__(first_receiver), __ptr__(action))
+        self.receiver = Name(receiver)
+        self.first_receiver = Name(first_receiver)
+        self.action = Name(action)
+
+    def __init__(self, receiver: u64, first_receiver: u64, action: u64):
+        self.receiver = Name(receiver)
+        self.first_receiver = Name(first_receiver)
+        self.action = Name(action)
+
+    def apply(self) -> bool:
+        return False
+
+# @export
+# def apply(receiver: u64, first_receiver: u64, action: u64) -> None:
+#     set_apply(receiver, first_receiver, action)
+#     argv = Ptr[Ptr[byte]]()
+#     main(0i32, argv)
+

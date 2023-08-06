@@ -1,0 +1,91 @@
+from C import send_inline(cobj, u32) -> None
+from C import read_action_data(cobj, u32) -> u32
+from C import action_data_size() -> u32
+from C import require_recipient(u64) -> None as require_recipient_
+
+from C import require_auth(u64) as require_auth_
+from C import has_auth(u64) -> bool as has_auth_
+from C import require_auth2(u64, u64) as require_auth2_
+from C import is_account(u64) -> bool as is_account_
+
+from .name import Name
+from packer import pack, Decoder
+
+@packer
+class PermissionLevel(object):
+    actor: Name
+    permission: Name
+
+    def __init__(self, actor: Name, permission: Name):
+        self.actor = actor
+        self.permission = permission
+
+@packer
+class Action(object):
+    account: Name
+    name: Name
+    authorization: List[PermissionLevel]
+    data: bytes
+
+    def __init__(self, account: Name, name: Name, data: bytes=bytes()):
+        self.account = account
+        self.name = name
+        self.authorization = [PermissionLevel(account, n'active')]
+        self.data = data
+
+    def __init__(self, account: Name, name: Name, permission_account: Name, data: bytes=bytes()):
+        self.account = account
+        self.name = name
+        self.authorization = [PermissionLevel(permission_account, n'active')]
+        self.data = data
+
+    def __init__(self, account: Name, name: Name, permission_account: Name, permission_name: Name, data: bytes=bytes()):
+        self.account = account
+        self.name = name
+        self.authorization = [PermissionLevel(permission_account, permission_name)]
+        self.data = data
+
+    def __init__(self, account: Name, name: Name, authorization: List[PermissionLevel], data: bytes=bytes()):
+        self.account = account
+        self.name = name
+        self.authorization = authorization
+        self.data = data
+
+    def send(self):
+        raw = pack(self)
+        send_inline(raw.ptr, u32(raw.len))
+
+    def send(self, data: T, T: type):
+        self.data = pack(data)
+        raw = pack(self)
+        send_inline(raw.ptr, u32(raw.len))
+
+def unpack_action(T: type) -> T:
+    _size = action_data_size()
+    size = int(_size)
+    buf = Array[byte](size)
+    read_action_data(buf.ptr, _size)
+    dec = Decoder(buf.ptr, size)
+    return dec.unpack(T)
+
+def new_action_decoder() -> Decoder:
+    _size = action_data_size()
+    size = int(_size)
+    buf = Array[byte](size)
+    read_action_data(buf.ptr.as_byte(), _size)
+    return Decoder(buf.ptr, size)
+
+def require_recipient(account: Name):
+    require_recipient_(account.value)
+
+def has_auth(account: Name) -> bool:
+    return has_auth_(account.value)
+
+def is_account(account: Name ) -> bool:
+    return is_account_(account.value)
+
+def require_auth(account: Name):
+    require_auth_(account.value)
+
+def require_auth2(account: Name, permission: Name):
+    require_auth2_(account.value, permission.value)

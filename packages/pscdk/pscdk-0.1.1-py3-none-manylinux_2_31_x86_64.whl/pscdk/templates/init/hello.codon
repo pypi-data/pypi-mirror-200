@@ -1,0 +1,8 @@
+from chain.contract import Contract
+
+@contract(main=True)
+class MyContract(Contract):
+
+    @action('sayhello')
+    def say_hello(self, name: str):
+        print("hello ", name)

@@ -1,0 +1,194 @@
+# void assert_sha256( const char* data, uint32_t length, const capi_checksum256* hash );
+from C import assert_sha256(Ptr[byte], u32, Ptr[byte]) as assert_sha256_
+# void assert_sha1( const char* data, uint32_t length, const capi_checksum160* hash );
+from C import assert_sha1(Ptr[byte], u32, Ptr[byte]) as assert_sha1_
+# void assert_sha512( const char* data, uint32_t length, const capi_checksum512* hash );
+from C import assert_sha512(Ptr[byte], u32, Ptr[byte]) as assert_sha512_
+# void assert_ripemd160( const char* data, uint32_t length, const capi_checksum160* hash );
+from C import assert_ripemd160(Ptr[byte], u32, Ptr[byte]) as assert_ripemd160_
+# void sha256( const char* data, uint32_t length, capi_checksum256* hash );
+from C import sha256(Ptr[byte], u32, Ptr[byte]) as sha256_
+# void sha1( const char* data, uint32_t length, capi_checksum160* hash );
+from C import sha1(Ptr[byte], u32, Ptr[byte]) as sha1_
+# void sha512( const char* data, uint32_t length, capi_checksum512* hash );
+from C import sha512(Ptr[byte], u32, Ptr[byte]) as sha512_
+# void ripemd160( const char* data, uint32_t length, capi_checksum160* hash );
+from C import ripemd160(Ptr[byte], u32, Ptr[byte]) as ripemd160_
+# int recover_key( const capi_checksum256* digest, const char* sig, size_t siglen, char* pub, size_t publen );
+from C import recover_key(Ptr[byte], Ptr[byte], u32, Ptr[byte], u32) -> i32 as recover_key_
+# void assert_recover_key( const capi_checksum256* digest, const char* sig, size_t siglen, const char* pub, size_t publen );
+from C import assert_recover_key(Ptr[byte], Ptr[byte], u32, Ptr[byte], u32) as assert_recover_key_
+
+from .structs import RawData
+from .utils import hex2bytes
+
+from internal.types.optional import unwrap
+from packer import Encoder, Decoder
+
+Checksum160 = RawData[20]
+Checksum256 = RawData[32]
+Checksum512 = RawData[64]
+
+class ECCPublicKey(object): 
+    data: RawData[33]
+
+    def __init__(self, data: bytes=bytes()):
+        self.data = RawData[33](data)
+
+    def from_hex(hex: str) -> ECCPublicKey:
+        return ECCPublicKey(hex2bytes(hex))
+
+    def __eq__(self, other: ECCPublicKey) -> bool:
+        return self.data == other.data
+
+    def __pack__(self, enc: Encoder):
+        enc.write(self.data.data.ptr, self.data.data.len)
+
+    def __unpack__(dec: Decoder) -> ECCPublicKey:
+        data = bytes(33)
+        dec.read(data.ptr.as_byte(), data.len)
+        return ECCPublicKey(data)
+
+    def __size__(self) -> int:
+        return 33
+
+@packer
+class Signature(object): 
+    ty: u8
+    data: RawData[65]
+
+    def __eq__(self, other: ECCPublicKey) -> bool:
+        return self.data == other.data and self.ty == other.ty
+
+UserPresence_None: Static[int] = 0
+UserPresence_Present: Static[int] = 1
+UserPresence_Verified: Static[int] = 2
+
+@packer
+class WebAuthNPublicKey(object):
+    key: ECCPublicKey
+    user_presence: u8
+    rpid: str
+
+    def __eq__(self, other: WebAuthNPublicKey) -> bool:
+        return self.key == other.key and self.user_presence == other.user_presence and self.rpid == other.rpid
+
+class PublicKey(object):
+    k1: Optional[ECCPublicKey]
+    r1: Optional[ECCPublicKey]
+    webauthn: Optional[WebAuthNPublicKey]
+
+    def __init__(self, k1: Optional[ECCPublicKey] = None, r1: Optional[ECCPublicKey] = None, webauthn: Optional[WebAuthNPublicKey] = None):
+        n = 0
+        if k1:
+            n += 1
+        if r1:
+            n += 1
+        if webauthn:
+            n += 1
+        assert n <= 1
+        self.k1 = k1
+        self.r1 = r1
+        self.webauthn = webauthn
+
+    def __eq__(self, other: PublicKey) -> bool:
+        return self.k1 == other.k1 and self.r1 == other.r1 and self.webauthn == other.webauthn
+
+    def __pack__(self, enc: Encoder):
+        if self.k1:
+            enc.write_byte(byte(0))
+            unwrap(self.k1).__pack__(enc)
+        elif self.r1:
+            enc.write_byte(byte(1))
+            unwrap(self.r1).__pack__(enc)
+        elif self.webauthn:
+            enc.write_byte(byte(2))
+            unwrap(self.webauthn).__pack__(enc)
+
+    def __unpack__(dec: Decoder) -> PublicKey:
+        ty = dec.read_byte()
+        if ty == 0:
+            return PublicKey(k1=dec.unpack(ECCPublicKey))
+        elif ty == 1:
+            return PublicKey(r1=dec.unpack(ECCPublicKey))
+        elif ty == 2:
+            return PublicKey(webauthn=dec.unpack(WebAuthNPublicKey))
+        else:
+            raise ValueError("__unpack__: invalid public key type")
+
+    def __size__(self) -> int:
+        size = 1
+        if self.k1:
+            size += unwrap(self.k1).__size__()
+        elif self.r1:
+            size += unwrap(self.r1).__size__()
+        elif self.webauthn:
+            size += unwrap(self.webauthn).__size__()
+        else:
+            raise ValueError("__size__: invalid public key type")
+        return size
+
+# void assert_sha256( const char* data, uint32_t length, const capi_checksum256* hash );
+def assert_sha256(data: bytes, hash: Checksum256):
+    assert_sha256_(data.ptr, u32(data.len), hash.data.ptr)
+
+# void assert_sha1( const char* data, uint32_t length, const capi_checksum160* hash );
+def assert_sha1(data: bytes, hash: Checksum160):
+    assert_sha1_(data.ptr, u32(data.len), hash.data.ptr)
+
+# void assert_sha512( const char* data, uint32_t length, const capi_checksum512* hash );
+def assert_sha512(data: bytes, hash: Checksum512):
+    assert_sha512_(data.ptr, u32(data.len), hash.data.ptr)
+
+# void assert_ripemd160( const char* data, uint32_t length, const capi_checksum160* hash );
+def assert_ripemd160(data: bytes, hash: Checksum160):
+    assert_ripemd160_(data.ptr, u32(data.len), hash.data.ptr)
+
+# void sha256( const char* data, uint32_t length, capi_checksum256* hash );
+def sha256(data: bytes) -> Checksum256:
+    hash = Checksum256()
+    sha256_(data.ptr, u32(data.len), hash.data.ptr)
+    return hash
+
+# void sha1( const char* data, uint32_t length, capi_checksum160* hash );
+def sha1(data: bytes) -> Checksum160:
+    hash = Checksum160()
+    sha1_(data.ptr, u32(data.len), hash.data.ptr)
+    return hash
+
+# void sha512( const char* data, uint32_t length, capi_checksum512* hash );
+def sha512(data: bytes) -> Checksum512:
+    hash = Checksum512()
+    sha512_(data.ptr, u32(data.len), hash.data.ptr)
+    return hash
+
+# void ripemd160( const char* data, uint32_t length, capi_checksum160* hash );
+def ripemd160(data: bytes) -> Checksum160:
+    hash = Checksum160()
+    ripemd160_(data.ptr, u32(data.len), hash.data.ptr)
+    return hash
+
+# int recover_key( const capi_checksum256* digest, const char* sig, size_t siglen, char* pub, size_t publen );
+def recover_key(digest: Checksum256, sig: Signature) -> PublicKey:
+    buf = bytes(34)
+    enc = Encoder(sig.__size__())
+    sig.__pack__(enc)
+    raw_sig = enc.get_buf()
+    pubkey_size = recover_key_(digest.data.ptr, raw_sig.ptr, u32(raw_sig.len), buf.ptr, u32(buf.len))
+    if int(pubkey_size) > buf.len:
+        buf = bytes(int(pubkey_size))
+        recover_key_(digest.data.ptr, raw_sig.ptr, u32(raw_sig.len), buf.ptr, u32(buf.len))
+    dec = Decoder(buf)
+    pub = PublicKey.__unpack__(dec)
+    return pub
+
+# void assert_recover_key( const capi_checksum256* digest, const char* sig, size_t siglen, const char* pub, size_t publen );
+def assert_recover_key(digest: Checksum256, sig: Signature, pub: PublicKey):
+    enc = Encoder(sig.__size__())
+    sig.__pack__(enc)
+    raw_sig = enc.get_buf()
+
+    enc = Encoder(pub.__size__())
+    pub.__pack__(enc)
+    raw_pub = enc.get_buf()
+    assert_recover_key_(digest.data.ptr, raw_sig.ptr, u32(raw_sig.len), raw_pub.ptr, u32(raw_pub.len))

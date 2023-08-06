@@ -1,0 +1,39 @@
+from .database import PrimaryTable, IdxTable, IdxTable64, IdxTable128, IdxTable256, IdxTableDouble
+from .database import Iterator, SecondaryIterator, SecondaryValue
+from .database import IDX_64, IDX_128, IDX_256, IDX_DOUBLE
+from .name import Name
+
+# SecondaryTable = Union[IdxTable64, IdxTable128]
+
+class MultiIndexBase[T](object):
+    table: PrimaryTable[T]
+
+    def __init__(self, table: PrimaryTable[T]):
+        self.table = table
+
+    def __init__(self, code: Name, scope: Name, table: Name):
+        self.table = PrimaryTable[T](code, scope, table)
+
+    def find(self, id: u64) -> Iterator[T]:
+        return self.table.find(id)
+
+    def get(self, id: u64) -> Optional[T]:
+        return self.table.get(id)
+
+    def get_by_iterator(self, it: Iterator[T]) -> Optional[T]:
+        return self.table.get_by_iterator(it)
+
+    def next(self, it: Iterator[T]) -> Iterator[T]:
+        return self.table.next(it)
+
+    def previous(self, it: Iterator[T]) -> Iterator[T]:
+        return self.table.previous(it)
+
+    def lowerbound(self, id: u64):
+        return self.table.lowerbound(id)
+
+    def upperbound(self, id: u64):
+        return self.table.upperbound(id)
+
+    def end(self) -> Iterator[T]:
+        return self.table.end()
