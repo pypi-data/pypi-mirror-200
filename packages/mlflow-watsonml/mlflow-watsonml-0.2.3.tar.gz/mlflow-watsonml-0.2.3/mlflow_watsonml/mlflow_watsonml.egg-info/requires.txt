@@ -1,0 +1,12 @@
+mlflow
+ibm_watson_machine_learning
+python_dotenv
+joblib
+
+[dev]
+ipython
+black
+pytest
+build
+wheel
+twine
