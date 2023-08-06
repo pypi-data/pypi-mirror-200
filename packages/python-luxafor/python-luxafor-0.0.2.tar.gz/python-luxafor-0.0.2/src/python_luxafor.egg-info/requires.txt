@@ -1,0 +1,15 @@
+bleak>=0.19.5
+bleak_retry_connector>=2.13.0
+pyusb>=1.0.0
+
+[dev]
+pre-commit==2.15.0
+bumpversion==0.6.0
+bandit==1.7.4
+black==23.1.0
+codespell==2.2.2
+isort==5.12.0
+pylint==2.17.1
+ruff==0.0.256
+yamllint==1.28.0
+twine==4.0.2

@@ -1,0 +1,44 @@
+[build-system]
+requires = [ "setuptools>=61.0" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-luxafor"
+version = "0.0.2"
+authors = [
+    { name = "Matt Lizzie", email = "matt@lizzie.pro" },
+]
+
+description = "Python API for Luxafor busylights"
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.5",
+]
+requires-python = ">=3.7"
+dependencies =[
+    "bleak >= 0.19.5",
+    "bleak_retry_connector >= 2.13.0",
+    "pyusb >= 1.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/koswolf/python-luxafor"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit==2.15.0",
+    "bumpversion==0.6.0",
+    "bandit==1.7.4",
+    "black==23.1.0",
+    "codespell==2.2.2",
+    "isort==5.12.0",
+    "pylint==2.17.1",
+    "ruff==0.0.256",
+    "yamllint==1.28.0",
+    "twine==4.0.2",
+]
