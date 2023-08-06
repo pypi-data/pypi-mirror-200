@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+MICROLIB.md
+README.md
+setup.py
+mmap_ninja_dataframe/__init__.py
+mmap_ninja_dataframe/base.py
+mmap_ninja_dataframe/dense.py
+mmap_ninja_dataframe/sparse.py
+mmap_ninja_dataframe.egg-info/PKG-INFO
+mmap_ninja_dataframe.egg-info/SOURCES.txt
+mmap_ninja_dataframe.egg-info/dependency_links.txt
+mmap_ninja_dataframe.egg-info/requires.txt
+mmap_ninja_dataframe.egg-info/top_level.txt
+tests/test_dense.py
+tests/test_sparse.py
