@@ -1,0 +1,9 @@
+/build/
+
+*.egg-info/
+__pycache__/
+.mypy_cache/
+
+tests/hello_world
+tests/hello_world.o
+tests/hello_world.c
