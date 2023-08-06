@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: paigram-logger
+Version: 0.0.1
+Summary: A logger for PaiGram's projects.
+Home-page: https://github.com/PaiGramTeam/paigram-logger
+License: MIT
+Author: Karako
+Author-email: karakohear@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: pydantic[dotenv] (>=1.10.7,<2.0.0)
+Requires-Dist: rich (>=13.3.0,<14.0.0)
+Description-Content-Type: text/markdown
+
+# paigram-logger
+A logger for PaiGram's projects.
+
+## 使用方法
+
+### 使用默认配置
+
+```python
+from pg_logger import Logger
+
+logger = Logger()
+
+logger.info("info log")
+logger.success("success log")
+```
+
+### 自定义配置 Logger
+
+```python
+from pg_logger import Logger, LoggerConfig
+
+logger = Logger(
+    LoggerConfig(
+        width=120,
+        keywords=['GET', 'PUT', 'POST']
+    )
+)
+
+logger.info("[GET] info log")
+logger.success("[PUT] success log")
+
+```
