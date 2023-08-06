@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: signac-dashboard
+Version: 0.5.0
+Summary: Visualize data spaces in a web browser.
+Author-email: "Bradley Dice et al." <bdice@bradleydice.com>
+Maintainer-email: signac Developers <signac-support@umich.edu>
+License: BSD 3-Clause License for the software signac-dashboard.
+        
+        Copyright (c) 2019, The Regents of the University of Michigan
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without modification,
+        are permitted provided that the following conditions are met:
+        
+        1.  Redistributions of source code must retain the above copyright notice, this
+            list of conditions and the following disclaimer.
+        
+        2.  Redistributions in binary form must reproduce the above copyright notice,
+            this list of conditions and the following disclaimer in the documentation
+            and/or other materials provided with the distribution.
+        
+        3.  Neither the name of the copyright holder nor the names of its contributors may
+            be used to endorse or promote products derived from this software without
+            specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+        ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+        IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+        INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+        BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+        OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+        WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+        ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+        POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: Homepage, https://signac.io
+Project-URL: Documentation, https://docs.signac.io
+Project-URL: Download, https://pypi.org/project/signac-dashboard/
+Project-URL: Source, https://github.com/glotzerlab/signac-dashboard
+Project-URL: Issues, https://github.com/glotzerlab/signac-dashboard/issues
+Keywords: visualization,dashboard,signac,framework
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# <img src="https://raw.githubusercontent.com/glotzerlab/signac-dashboard/main/doc/images/palette-header.png" width="75" height="58"> signac-dashboard - data visualization for signac
+
+[![Affiliated with NumFOCUS](https://img.shields.io/badge/NumFOCUS-affiliated%20project-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org/sponsored-projects/affiliated-projects)
+[![PyPI](https://img.shields.io/pypi/v/signac-dashboard.svg)](https://pypi.org/project/signac-dashboard/)
+[![conda-forge](https://img.shields.io/conda/vn/conda-forge/signac-dashboard.svg?style=flat)](https://anaconda.org/conda-forge/signac-dashboard)
+[![RTD](https://img.shields.io/readthedocs/signac-dashboard.svg?style=flat)](https://docs.signac.io)
+[![License](https://img.shields.io/github/license/glotzerlab/signac-dashboard.svg)](https://github.com/glotzerlab/signac-dashboard/blob/main/LICENSE.txt)
+[![PyPI-downloads](https://img.shields.io/pypi/dm/signac-dashboard.svg?style=flat)](https://pypistats.org/packages/signac-dashboard)
+[![Slack](https://img.shields.io/badge/Slack-chat%20support-brightgreen.svg?style=flat&logo=slack)](https://signac.io/slack-invite/)
+[![Twitter](https://img.shields.io/twitter/follow/signacdata?style=social)](https://twitter.com/signacdata)
+[![GitHub Stars](https://img.shields.io/github/stars/glotzerlab/signac-dashboard?style=social)](https://github.com/glotzerlab/signac-dashboard/)
+
+The [**signac** framework](https://signac.io) helps users manage and scale file-based workflows, facilitating data reuse, sharing, and reproducibility.
+
+The **signac-dashboard** package allows users to rapidly visualize and analyze data from a **signac** project in a web browser.
+
+## Resources
+
+- [Dashboard topic guide](https://docs.signac.io/en/latest/dashboard.html):
+  Introduction to **signac-dashboard**.
+- [Dashboard documentation](https://docs.signac.io/projects/dashboard/):
+  Package reference and APIs.
+- [Dashboard examples](examples/):
+  Example dashboards demonstrating a variety of use cases.
+- [Framework documentation](https://docs.signac.io/):
+  Examples, tutorials, topic guides, and package Python APIs.
+- [Slack Chat Support](https://signac.io/slack-invite/):
+  Get help and ask questions on the **signac** Slack workspace.
+- [**signac** website](https://signac.io/):
+  Framework overview and news.
+
+## Installation
+
+The recommended installation method for **signac-dashboard** is through **conda** or **pip**.
+The software is tested for Python 3.8+ and is built for all major platforms.
+
+To install **signac-dashboard** *via* the [conda-forge](https://conda-forge.github.io/) channel, execute:
+
+```bash
+conda install -c conda-forge signac-dashboard
+```
+
+To install **signac-dashboard** *via* **pip**, execute:
+
+```bash
+pip install signac-dashboard
+```
+
+**Detailed information about alternative installation methods can be found in the [documentation](https://docs.signac.io/projects/dashboard/en/latest/installation.html).**
+
+
+## Quickstart
+
+In an existing **signac** project directory, create a file `dashboard.py`:
+
+```python
+from signac_dashboard import Dashboard
+from signac_dashboard.modules import StatepointList, DocumentList, ImageViewer, Schema
+
+if __name__ == '__main__':
+    modules = [StatepointList(), DocumentList(), ImageViewer(context="JobContext"),
+               ImageViewer(context="ProjectContext"), Schema()]
+    Dashboard(modules=modules).main()
+```
+
+Then launch the dashboard:
+
+```bash
+$ python dashboard.py run
+```
