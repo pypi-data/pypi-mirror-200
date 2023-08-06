@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: csvEmail
+Version: 0.1
+Summary: Script for sending mass emails based on the contents of a CSV file, where each row includes an email address and message details. Details from the row are filled into a template file to compose the emails. Does a dry run by default.
+Home-page: https://cs.wellesley.edu/~pmwh/csvEmail/docs/csvEmail.html
+Author: Peter Mawhorter
+Author-email: pmawhort@wellesley.edu
+License: BSD 3-Clause License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Topic :: Communications :: Email
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: test
+License-File: LICENSE.txt
+
+# `csvEmail.py`
+
+A simple script for sending mass emails based on a CSV file containing
+email addresses plus per-recipient info and a template file containing
+slots to be filled in from columns in the CSV file.
+
+I've solved this problem too many times so I'm putting this script up
+where others can use it and where I can find and install it easily.
+
+Run `python3 csvEmail.py --help` for usage info.
+
+## Changelog
+
+- v0.1: Created based on the script I had been kicking around for a few
+  semesters.
