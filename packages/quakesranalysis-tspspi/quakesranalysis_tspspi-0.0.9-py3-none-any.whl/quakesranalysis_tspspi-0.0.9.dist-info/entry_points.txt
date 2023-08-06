@@ -1,0 +1,4 @@
+[console_scripts]
+quakesrfetch = quakesranalysis.utils.util_fetchruns.py:main
+quakesrplot = quakesranalysis.utils.util_standardplots:main
+quakesrslice = quakesranalysis.utils.util_slicescan.py:main
