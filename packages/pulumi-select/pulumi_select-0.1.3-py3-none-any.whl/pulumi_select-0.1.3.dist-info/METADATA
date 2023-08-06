@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pulumi-select
+Version: 0.1.3
+Summary: dynamically select urns to apply from a pulumi preview
+Home-page: https://github.com/romainrbr/pulumi-select
+Download-URL: https://github.com/romainrbr/pulumi-select/archive/v_01.tar.gz
+Author: romainrbr
+Author-email: contact@romain.tech
+License: WTFPL
+Keywords: pulumi,select
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENCE.txt
+Requires-Dist: blessed
+Requires-Dist: click
+Requires-Dist: click-spinner
+Requires-Dist: inquirer
+Requires-Dist: python-editor
+Requires-Dist: readchar
+Requires-Dist: six
+Requires-Dist: wcwidth
+
