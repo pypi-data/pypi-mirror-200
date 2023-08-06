@@ -1,0 +1,75 @@
+{
+  "objects": [
+    {
+      "struct_name": "mini_loader_hooks_descriptor", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int size_of_hook_shellcode_data;\nstruct hook startup_hooks;\nstruct hook pre_relocate_write_hooks;\nstruct hook pre_relocate_execute_hooks;\nstruct hook pre_calling_shellcode_main_hooks;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "table_entry", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int f_offset;\nunsigned long int v_offset;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "elf_information_struct", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int elf_header_size;\nunsigned long int loader_size;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "entry_attributes", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int number_of_entries_related_to_attribute;\nunsigned long int relocation_type;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "hook", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int relative_address;\nunsigned long int attributes_size;\nunsigned long int shellcode_size;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "loader_function_descriptor", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int loader_handle_relocation_table;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "addresses", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int base_address;\nunsigned long int loader_base;\nunsigned long int hooks_base_address;", 
+      "endian": "little"
+    }
+  ], 
+  "bits": 64
+}
