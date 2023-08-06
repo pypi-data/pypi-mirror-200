@@ -1,0 +1,3 @@
+[console_scripts]
+melctl = melctl_client.__main__:main
+melctl-client = melctl_client.__main__:main
