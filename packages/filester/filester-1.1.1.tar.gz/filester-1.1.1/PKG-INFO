@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: filester
+Version: 1.1.1
+Summary: Filester: generic, file based utilities and helpers
+Home-page: https://github.com/loum/filester
+Author: Lou Markovski
+Author-email: lou.markovski@gmail.com
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+Description-Content-Type: text/markdown; charset=UTF-8
+Provides-Extra: dev
+License-File: LICENSE.md
+
+
+# Filester: generic, file based utilities and helpers
+- [Overview](#Overview)
+- [Installing from PyPI](#Installing-from-PyPI)
+
+## Overview
+[Filester](https://github.com/loum/filester) is a simple toolkit of common file based utilities that I
+found re-using in all of my Python projects.  Basic tasks such as atomic file copy, move and delete that have been
+tested and just work.
+
+The complete list of file-based helpers can be found at [https://loum.github.io/filester/](https://loum.github.io/filester/)
+
+## Installing from PyPI
+```
+pip install filester
+```
+
+---
+[top](#Filester:-generic,-file-based-utilities-and-helpers)
