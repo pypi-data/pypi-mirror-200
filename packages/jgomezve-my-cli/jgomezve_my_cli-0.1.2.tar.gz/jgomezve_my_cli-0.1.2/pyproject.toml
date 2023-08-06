@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "jgomezve-my-cli"
+version = "0.1.2"
+description = ""
+authors = ["jgomezve <jgomezve@cisco.com>"]
+readme = "README.md"
+packages = [{include = "jgomezve_my_cli"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# New scripts
+[tool.poetry.scripts]
+jgomezve_my_cli = 'jgomezve_my_cli:main'
