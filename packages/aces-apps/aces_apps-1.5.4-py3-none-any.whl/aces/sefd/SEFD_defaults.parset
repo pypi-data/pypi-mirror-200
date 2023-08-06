@@ -1,0 +1,17 @@
+sbid = 1701
+# scan=-1 will use scan N for beam N.  scan=K will use scan K for all beams.
+scan = -1
+beams = [0]
+mset_id = 0
+start = 3
+nTimAvg = 40
+nTimCells = 0
+chan0 = 0
+nChanAvg = 1
+nFrqCells = 0
+decompose = True
+difference = frequency
+uvmin = 0.0
+outfile_base = SEFD_A-{:d}_beam_{:03d}
+# uncomment to process all 36 beams despite number of beams in footprint
+# n_beams = 36

@@ -1,0 +1,118 @@
+#!/bin/bash -l
+#
+# Default parset to calibrate the bandpass (if needed) and apply to science field(s)
+#
+# Need to add in SB_1934 SBID and SB_SCIENCE SBID --> this is achieved through start_racs.py
+#
+# 2019 Sep 11 - Processing pass 3
+# 2021 April 19 - RACS-mid
+# Begin setting up the parameters:
+#====================================
+# slurm control parameters:
+SUBMIT_JOBS=true
+JOB_TIME_DEFAULT=2:00:00
+DO_SPLIT_TIMEWISE=false
+DO_SPLIT_TIMEWISE_SERIAL=true
+DO_RAPID_SURVEY=false
+#
+DIR_SB=/askapbuffer/scott/askap-scheduling-blocks
+#====================================
+# Decide which processing to be done:
+DO_1934_CAL=true
+DO_SCIENCE_FIELD=true
+BANDPASS_REFANTENNA=0
+DO_APPLY_LEAKAGE=true
+BANDPASS_CAL_SOLVER=LSQR
+LEAKAGE_CAL_SOLVER=LSQR
+#
+DO_MOSAIC=true
+DO_CONT_IMAGING=true
+DO_SELFCAL=true
+DO_MOSAIC_FIELDS=false
+DO_CONVOLVE_CONT=true
+# ====================================
+# Data handling
+PURGE_FULL_MS=true
+USE_PROFILING=false
+TILE_NCHAN_SCIENCE=1
+NUM_CHAN_TO_AVERAGE=1
+# ====================================
+DO_PREFLAG_SCIENCE=true
+# Be careful with your flagging:
+FLAG_DO_DYNAMIC_AMPLITUDE_1934=true
+FLAG_STOKESV_1934_INTEGRATE_SPECTRA=true
+FLAG_DO_DYNAMIC_AMPLITUDE_SCIENCE=false
+FLAG_STOKESV_INTEGRATE_SPECTRA=false
+# ====================================
+# Choice of params for BPCAL:
+DO_BANDPASS_SMOOTH=false
+BANDPASS_SMOOTH_TOOL=smooth_bandpass
+BANDPASS_SMOOTH_N_WIN=4
+BANDPASS_SMOOTH_F54=""
+BANDPASS_REFANTENNA=0
+# ====================================
+# Choice of params for CONTINUUM:
+# --  New (Steve's) imager --
+DO_ALT_IMAGER=false
+FAT_NODE_CONT_IMG=false
+# Set the following two parameters such that:
+# (NUM_CPU_IMAGING - 1) x NCHAN_PER_CORE = NCHAN * nWorkerGroups
+NUM_CORES_CONTIMG_SCI=4
+CORES_PER_NODE_CONT_IMAGING=6
+
+# CONTCUBE:
+DO_CONTCUBE_IMAGING=false # true
+DO_ALT_IMAGER_CONTCUBE=true
+IMAGETYPE_CONTCUBE=fits
+NUM_CORES_CONTCUBE_SCI=19
+CORES_PER_NODE_CONTCUBE_IMAGING=8
+NCHAN_PER_CORE_CONTCUBE=16
+
+# SPECTRAL
+DO_SPECTRAL_PROCESSING=false
+DO_SPECTRAL_IMAGING=false
+DO_ALT_IMAGER_SPECTRAL=true
+IMAGETYPE_SPECTRAL=fits
+
+#
+#====================================
+# Image sizes:
+CELLSIZE_CONT=2.5
+NUM_PIXELS_CONT=6144
+#gridding continuum
+GRIDDER_SNAPSHOT_IMAGING=false
+GRIDDER_WMAX=26000
+GRIDDER_NWPLANES=513
+PRECONDITIONER_WIENER_ROBUSTNESS=0.0
+#
+# SELFCAL RELATED:
+SELFCAL_NUM_LOOPS=2
+SELFCAL_INTERVAL="[600,200,60]"
+#
+SELFCAL_SELAVY_NSUBX=2
+SELFCAL_SELAVY_NSUBY=2
+SELFCAL_METHOD=CleanModel
+CCALIBRATOR_MINUV="[200,200,200]"
+# I find the cmodel generated from selavy-components to be
+# impacted by bright image artifacts and/or complex extended emisisons
+#
+MULTI_JOB_SELFCAL=false
+
+CLEAN_ALGORITHM="[BasisfunctionMFS,BasisfunctionMFS,BasisfunctionMFS]"
+CLEAN_THRESHOLD_MINORCYCLE="[45%,100.0mJy,0.5mJy] ; [40%,10.0mJy,0.5mJy] ; [50%,1.0mJy,0.5mJy]"
+CLEAN_MINORCYCLE_NITER="[200,400,800]"
+CLEAN_GAIN="[0.3,0.3,0.3]"
+CLEAN_SCALES="[0] ; [0] ; [0,20,50]"
+CLEAN_THRESHOLD_MAJORCYCLE="[1.0mJy,1.0mJy,1.0mJy]"
+CLEAN_NUM_MAJORCYCLES="[3,5,10]"
+CLEAN_SOLUTIONTYPE=MAXBASE
+CLEAN_PSFWIDTH="[256,256,1280]"
+DO_CONTPOL_IMAGING=true
+LINMOS_CUTOFF=0.1
+
+# selavy source finding
+
+# write a number of values to FITS header
+DO_CONVERT_TO_FITS=true
+# =========================================
+# User specified changes below

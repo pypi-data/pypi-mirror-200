@@ -1,0 +1,37 @@
+#!/bin/bash -l
+# Default parset to calibrate the bandpass only
+#
+# Need to add in SB_1934 SBID --> this is achieved through start_pipeline.py
+#
+#
+# Begin setting up the parameters:
+#=====================================
+#slurm control parameters:
+SUBMIT_JOBS=true
+JOB_TIME_DEFAULT=1:00:00
+DO_SPLIT_TIMEWISE=false
+DO_SPLIT_TIMEWISE_SERIAL=true
+#=====================================
+# Decide which processing to be done:
+DO_1934_CAL=true
+DO_SCIENCE_FIELD=false
+# ====================================
+# Choice of params for BPCAL:
+DO_LEAKAGE_CAL_CONT=true
+WRITE_BPLEAKAGE=true
+BANDPASS_CAL_SOLVER=LSQR
+LEAKAGE_CAL_SOLVER=LSQR
+DO_BANDPASS_SMOOTH=false
+BANDPASS_SMOOTH_TOOL=smooth_bandpass
+BANDPASS_SMOOTH_N_WIN=4
+BANDPASS_SMOOTH_F54=""
+BANDPASS_REFANTENNA=0
+# ====================================
+DO_PREFLAG_SCIENCE=true
+# Be careful with your flagging:
+FLAG_DO_DYNAMIC_AMPLITUDE_1934=true
+FLAG_STOKESV_1934_INTEGRATE_SPECTRA=true
+FLAG_DO_DYNAMIC_AMPLITUDE_SCIENCE=false
+FLAG_STOKESV_INTEGRATE_SPECTRA=false
+# ====================================
+# User specified changes below

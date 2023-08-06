@@ -1,0 +1,11 @@
+[console_scripts]
+beam_summary=aces.holography.beam_summary:main
+beamset_from_ms=aces.holography.beamset_from_ms:cli
+bptable=aces.holography.bptable:cli
+clean_holography=aces.holography.clean_holography:cli
+divmodel=aces.holography.divmodel:cli
+dump_point=aces.holography.dump_point:cli
+grid_holography=aces.holography.grid_holography:cli
+merge_holography=aces.holography.merge_holography:cli
+plot_summary=aces.holography.plot_summary:cli
+
