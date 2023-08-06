@@ -1,0 +1,53 @@
+from __future__ import annotations
+
+from typing import Any
+from typing import Iterable
+from typing import Optional
+from typing import Protocol
+
+from drakaina.typing_ import ASGIScope
+from drakaina.typing_ import WSGIEnvironment
+
+
+class Comparator(Protocol):
+    def __call__(
+        self,
+        required: Iterable[str],
+        provided: str | Iterable[str],
+    ) -> bool:
+        ...
+
+
+class TokenGetter(Protocol):
+    def __call__(
+        self,
+        request: ASGIScope | WSGIEnvironment,
+    ) -> Optional[str]:
+        ...
+
+
+class ScopesGetter(Protocol):
+    def __call__(
+        self,
+        request: ASGIScope | WSGIEnvironment,
+        payload: dict[str, Any],
+    ) -> Optional[str, Iterable[str]]:
+        ...
+
+
+class RevokeChecker(Protocol):
+    def __call__(
+        self,
+        request: ASGIScope | WSGIEnvironment,
+        payload: dict[str, Any],
+    ) -> bool:
+        ...
+
+
+class UserGetter(Protocol):
+    def __call__(
+        self,
+        request: ASGIScope | WSGIEnvironment,
+        payload: dict[str, Any],
+    ) -> Optional[Any]:
+        ...
