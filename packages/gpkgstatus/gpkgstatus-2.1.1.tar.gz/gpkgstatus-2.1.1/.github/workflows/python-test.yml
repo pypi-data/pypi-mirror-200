@@ -1,0 +1,66 @@
+# This workflow will:
+# - black-formatting: Analyze code with black.
+
+# - test: (on supported python versions)
+#   Analyze code with Pylint 
+#   Validate pyproject.toml for errors
+#   Test with pytest 
+
+# - test: Pylint and Validate pyproject.toml for errors
+# test with pytest on supported python versions.
+
+name: Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  black-formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Black
+        uses: psf/black@stable
+        with:
+          options: "--check --verbose"
+          src: "."
+
+
+  test:
+    needs: black-formatting
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pylint validate-pyproject pytest
+
+      - name: Analyze code with pylint
+        run: >-
+          pylint 
+          src/
+      
+      - name: Validate pyproject.toml
+        run: |
+          validate-pyproject pyproject.toml
+
+      - name: Test with pytest
+        run: |
+          pytest -v .
