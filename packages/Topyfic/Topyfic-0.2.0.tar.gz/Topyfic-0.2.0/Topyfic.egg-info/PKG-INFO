@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: Topyfic
+Version: 0.2.0
+Summary: Topyfic is a Python package designed to identify reproducible latent dirichlet allocation (LDA) using leiden clustering and harmony for single cell epigenomics data
+Home-page: https://github.com/mortazavilab/Topyfic
+Download-URL: https://github.com/mortazavilab/Topyfic/archive/refs/tags/V0.2.0.tar.gz
+Author: Narges Rezaie
+Author-email: nargesrezaie80@gmail.com
+License: MIT
+Keywords: Cellular Programs,Latent Dirichlet allocation,single-cell multiome,single-cell RNA-seq,gene regulatory network
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research 
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+License-File: LICENSE.txt
