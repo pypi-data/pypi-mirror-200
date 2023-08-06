@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: dawis
+Version: 0.0.3
+Summary: Detection Algorithm with Wavelet for Intracluster light Studies
+Home-page: https://github.com/aellien/dawis.git
+Author: Amaël Ellien
+Author-email: a.r.j.ellien@uva.nl
+License: GNU General Public License v3.0
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: astropy
+Requires-Dist: scikit-image
+Requires-Dist: ray
+
