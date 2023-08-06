@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "pyxdi"
+version = "0.6.2"
+description = "Dependency Injection library"
+authors = ["Anton Ruhlov <antonruhlov@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/antonrh/pyxdi"
+keywords = ["dependency injection", "dependencies", "di", "async", "asyncio", "application"]
+packages = [
+    { include = "pyxdi", from = "." },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.12"
+anyio = "^3.6.2"
+mkdocs = { version = "^1.4.2", optional = true }
+mkdocs-material = { version = "^9.0.12", optional = true }
+
+[tool.poetry.extras]
+docs = ["mkdocs", "mkdocs-material"]
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+isort = "^5.11.5"
+mypy = "^1.0"
+flake8 = "^3.9.2"
+flake8-tidy-imports = "^4.8.0"
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
+sqlalchemy = "^2.0.3"
+flask = "^2.2.2"
+fastapi = "^0.95.0"
+httpx = "^0.23.3"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+combine_as_imports = true
+known_tests = "tests"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "TESTS", "LOCALFOLDER"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+
+[tool.pytest.ini_options]
+addopts = [
+    "--strict-config",
+    "--strict-markers",
+]
+xfail_strict = true
+junit_family = "xunit2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
