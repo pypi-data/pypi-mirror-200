@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: little-finger
+Version: 0.0.19
+Summary: tool pkg.
+Home-page: https://github.com/yromeMfOtuO/little-finger
+Author: yromeMfOtuO
+Author-email: weihao.lv@outlook.com
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools (~=57.1.0)
+Requires-Dist: pandas (~=1.3.0)
+Requires-Dist: numpy (~=1.21.0)
+Requires-Dist: requests (~=2.25.1)
+Requires-Dist: blinker (~=1.4)
+Requires-Dist: log4mongo (~=1.7.0)
+Requires-Dist: redis (~=4.0.2)
+Requires-Dist: w3lib (~=1.22.0)
+Requires-Dist: requests-toolbelt (~=0.9.1)
+
+# little finger tools
+
+> search <font color=#81D8D0 >`little-finger`</font> in pypi  
+> 
+
+> or execute `pip3 install little-finger` in bash directly
+> 
+
