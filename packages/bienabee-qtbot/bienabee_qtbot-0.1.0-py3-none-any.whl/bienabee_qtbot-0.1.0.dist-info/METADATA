@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: bienabee-qtbot
+Version: 0.1.0
+Summary: This is the Bienabee Technologies Tricentis qTest API wrapper and utility kit
+Home-page: https://bienabee.com/
+Author: LouieT
+Author-email: info@bienabee.com
+Project-URL: Bug Tracker, https://gitlab.com/bienabee/qtest-utilities/bienabee-qtbot/-/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: python-dateutil (==2.8.2)
+
+# Bienabee qTbot
+
+Welcome to Bienabee qTbot a Python wrapper for the Tricentis qTest REST API
+
+## Getting started
+
+Will add more notes later, this is pre-alpha and is not publicly documented yet.
+Please reach out to us for any questions, or qTest automation, test case migration, 
+or any other DevOps needs.
+
+## Authors and acknowledgment
+Show your appreciation to those who have contributed to the project.
+
+## License
+Apache-2.0
+
+## Project status
+Pre-Alpha, still a major work in progress.
