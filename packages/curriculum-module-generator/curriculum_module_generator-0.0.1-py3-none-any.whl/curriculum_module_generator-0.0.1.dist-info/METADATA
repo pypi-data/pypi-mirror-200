@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: curriculum-module-generator
+Version: 0.0.1
+Summary: Generates a jupyter notebook and markdown file for a topic
+Home-page: https://github.com/TheAcademicsFieldGuideToWritingCode/Tutorials-Generator
+Author: Nathan Laundry
+Author-email: nathan.laundry@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai
+Requires-Dist: nbformat
+Requires-Dist: markdown2
+Requires-Dist: markdownify
+Requires-Dist: tqdm
+
+# Tutorials-Generator
+A Python script that helps instructors create textbook or jupyter labs tutorials using chatGPT
+
+python template_main.py --topic "for loops in python" --identity "Professor of Computer Science" --target_audience "beginner programmers" --tutorial_output_file "loops.ipynb" --wiki_output_file "loops.md" --model "gpt-3.5-turbo"
