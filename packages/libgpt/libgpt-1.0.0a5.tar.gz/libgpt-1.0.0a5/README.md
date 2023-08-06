@@ -1,0 +1,34 @@
+# libgpt
+The libgpt module is designed to facilitate interaction with the free text generation platform FreeGPT.One. It provides a ChatGPT function that leverages the selenium and undetected_chromedriver libraries to submit a prompt and retrieve a generated text response from the free GPT-3 alternative.
+## Installation
+libgpt can be installed via pip using the following command:
+```
+pip install libgpt
+```
+## Usage
+
+The ChatGPT function is the main functionality of the module and takes in three parameters: request, chromedriver, chromepath.
+```
+import libgpt
+prompt = "I'm feeling bored today. Can you suggest some interesting activities?"
+response = libgpt.ChatGPT(request=prompt)
+print(response)
+```
+
+The request parameter is a string that prompts the FreeGPT.One model to generate a text response. The optional chromedriver and chromepath parameters allow the user to specify a custom path to the Chrome Driver executable and Chrome browser installation, respectively.
+
+## Functionality
+
+Once the ChatGPT function is invoked, it automatically navigates to the FreeGPT.One website and enters the prompt. It then waits for the generated text response by parsing the HTML of the website and checking for the :::::end:::::: flag, indicating the end of the generated response. The generated text is then returned as a string.
+
+## Dependencies
+
+libgpt needs Chrome or Chromium.
+libgpt relies on the selenium and undetected_chromedriver libraries. These can be installed via pip by executing the following commands:
+```
+pip install selenium
+pip install undetected-chromedriver
+```
+## Disclaimer
+
+This module is not endorsed by or affiliated with the FreeGPT.One platform in any way. The module is intended for educational purposes only, and any misuse or abuse of the FreeGPT.One platform is not the responsibility of the module's author or maintainers.
