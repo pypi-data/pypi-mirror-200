@@ -1,0 +1,1 @@
+from scrapeLinkedinJob.scraper import ScrapeLinkedInJob
