@@ -1,0 +1,88 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "MockChainlinkAggregator",
+  "sourceName": "contracts/MockChainlinkAggregator.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "latestRoundData",
+      "outputs": [
+        {
+          "internalType": "uint80",
+          "name": "roundId",
+          "type": "uint80"
+        },
+        {
+          "internalType": "int256",
+          "name": "answer",
+          "type": "int256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startedAt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "updatedAt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint80",
+          "name": "answeredInRound",
+          "type": "uint80"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint80",
+          "name": "_decimals",
+          "type": "uint80"
+        }
+      ],
+      "name": "setDecimals",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint80",
+          "name": "_answer",
+          "type": "uint80"
+        }
+      ],
+      "name": "setValue",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506008600255610172806100256000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80630ef0b0dd146100515780632923cd5014610079578063313ce5671461009f578063feaf968c146100b9575b600080fd5b6100776004803603602081101561006757600080fd5b50356001600160501b0316610105565b005b6100776004803603602081101561008f57600080fd5b50356001600160501b0316610113565b6100a7610125565b60408051918252519081900360200190f35b6100c161012b565b60405180866001600160501b03168152602001858152602001848152602001838152602001826001600160501b031681526020019550505050505060405180910390f35b6001600160501b0316600255565b6001600160501b031660005542600155565b60025481565b60008054600154829081909192939456fea26469706673582212203e7ed36b38433d75f5c3fd78e042531ceec989494caa770a9e2828ce4b2c288264736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80630ef0b0dd146100515780632923cd5014610079578063313ce5671461009f578063feaf968c146100b9575b600080fd5b6100776004803603602081101561006757600080fd5b50356001600160501b0316610105565b005b6100776004803603602081101561008f57600080fd5b50356001600160501b0316610113565b6100a7610125565b60408051918252519081900360200190f35b6100c161012b565b60405180866001600160501b03168152602001858152602001848152602001838152602001826001600160501b031681526020019550505050505060405180910390f35b6001600160501b0316600255565b6001600160501b031660005542600155565b60025481565b60008054600154829081909192939456fea26469706673582212203e7ed36b38433d75f5c3fd78e042531ceec989494caa770a9e2828ce4b2c288264736f6c634300060c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
