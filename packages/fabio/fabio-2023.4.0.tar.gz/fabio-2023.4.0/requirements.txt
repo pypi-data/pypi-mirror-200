@@ -1,0 +1,13 @@
+#List of dependecies used by PIP 
+meson
+meson-python
+ninja
+tomli
+numpy
+cython
+lxml>=4.6.3
+h5py
+hdf5plugin
+sphinx
+sphinxcontrib-programoutput
+sphinx-rtd-theme
