@@ -1,0 +1,50 @@
+[metadata]
+license = "GPL 2"
+
+[project]
+name = "odeanimate"
+authors = [
+    { name="Miguel Alejandro Salgado Zapien", email="ekiim@ekiim.xyz"},
+]
+description = "A module for useful quick mathematical calculation, plotting and animation."
+readme="README.md"
+requires-python = ">= 3.11"
+license = {text = "GPL-2.0"}
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "matplotlib"
+]
+dynamic = ["version"]
+
+
+[project.urls]
+"Homepage" = "https://odeanimate.ekiim.xyz"
+"Source" = "https://github.com/ekiim/odeanimate"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["odeanimate"]
+license-files = ["LICENSE.txt"]
+
+[tool.setuptools.dynamic]
+version = {attr = "odeanimate.__version__"}
+
+[tool.pytest.ini_options]
+addopts = "-q --doctest-modules --cov=odeanimate--cov-report=site/reports"
+testpaths = ["odeanimate", "tests"]
+python_files = "*.py"
+
+[tool.pytest.plugins]
+cov = {source = "odeanimate"}
+doctestplus = {}
