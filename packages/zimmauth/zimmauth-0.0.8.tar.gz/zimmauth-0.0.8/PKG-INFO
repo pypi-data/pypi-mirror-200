@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: zimmauth
+Version: 0.0.8
+Summary: Authentication encryption and storage
+Author-email: Endre Márk Borza <endremborza@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography
+Requires-Dist: branthebuilder[doc] ; extra == "doc"
+Requires-Dist: branthebuilder ; extra == "test"
+Requires-Dist: mock-ssh-server ; extra == "test"
+Requires-Dist: dvc[s3,ssh] ; extra == "test"
+Requires-Dist: fabric ; extra == "test"
+Requires-Dist: boto3 ; extra == "test"
+Requires-Dist: toml ; extra == "test"
+Requires-Dist: moto ; extra == "test"
+Requires-Dist: aiobotocore ; extra == "test"
+Project-URL: Homepage, https://github.com/endremborza/zimmauth
+Provides-Extra: doc
+Provides-Extra: test
+
+# zimmauth
+
+[![codeclimate](https://img.shields.io/codeclimate/maintainability/endremborza/zimmauth.svg)](https://codeclimate.com/github/endremborza/zimmauth)
+[![codecov](https://img.shields.io/codecov/c/github/endremborza/zimmauth)](https://codecov.io/gh/endremborza/zimmauth)
+[![pypi](https://img.shields.io/pypi/v/zimmauth.svg)](https://pypi.org/project/zimmauth/)
+
+Encrypt and store authentication data for s3 and ssh.
+
