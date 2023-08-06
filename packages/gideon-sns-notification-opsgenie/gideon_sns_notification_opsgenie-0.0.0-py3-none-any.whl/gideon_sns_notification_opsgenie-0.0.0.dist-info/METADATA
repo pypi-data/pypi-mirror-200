@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: gideon-sns-notification-opsgenie
+Version: 0.0.0
+Summary: gideon-sns-notification-opsgenie
+Home-page: https://github.com/Postnl-Production/lpe-test-projen-gideon.git
+Author: user<user@domain.com>
+License: Apache-2.0
+Project-URL: Source, https://github.com/Postnl-Production/lpe-test-projen-gideon.git
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Typing :: Typed
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aws-cdk-lib (<3.0.0,>=2.70.0)
+Requires-Dist: constructs (<11.0.0,>=10.0.5)
+Requires-Dist: jsii (<2.0.0,>=1.79.0)
+Requires-Dist: publication (>=0.0.3)
+Requires-Dist: typeguard (~=2.13.3)
+
+# SNS Notification OpsGenie
+
+This repository contains [AWS CDK](https://aws.amazon.com/cdk/) constructs which can be used for sns to notify to Opsgenie using [projen](https://github.com/projen/projen) + [jsii](https://github.com/aws/jsii) and publishing it to [npm](https://www.npmjs.com/) and [pypi](https://pypi.org/) repositories.
+
+## Table of Contents
+
+* [About projen](#about-projen)
+* [About jsii](#about-jsii)
+* [How to Use](#how-to-use)
