@@ -1,0 +1,10 @@
+langchain
+openai
+
+[dev]
+black
+
+[distribute]
+setuptools
+twine
+wheel
