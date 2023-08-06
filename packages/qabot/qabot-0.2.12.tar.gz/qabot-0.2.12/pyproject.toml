@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "qabot"
+version = "0.2.12"
+license = "Apache-2.0"
+description = "Query local or remote data files with natural language queries powered by OpenAI and DuckDB."
+authors = ["Brian Thorne <brian@hardbyte.nz>"]
+readme = "README.md"
+packages = [{include = "qabot"}]
+
+[tool.poetry.scripts]
+qabot = "qabot.cli:run"
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.0.128"
+openai = "^0.27.2"
+duckdb = "^0.7.1"
+typer = "^0.7.0"
+rich = "^13.3.3"
+httpx = "^0.23.3"
+
+
+[tool.poetry.group.embedding]
+optional = true
+
+[tool.poetry.group.embedding.dependencies]
+beautifulsoup4 = "^4.11.2"
+chromadb = "^0.3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
