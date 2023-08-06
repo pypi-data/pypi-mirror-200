@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: feature-engineering-polars
+Version: 0.2.0
+Summary: Feature engineering done with Polars
+License: MIT
+Author: Jordan Delbar
+Author-email: jordandelbar@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: polars (>=0.16.14,<0.17.0)
+Description-Content-Type: text/markdown
+
+# feature-engineering-polars
+Feature engineering done with Polars
+
+![fe-polars](https://user-images.githubusercontent.com/35341015/229273836-9f87fd67-2011-4aa9-a7d8-680795d75259.png)
+
