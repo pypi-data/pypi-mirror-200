@@ -1,0 +1,102 @@
+$def with (machine, ssh, ls)
+$var breadcrumbs = ("machines", "Machines")
+$var title: $machine["name"]
+
+<p>$machine["ip_address"]</p>
+
+$ d = machine["details"]
+
+$def render(cmd):
+    $ output = ssh(cmd).stdout
+    $if "\n" not in output:
+        $ output += "\n"
+    <pre style=font-size:.8em>$output.rpartition("\n")[0]</pre>
+
+<h3>Application</h3>
+$:render("/home/gaea/runinenv /home/gaea/app python -V")
+$:render("du -sh /home/gaea/app")
+$:render("ls -lthr /home/gaea/app/run | cut -d' ' -f5-")
+
+<h4>Supervisor</h4>
+$:render("supervisorctl status")
+
+$def render_status(cmd):
+    $ status = {}
+    $for line in ssh(cmd).stdout.rpartition("\n")[0].splitlines():
+        $ key, _, value = line.partition("=")
+        $ status[key] = value
+    <pre style=font-size:.8em>$status["ActiveState"]</pre>
+
+<h3>Nginx</h3>
+$:render_status("systemctl --no-pager show nginx")
+
+<h3>Tmux</h3>
+$:render("tmux list-sessions")
+$:render("tmux list-windows -t 0")
+
+<h3>System</h3>
+$:render("df -ht ext4")
+$:render("grep 'Invalid user' /var/log/auth.log | cut -d' ' -f8 | sort | uniq -c | sort -r | head")
+
+$# <p>Last updated: $d.get("updated")</p>
+$# <form method=post action=/sites/machines/$machine["name"]/update>
+$# <div class=buttons><button>Update System</button></div>
+$# </form>
+$# 
+$# $if d.get("supervisor"):
+$#     <p>Supervisor: $d["supervisor"]</p>
+$# $else:
+$#     <form method=post action=/sites/machines/$machine["name"]/builds>
+$#     <input type=hidden name=program value=supervisor>
+$#     <div class=buttons><button>Install Supervisor</button></div>
+$#     </form>
+$# 
+$# $if d.get("nginx"):
+$#     <p>Nginx: $d["nginx"]</p>
+$# $else:
+$#     <form method=post action=/sites/machines/$machine["name"]/builds>
+$#     <input type=hidden name=program value=nginx>
+$#     <div class=buttons><button>Install Nginx</button></div>
+$#     </form>
+$# 
+$# $if d.get("tor"):
+$#     <p>Tor: $d["tor"]</p>
+$# $else:
+$#     <form method=post action=/sites/machines/$machine["name"]/builds>
+$#     <input type=hidden name=program value=tor>
+$#     <div class=buttons><button>Install Tor</button></div>
+$#     </form>
+$# 
+$# $if d.get("python"):
+$#     <p>Python: $d["python"]</p>
+$# $else:
+$#     <form method=post action=/sites/machines/$machine["name"]/builds>
+$#     <input type=hidden name=program value=python>
+$#     <div class=buttons><button>Install Python</button></div>
+$#     </form>
+$# 
+$# <hr>
+$# 
+$# $if d.get("canopy"):
+$#     <p>Canopy: $d["canopy"]</p>
+$#     <h4>Identities</h4>
+$#     $# <ul id=domains>
+$#     $# $for domain in domains:
+$#     $#     <li><a href=/sites/domains/$domain["name"]>$domain["name"]</a><br>
+$#     $#     <small>$domain</small></li>
+$#     $# </ul>
+$#     <form method=post>
+$#     <label><small>Address</small><br>
+$#     <label class=bounding><input type=radio> <input type=text
+$#     name=subdomain>&thinsp;.&thinsp;<select name=name>
+$#     $# $for domain, expiration in domains:
+$#     $#     <option value="$domain">$domain</option>
+$#     </select></label></label>
+$#     <label class=bounding><input type=radio> onion</label>
+$#     <div class=buttons><button>Add Identity</button></div>
+$#     </form>
+$# $else:
+$#     <form method=post action=/sites/machines/$machine["name"]/builds>
+$#     <input type=hidden name=program value=canopy>
+$#     <div class=buttons><button>Install Canopy</button></div>
+$#     </form>
