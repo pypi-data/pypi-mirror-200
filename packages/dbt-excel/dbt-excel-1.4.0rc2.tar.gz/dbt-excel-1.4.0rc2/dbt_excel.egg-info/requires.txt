@@ -1,0 +1,6 @@
+dbt-duckdb~=1.4.0
+pandas<2.0.0,>=1.0.0
+
+[glue]
+boto3
+mypy-boto3-glue
