@@ -1,0 +1,30 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Lokalitet er allerede konfigureret"
+        },
+        "error": {
+            "cannot_connect": "Forbindelse mislykkedes",
+            "invalid_api_key": "Ugyldig API-n\u00f8gle"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "API-n\u00f8gle",
+                    "latitude": "Breddegrad",
+                    "longitude": "L\u00e6ngdegrad",
+                    "mode": "Tilstand"
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "mode": "Tilstand"
+                }
+            }
+        }
+    }
+}

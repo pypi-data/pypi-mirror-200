@@ -1,0 +1,28 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Seade on juba h\u00e4\u00e4lestatud",
+            "connection_error_during_import": "Yaml-konfiguratsiooni importimisel tekkis \u00fchendusviga"
+        },
+        "error": {
+            "connection_error": "\u00dchendamine nurjus"
+        },
+        "flow_title": "Nextcloud",
+        "step": {
+            "user": {
+                "data": {
+                    "password": "Salas\u00f5na",
+                    "url": "URL",
+                    "username": "Kasutajanimi"
+                },
+                "description": "Sisesta oma Nextcloudi teave."
+            }
+        }
+    },
+    "issues": {
+        "deprecated_yaml": {
+            "description": "Nextcloudi konfigureerimine YAML-i abil on aegunud. \n\n Olemasolev YAML-i konfiguratsioon imporditi kasutajaliidesesse automaatselt. \n\n Eemalda selle probleemi lahendamiseks YAML-i konfiguratsioon \"nextcloud\" failist configuration.yaml ja taask\u00e4ivita Home Assistant.",
+            "title": "Nextcloudi YAML-i konfiguratsioon on aegunud"
+        }
+    }
+}

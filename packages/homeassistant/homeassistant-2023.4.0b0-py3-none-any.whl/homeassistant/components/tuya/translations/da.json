@@ -1,0 +1,31 @@
+{
+    "config": {
+        "error": {
+            "invalid_auth": "Ugyldig godkendelse"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "password": "Adgangskode"
+                }
+            }
+        }
+    },
+    "entity": {
+        "select": {
+            "light_mode": {
+                "state": {
+                    "none": "Fra"
+                }
+            },
+            "relay_status": {
+                "state": {
+                    "off": "Fra",
+                    "on": "Til",
+                    "power_off": "Fra",
+                    "power_on": "Til"
+                }
+            }
+        }
+    }
+}
