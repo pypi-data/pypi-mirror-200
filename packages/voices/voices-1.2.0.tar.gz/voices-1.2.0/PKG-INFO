@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: voices
+Version: 1.2.0
+Summary: 适用于 diffsinger 的多功能工具集
+License: MIT
+Author: Well404
+Author-email: well_404@outlook.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: PyAudio (>=0.2.13,<0.3.0)
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: importlib-metadata (>=6.0.0,<7.0.0)
+Requires-Dist: librosa (>=0.10.0,<0.11.0)
+Requires-Dist: matplotlib (>=3.7.0,<4.0.0)
+Requires-Dist: noneprompt (>=0.1.7,<0.2.0)
+Requires-Dist: pypinyin (>=0.48.0,<0.49.0)
+Requires-Dist: soundfile (>=0.12.1,<0.13.0)
+Project-URL: documentation, https://github.com/Well2333/VoiceS/blob/main/README.md
+Project-URL: homepage, https://github.com/well2333/VoiceS
+Project-URL: repository, https://github.com/well2333/VoiceS
+Description-Content-Type: text/markdown
+
+# VoiceS
+
+适用于 diffsinger 的多功能工具集
+
+## 功能与计划
+
+您可以点击对应的功能名查看对应的文档:
+
+- [x] [[slicer]适用于 .ass 的字幕切片工具](docs/字幕切片工具.md)
+- [x] [[uta]openutau 转 .ass(k轴) 工具](docs/utau转k轴工具.md)
+
