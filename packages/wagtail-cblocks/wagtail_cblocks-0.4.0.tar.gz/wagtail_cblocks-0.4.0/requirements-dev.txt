@@ -1,0 +1,4 @@
+-e .[factories]
+-r requirements-test.txt
+
+pre-commit

@@ -1,0 +1,33 @@
+[build-system]
+requires = ['setuptools >=45', 'wheel', 'setuptools_scm[toml] >=6.2']
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools_scm]
+
+[tool.black]
+line-length = 80
+skip-string-normalization = true
+extend-exclude = '/migrations/'
+
+[tool.isort]
+profile = 'black'
+line_length = 80
+known_django = 'django'
+known_wagtail = 'wagtail'
+sections = [
+  'FUTURE', 'STDLIB', 'DJANGO', 'WAGTAIL', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER'
+]
+skip_glob = '**/migrations/*.py'
+
+[tool.pytest.ini_options]
+pythonpath = '.'
+testpaths = ['tests']
+markers = ['wip: mark a test as a work in progress']
+DJANGO_SETTINGS_MODULE = 'tests.settings'
+
+[tool.coverage.run]
+branch = true
+source = ['wagtail_cblocks']
+
+[tool.coverage.report]
+exclude_lines = ['# pragma: no cover', 'raise NotImplementedError']

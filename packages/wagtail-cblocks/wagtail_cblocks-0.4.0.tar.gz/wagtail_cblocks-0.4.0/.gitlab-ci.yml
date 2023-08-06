@@ -1,0 +1,47 @@
+variables:
+  PIP_CACHE_DIR: ${CI_PROJECT_DIR}/.cache/pip
+
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - python -V
+  - pip install --upgrade pip
+  - pip install nox
+
+test-py37:
+  image: python:3.7
+  script:
+    - nox
+
+test-py38:
+  image: python:3.8
+  script:
+    - nox
+
+test-py39:
+  image: python:3.9
+  script:
+    - nox
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+  coverage: '/TOTAL *(?:\d+) *(?:\d+) *(?:\d+) *(?:\d+) *(\d+%)/'
+
+test-py310:
+  image: python:3.10
+  script:
+    - nox
+
+lint:
+  image: python:3.9
+  variables:
+    PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
+  cache:
+    paths:
+      - ${PRE_COMMIT_HOME}
+  script:
+    - nox -s lint

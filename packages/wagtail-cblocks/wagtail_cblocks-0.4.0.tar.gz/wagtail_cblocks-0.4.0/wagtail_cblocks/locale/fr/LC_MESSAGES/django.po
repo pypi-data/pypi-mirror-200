@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wagtail-cblocks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-16 11:00-0500\n"
+"PO-Revision-Date: 2021-08-16 18:01+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: blocks.py:41
+msgid "Style"
+msgstr "Style"
+
+#: blocks.py:96
+#, python-format
+msgid "Level %(level)d heading"
+msgstr "Titre de niveau %(level)d"
+
+#: blocks.py:117 blocks.py:126
+msgid "Title"
+msgstr "Titre"
+
+#: blocks.py:121
+msgid "Level"
+msgstr "Niveau"
+
+#: blocks.py:145
+msgid "Paragraph"
+msgstr "Paragraphe"
+
+#: blocks.py:159
+msgid "Page"
+msgstr "Page"
+
+#: blocks.py:161
+msgid "Document"
+msgstr "Document"
+
+#: blocks.py:162 blocks.py:244 blocks.py:250
+msgid "Image"
+msgstr "Image"
+
+#: blocks.py:163
+msgid "External link"
+msgstr "Lien externe"
+
+#: blocks.py:165
+msgid "Anchor link"
+msgstr "Lien d'ancrage"
+
+#: blocks.py:168
+msgid "An anchor in the current page, for example: <code>#target-id</code>."
+msgstr "Une ancre dans la page courante, par exemple : <code>#id-cible</code>."
+
+#: blocks.py:204
+msgid "Link"
+msgstr "Lien"
+
+#: blocks.py:226
+msgid "Text"
+msgstr "Texte"
+
+#: blocks.py:231
+msgid "Button"
+msgstr "Bouton"
+
+#: blocks.py:245
+msgid "Caption"
+msgstr "Légende"
+
+#: blocks.py:258
+msgid "Left"
+msgstr "Gauche"
+
+#: blocks.py:259
+msgid "Center"
+msgstr "Milieu"
+
+#: blocks.py:260
+msgid "Right"
+msgstr "Droite"
+
+#: blocks.py:274
+msgid "Horizontal alignment"
+msgstr "Alignement horizontal"
+
+#: blocks.py:279 blocks.py:295
+msgid "Columns"
+msgstr "Colonnes"

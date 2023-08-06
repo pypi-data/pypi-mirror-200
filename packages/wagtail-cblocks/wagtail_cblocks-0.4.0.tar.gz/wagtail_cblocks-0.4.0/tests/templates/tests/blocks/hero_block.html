@@ -1,0 +1,8 @@
+{% load wagtailcore_tags %}
+<div class="{{ css_class }} px-4 py-5">
+  <div class="container">
+    {% for block in value.blocks %}
+      {% include_block block %}
+    {% endfor %}
+  </div>
+</div>
