@@ -1,0 +1,19 @@
+rich
+rich_argparse
+tomlkit
+
+[:python_version < "3.8"]
+importlib_metadata>=1.6.0
+
+[dev]
+build
+pytest
+pytest-mock
+pytest-cov
+codecov
+pylint
+black
+wheel
+twine
+rope
+invoke
