@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: feboun
+Version: 0.0.4
+Summary: An amazing sample package!
+Author-email: Azat Y <steels-06.gasbag@icloud.com>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Project-URL: Home, https://fe.azat.cc
+
+# FE-Project
+
+## Added Web Interface for downloading data files
+
+![web-ui](assets/web.png)
+
+to start the server
+```bash
+uvicorn feboun.web.app:app
+```
