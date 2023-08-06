@@ -1,0 +1,24 @@
+*.o
+*.pyc
+*.pyo
+*.tmp
+.*.swp
+.*.swo
+*~
+.DS_Store
+*.egg-info/
+dist/
+.tox/
+__pycache__/
+
+/future-*.egg/
+
+# Ignore user-specific pycharm settings
+.idea/workspace.xml
+.idea/tasks.xml
+
+.vscode/
+
+/build/
+.venv/
+.python-version
