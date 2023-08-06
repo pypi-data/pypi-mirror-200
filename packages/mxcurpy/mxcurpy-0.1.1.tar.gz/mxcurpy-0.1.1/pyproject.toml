@@ -1,0 +1,15 @@
+[tool.poetry]
+authors = ["Héctor Iván Patricio Moreno <hectorivanpatriciomoreno@gmail.com>"]
+description = "Compute CURP and RFC for Mexican Citizens"
+license = "MIT"
+name = "mxcurpy"
+version = "0.1.1"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
