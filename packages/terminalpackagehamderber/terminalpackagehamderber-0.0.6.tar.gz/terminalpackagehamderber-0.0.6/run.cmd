@@ -1,0 +1,1 @@
+python %~dp0terminalpackagehamderber\\src\\main.py
