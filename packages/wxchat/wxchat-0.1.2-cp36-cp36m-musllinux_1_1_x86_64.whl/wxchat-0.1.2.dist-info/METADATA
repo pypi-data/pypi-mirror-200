@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: wxchat
+Version: 0.1.2
+Summary: weixin robot sdk
+Home-page: UNKNOWN
+Author: kevin
+Author-email: haoyiqiang@malimali.tech
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: pypng
+Requires-Dist: pyqrcode
+Requires-Dist: xmltodict (==0.13.0)
+Provides-Extra: test
+Requires-Dist: pytest (>=6.0) ; extra == 'test'
+
+微信机器人sdk
+
