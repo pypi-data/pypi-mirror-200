@@ -1,0 +1,44 @@
+name: Run Pytest
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: ubuntu
+    services:
+      arango:
+        image: arangodb/arangodb:latest
+        ports:
+          - 8529:8529
+        env:
+          ARANGO_NO_AUTH: 1
+    steps:
+      - run: apt-get update; apt-get install curl python3-pip -y
+      - name: Wait for ArangoDB to start
+        run: |
+          while ! curl -sSf http://$ARANGO_HOST:$ARANGO_PORT/_api/version; do
+            sleep 1
+          done
+        env:
+          ARANGO_HOST: arango
+          ARANGO_PORT: 8529
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install ./
+
+      - name: Run Pytest
+        run: pytest tests/
+        env:
+          ARANGO_HOST: arango
+          ARANGO_PORT: 8529
