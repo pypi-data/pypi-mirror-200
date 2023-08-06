@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: lbrlabs_pulumiservice
+Version: 0.0.1a1680369404
+Summary: A Pulumi provider for retrieving the thumbprint of a remote certificate
+Home-page: https://lbrlabs.com
+License: Apache-2.0
+Project-URL: Repository, https://github.com/lbrlabs/pulumi-remotecertificate/
+Keywords: pulumi provider remote certificate thumbprint
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Pulumi Remote Certificate Provider
+
+This is a WIP provider to store the certificate thumbprint of a remote website
