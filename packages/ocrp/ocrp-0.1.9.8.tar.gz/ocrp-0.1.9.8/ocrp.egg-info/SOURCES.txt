@@ -1,0 +1,15 @@
+setup.py
+ocrp/__init__.py
+ocrp/__version__.py
+ocrp.egg-info/PKG-INFO
+ocrp.egg-info/SOURCES.txt
+ocrp.egg-info/dependency_links.txt
+ocrp.egg-info/top_level.txt
+ocrp/aws/__init__.py
+ocrp/aws/call_textract.py
+ocrp/aws/format_helper.py
+ocrp/aws/paragraph_detector.py
+ocrp/aws/trp.py
+ocrp/azure/__init__.py
+ocrp/azure/azp.py
+test/test.py
