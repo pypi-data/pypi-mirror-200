@@ -1,0 +1,67 @@
+=============
+Siris Scraper
+=============
+
+This is a non-official scraper for statistical data from the Skolverket's (https://www.skolverket.se/skolutveckling/statistik/)[SIRIS database]  built on top of the `Statscraper package <https://github.com/jplusplus/statscraper>`. It lets you interact with the stat export interface in a pythonic way.
+
+Install
+-------
+
+  pip install siris_scraper
+
+
+Example usage
+-------------
+
+.. code:: python
+
+  from siris.scraper import SirisScraper
+
+  # Init scraper
+  scraper = SirisScraper()
+
+  # List all schooltypes
+  skolformer = scraper.items
+
+  # Select a dataset
+  dataset = skolformer.get_by_label(u"Grundskolan")\
+    .items.get_by_label("Kommunnivå")\
+    .items.get_by_label("Personal")\
+    .items.get_by_label("Personalstatistik")
+
+
+  # Make a query
+  res = dataset.fetch()  # Get latest available data
+  #res = dataset.fetch({"period": "2015"})  # Get data for a given period
+  #res = dataset.fetch({"period": "*"})  # Get data all periods
+
+  # List all avilable periods
+  print(dataset.periods)
+
+  # Use the result
+  # ...in Python Pandas for example
+  dataframe = res.pandas
+
+
+Develop
+-------
+
+Set up:
+
+  pip install -r requirements.txt
+
+Run tests:
+
+  make tests
+
+Deploy
+------
+
+To pypi:
+
+  python3 deploy_to_pypi.py
+
+Todo
+----
+
+- Handle filtering in export ("Begränsa träfflista")
