@@ -1,0 +1,15 @@
+[console_scripts]
+ebrctl = networking_mlnx.eswitchd.cli.ebrctl:main
+eswitchd = networking_mlnx.eswitchd.eswitch_daemon:main
+neutron-mlnx-agent = networking_mlnx.cmd.eventlet.agents.mlnx_agent:main
+
+[neutron.db.alembic_migrations]
+networking-mlnx = networking_mlnx.db.migration:alembic_migrations
+
+[neutron.interface_drivers]
+ipoib = networking_mlnx.linux.interface_drivers.interface:IPoIBInterfaceDriver
+multi = networking_mlnx.linux.interface_drivers.interface:MultiInterfaceDriver
+
+[neutron.ml2.mechanism_drivers]
+mlnx_infiniband = networking_mlnx.plugins.ml2.drivers.mlnx.mech_mlnx:MlnxMechanismDriver
+mlnx_sdn_assist = networking_mlnx.plugins.ml2.drivers.sdn.sdn_mech_driver:SDNMechanismDriver
