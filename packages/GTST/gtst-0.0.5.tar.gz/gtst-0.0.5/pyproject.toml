@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "GTST"
+version = "0.0.5"
+authors = [
+  { name="Ragnar L. Gudmundarson", email="ragnarlevigud@gmail.com" },
+  { name="Gareth W. Peters" }
+]
+description = "A package for comparing two-sample of graphs"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "scipy>=1.8.0",
+  "scikit-learn>=1.0.2",
+  "networkx>=2.7.1",
+  "numpy>=1.24.0",
+  "tqdm>=4.63.1"
+]
+
+[tool.hatch.build]
+exclude = [
+  ".*",
+  "paper",
+  "TEST*"
+]
