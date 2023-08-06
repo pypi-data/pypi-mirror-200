@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunknbdefense_jupyter=self.webpackChunknbdefense_jupyter||[]).push([[654,355],{355:(e,u,t)=>{t.r(u),t.d(u,{default:()=>n});var r=t(271);const n=e=>{let u=(0,r.useRef)(e);return(0,r.useLayoutEffect)((()=>{u.current=e})),(0,r.useMemo)((()=>(...e)=>{const{current:t}=u;return t(...e)}),[])}}}]);
