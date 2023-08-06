@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: keras-tuner
+Version: 1.3.4
+Summary: A Hyperparameter Tuning Library for Keras
+Home-page: https://github.com/keras-team/keras-tuner
+Author: The KerasTuner authors
+License: Apache License 2.0
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+License-File: LICENSE
+Requires-Dist: packaging
+Requires-Dist: tensorflow (>=2.0)
+Requires-Dist: requests
+Requires-Dist: kt-legacy
+Requires-Dist: protobuf (<=3.20.3)
+Provides-Extra: bayesian
+Requires-Dist: scikit-learn ; extra == 'bayesian'
+Requires-Dist: scipy ; extra == 'bayesian'
+Provides-Extra: build
+Requires-Dist: namex ; extra == 'build'
+Requires-Dist: build ; extra == 'build'
+Provides-Extra: tests
+Requires-Dist: black ; extra == 'tests'
+Requires-Dist: flake8 ; extra == 'tests'
+Requires-Dist: isort ; extra == 'tests'
+Requires-Dist: ipython ; extra == 'tests'
+Requires-Dist: pandas ; extra == 'tests'
+Requires-Dist: portpicker ; extra == 'tests'
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: pytest-xdist ; extra == 'tests'
+Requires-Dist: namex ; extra == 'tests'
+Requires-Dist: scikit-learn ; extra == 'tests'
+Requires-Dist: scipy ; extra == 'tests'
+
