@@ -1,0 +1,24 @@
+[package]
+name = "zen-vm"
+version = "0.1.2"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+ahash = "0.8.3"
+bumpalo = "3.12.0"
+chrono = "0.4.24"
+hashbrown = { version = "0.13.2", features = ["bumpalo"] }
+humantime = "2.1.0"
+fastrand = "1.9.0"
+once_cell = "1.17.1"
+serde_json = { version = "1.0.95", features = ["arbitrary_precision"] }
+thiserror = "1.0.40"
+rust_decimal = { version = "1.29.1", features = ["maths-nopanic"] }
+rust_decimal_macros = "1.29.1"
+zen-parser = { path = "../zen-parser" }
+
+[[bench]]
+harness = false
+name = "isolate"
