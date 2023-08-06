@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling","garbledave_package"]
+
+build-backend = "hatchling.build"
+
+[project]
+name = "sqlitedave_package"
+version = "1.2.6"
+dependencies = [
+  'garbledave_package >= 1.0.0'
+]
+authors = [
+  { name="Dave Skura", email="dskura@gmail.com" },
+]
+description = "A wrapper for simplified sqlite usage using sqlite3."
+readme = "README.md"
+requires-python = ">=3.7"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/daveskura/sqlitedave"
+"Author Linkedin" = "https://www.linkedin.com/in/2166883"
