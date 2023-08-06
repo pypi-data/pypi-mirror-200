@@ -1,0 +1,1 @@
+Library ini dapat digunakan untuk menghitung menggunakan rumus-rumus fisika SMA dari kelas 10, kelas 11 hingga kelas 12
