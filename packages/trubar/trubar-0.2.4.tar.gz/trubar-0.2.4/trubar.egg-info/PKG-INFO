@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: trubar
+Version: 0.2.4
+Summary: Utility for translation of Python sources
+Author: Janez Demsar
+Author-email: janez.demsar@fri.uni-lj.si
+Project-URL: Documentation, https://janezd.github.io/trubar
+Project-URL: Source code, https://github.com/janezd/trubar
+Project-URL: Bug tracker, https://github.com/janezd/trubar/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Localization
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: docs
+License-File: LICENSE
+
+A tool for localization of Python messages via translating source files.
