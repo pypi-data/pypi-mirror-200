@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: komut
+Version: 0.1.0
+Summary: A High-Magic CLI Framework
+Home-page: https://github.com/alpernebbi/komut
+Author: Alper Nebi Yasak
+Author-email: alpernebiyasak@gmail.com
+License: GPL2+
+Keywords: cli command line interface
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+=====
+Komut
+=====
+
+Komut is a high-magic CLI framework.
+
+This release is the initial spin-off from the primary user it was
+developed under. It needs design adjustments, refactoring, testing,
+documentation. Those will come later. For now, this is not exactly fit
+for production use.
+
+License
+=======
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>
