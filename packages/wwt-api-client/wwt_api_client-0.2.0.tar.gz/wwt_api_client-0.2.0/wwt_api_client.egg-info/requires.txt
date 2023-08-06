@@ -1,0 +1,15 @@
+requests
+wwt_data_formats
+
+[docs]
+astropy-sphinx-theme
+numpydoc
+sphinx
+sphinx-automodapi
+
+[test]
+httpretty
+mock
+pytest
+pytest-cov
+pytest-mock
