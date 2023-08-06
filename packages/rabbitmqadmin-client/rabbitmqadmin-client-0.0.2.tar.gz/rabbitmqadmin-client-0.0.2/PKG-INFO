@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: rabbitmqadmin-client
+Version: 0.0.2
+Summary: A simple wrapper around rabbitmq's rabbitmqadmin CLI, and the CLI itself
+Author-email: "R. Bertossa" <rbertoss@sissa.it>
+Project-URL: Homepage, https://github.com/rikigigi/rabbitmqadmin-client
+Project-URL: Bug Tracker, https://github.com/rikigigi/rabbitmqadmin-client/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# rabbitmqadmin
+
+wrapper around rabbitmqadmin official python CLI implementation.
+
+Please see [the official distribution](https://github.com/rabbitmq/rabbitmq-server/tree/main/deps/rabbitmq_management)
+
+# examples
+
+see the [examples](examples/) folder

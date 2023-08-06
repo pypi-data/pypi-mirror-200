@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rabbitmqadmin-client"
+version = "0.0.2"
+authors = [
+  { name="R. Bertossa", email="rbertoss@sissa.it" },
+]
+description = "A simple wrapper around rabbitmq's rabbitmqadmin CLI, and the CLI itself"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rikigigi/rabbitmqadmin-client"
+"Bug Tracker" = "https://github.com/rikigigi/rabbitmqadmin-client/issues"
+
+[project.scripts]
+rabbitmqadmin = "rabbitmqadmin.upstream.rabbitmqadmin:main"
+
