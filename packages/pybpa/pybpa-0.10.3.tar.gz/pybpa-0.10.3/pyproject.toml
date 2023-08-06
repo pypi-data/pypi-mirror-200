@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pybpa"
+version = "0.10.3"
+authors = [{name="Milk", email="jeremychenlk@qq.com"},]
+description = "A BPA file(dat/swi) resolver. The author wish to thank ZHU Siting for her contribution to the project. Her work has advanced the project's resolution of real industrial systems."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Kayya886/pybpa"
+"Bug Tracker" = "https://github.com/Kayya886/pybpa/issues"
+
+#[options]
+#package_dir = 'src'
+#
+#
+#[options.packages.find]
+#where = 'src'
