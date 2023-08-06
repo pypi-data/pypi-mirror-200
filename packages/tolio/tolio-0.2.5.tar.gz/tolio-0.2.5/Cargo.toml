@@ -1,0 +1,18 @@
+[package]
+name = "tolio"
+version = "0.2.5"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "tolio"
+path = "src/rust/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+hashbrown = "*"
+pyo3 = { version = "0.18.1", features = ["extension-module", "hashbrown"] }
+rusqlite = { version = "0.28.0", features = ["bundled"] }
+csv = "1.1"
+serde = {version = "1", features = ["derive"]}
+either = "1.8.1"

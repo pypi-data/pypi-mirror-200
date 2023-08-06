@@ -1,0 +1,11 @@
+build:
+    root_path: './'
+    environment:
+        python:
+            version: 3.7.1
+            virtualenv: true
+    dependencies:
+        before:
+            -
+                command: export PATH="$HOME/.cargo/envbin:$PATH" ; curl https://sh.rustup.rs -sSf | sh -s -- -y ; source "$HOME/.cargo/env"
+
