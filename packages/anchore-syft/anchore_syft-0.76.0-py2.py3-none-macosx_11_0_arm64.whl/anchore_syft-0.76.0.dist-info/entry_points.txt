@@ -1,0 +1,3 @@
+[console_scripts]
+anchore_syft = anchore_syft:syft
+syft = anchore_syft:syft
