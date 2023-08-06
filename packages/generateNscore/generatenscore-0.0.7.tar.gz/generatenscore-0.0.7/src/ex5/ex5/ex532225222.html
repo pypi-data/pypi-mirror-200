@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework ex532225222 PARKAEV CHULHAN OHAYRIKSOTDIN
+(철수박)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.prePrompt {float: left; margin: 20px   0px 20px 10px; padding: 10px   5px 10px   5px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: 30px;              text-align: left; border: 1px solid powderblue; border-right: none; color: #700;}
+.preBody     {float: left; margin: 20px 10px 20px   0px; padding: 10px 10px 10px 10px; background: #efc; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.preChoice  {float: left; margin: 0px 10px 20px 10px; padding: 10px; background: #fff; font-family: bold Courier New; font-size: 14px; line-height: 0.5 em; width: text-content; text-align: left; border: 1px solid powderblue; }
+.btn             {align-items: center; appearance: none; background-color: #eef; border-radius: 24px; border-style: none; box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0; box-sizing: border-box; color: #3c40e3; cursor: pointer; display: inline-flex; fill: currentcolor; font-family: "Google Sans",Roboto,Arial,sans-serif; font-size: 16px; font-weight: 500; height: 48px; justify-content: center; letter-spacing: .25px; line-height: normal; max-width: 100%; overflow: visible; padding: 2px 24px; margin: 5px; position: relative; text-align: center; text-transform: none; transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms; user-select: none; -webkit-user-select: none; touch-action: manipulation; width: auto; will-change: transform,opacity; z-index: 0;}
+.btn2           {align-items: center; background-clip: padding-box; background-color: #fa6400; border: 1px solid transparent; border-radius: .25rem; box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px 0; box-sizing: border-box; color: #fff; cursor: pointer; display: inline-flex; font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 20px; font-weight: 600; justify-content: center; line-height: 1.25; margin: 0; min-height: 3rem; padding: calc(.875rem - 1px) calc(1.5rem - 1px); position: relative; text-decoration: none; transition: all 250ms; user-select: none; -webkit-user-select: none; touch-action: manipulation; vertical-align: baseline; width: auto;}
+</style>
+</head>
+<body style="word-break:keep-all; display: block; font-family: malgun;  font-size: 18px;">
+<center><h4>Homework ex532225222 PARKAEV CHULHAN OHAYRIKSOTDIN
+(철수박)</h4></center><ul style="font-size: 14px">
+<li>객관식 질문의 답은 정수로 답하시오. For multiple-choice questions, answer with an integer.</li>
+<li>단답형 질문의 숫자 답은, 가장 중요한 3개의 숫자로 반올림하시오. For numerical answer to short questions, round to the three most significant digits.</li>
+<li>요청에 따라 숫자를 문자열로 제출해는 경우, 양쪽에 따옴표를 붙이시오. If you are asked to submit a number as a string, put quotes around it.</li></ul>
+<table>
+<tbody>
+<tr>
+<td ><button onclick="saveTextAsFile()" class="btn2">Save<br>Answers<br>to File</button></td>
+<td><textarea id="inputTextToSave" cols="155" rows="5" style="font-family: malgun;  font-size: 16px; padding: 5px  0px  5px  20px; ">
+나, PARKAEV CHULHAN OHAYRIKSOTDIN
+(철수박)은(는) 위 내용을 읽고 아래 답을 직접 작성했음을 확인합니다. I, PARKAEV CHULHAN OHAYRIKSOTDIN
+(철수박), confirm that I read the notes above and wrote the answer myself below.
+--------------------------------------------------------------------------------------------------------------------
+1: 
+2: 
+3: 
+4: </textarea></td></tr></tbody></table><input type="button" onclick="javascript:display_Q0();" class= "btn" value="Q-1"  />
+<input type="button" onclick="javascript:display_Q1();" class= "btn" value="Q-2"  />
+<input type="button" onclick="javascript:display_Q2();" class= "btn" value="Q-3"  />
+<input type="button" onclick="javascript:display_Q3();" class= "btn" value="Q-4"  />
+<hr> <div id="Qs" style="word-break:keep-all; padding: 5px 20px 10px 20px; background-color: #eee; border: 1px solid #999; display: block; font-family: malgun;  font-size: 18px;"></div>
+<canvas id="canvas" width="800" height="0"></canvas>
+<script type="text/javascript">
+function saveTextAsFile() {
+  var textToSave = document.getElementById("inputTextToSave").value;
+  var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+  var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+  var fileNameToSaveAs = "ex532225222.txt"
+
+  var downloadLink = document.createElement("a");
+  downloadLink.download = fileNameToSaveAs;
+  downloadLink.innerHTML = "Download File";
+  downloadLink.href = textToSaveAsURL;
+  downloadLink.onclick = destroyClickedElement;
+  downloadLink.style.display = "none";
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+}
+
+function addAnswers2Textarea() {
+  const textarea = document.getElementById("inputTextToSave");
+  var text = textarea.value;
+  const searchTerm = "--------------------------------------------------------------------------------------------------------------------";
+  const indexOfFirst = text.indexOf(searchTerm);
+  var newText = text.slice(0, indexOfFirst+searchTerm.length);
+  for (let q=0; q<=Qmax; q++) {
+    if (answers[q] == null) {newText += String.fromCharCode(13)+(q+1).toString()+": ";}
+    else {newText += String.fromCharCode(13)+(q+1).toString()+": "+(answers[q]+1).toString();}
+  }
+  textarea.value = newText;
+}
+
+function handleClick(myRadio) {
+  answers[parseInt(myRadio.name.slice(1))]=parseInt(myRadio.value);
+  addAnswers2Textarea();
+}
+
+function setCheckedRadio(q) {
+  var radios = document.getElementsByName('Q'+q.toString());
+  //for (let j=0; j<radios.length; j++) {radios[j].removeAttribute("checked");}
+  if (radios.length > 0 && answers[q] != null) {radios[answers[q]].setAttribute("checked", true);}
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+<script type="application/javascript">
+function display_Q0() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>1.</strong></font> Submit the acceleration, in unit of m/s², of an object of 9 kg when the force of 15 N is acted upon.<br> <br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="①" name="Q0" onclick="handleClick(this);" value="0"><label for="①"> 3.67</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="②" name="Q0" onclick="handleClick(this);" value="1"><label for="②"> 8.67</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="③" name="Q0" onclick="handleClick(this);" value="2"><label for="③"> 2.67</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="④" name="Q0" onclick="handleClick(this);" value="3"><label for="④"> 1.67</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="④" name="Q0" onclick="handleClick(this);" value="4"><label for="④"> None of the above</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="⑤" name="Q0" onclick="handleClick(this);" value="5"><label for="⑤"> All of the above</label>';
+setCheckedRadio(0);
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q1() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>2.</strong></font> The figure below shows a vector, in red, with θ = 9° and a vector magnitude of 3. Submit the x coordinate component. <br> <br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="①" name="Q1" onclick="handleClick(this);" value="0"><label for="①"> 2.16</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="②" name="Q1" onclick="handleClick(this);" value="1"><label for="②"> 2.96</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="③" name="Q1" onclick="handleClick(this);" value="2"><label for="③"> 2.06</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="④" name="Q1" onclick="handleClick(this);" value="3"><label for="④"> 2.86</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="④" name="Q1" onclick="handleClick(this);" value="4"><label for="④"> None of the above</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="⑤" name="Q1" onclick="handleClick(this);" value="5"><label for="⑤"> All of the above</label>';
+setCheckedRadio(1);
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+function lineArrow(context, fromx, fromy, tox, toy, color) {
+var headlen = 7;
+var dx = tox - fromx;
+var dy = toy - fromy;
+var angle = Math.atan2(dy, dx);
+context.strokeStyle = color;
+context.moveTo(fromx, fromy);
+context.lineTo(tox, toy);
+context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+context.moveTo(tox, toy);
+context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+context.stroke();
+}
+
+var argsFromMain=null;
+function init(prms) {argsFromMain=prms;}
+//init();
+if (argsFromMain == null) {argsFromMain=[30, 10];}
+
+const cXo=350.5; const cYo=250.5;
+lineArrow(ctx, cXo-10, cYo, cXo+200, cYo, "#000");
+ctx.beginPath();
+lineArrow(ctx, cXo, cYo+10, cXo, cYo-200, "#000");
+ctx.font="normal 18px Arial";
+ctx.fillStyle="black";
+ctx.fillText("x", cXo+210, cYo+5);
+ctx.font="normal 18px Arial";
+ctx.fillStyle="black";
+ctx.fillText("y", cXo-2, cYo-210);
+const ang=-Math.PI*argsFromMain[0]/180;
+const mag=argsFromMain[1]*20;
+ctx.beginPath();
+lineArrow(ctx, cXo, cYo, cXo+mag*Math.cos(ang), cYo+mag*Math.sin(ang), "#f00");
+ctx.beginPath();
+ctx.strokeStyle="black"; ctx.arc(cXo, cYo, 50, 2*Math.PI+ang, 0);
+ctx.stroke(); ctx.font="normal 18px Arial";
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.fillText("θ", cXo+35, cYo-5);
+}
+function display_Q2() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>3.</strong></font> Submit the sum of the two integers 19 and 29.<br> <br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="①" name="Q2" onclick="handleClick(this);" value="0"><label for="①"> 48</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="②" name="Q2" onclick="handleClick(this);" value="1"><label for="②"> 432</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="③" name="Q2" onclick="handleClick(this);" value="2"><label for="③"> 144</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="④" name="Q2" onclick="handleClick(this);" value="3"><label for="④"> 16</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="④" name="Q2" onclick="handleClick(this);" value="4"><label for="④"> None of the above</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="⑤" name="Q2" onclick="handleClick(this);" value="5"><label for="⑤"> All of the above</label>';
+setCheckedRadio(2);
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=0;
+}
+function display_Q3() {
+document.getElementById("Qs").innerHTML='<font color=red><strong>4.</strong></font> The figure below shows a vector, in red, with θ = 80° and a vector magnitude of 4. Submit the y coordinate component. <br><br> <br><br> <br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="①" name="Q3" onclick="handleClick(this);" value="0"><label for="①"> 0.0394</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="②" name="Q3" onclick="handleClick(this);" value="1"><label for="②"> 3940</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="③" name="Q3" onclick="handleClick(this);" value="2"><label for="③"> 394</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="④" name="Q3" onclick="handleClick(this);" value="3"><label for="④"> 0.394</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="④" name="Q3" onclick="handleClick(this);" value="4"><label for="④"> None of the above</label><br><input type="radio" style="height:20px; width:20px; vertical-align: middle; border-radius: 50%; bckground: white;" id="⑤" name="Q3" onclick="handleClick(this);" value="5"><label for="⑤"> All of the above</label>';
+setCheckedRadio(3);
+
+var cnvs = document.getElementById("canvas");
+var ctx = cnvs.getContext("2d");
+ctx.clearRect(0,0, cnvs.width, cnvs.height);
+cnvs.height=300;
+function lineArrow(context, fromx, fromy, tox, toy, color) {
+var headlen = 7;
+var dx = tox - fromx;
+var dy = toy - fromy;
+var angle = Math.atan2(dy, dx);
+context.strokeStyle = color;
+context.moveTo(fromx, fromy);
+context.lineTo(tox, toy);
+context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+context.moveTo(tox, toy);
+context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+context.stroke();
+}
+
+var argsFromMain=null;
+function init(prms) {argsFromMain=prms;}
+init([80, 4]);
+if (argsFromMain == null) {argsFromMain=[30, 10];}
+
+const cXo=350.5; const cYo=250.5;
+lineArrow(ctx, cXo-10, cYo, cXo+200, cYo, "#000");
+ctx.beginPath();
+lineArrow(ctx, cXo, cYo+10, cXo, cYo-200, "#000");
+ctx.font="normal 18px Arial";
+ctx.fillStyle="black";
+ctx.fillText("x", cXo+210, cYo+5);
+ctx.font="normal 18px Arial";
+ctx.fillStyle="black";
+ctx.fillText("y", cXo-2, cYo-210);
+const ang=-Math.PI*argsFromMain[0]/180;
+const mag=argsFromMain[1]*20;
+ctx.beginPath();
+lineArrow(ctx, cXo, cYo, cXo+mag*Math.cos(ang), cYo+mag*Math.sin(ang), "#f00");
+ctx.beginPath();
+ctx.strokeStyle="black"; ctx.arc(cXo, cYo, 50, 2*Math.PI+ang, 0);
+ctx.stroke(); ctx.font="normal 18px Arial";
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.fillText("θ", cXo+35, cYo-5);
+}
+
+document.onkeydown = function (e) {
+  if (e.altKey && e.keyCode == 39) {
+    Qnumber += 1;
+    if (Qnumber>Qmax) {Qnumber = 0};
+    eval("display_Q"+Qnumber+"()");}
+  else if (e.altKey && e.keyCode == 37) {
+    Qnumber -= 1;
+    if (Qnumber<0) {Qnumber = Qmax};
+    eval("display_Q"+Qnumber+"()");}
+}
+var Qnumber = 0;
+var Qmax = 3;
+var answers = [];
+for (let j=0; j<=Qmax; j++) {answers.push(null);}
+
+display_Q0();</script>
+</body>
+</html>
