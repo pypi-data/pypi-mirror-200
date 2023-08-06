@@ -1,0 +1,10 @@
+name: hello_workcell 
+version: latest
+runtime: python3.8 
+entrypoint: app:hello_workcell 
+provider:
+  name: huggingface 
+  repository: weanalyze/hello_workcell 
+  branch: main 
+tags: {}
+envs: {}
