@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: make-fastapi-app
+Version: 1.0.3
+Summary: Creates a FastAPI app that is ready to be deployed on Docker hosts like DigitalOcean / Render.com
+Home-page: https://github.com/zackees/createfastapiapp
+Maintainer: Zachary Vorhies
+License: BSD 3-Clause License
+Keywords: template-python-cmd
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# createfastapiapp
+
+FastAPI app creation template
+
+[![Linting](https://github.com/zackees/createfastapiapp/actions/workflows/lint.yml/badge.svg)](https://github.com/zackees/createfastapiapp/actions/workflows/lint.yml)
+
+[![MacOS_Tests](https://github.com/zackees/createfastapiapp/actions/workflows/push_macos.yml/badge.svg)](https://github.com/zackees/createfastapiapp/actions/workflows/push_macos.yml)
+[![Ubuntu_Tests](https://github.com/zackees/createfastapiapp/actions/workflows/push_ubuntu.yml/badge.svg)](https://github.com/zackees/createfastapiapp/actions/workflows/push_ubuntu.yml)
+[![Win_Tests](https://github.com/zackees/createfastapiapp/actions/workflows/push_win.yml/badge.svg)](https://github.com/zackees/createfastapiapp/actions/workflows/push_win.yml)
+
+To develop software, run `. ./activate.sh`
+
+# Windows
+
+This environment requires you to use `git-bash`.
+
+# Linting
+
+Run `./lint.sh` to find linting errors using `pylint`, `flake8` and `mypy`.
+
+# Versions
+
+  * 1.0.3: Adds post install instructions to the command line.
+  * 1.0.2: Remove trailing `.git` and `/` for githurl repo input
+  * 1.0.1: Adds +x to all shell scripts
+  * 1.0.0: Initial commit
