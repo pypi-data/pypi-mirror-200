@@ -1,0 +1,261 @@
+openapi: 3.0.3
+info:
+  title: TRUSTS Platform
+  description: |-
+    The TRUSTS platform is a federated set of independent nodes that help organizations share data in a trusted and secure way. It consists of several components, including a user interface and an IDS Connector implementation. This documentation covers the TRUSTS API, a series of endpoints from which users can perform all expected operations on a data market.
+  contact:
+    email: contact@trusts-data.eu
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: "1.0"
+externalDocs:
+  description: The TRUST project website.
+  url: https://www.trusts-data.eu/
+servers:
+  - url: http://localhost:5000/api/
+tags:
+  - name: contracts
+    description: Managing contracts in the TRUSTS platform
+  - name: assets
+    description: Assets available in the TRUSTS platform
+paths:
+  /ids/actions/push_package/:
+    get:
+      tags:
+        - assets
+      summary: Push a package into the TRUSTS platorm
+      description: DX
+      operationId: pushPackage
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+        '405':
+          description: Validation exception
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+  /ids/actions/push_organization/:
+    get:
+      tags:
+        - assets
+      summary: Push an Organization into the TRUSTS platform
+      description: DX
+      operationId: pushOrganization
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+        '405':
+          description: Validation exception
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+  /ids/actions/publish/:
+    post:
+      tags:
+        - assets
+      summary: Publish an asset in the TRUSTS platform using a contract
+      description: DX
+      operationId: Publish Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Asset to publish
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contract'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+        '405':
+          description: Invalid input
+
+
+  /dataset/{id}/resources/create:
+    post:
+      tags:
+        - assets
+      summary: Create a resource in an asset
+      description: DX
+      operationId: Create_Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+
+  /dataset/{id}/resources/delete:
+    delete:
+      tags:
+        - assets
+      summary: Remove a resource in an asset
+      description: DX
+      operationId: Create_Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+
+
+
+  /ids/action/package_create/:
+    post:
+      tags:
+        - assets
+      summary: Create an asset in the local TRUSTS node
+      description: DX
+      operationId: Create_Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+
+  /ids/action/resource_create/:
+    post:
+      tags:
+        - assets
+      summary: Create an artifact in the local TRUSTS node
+      description: DX
+      operationId: Create_Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+
+  /ids/actions/store_download_interaction:
+    post:
+      tags:
+        - recommendation
+      summary: Stores the interaction that a given user has downloaded an asset
+      description: DX
+      operationId: Create_Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+
+  /ids/actions/store_view_recomm_interaction:
+    post:
+      tags:
+        - recommendation
+      summary: Stores the interaction that a given user has viewed an asset
+      description: DX
+      operationId: Create_Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+
+  /ids/actions/contract_accept:
+    post:
+      tags:
+        - contracts
+      summary: Accept a contract for an asset
+      description: DX
+      operationId: Create_Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+
+  /ids/actions/get_data:
+    post:
+      tags:
+        - assets
+      summary: Get the data for a given artifact
+      description: DX
+      operationId: Create_Asset
+      parameters:
+        - name: id
+          in: query
+          description: ID of the package to push
+          required: true
+          schema:
+            type: string
+
+securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
+
+components:
+  schemas:
+    Contract:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        petId:
+          type: integer
+          format: int64
+          example: 198772
+        quantity:
+          type: integer
+          format: int32
+          example: 7
+        shipDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+          description: Order Status
+          example: approved
+          enum:
+            - placed
+            - approved
+            - delivered
+        complete:
+          type: boolean
+      xml:
+        name: order
+ 
