@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "dosh-cli"
+version = "0.1.2"
+description = "Command line interface of DOSH, a tool for managing your tasks."
+authors = ["Gökmen Görgen <gkmngrgn@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+packages = [{include = "dosh_cli"}]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Natural Language :: English",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Software Development :: Build Tools",
+]
+
+[tool.poetry.scripts]
+dosh = "dosh_cli.cli:run_cli"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+dosh-core = "^0.3.0"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.16.4"
+pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
+pyinstaller = "^5.9.0"
+
+[tool.poe.tasks.lint]
+cmd = "pre-commit run --all-files"
+help = "Check code quality"
+
+[tool.poe.tasks.test]
+cmd = "pytest --no-cov -k $name"
+help = "Run tests"
+
+[[tool.poe.tasks.test.args]]
+name = "name"
+positional = true
+default = "test"
+help = "Filter tests by $name"
+
+[tool.pytest.ini_options]
+addopts = "--cov=dosh_cli --cov-report term-missing --cov-report html:./tests/cov_html"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
