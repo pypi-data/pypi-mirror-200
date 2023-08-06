@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: generate-ssm-parameters
+Version: 0.1.17
+Summary: A script for creating AWS SSM Parameters in bulk from a CSV file.
+Home-page: https://github.com/travers-co/generate-ssm-parameters
+Author: Travers Annan
+Author-email: travers@curiousorbit.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: boto3 (>1.24.0)
+Requires-Dist: botocore (>1.12.0)
+Requires-Dist: click (>7.0.0)
+Requires-Dist: pandas (>1.1.5)
+Requires-Dist: tqdm (>4.0.0)
+
+# ssm-parameter-generator
+
+This script generates SSM parameters in an AWS account based on the contents of a CSV file.
+The CSV file should have the following headers: 
+- Name (string)
+- Type ("String" | "StringList" | "SecureString")
+- Value (string)
+- Description (string)
+
+## Usage
+To run the script:
+- generate-ssm-parameters CSV-FILE-NAME --profile AWS-PROFILE --region AWS-REGION
+
+The script supports the following options:
+- profile: specifies the aws profile to use while running the script. Defaults to "default". If no default profile is found, it will try to use the AWS environment variables.
+- region: specifies the aws region to use while running the script. Defaults to "us-east-1". # generate-ssm-parameters
