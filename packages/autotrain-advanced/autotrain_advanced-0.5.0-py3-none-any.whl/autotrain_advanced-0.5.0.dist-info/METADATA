@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: autotrain-advanced
+Version: 0.5.0
+Home-page: https://github.com/huggingface/autotrain-advanced
+Download-URL: https://github.com/huggingface/autotrain-advanced/tags
+Author: HuggingFace Inc.
+Author-email: autotrain@huggingface.co
+License: Apache 2.0
+Keywords: automl autonlp autotrain huggingface
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: loguru (==0.6.0)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: tqdm (==4.64.1)
+Requires-Dist: pandas (==1.5.3)
+Requires-Dist: huggingface-hub (==0.13.2)
+Requires-Dist: datasets (~=2.10.0)
+Requires-Dist: scikit-learn (==1.2.2)
+Requires-Dist: streamlit (==1.19.0)
+Requires-Dist: streamlit-aggrid (==0.3.3)
+Provides-Extra: dev
+Requires-Dist: loguru (==0.6.0) ; extra == 'dev'
+Requires-Dist: requests (==2.28.2) ; extra == 'dev'
+Requires-Dist: tqdm (==4.64.1) ; extra == 'dev'
+Requires-Dist: pandas (==1.5.3) ; extra == 'dev'
+Requires-Dist: huggingface-hub (==0.13.2) ; extra == 'dev'
+Requires-Dist: datasets (~=2.10.0) ; extra == 'dev'
+Requires-Dist: scikit-learn (==1.2.2) ; extra == 'dev'
+Requires-Dist: streamlit (==1.19.0) ; extra == 'dev'
+Requires-Dist: streamlit-aggrid (==0.3.3) ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: flake8 (==3.7.9) ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: loguru (==0.6.0) ; extra == 'docs'
+Requires-Dist: requests (==2.28.2) ; extra == 'docs'
+Requires-Dist: tqdm (==4.64.1) ; extra == 'docs'
+Requires-Dist: pandas (==1.5.3) ; extra == 'docs'
+Requires-Dist: huggingface-hub (==0.13.2) ; extra == 'docs'
+Requires-Dist: datasets (~=2.10.0) ; extra == 'docs'
+Requires-Dist: scikit-learn (==1.2.2) ; extra == 'docs'
+Requires-Dist: streamlit (==1.19.0) ; extra == 'docs'
+Requires-Dist: streamlit-aggrid (==0.3.3) ; extra == 'docs'
+Requires-Dist: recommonmark ; extra == 'docs'
+Requires-Dist: sphinx (==3.1.2) ; extra == 'docs'
+Requires-Dist: sphinx-markdown-tables ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (==0.4.3) ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ; extra == 'docs'
+Provides-Extra: quality
+Requires-Dist: loguru (==0.6.0) ; extra == 'quality'
+Requires-Dist: requests (==2.28.2) ; extra == 'quality'
+Requires-Dist: tqdm (==4.64.1) ; extra == 'quality'
+Requires-Dist: pandas (==1.5.3) ; extra == 'quality'
+Requires-Dist: huggingface-hub (==0.13.2) ; extra == 'quality'
+Requires-Dist: datasets (~=2.10.0) ; extra == 'quality'
+Requires-Dist: scikit-learn (==1.2.2) ; extra == 'quality'
+Requires-Dist: streamlit (==1.19.0) ; extra == 'quality'
+Requires-Dist: streamlit-aggrid (==0.3.3) ; extra == 'quality'
+Requires-Dist: black ; extra == 'quality'
+Requires-Dist: isort ; extra == 'quality'
+Requires-Dist: flake8 (==3.7.9) ; extra == 'quality'
+
+# 🤗 AutoTrain Advanced
+
+AutoTrain Advanced: faster and easier training and deployments of state-of-the-art machine learning models
+
+## Installation
+
+You can Install AutoTrain-Advanced python package via PIP. Please note you will need python >= 3.8 for AutoTrain Advanced to work properly.
+
+    pip install autotrain-advanced
+    
+Please make sure that you have git lfs installed. Check out the instructions here: https://github.com/git-lfs/git-lfs/wiki/Installation
+
+## Coming Soon!
