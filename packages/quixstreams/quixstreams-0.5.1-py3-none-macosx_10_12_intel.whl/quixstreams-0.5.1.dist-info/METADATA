@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: quixstreams
+Version: 0.5.1
+Summary: Library optimized for easily sending and reading time series data using Kafka
+Home-page: https://github.com/quixio/quix-streams
+Author: Quix Analytics Ltd
+Author-email: devs@quix.io
+License: Apache 2.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE.pandas
+Requires-Dist: pandas (<2,>=1.0.0)
+Requires-Dist: Deprecated (<2,>=1.1)
+
+# GitHub Page
+For more info, check https://github.com/quixio/quix-streams
+
+# Requirements to run
+
+x86_64 (amd64) bit windows, amd64/arm64 linux, amd64 mac. Apple silicon (M1+) support coming, can be used using rosetta x64_86 until then. Python distribution must also be 64 bit.
+
