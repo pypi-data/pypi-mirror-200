@@ -1,0 +1,200 @@
+
+# https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
+import motor.motor_asyncio
+from .dkbotz import *
+from info import *
+from pyrogram import *
+from typing import Union
+from Script import script
+import pytz
+import random
+import os
+from datetime import datetime, date
+import string
+from typing import List
+from pyrogram.errors import *
+from pyrogram.types import *
+
+class Database:
+    
+    def __init__(self, uri, database_name):
+        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
+        self.db = self._client[database_name]
+        self.col = self.db.users
+        self.grp = self.db.groups
+
+
+    def new_user(self, id, name):
+        return dict(
+            id = id,
+            name = name,
+            ban_status=dict(
+                is_banned=False,
+                ban_reason="",
+            ),
+        )
+
+
+    def new_group(self, id, title):
+        return dict(
+            id = id,
+            title = title,
+            chat_status=dict(
+                is_disabled=False,
+                reason="",
+            ),
+        )
+    
+    async def add_user(self, id, name):
+        user = self.new_user(id, name)
+        await self.col.insert_one(user)
+    
+    async def is_user_exist(self, id):
+        user = await self.col.find_one({'id':int(id)})
+        return bool(user)
+    
+    async def total_users_count(self):
+        count = await self.col.count_documents({})
+        return count
+    
+    async def remove_ban(self, id):
+        ban_status = dict(
+            is_banned=False,
+            ban_reason=''
+        )
+        await self.col.update_one({'id': id}, {'$set': {'ban_status': ban_status}})
+    
+    async def ban_user(self, user_id, ban_reason="No Reason"):
+        ban_status = dict(
+            is_banned=True,
+            ban_reason=ban_reason
+        )
+        await self.col.update_one({'id': user_id}, {'$set': {'ban_status': ban_status}})
+
+    async def get_ban_status(self, id):
+        default = dict(
+            is_banned=False,
+            ban_reason=''
+        )
+        user = await self.col.find_one({'id':int(id)})
+        if not user:
+            return default
+        return user.get('ban_status', default)
+
+    async def get_all_users(self):
+        return self.col.find({})
+    
+
+    async def delete_user(self, user_id):
+        await self.col.delete_many({'id': int(user_id)})
+
+
+    async def get_banned(self):
+        users = self.col.find({'ban_status.is_banned': True})
+        chats = self.grp.find({'chat_status.is_disabled': True})
+        b_chats = [chat['id'] async for chat in chats]
+        b_users = [user['id'] async for user in users]
+        return b_users, b_chats
+    
+
+
+    async def add_chat(self, chat, title):
+        chat = self.new_group(chat, title)
+        await self.grp.insert_one(chat)
+    
+
+    async def get_chat(self, chat):
+        chat = await self.grp.find_one({'id':int(chat)})
+        return False if not chat else chat.get('chat_status')
+    
+
+    async def re_enable_chat(self, id):
+        chat_status=dict(
+            is_disabled=False,
+            reason="",
+            )
+        await self.grp.update_one({'id': int(id)}, {'$set': {'chat_status': chat_status}})
+        
+    async def update_settings(self, id, settings):
+        await self.grp.update_one({'id': int(id)}, {'$set': {'settings': settings}})
+        
+    
+    async def get_settings(self, id):
+        default = {
+            'button': SINGLE_BUTTON,
+            'botpm': P_TTI_SHOW_OFF,
+            'file_secure': PROTECT_CONTENT,
+            'imdb': IMDB,
+            'fsub': False,
+            'channel_id': False,
+            'username': False,
+            'video_link': DEFULT_VIDEO_LINK,
+            'spell_check': SPELL_CHECK_REPLY,
+            'shortner_url': DEFULT_SHORTNER_URL,
+            'shortner_api': DEFULT_SHORTNER_API,
+            'welcome': MELCOW_NEW_USERS,
+            'auto_delete': AUTO_DELETE,
+            'template': IMDB_TEMPLATE
+        }
+        chat = await self.grp.find_one({'id':int(id)})
+        if chat:
+            return chat.get('settings', default)
+        return default
+    
+
+    async def disable_chat(self, chat, reason="No Reason"):
+        chat_status=dict(
+            is_disabled=True,
+            reason=reason,
+            )
+        await self.grp.update_one({'id': int(chat)}, {'$set': {'chat_status': chat_status}})
+    
+
+    async def total_chat_count(self):
+        count = await self.grp.count_documents({})
+        return count
+    
+
+    async def get_all_chats(self):
+        return self.grp.find({})
+
+
+    async def get_db_size(self):
+        return (await self.db.command("dbstats"))['dataSize']
+
+
+db = Database(DATABASE_URI, DATABASE_NAME)
+
+
+
+class temp(object):
+    BANNED_USERS = []
+    BANNED_CHATS = []
+    ME = None
+    CURRENT = 0
+    CANCEL = False
+    MELCOW = {}
+    U_NAME = None
+    B_NAME = None
+    SETTINGS = {}
+
+
+async def get_settings(group_id):
+    settings = temp.SETTINGS.get(group_id)
+    if not settings:
+        settings = await db.get_settings(group_id)
+        temp.SETTINGS[group_id] = settings
+    return settings
+    
+async def save_group_settings(group_id, key, value):
+    current = await get_settings(group_id)
+    current[key] = value
+    temp.SETTINGS[group_id] = current
+    await db.update_settings(group_id, current)
+
+
+
+
+
+
+
