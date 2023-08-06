@@ -1,0 +1,15 @@
+fastapi
+layoutparser[layoutmodels,tesseract]
+python-multipart
+uvicorn
+huggingface-hub
+opencv-python==4.6.0.66
+onnxruntime
+transformers
+
+[tables]
+protobuf<3.21
+paddlepaddle>=2.4
+
+[tables:platform_machine == "x86_64"]
+unstructured.PaddleOCR
