@@ -1,0 +1,199 @@
+Metadata-Version: 2.1
+Name: chatcli-gpt
+Version: 0.3.1
+Summary: A command line interface for interacting with GPT-3. It's orientated around an append only chat log so you get a complete history of your conversations.
+Home-page: https://github.com/cthulahoops/chatcli
+License: MIT
+Author: Adam Kelly
+Author-email: adam@cthulahoops.org
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: click-default-group (>=1.2.2,<2.0.0)
+Requires-Dist: duckduckgo-search (>=2.8.5,<3.0.0)
+Requires-Dist: markdown (>=3.4.1,<4.0.0)
+Requires-Dist: openai (>=0.27.2,<0.28.0)
+Requires-Dist: pillow (>=9.4.0,<10.0.0)
+Requires-Dist: prompt-toolkit (>=3.0.38,<4.0.0)
+Requires-Dist: pytest (>=7.2.2,<8.0.0)
+Requires-Dist: pytest-mock (>=3.10.0,<4.0.0)
+Requires-Dist: python-dateutil (>=2.8.2,<3.0.0)
+Requires-Dist: tiktoken (>=0.3.2,<0.4.0)
+Project-URL: Repository, https://github.com/cthulahoops/chatcli
+Description-Content-Type: text/markdown
+
+# ChatCLI
+
+ChatCLI is a command-line tool that uses the OpenAI GPT-3.5/GPT-4 API to
+provide a chat bot interface that can answer your questions. It provides a
+simple and intuitive way to interact with GPT-3 by asking questions and getting
+relevant answers.
+
+This command is in early development and the interface and log file format are
+unstable and changing rapidly. I'd love to get feedback on what would make this
+tool more useful.
+
+WARNING: This version supports EVALUATE blocks that allow GPT to evaluate code.
+This should only work if the pyeval plugin is enabled, either using "--plugin pyeval"
+or "--personality pyeval". There is no sandboxing, so GPT can run any code it
+likes if you enable this!
+
+## Installation
+
+The following steps will guide you through the installation process:
+
+1. Clone the repository with the following command:
+```
+git clone https://github.com/cthulahoops/chatcli.git
+```
+
+2. Navigate to the project directory:
+```
+cd chatcli
+```
+
+### Installation with Poetry
+
+3. Install Poetry (if you haven't already) by following the official Poetry installation instructions: https://python-poetry.org/docs/#installation
+
+These instructions will guide you through the process of installing Poetry on your machine. Once installed, you can easily manage dependencies and environments for your Python projects using Poetry.
+
+4. Install ChatCLI using Poetry:
+
+```
+poetry shell
+poetry install
+```
+
+### Installation with pip
+
+Alternatively, you can install the dependencies using pip with:
+
+```
+pip install -r requirements.txt
+```
+
+The `requirements.txt` may be less likely to be up to date!
+
+### Running chatcli
+
+5. Set your OpenAI API key in the environment variable `OPENAI_API_SECRET_KEY`.
+
+6. Run chatcli
+
+```
+chatcli
+```
+
+
+## Usage
+
+### Ask a question
+
+To ask a question, just run chatcli:
+```
+chatcli
+```
+This will start a conversation with the chat bot, which will prompt you for a question. You can also include a text file as context for your question by using the `-f` or `--file` option:
+```
+chatcli --file myfile.txt
+```
+
+You can also specify the personality that the chat bot should use with the `-p` or `--personality` option:
+```
+chatcli --personality concise
+```
+
+### Continue a conversation
+
+To continue a previous conversation, use the `chat` command with the `--continue` option:
+```
+chatcli --continue
+```
+
+### Show a conversation
+
+To show a previous conversation, use the `show`:
+```
+chatcli show
+```
+
+### List all conversations
+
+To list all the conversations that have been logged, use the `log` command:
+```
+chatcli log
+```
+
+### Tag a conversation
+
+You can tag a conversation using the `tag` command:
+```
+chatcli tag mytag
+```
+
+### List all tags
+
+To list all the tags that have been used, use the `tags` command:
+```
+chatcli tags
+```
+
+### Filter by tag
+
+You can filter conversations by tag using the `-t` or `--tag` option:
+```
+chatcli log --tag mytag
+```
+
+### Remove a tag
+
+You can remove a tag from a conversation using the `untag` command:
+```
+chatcli untag mytag
+```
+
+### Display usage
+
+To display the number of tokens used and the token cost, use the `usage` command:
+```
+chatcli usage
+```
+
+## Examples
+
+### Generate a README for this project
+
+```
+chatcli --quick --file chatcli.py --personality code
+>> Generate a README.md for this project.
+```
+
+### Using ChatGPT to create commit messages
+
+1. Make some changes to your code and stage them for commit:
+```
+git add -p
+```
+
+2. Use `git diff` to see the changes you've made and pipe them to ChatGPT's `chatcli.py` script to generate a commit message:
+```
+git diff --cached | chatcli -p commit
+```
+
+3. Make a commit with the generated message:
+```
+git commit -m "$(chatcli show)"
+```
+
+This will use the `show` command to display the last message generated by the chat bot, which is then used as the commit message.
+
+That's it! You've successfully used ChatGPT to generate a commit message based on the changes you've made to your code.
+
+## Contributing
+
+If you wish to contribute to this project, please fork the repository and submit a pull request.
+
