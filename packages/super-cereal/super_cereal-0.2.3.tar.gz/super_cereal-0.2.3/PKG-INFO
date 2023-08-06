@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: super-cereal
+Version: 0.2.3
+Summary: Serialize Python objects
+Home-page: https://github.com/cowboygneox/super-cereal
+License: Apache-2.0
+Keywords: serialization,deserialization,json
+Author: Sean Freitag
+Author-email: sean.freitag@avant.com
+Maintainer: Sean Freitag
+Maintainer-email: sean.freitag@avant.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: avro
+Provides-Extra: encryption
+Requires-Dist: avro (>=1.11.1,<2.0.0) ; extra == "avro"
+Requires-Dist: pycryptodome (>=3.16.0,<4.0.0) ; extra == "encryption"
+Project-URL: Repository, https://github.com/cowboygneox/super-cereal
+Description-Content-Type: text/markdown
+
+# Super Cereal
+
+*Serialize Python objects for realz. I'm super cereal.*
+
+[![Tests](https://github.com/cowboygneox/super-cereal/actions/workflows/test.yml/badge.svg)](https://github.com/cowboygneox/super-cereal/actions/workflows/test.yml)
+[![Latest Stable Version](https://img.shields.io/pypi/v/super-cereal)](https://pypi.org/project/super-cereal/)
+

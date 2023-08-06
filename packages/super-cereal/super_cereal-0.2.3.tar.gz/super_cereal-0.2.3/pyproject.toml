@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "super-cereal"
+version = "0.2.3"
+description = "Serialize Python objects"
+authors = ["Sean Freitag <sean.freitag@avant.com>"]
+maintainers = ["Sean Freitag <sean.freitag@avant.com>"]
+readme = "README.md"
+license = "Apache-2.0"
+packages = [{ include = "super_cereal" }]
+repository = "https://github.com/cowboygneox/super-cereal"
+keywords = ["serialization", "deserialization", "json"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pycryptodome = {version = "^3.16.0", optional = true}
+avro = {version = "^1.11.1", optional = true}
+
+[tool.poetry.extras]
+encryption = ["pycryptodome"]
+avro = ["avro"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+sourcery-cli = "^1.0.3"
+coverage = "^7.0.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
