@@ -1,0 +1,10 @@
+pydantic[email,orjson]
+ormar
+fastapi
+deepmerge
+httpx[http2]
+makefun
+redis
+hiredis
+deepdiff
+typer[all]
