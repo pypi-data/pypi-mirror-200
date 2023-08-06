@@ -1,0 +1,9 @@
+[tool.semantic_release]
+version_variable = [
+    'setup.py:__version__',
+    'ccfit2/__version__.py:__version__',
+    'docs/source/conf.py:release'
+    ]
+upload_to_pypi=true
+branch = "master"
+hvcs="gitlab"
