@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: sbmlaliasnodecreator
+Version: 0.0.1
+Summary: Create alias nodes for heavily connected nodes in an SBML model
+Home-page: https://github.com/adelhpour/SBMLAliasNodeCreator
+Author: Adel Heydarabadipour
+Author-email: adelhp@uw.edu
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/adelhpour/SBMLAliasNodeCreator/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: lisbml
+Requires-Dist: SBMLDiagrams
+
+# SBMLAliasNodeCreator
+
+A python script to create alias nodes for highly connected species glyphs in SBML models.
+
+
+
+
