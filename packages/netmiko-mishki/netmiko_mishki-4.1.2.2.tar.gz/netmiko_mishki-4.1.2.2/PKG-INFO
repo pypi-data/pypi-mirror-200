@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: netmiko_mishki
+Version: 4.1.2.2
+Summary: modded netmiko 4.1.2 with lancom and edgecore support
+Author-email: Jochen Mälzer <mishki@mishki.de>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# joes netmiko copy
+This package is a copy of netmiko 4.1.2 with lancom and edgecore router added
