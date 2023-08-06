@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: yumikogram
+Version: 0.0.6
+Summary: This package for telegram bots making and api making
+Home-page: https://github.com/yumiko-api/yumikogram
+Author: santhosh
+Author-email: yumikoapi@gmail.com
+Keywords: yumikogram,telegram,telegram-bots,yumikogram api,telegram bots library
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet
+Classifier: Topic :: Communications
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: asyncio (==3.4.3)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: fastapi
+Requires-Dist: asyncio
+
+<h1>YUMIKOGRAM</h1>
+
+# FOR INSTALLATION
+```
+pip install yumikogram
+```
