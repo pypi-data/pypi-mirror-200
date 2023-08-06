@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: snapalgo
+Version: 0.0.7.1
+Summary: Coding Helper
+Home-page: https://github.com/midnightbot/snapalgo
+Author: Anish Adnani
+Author-email: anishadnani00@gmail.com
+License: MIT
+Keywords: python,coding,template,algo,algorithms
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENCE.txt
+
+## snapalgo : snapalgo is a coding helper
+
+- **Website:** https://github.com/midnightbot/snapalgo
+- **Source Code:** https://github.com/midnightbot/snapalgo
+- **Bug Reports:** https://github.com/midnightbot/snapalgo/issues
+
+## What is it?
+
+**snapalgo** is a Python package that provides fast and flexible solutions to complex algorithmic problems.
+It aims to be a building-block for writing and solving complex algorithmic problems.
+
+## snapalgo provides
+
+- Templates for various complex algorithms
+- Functions to solve complex algorithms
+
+## Where to get it
+
+The source code is currently hosted on GitHub at:
+https://github.com/midnightbot/snapalgo
+
+```sh
+# conda
+conda install snapalgo
+```
+
+```sh
+# or PyPI
+pip install snapalgo
+```
+
+## Background
+
+Work on ``snapalgo`` started in 2022 and has been under active development since then.
+
