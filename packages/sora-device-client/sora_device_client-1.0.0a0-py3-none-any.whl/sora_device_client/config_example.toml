@@ -1,0 +1,92 @@
+# ==============================================================================
+# Sora Device Client configuration
+# ==============================================================================
+
+# ==============================================================================
+# Location Input Configuration
+[location]
+# Decimate the location inputs by a constant factor
+decimate = 10
+
+# The driver describes how the client should obtain location information.
+# Exactly one driver should be specified.
+# The options are: tcp, serial
+
+# # TCP socket driver
+# [location.driver.tcp]
+# host = "localhost"
+# port = 55555
+
+# Serial port driver
+[location.driver.serial]
+port = "/dev/tty.usbmodem14401"
+baud = 115200
+
+# The format describes how the location data should be decoded.
+# Exactly one driver should be specified.
+# The options are: sbp, nmea
+
+# Swift Binary Protocol (SBP) format
+[location.format.sbp]
+# Include orientation information? Only enable if the device is capable of
+# outputting MSG_ORIENT_EULER
+orientation = false
+
+## NMEA format (no configuration options)
+# [location.format.nmea]
+
+# ------------------------------------------------------------------------------
+# Recipes:
+
+# # Typical SwiftNav GNSS receiver connected over USB Serial
+# [location]
+# decimate = 10
+# [location.driver.serial]
+# port = "/dev/ttyUSB0"
+# baud = 115200
+# [location.format.sbp]
+# orientation = false
+
+# # Sometimes the USB serial file is /dev/ttyACMx
+# [location]
+# decimate = 10
+# [location.driver.serial]
+# port = "/dev/ttyACM0"
+# baud = 115200
+# [location.format.sbp]
+# orientation = false
+
+# # On macOS it is has been observed to be /dev/tty.usbmodem14401 at least once
+# [location]
+# decimate = 10
+# [location.driver.serial]
+# port = "/dev/tty.usbmodem14401"
+# baud = 115200
+# [location.format.sbp]
+# orientation = false
+
+# # Piksi Multi / Duro / Starling connected over TCP
+# [location]
+# decimate = 10
+# [location.driver.tcp]
+# host = "192.168.0.222"
+# port = 55555
+# [location.format.sbp]
+# orientation = false
+
+# # Duro Inertial connected over TCP (with orientation)
+# [location]
+# decimate = 10
+# [location.driver.tcp]
+# host = "192.168.0.222"
+# port = 55555
+# [location.format.sbp]
+# orientation = true
+
+# For non Swift Hardware that supports NMEA:
+# [location]
+# decimate = 10
+# [location.driver.serial]
+# port = "/dev/ttyUSB0"
+# baud = 115200
+# [location.format.nmea]
