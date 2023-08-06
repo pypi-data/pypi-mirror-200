@@ -1,0 +1,1148 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ASMIFM
+    ASMIFN
+    ASMIFZ
+    ASMSKP
+    BACKSLASH
+    EJECT
+    FIELD
+    LIST
+    LISTAPE
+    LODSYM
+    NOLIST
+    PAGE
+    P_CLA
+    P_EXTENDED_ARITHMETIC
+    P_EXTENDED_ARITHMETIC_LONG
+    SAVSYM
+    TAPE_DIRECTION
+    TEXT
+    Z
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> empty
+Rule 2     program -> program empty
+Rule 3     program -> program machine_code
+Rule 4     empty -> pseudo_no_args STATEMENT_END
+Rule 5     empty -> pseudo_with_args STATEMENT_END
+Rule 6     pseudo_with_args -> SEGMNT expression
+Rule 7     pseudo_no_args -> OCTAL
+Rule 8     pseudo_no_args -> DECIMAL
+Rule 9     pseudo_no_args -> PMODE
+Rule 10    pseudo_no_args -> LMODE
+Rule 11    machine_code -> INSTRUCTION STATEMENT_END
+Rule 12    machine_code -> INSTRUCTION I STATEMENT_END
+Rule 13    machine_code -> INSTRUCTION expression STATEMENT_END
+Rule 14    machine_code -> INSTRUCTION I expression STATEMENT_END
+Rule 15    machine_code -> grouped_operate_1 STATEMENT_END
+Rule 16    machine_code -> grouped_operate_2 STATEMENT_END
+Rule 17    grouped_operate_1 -> P_OPERATE_1
+Rule 18    grouped_operate_1 -> grouped_operate_1 P_OPERATE_1
+Rule 19    grouped_operate_2 -> P_OPERATE_2
+Rule 20    grouped_operate_2 -> grouped_operate_2 P_OPERATE_2
+Rule 21    machine_code -> expression STATEMENT_END
+Rule 22    empty -> ASTERISK NUMBER STATEMENT_END
+Rule 23    empty -> SYMBOL COMMA
+Rule 24    empty -> SYMBOL EQUALS expression
+Rule 25    expression -> expression PLUS term
+Rule 26    expression -> expression MINUS term
+Rule 27    expression -> MINUS expression
+Rule 28    expression -> expression AMPERSAND term
+Rule 29    expression -> expression EXCLAMATION term
+Rule 30    expression -> term
+Rule 31    term -> NUMBER
+Rule 32    term -> DOT
+Rule 33    term -> SYMBOL
+Rule 34    empty -> STATEMENT_END
+
+Terminals, with rules where they appear
+
+AMPERSAND            : 28
+ASMIFM               : 
+ASMIFN               : 
+ASMIFZ               : 
+ASMSKP               : 
+ASTERISK             : 22
+BACKSLASH            : 
+COMMA                : 23
+DECIMAL              : 8
+DOT                  : 32
+EJECT                : 
+EQUALS               : 24
+EXCLAMATION          : 29
+FIELD                : 
+I                    : 12 14
+INSTRUCTION          : 11 12 13 14
+LIST                 : 
+LISTAPE              : 
+LMODE                : 10
+LODSYM               : 
+MINUS                : 26 27
+NOLIST               : 
+NUMBER               : 22 31
+OCTAL                : 7
+PAGE                 : 
+PLUS                 : 25
+PMODE                : 9
+P_CLA                : 
+P_EXTENDED_ARITHMETIC : 
+P_EXTENDED_ARITHMETIC_LONG : 
+P_OPERATE_1          : 17 18
+P_OPERATE_2          : 19 20
+SAVSYM               : 
+SEGMNT               : 6
+STATEMENT_END        : 4 5 11 12 13 14 15 16 21 22 34
+SYMBOL               : 23 24 33
+TAPE_DIRECTION       : 
+TEXT                 : 
+Z                    : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+empty                : 1 2
+expression           : 6 13 14 21 24 25 26 27 28 29
+grouped_operate_1    : 15 18
+grouped_operate_2    : 16 20
+machine_code         : 3
+program              : 2 3 0
+pseudo_no_args       : 4
+pseudo_with_args     : 5
+term                 : 25 26 28 29 30
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . empty
+    (2) program -> . program empty
+    (3) program -> . program machine_code
+    (4) empty -> . pseudo_no_args STATEMENT_END
+    (5) empty -> . pseudo_with_args STATEMENT_END
+    (22) empty -> . ASTERISK NUMBER STATEMENT_END
+    (23) empty -> . SYMBOL COMMA
+    (24) empty -> . SYMBOL EQUALS expression
+    (34) empty -> . STATEMENT_END
+    (7) pseudo_no_args -> . OCTAL
+    (8) pseudo_no_args -> . DECIMAL
+    (9) pseudo_no_args -> . PMODE
+    (10) pseudo_no_args -> . LMODE
+    (6) pseudo_with_args -> . SEGMNT expression
+
+    ASTERISK        shift and go to state 6
+    SYMBOL          shift and go to state 7
+    STATEMENT_END   shift and go to state 4
+    OCTAL           shift and go to state 8
+    DECIMAL         shift and go to state 9
+    PMODE           shift and go to state 10
+    LMODE           shift and go to state 11
+    SEGMNT          shift and go to state 12
+
+    program                        shift and go to state 1
+    empty                          shift and go to state 2
+    pseudo_no_args                 shift and go to state 3
+    pseudo_with_args               shift and go to state 5
+
+state 1
+
+    (0) S' -> program .
+    (2) program -> program . empty
+    (3) program -> program . machine_code
+    (4) empty -> . pseudo_no_args STATEMENT_END
+    (5) empty -> . pseudo_with_args STATEMENT_END
+    (22) empty -> . ASTERISK NUMBER STATEMENT_END
+    (23) empty -> . SYMBOL COMMA
+    (24) empty -> . SYMBOL EQUALS expression
+    (34) empty -> . STATEMENT_END
+    (11) machine_code -> . INSTRUCTION STATEMENT_END
+    (12) machine_code -> . INSTRUCTION I STATEMENT_END
+    (13) machine_code -> . INSTRUCTION expression STATEMENT_END
+    (14) machine_code -> . INSTRUCTION I expression STATEMENT_END
+    (15) machine_code -> . grouped_operate_1 STATEMENT_END
+    (16) machine_code -> . grouped_operate_2 STATEMENT_END
+    (21) machine_code -> . expression STATEMENT_END
+    (7) pseudo_no_args -> . OCTAL
+    (8) pseudo_no_args -> . DECIMAL
+    (9) pseudo_no_args -> . PMODE
+    (10) pseudo_no_args -> . LMODE
+    (6) pseudo_with_args -> . SEGMNT expression
+    (17) grouped_operate_1 -> . P_OPERATE_1
+    (18) grouped_operate_1 -> . grouped_operate_1 P_OPERATE_1
+    (19) grouped_operate_2 -> . P_OPERATE_2
+    (20) grouped_operate_2 -> . grouped_operate_2 P_OPERATE_2
+    (25) expression -> . expression PLUS term
+    (26) expression -> . expression MINUS term
+    (27) expression -> . MINUS expression
+    (28) expression -> . expression AMPERSAND term
+    (29) expression -> . expression EXCLAMATION term
+    (30) expression -> . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    ASTERISK        shift and go to state 6
+    SYMBOL          shift and go to state 16
+    STATEMENT_END   shift and go to state 4
+    INSTRUCTION     shift and go to state 18
+    OCTAL           shift and go to state 8
+    DECIMAL         shift and go to state 9
+    PMODE           shift and go to state 10
+    LMODE           shift and go to state 11
+    SEGMNT          shift and go to state 12
+    P_OPERATE_1     shift and go to state 21
+    P_OPERATE_2     shift and go to state 22
+    MINUS           shift and go to state 24
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+
+    empty                          shift and go to state 13
+    machine_code                   shift and go to state 14
+    pseudo_no_args                 shift and go to state 3
+    pseudo_with_args               shift and go to state 5
+    expression                     shift and go to state 17
+    grouped_operate_1              shift and go to state 19
+    grouped_operate_2              shift and go to state 20
+    term                           shift and go to state 23
+
+state 2
+
+    (1) program -> empty .
+
+    ASTERISK        reduce using rule 1 (program -> empty .)
+    SYMBOL          reduce using rule 1 (program -> empty .)
+    STATEMENT_END   reduce using rule 1 (program -> empty .)
+    INSTRUCTION     reduce using rule 1 (program -> empty .)
+    OCTAL           reduce using rule 1 (program -> empty .)
+    DECIMAL         reduce using rule 1 (program -> empty .)
+    PMODE           reduce using rule 1 (program -> empty .)
+    LMODE           reduce using rule 1 (program -> empty .)
+    SEGMNT          reduce using rule 1 (program -> empty .)
+    P_OPERATE_1     reduce using rule 1 (program -> empty .)
+    P_OPERATE_2     reduce using rule 1 (program -> empty .)
+    MINUS           reduce using rule 1 (program -> empty .)
+    NUMBER          reduce using rule 1 (program -> empty .)
+    DOT             reduce using rule 1 (program -> empty .)
+    $end            reduce using rule 1 (program -> empty .)
+
+
+state 3
+
+    (4) empty -> pseudo_no_args . STATEMENT_END
+
+    STATEMENT_END   shift and go to state 26
+
+
+state 4
+
+    (34) empty -> STATEMENT_END .
+
+    ASTERISK        reduce using rule 34 (empty -> STATEMENT_END .)
+    SYMBOL          reduce using rule 34 (empty -> STATEMENT_END .)
+    STATEMENT_END   reduce using rule 34 (empty -> STATEMENT_END .)
+    INSTRUCTION     reduce using rule 34 (empty -> STATEMENT_END .)
+    OCTAL           reduce using rule 34 (empty -> STATEMENT_END .)
+    DECIMAL         reduce using rule 34 (empty -> STATEMENT_END .)
+    PMODE           reduce using rule 34 (empty -> STATEMENT_END .)
+    LMODE           reduce using rule 34 (empty -> STATEMENT_END .)
+    SEGMNT          reduce using rule 34 (empty -> STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 34 (empty -> STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 34 (empty -> STATEMENT_END .)
+    MINUS           reduce using rule 34 (empty -> STATEMENT_END .)
+    NUMBER          reduce using rule 34 (empty -> STATEMENT_END .)
+    DOT             reduce using rule 34 (empty -> STATEMENT_END .)
+    $end            reduce using rule 34 (empty -> STATEMENT_END .)
+
+
+state 5
+
+    (5) empty -> pseudo_with_args . STATEMENT_END
+
+    STATEMENT_END   shift and go to state 27
+
+
+state 6
+
+    (22) empty -> ASTERISK . NUMBER STATEMENT_END
+
+    NUMBER          shift and go to state 28
+
+
+state 7
+
+    (23) empty -> SYMBOL . COMMA
+    (24) empty -> SYMBOL . EQUALS expression
+
+    COMMA           shift and go to state 29
+    EQUALS          shift and go to state 30
+
+
+state 8
+
+    (7) pseudo_no_args -> OCTAL .
+
+    STATEMENT_END   reduce using rule 7 (pseudo_no_args -> OCTAL .)
+
+
+state 9
+
+    (8) pseudo_no_args -> DECIMAL .
+
+    STATEMENT_END   reduce using rule 8 (pseudo_no_args -> DECIMAL .)
+
+
+state 10
+
+    (9) pseudo_no_args -> PMODE .
+
+    STATEMENT_END   reduce using rule 9 (pseudo_no_args -> PMODE .)
+
+
+state 11
+
+    (10) pseudo_no_args -> LMODE .
+
+    STATEMENT_END   reduce using rule 10 (pseudo_no_args -> LMODE .)
+
+
+state 12
+
+    (6) pseudo_with_args -> SEGMNT . expression
+    (25) expression -> . expression PLUS term
+    (26) expression -> . expression MINUS term
+    (27) expression -> . MINUS expression
+    (28) expression -> . expression AMPERSAND term
+    (29) expression -> . expression EXCLAMATION term
+    (30) expression -> . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    MINUS           shift and go to state 24
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    expression                     shift and go to state 31
+    term                           shift and go to state 23
+
+state 13
+
+    (2) program -> program empty .
+
+    ASTERISK        reduce using rule 2 (program -> program empty .)
+    SYMBOL          reduce using rule 2 (program -> program empty .)
+    STATEMENT_END   reduce using rule 2 (program -> program empty .)
+    INSTRUCTION     reduce using rule 2 (program -> program empty .)
+    OCTAL           reduce using rule 2 (program -> program empty .)
+    DECIMAL         reduce using rule 2 (program -> program empty .)
+    PMODE           reduce using rule 2 (program -> program empty .)
+    LMODE           reduce using rule 2 (program -> program empty .)
+    SEGMNT          reduce using rule 2 (program -> program empty .)
+    P_OPERATE_1     reduce using rule 2 (program -> program empty .)
+    P_OPERATE_2     reduce using rule 2 (program -> program empty .)
+    MINUS           reduce using rule 2 (program -> program empty .)
+    NUMBER          reduce using rule 2 (program -> program empty .)
+    DOT             reduce using rule 2 (program -> program empty .)
+    $end            reduce using rule 2 (program -> program empty .)
+
+
+state 14
+
+    (3) program -> program machine_code .
+
+    ASTERISK        reduce using rule 3 (program -> program machine_code .)
+    SYMBOL          reduce using rule 3 (program -> program machine_code .)
+    STATEMENT_END   reduce using rule 3 (program -> program machine_code .)
+    INSTRUCTION     reduce using rule 3 (program -> program machine_code .)
+    OCTAL           reduce using rule 3 (program -> program machine_code .)
+    DECIMAL         reduce using rule 3 (program -> program machine_code .)
+    PMODE           reduce using rule 3 (program -> program machine_code .)
+    LMODE           reduce using rule 3 (program -> program machine_code .)
+    SEGMNT          reduce using rule 3 (program -> program machine_code .)
+    P_OPERATE_1     reduce using rule 3 (program -> program machine_code .)
+    P_OPERATE_2     reduce using rule 3 (program -> program machine_code .)
+    MINUS           reduce using rule 3 (program -> program machine_code .)
+    NUMBER          reduce using rule 3 (program -> program machine_code .)
+    DOT             reduce using rule 3 (program -> program machine_code .)
+    $end            reduce using rule 3 (program -> program machine_code .)
+
+
+state 15
+
+    (31) term -> NUMBER .
+
+    STATEMENT_END   reduce using rule 31 (term -> NUMBER .)
+    PLUS            reduce using rule 31 (term -> NUMBER .)
+    MINUS           reduce using rule 31 (term -> NUMBER .)
+    AMPERSAND       reduce using rule 31 (term -> NUMBER .)
+    EXCLAMATION     reduce using rule 31 (term -> NUMBER .)
+    ASTERISK        reduce using rule 31 (term -> NUMBER .)
+    SYMBOL          reduce using rule 31 (term -> NUMBER .)
+    INSTRUCTION     reduce using rule 31 (term -> NUMBER .)
+    OCTAL           reduce using rule 31 (term -> NUMBER .)
+    DECIMAL         reduce using rule 31 (term -> NUMBER .)
+    PMODE           reduce using rule 31 (term -> NUMBER .)
+    LMODE           reduce using rule 31 (term -> NUMBER .)
+    SEGMNT          reduce using rule 31 (term -> NUMBER .)
+    P_OPERATE_1     reduce using rule 31 (term -> NUMBER .)
+    P_OPERATE_2     reduce using rule 31 (term -> NUMBER .)
+    NUMBER          reduce using rule 31 (term -> NUMBER .)
+    DOT             reduce using rule 31 (term -> NUMBER .)
+    $end            reduce using rule 31 (term -> NUMBER .)
+
+
+state 16
+
+    (23) empty -> SYMBOL . COMMA
+    (24) empty -> SYMBOL . EQUALS expression
+    (33) term -> SYMBOL .
+
+    COMMA           shift and go to state 29
+    EQUALS          shift and go to state 30
+    STATEMENT_END   reduce using rule 33 (term -> SYMBOL .)
+    PLUS            reduce using rule 33 (term -> SYMBOL .)
+    MINUS           reduce using rule 33 (term -> SYMBOL .)
+    AMPERSAND       reduce using rule 33 (term -> SYMBOL .)
+    EXCLAMATION     reduce using rule 33 (term -> SYMBOL .)
+
+
+state 17
+
+    (21) machine_code -> expression . STATEMENT_END
+    (25) expression -> expression . PLUS term
+    (26) expression -> expression . MINUS term
+    (28) expression -> expression . AMPERSAND term
+    (29) expression -> expression . EXCLAMATION term
+
+    STATEMENT_END   shift and go to state 33
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    AMPERSAND       shift and go to state 36
+    EXCLAMATION     shift and go to state 37
+
+
+state 18
+
+    (11) machine_code -> INSTRUCTION . STATEMENT_END
+    (12) machine_code -> INSTRUCTION . I STATEMENT_END
+    (13) machine_code -> INSTRUCTION . expression STATEMENT_END
+    (14) machine_code -> INSTRUCTION . I expression STATEMENT_END
+    (25) expression -> . expression PLUS term
+    (26) expression -> . expression MINUS term
+    (27) expression -> . MINUS expression
+    (28) expression -> . expression AMPERSAND term
+    (29) expression -> . expression EXCLAMATION term
+    (30) expression -> . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    STATEMENT_END   shift and go to state 38
+    I               shift and go to state 39
+    MINUS           shift and go to state 24
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    expression                     shift and go to state 40
+    term                           shift and go to state 23
+
+state 19
+
+    (15) machine_code -> grouped_operate_1 . STATEMENT_END
+    (18) grouped_operate_1 -> grouped_operate_1 . P_OPERATE_1
+
+    STATEMENT_END   shift and go to state 41
+    P_OPERATE_1     shift and go to state 42
+
+
+state 20
+
+    (16) machine_code -> grouped_operate_2 . STATEMENT_END
+    (20) grouped_operate_2 -> grouped_operate_2 . P_OPERATE_2
+
+    STATEMENT_END   shift and go to state 43
+    P_OPERATE_2     shift and go to state 44
+
+
+state 21
+
+    (17) grouped_operate_1 -> P_OPERATE_1 .
+
+    STATEMENT_END   reduce using rule 17 (grouped_operate_1 -> P_OPERATE_1 .)
+    P_OPERATE_1     reduce using rule 17 (grouped_operate_1 -> P_OPERATE_1 .)
+
+
+state 22
+
+    (19) grouped_operate_2 -> P_OPERATE_2 .
+
+    STATEMENT_END   reduce using rule 19 (grouped_operate_2 -> P_OPERATE_2 .)
+    P_OPERATE_2     reduce using rule 19 (grouped_operate_2 -> P_OPERATE_2 .)
+
+
+state 23
+
+    (30) expression -> term .
+
+    STATEMENT_END   reduce using rule 30 (expression -> term .)
+    PLUS            reduce using rule 30 (expression -> term .)
+    MINUS           reduce using rule 30 (expression -> term .)
+    AMPERSAND       reduce using rule 30 (expression -> term .)
+    EXCLAMATION     reduce using rule 30 (expression -> term .)
+    ASTERISK        reduce using rule 30 (expression -> term .)
+    SYMBOL          reduce using rule 30 (expression -> term .)
+    INSTRUCTION     reduce using rule 30 (expression -> term .)
+    OCTAL           reduce using rule 30 (expression -> term .)
+    DECIMAL         reduce using rule 30 (expression -> term .)
+    PMODE           reduce using rule 30 (expression -> term .)
+    LMODE           reduce using rule 30 (expression -> term .)
+    SEGMNT          reduce using rule 30 (expression -> term .)
+    P_OPERATE_1     reduce using rule 30 (expression -> term .)
+    P_OPERATE_2     reduce using rule 30 (expression -> term .)
+    NUMBER          reduce using rule 30 (expression -> term .)
+    DOT             reduce using rule 30 (expression -> term .)
+    $end            reduce using rule 30 (expression -> term .)
+
+
+state 24
+
+    (27) expression -> MINUS . expression
+    (25) expression -> . expression PLUS term
+    (26) expression -> . expression MINUS term
+    (27) expression -> . MINUS expression
+    (28) expression -> . expression AMPERSAND term
+    (29) expression -> . expression EXCLAMATION term
+    (30) expression -> . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    MINUS           shift and go to state 24
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    expression                     shift and go to state 45
+    term                           shift and go to state 23
+
+state 25
+
+    (32) term -> DOT .
+
+    STATEMENT_END   reduce using rule 32 (term -> DOT .)
+    PLUS            reduce using rule 32 (term -> DOT .)
+    MINUS           reduce using rule 32 (term -> DOT .)
+    AMPERSAND       reduce using rule 32 (term -> DOT .)
+    EXCLAMATION     reduce using rule 32 (term -> DOT .)
+    ASTERISK        reduce using rule 32 (term -> DOT .)
+    SYMBOL          reduce using rule 32 (term -> DOT .)
+    INSTRUCTION     reduce using rule 32 (term -> DOT .)
+    OCTAL           reduce using rule 32 (term -> DOT .)
+    DECIMAL         reduce using rule 32 (term -> DOT .)
+    PMODE           reduce using rule 32 (term -> DOT .)
+    LMODE           reduce using rule 32 (term -> DOT .)
+    SEGMNT          reduce using rule 32 (term -> DOT .)
+    P_OPERATE_1     reduce using rule 32 (term -> DOT .)
+    P_OPERATE_2     reduce using rule 32 (term -> DOT .)
+    NUMBER          reduce using rule 32 (term -> DOT .)
+    DOT             reduce using rule 32 (term -> DOT .)
+    $end            reduce using rule 32 (term -> DOT .)
+
+
+state 26
+
+    (4) empty -> pseudo_no_args STATEMENT_END .
+
+    ASTERISK        reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    SYMBOL          reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    STATEMENT_END   reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    INSTRUCTION     reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    OCTAL           reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    DECIMAL         reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    PMODE           reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    LMODE           reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    SEGMNT          reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    MINUS           reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    NUMBER          reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    DOT             reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+    $end            reduce using rule 4 (empty -> pseudo_no_args STATEMENT_END .)
+
+
+state 27
+
+    (5) empty -> pseudo_with_args STATEMENT_END .
+
+    ASTERISK        reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    SYMBOL          reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    STATEMENT_END   reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    INSTRUCTION     reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    OCTAL           reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    DECIMAL         reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    PMODE           reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    LMODE           reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    SEGMNT          reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    MINUS           reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    NUMBER          reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    DOT             reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+    $end            reduce using rule 5 (empty -> pseudo_with_args STATEMENT_END .)
+
+
+state 28
+
+    (22) empty -> ASTERISK NUMBER . STATEMENT_END
+
+    STATEMENT_END   shift and go to state 46
+
+
+state 29
+
+    (23) empty -> SYMBOL COMMA .
+
+    ASTERISK        reduce using rule 23 (empty -> SYMBOL COMMA .)
+    SYMBOL          reduce using rule 23 (empty -> SYMBOL COMMA .)
+    STATEMENT_END   reduce using rule 23 (empty -> SYMBOL COMMA .)
+    INSTRUCTION     reduce using rule 23 (empty -> SYMBOL COMMA .)
+    OCTAL           reduce using rule 23 (empty -> SYMBOL COMMA .)
+    DECIMAL         reduce using rule 23 (empty -> SYMBOL COMMA .)
+    PMODE           reduce using rule 23 (empty -> SYMBOL COMMA .)
+    LMODE           reduce using rule 23 (empty -> SYMBOL COMMA .)
+    SEGMNT          reduce using rule 23 (empty -> SYMBOL COMMA .)
+    P_OPERATE_1     reduce using rule 23 (empty -> SYMBOL COMMA .)
+    P_OPERATE_2     reduce using rule 23 (empty -> SYMBOL COMMA .)
+    MINUS           reduce using rule 23 (empty -> SYMBOL COMMA .)
+    NUMBER          reduce using rule 23 (empty -> SYMBOL COMMA .)
+    DOT             reduce using rule 23 (empty -> SYMBOL COMMA .)
+    $end            reduce using rule 23 (empty -> SYMBOL COMMA .)
+
+
+state 30
+
+    (24) empty -> SYMBOL EQUALS . expression
+    (25) expression -> . expression PLUS term
+    (26) expression -> . expression MINUS term
+    (27) expression -> . MINUS expression
+    (28) expression -> . expression AMPERSAND term
+    (29) expression -> . expression EXCLAMATION term
+    (30) expression -> . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    MINUS           shift and go to state 24
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    expression                     shift and go to state 47
+    term                           shift and go to state 23
+
+state 31
+
+    (6) pseudo_with_args -> SEGMNT expression .
+    (25) expression -> expression . PLUS term
+    (26) expression -> expression . MINUS term
+    (28) expression -> expression . AMPERSAND term
+    (29) expression -> expression . EXCLAMATION term
+
+    STATEMENT_END   reduce using rule 6 (pseudo_with_args -> SEGMNT expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    AMPERSAND       shift and go to state 36
+    EXCLAMATION     shift and go to state 37
+
+
+state 32
+
+    (33) term -> SYMBOL .
+
+    PLUS            reduce using rule 33 (term -> SYMBOL .)
+    MINUS           reduce using rule 33 (term -> SYMBOL .)
+    AMPERSAND       reduce using rule 33 (term -> SYMBOL .)
+    EXCLAMATION     reduce using rule 33 (term -> SYMBOL .)
+    STATEMENT_END   reduce using rule 33 (term -> SYMBOL .)
+    ASTERISK        reduce using rule 33 (term -> SYMBOL .)
+    SYMBOL          reduce using rule 33 (term -> SYMBOL .)
+    INSTRUCTION     reduce using rule 33 (term -> SYMBOL .)
+    OCTAL           reduce using rule 33 (term -> SYMBOL .)
+    DECIMAL         reduce using rule 33 (term -> SYMBOL .)
+    PMODE           reduce using rule 33 (term -> SYMBOL .)
+    LMODE           reduce using rule 33 (term -> SYMBOL .)
+    SEGMNT          reduce using rule 33 (term -> SYMBOL .)
+    P_OPERATE_1     reduce using rule 33 (term -> SYMBOL .)
+    P_OPERATE_2     reduce using rule 33 (term -> SYMBOL .)
+    NUMBER          reduce using rule 33 (term -> SYMBOL .)
+    DOT             reduce using rule 33 (term -> SYMBOL .)
+    $end            reduce using rule 33 (term -> SYMBOL .)
+
+
+state 33
+
+    (21) machine_code -> expression STATEMENT_END .
+
+    ASTERISK        reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    SYMBOL          reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    STATEMENT_END   reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    INSTRUCTION     reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    OCTAL           reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    DECIMAL         reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    PMODE           reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    LMODE           reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    SEGMNT          reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    MINUS           reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    NUMBER          reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    DOT             reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+    $end            reduce using rule 21 (machine_code -> expression STATEMENT_END .)
+
+
+state 34
+
+    (25) expression -> expression PLUS . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    term                           shift and go to state 48
+
+state 35
+
+    (26) expression -> expression MINUS . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    term                           shift and go to state 49
+
+state 36
+
+    (28) expression -> expression AMPERSAND . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    term                           shift and go to state 50
+
+state 37
+
+    (29) expression -> expression EXCLAMATION . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    term                           shift and go to state 51
+
+state 38
+
+    (11) machine_code -> INSTRUCTION STATEMENT_END .
+
+    ASTERISK        reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    SYMBOL          reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    STATEMENT_END   reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    INSTRUCTION     reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    OCTAL           reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    DECIMAL         reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    PMODE           reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    LMODE           reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    SEGMNT          reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    MINUS           reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    NUMBER          reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    DOT             reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+    $end            reduce using rule 11 (machine_code -> INSTRUCTION STATEMENT_END .)
+
+
+state 39
+
+    (12) machine_code -> INSTRUCTION I . STATEMENT_END
+    (14) machine_code -> INSTRUCTION I . expression STATEMENT_END
+    (25) expression -> . expression PLUS term
+    (26) expression -> . expression MINUS term
+    (27) expression -> . MINUS expression
+    (28) expression -> . expression AMPERSAND term
+    (29) expression -> . expression EXCLAMATION term
+    (30) expression -> . term
+    (31) term -> . NUMBER
+    (32) term -> . DOT
+    (33) term -> . SYMBOL
+
+    STATEMENT_END   shift and go to state 52
+    MINUS           shift and go to state 24
+    NUMBER          shift and go to state 15
+    DOT             shift and go to state 25
+    SYMBOL          shift and go to state 32
+
+    expression                     shift and go to state 53
+    term                           shift and go to state 23
+
+state 40
+
+    (13) machine_code -> INSTRUCTION expression . STATEMENT_END
+    (25) expression -> expression . PLUS term
+    (26) expression -> expression . MINUS term
+    (28) expression -> expression . AMPERSAND term
+    (29) expression -> expression . EXCLAMATION term
+
+    STATEMENT_END   shift and go to state 54
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    AMPERSAND       shift and go to state 36
+    EXCLAMATION     shift and go to state 37
+
+
+state 41
+
+    (15) machine_code -> grouped_operate_1 STATEMENT_END .
+
+    ASTERISK        reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    SYMBOL          reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    STATEMENT_END   reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    INSTRUCTION     reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    OCTAL           reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    DECIMAL         reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    PMODE           reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    LMODE           reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    SEGMNT          reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    MINUS           reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    NUMBER          reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    DOT             reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+    $end            reduce using rule 15 (machine_code -> grouped_operate_1 STATEMENT_END .)
+
+
+state 42
+
+    (18) grouped_operate_1 -> grouped_operate_1 P_OPERATE_1 .
+
+    STATEMENT_END   reduce using rule 18 (grouped_operate_1 -> grouped_operate_1 P_OPERATE_1 .)
+    P_OPERATE_1     reduce using rule 18 (grouped_operate_1 -> grouped_operate_1 P_OPERATE_1 .)
+
+
+state 43
+
+    (16) machine_code -> grouped_operate_2 STATEMENT_END .
+
+    ASTERISK        reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    SYMBOL          reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    STATEMENT_END   reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    INSTRUCTION     reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    OCTAL           reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    DECIMAL         reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    PMODE           reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    LMODE           reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    SEGMNT          reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    MINUS           reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    NUMBER          reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    DOT             reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+    $end            reduce using rule 16 (machine_code -> grouped_operate_2 STATEMENT_END .)
+
+
+state 44
+
+    (20) grouped_operate_2 -> grouped_operate_2 P_OPERATE_2 .
+
+    STATEMENT_END   reduce using rule 20 (grouped_operate_2 -> grouped_operate_2 P_OPERATE_2 .)
+    P_OPERATE_2     reduce using rule 20 (grouped_operate_2 -> grouped_operate_2 P_OPERATE_2 .)
+
+
+state 45
+
+    (27) expression -> MINUS expression .
+    (25) expression -> expression . PLUS term
+    (26) expression -> expression . MINUS term
+    (28) expression -> expression . AMPERSAND term
+    (29) expression -> expression . EXCLAMATION term
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for AMPERSAND resolved as shift
+  ! shift/reduce conflict for EXCLAMATION resolved as shift
+    STATEMENT_END   reduce using rule 27 (expression -> MINUS expression .)
+    ASTERISK        reduce using rule 27 (expression -> MINUS expression .)
+    SYMBOL          reduce using rule 27 (expression -> MINUS expression .)
+    INSTRUCTION     reduce using rule 27 (expression -> MINUS expression .)
+    OCTAL           reduce using rule 27 (expression -> MINUS expression .)
+    DECIMAL         reduce using rule 27 (expression -> MINUS expression .)
+    PMODE           reduce using rule 27 (expression -> MINUS expression .)
+    LMODE           reduce using rule 27 (expression -> MINUS expression .)
+    SEGMNT          reduce using rule 27 (expression -> MINUS expression .)
+    P_OPERATE_1     reduce using rule 27 (expression -> MINUS expression .)
+    P_OPERATE_2     reduce using rule 27 (expression -> MINUS expression .)
+    NUMBER          reduce using rule 27 (expression -> MINUS expression .)
+    DOT             reduce using rule 27 (expression -> MINUS expression .)
+    $end            reduce using rule 27 (expression -> MINUS expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    AMPERSAND       shift and go to state 36
+    EXCLAMATION     shift and go to state 37
+
+  ! PLUS            [ reduce using rule 27 (expression -> MINUS expression .) ]
+  ! MINUS           [ reduce using rule 27 (expression -> MINUS expression .) ]
+  ! AMPERSAND       [ reduce using rule 27 (expression -> MINUS expression .) ]
+  ! EXCLAMATION     [ reduce using rule 27 (expression -> MINUS expression .) ]
+
+
+state 46
+
+    (22) empty -> ASTERISK NUMBER STATEMENT_END .
+
+    ASTERISK        reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    SYMBOL          reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    STATEMENT_END   reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    INSTRUCTION     reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    OCTAL           reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    DECIMAL         reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    PMODE           reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    LMODE           reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    SEGMNT          reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    MINUS           reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    NUMBER          reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    DOT             reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+    $end            reduce using rule 22 (empty -> ASTERISK NUMBER STATEMENT_END .)
+
+
+state 47
+
+    (24) empty -> SYMBOL EQUALS expression .
+    (25) expression -> expression . PLUS term
+    (26) expression -> expression . MINUS term
+    (28) expression -> expression . AMPERSAND term
+    (29) expression -> expression . EXCLAMATION term
+
+  ! shift/reduce conflict for MINUS resolved as shift
+    ASTERISK        reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    SYMBOL          reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    STATEMENT_END   reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    INSTRUCTION     reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    OCTAL           reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    DECIMAL         reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    PMODE           reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    LMODE           reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    SEGMNT          reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    P_OPERATE_1     reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    P_OPERATE_2     reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    NUMBER          reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    DOT             reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    $end            reduce using rule 24 (empty -> SYMBOL EQUALS expression .)
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    AMPERSAND       shift and go to state 36
+    EXCLAMATION     shift and go to state 37
+
+  ! MINUS           [ reduce using rule 24 (empty -> SYMBOL EQUALS expression .) ]
+
+
+state 48
+
+    (25) expression -> expression PLUS term .
+
+    STATEMENT_END   reduce using rule 25 (expression -> expression PLUS term .)
+    PLUS            reduce using rule 25 (expression -> expression PLUS term .)
+    MINUS           reduce using rule 25 (expression -> expression PLUS term .)
+    AMPERSAND       reduce using rule 25 (expression -> expression PLUS term .)
+    EXCLAMATION     reduce using rule 25 (expression -> expression PLUS term .)
+    ASTERISK        reduce using rule 25 (expression -> expression PLUS term .)
+    SYMBOL          reduce using rule 25 (expression -> expression PLUS term .)
+    INSTRUCTION     reduce using rule 25 (expression -> expression PLUS term .)
+    OCTAL           reduce using rule 25 (expression -> expression PLUS term .)
+    DECIMAL         reduce using rule 25 (expression -> expression PLUS term .)
+    PMODE           reduce using rule 25 (expression -> expression PLUS term .)
+    LMODE           reduce using rule 25 (expression -> expression PLUS term .)
+    SEGMNT          reduce using rule 25 (expression -> expression PLUS term .)
+    P_OPERATE_1     reduce using rule 25 (expression -> expression PLUS term .)
+    P_OPERATE_2     reduce using rule 25 (expression -> expression PLUS term .)
+    NUMBER          reduce using rule 25 (expression -> expression PLUS term .)
+    DOT             reduce using rule 25 (expression -> expression PLUS term .)
+    $end            reduce using rule 25 (expression -> expression PLUS term .)
+
+
+state 49
+
+    (26) expression -> expression MINUS term .
+
+    STATEMENT_END   reduce using rule 26 (expression -> expression MINUS term .)
+    PLUS            reduce using rule 26 (expression -> expression MINUS term .)
+    MINUS           reduce using rule 26 (expression -> expression MINUS term .)
+    AMPERSAND       reduce using rule 26 (expression -> expression MINUS term .)
+    EXCLAMATION     reduce using rule 26 (expression -> expression MINUS term .)
+    ASTERISK        reduce using rule 26 (expression -> expression MINUS term .)
+    SYMBOL          reduce using rule 26 (expression -> expression MINUS term .)
+    INSTRUCTION     reduce using rule 26 (expression -> expression MINUS term .)
+    OCTAL           reduce using rule 26 (expression -> expression MINUS term .)
+    DECIMAL         reduce using rule 26 (expression -> expression MINUS term .)
+    PMODE           reduce using rule 26 (expression -> expression MINUS term .)
+    LMODE           reduce using rule 26 (expression -> expression MINUS term .)
+    SEGMNT          reduce using rule 26 (expression -> expression MINUS term .)
+    P_OPERATE_1     reduce using rule 26 (expression -> expression MINUS term .)
+    P_OPERATE_2     reduce using rule 26 (expression -> expression MINUS term .)
+    NUMBER          reduce using rule 26 (expression -> expression MINUS term .)
+    DOT             reduce using rule 26 (expression -> expression MINUS term .)
+    $end            reduce using rule 26 (expression -> expression MINUS term .)
+
+
+state 50
+
+    (28) expression -> expression AMPERSAND term .
+
+    STATEMENT_END   reduce using rule 28 (expression -> expression AMPERSAND term .)
+    PLUS            reduce using rule 28 (expression -> expression AMPERSAND term .)
+    MINUS           reduce using rule 28 (expression -> expression AMPERSAND term .)
+    AMPERSAND       reduce using rule 28 (expression -> expression AMPERSAND term .)
+    EXCLAMATION     reduce using rule 28 (expression -> expression AMPERSAND term .)
+    ASTERISK        reduce using rule 28 (expression -> expression AMPERSAND term .)
+    SYMBOL          reduce using rule 28 (expression -> expression AMPERSAND term .)
+    INSTRUCTION     reduce using rule 28 (expression -> expression AMPERSAND term .)
+    OCTAL           reduce using rule 28 (expression -> expression AMPERSAND term .)
+    DECIMAL         reduce using rule 28 (expression -> expression AMPERSAND term .)
+    PMODE           reduce using rule 28 (expression -> expression AMPERSAND term .)
+    LMODE           reduce using rule 28 (expression -> expression AMPERSAND term .)
+    SEGMNT          reduce using rule 28 (expression -> expression AMPERSAND term .)
+    P_OPERATE_1     reduce using rule 28 (expression -> expression AMPERSAND term .)
+    P_OPERATE_2     reduce using rule 28 (expression -> expression AMPERSAND term .)
+    NUMBER          reduce using rule 28 (expression -> expression AMPERSAND term .)
+    DOT             reduce using rule 28 (expression -> expression AMPERSAND term .)
+    $end            reduce using rule 28 (expression -> expression AMPERSAND term .)
+
+
+state 51
+
+    (29) expression -> expression EXCLAMATION term .
+
+    STATEMENT_END   reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    PLUS            reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    MINUS           reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    AMPERSAND       reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    EXCLAMATION     reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    ASTERISK        reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    SYMBOL          reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    INSTRUCTION     reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    OCTAL           reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    DECIMAL         reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    PMODE           reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    LMODE           reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    SEGMNT          reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    P_OPERATE_1     reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    P_OPERATE_2     reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    NUMBER          reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    DOT             reduce using rule 29 (expression -> expression EXCLAMATION term .)
+    $end            reduce using rule 29 (expression -> expression EXCLAMATION term .)
+
+
+state 52
+
+    (12) machine_code -> INSTRUCTION I STATEMENT_END .
+
+    ASTERISK        reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    SYMBOL          reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    STATEMENT_END   reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    INSTRUCTION     reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    OCTAL           reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    DECIMAL         reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    PMODE           reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    LMODE           reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    SEGMNT          reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    MINUS           reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    NUMBER          reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    DOT             reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+    $end            reduce using rule 12 (machine_code -> INSTRUCTION I STATEMENT_END .)
+
+
+state 53
+
+    (14) machine_code -> INSTRUCTION I expression . STATEMENT_END
+    (25) expression -> expression . PLUS term
+    (26) expression -> expression . MINUS term
+    (28) expression -> expression . AMPERSAND term
+    (29) expression -> expression . EXCLAMATION term
+
+    STATEMENT_END   shift and go to state 55
+    PLUS            shift and go to state 34
+    MINUS           shift and go to state 35
+    AMPERSAND       shift and go to state 36
+    EXCLAMATION     shift and go to state 37
+
+
+state 54
+
+    (13) machine_code -> INSTRUCTION expression STATEMENT_END .
+
+    ASTERISK        reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    SYMBOL          reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    STATEMENT_END   reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    INSTRUCTION     reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    OCTAL           reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    DECIMAL         reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    PMODE           reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    LMODE           reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    SEGMNT          reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    MINUS           reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    NUMBER          reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    DOT             reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+    $end            reduce using rule 13 (machine_code -> INSTRUCTION expression STATEMENT_END .)
+
+
+state 55
+
+    (14) machine_code -> INSTRUCTION I expression STATEMENT_END .
+
+    ASTERISK        reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    SYMBOL          reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    STATEMENT_END   reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    INSTRUCTION     reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    OCTAL           reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    DECIMAL         reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    PMODE           reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    LMODE           reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    SEGMNT          reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    P_OPERATE_1     reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    P_OPERATE_2     reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    MINUS           reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    NUMBER          reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    DOT             reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+    $end            reduce using rule 14 (machine_code -> INSTRUCTION I expression STATEMENT_END .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 45 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 45 resolved as shift
+WARNING: shift/reduce conflict for AMPERSAND in state 45 resolved as shift
+WARNING: shift/reduce conflict for EXCLAMATION in state 45 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 47 resolved as shift
