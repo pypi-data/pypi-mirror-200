@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pycodegrade
+Version: 0.0.9
+Summary: PYPI pycodegrade for Python
+Home-page: https://github.com/teddylee777/pycodegrade
+Author: teddylee777
+Author-email: teddylee777@gmail.com
+Keywords: pycodegrade,codegrade,python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Requires-Dist: pyairtable
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+
