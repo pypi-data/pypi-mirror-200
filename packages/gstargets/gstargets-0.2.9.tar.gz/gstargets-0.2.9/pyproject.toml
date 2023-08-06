@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "gstargets"
+version = "0.2.9"
+description = ""
+authors = ["sajad faghfoor maghrebi <sajad.faghfoor@gmail.com>"]
+
+packages = [
+    { include = "gstargets" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4"  
+zigzag = "^0.3.2"
+volprofile = "^0.1.8"
+packaging = "^23.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
