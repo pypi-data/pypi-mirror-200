@@ -1,0 +1,127 @@
+Metadata-Version: 2.1
+Name: jupyterlmod
+Version: 4.0.1
+Summary: Lmod JupyterLab extension
+Project-URL: Homepage, https://github.com/cmd-ntrf/jupyter-lmod
+Project-URL: Bug Tracker, https://github.com/cmd-ntrf/jupyter-lmod/issues
+Project-URL: Repository, https://github.com/cmd-ntrf/jupyter-lmod.git
+Author-email: Felix-Antoine Fortin <felix@calculquebec.ca>
+License: MIT License
+        
+        Copyright (c) 2017 Félix-Antoine Fortin
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Classifier: Framework :: Jupyter
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.6
+Requires-Dist: jupyter-core
+Requires-Dist: jupyter-server
+Description-Content-Type: text/markdown
+
+# Jupyter Lmod
+
+Jupyter interactive notebook server extension that allows user
+to interact with environment modules before launching kernels.
+The extension use Lmod's Python interface to accomplish module
+related task like loading, unloading, saving collection, etc.
+
+## requirements
+
+- [jupyter notebook](https://github.com/jupyter/notebook) >= 6.0
+- [Lmod](https://github.com/TACC/Lmod) >= 6.0
+- optional: [jupyterlab](https://github.com/jupyter/notebook) >= 3.0
+- optional: [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy) >= 3.2.0
+- optional: [jupyterlab-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy) >= 3.2.0
+
+If jupyter-server-proxy and jupyterlab-server-proxy are detected, jupyter-lmod will add the
+proxy server launchers to JupyterLab UI when modules with matching names are loaded.
+
+## setup
+
+### install
+
+```
+pip install jupyterlmod
+```
+
+### Disable jupyter-server-proxy notebook and lab extensions
+
+To avoid having items in the launcher that cannot be launched because the binaries location are not in PATH,
+jupyter-lmod hides launcher items that do not have a corresponding loaded module.
+jupyter-server-proxy notebook and lab extension always display the launcher item.
+To avoid a situation where an item would be shown twice, we recommend disabling jupyter-server-proxy
+notebook and lab extensions.
+
+This can be done with the following command for notebook:
+```
+jupyter nbextension disable --py jupyter_server_proxy --sys-prefix
+```
+
+and with the following commands for jupyterlab:
+```
+jupyter labextension disable @jupyterlab/server-proxy
+jupyter labextension disable jupyterlab-server-proxy
+```
+
+### Pinning launcher items
+
+If server proxies do not have a corresponding modules, or you wish to have their launcher items
+displayed regardless of the loaded modules, you can define a list of items that will be pinned in
+the Jupyter notebook configuration file, like this:
+```
+c.Lmod.launcher_pins = ['Desktop', 'RStudio']
+```
+
+## demo
+
+![Jupyter notebook demo](https://i.imgur.com/pK1Q5gG.gif)
+
+![JupyterLab demo](https://i.imgur.com/1HDH7iN.gif)
+
+
+## develop
+
+### requirements
+
+- pip >= 23
+- [build](https://pypi.org/project/build/)
+- nodejs >= 18.x
+
+### build
+
+- wheel and tarball:
+    ```shell
+    pyproject-build
+    ```
+- labextension
+    ```shell
+    cd jupyterlab
+    npm install
+    npm run build
+    # To install extension in jupyterlab in develop mode:
+    npm run install:extension
+    ```
