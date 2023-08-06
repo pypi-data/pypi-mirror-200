@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0", "Pillow>=9.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TrimbleZebraPrinting"
+version = "1.1.1"
+authors = [
+  { name="Ryan Strasburg", email="ryan_strasburg@trimble.com" },
+]
+description = "Trimble Zebra Printing was built to simplify and standardize ZPL printing in the Trimble Facilities. This includes features, such as DPI scaling, to improve printing automation. Upscaling DPI results in a loss of quality. Matching DPIs or downscaling is recommended."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ryan-strasburg/Trimble-Zebra-Printing"
+"Bug Tracker" = "https://github.com/ryan-strasburg/Trimble-Zebra-Printing/issues"
