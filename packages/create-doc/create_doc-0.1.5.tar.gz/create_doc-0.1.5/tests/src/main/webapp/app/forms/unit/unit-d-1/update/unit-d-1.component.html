@@ -1,0 +1,117 @@
+<div class="grid justify-content-center">
+  <div class="col-12 xl:col-10">
+    <div class="card" *ngIf="fg.hasCurrentRecord">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="fg.editForm">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.unit$D$1.code" for="f3_code">Code</label>
+            <input pInputText type="text" name="code" id="f3_code" data-cy="code" formControlName="code" />
+            <div *ngIf="fg.editForm.get('code')!.invalid && (fg.editForm.get('code')!.dirty || fg.editForm.get('code')!.touched)">
+              <small
+                class="form-text text-danger"
+                *ngIf="fg.editForm.get('code')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.unit$D$1.name" for="f3_name">Name</label>
+            <input pInputText type="text" name="name" id="f3_name" data-cy="name" formControlName="name" />
+            <div *ngIf="fg.editForm.get('name')!.invalid && (fg.editForm.get('name')!.dirty || fg.editForm.get('name')!.touched)">
+              <small
+                class="form-text text-danger"
+                *ngIf="fg.editForm.get('name')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+          <div class="field col-12">
+            <label jhiTranslate="aportalApp.unit$D$1.description" for="f3_description">Description</label>
+            <textarea
+              pInputTextarea
+              name="description"
+              id="f3_description"
+              data-cy="description"
+              formControlName="description"
+              [rows]="5"
+            ></textarea>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.unit$D$1.status" for="f3_status">Status</label>
+            <p-dropdown
+              id="f3_status"
+              name="status"
+              [options]="store.standardRecordStatusesSharedCollection"
+              formControlName="status"
+              optionLabel="label"
+              optionValue="value"
+              [showClear]="true"
+              placeholder="..."
+              data-cy="status"
+            ></p-dropdown>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.unit$D$1.validFrom" for="f3_validFrom">Valid From</label>
+            <p-calendar
+              id="f3_validFrom"
+              name="validFrom"
+              data-cy="validFrom"
+              formControlName="validFrom"
+              [showIcon]="true"
+              [showTime]="true"
+              dateFormat="d.m.yy"
+            ></p-calendar>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.unit$D$1.validUntil" for="f3_validUntil">Valid Until</label>
+            <p-calendar
+              id="f3_validUntil"
+              name="validUntil"
+              data-cy="validUntil"
+              formControlName="validUntil"
+              [showIcon]="true"
+              [showTime]="true"
+              dateFormat="d.m.yy"
+            ></p-calendar>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.unit$D$1.seq" for="f3_seq">Sequence</label>
+            <input pInputText type="number" name="seq" id="f3_seq" data-cy="seq" formControlName="seq" />
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4" [hidden]="fg.editForm.get('id')!.value == null">
+            <label jhiTranslate="aportalApp.unit$D$1.id" for="f3_id">Id</label>
+            <input pInputText type="number" name="id" id="f3_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        </div>
+
+        <div class="field col-12">
+          <button
+            type="button"
+            id="unit$D$1CancelSave"
+            data-cy="unit$D$1FormCancelButton"
+            pButton
+            class="p-button-secondary"
+            (click)="previousState()"
+          >
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
+
+          <button
+            type="submit"
+            id="unit$D$1SaveEntity"
+            data-cy="unit$D$1FormSaveButton"
+            [disabled]="fg.editForm.invalid || isSaving || fg.editForm.pristine"
+            pButton
+            class="p-button-primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

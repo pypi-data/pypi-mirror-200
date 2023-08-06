@@ -1,0 +1,154 @@
+<!--table-->
+<div class="grid justify-content-center">
+  <div class="col-12">
+    <div class="card" *ngIf="showForm">
+      <h2 id="page-heading" data-cy="BillingAccountHeading">
+        <span jhiTranslate="aportalApp.billingAccount.home.title">Billing Accounts</span>
+      </h2>
+      <div class="flex justify-content-between mb-1">
+        <div>
+          <button
+            pButton
+            id="refresh-entity"
+            class="p-button-secondary mr-2"
+            (click)="loadPage()"
+            [disabled]="isLoading"
+            [label]="'aportalApp.billingAccount.home.refreshListLabel' | translate"
+            icon="pi pi-refresh"
+            iconPos="left"
+          >
+          </button>
+          <button
+            pButton
+            id="jh-create-entity"
+            data-cy="BillingAccountCreateButton"
+            class="jh-create-entity create-billing-account"
+            (click)="createRecord()"
+            [label]="'aportalApp.billingAccount.home.createLabel' | translate"
+            icon="pi pi-plus"
+            iconPos="left"
+            [disabled]="addingNewRecord"
+          ></button>
+        </div>
+        <div>
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="globalSearchTerm"
+              (input)="globalSearch()"
+              [placeholder]="'entity.action.globalSearch' | translate"
+            />
+          </span>
+        </div>
+      </div>
+
+      <div class="table-responsive" id="billingAccount->entities">
+        <p-table
+          #billingAccountTable
+          [value]="billingAccounts"
+          [rowTrackBy]="trackId"
+          [responsive]="true"
+          [lazy]="true"
+          [rows]="itemsPerPage"
+          [totalRecords]="totalItems"
+          sortMode="multiple"
+          [lazyLoadOnInit]="false"
+          [paginator]="true"
+          (onLazyLoad)="onLazyLoadEvent($event)"
+          paginatorDropdownAppendTo="body"
+          [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[5, 10, 25, 50]"
+          currentPageReportTemplate="{first} - {last} | {totalRecords}"
+          selectionMode="single"
+          [(selection)]="selectedRecord"
+          dataKey="id"
+          [selectAll]="false"
+          [scrollable]="true"
+          (onRowSelect)="selectRow()"
+          [globalFilterFields]="['code', 'name']"
+        >
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td jhiTranslate="primeng.emptyMessage">No records found</td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="name" style="width: 200px">
+                <span jhiTranslate="aportalApp.billingAccount.name">Name</span>
+                <p-sortIcon field="name"></p-sortIcon>
+                <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="description" style="width: 220px">
+                <span jhiTranslate="aportalApp.billingAccount.description">Description</span>
+                <p-sortIcon field="description"></p-sortIcon>
+                <p-columnFilter type="text" field="description" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="formattedAddressLin" style="width: 200px">
+                <span jhiTranslate="aportalApp.billingAccount.formattedAddressLin">Address</span>
+                <p-sortIcon field="formattedAddressLin"></p-sortIcon>
+                <p-columnFilter type="text" field="formattedAddressLin" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="code" style="width: 130px">
+                <span jhiTranslate="aportalApp.billingAccount.code">Code</span>
+                <p-sortIcon field="code"></p-sortIcon>
+                <p-columnFilter type="text" field="code" display="menu"></p-columnFilter>
+              </th>
+              <th style="width: 140px"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-billingAccount>
+            <tr [pSelectableRow]="billingAccount" data-cy="BillingAccountTable">
+              <td>{{ billingAccount.name }}</td>
+              <td>{{ billingAccount.description }}</td>
+              <td>{{ billingAccount.formattedAddressLin }}</td>
+              <td>{{ billingAccount.code }}</td>
+              <td>
+                <div class="btn-group flex-btn-group-container">
+                  <button
+                    pButton
+                    pRipple
+                    type="button"
+                    (click)="delete(billingAccount)"
+                    class="p-button-rounded p-button-text p-button-danger"
+                    icon="pi pi-trash"
+                    data-cy="BillingAccountDeleteButton"
+                  ></button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+        <!--{{ isEditing ? 'Editing' : 'Not editing' }}-->
+      </div>
+    </div>
+  </div>
+</div>
+<p-confirmDialog #cd [style]="{ width: '50vw' }" data-cy="billingAccountDeleteDialogHeading">
+  <p-footer>
+    <button
+      type="button"
+      pButton
+      [icon]="cd.option('rejectIcon')"
+      [label]="cd.rejectButtonLabel"
+      (click)="cd.reject()"
+      [ngClass]="cd.option('rejectButtonStyleClass')"
+      data-cy="billingAccountRejectDeleteButton"
+    ></button>
+    <button
+      type="button"
+      pButton
+      [icon]="cd.option('acceptIcon')"
+      [label]="cd.acceptButtonLabel"
+      (click)="cd.accept()"
+      [ngClass]="cd.option('acceptButtonStyleClass')"
+      data-cy="billingAccountConfirmDeleteButton"
+    ></button>
+  </p-footer>
+</p-confirmDialog>
+
+<div *ngIf="currentRecord">
+  <jhi-ba-tabs></jhi-ba-tabs>
+</div>

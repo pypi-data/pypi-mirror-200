@@ -1,0 +1,87 @@
+<div class="grid justify-content-center">
+  <div class="col-12 xl:col-10">
+    <div class="card" *ngIf="fg.hasCurrentRecord">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="fg.editForm">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.caBaBasicInfo.code" for="f14_code">Code</label>
+            <input pInputText type="text" name="code" id="f14_code" data-cy="code" formControlName="code" />
+            <div *ngIf="fg.editForm.get('code')!.invalid && (fg.editForm.get('code')!.dirty || fg.editForm.get('code')!.touched)">
+              <small
+                class="form-text text-danger"
+                *ngIf="fg.editForm.get('code')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.caBaBasicInfo.name" for="f14_name">Name</label>
+            <input pInputText type="text" name="name" id="f14_name" data-cy="name" formControlName="name" />
+            <div *ngIf="fg.editForm.get('name')!.invalid && (fg.editForm.get('name')!.dirty || fg.editForm.get('name')!.touched)">
+              <small
+                class="form-text text-danger"
+                *ngIf="fg.editForm.get('name')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.caBaBasicInfo.organization" for="f14_organization">Organization</label>
+            <p-autoComplete
+              id="f14_organization"
+              formControlName="organization"
+              (completeMethod)="fg.searchOrganization($event)"
+              [suggestions]="fg.organizationSuggestions"
+              [dropdown]="true"
+              field="name"
+              data-cy="organization"
+              autocomplete="on"
+              [autoHighlight]="true"
+              [forceSelection]="true"
+            >
+            </p-autoComplete>
+          </div>
+          <div class="field col-12">
+            <label jhiTranslate="aportalApp.caBaBasicInfo.description" for="f14_description">Description</label>
+            <textarea
+              pInputTextarea
+              name="description"
+              id="f14_description"
+              data-cy="description"
+              formControlName="description"
+              [rows]="5"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="field col-12">
+          <button
+            type="button"
+            id="caBaBasicInfoCancelSave"
+            data-cy="caBaBasicInfoFormCancelButton"
+            pButton
+            class="p-button-secondary"
+            (click)="previousState()"
+          >
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
+
+          <button
+            type="submit"
+            id="caBaBasicInfoSaveEntity"
+            data-cy="caBaBasicInfoFormSaveButton"
+            [disabled]="fg.editForm.invalid || isSaving || fg.editForm.pristine"
+            pButton
+            class="p-button-primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

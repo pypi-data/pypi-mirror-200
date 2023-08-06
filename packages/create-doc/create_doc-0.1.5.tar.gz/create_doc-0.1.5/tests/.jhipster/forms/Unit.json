@@ -1,0 +1,318 @@
+{
+  "name" : "Unit",
+  "title" : "Unit",
+  "body" : {
+    "entity" : "Unit",
+    "entityTitle" : "Unit",
+    "entityTitlePlural" : null,
+    "entityI18nVariant" : "female",
+    "entityAutoTranslationKey" : null,
+    "entityPluralAutoTranslationKey" : null,
+    "template" : "table",
+    "properties" : [ ],
+    "parentForm" : "",
+    "parentComType" : "eventManager",
+    "parent" : [ ],
+    "linked" : [ ],
+    "showTitle" : true,
+    "formPosition" : "bottom",
+    "links" : [ ],
+    "globalSearch" : true,
+    "globalSearchFields" : [ "code", "name" ],
+    "showCreateButton" : true,
+    "showDetailsButton" : false,
+    "store" : {
+      "type" : "ownStore",
+      "name" : "Unit"
+    },
+    "formGroup" : {
+      "type" : "none",
+      "name" : "Unit"
+    },
+    "fields" : [ {
+      "name" : "id",
+      "title" : "Id",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "120px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null
+      }
+    }, {
+      "name" : "code",
+      "title" : "Code",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "150px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null
+      }
+    }, {
+      "name" : "name",
+      "title" : "Name",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "200px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null
+      }
+    }, {
+      "name" : "description",
+      "title" : "Description",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "220px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "textarea",
+        "autoTranslationKey" : null
+      }
+    }, {
+      "name" : "status",
+      "title" : "Status",
+      "validations" : [ ],
+      "default" : "StandardRecordStatus.ACTIVE",
+      "properties" : {
+        "tableColumnWidth" : "150px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null
+      }
+    }, {
+      "name" : "validFrom",
+      "title" : "Valid From",
+      "validations" : [ ],
+      "default" : "dayjs()",
+      "properties" : {
+        "tableColumnWidth" : "180px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null
+      }
+    }, {
+      "name" : "validUntil",
+      "title" : "Valid Until",
+      "validations" : [ ],
+      "default" : "dayjs(new Date(2200,1,1))",
+      "properties" : {
+        "tableColumnWidth" : "180px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null
+      }
+    }, {
+      "name" : "seq",
+      "title" : "Sequence",
+      "validations" : [ ],
+      "properties" : {
+        "tableColumnWidth" : "160px",
+        "formFieldClass" : "",
+        "disabled" : false,
+        "inputControlType" : "input",
+        "autoTranslationKey" : null
+      }
+    } ],
+    "views" : [ {
+      "view" : "list",
+      "fields" : {
+        "included" : [ "code", "name", "description", "status", "id" ],
+        "excluded" : [ ]
+      },
+      "roles" : {
+        "included" : [ ],
+        "excluded" : [ ]
+      }
+    } ],
+    "subforms" : [ {
+      "name" : "Unit$T",
+      "title" : "Details",
+      "addEntityFields" : false,
+      "addViewFields" : false,
+      "body" : {
+        "template" : "layout-tabs",
+        "properties" : [ ],
+        "parentForm" : "",
+        "parentComType" : "none",
+        "parent" : [ ],
+        "linked" : [ ],
+        "showTitle" : false,
+        "formPosition" : "bottom",
+        "links" : [ ],
+        "store" : {
+          "type" : "noStore",
+          "name" : "Unit"
+        },
+        "formGroup" : {
+          "type" : "none",
+          "name" : ""
+        },
+        "subforms" : [ {
+          "name" : "Unit$D$1",
+          "title" : "Basic Info",
+          "autoTranslationKey" : null,
+          "addEntityFields" : true,
+          "addViewFields" : true,
+          "body" : {
+            "entity" : "Unit",
+            "entityTitle" : "Unit",
+            "entityTitlePlural" : null,
+            "entityI18nVariant" : "female",
+            "entityAutoTranslationKey" : null,
+            "entityPluralAutoTranslationKey" : null,
+            "template" : "form",
+            "properties" : [ ],
+            "parentForm" : "Unit",
+            "parentComType" : "eventManager",
+            "parent" : [ "id" ],
+            "linked" : [ "id" ],
+            "showTitle" : false,
+            "formPosition" : "bottom",
+            "showOnEmptyRecord" : false,
+            "showSaveAndCancelButtons" : true,
+            "links" : [ ],
+            "store" : {
+              "type" : "otherComponent",
+              "name" : "Unit"
+            },
+            "formGroup" : {
+              "type" : "ownFormGroup",
+              "name" : "Unit$D$1"
+            },
+            "fields" : [ {
+              "name" : "id",
+              "title" : "Id",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "120px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null
+              }
+            }, {
+              "name" : "code",
+              "title" : "Code",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "150px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null
+              }
+            }, {
+              "name" : "name",
+              "title" : "Name",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "200px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null
+              }
+            }, {
+              "name" : "description",
+              "title" : "Description",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "220px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "textarea",
+                "autoTranslationKey" : null
+              }
+            }, {
+              "name" : "status",
+              "title" : "Status",
+              "validations" : [ ],
+              "default" : "StandardRecordStatus.ACTIVE",
+              "properties" : {
+                "tableColumnWidth" : "150px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null
+              }
+            }, {
+              "name" : "validFrom",
+              "title" : "Valid From",
+              "validations" : [ ],
+              "default" : "dayjs()",
+              "properties" : {
+                "tableColumnWidth" : "180px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null
+              }
+            }, {
+              "name" : "validUntil",
+              "title" : "Valid Until",
+              "validations" : [ ],
+              "default" : "dayjs(new Date(2200,1,1))",
+              "properties" : {
+                "tableColumnWidth" : "180px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null
+              }
+            }, {
+              "name" : "seq",
+              "title" : "Sequence",
+              "validations" : [ ],
+              "properties" : {
+                "tableColumnWidth" : "160px",
+                "formFieldClass" : "",
+                "disabled" : false,
+                "inputControlType" : "input",
+                "autoTranslationKey" : null
+              }
+            } ],
+            "views" : [ {
+              "view" : "default",
+              "fields" : {
+                "included" : [ "code", "name", "description", "status", "validFrom", "validUntil", "seq", "id" ],
+                "excluded" : [ ]
+              },
+              "roles" : {
+                "included" : [ ],
+                "excluded" : [ ]
+              }
+            } ],
+            "subforms" : [ ],
+            "showCreateButton" : true,
+            "showDeleteRecord" : true,
+            "showDetailsButton" : false,
+            "eventName" : "Unit$D$1",
+            "subtitle" : "Basic info"
+          },
+          "formId" : 3
+        } ],
+        "showCreateButton" : true,
+        "showDeleteRecord" : true,
+        "showDetailsButton" : false,
+        "eventName" : "Unit$T"
+      },
+      "autoTranslationKey" : "",
+      "formId" : 2
+    } ],
+    "showDeleteRecord" : true,
+    "eventName" : "Unit"
+  },
+  "autoTranslationKey" : null,
+  "addEntityFields" : true,
+  "addViewFields" : true,
+  "databaseType" : "sql",
+  "formId" : 1
+}

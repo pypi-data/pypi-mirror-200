@@ -1,0 +1,20 @@
+<div class="grid justify-content-center">
+  <div class="col-12">
+    <div class="card">
+      <p-accordion>
+        <p-accordionTab header="{{ 'aportalApp.bABillingAccountBasicInfo.home.title' | translate }}" [selected]="true">
+          <jhi-ba-billing-account-basic-info></jhi-ba-billing-account-basic-info>
+        </p-accordionTab>
+        <p-accordionTab header="{{ 'aportalApp.bABillingAccount$adr.home.title' | translate }}">
+          <jhi-ba-billing-account-adr></jhi-ba-billing-account-adr>
+        </p-accordionTab>
+        <p-accordionTab header="{{ 'aportalApp.bABillingAccountStatus.home.title' | translate }}">
+          <jhi-ba-billing-account-status></jhi-ba-billing-account-status>
+        </p-accordionTab>
+        <p-accordionTab header="{{ 'aportalApp.bABillingAccountAssignedPersons.home.title' | translate }}">
+          <jhi-ba-billing-account-assigned-persons></jhi-ba-billing-account-assigned-persons>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>

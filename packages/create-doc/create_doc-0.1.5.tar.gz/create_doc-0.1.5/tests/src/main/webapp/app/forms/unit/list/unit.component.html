@@ -1,0 +1,181 @@
+<!--table-->
+<div class="grid justify-content-center">
+  <div class="col-12">
+    <div class="card" *ngIf="showForm">
+      <h2 id="page-heading" data-cy="UnitHeading">
+        <span jhiTranslate="aportalApp.unit.home.title">Unit</span>
+      </h2>
+      <div class="flex justify-content-between mb-1">
+        <div>
+          <button
+            pButton
+            id="refresh-entity"
+            class="p-button-secondary mr-2"
+            (click)="loadPage()"
+            [disabled]="isLoading"
+            [label]="'aportalApp.unit.home.refreshListLabel' | translate"
+            icon="pi pi-refresh"
+            iconPos="left"
+          >
+          </button>
+          <button
+            pButton
+            id="jh-create-entity"
+            data-cy="UnitCreateButton"
+            class="jh-create-entity create-unit"
+            (click)="createRecord()"
+            [label]="'aportalApp.unit.home.createLabel' | translate"
+            icon="pi pi-plus"
+            iconPos="left"
+            [disabled]="addingNewRecord"
+          ></button>
+        </div>
+        <div>
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="globalSearchTerm"
+              (input)="globalSearch()"
+              [placeholder]="'entity.action.globalSearch' | translate"
+            />
+          </span>
+        </div>
+      </div>
+
+      <div class="table-responsive" id="unit->entities">
+        <p-table
+          #unitTable
+          [value]="units"
+          [rowTrackBy]="trackId"
+          [responsive]="true"
+          [lazy]="true"
+          [rows]="itemsPerPage"
+          [totalRecords]="totalItems"
+          sortMode="multiple"
+          [lazyLoadOnInit]="false"
+          [paginator]="true"
+          (onLazyLoad)="onLazyLoadEvent($event)"
+          paginatorDropdownAppendTo="body"
+          [showCurrentPageReport]="true"
+          [rowsPerPageOptions]="[5, 10, 25, 50]"
+          currentPageReportTemplate="{first} - {last} | {totalRecords}"
+          selectionMode="single"
+          [(selection)]="selectedRecord"
+          dataKey="id"
+          [selectAll]="false"
+          [scrollable]="true"
+          (onRowSelect)="selectRow()"
+          [globalFilterFields]="['code', 'name']"
+        >
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td jhiTranslate="primeng.emptyMessage">No records found</td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="code" style="width: 150px">
+                <span jhiTranslate="aportalApp.unit.code">Code</span>
+                <p-sortIcon field="code"></p-sortIcon>
+                <p-columnFilter type="text" field="code" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="name" style="width: 200px">
+                <span jhiTranslate="aportalApp.unit.name">Name</span>
+                <p-sortIcon field="name"></p-sortIcon>
+                <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="description" style="width: 220px">
+                <span jhiTranslate="aportalApp.unit.description">Description</span>
+                <p-sortIcon field="description"></p-sortIcon>
+                <p-columnFilter type="text" field="description" display="menu"></p-columnFilter>
+              </th>
+              <th pSortableColumn="status" style="width: 150px">
+                <span jhiTranslate="aportalApp.unit.status">Status</span>
+                <p-sortIcon field="status"></p-sortIcon>
+                <p-columnFilter
+                  field="status"
+                  display="menu"
+                  matchMode="in"
+                  [showMatchModes]="false"
+                  [showOperator]="false"
+                  [showAddButton]="false"
+                >
+                  <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                    <p-multiSelect
+                      [ngModel]="value"
+                      [options]="store.standardRecordStatusesSharedCollection"
+                      (onChange)="filter($event.value)"
+                      [placeholder]="'primeng.any' | translate"
+                      optionLabel="label"
+                    >
+                      <ng-template let-option pTemplate="item">
+                        {{ option.label }}
+                      </ng-template>
+                    </p-multiSelect>
+                  </ng-template>
+                </p-columnFilter>
+              </th>
+              <th pSortableColumn="id" style="width: 120px">
+                <span jhiTranslate="aportalApp.unit.id">Id</span>
+                <p-sortIcon field="id"></p-sortIcon>
+                <p-columnFilter type="numeric" field="id" display="menu"></p-columnFilter>
+              </th>
+              <th style="width: 140px"></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-unit>
+            <tr [pSelectableRow]="unit" data-cy="UnitTable">
+              <td>{{ unit.code }}</td>
+              <td>{{ unit.name }}</td>
+              <td>{{ unit.description }}</td>
+              <td jhiTranslate="{{ 'aportalApp.StandardRecordStatus.' + unit.status }}">{{ unit.status }}</td>
+              <td>{{ unit.id }}</td>
+              <td>
+                <div class="btn-group flex-btn-group-container">
+                  <button
+                    pButton
+                    pRipple
+                    type="button"
+                    (click)="delete(unit)"
+                    class="p-button-rounded p-button-text p-button-danger"
+                    icon="pi pi-trash"
+                    data-cy="UnitDeleteButton"
+                  ></button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+        <!--{{ isEditing ? 'Editing' : 'Not editing' }}-->
+      </div>
+    </div>
+  </div>
+</div>
+<p-confirmDialog #cd [style]="{ width: '50vw' }" data-cy="unitDeleteDialogHeading">
+  <p-footer>
+    <button
+      type="button"
+      pButton
+      [icon]="cd.option('rejectIcon')"
+      [label]="cd.rejectButtonLabel"
+      (click)="cd.reject()"
+      [ngClass]="cd.option('rejectButtonStyleClass')"
+      data-cy="unitRejectDeleteButton"
+    ></button>
+    <button
+      type="button"
+      pButton
+      [icon]="cd.option('acceptIcon')"
+      [label]="cd.acceptButtonLabel"
+      (click)="cd.accept()"
+      [ngClass]="cd.option('acceptButtonStyleClass')"
+      data-cy="unitConfirmDeleteButton"
+    ></button>
+  </p-footer>
+</p-confirmDialog>
+
+<div *ngIf="currentRecord">
+  <jhi-unit-t></jhi-unit-t>
+</div>

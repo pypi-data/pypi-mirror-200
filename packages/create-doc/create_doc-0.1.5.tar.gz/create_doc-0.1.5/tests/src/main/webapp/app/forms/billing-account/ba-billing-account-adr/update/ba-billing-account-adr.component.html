@@ -1,0 +1,157 @@
+<div class="grid justify-content-center">
+  <div class="col-12 xl:col-10">
+    <div class="card" *ngIf="fg.hasCurrentRecord">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="fg.editForm">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.country" for="f2_country">Country</label>
+            <p-autoComplete
+              id="f2_country"
+              formControlName="country"
+              (completeMethod)="afs.searchCountryName($event)"
+              [suggestions]="afs.countryNameSuggestionsSource"
+              [dropdown]="true"
+              field="name"
+              data-cy="country"
+              autocomplete="on"
+              [autoHighlight]="true"
+              [forceSelection]="true"
+              (onBlur)="afs.onBlurCountry(fg.editForm)"
+              (onSelect)="afs.onSelectCountry($event, fg.editForm)"
+            >
+            </p-autoComplete>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.placeName" for="f2_placeName">Place Name</label>
+            <p-autoComplete
+              id="f2_placeName"
+              formControlName="placeName"
+              (completeMethod)="afs.searchPlaceName($event)"
+              [suggestions]="afs.placeNameSuggestions"
+              (onSelect)="afs.onSelectPlaceName($event, fg.editForm)"
+              autocomplete="on"
+              [autoHighlight]="true"
+              data-cy="placeName"
+              (onBlur)="afs.onBlurPlaceName(fg.editForm)"
+            >
+            </p-autoComplete>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.postNumber" for="f2_postNumber">Post Number</label>
+            <p-autoComplete
+              id="f2_postNumber"
+              formControlName="postNumber"
+              (completeMethod)="afs.searchPostNumber($event)"
+              [suggestions]="afs.postNumberSuggestions"
+              (onSelect)="afs.onSelectPostNumber($event, fg.editForm)"
+              autocomplete="on"
+              [autoHighlight]="true"
+              data-cy="postNumber"
+              (onBlur)="afs.onBlurPostNumber(fg.editForm)"
+            >
+            </p-autoComplete>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.postName" for="f2_postName">Post Name</label>
+            <p-autoComplete
+              id="f2_postName"
+              formControlName="postName"
+              (completeMethod)="afs.searchPostName($event)"
+              [suggestions]="afs.postNameSuggestions"
+              (onSelect)="afs.onSelectPostName($event, fg.editForm)"
+              autocomplete="on"
+              [autoHighlight]="true"
+              data-cy="postName"
+              (onBlur)="afs.onBlurPostName(fg.editForm)"
+            >
+            </p-autoComplete>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.streetName" for="f2_streetName">Street Name</label>
+            <p-autoComplete
+              id="f2_streetName"
+              formControlName="streetName"
+              (completeMethod)="afs.searchStreetName($event)"
+              [suggestions]="afs.streetNameSuggestions"
+              (onSelect)="afs.onSelectStreetName($event, fg.editForm)"
+              autocomplete="on"
+              [autoHighlight]="true"
+              data-cy="streetName"
+              (onBlur)="afs.onBlurStreetName(fg.editForm)"
+            >
+            </p-autoComplete>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.homeNumber" for="f2_homeNumber">Home Number</label>
+            <p-inputNumber
+              type="number"
+              name="homeNumber"
+              id="f2_homeNumber"
+              data-cy="homeNumber"
+              formControlName="homeNumber"
+              (blur)="afs.formatAddresses(fg.editForm)"
+            ></p-inputNumber>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.homeLetter" for="f2_homeLetter">Home Letter</label>
+            <input
+              pInputText
+              type="text"
+              name="homeLetter"
+              id="f2_homeLetter"
+              data-cy="homeLetter"
+              formControlName="homeLetter"
+              (blur)="afs.formatAddresses(fg.editForm)"
+            />
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.formattedAddressLin" for="f2_formattedAddressLin">Address</label>
+            <input
+              pInputText
+              type="text"
+              name="formattedAddressLin"
+              id="f2_formattedAddressLin"
+              data-cy="formattedAddressLin"
+              formControlName="formattedAddressLin"
+            />
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.bABillingAccount$adr.formattedAddress" for="f2_formattedAddress">Formatted Address</label>
+            <textarea
+              pInputTextarea
+              name="formattedAddress"
+              id="f2_formattedAddress"
+              data-cy="formattedAddress"
+              formControlName="formattedAddress"
+              [rows]="5"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="field col-12">
+          <button
+            type="button"
+            id="bABillingAccount$adrCancelSave"
+            data-cy="bABillingAccount$adrFormCancelButton"
+            pButton
+            class="p-button-secondary"
+            (click)="previousState()"
+          >
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
+
+          <button
+            type="submit"
+            id="bABillingAccount$adrSaveEntity"
+            data-cy="bABillingAccount$adrFormSaveButton"
+            [disabled]="fg.editForm.invalid || isSaving || fg.editForm.pristine"
+            pButton
+            class="p-button-primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

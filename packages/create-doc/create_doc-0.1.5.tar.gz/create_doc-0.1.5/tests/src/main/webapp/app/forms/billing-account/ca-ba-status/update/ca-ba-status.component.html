@@ -1,0 +1,72 @@
+<div class="grid justify-content-center">
+  <div class="col-12 xl:col-10">
+    <div class="card" *ngIf="fg.hasCurrentRecord">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="fg.editForm">
+        <div class="p-fluid grid">
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.caBaStatus.status" for="f15_status">Status</label>
+            <p-dropdown
+              id="f15_status"
+              name="status"
+              [options]="store.standardRecordStatusesSharedCollection"
+              formControlName="status"
+              optionLabel="label"
+              optionValue="value"
+              [showClear]="true"
+              placeholder="..."
+              data-cy="status"
+            ></p-dropdown>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.caBaStatus.validFrom" for="f15_validFrom">Valid From</label>
+            <p-calendar
+              id="f15_validFrom"
+              name="validFrom"
+              data-cy="validFrom"
+              formControlName="validFrom"
+              [showIcon]="true"
+              [showTime]="true"
+              dateFormat="d.m.yy"
+            ></p-calendar>
+          </div>
+          <div class="field col-12 md:col-6 xl:col-4">
+            <label jhiTranslate="aportalApp.caBaStatus.validUntil" for="f15_validUntil">Valid Until</label>
+            <p-calendar
+              id="f15_validUntil"
+              name="validUntil"
+              data-cy="validUntil"
+              formControlName="validUntil"
+              [showIcon]="true"
+              [showTime]="true"
+              dateFormat="d.m.yy"
+            ></p-calendar>
+          </div>
+        </div>
+
+        <div class="field col-12">
+          <button
+            type="button"
+            id="caBaStatusCancelSave"
+            data-cy="caBaStatusFormCancelButton"
+            pButton
+            class="p-button-secondary"
+            (click)="previousState()"
+          >
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
+
+          <button
+            type="submit"
+            id="caBaStatusSaveEntity"
+            data-cy="caBaStatusFormSaveButton"
+            [disabled]="fg.editForm.invalid || isSaving || fg.editForm.pristine"
+            pButton
+            class="p-button-primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

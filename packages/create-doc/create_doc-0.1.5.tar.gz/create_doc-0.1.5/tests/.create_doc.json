@@ -1,0 +1,75 @@
+{
+    "project_root_path": "",
+    "output_path": "docs",
+    "gpt_processors": [
+        {
+            "name": "forms",
+            "input_paths": [
+                "src"
+            ],
+            "output_sub_path": "forms",
+            "file_extensions": [
+                ".html"
+            ],
+            "from_dir": "",
+            "to_dir": "",
+            "from_file": "",
+            "to_file": "",
+            "gpt_model_id": "gpt-3.5-turbo",
+            "gpt_model_token_limit": 4096,
+            "gpt_prompts": [
+                {
+                    "role": "system",
+                    "content": "You are a technical writer of user manuals. You are working on a project to create application documentation from HTML code. The result is in markdown format. The first part of the documentation should contain a concise description of the page from a user perspective. The second part should contain instructions for using the page.",
+                    "content_file_path": ""
+                }
+            ],
+            "angular_skip_html_router_outlet": true,
+            "angular_router_outlet_message": "This page contains angular router-outlet tag. This means that this page contains subcomponents.",
+            "content_title": "Content",
+            "add_dependency_links": true,
+            "dependency_link_text": "Dependency",
+            "add_file_path": true
+        }
+    ],
+    "applipress_processors": [
+        {
+            "name": "forms",
+            "input_paths": [
+                "src"
+            ],
+            "output_sub_path": "forms",
+            "file_extensions": [
+                ".html"
+            ],
+            "from_form": "",
+            "to_form": "Unit",
+            "gpt_model_id": "gpt-3.5-turbo",
+            "gpt_model_token_limit": 4096,
+            "gpt_prompts": [
+                {
+                    "role": "system",
+                    "content": "You are a technical writer of user manuals. You are working on a project to create application documentation from HTML code. The result is in markdown format. The first part of the documentation should contain a concise description of the page from a user perspective. The second part should contain instructions for using the page.",
+                    "content_file_path": ""
+                }
+            ],
+            "angular_skip_html_router_outlet": true,
+            "angular_router_outlet_message": "This page contains angular router-outlet tag. This means that this page contains subcomponents.",
+            "content_title": "Content",
+            "add_dependency_links": true,
+            "dependency_link_text": "Dependency",
+            "add_file_path": true
+        }
+    ],
+    "dependency_processors": [
+        {
+            "name": "typescript",
+            "input_paths": [
+                "src"
+            ],
+            "output_sub_path": "dependencies",
+            "summary_depth": 1,
+            "include_only": "^src"
+        }
+    ]
+}
