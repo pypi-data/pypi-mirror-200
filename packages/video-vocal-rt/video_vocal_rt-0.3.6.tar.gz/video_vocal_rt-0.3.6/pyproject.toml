@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "video-vocal-rt"
+version = "0.3.6"
+description = "Video-Vocal-RT: a minimal package for vocal response to video"
+authors = ["Loonan Chauvette <loonan.chauvette@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/LoonanChauvette/video-vocal-RT"
+repository = "https://github.com/LoonanChauvette/video-vocal-RT"
+keywords = ["video", "audio", "psychology", "reaction time"]
+classifiers = [
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Video",
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+]
+packages = [{include = "video_vocal_rt"}]
+
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+moviepy = "^1.0.3"
+sounddevice = "^0.4.6"
+scipy = "^1.10.1"
+opencv-python = "^4.7.0.72"
+numpy = "^1.24.2"
+openpyxl = "^3.1.2"
+pysimplegui = "^4.60.4"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
+pytest-mock = "^3.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
