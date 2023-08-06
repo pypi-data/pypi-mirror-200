@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: django-form-action
+Version: 1.0.1
+Summary: Django action to add an intermediate page to parse form data
+Home-page: https://github.com/sandbox-pokhara/django-form-action
+Author: Pradish Bijukchhe
+Author-email: pradishbijukchhe@gmail.com
+Project-URL: Bug Tracker, https://github.com/sandbox-pokhara/django-form-action/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django
+
+# django-form-action
+
+Django action to add an intermediate page to parse form data
+
+## Installation
+
+```
+pip install django-form-action
+```
+
+# Usage
+
+```
+from django.contrib import admin
+from form_action import form_action
+
+
+@form_action(MyForm, description='Some Label')
+def my_django_admin_action(modeladmin, request, queryset, form):
+    print(form.cleaned_data['my_field'])
+
+
+class MyModelAdmin(admin.ModelAdmin):
+       actions = [my_django_admin_action]
+
+```
