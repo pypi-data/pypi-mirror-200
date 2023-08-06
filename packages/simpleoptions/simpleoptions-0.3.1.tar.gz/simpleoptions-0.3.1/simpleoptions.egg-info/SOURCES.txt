@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+simpleoptions/__init__.py
+simpleoptions/environment.py
+simpleoptions/option.py
+simpleoptions/options_agent.py
+simpleoptions/primitive_option.py
+simpleoptions.egg-info/PKG-INFO
+simpleoptions.egg-info/SOURCES.txt
+simpleoptions.egg-info/dependency_links.txt
+simpleoptions.egg-info/requires.txt
+simpleoptions.egg-info/top_level.txt
+test/test_discounted_sum.py
+test/test_intra_option_update.py
+test/test_macro_q_update.py
+test/test_run_agent.py
