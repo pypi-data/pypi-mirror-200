@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: beards-analytics
+Version: 0.1.0
+Summary: Beards Analytics packages
+Home-page: https://beardsanalytics.com
+Author: Beards Analytics
+Author-email: tz@or.com.ua
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENCE.txt
+Requires-Dist: python-slugify
+Requires-Dist: flask
+Requires-Dist: pydantic
+Requires-Dist: functions-framework
+Requires-Dist: ujson
+Requires-Dist: pendulum
+
+# Beards Analytics Python Packages
