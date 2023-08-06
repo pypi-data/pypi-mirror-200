@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: survival-datasets
+Version: 0.1.2
+Summary: Data loader for common datasets in Survival Analysis.
+Home-page: https://github.com/thecml/survival-datasets
+Author: Christian Marius Lillelund
+Author-email: chr1000@gmail.com
+Keywords: Survival Analysis,Datasets
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Other Audience
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scikit-survival (~=0.17.2)
+Requires-Dist: pandas (~=1.4.3)
+Requires-Dist: numpy (~=1.22.4)
+Requires-Dist: shap (~=0.41.0)
+Requires-Dist: pyarrow (~=11.0.0)
+
+# survival-datasets
