@@ -1,0 +1,3 @@
+[console_scripts]
+figuregen = pyadcirc.cli:cli
+noaa_data = pyadcirc.data.cli:data
