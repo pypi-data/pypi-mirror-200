@@ -1,0 +1,75 @@
+--Toontown Gag Damage Calculator V2.0.0--
+
+- Live calculation is now here! The calculate button is a thing of the past.
+- Several incorrect gag damage values have been fixed both visually and mathematically.
+ - Bugle
+ - Marbles
+ - Quicksand
+- The dropdowns are the same size as everything else! How cool is that?!
+- Updating lure damage bonus to be accurate to the latest versions of Toontown Rewritten.
+
+--V2.0.0a--
+- More incorrect gag damage values have been fixed.
+ - Squirting Flower
+ - Cream Pie Slice
+
+--V2.1--
+- Added number indicators for how many of each gag is used in a given turn.
+
+--V2.2--
+- SOS Cards are real
+- Fixed Bugle (again)
+
+--V2.2.1--
+- Keybind for organic toggle
+- Keybind for def toggle
+- Keybind for calculation reset
+- Keybind for lure toggle
+
+--V2.3--
+- V2 Calculation - might not work as intended, please test it out in cog golf courses and let me know if there's any issues.
+- Reworked how the level indicator works to make it easier to add higher level cogs in the future.
+
+--V3--
+- Moved math funcitons to mod/calculators.py
+- Added version.txt for future update checking, maybe?
+
+--V3.1.0--
+- Added the update checker. It is accessed through the new menu bar under "Program."
+
+--V3.1.1--
+- Changed the naming system of variables and functions to snake_case for more readability
+- Added "Exit" menu option under Program menu bar.
+
+--V3.2.0--
+- Created gags.py, which stores gag objects. Gag objects have type, name, track, and dmg. They also have method .makeorg(), which will evaluate the organic damage of the gag object.
+- Made gag buttons more efficient by removing individual functions and making a single that applies to every button.
+- With these changes, there's probably some kind of new (or old, unnoticed) issue out there. Please submit any such issue you find.
+
+--V3.2.1--
+- Bugfix: Fixed gag history displaying incorrectly if a gag was organic or not after using it as organic once.
+- Moved "Pin Window" button to the Program menu. More things will probably be moved into the menu bar at some point.
+- Pin window has also been given a keybind- alt+up
+
+--V3.3.0--
+- settings.toml! This will store personal settings for the gag calculator!
+- Keybinds are stored here- it's now possible to edit keybinds by changing this file instead of having to use the ones I created. Note that keybinds are currently only editable through settings.toml and are configured at launch. If a keybind is not possible, the program will crash immediately with an error that looks like: '_tkinter.TclError: bad event type or keysym "Shfit_L".'
+- The program now requires an external library: tomli.
+
+--V3.3.2--
+- Added a new level of defense.
+
+--V4.0.0--
+- Converted several modules to Rust.
+- Removed tomli dependency
+- Moved V2, Defense, and Status Locking to the new Calculations menu
+
+--V4.1.0--
+- Upgraded to Python 3.11
+- Fixed a bug with V2.0 cog calculation
+
+--V4.2.0--
+- See the programming of this update partially streamed live!
+  - https://www.youtube.com/watch?v=-RaI5TbVKCA
+- Fixed a minor bug that resulted in versions being mismatched on the update checker.
+- Changed project format to be publishable on Pypi.
