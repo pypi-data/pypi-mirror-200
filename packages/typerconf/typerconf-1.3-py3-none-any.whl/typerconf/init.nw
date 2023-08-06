@@ -1,0 +1,532 @@
+\section{Code outline}\label{configmodule}
+
+The base structure is standard.
+<<init.py>>=
+"""The typerconf module and config subcommand"""
+
+import appdirs
+import json
+import logging
+import os
+import sys
+import typer
+import typing
+
+<<set up appdirs dirs>>
+
+<<classes>>
+<<helper functions>>
+
+def main():
+  <<main body>>
+
+if __name__ == "__main__":
+  main()
+@
+
+\subsection{Not using [[add_typer]]}
+
+With the design outlined in \cref{Overview}, we can't use the default way of 
+Typer ([[.add_typer]]), as that would require another level of subcommands:
+\begin{minted}{bash}
+  nytid config get courses.datintro22.schedule.url
+\end{minted}
+to read out the value, but we don't want that [[get]] part in there.
+
+To work around that we need the [[cli]] object from the parent module here.
+Thus, instead of that module doing something like
+\begin{minted}{python}
+import typerconf as config
+# ...
+cli.add_typer(config.cli, name="config")
+\end{minted}
+as is normally done with Typer, that module will actually have to do
+\begin{minted}{python}
+import typerconf as config
+# ...
+config.add_config_cmd(cli)
+\end{minted}
+So we need to provide such a function.
+<<helper functions>>=
+def add_config_cmd(cli: typer.Typer):
+  """
+  Add config command to Typer cli
+  """
+  <<config subcommands>>
+@
+
+To make this module runnable on its own (using [[main]]), we will create a 
+[[cli]] object in the [[main]] function, then add the config command and 
+finally run it.
+(This is exactly how a program would add the [[config]] subcommand.)
+<<main body>>=
+cli = typer.Typer()
+add_config_cmd(cli)
+cli()
+@
+
+\subsection{Testing}
+
+We also want to test all functions we provide in this module.
+These test functions are all prepended [[test_]] to the function name.
+We will run them using [[pytest]].
+<<test init.py>>=
+import typer
+from typerconf import *
+
+<<test imports>>
+
+<<test functions>>
+@
+
+Let's test the [[add_config_cmd]] function from above.
+<<test functions>>=
+def test_add_config_cmd():
+  cli = typer.Typer()
+  add_config_cmd(cli)
+@
+
+
+\section{Application directories}
+
+We use the application directory locations as provided by the [[appdirs]] 
+package.
+We automated the step with the application name by using the value of the 
+command run, \ie~[[sys.argv[0]]].
+
+Now, sometimes [[sys.argv[0]]] is an entire path.
+This will make [[appdirs]] use the path, instead of the path we want.
+So we will extract the basename and use that.
+<<set up appdirs dirs>>=
+normalized_path = os.path.normpath(sys.argv[0])
+basename = os.path.basename(normalized_path)
+dirs = appdirs.AppDirs(basename)
+@
+
+
+\section{Accessing the configuration: the [[get]] and [[set]] functions}
+
+We will provide two functions, [[get]] and [[set]], that modifies the config, 
+immediately syncing to the file system.
+This is the API to be used by any part of a program using this module to manage 
+the configuration.
+<<helper functions>>=
+def get(path: str = "") -> typing.Any:
+  """
+  Returns the value stored at `path` in the config.
+
+  By default, `path = ""`, which returns the entire configuration as a Config 
+  object.
+  """
+  <<read config from file>>
+  <<return the value at path in config>>
+
+def set(path: str, values: typing.List[typing.Any]):
+  """
+  Sets `value` at `path` in the config. `value` will be interpreted as JSON, if 
+  conversion to JSON fails, it will be used as is.
+  """
+  <<read config from file>>
+  <<set the value at path in config>>
+  <<write config back to file>>
+@
+
+Let's start with reading and writing the config file.
+<<read config from file>>=
+conf = read_config()
+<<write config back to file>>=
+write_config(conf)
+@ We'll see these functions in \cref{ConfigFile}.
+
+Now that we have the config structure in [[conf]] we can use it.
+Let's start with getting a value.
+<<return the value at path in config>>=
+return conf.get(path)
+@
+
+Now, to set a value, we have several cases.
+If the user supplied more than one value, we want a list.
+If only one value, we don't want to store a list with only one value in it.
+Also, we want to try interpret any value as JSON.
+If that fails, we'll use the value as-is.
+<<set the value at path in config>>=
+for i in range(len(values)):
+  try:
+    values[i] = json.loads(values[i])
+  except json.decoder.JSONDecodeError:
+    pass
+
+if len(values) == 1:
+  values = values[0]
+
+conf.set(path, values)
+@
+
+Now let's cover [[read_config]], [[write_config]], [[set_path]] and 
+[[get_path]] below.
+
+
+\section{Reading and writing the config file}\label{ConfigFile}
+
+The configuration file is stored in a suitable system location.
+For this we use the AppDirs package, we have the [[dirs]] instance above.
+We want to read the config and return a JSON structure as outlined above 
+(\cref{ConfigStructure}).
+<<helper functions>>=
+def read_config(conf_path=f"{dirs.user_config_dir}/config.json"):
+  """
+  Returns the config data structure (JSON).
+  `conf_path` is an optional argument providing the path to the config file.
+  """
+  try:
+    with open(conf_path) as conf_file:
+      return Config(json.load(conf_file))
+  <<handle read config file errors>>
+
+  return Config()
+@
+
+And conversely, write one to the config file as well.
+Here it's important to use the [[os.makedirs]] (not [[os.mkdir]]) to create the 
+entire hierarchy of parent directories too, if they don't exist.
+We don't need any error handling for writing though, because all errors a 
+fatal, we can't recover from any of the possible errors.
+<<helper functions>>=
+def write_config(conf,
+                 conf_path=f"{dirs.user_config_dir}/config.json"):
+  """
+  Stores the config data `conf` (extracts JSON) in the config file.
+  `conf_path` is an optional argument providing the path to the config file.
+  """
+  conf_dir = os.path.dirname(conf_path)
+  if not os.path.isdir(conf_dir):
+    os.makedirs(conf_dir)
+
+  with open(conf_path, "w") as conf_file:
+    json.dump(conf.get(), conf_file)
+@
+
+When reading the config file there are some errors that can occur.
+The first is that the file doesn't exist ([[FileNotFoundError]]).
+There is also a related one, [[NotADirectoryError]].
+The problem of [[NotADirectoryError]] occurs when a file on the path is used as 
+a directory --- but only for reading, when trying to create a directory 
+hierarchy, it will yield [[FileExistsError]].
+We can't recover from this error, as an attempt to write to the file will also 
+fail.
+Finally, the file exists, but it's not proper JSON ([[JSONDecodeError]]).
+<<handle read config file errors>>=
+except FileNotFoundError as err:
+  logging.warning(f"Config file {conf_path} could not be found: {err}")
+except NotADirectoryError as err:
+  logging.error(f"A part of the path is a file, but used as directory: {err}")
+  raise err
+except json.decoder.JSONDecodeError as err:
+  logging.warning(f"Config file {conf_path} could not be decoded: {err}")
+@
+
+Now, let's test the read errors.
+<<test functions>>=
+def test_conf_read_errors():
+  """FileNotFoundError"""
+  conf = read_config("/this/path/should/never/exist/config.json")
+  """JSONDecodeError"""
+  conf = read_config("/dev/null")
+  """NotADirectoryError"""
+  try:
+    conf = read_config("/dev/null/config.json")
+  except NotADirectoryError:
+    assert True
+  else:
+    assert False
+@
+
+Writing to the config file can also yield errors.
+<<test functions>>=
+def test_conf_write_errors():
+  conf = Config({})
+  """Should succeed"""
+  write_config(conf, "/dev/null")
+  """Should yield FileExistsError"""
+  try:
+    write_config(conf, "/dev/null/config.json")
+  except NotADirectoryError:
+    assert False
+  except FileExistsError:
+    assert True
+  else:
+    assert False
+  """Should yield permission error"""
+  try:
+    write_config(conf, "/this/path/should/never/exist/config.json")
+  except PermissionError:
+    assert True
+  else:
+    assert False
+  """Should succeed"""
+  path = tempfile.mkdtemp()
+  write_config(conf, f"{path}/this/is/a/new/path/config.json")
+<<test imports>>=
+import tempfile
+@
+
+
+\section{Navigating config structures}\label{ConfigClass}
+
+We provide the class [[Config]] to navigate the config structure.
+This class has two methods that are central:
+The first gets a value out, the other sets a value in.
+Both work with these dot-separated addresses.
+<<classes>>=
+class Config:
+  """Navigates nested JSON structures by dot-separated addressing."""
+
+  def __init__(self, json_data={}):
+    """
+    Constructs a config object to navigate from JSON data `json_data`.
+    """
+    self.__data = json_data
+
+  def get(self, path: str = "") -> typing.Any:
+    """
+    Returns object at `path`.
+    Example:
+    - `path = "courses.datintro22.url"` and
+    - Config contains `{"courses": {"datintro22": {"url": "https://..."}}}` 
+      will return "https://...".
+
+    Any part of the path that can be converted to an integer, will be converted 
+    to an integer. This way we can access elements of lists too.
+    """
+    <<get value at path>>
+
+  def set(self, path: str, value: typing.Any):
+    """
+    Sets `value` at `path`. Any parts along the path that don't exist will be 
+    created.
+
+    Example:
+    - `value = "https://..."`,
+    - `path = "courses.datintro22.url"`
+    will create `{"courses": {"datintro22": {"url": "https://..."}}}`.
+
+    Any part of the path that can be converted to an integer, will be converted 
+    to an integer. This way we can access elements of lists too. However, we 
+    cannot create index 3 in a list if it doesn't exist.
+    """
+    <<set value at path>>
+
+  def paths(self, from_root=""):
+    """
+    Returns all existing paths.
+
+    The optional argument `from_root` is a path and the method return all 
+    subpaths rooted at that point.
+    """
+    <<return list of all paths>>
+@
+
+We test these methods with the examples from the docstrings.
+<<test functions>>=
+conf = Config({
+  "courses": {
+    "datintro22": {
+      "url": "https://...",
+      "TAs": ["Asse", "Assa"]
+    }
+  }
+})
+
+def test_get_path():
+  assert conf.get("courses.datintro22.url") == "https://..."
+  assert conf.get("courses.datintro22.TAs.0") == "Asse"
+
+def test_set_path():
+  value = "Asselina"
+  path = "courses.datintro22.TAs.0"
+  conf.set(path, value)
+  assert conf.get(path) == value
+
+  value = ["Asse", "Assa", "Asselina"]
+  path = "courses.prgx22.TAs"
+  conf.set(path, value)
+  assert len(conf.get(path)) == len(value)
+
+def test_paths():
+  assert "courses.datintro22.TAs" in conf.paths()
+  for path in conf.paths():
+    assert conf.get(path)
+@
+
+\subsection{Getting values}
+
+To get the value, we simply walk along the path and returns what remains.
+<<get value at path>>=
+structure = self.__data
+
+if not path:
+  return structure
+
+for part in path.split("."):
+  try:
+    part = int(part)
+  except ValueError:
+    pass
+
+  try:
+    structure = structure[part]
+  except KeyError:
+    raise KeyError(f"{part} along {path} doesn't exist")
+
+return structure
+@
+
+\subsection{Setting values}
+
+To set a value is a bit more complex.
+We want to be able to specify a path and create all parents along the path if 
+they don't exist.
+<<set value at path>>=
+structure = self.__data
+
+parts = path.split(".")
+for part in parts[:-1]:
+  try:
+    part = int(part)
+  except ValueError:
+    pass
+
+  try:
+    structure = structure[part]
+  except KeyError:
+    structure[part] = {}
+    structure = structure[part]
+
+part = parts[-1]
+try:
+  part = int(part)
+except ValueError:
+  pass
+structure[part] = value
+@
+
+\subsection{All existing paths}
+
+Lastly, what we want to do is to create a list containing all paths in the 
+config.
+We will simply traverse the config tree and add paths as we go.
+We need to treat dictionaries and lists differently.
+And anything else is a leaf.
+<<return list of all paths>>=
+paths = []
+root = self.get(from_root)
+
+if isinstance(root, dict):
+  for part in root:
+    if from_root:
+      path = f"{from_root}.{part}"
+    else:
+      path = part
+
+    paths.append(path)
+    paths += self.paths(from_root=path)
+elif isinstance(root, list):
+  paths += [f"{from_root}.{x}" for x in range(len(root))]
+
+return paths
+@
+
+
+\section{The [[config]] command}
+
+We will provide the [[config]] command as outlined above.
+If it gets a value, it will set it as the value at path.
+Otherwise, it will print the current value at path.
+<<config subcommands>>=
+path_arg = typer.Argument(...,
+                          help="Path in config, e.g. 'courses.datintro22'. "
+                               "Empty string is root of config.",
+                          autocompletion=complete_path_callback)
+value_arg = typer.Option([], "-s", "--set",
+                         help="Values to store. "
+                              "More than one value makes a list. "
+                              "Values are treated as JSON if possible.")
+
+@cli.command(name="config")
+def config_cmd(path: str = path_arg,
+               values: typing.List[str] = value_arg):
+  """
+  Reads values from or writes values to the config.
+  """
+  if values:
+    set(path, values)
+  else:
+    print_config(get(path), path)
+@
+
+\subsection{Autocompleting the path}
+
+The [[complete_path]] function returns the possible completions for an 
+incomplete path from the command line.
+<<helper functions>>=
+def complete_path(initial_path: str, conf: Config = None):
+  """
+  Returns all valid paths in the config starting with `initial_path`.
+  If `conf` is not None, use that instead of the actual config.
+  """
+  if not conf:
+    conf = Config(get())
+
+  return list(filter(lambda x: x.startswith(initial_path),
+                     conf.paths()))
+@
+
+We test this function as follows.
+<<test functions>>=
+def test_complete_path():
+  conf = Config({
+    "courses": {
+      "datintro22": {
+        "url": "https://...",
+        "TAs": ["Asse", "Assa"]
+      }
+    }
+  })
+
+  incomplete = "courses.datintro22.T"
+  assert "courses.datintro22.TAs" in complete_path(incomplete, conf)
+  assert "courses.datintro22.url" not in complete_path(incomplete, conf)
+  assert len(complete_path(incomplete, conf)) >= 0
+@
+
+Now, the callback must not have any additional arguments, like we want that 
+[[conf]] argument for testing.
+<<helper functions>>=
+def complete_path_callback(initial_path: str):
+  return complete_path(initial_path)
+@
+
+
+\subsection{Printing the config}
+
+That [[print_config]] function should print the remaining levels of the config 
+tree.
+And we want it to print on the format of
+[[courses.datintro22.url = https://...]].
+This function will do a depth-first traversal through the config to print all 
+values.
+<<helper functions>>=
+def print_config(conf, path=""):
+  """
+  Prints the config tree contained in `conf` to stdout.
+  Optional `path` is prepended.
+  """
+  try:
+    for key in conf.keys():
+      if path:
+        print_config(conf[key], f"{path}.{key}")
+      else:
+        print_config(conf[key], key)
+  except AttributeError:
+    print(f"{path} = {conf}")
+@
