@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: searchium
+Version: 0.0.1rc2
+Summary: 
+Author: GSI Technology, Inc.
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pydantic (>=1.10.7,<2.0.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Description-Content-Type: text/markdown
+
+## Clients of Searchium cloud platform
+#### FVS - is fast vector search
+##### get more info https://www.searchium.ai/
+
+---
+###### supported methods
+
+- validate_allocation(self) -> bool
+- get_loaded_dataset(self) -> List[LoadedDataset]:
+- get_datasets -> List[Dataset]
+- delete_dataset(dataset_id: str) -> bool
+- load_dataset(self, dataset_id: str) -> bool
+- unload_dataset(self, dataset_id: str) -> bool
+- search(self, dataset_id: str, query: List[List[float]], topk: int = 5) -> SearchResponse
+---
+
+***example:***
+
+***from searchium import fvs***
+
+***client = fvs.get_client("your_allocation_id", "your_url")***
+
+***dataset_id = 'your_dataset_id'***
+
+***client.load_dataset(dataset_id)***
+
+***client.search(dataset_id, query, 1)***
+
+***client.unload_dataset(dataset_id)***
+
+
