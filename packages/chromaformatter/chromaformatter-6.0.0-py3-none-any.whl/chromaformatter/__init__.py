@@ -1,0 +1,72 @@
+"""Provides ChromaFormatter class for styled logging output."""
+import re
+from logging import Formatter, DEBUG, INFO, WARNING, ERROR, CRITICAL, LogRecord, NOTSET
+from typing import Dict, Optional
+
+import colorama  # type: ignore
+
+__all__ = ("ChromaFormatter", "Colors")
+
+
+class Colors:
+    """Available colors for log formatter."""
+
+    Fore = colorama.Fore
+    Back = colorama.Back
+    Style = colorama.Style
+    LEVEL_COLOR = "$LEVEL"
+
+
+# noinspection PyProtectedMember
+class ChromaFormatter(Formatter):
+    """Extended `logging.Formatter` to add colors and styles."""
+
+    def __init__(
+        self,
+        fmt: str,
+        arg_start_color: Optional[str] = None,
+        arg_end_color: Optional[str] = Colors.LEVEL_COLOR,
+    ) -> None:
+        """Set ChromaFormatter properties.
+
+        :param fmt: The format string to determine how logs will appear.
+        :param arg_start_color: Color of formatted arguments.
+        :param arg_end_color: Color after formatted arguments, defaults
+            to `Colors.LEVEL_COLOR`.
+        """
+        fmt = f"{fmt}{Colors.Style.RESET_ALL}"
+        super().__init__(fmt)
+        self._original_style_fmt = self._style._fmt
+        self.arg_start_color = arg_start_color
+        self.arg_end_color = arg_end_color
+
+        self.color_map: Dict[int, str] = {
+            NOTSET: Colors.Fore.LIGHTBLUE_EX,
+            DEBUG: Colors.Fore.BLUE,
+            INFO: Colors.Fore.CYAN,
+            WARNING: Colors.Fore.YELLOW,
+            ERROR: Colors.Fore.LIGHTRED_EX,
+            CRITICAL: Colors.Fore.RED,
+        }
+
+    def format(self, record: LogRecord) -> str:
+        """Format and add colors to a log record.
+
+        :param record: LogRecord to format and color.
+        :return: The complete log record formatted and colored.
+        """
+        msg = str(record.msg)
+        level = record.levelno if record.levelno in self.color_map else NOTSET
+        self._style._fmt = self._original_style_fmt
+        level_color = self.color_map[level]
+        # Color the record msg.
+        if record.args and self.arg_start_color and self.arg_end_color:
+            record.msg = re.sub(
+                r"(?<!%)%([-0.\d]*)([sd])",
+                rf"{self.arg_start_color}%\1\2{self.arg_end_color}",
+                record.msg,
+            ).replace("$LEVEL", level_color)
+        self._style._fmt = self._style._fmt.replace(Colors.LEVEL_COLOR, level_color)
+        s = super(ChromaFormatter, self).format(record)
+        record.msg = msg
+        return s
