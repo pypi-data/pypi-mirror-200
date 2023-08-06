@@ -1,0 +1,20 @@
+Jinja2~=3.1.2
+aiohttp_cors~=0.7
+aiohttp~=3.8.1
+aiotools~=1.5.9
+backend.ai-cli==22.09.21
+backend.ai-client==22.09.21
+backend.ai-common==22.09.21
+backend.ai-plugin==22.09.21
+click>=7.1.2
+coloredlogs~=15.0
+pycryptodome>=3.14.1
+redis[hiredis]~=4.3.4
+setproctitle~=1.2.2
+tomli~=2.0.1
+trafaret~=2.1
+types-pkg_resources
+yarl>=1.7
+
+[:sys_platform != "Windows"]
+uvloop>=0.17
