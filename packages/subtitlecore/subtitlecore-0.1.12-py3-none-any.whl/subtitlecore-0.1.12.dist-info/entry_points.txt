@@ -1,0 +1,5 @@
+[console_scripts]
+subtitlecore_content=subtitlecore.entry:get_subtitle_content
+subtitlecore_parse2sens=subtitlecore.entry:parse2sens
+subtitlecore_parse2text=subtitlecore.entry:parse2text
+
