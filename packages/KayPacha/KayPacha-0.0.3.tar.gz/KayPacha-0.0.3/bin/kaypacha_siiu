@@ -1,0 +1,176 @@
+#!/usr/bin/env python3
+from kaypacha.filters.siiu_filter import siiu_filter
+from ukupacha.Utils import replace_graph_db_field
+from ukupacha.Graph import UkuPachaGraph
+from ukupacha.CheckPoint import UkuPachaCheckPoint
+from ukupacha.ModelDiagram import ModelDiagram
+from pymongo import MongoClient
+import sys
+import importlib
+import argparse
+import faulthandler
+faulthandler.enable()
+
+parser = argparse.ArgumentParser(description='Oracle to MongoDB')
+parser.add_argument('--max_threads', type=int, default=2,
+                    help='an integer for number of threads, max threads 2')
+parser.add_argument('--ora_sysuser', type=str,
+                    default="system", help='Oracle System user')
+parser.add_argument('--ora_syspass', type=str,
+                    default="colavudea", help='Oracle System user password')
+parser.add_argument('--ora_dburi', type=str, default="localhost:1521",
+                    help='Oracle System db url default(localhost:1521)')
+parser.add_argument('--mongo_dburi', type=str,
+                    default='mongodb://localhost:27017/', help='uri for MongoDb database')
+parser.add_argument('--mongo_dbname', type=str,
+                    default=None, help='uri for MongoDb database')
+parser.add_argument('--drop_mongodb', action='store_true',
+                    help='delete the database, use it with carefull, deletes everything!')
+parser.add_argument('--drop_mongocol', action='store_true',
+                    help='delete the collection in the db')
+parser.add_argument('--model', type=str,
+                    default=None, help='data model ex: SIIU_PROYECTO etc..')
+parser.add_argument('--sample', action='store_true',
+                    help='process data sample')
+parser.add_argument('--rand_sample', action='store_true',
+                    help='process a random data sample')
+parser.add_argument('--sample_size', type=int,
+                    default=100, help='size of the sample')
+parser.add_argument('--sample_percent', type=float,
+                    default=1.5, help='percentage of the sample')
+parser.add_argument('--json', type=str,
+                    help='save results to json file')
+parser.add_argument('--json_save_regs', action='store_true',
+                    help='save regs results to json file. but it works only if --json is enabled')
+parser.add_argument('--checkpoint', action='store_true',
+                    help='delete the collection in the db')
+parser.add_argument('--make_diagram', nargs=2,
+                    help='Draw the tables that compose the given model on either a svg (by default) or png file')
+indexes = {}
+indexes["project"] = [("NOMBRE_CORTO", "text"), ("NOMBRE_COMPLETO", "text"),
+                      ("PALABRAS_CLAVES", "text"), ("descriptive_text.TEXTO_INGRESADO", "text")]
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    ora_graph = UkuPachaGraph(user=args.ora_sysuser,
+                              password=args.ora_syspass, dburi=args.ora_dburi)
+    model = args.model
+    mongo_dbname = args.mongo_dbname
+    if not mongo_dbname:
+        mongo_dbname = f"siiu_udea"
+    graph_schema = importlib.import_module(
+        f'kaypacha.models.siiu.graph_schema').graph_schema
+    graph_fields = importlib.import_module(
+        f'kaypacha.models.siiu.graph_fields').graph_fields
+    max_threads = args.max_threads
+
+    ckp = None
+    if args.make_diagram:
+        model_diagram = ModelDiagram(ora_graph.utils)
+        model_diagram.make_diagram(
+            graph_schema["MODELS"][args.make_diagram[0]], args.make_diagram[0], args.make_diagram[1])
+        print(f"The diagram for {args.make_diagram[0]} was created")
+        sys.exit()
+    if args.checkpoint:
+        ckp = UkuPachaCheckPoint(user=args.ora_sysuser, password=args.ora_syspass,
+                                 dburi=args.ora_dburi, mongodb_uri=args.mongo_dburi)
+    if args.checkpoint and args.json:
+        print("Error in parameters, --checkpoint and --json dont make sense, --checkpoint only works for mongodb", output=sys.stderr)
+        sys.exit(1)
+    if args.checkpoint and args.sample:
+        print("Error in parameters, --checkpoint and --sample dont make sense, --sample only works for json and checkpoint is not compatible with json(only with mongodb)", output=sys.stderr)
+        sys.exit(1)
+
+    if max_threads > 2:
+        print("max_threads can't be greater than 2 (https://www.oracle.com/database/technologies/appdev/xe.html)")
+        print("setting max_threads=2")
+        max_threads = 2
+    if args.drop_mongodb:
+        client = MongoClient(args.mongo_dburi)
+        client.drop_database(mongo_dbname)
+        client.close()
+        print(f"Database {mongo_dbname} dropped from mongodb.")
+
+    if args.model:
+        model = graph_schema["MODELS"][args.model]
+        main_table = model["MAIN_TABLE"]
+        if args.drop_mongocol:
+            client = MongoClient(args.mongo_dburi)
+            colname = graph_fields[main_table][main_table]["alias"]
+            client[mongo_dbname][colname].drop()
+            client.close()
+            print(f"Collection {mongo_dbname}.{colname} dropped from mongodb.")
+
+        graph = model["GRAPH"]
+        data = []
+        if args.checkpoint:
+            ckp_info = model["CHECKPOINT"]
+            model_alias = graph_fields[main_table][main_table]["alias"]
+            if not ckp.exists(mongo_dbname, model_alias):
+                print(
+                    f"CheckPoint not found for {mongo_dbname}.{model_alias} creating one...")
+                ckp.create(ckp_info["KEYS"], ckp_info["DB"],
+                           main_table, mongo_dbname, model_alias)
+
+            print(f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
+            data = ckp.get_data_p(
+                "BUPP", main_table, mongo_dbname, model_alias)
+        else:
+            query = f"select * from BUPP.{main_table}"
+            if args.sample:
+                query = f"select * from BUPP.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+            elif args.rand_sample:
+                print(args.sample_percent)
+                query = f"select * from BUPP.{main_table} SAMPLE({args.sample_percent})"
+            data = ora_graph.utils.request(query)
+        print(
+            f"Processing database for model {main_table} with {data.shape[0]} registers.")
+        if args.json:
+            ora_graph.run2file(args.json, data, model, graph_fields[main_table], max_threads,
+                               debug=False, save_regs=False, save_raws=False, filter_function=siiu_filter)
+        else:
+            ora_graph.run2mongodb(data, model, graph_fields[main_table],
+                                  mongo_dbname, args.mongo_dburi, max_threads, siiu_filter, ckp)
+            client = MongoClient(args.mongo_dburi)
+            client[mongo_dbname][args.model].drop_indexes()
+            client[mongo_dbname][args.model].create_index(indexes[args.model])
+            client.close()
+    else:
+        for model_name in graph_schema["MODELS"].keys():
+            model = graph_schema["MODELS"][model_name]
+            main_table = model["MAIN_TABLE"]
+            graph = model["GRAPH"]
+            data = []
+            if args.checkpoint:
+                ckp_info = model["CHECKPOINT"]
+                model_alias = graph_fields[main_table][main_table]["alias"]
+                if not ckp.exists(mongo_dbname, model_alias):
+                    print(
+                        f"CheckPoint not found for {mongo_dbname}.{model_alias} creating one...")
+                    ckp.create(ckp_info["KEYS"], ckp_info["DB"],
+                               main_table, mongo_dbname, model_alias)
+
+                print(
+                    f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
+                data = ckp.get_data_p(
+                    args.cvlac_user, main_table, mongo_dbname, model_alias)
+            else:
+                query = f"select * from BUPP.{main_table}"
+                if args.sample:
+                    query = f"select * from BUPP.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+                elif args.rand_sample:
+                    print(args.sample_percent)
+                    query = f"select * from BUPP.{main_table} SAMPLE({args.sample_percent})"
+                data = ora_graph.utils.request(query)
+            print(
+                f"Processing database for model {main_table} with {data.shape[0]} registers.")
+            if args.json:
+                ora_graph.run2file(args.json, data, model, graph_fields[main_table], max_threads,
+                                   debug=False, save_regs=False, save_raws=False, filter_function=siiu_filter)
+            else:
+                ora_graph.run2mongodb(data, model, graph_fields[main_table],
+                                      mongo_dbname, args.mongo_dburi, max_threads, siiu_filter, ckp)
+                client = MongoClient(args.mongo_dburi)
+                client[mongo_dbname][model_name].drop_indexes()
+                client[mongo_dbname][model_name].create_index(indexes[model_name])
+                client.close()

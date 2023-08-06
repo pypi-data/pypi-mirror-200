@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+from ukupacha.Diagram import diag2file, model2diag
+import sys
+import importlib
+import argparse
+import faulthandler
+faulthandler.enable()
+
+parser = argparse.ArgumentParser(description='Oracle to MongoDB')
+parser.add_argument('--model', type=str, required=True,
+                    help='Model is the db to use example: scienti or siiu')
+parser.add_argument('--submodel', type=str, required=True,
+                    help='submodel for the model example: project, patent etc..')
+parser.add_argument('--filename', type=str, required=True,
+                    help='filename example myoutput.png. Format for the output, supported "SVG", "PNG" and "PDF"')
+
+models = ["scienti", "siiu"]
+formats = ["PNG", "SVG", "PDF"]
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    model = args.model
+    submodel = args.submodel
+    filename = args.filename
+
+    if model not in models:
+        print(f"ERROR: model not supported, only {models} are available.")
+        sys.exit(1)
+    graph_schema = importlib.import_module(
+        f'kaypacha.models.{model}.graph_schema').graph_schema
+    submodels = list(graph_schema["MODELS"].keys())
+    if submodel not in submodels:
+        print(
+            f"ERROR: submodel not supported, only {submodels} are available.")
+        sys.exit(1)
+    model_dict = graph_schema["MODELS"][submodel]
+    diag = model2diag(model_dict)
+    format = filename.split('.')[-1].upper()
+    if format not in formats:
+        print(
+            f"ERROR: filename {filename}, extension not supported, only {formats} are supported.")
+        sys.exit(1)
+
+    diag2file(diag, filename, format)
