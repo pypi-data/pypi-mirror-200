@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: einfach
+Version: 0.1.0
+Summary: A collection of useful code "snippets"
+Author: rotgruengelb (Daniel)
+Author-email: <code@rotgruengelb.net>
+Keywords: python,helper,helpers,help,easy code,ease of use
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+
+
+
+# Features:
+
+## `clip`
+`clip` contains the following function:
+## *`.clip`* 
+Puts a string into the user's clipboard
+Notice: currently only the win32 platform is supported for this.
+
+**Possible Arguments:**
+|Argument|Description|Type|Default|
+|--| ---------------------------------------------------------------------------|--|--|
+|**`content`** | The String that should be put in the users clipboard. _This string cannot be empty or only contain whitespace/spaces_| `str` | |
+|`no_os_error`|Tells the function to not raise a `OSError` when the operating system is not `win32`| `bool` |`False`|
+
+**Use**:
+		
+    from einfach import clip
+    
+    clip.clip(content="Hello World") 
+    # this wont ignore the OSError that is raised when not run on win32
+    
+    clip.clip(content="Hi! :D", no_os_error=True) 
+    # this will ignore the OSError if run on a non win32 platform. This will result in the clipboard not changing on the non-win32 os. 
+
+---
+## `pathdialog`
+`pathdialog` contains the following functions:
+## *`.open_file`*
+## *`.save_file`*
+## *`.open_dir`*
