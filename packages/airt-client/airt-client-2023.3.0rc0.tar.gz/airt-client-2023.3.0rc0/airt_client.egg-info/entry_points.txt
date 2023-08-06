@@ -1,0 +1,6 @@
+[console_scripts]
+airt = airt._cli.cli:app
+
+[nbdev]
+airt = airt._modidx:d
+
