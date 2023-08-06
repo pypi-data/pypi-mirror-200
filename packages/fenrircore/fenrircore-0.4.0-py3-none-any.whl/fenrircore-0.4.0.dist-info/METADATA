@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: fenrircore
+Version: 0.4.0
+Summary: use Fenrir to route configured network devices trough configured VPN tunnel
+Project-URL: Source, https://github.com/HannesHofer/fenrir
+Project-URL: Tracker, https://github.com/HannesHofer/fenrir/issues
+License-File: LICENSE
+Requires-Dist: cryptography
+Requires-Dist: pyroute2
+Requires-Dist: python-iptables
+Requires-Dist: requests
+Requires-Dist: scapy
+
+Fenrir provides a user friendly way to route all traffic from configured trough a VPN tunnel.
+
+This is done via ARP Spoofing. Determined default GW on inputinterface is spoofed to configured device.
+    
