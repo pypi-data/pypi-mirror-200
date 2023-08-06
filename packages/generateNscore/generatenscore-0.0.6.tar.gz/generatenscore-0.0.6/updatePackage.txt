@@ -1,0 +1,8 @@
+동일한 버전은 허락하지 않는다.
+1. pyroject에서 버전을 바꾼다. 
+
+2. dist에 들어있던 예전 파일들은 모두 삭제
+
+3. py -m build
+
+4. twine upload dist/*
