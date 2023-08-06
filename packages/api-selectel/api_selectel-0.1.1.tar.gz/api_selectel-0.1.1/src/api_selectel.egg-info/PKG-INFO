@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: api-selectel
+Version: 0.1.1
+Summary: A selectel api package
+Author-email: Artem Gnatyuk <temskiy@gmail.com>
+Project-URL: Homepage, https://gitlab.com/temskiy/selectel_api
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+Библиотека-обёртка для работы с http api Selectel
+
+Пока что реализован только функционал для взаимодействия с DNS
+
+Подробнее [по ссылке](https://developers.selectel.ru/docs/cloud-services/dns_api/)
