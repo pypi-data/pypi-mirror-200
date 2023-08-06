@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: PyOGC
+Version: 0.0.1
+Summary: Unified OGC Api Python Client
+Author: Ryanwalker277 (Anvansh)
+Author-email: <anvansh30mar@gmail.com>
+Keywords: python,video,stream,video stream,camera stream,sockets
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: pytest
+
+
+# PyOGC
+The OGC Python Wrapper is a client providing standardized and reliable access to various OGC APIs, simplifying API interaction through a common interface. Developers can quickly integrate OGC API functionality in their Python applications. It's modular and extensible, with support for new APIs and features. 
