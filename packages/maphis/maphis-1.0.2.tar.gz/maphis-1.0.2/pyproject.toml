@@ -1,0 +1,59 @@
+[project]
+name = "maphis"
+dynamic = ["version"]
+description ="Hierarchical segmentation and extraction of various measurements from photos of (not only) arthropods."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Petr Matula", email = "pem@fi.muni.cz"},
+    {name = "Radoslav Mráz", email = "rmraz@mail.muni.cz"},
+    {name = "Stanislav Pekár", email = "pekar@sci.muni.cz"},
+    {name = "Karel Štěpka", email = "chuckie@mail.muni.cz"}
+]
+maintainers = [
+    {name = "Radoslav Mráz", email = "rmraz@mail.muni.cz"}
+]
+keywords = ["hierarchical segmentation", "segmentation", "measurements", "arthropods"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Image Processing"
+]
+dependencies = [
+    "platformdirs",
+    "numpy",
+    "scikit-image",
+    "PySide6",
+    "opencv-python",
+    "Pillow",
+    "imagecodecs",
+    "numba",
+    "openpyxl",
+    "scikit-learn",
+    "scipy",
+    "pytesseract",
+    "mouse",
+    "torch",
+    "arthseg",
+    "pyparsing",
+    "requests"
+]
+[project.urls]
+homepage = "https://cbia.fi.muni.cz/software/maphis.html"
+repository = "https://gitlab.fi.muni.cz/xmraz3/maphis"
