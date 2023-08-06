@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "strela"
+version = "0.3.4"
+description = "A python package for financial alerts"
+authors = ["ymyke"]
+license = "MIT"
+repository = "https://github.com/ymyke/strela"
+homepage = "https://github.com/ymyke/strela"
+documentation = "https://ymyke.github.io/strela/strela.html"
+readme = "README.md"
+keywords = ["python", "finance", "financial-analysis", "financial", "alerts", "alerting", "tessa"]
+
+[tool.poetry.dependencies]
+python = ">=3.7.13,<3.10"
+pandas = ">=1.3.5"
+yagmail = ">=0.15.280"
+keyring = ">=23"    # for yagmail
+python-slugify = ">=5.0.0"
+tessa = "^0"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+black = "*"
+pylint = "*"
+ipykernel = "*"
+pytest-mock = "*"
+pdoc = "*"
+pdbpp = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
