@@ -1,0 +1,213 @@
+Metadata-Version: 2.1
+Name: cads-sdk
+Version: 0.0.10
+Summary: Function to help Data Scientist work more effectively with DWH
+Home-page: http://git.bigdata.local/data-engineers/sdk/utilities
+Author: duyvnc
+Author-email: duyvnc@fpt.com.vn
+License: duyvnc
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: spark-sdk (>=0.4.20)
+Requires-Dist: opencv-python
+Requires-Dist: Pillow
+Requires-Dist: scipy
+Requires-Dist: pydub
+Requires-Dist: ipywidgets
+Requires-Dist: petastorm
+
+-----------------
+
+# cads-sdk: Functions to help Data Scientist work more effectively with unstructured data and datalake
+[![PyPI Latest Release](https://img.shields.io/badge/pypi-0.4.20-blue)](https://pypi.org/project/cads-sdk/)
+[![Package Status](https://img.shields.io/badge/status-stable-green)](https://pypi.org/project/cads-sdk/)
+[![Downloads](https://static.pepy.tech/personalized-badge/spark-sdk?period=month&units=international_system&left_color=black&right_color=orange&left_text=PyPI%20downloads%20per%20month)](https://pepy.tech/project/cads-sdk)
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-CADS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://blog.cads.live/)
+
+
+
+## What is it?
+
+**cads-sdk** Function to help Data Scientist work more effectively with unstructured data. Include different function work with image, audio
+
+## Main Features
+Here are just a few of the things that cads-sdk does well:
+  - Data pre-processing: Faster upto 25% compare with cv2.imread()
+      - Image pre-processing, convert from Image Folder/Zipfile to Parquet/delta, ready for training
+      - Audio pre-processing, convert from Folder Audio, ready for training
+  - Optimize storage: Does not reduce image quality but optimize memory 12%
+      - Decrease number of small file
+      - Take advantage of compression zstd parquet 
+  - View image/audio but not get system down (browser ran out of memory)
+
+# Install
+Binary installers for the latest released version are available at the [Python
+Package Index (PyPI)](https://pypi.org/project/cads-sdk).
+
+
+```sh
+# with PyPI
+pip install cads-sdk
+```
+
+## Dependencies
+- [spark-sdk - PySpark, PyArrow add on function](https://pypi.org/project/spark-sdk/)
+- [opencv-python - Wrapper package for OpenCV python bindings](https://pypi.org/project/opencv-python/)
+- [petastorm - Petastorm is a library enabling the use of Parquet storage from Tensorflow, Pytorch, and other Python-based ML training frameworks](https://pypi.org/project/petastorm/)
+- [pandas - Powerful data structures for data analysis, time series, and statistics](https://pandas.pydata.org/)
+
+
+## Installation from sources
+To install cads-sdk from source you need [Cython](http://git.bigdata.local/data-engineers/sdk/utilities/-/tree/master/cads_sdk) in addition to the normal
+dependencies above. Cython can be installed from PyPI:
+
+```sh
+pip install cython
+```
+
+In the `cads-sdk` directory (same one where you found this file after
+cloning the git repo), execute:
+
+```sh
+python setup.py install
+```
+
+
+## Documentation
+The official documentation is hosted on PyData.org: https://pandas.pydata.org/pandas-docs/stable
+
+
+# Image
+### Convert a folder image to parquet
+```python
+from cads_sdk.nosql.converter import ConvertFromFolderImage
+
+converter = ConvertFromFolderImage(
+              input_path="/path/to/folder/**/*.jpg",
+              input_recursive = True,
+
+              #setting output
+              output_path = f"file:/output/path/image_storage",
+
+              # setting converter
+              image_type = 'jpg',
+              image_color = 3,
+              resize_mode=None, # |padding|resize
+              size = [(212,212),
+                     (597, 597)],
+             )
+
+converter.execute()
+
+# convert directly from .zip file to parquet
+from cads_sdk.nosql.converter import ConvertFromZipImage
+
+converter = ConvertFromZipImage(
+              input_path="/path/to/image_storage/ETHZ.zip",
+              input_recursive = True, # will loop through folder to get all pattern
+              #setting output
+              output_path = f"file:/output/path/img_ethz.parquet",
+              table_name = 'img_ethz',
+              database = 'default',
+              file_format = 'parquet', # delta|parquet
+              compression = 'zstd', # zstd|snappy
+              # setting converter
+              image_type = 'png',
+              image_color = 3,
+              resize_mode=None, # |padding|resize
+              size = [(1080,1920)],
+              debug = False
+             )
+
+converter.execute()
+```
+### Convert a Image parquet file back to Image Folder
+```python
+from cads_sdk.nosql.converter import ConvertToFolderImage
+
+converter = ConvertToFolderImage(
+    input_path = '/user/username/image/img_user_device_jpg_212_212.parquet',
+    raw_input_path = "/home/username/image_storage/device_images/**/*.jpg",
+    output_path = './abc/'
+)
+
+converter.execute()
+```
+### Function to read image
+```python
+from cads.nosql import display
+import cads_sdk as ss
+
+df = ss.sql("""select * from parquet.`/user/duyvnc/image/img_images_jpg_212_212.parquet`""")
+pdf = df.toPandasImage(limit=50)
+pdf
+
+pdf = ss.sql("""
+select *
+from parquet.`file:/home/duyvnc/image_storage/img_mot17_1080_1920.parquet`
+limit 100
+""").toPandasImage(mode='BGR')
+```
+
+### Pytorch API
+```python
+from cads_sdk.nosql import codec
+from petastorm import make_reader, TransformSpec
+from petastorm.pytorch import DataLoader
+num_epochs = 10
+with DataLoader(reader=make_reader('{}/train'.format(dataset_url), reader_pool_type='dummy', num_epochs=num_epochs,
+                            transform_spec=transform), batch_size=32) as train_loader:
+    train(model, device, train_loader, 2000, optimizer, num_epochs)
+```
+
+# Audio
+### Suport pcm, mp3, wav format
+### Convert a folder audio to parquet
+```python
+from cads_sdk.nosql.converter import ConvertFromFolderImage
+
+converter = ConvertFromFolderAudio(
+              input_path='/path/to/audio_wav/*.wav', #(1)
+              input_recursive = False,
+              output_path = f"file:/output/path/audio_wav.parquet",
+             )
+
+converter.execute()
+```
+### Convert a parquet to folder audio
+```python
+converter = ConvertToFolderAudio(
+input_path = 'file:/path/to/audio_wav.parquet',
+raw_input_path = '/path/to/audio_wav/*.wav', #(1) # auto replace '/path/to/audio_wav/' to ''
+output_path = './output/path',
+write_mode = "recovery"
+)
+
+converter.execute()
+```
+
+### Listen audio in parquet 
+```python
+from cads_sdk.nosql.display import Audio
+Audio('file:/path/to/audio_mp3.parquet')
+```
+# Video
+```python
+from cads_sdk.nosql.converter import ConvertFromVideo2Image
+converter = ConvertFromVideo2Image(
+              input_path='/home/username/image_storage/vid/palawan1.mp4',
+              input_recursive = False,
+              output_path = f"file:/home/username/image_storage/vid_image.parquet",
+
+             )
+
+converter.execute()
+```
+### For more information use class instance
+```python
+ConvertFromFolderImage.__doc__
+```
+
+
+
