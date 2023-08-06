@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools >= 65.6.3, < 66", "wheel >=0.34.2, < 1", "cmake >= 3.26, < 4"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "random-forestry"
+version = "0.10.0-b1"
+description = "Random forest estimator"
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy >= 1.24.2, < 2",
+    "pandas >= 1.5.3, < 2",
+    "statsmodels >= 0.13.5, < 1",
+    "pydantic >= 1.10.6, < 2",
+
+    # Conditional dependencies
+    'typing_extensions; python_version < "3.11"'
+]
+requires-python = ">=3.8"
+
+[tool.setuptools]
+packages = ["random_forestry", "random_forestry.validators"]
+zip-safe = false
+
+[project.optional-dependencies]
+dev = ["bumpver >= 2022.1120, < 2023", "pip-tools >= 6.12.3, < 7"]
+test = ["pytest >= 7.2.2, < 8", "scikit-learn == 1.2.2, < 2"]
+
+[project.urls]
+Homepage = "https://github.com/forestry-labs/Rforestry#readme"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.bumpver]
+current_version = "0.10.0-b1"
+version_pattern = "MAJOR.MINOR.PATCH[-PYTAGNUM]"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = false
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"'
+]
+"random_forestry/__init__.py" =[
+    '^__version__ = "{version}"$'
+]
