@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+setup.py
+openai_manager/__init__.py
+openai_manager/api_resources.py
+openai_manager/auth_manager.py
+openai_manager/exceptions.py
+openai_manager/producer_consumer.py
+openai_manager/serving.py
+openai_manager/utils.py
+openai_manager.egg-info/PKG-INFO
+openai_manager.egg-info/SOURCES.txt
+openai_manager.egg-info/dependency_links.txt
+openai_manager.egg-info/requires.txt
+openai_manager.egg-info/top_level.txt
+tests/test_serving.py
+tests/test_sync_create.py
