@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: linux-tools
+Version: 0.1
+Summary: Various command line utilities for Linux written in python
+Home-page: https://sr.ht/~rjarry/linux-tools/
+Author: Robin Jarry
+Author-email: robin@jarry.cc
+License: BSD-3-Clause
+Description-Content-Type: text/markdown
+
+# linux-tools
+
+Various command line utilities for Linux written in python.
+
+## License
+
+MIT
+
+## Installation
+
+```console
+$ pip install --user linux-tools
+```
