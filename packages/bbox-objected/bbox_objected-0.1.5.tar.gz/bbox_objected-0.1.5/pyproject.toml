@@ -1,0 +1,39 @@
+[tool.pdm.build]
+package-dir = "."
+excludes = [
+    "*",
+    "!bbox/",
+]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "numpy>=1.24.2",
+    "opencv-python>=4.7.0.72",
+    "pytest>=7.2.2",
+    "pyupgrade>=3.3.1",
+    "black>=23.3.0",
+    "pre-commit>=3.2.1",
+]
+
+[project]
+name = "bbox_objected"
+version = "0.1.5"
+description = "Manipulate bounding boxes as objects"
+authors = [
+    { name = "SEBROVATER", email = "sebrovskiy.k@gmail.com" },
+]
+dependencies = []
+requires-python = ">=3.10"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+github = "https://github.com/SEBROVATER/bbox_objected"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
