@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=62", "setuptools_scm[toml]>=7", "mypy"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.bf"]
+
+[tool.setuptools_scm]
+version_scheme = "python-simplified-semver"
+local_scheme = "no-local-version"
+
+[tool.isort]
+multi_line_output = 3
+combine_as_imports = true
+line_length = 88
+profile = "black"
+
+[tool.black]
+line-length = 88
+
+[tool.mypy]
+disable_error_code = []
+ignore_missing_imports = true
+show_error_codes = true
+
+[tool.cibuildwheel]
+build-frontend = "build"
+skip = "*musllinux*"
+
+[tool.cibuildwheel.linux]
+archs = ["x86_64", "i686", "aarch64"]
+
+[tool.cibuildwheel.macos]
+archs = ["universal2"]
+test-skip = "*_arm64 *_universal2:arm64"
+
+[project]
+name = "ng.pybf"
+authors = [
+    { name = "Yuanhao 'Nyoeghau' Chen", email = "nyoeghau@nyoeghau.com" },
+]
+description = "py.bf: Python interpreter and C transpiler/compiler for brainfuck"
+dynamic = ["version"]
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 1 - Planning",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Interpreters",
+]
+requires-python = ">=3.10"
+dependencies = ["setuptools>=62"]
+
+[project.scripts]
+pybf = "pybf.__main__:main"
+
+[project.optional-dependencies]
+lint = [
+    "black>=22.6.0,<23",
+    "flake8>=4.0.1,<5",
+    "isort>=5.10.1,<6",
+    "mypy>=0.971,<1",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/edward-martyr/test.pypi"
+"Bug Tracker" = "https://github.com/edward-martyr/test.pypi/issues"

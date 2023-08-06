@@ -1,0 +1,7 @@
+setuptools>=62
+
+[lint]
+black<23,>=22.6.0
+flake8<5,>=4.0.1
+isort<6,>=5.10.1
+mypy<1,>=0.971
