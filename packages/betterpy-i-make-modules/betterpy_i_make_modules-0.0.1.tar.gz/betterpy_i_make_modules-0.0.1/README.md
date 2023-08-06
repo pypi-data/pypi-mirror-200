@@ -1,0 +1,3 @@
+# betterpy
+The *betterpy* module minimizes your python coding experience. and if you expected a function that finds the sum of a list, use `sum()`, it's built-in. by the way, there are a lot of functions that change your print color. if you wanna see them all and you have an autofill IDE/Text Editor. type `print_in` to see them all. also if you want the source code, see *src/betterpy_i_make_modules/betterpy.py*
+> End of README.md
