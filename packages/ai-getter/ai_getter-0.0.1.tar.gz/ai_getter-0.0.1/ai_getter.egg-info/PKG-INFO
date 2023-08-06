@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: ai-getter
+Version: 0.0.1
+Summary: A CLI for publishing sites to Netlify and assigning custom domains to them.
+Home-page: https://github.com/zevaverbach/ai_getter
+Author: Zev Averbach
+Author-email: zev@averba.ch
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# Environment Variables
+
+- `OPENAI_ORG`
+- `OPENAI_TOKEN`
+- `AI_GETTER_SAVE_PATH`
+- `AI_GETTER_S3_BUCKET`
+
+# Credentials
+
+Make sure you have credentials in an `~/.aws` directory if you want to upload any outputs to S3.
