@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: lotronexyz12_sdk
+Version: 0.1.2
+Summary: LOTR coding test
+Author: Alex
+Author-email: 
+Requires-Python: >=3.10.9
+Description-Content-Type: text/markdown
+
+### Cast it into the fire!
+
+Run `pip3 install lotronexyz12_sdk`
+
+Import the SDK
+`from  lotronexyz12_sdk import LOTR_SDK`
+
+Examples
+```
+client = LOTR_SDK()
+
+# query the movie endpoint
+movie_endpoint = client.endpoint('movie')
+```
+
+```
+# Fetch all movies
+movies = movie_endpoint.fetch_all()
+```
+
+```
+# Fetch all movies with OPTIONS
+# limit -> int
+# page -> int
+# offset -> int
+# sort -> str. 
+    Sort by movie name -> "name:asc" or "name:desc"
+
+# filter -> str
+    - Less than, greater than or equal to.
+    - Keys:  academyAwardWins, runtimeInMinutes, and budgetInMillions.
+    - Example value: academyAwardWins>10&runtimeInMinutes>=160
+
+movies = endpoint.fetch_all(
+    options={
+        'limit' : 5,
+        #'page' : 2,
+        #'offset' : 3,
+        'sort' : 'name:asc',
+    }, 
+    filter = 'academyAwardWins>10&runtimeInMinutes>=160'
+)
+```
+
+```
+# Fetch a single movie
+movies = endpoint.fetch_one(
+    '5cd95395de30eff6ebccde5d',     # movie _id
+    with_quotes=True,               # return quotes from movie, default is False
+    
+    options = {                     # Options similar to fetch_all
+        'sort' : 'character:desc',  # Sort by movie name or character if with_quotes=True
+        'limit' : 5
+    }
+)
+```
+
