@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: holoscan
+Version: 0.5.0
+Summary: The Holoscan SDK: building high-performance AI streaming applications
+Home-page: https://github.com/nvidia-holoscan
+Author: NVIDIA Corporation
+License: Apache-2.0
+Project-URL: Source, https://github.com/nvidia-holoscan/holoscan-sdk
+Project-URL: Documentation, https://docs.nvidia.com/clara-holoscan/sdk-user-guide/index.html
+Project-URL: Issue Tracker, https://github.com/nvidia-holoscan/holoscan-sdk/issues
+Keywords: AI,CUDA,medical,streaming,HPC,nvidia
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: GPU :: NVIDIA CUDA :: 11.6
+Classifier: Environment :: GPU :: NVIDIA CUDA :: 11.7
+Classifier: Environment :: GPU :: NVIDIA CUDA :: 11.8
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: public/LICENSE.txt
+License-File: public/NOTICE.txt
+Requires-Dist: pip (>=20.2)
+Requires-Dist: wheel-axle-runtime (<1.0)
+
+# Holoscan SDK
+
+The **Holoscan SDK Python Wheel** is part of [NVIDIA Holoscan](https://developer.nvidia.com/holoscan-sdk), the AI sensor processing platform that combines hardware systems for low-latency sensor and network connectivity, optimized libraries for data processing and AI, and core microservices to run streaming, imaging, and other applications, from embedded to edge to cloud. It can be used to build streaming AI pipelines for a variety of domains, including Medical Devices, High Performance Computing at the Edge, Industrial Inspection and more.
+
+Visit the [NGC demo website](https://demos.ngc.nvidia.com/holoscan) for a live demonstration of some of Holoscan capabilities.
+
+## System Requirements
+
+- CPU: x86_64 or aarch64 (arm64)
+- OS: Ubuntu 20.04
+- Python: 3.8 to 3.11 (pip 20.2+)
+- NVIDIA GPU
+  - Ampere or above recommended for best performance
+  - [Quadro/NVIDIA RTX](https://www.nvidia.com/en-gb/design-visualization/desktop-graphics/) necessary for [GPUDirect RDMA](https://developer.nvidia.com/gpudirect) support
+  - Tested with [NVIDIA RTX 6000](https://www.nvidia.com/en-us/design-visualization/rtx-6000/) and [NVIDIA RTX A6000](https://www.nvidia.com/en-us/design-visualization/rtx-a6000/)
+- [NVIDIA dGPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes): 510.73.08+
+- [TensorRT](https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-823/install-guide/index.html#installing): 8.2.3+
+- [CUDA Toolkit](https://docs.nvidia.com/cuda/archive/11.6.1/cuda-installation-guide-linux/index.html): 11.6.1+, (< 12.0)
+- For Rivermax support (optional):
+  - [NVIDIA ConnectX SmartNIC](https://www.nvidia.com/en-us/networking/ethernet-adapters/)
+  - [OFED Network Drivers](https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/): 5.8
+  - [GPUDirect Drivers](https://docs.nvidia.com/clara-holoscan/sdk-user-guide/additional_setup.html#setting-up-gpudirect-rdma): 1.1
+  - [Rivermax SDK](https://developer.nvidia.com/networking/rivermax): 1.20 (for local development only)
+
+## Troubleshooting
+
+> ERROR gxf/std/extension_loader.cpp@114: Failed to load extension ... Error: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found
+
+The current version of the wheels were built and tested on Ubuntu 20.04 with libc 2.31 instead of `manylinux`. They were named as such to make them available early on PyPI. You'll need to use a system with a more recent version of libc to use the Holoscan SDK python wheels.
+
+> ERROR gxf/std/extension_loader.cpp@114: Failed to load extension ... Error: libnvonnxparser.so.8: cannot open shared object file: No such file or directory
+
+TensorRT is missing from your system. Follow links in the section above to install TensorRT, or install it through the python wheels which will also install cuda-runtime:
+
+```sh
+python3 -m pip install nvidia-tensorrt==8.2.3.0 --index https://pypi.ngc.nvidia.com
+```
+
+> ERROR ImportError: cannot import name 'SCHEME_KEYS' from 'pip._internal.models.scheme' ... Error processing line 1 of holoscan-x.y.z.pth:
+
+You version of pip is probably below the required 20.2. Upgrade pip with:
+```sh
+python3 -m pip install --upgrade pip
+```
