@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: python-active-versions
+Version: 1.8.0
+Summary: Gather active python versions.
+Home-page: https://github.com/gpongelli/python-active-versions
+License: MIT
+Author: Gabriele Pongelli
+Author-email: gabriele.pongelli@gmail.com
+Requires-Python: >=3.7.0,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: beautifulsoup4 (>=4.12.0,<5.0.0)
+Requires-Dist: cloup (>=2.0.0,<3.0.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Requires-Dist: requests-html (>=0.10.0,<0.11.0)
+Project-URL: Changelog, https://gpongelli.github.io/python-active-versions/history.html
+Project-URL: Documentation, https://gpongelli.github.io/python-active-versions/
+Project-URL: Issue Tracker, https://github.com/gpongelli/python-active-versions/issues
+Project-URL: Repository, https://github.com/gpongelli/python-active-versions
+Project-URL: Source, https://github.com/gpongelli/python-active-versions
+Description-Content-Type: text/markdown
+
+# python active versions
+
+
+[![pypi](https://img.shields.io/pypi/v/python-active-versions.svg)](https://pypi.org/project/python-active-versions/)
+[![python](https://img.shields.io/pypi/pyversions/python-active-versions.svg)](https://pypi.org/project/python-active-versions/)
+[![Build Status](https://github.com/gpongelli/python-active-versions/actions/workflows/dev.yml/badge.svg)](https://github.com/gpongelli/python-active-versions/actions/workflows/dev.yml)
+[![codecov](https://codecov.io/gh/gpongelli/python-active-versions/branch/main/graphs/badge.svg)](https://codecov.io/github/gpongelli/python-active-versions)
+
+
+
+Gather active python versions and, optionally, also docker images.
+
+
+* Documentation: <https://gpongelli.github.io/python-active-versions>
+* GitHub: <https://github.com/gpongelli/python-active-versions>
+* PyPI: <https://pypi.org/project/python-active-versions/>
+* Free software: MIT
+
+
+## Features
+
+* Scrape official python website to get active versions
+* Scrape dockerhub website to add optional python's available images
+
+## Credits
+
+This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [gpongelli/cookiecutter-pypackage](https://github.com/gpongelli/cookiecutter-pypackage) project template.
+
