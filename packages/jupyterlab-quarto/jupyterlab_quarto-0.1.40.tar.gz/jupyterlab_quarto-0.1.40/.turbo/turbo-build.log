@@ -1,0 +1,34 @@
+$ jlpm build:lib && jlpm build:labextension:dev
+$ tsc --sourceMap
+$ jupyter labextension build --development True .
+Building extension in .
+
+Compilation starting…
+
+
+Compilation finished
+
+assets by chunk 1.36 MiB (id hint: vendors)
+  asset vendors-node_modules_agoose77_markdown-it-mermaid_lib_index_js.8c0607c8d4ff8589a304.js 1.06 MiB [emitted] [immutable] (id hint: vendors) 1 related asset
+  asset vendors-node_modules_markdown-it_index_js.e0f472c97f5020705a2f.js 276 KiB [emitted] [immutable] (id hint: vendors) 1 related asset
+  asset vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_cssW-72eba1.6bf75c66283afc2c58d5.js 11.8 KiB [emitted] [immutable] (id hint: vendors) 1 related asset
+  asset vendors-node_modules_markdown-it-footnote_index_js.4b505c2cb31505257700.js 11.8 KiB [emitted] [immutable] (id hint: vendors) 1 related asset
+asset remoteEntry.56c27a76dbbb6c04b315.js 33.3 KiB [emitted] [immutable] (name: jupyter_quarto) 1 related asset
+asset lib_index_js.a516b313883d8a453334.js 31.2 KiB [emitted] [immutable] 1 related asset
+asset node_modules_markdown-it-deflist_index_js.9a0ba05d50cd0b76026e.js 6.5 KiB [emitted] [immutable] 1 related asset
+asset style_index_js.30cf988b4adf97ed8f5f.js 5.77 KiB [emitted] [immutable] 1 related asset
+runtime modules 23.3 KiB 14 modules
+modules by path ../../node_modules/ 1.33 MiB 75 modules
+modules by path ./ 17.9 KiB
+  modules by path ./lib/ 14.5 KiB 10 modules
+  modules by path ./style/ 3.4 KiB 5 modules
+consume-shared-module modules 294 bytes
+  modules by path consume shared module (default) @jupyterlab/*.1 (singleton) 84 bytes 2 modules
+  + 5 modules
+provide-module modules 210 bytes
+  provide shared module (default) @agoose77/markdown-it-mermaid@0.1.0a0 = ../../node_modules/@agoose77/markdown-it-mermaid/lib/index.js 42 bytes [built] [code generated]
+  provide shared module (default) jupyter_quarto@0.1.0 = ./lib/index.js 42 bytes [built] [code generated]
+  provide shared module (default) markdown-it-deflist@2.1.0 = ../../node_modules/markdown-it-deflist/index.js 42 bytes [built] [code generated]
+  + 2 modules
+container entry 42 bytes [built] [code generated]
+webpack 5.76.2 compiled successfully in 3064 ms
