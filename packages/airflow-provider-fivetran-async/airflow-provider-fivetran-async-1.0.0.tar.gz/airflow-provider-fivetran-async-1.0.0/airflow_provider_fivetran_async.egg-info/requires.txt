@@ -1,0 +1,17 @@
+apache-airflow>=2.2.0
+aiohttp
+asgiref
+airflow-provider-fivetran
+
+[all]
+openlineage-airflow>=0.19.2
+
+[openlineage]
+openlineage-airflow>=0.19.2
+
+[tests]
+parameterized
+pytest
+pytest-asyncio
+pytest-cov
+requests_mock
