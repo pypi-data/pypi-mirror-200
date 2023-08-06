@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: femtoflow
+Version: 0.1.4
+Summary: Femtosense Model Optimization Toolkit
+Home-page: https://github.com/femtosense/femtoflow
+Author: Femtosense
+Author-email: info@femtosense.ai
+Project-URL: Source, https://github.com/femtosense/femtoflow
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Cython
+Requires-Dist: numpy
+Requires-Dist: tensorflow
+Requires-Dist: tensorflow-model-optimization
+Requires-Dist: matplotlib
+Requires-Dist: parameterized
+Requires-Dist: pytest
+
+![Build Status](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRGpDOFpEOXF1M0prSy9OOVNkZ3F2NkRKM0NNMG8xbmpZU0hZdUp1ejhHOEswdDRhOEZOakMrdWZyaHp1WGVtQ1lVTStzRUpXaFlYeFZPSEJFd21NdjF3PSIsIml2UGFyYW1ldGVyU3BlYyI6InJZYzhuZ3d3a1FUUzBzM0kiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+
