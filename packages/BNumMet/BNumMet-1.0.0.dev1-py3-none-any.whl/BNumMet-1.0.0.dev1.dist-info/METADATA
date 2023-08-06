@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: BNumMet
+Version: 1.0.0.dev1
+Summary: Basic Numerical Methods for Python 3
+Home-page: https://github.com/fbpazos/Trabajo-Fin-Master/tree/main/Python_BNumMet
+Author: Fernando Bellido Pazos
+Author-email: fbellidopazos@gmail.com
+License: MIT
+Platform: unix
+Platform: linux
+Platform: osx
+Platform: cygwin
+Platform: win32
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: bqplot (==0.12.36)
+Requires-Dist: jupyter
+Requires-Dist: jupyter-client (<=7.4.9)
+Requires-Dist: ipywidgets (==8.0.4)
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: tox ; extra == 'testing'
+Requires-Dist: black ; extra == 'testing'
+Requires-Dist: jupyter-black ; extra == 'testing'
+
