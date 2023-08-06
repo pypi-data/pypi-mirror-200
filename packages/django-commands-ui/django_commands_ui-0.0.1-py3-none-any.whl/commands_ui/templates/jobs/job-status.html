@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block extralinks %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css" rel="stylesheet" />
+{% endblock extralinks %}
+
+{% block content %}
+    <h1>{{ command_display_name }}</h1>
+    <ul>
+        <li><strong>Job</strong> {{ job.name }}</li>
+        <li><strong>App config name</strong> {{ job.app_config_name }}</li>
+        <li><strong>Started at</strong> {{ job.started_at|default:'N/A' }}</li>
+        <li><strong>Finished at</strong> {{ job.finished_at|default:'N/A' }}</li>
+        <li><strong>Cancelled at</strong> {{ job.cancelled_at|default:'N/A' }}</li>
+        <li><strong>Created at</strong> {{ job.created_at }}</li>
+        <li><strong>Created by</strong> {{ job.created_by }}</li>
+        <li><strong>Arguments</strong> {{ job.arguments|join:" " }}</li>
+    </ul>
+    {% include "jobs/partials/job-output.html" %}
+{% endblock content %}
+
+{% block extrascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
+{% endblock extrascripts %}

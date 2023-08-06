@@ -1,0 +1,54 @@
+<div class="mb-4">
+    <h3>Job history</h3>
+
+    <table class="table table-striped table-borderless" style="font-size: small;">
+        <thead class="thead-light">
+            <tr>
+                <th>Created at</th>
+                <th>Created by</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if not job_history %}
+                <p>This job has not been run previously.</p>
+            {% else %}
+                {% for job in job_history %}
+                    <tr>
+                        <td>
+                            {{ job.created_at|date:"DATETIME_FORMAT" }}
+                        </td>
+                        <td>
+                            {{ job.created_by }}
+                        </td>
+                        <td>
+                            {% if job.cancelled_at %}
+                                <span aria-label="Job was cancelled" title="Job was cancelled">
+                                    <i data-feather="x-circle" style="color: red;"></i>
+                                </span>
+                            {% elif job.has_finished %}
+                                 <span aria-label="Job finished" title="Job finished">
+                                     <i data-feather="check-circle" style="color: green;"></i>
+                                 </span>
+                            {% elif job.started_at %}
+                                 <span aria-label="Job in progress" title="Job in progress">
+                                     <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </span>
+                            {% else %}
+                                 <span aria-label="Job pending" title="Job pending">
+                                     <i data-feather="alert-circle" style="color: orange;"></i>
+                                </span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'jobs:job-status' job.pk %}">Job status</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
