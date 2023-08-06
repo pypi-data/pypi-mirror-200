@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: lifeweb-crawler
+Version: 1.0.1
+Summary: This package allows the use of lifeweb EDGE server
+Home-page: UNKNOWN
+Author: anonymous
+Author-email: lifeweb.crawler@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: requests
+Requires-Dist: fastapi
+Requires-Dist: pika
+Requires-Dist: python-logstash
+Requires-Dist: python-jose
+Requires-Dist: passlib
+
+UNKNOWN
+
