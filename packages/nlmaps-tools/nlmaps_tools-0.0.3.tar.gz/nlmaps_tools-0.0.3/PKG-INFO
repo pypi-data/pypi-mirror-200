@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: nlmaps-tools
+Version: 0.0.3
+Summary: 
+License: MIT
+Author: Simon Will
+Author-email: gorgor@gorgor.de
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: OSMPythonTools (>=0.3.5,<0.4.0)
+Requires-Dist: geopy (>=2.2.0,<3.0.0)
+Requires-Dist: jinja2 (>=3.0.2,<4.0.0)
+Requires-Dist: pydantic (>=1.10.6,<2.0.0)
+Requires-Dist: pyparsing (>=3.0.1,<4.0.0)
+Requires-Dist: requests (>=2.26.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+# nlmaps-tools
+
+Tools for working with [NLMaps](https://nlmaps.org/) data structures.
+
+## Processing Tool
+
+To transform some form of a query into another, you can use the `ProcessingTool`, also via the command line by
+executing `python3 -m nlmaps_tools.process`.
+
+### Example: Turn MRL into Overpass queries and results
+
+```
+python3 -m nlmaps_tools.process \
+    --wanted Will2021MultiAnswer --wanted Will2021Features \
+    --given "Will2021MRL=query(area(keyval('name','Paris')),nwr(keyval('amenity','library')),qtype(latlong))"
+```
