@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: sockcopy
+Version: 0.0.2
+Summary: Package for sending and receiving files over socket connection
+Author-email: "Erasmus A. Junior" <eirasmx@gmail.com>
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENCE.txt
+
+Package for sending and receiving files over socket connections
+
+transfer protocol available for both server socket and client socket
+
+Send(socket_connection, source_of_file)
+Receive(socket_connection, destination)
+
+package can send individual files and also folders with files.
