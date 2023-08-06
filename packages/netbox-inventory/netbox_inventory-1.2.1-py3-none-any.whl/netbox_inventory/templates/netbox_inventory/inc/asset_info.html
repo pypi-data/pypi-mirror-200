@@ -1,0 +1,31 @@
+{% load helpers %}
+
+<div class="card">
+  <h5 class="card-header">Asset</h5>
+  <div class="card-body">
+  {% if asset %}
+    <table class="table table-hover attr-table">
+      <tr>
+        <th scope="row"><span title="Asset name">Name</span></th>
+        <td><a href="{% url "plugins:netbox_inventory:asset" asset.pk %}">{{ asset.name|default:'(None)' }}</a></td>
+      </tr>
+      <tr>
+        <th scope="row"><span title="Asset status">Status</span></a></th>
+        <td>{% badge asset.get_status_display bg_color=asset.get_status_color %}</a></td>
+      </tr>
+      <tr>
+        <th scope="row">Owner</th>
+        <td>{{ asset.owner|linkify|placeholder }}</td>
+      </tr>
+      <tr>
+        <th>Warranty remaining</th>
+        <td>
+          {% include "netbox_inventory/inc/asset_warranty.html" with asset=asset %}
+        </td>
+      </tr>
+    </table>
+  {% else %}
+    <div class="text-muted">None</div>
+  {% endif %}
+  </div>
+</div>
