@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+license = { "text" = "MIT License" }
+name = "crud-templates"
+authors = [{ name = "Romain Damian", email = "damian.romain@gmail.com" }]
+description = "Powerful yet discrete templates for CRUD controllers"
+version = "0.1.1"
+readme = "README.rst"
+dependencies = ["marshmallow>=3.0", "sqlalchemy>=2.0"]
