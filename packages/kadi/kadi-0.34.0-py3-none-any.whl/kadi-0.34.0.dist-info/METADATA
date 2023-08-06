@@ -1,0 +1,137 @@
+Metadata-Version: 2.1
+Name: kadi
+Version: 0.34.0
+Summary: Karlsruhe Data Infrastructure for Materials Science
+Home-page: https://kadi.iam-cms.kit.edu
+Author: Karlsruhe Institute of Technology
+License: Apache-2.0
+Project-URL: Source code, https://gitlab.com/iam-cms/kadi
+Project-URL: Documentation, https://kadi4mat.readthedocs.io/en/stable
+Project-URL: Changelog, https://gitlab.com/iam-cms/kadi/-/blob/master/HISTORY.md
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7,<3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS.md
+Requires-Dist: alembic (==1.10.2)
+Requires-Dist: anonip (==1.1.0)
+Requires-Dist: Authlib (==1.2.0)
+Requires-Dist: Babel (==2.12.1)
+Requires-Dist: blinker (==1.5)
+Requires-Dist: celery (==5.2.7)
+Requires-Dist: charset-normalizer (==3.1.0)
+Requires-Dist: click (==8.1.3)
+Requires-Dist: cryptography (==40.0.1)
+Requires-Dist: defusedxml (==0.7.1)
+Requires-Dist: elasticsearch (==7.17.9)
+Requires-Dist: elasticsearch-dsl (==7.4.1)
+Requires-Dist: email-validator (==1.3.1)
+Requires-Dist: Flask (==2.2.3)
+Requires-Dist: Flask-Babel (==3.0.0)
+Requires-Dist: Flask-Limiter (==2.8.1)
+Requires-Dist: Flask-Login (==0.6.2)
+Requires-Dist: Flask-Migrate (==4.0.4)
+Requires-Dist: Flask-SQLAlchemy (==3.0.3)
+Requires-Dist: flask-talisman (==1.0.0)
+Requires-Dist: Flask-WTF (==1.1.1)
+Requires-Dist: fpdf2 (==2.6.1)
+Requires-Dist: h5py (==3.8.0)
+Requires-Dist: itsdangerous (==2.1.2)
+Requires-Dist: Jinja2 (==3.1.2)
+Requires-Dist: ldap3 (==2.9.1)
+Requires-Dist: limits (==2.6.3)
+Requires-Dist: markdown-it-py (==2.2.0)
+Requires-Dist: MarkupSafe (==2.1.2)
+Requires-Dist: marshmallow (==3.19.0)
+Requires-Dist: mdit-py-plugins (==0.3.5)
+Requires-Dist: mdurl (==0.1.2)
+Requires-Dist: Pillow (==9.5.0)
+Requires-Dist: pluggy (==1.0.0)
+Requires-Dist: psycopg2 (==2.9.5)
+Requires-Dist: PyJWT (==2.6.0)
+Requires-Dist: python-magic (==0.4.27)
+Requires-Dist: qrcode (==7.4.2)
+Requires-Dist: rdflib (==6.3.2)
+Requires-Dist: redis (==4.5.4)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: rfc3987 (==1.3.8)
+Requires-Dist: sentry-sdk (==1.18.0)
+Requires-Dist: SQLAlchemy (==1.4.47)
+Requires-Dist: SQLAlchemy-Utils (==0.40.0)
+Requires-Dist: streaming-form-data (==1.11.0)
+Requires-Dist: Werkzeug (==2.2.3)
+Requires-Dist: WTForms (==3.0.1)
+Requires-Dist: zipstream-ng (==1.5.0)
+Requires-Dist: importlib-metadata (==4.13.0) ; python_version < "3.8"
+Provides-Extra: dev
+Requires-Dist: black (==22.12.0) ; extra == 'dev'
+Requires-Dist: build (==0.10.0) ; extra == 'dev'
+Requires-Dist: jsonschema (==4.17.3) ; extra == 'dev'
+Requires-Dist: myst-parser (==1.0.0) ; extra == 'dev'
+Requires-Dist: pre-commit (==2.21.0) ; extra == 'dev'
+Requires-Dist: pylint (==2.17.1) ; extra == 'dev'
+Requires-Dist: pytest (==7.2.2) ; extra == 'dev'
+Requires-Dist: pytest-cov (==4.0.0) ; extra == 'dev'
+Requires-Dist: python-dotenv (==0.21.1) ; extra == 'dev'
+Requires-Dist: rfc3339-validator (==0.1.4) ; extra == 'dev'
+Requires-Dist: Sphinx (==5.3.0) ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme (==1.2.0) ; extra == 'dev'
+Requires-Dist: Sphinx-Substitution-Extensions (==2022.2.16) ; extra == 'dev'
+Requires-Dist: sphinxcontrib-httpdomain (==1.8.1) ; extra == 'dev'
+Requires-Dist: tox (==3.27.1) ; extra == 'dev'
+Requires-Dist: twine (==4.0.2) ; extra == 'dev'
+Requires-Dist: watchdog (==2.2.1) ; extra == 'dev'
+Provides-Extra: prod
+Requires-Dist: uWSGI (==2.0.20) ; extra == 'prod'
+
+# Kadi4Mat
+
+**Kadi4Mat** is the **Karlsruhe Data Infrastructure for Materials Science**, an
+open source software for managing research data. For more information about the
+project, please see its [website](https://kadi.iam-cms.kit.edu) and
+[documentation](https://kadi4mat.readthedocs.io/en/stable).
+
+## Installation
+
+While the packaged code of Kadi4Mat can easily be installed as a Python package
+via [pip](https://pypi.org/project/kadi), a complete installation requires a
+few additional dependencies and considerations. Please refer to the [stable
+documentation](https://kadi4mat.readthedocs.io/en/stable) for full installation
+instructions.
+
+## Development
+
+Contributions to the code are always welcome. However, please consider creating
+an issue first, as described below, if you are planning to make larger changes.
+Please refer to the [latest
+documentation](https://kadi4mat.readthedocs.io/en/latest) for instructions on
+how to set up a development environment of Kadi4Mat as well as other useful
+information.
+
+In order to merge any contributions back into the main repository, please open
+a corresponding [merge
+request](https://gitlab.com/iam-cms/kadi/-/merge_requests). Depending on the
+changes, please make sure to add appropriate tests, documentation,
+translations, etc. and add a corresponding entry to the changelog in
+[`HISTORY.md`](https://gitlab.com/iam-cms/kadi/-/blob/master/HISTORY.md) if
+necessary. You may also add yourself as a contributor to
+[`AUTHORS.md`](https://gitlab.com/iam-cms/kadi/-/blob/master/AUTHORS.md).
+
+## Issues
+
+For any issues regarding Kadi4Mat (bugs, suggestions, discussions, etc.) please
+use the [issue tracker](https://gitlab.com/iam-cms/kadi/-/issues) of this
+project. Make sure to add one or more fitting labels to each issue in order to
+keep them organized. Before creating a new issue, please also check whether a
+similar issue is already open first. Note that creating new issues requires a
+GitLab account.
+
+For **bugs** in particular, please use the provided [`Bug`
+template](https://gitlab.com/iam-cms/kadi/-/issues/new?issuable_template=Bug)
+when creating a new issue, which also adds the `Bug` label to the issue
+automatically. For **security-related** issues or concerns, please see
+[`SECURITY.md`](https://gitlab.com/iam-cms/kadi/-/blob/master/SECURITY.md).

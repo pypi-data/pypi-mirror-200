@@ -1,0 +1,66 @@
+{# Copyright 2020 Karlsruhe Institute of Technology
+ #
+ # Licensed under the Apache License, Version 2.0 (the "License");
+ # you may not use this file except in compliance with the License.
+ # You may obtain a copy of the License at
+ #
+ #     http://www.apache.org/licenses/LICENSE-2.0
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License. #}
+
+<submission-form>
+  {{ render_csrf() }}
+
+  <div v-if="selectedRecord">
+    <div class="card bg-light">
+      <div class="card-header py-1">
+        <strong>{% trans %}Link preview{% endtrans %}</strong>
+      </div>
+      <div class="card-body py-2">
+        <div class="row d-flex align-items-center">
+          <div class="col-sm-5">
+            <em v-if="linkDirection === 'out'">{$ currentRecord $}</em>
+            <span v-else>{$ selectedRecord $}</span>
+          </div>
+          <div class="col-sm-2 d-sm-flex justify-content-center">
+            <i class="fa-solid fa-right-long fa-xl"></i>
+          </div>
+          <div class="col-sm-5 d-sm-flex justify-content-end">
+            <span v-if="linkDirection === 'out'">{$ selectedRecord $}</span>
+            <em v-else>{$ currentRecord $}</em>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <dynamic-select-field placeholder="{% trans %}Search for records{% endtrans %}"
+                        endpoint="{{ url_for('api.select_records') }}"
+                        :field="{{ record_form.record }}"
+                        :request-params="{action: 'link', exclude: {{ record.id }}}"
+                        @select="selectedRecord = $event.text"
+                        @unselect="selectedRecord = null">
+  </dynamic-select-field>
+  <dynamic-select-field endpoint="{{ url_for('api.select_link_names') }}"
+                        placeholder="{% trans %}Enter or search for a name{% endtrans %}"
+                        :field="{{ record_form.name }}"
+                        :tags="true">
+  </dynamic-select-field>
+  <text-field :field="{{ record_form.term }}"></text-field>
+  <select-field :field="{{ record_form.link_direction }}" @select="linkDirection = $event"></select-field>
+  <submit-field :field="{{ record_form.submit }}"></submit-field>
+</submission-form>
+<hr>
+<record-links-editor endpoint="{{ url_for('api.get_record_links', id=record.id, action='link', direction='out') }}"
+                     title="{% trans %}Outgoing record links{% endtrans %}"
+                     direction="out">
+</record-links-editor>
+<hr>
+<record-links-editor endpoint="{{ url_for('api.get_record_links', id=record.id, action='link', direction='in') }}"
+                     title="{% trans %}Incoming record links{% endtrans %}"
+                     direction="in">
+</record-links-editor>

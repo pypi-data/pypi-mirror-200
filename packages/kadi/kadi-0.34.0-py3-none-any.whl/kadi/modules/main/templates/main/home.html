@@ -1,0 +1,175 @@
+{# Copyright 2020 Karlsruhe Institute of Technology
+ #
+ # Licensed under the Apache License, Version 2.0 (the "License");
+ # you may not use this file except in compliance with the License.
+ # You may obtain a copy of the License at
+ #
+ #     http://www.apache.org/licenses/LICENSE-2.0
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License. #}
+
+{% extends "base.html" %}
+
+{% block content %}
+  <language-prompt class="mb-4" preferred-locale="{{ preferred_locale }}"></language-prompt>
+  <div class="card bg-primary text-white mb-4">
+    <div class="row align-items-center">
+      <div class="col-md-7 d-none d-md-block">
+        <img class="img-fluid" width="425" src="{{ static_url('images/kadi_bg.png') }}">
+      </div>
+      <div class="col-md-5 m-3 m-md-0 text-center">
+        <h5>
+          <strong>{% trans %}Welcome to Kadi4Mat.{% endtrans %}</strong>
+        </h5>
+        {% trans %}You are currently logged in as{% endtrans %}
+        <identity-popover :user="{{ json_user(current_user) }}">
+          <template #default="props">
+            <strong class="text-white">{$ props.user.identity.displayname | truncate(50) $}</strong>
+          </template>
+        </identity-popover>.
+      </div>
+    </div>
+  </div>
+
+  <div class="card bg-light mb-4" v-if="showVersionMsg">
+    <div class="card-body py-3">
+      <button type="button" class="close text-primary" @click="dismissVersion">
+        <i class="fa-solid fa-xmark fa-xs"></i>
+      </button>
+      <a href="{{ const.URL_RTD_STABLE }}/HISTORY.html" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-rocket"></i>
+        <strong>
+          {% trans version=version %}See what's new in Kadi4Mat version {{ version }}.{% endtrans %}
+        </strong>
+      </a>
+    </div>
+  </div>
+
+  {% if not current_user.get_config(const.USER_CONFIG_HIDE_INTRODUCTION) %}
+    <div class="d-flex justify-content-between">
+      <h4 class="mb-3">
+        <strong>{% trans %}Get started{% endtrans %}</strong>
+      </h4>
+      <a href="{{ url_for('settings.manage_preferences') }}">
+        <strong>{% trans %}Hide{% endtrans %}</strong>
+      </a>
+    </div>
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row d-flex align-items-center">
+          <div class="col-xl-4 mb-4 mb-xl-0">
+            {% if can_create_records %}
+              <a class="btn btn-sm btn-primary btn-block" href="{{ url_for('records.new_record') }}">
+                <i class="fa-solid fa-square-plus"></i> {% trans %}Create new record{% endtrans %}
+              </a>
+            {% endif %}
+            <a class="btn btn-sm btn-light btn-block" href="{{ url_for('records.records') }}">
+              <i class="fa-solid fa-magnifying-glass"></i> {% trans %}Search existing records{% endtrans %}
+            </a>
+          </div>
+          <div class="col-xl-8">
+            {% trans %}
+              Records are the basic components of Kadi4Mat and can represent any kind of digital or digitalized object
+              via suitable metadata and/or corresponding data, e.g. arbitrary research data, samples, experimental
+              devices or even individual processing steps.
+            {% endtrans %}
+          </div>
+        </div>
+      </div>
+      <div class="card-footer py-1">
+        {% set help_url = '<a class="text-primary" href="{}"><strong>{}</strong></a>'
+                          .format(url_for("main.help", _anchor="navigation"), _("Help")) %}
+
+        {% trans help=help_url | safe %}
+          For more information about records and other types of resources, see the {{ help }} page.
+        {% endtrans %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div :class="{'mb-4': kadi.context.saved_searches.length > 0 || kadi.context.latest_resources.length > 0}"
+       v-if="kadi.context.favorite_resources.length > 0">
+    <div class="d-flex justify-content-between">
+      <h4 class="mb-3">
+        <strong>{% trans %}Favorites{% endtrans %}</strong>
+      </h4>
+      <a href="{{ url_for('accounts.view_resources', id=current_user.id) }}">
+        <strong>{% trans %}View all{% endtrans %}</strong>
+      </a>
+    </div>
+    <resource-index-view :resources="kadi.context.favorite_resources"></resource-index-view>
+  </div>
+
+  <div :class="{'mb-4': kadi.context.latest_resources.length > 0}" v-if="kadi.context.saved_searches.length > 0">
+    <div class="d-flex justify-content-between">
+      <h4 class="mb-3">
+        <strong>{% trans %}Saved searches{% endtrans %}</strong>
+      </h4>
+    </div>
+    <card-deck :items="kadi.context.saved_searches" :max-cards="4">
+      <template #default="props">
+        <div class="card-header py-1">
+          <strong>{$ props.item.pretty_type $}</strong>
+        </div>
+        <div class="card-body d-flex align-items-center py-2">
+          <a class="text-default stretched-link" :href="props.item._links.view">
+            <i class="fa-solid fa-magnifying-glass"></i> {$ props.item.name $}
+          </a>
+        </div>
+      </template>
+    </card-deck>
+  </div>
+
+  <div v-if="kadi.context.latest_resources.length > 0">
+    <div class="d-flex justify-content-between">
+      <h4 class="mb-3">
+        <strong>{% trans %}Latest updates{% endtrans %}</strong>
+      </h4>
+      <a href="{{ url_for('settings.manage_preferences') }}">
+        <strong>{% trans %}Configure{% endtrans %}</strong>
+      </a>
+    </div>
+    <div v-for="(resource, index) in kadi.context.latest_resources">
+      <div class="d-flex justify-content-between">
+        <h5>
+          <strong>{$ resource.title $}</strong>
+        </h5>
+        <a :href="resource.url">
+          <strong>{% trans %}View all{% endtrans %}</strong>
+        </a>
+      </div>
+      <resource-index-view :resources="resource.items"></resource-index-view>
+      <br v-if="index < kadi.context.latest_resources.length - 1">
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script nonce="{{ csp_nonce() }}">
+    kadi.base.newVue({
+      data: {
+        versionStorageKey: 'hide_version_msg',
+        showVersionMsg: false,
+      },
+      methods: {
+        dismissVersion() {
+          // Store the current version in the local storage when dismissing it.
+          window.localStorage.setItem(this.versionStorageKey, kadi.context.version);
+          this.showVersionMsg = false;
+        },
+      },
+      mounted() {
+        // Check if the version changed since the last time it was dismissed. If it did, show the message and delete the
+        // old version from the local storage, if applicable.
+        if (window.localStorage.getItem(this.versionStorageKey) !== kadi.context.version) {
+          window.localStorage.removeItem(this.versionStorageKey);
+          this.showVersionMsg = true;
+        }
+      },
+    });
+  </script>
+{% endblock %}
