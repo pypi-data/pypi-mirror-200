@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "techcyte-objects"
+version = "0.1.3"
+description = ""
+authors = ["Hawken MacKay Rives <hawken.rives@techcyte.com>"]
+readme = "README.md"
+packages = [{include = "techcyte_objects"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
