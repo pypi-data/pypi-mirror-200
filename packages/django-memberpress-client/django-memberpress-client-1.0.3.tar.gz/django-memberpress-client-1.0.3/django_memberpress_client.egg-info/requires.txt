@@ -1,0 +1,9 @@
+Django<=3.3,>=3.2
+validators
+django-environ
+
+[local]
+pre-commit
+black
+flake8
+ipython
