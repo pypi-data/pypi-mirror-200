@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: gstargets
+Version: 0.2.5
+Summary: 
+Author: sajad faghfoor maghrebi
+Author-email: sajad.faghfoor@gmail.com
+Requires-Python: >=3.8,<4
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: packaging (>=23.0,<24.0)
+Requires-Dist: volprofile (>=0.1.8,<0.2.0)
+Requires-Dist: zigzag (>=0.3.2,<0.4.0)
