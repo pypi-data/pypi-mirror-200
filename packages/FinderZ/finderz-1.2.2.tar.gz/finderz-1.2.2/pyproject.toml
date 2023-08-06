@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "FinderZ"
+version = "1.2.2"
+authors = [
+	{ name="PatzEdi", email="edwardferrari717@gmail.com" },
+]
+description = "A library that extends file management functionality in Python with many useful features in order to save your time and make life easier!"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+keywords = ["files", "filemanagement", "library", "development"]
+requires-python = ">=3.9"
+classifiers = [
+		"Programming Language :: Python :: 3",
+		"License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+		"Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/PatzEdi"
+"Repository" = "https://github.com/PatzEdi/FinderZ"
+"Bug Tracker" = "https://github.com/PatzEdi/FinderZ/issues"
