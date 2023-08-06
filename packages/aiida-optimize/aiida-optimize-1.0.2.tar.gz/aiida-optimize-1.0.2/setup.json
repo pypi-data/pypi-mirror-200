@@ -1,0 +1,63 @@
+{
+  "name": "aiida-optimize",
+  "version": "1.0.2",
+  "url": "https://aiida-optimize.readthedocs.io/",
+  "description": "AiiDA Plugin for running optimization algorithms.",
+  "author": "Dominik Gresch",
+  "author_email": "greschd@gmx.ch",
+  "python_requires": ">=3.8",
+  "license": "Apache 2.0",
+  "classifiers": [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Plugins",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Framework :: AiiDA"
+  ],
+  "keywords": [
+    "AiiDA",
+    "workflows",
+    "optimization"
+  ],
+  "include_package_data": true,
+  "install_requires": [
+    "aiida-core>=2.0.0,<3.0.0",
+    "numpy",
+    "scipy",
+    "decorator",
+    "pyyaml"
+  ],
+  "extras_require": {
+    "docs": [
+      "sphinx",
+      "sphinx-rtd-theme",
+      "sphinxcontrib-details-directive",
+      "markupsafe==2.0.1"
+    ],
+    "tests": [
+      "pytest~=6.0",
+      "pytest-cov",
+      "pgtest>=1.3.1"
+    ],
+    "dev": [
+      "yapf==0.32.0",
+      "pre-commit==2.19",
+      "pylint==2.17.1",
+      "mypy==0.961",
+      "types-PyYAML==6.0.9",
+      "types-decorator==5.1.7"
+    ]
+  },
+  "entry_points": {
+    "aiida.workflows": [
+      "optimize.optimize = aiida_optimize._optimization_workchain:OptimizationWorkChain",
+      "optimize.wrappers.add_inputs = aiida_optimize.wrappers._add_inputs:AddInputsWorkChain",
+      "optimize.wrappers.create_evaluate = aiida_optimize.wrappers._create_evaluate:CreateEvaluateWorkChain",
+      "optimize.wrappers.concatenate = aiida_optimize.wrappers._concatenate:ConcatenateWorkChain"
+    ]
+  }
+}

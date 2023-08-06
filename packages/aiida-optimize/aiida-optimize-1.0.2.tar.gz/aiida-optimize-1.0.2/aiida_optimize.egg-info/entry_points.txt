@@ -1,0 +1,5 @@
+[aiida.workflows]
+optimize.optimize = aiida_optimize._optimization_workchain:OptimizationWorkChain
+optimize.wrappers.add_inputs = aiida_optimize.wrappers._add_inputs:AddInputsWorkChain
+optimize.wrappers.concatenate = aiida_optimize.wrappers._concatenate:ConcatenateWorkChain
+optimize.wrappers.create_evaluate = aiida_optimize.wrappers._create_evaluate:CreateEvaluateWorkChain
