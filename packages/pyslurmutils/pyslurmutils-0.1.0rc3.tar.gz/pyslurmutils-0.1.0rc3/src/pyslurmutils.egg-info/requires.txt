@@ -1,0 +1,15 @@
+requests
+tblib
+
+[dev]
+pytest>=7
+black>=22
+flake8>=4
+
+[doc]
+pytest>=7
+sphinx>=4.5
+sphinx-autodoc-typehints>=1.16
+
+[test]
+pytest>=7
