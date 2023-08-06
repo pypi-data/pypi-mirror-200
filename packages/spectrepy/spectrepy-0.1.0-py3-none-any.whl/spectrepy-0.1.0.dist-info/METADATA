@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: spectrepy
+Version: 0.1.0
+Summary: Python bindings for the Spectre Password Manager
+Home-page: https://github.com/enpaul/spectrepy/
+License: MIT
+Keywords: spectre,mpw,password,manager,masterpassword
+Author: Ethan Paul
+Author-email: 24588726+enpaul@users.noreply.github.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Project-URL: Repository, https://github.com/enpaul/spectrepy/
+Description-Content-Type: text/markdown
+
+# spectrepy
+
+Python bindings for the [Spectre Password Manager](https://spectre.app)
+
