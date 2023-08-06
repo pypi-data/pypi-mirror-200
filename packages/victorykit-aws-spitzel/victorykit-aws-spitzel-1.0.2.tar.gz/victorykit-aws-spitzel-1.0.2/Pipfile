@@ -1,0 +1,20 @@
+[[source]]
+url = 'https://pypi.python.org/simple'
+verify_ssl = true
+name = 'pypi'
+
+[requires]
+python_version = '3'
+
+[scripts]
+"docgen" = "tox"
+"doxygen" = "tox -e doxygen"
+"htmldocgen" = "tox -e htmldocgen"
+"mddocgen" = "tox -e mddocgen"
+"pdfdocgen" = "tox -e pdfdocgen"
+
+[dev-packages]
+tox                    = '==3.23.0'
+
+[packages]
+aws-spitzel = {editable = true, path = "."}
