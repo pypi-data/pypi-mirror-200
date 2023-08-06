@@ -1,0 +1,171 @@
+[build-system]
+# Minimum requirements for the build system to execute.
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flowrunner"
+authors = [
+    {name = "Prithvijit Guha", email = "prithvijit_guha2@hotmail.com"},
+]
+
+version = "0.2.1"
+
+
+description = "Flowrunner is a lightweight package to organize and represent Data Engineering/Science workflows"
+readme = "readme.md"
+requires-python = ">=3.8"
+keywords = ["Data Engineering", "Data Science"]
+license = {file = "LICENSE"}
+classifiers = [
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Topic :: Scientific/Engineering',
+]
+dependencies = [
+    'requests',
+    'importlib-metadata; python_version<="3.8"',
+    'click>=8.1.3',
+    'Jinja2>=3.1.2',
+    'coloredlogs>=15.0.1',
+    'ipython>=8.11.0',
+    'matplotlib>=3.7.1'
+]
+
+
+
+
+[project.urls]
+Homepage = "https://github.com/prithvijitguha/flowrunner"
+Documentation = "https://flowrunner.readthedocs.io/en/latest/"
+Issues = "https://github.com/prithvijitguha/flowrunner/issues"
+
+
+
+
+[project.optional-dependencies]
+doc = [
+    "click>=8.1.3",
+    "Jinja2>=3.1.2",
+    "Sphinx>=6.1.3",
+    "sphinxcontrib-mermaid>=0.8.1",
+    "sphinx-autoapi>=2.0.1",
+    "sphinx-tabs>=3.4.1",
+    "sphinx-autobuild>=2021.3.14",
+    "sphinx-rtd-theme>=1.2.0",
+    "isort>=5.12.0",
+    "black>=23.1.0",
+    "pre-commit>=3.1.1",
+    "coverage<=7.2.1",
+    "pytest>=7.2.1",
+    "pylint>=2.17.0",
+    "coloredlogs>=15.0.1"
+]
+
+dev = [
+    "click>=8.1.3",
+    "Jinja2>=3.1.2",
+    "pylint>=2.16.4",
+    "black>=23.1.0",
+    "coverage<=7.2.1",
+    "pytest>=7.2.1",
+    "isort>=5.12.0",
+    "pre-commit>=3.1.1",
+    "pandas>=1.5.3",
+    "ipython>=8.11.0",
+    "matplotlib>=3.7.1",
+    "pylint>=2.17.0",
+    "coloredlogs>=15.0.1",
+    "pyspark>=3.3.2"
+]
+test = [
+    "click>=8.1.3",
+    "Jinja2>=3.1.2",
+    "pytest>=7.2.1",
+    "black>=23.1.0",
+    "coverage<=7.2.1",
+    "isort>=5.12.0",
+    "pre-commit>=3.1.1",
+    "pandas>=1.5.3",
+    "ipython>=8.11.0",
+    "matplotlib>=3.7.1",
+    "pylint>=2.17.0",
+    "coloredlogs>=15.0.1",
+    "pyspark>=3.3.2"
+]
+pandas = [
+    "pandas>=1.5.3"
+]
+
+pyspark = [
+    "pyspark>=3.3.2"
+]
+
+
+[options]
+package_dir=[
+    "flowrunner"
+]
+
+
+[options.packages.find]
+where=[
+    "flowrunner"
+]
+
+
+[project.scripts]
+cli = "flowrunner.cli:cli"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "flowrunner",
+    "tests"
+    ]
+testpaths = [
+    "tests"
+]
+addopts = [
+    "--cache-clear",
+    "-v"
+]
+
+
+[tool.coverage.run]
+branch = true
+omit =  ["*/__init__.py", "tests/*", "tests/**/*","flowrunner/__main__.py"]
+source = ["flowrunner"]
+
+[tool.coverage.report]
+ignore_errors = false
+show_missing = true
+omit =  ["*/__init__.py", "tests/*", "tests/**/*" ,"flowrunner/__main__.py"]
+
+exclude_lines = [
+    # Do not complain if non runnable code isn't run
+    "if __name__ == .__main__.:",
+]
+
+[tool.pylint.main]
+fail-under=6
+ignore-paths = [
+    # we skip lintingcheck for docs and examples
+    "^examples/.*$",
+    "^docs/source/.*$",
+]
+ignored-modules=[
+    "pandas",
+    "pytest"
+]
+
+
+[tool.pylint.format]
+max-line-length=145
+
+
+
+[tool.black]
+target-version = ['py38', 'py39']
+required-version = '23.1.0'
+include = ["flowrunner/*.py", "tests/*.py"]
