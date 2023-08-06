@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "verihubs"
+version = "0.0.3"
+authors = [
+  { name="DhaniPro", email="ramadhani.dhanipro@gmail.com" },
+]
+description = "Use our SMS API or Campaign Manager to send messages to all mobile phones globally. Verihubs’ comprehensive API and super network of direct operators makes it quick, easy, and secure."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ["requests"]
+
+[project.urls]
+"Homepage" = "https://blog.dhanipro.com"
