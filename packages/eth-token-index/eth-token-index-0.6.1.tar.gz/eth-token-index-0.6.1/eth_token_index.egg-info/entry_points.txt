@@ -1,0 +1,5 @@
+[console_scripts]
+eth-token-index-add = eth_token_index.runnable.add:main
+eth-token-index-list = eth_token_index.runnable.list:main
+eth-token-index-publish = eth_token_index.runnable.publish:main
+eth-token-index-writer = eth_token_index.runnable.writer:main
