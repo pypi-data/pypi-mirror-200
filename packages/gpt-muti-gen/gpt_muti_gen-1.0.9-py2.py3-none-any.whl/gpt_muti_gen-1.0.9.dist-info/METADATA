@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: gpt-muti-gen
+Version: 1.0.9
+Summary: A tool to mutiply generate text with chatgpt
+Home-page: https://git.yoqi.me/openai/chatgpt-wordpress
+Author: lyq
+Author-email: liuyuqi.gov@msn.cn
+License: Apache License Version 2.0
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (==2.19.1)
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+
+# gpt-muti-gen
+
+[![Version](https://img.shields.io/badge/version-v1.0.8-brightgreen)](https://git.yoqi.me/openai/gpt-muti-gen.)
+[![.NET](https://img.shields.io/badge/python-3.8-brightgreen?style=plastic)](https://git.yoqi.me/openai/gpt-muti-gen.)
+
+[English](./README.md) | [中文](./README.zh-CN.md)
+
+chatgpt generate article, and auto import to wordpress blog system.
+
+## Usage
+
+### windows binary version
+
+ * 1、new title.txt configuration file, input some question into one by one.
+ * 2、config.json input key，apkkey and so on.
+ * 3、double click main.exe and start it.
+
+### pip version
+
+ * 1、new title.txt configuration file, input some question into one by one.
+ * 2、config.json input key，apkkey value and so on.
+ * 3、download and install python3 software.
+ * 4、run the command：
+
+```
+pip install gpt-muti-gen
+gpt-muti-gen
+```
+
+### refrence
+
+* [use Chatgpt generate article](http://blog.yoqi.me/lyq/17794.html)
+* [issues](https://git.yoqi.me/openai/gpt-muti-gen/issues)
+
+## License
+
+Licensed under the [Apache 2.0](LICENSE) © [liuyuqi.gov@msn.cn](https://github.com/jianboy)
