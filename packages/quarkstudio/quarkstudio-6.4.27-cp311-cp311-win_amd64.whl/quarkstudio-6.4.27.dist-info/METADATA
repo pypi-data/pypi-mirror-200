@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: quarkstudio
+Version: 6.4.27
+Summary: Dream It Possible!
+Home-page: https://gitee.com/
+Author: YL Feng
+Author-email: fengyulong@pku.edu.cn
+License: MIT
+Project-URL: source, https://gitee.com
+Keywords: Hello,World!
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.10.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: srpc (>=4.1.6)
+Requires-Dist: zee (>=0.0.1)
+Provides-Extra: full
+Requires-Dist: anyon (>=3.0.11) ; extra == 'full'
+Requires-Dist: axion (>=3.2.11) ; extra == 'full'
+Requires-Dist: pyside6 (>=6.4.2) ; extra == 'full'
+Requires-Dist: pyqtgraph (>=0.12.4) ; extra == 'full'
+Requires-Dist: matplotlib (>=3.6.3) ; extra == 'full'
+Requires-Dist: vispy (>=0.12.0) ; extra == 'full'
+Provides-Extra: server
+Requires-Dist: anyon (>=3.0.11) ; extra == 'server'
+Requires-Dist: axion (>=3.2.11) ; extra == 'server'
+Provides-Extra: studio
+Requires-Dist: pyside6 (>=6.4.2) ; extra == 'studio'
+Requires-Dist: pyqtgraph (>=0.12.4) ; extra == 'studio'
+Requires-Dist: matplotlib (>=3.6.3) ; extra == 'studio'
+Requires-Dist: vispy (>=0.12.0) ; extra == 'studio'
+
+123
