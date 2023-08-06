@@ -1,0 +1,1541 @@
+Metadata-Version: 2.1
+Name: jutool
+Version: 0.2.6
+Summary: Some base methods for developing
+Home-page: http://www.example.com/~cschultz/bvote/
+Author: Ke
+Author-email: jiangke1207@icloud.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: progressbar2 (==4.0.0)
+
+[toc] 
+# ML工具包
+
+## 功能介绍
+
+```mermaid
+graph LR
+A[数据采集] --> B[样本集管理] 
+B--> C[机器学习流程]
+C --> 中间状态管理
+C --> 训练流程跟踪
+C --> 模型标准化
+D[样本集同步] --> B
+```
+
+
+
+## 快速入门
+
+### 安装
+
+1, 安装pip包
+
+```shell
+pip install [package]
+```
+
+### 数据采集
+
+爬取百度百科
+
+```python
+from spider_util.WebGetter import web_page, BrowserSession
+
+bs = BrowserSession(".../chromedriver")  # 指定浏览器的drive
+pa = bs.get_web_page("https://baike.baidu.com/wikitag/taglist?tagId=76603")
+
+# 选需要爬取的xpath, 本例中选每个动物的标题的xpath
+findxPath = "/html/body/div[2]/div[2]/div/div/div[1]/div[6]/a/div/div[2]/div[1]/div[1]"
+
+results = pa.parse_page({'title': findxPath}) # 智能匹配所有标题
+results2 = pa.scroll_parse_page(findxPath) # 智能滚动匹配所有标题
+
+#遍历所有标题
+for r in results['title']:
+    new_page = r.click() # 点击标题,获得新的页面的page实例
+    rrrrr = new_page.parse_page({"a1": xpath2, "a2": xpath3}) #递归进行信息提取
+
+```
+
+### 数据样本管理
+
+#### 数据源
+
+```python
+from sample_util.NLSampleSource import LocalDisk_NLSampleSource, Memory_NLSampleSource
+from sample_util.MinioSampleSource import MinioSampleSource
+
+#本地数据源
+sample_source = LocalDisk_NLSampleSource("/Users/jiangke/Downloads/buffer2")
+#内存数据源
+sample_source2 = Memory_NLSampleSource()
+#服务器数据源
+mss = MinioSampleSource("../buffer", "xx.xx.xx.xx:9000", "sroot", "hillstone",
+                        "nlpdata")
+
+#获得该数据源的所有数据集
+all_set = mss.get_dir_list()
+#打印该数据源的报表(详细的markdown文档)
+mss.print_markdown_arrange_dir_list(mss.get_dir_list(),"../local_data.md")
+
+# 同步set到本地的数据源
+mss.updata()
+mss.download("set_name")
+
+```
+
+#### 数据集
+
+```python
+from sample_util.SampleSet import SampleSet
+
+# 遍历在sample_source数据源中名为‘ds’的数据集
+for item in SampleSet(sample_source, 'ds'):
+		print(item)
+
+# Sampleset支持shuffle、batch、skip、take等函数
+for item in SampleSet(sample_source2, 'a').shuffle().batch(3):
+    count3 += 1
+    
+# 创建新的SampleSet
+sample_source.create_new_set("set name", "set descript", ["tag1", ], ["col1","col2"])
+for i in range(10000):
+    sample_source2.add_row('set name', [[i, i + 1, i + 2],[i, i + 1, i + 2]]) # 数据为行式插入
+    
+# SampleSet的扩展方法
+
+# 切分某个数据集，按照label进行平衡，并按照数量划分到不同的子set中
+# 此用例将 set_name数据集,按照col2的标签, 切成 test和train 两个set,方便用于后面训练和评测
+splitset_by_labeltype_average(sample_source, 'set_name', lamba x: x['col2'], {'test_set':1000,'train_set':2000})
+
+```
+
+#### 模型构建
+
+```Python
+# 继承自TFModelBase
+class test_Model(TFModelBase):
+
+    def __init__(self,):
+        super().__init__("test_Model")
+
+    # 定义进入tf图的输入tensor
+    def define_input(self):
+        return {
+            'tensor1': tf.keras.Input([1, 256], dtype=tf.float32),
+        }
+
+    # 输入转化成图输入的过程
+    def input_convert(self, input):
+        return {
+            'tensor1': input,
+        }
+
+    # 图输出转换成结果输出
+    def output_convert(self, model_result):
+        return np.argmax(model_result, axis=1)
+
+    # 优化器的指定
+    def optimizer_obj(self):
+        return self.optimizer
+
+    # 图的定义
+    def diagram(self, input_tensors):
+        return result
+
+    # loss的定义
+    def cal_loss(self, intput, model_result, label):
+        return loss
+```
+
+#### 模型的训练
+
+```python
+# set数据到模型的Input的转化
+def batch_data_preoperator(item):
+    inputs = [x['text_a'] for x in item]
+    labels = [int(x['label']) for x in item]
+    return inputs, labels
+
+
+
+model = Test_Model()
+# 模型自动加载最后训练的模型
+model.load_last_model()
+
+# 训练模型
+train_p = BatchTrain(model,																			# 训练的模型
+                     TFTrainableProcessState(doc_out=True), 		# 训练的过程状态,doc_out标识输出模型训练报表
+                     create_buffer_set='test1',									# 是否对输入过程做缓存
+                     buffer_set_source=NSS2,										# 如果做缓存,缓存的数据源
+                     session_id='aaa111',												# 对话的session ID,同一个ID可实现继续训练
+                     parse_batch_func=batch_data_preoperator)
+# 设置评测指标和数据集
+train_p.set_evaluate(DSet2.batch(30), [accuracy_metrics(), precision_metrics()])
+
+# 设置训练的数据集
+train_p.train(DSet.batch(50))
+```
+
+
+
+# code_util 
+## Class 
+### apidoc_generation 
+动态生成所有API文档的Markdown格式 
+**method** 
+- \_\_init\_\_ 
+初始化函数 
+| name|note | 
+| ----|---- | 
+|  tar_path| 生成文件的路径 | 
+|  module_names| 模块的列表 | 
+|  exclude_name| 排除的关键字列表 | 
+- generation 
+生成文档的方法 
+| name|note | 
+| ----|---- | 
+| return| | 
+### log_level_enum 
+log级别枚举 
+**method** 
+### process_status_bar 
+控制台的进度条 
+**method** 
+- \_\_init\_\_ 
+初始化函数 
+| name|note | 
+| ----|---- | 
+|  processbar_length| 进度条长度（打印长度） | 
+- iter_bar 
+进度条的遍历方法 
+| name|note | 
+| ----|---- | 
+|  iter_item| 主遍历对象 | 
+|  value| value起始 | 
+|  key| 遍历名称 | 
+|  max| 遍历的数量 | 
+| return| 可遍历对象 | 
+- print_log 
+过程中打印log（不覆盖，使用换行） 
+| name|note | 
+| ----|---- | 
+|  str| 状态信息 | 
+| return| 无返回 | 
+- process_print 
+打印过程中的状态信息（覆盖输出） 
+| name|note | 
+| ----|---- | 
+|  str| 状态信息 | 
+| return| 无返回 | 
+- update_process_value 
+强制更新进度条的进度数值 
+| name|note | 
+| ----|---- | 
+|  v| 要更新的数值 | 
+| return| 无返回 | 
+### markdowndoc 
+生成Markdown文本的辅助类 
+**method** 
+- \_\_del\_\_ 
+无文档 
+- \_\_init\_\_ 
+初始化函数 
+| name|note | 
+| ----|---- | 
+|  path| 生成的目标目录 | 
+|  need_toc| 是否建立目录 | 
+- flush 
+输出文件的实际命令 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+- write_img 
+无文档 
+- write_line 
+打印文字 
+| name|note | 
+| ----|---- | 
+|  str| 文字内容 | 
+|  is_block| 是否粗体打印 | 
+| return| 无返回 | 
+- write_markdown_code 
+无文档 
+- write_table 
+打印表格 
+| name|note | 
+| ----|---- | 
+|  title| 标题，list【str】 | 
+|  data| 表格内容， list【list【列内容】】 | 
+| return| 无返回 | 
+- write_title 
+打印标题 
+| name|note | 
+| ----|---- | 
+|  str| 标题内容 | 
+|  level| 标题级别 | 
+| return| 无返回 | 
+## Function 
+### draw_line_chart 
+无文档 
+### log 
+打印log 
+| name|note | 
+| ----|---- | 
+|  str| log内容 | 
+|  log_level| log级别，使用枚举 | 
+| return| 无返回 | 
+### log_error 
+输出错误log，并抛出异常 
+| name|note | 
+| ----|---- | 
+|  error_message| 异常信息 | 
+| return| 无返回 | 
+### process_bar_iter 
+迭代过程的简易进度条 
+| name|note | 
+| ----|---- | 
+|  iter_item| 迭代对象 | 
+|  key| 迭代名称 | 
+|  max| 最大迭代数量 | 
+| return| 无返回 | 
+### convert_2f_num 
+无文档 
+### hash_obj_strbase 
+对对象进行迭代编码 
+| name|note | 
+| ----|---- | 
+|  obj| 需要进行编码的对象 | 
+| return| hash值 | 
+### hash_str 
+使用MD5对str进行hash编码 
+| name|note | 
+| ----|---- | 
+|  target_str| 需要编码的str | 
+| return| 无返回 | 
+### create_folder_if_not_exsited 
+如果路径下不存在则创建文件夹，返回路径 
+| name|note | 
+| ----|---- | 
+|  args| 路径的分段信息，类似os.path.join | 
+| return| 路径 | 
+### buffer 
+缓存方法的标识符 
+| name|note | 
+| ----|---- | 
+|  permanent| 是否永久化存储 | 
+| return| 无 | 
+### buffer_item 
+缓存一个对象 
+| name|note | 
+| ----|---- | 
+|  key| 对象的key | 
+|  value| 对象的value | 
+| return| 无返回 | 
+### get_buffer_item 
+获得一个对象的缓存 
+| name|note | 
+| ----|---- | 
+|  key| 对象的key | 
+| return| 对象，查找不到会抛出异常 | 
+### has_item_key 
+是否存在某个key的缓存对象 
+| name|note | 
+| ----|---- | 
+|  key| 缓存的key | 
+| return| True标识存在 | 
+### remove_item 
+删除某个缓存对象 
+| name|note | 
+| ----|---- | 
+|  key| 需要删除对象的key | 
+| return| 无返回 | 
+### func_check 
+对方法的参数注释检测的方法标识 
+| name|note | 
+| ----|---- | 
+|  func| | 
+| return| | 
+### get_last_time_cost 
+获得最后一个标识方法计时器的时间 
+| name|note | 
+| ----|---- | 
+| return| 秒 | 
+### iter_idx 
+返回 item，idx的可枚举 
+| name|note | 
+| ----|---- | 
+|  iter_item| | 
+| return| | 
+### time_cost 
+计时一个方法的运行时间的方法标识符 
+| name|note | 
+| ----|---- | 
+|  key| | 
+| return| | 
+# ml_util 
+## Class 
+### IterationProcessModelBase 
+遍历的模型定义（抽象类） 
+**method** 
+- \_\_init\_\_ 
+模型的初始化 
+| name|note | 
+| ----|---- | 
+|  name| 模型的名称 | 
+- call 
+抽象方法，每个循环体Item的执行过程 
+| name|note | 
+| ----|---- | 
+|  item| 循环体的Item | 
+|  item| 循环的processbar实例，用于对状态进行输出 | 
+|  state| 状态信息 | 
+| return| 无返回 | 
+- prepare 
+循环前的准备过程 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+### TrainableProcessModelBase 
+基于迭代训练模型的基类（抽象类） 
+**method** 
+- \_\_call\_\_ 
+同predict方法 
+| name|note | 
+| ----|---- | 
+|  args| 参数 | 
+|  kwargs| 参数 | 
+| return| 结果 | 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  name| 模型名称 | 
+- input_convert 
+无文档 
+- load 
+模型的加载 
+| name|note | 
+| ----|---- | 
+|  model_key| 模型的标识key | 
+| return| 无返回 | 
+- model_call 
+无文档 
+- output_convert 
+无文档 
+- predict 
+无文档 
+- save 
+模型的存储 
+| name|note | 
+| ----|---- | 
+|  model_key| 存储的标识key | 
+| return| 无返回 | 
+- train 
+训练过程 
+| name|note | 
+| ----|---- | 
+|  input| 训练集的batch,其中input为convert_input后的Input | 
+|  lable| 训练集的label | 
+### TrainableProcessState 
+训练过程的状态记录的处理类（抽象类） 
+**method** 
+- event_begin_batch 
+每个batch训练开始前触发 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  batch_index| batch训练的index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_begin_epoch 
+每个batch训练完成的Event 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_end_batch 
+每个batch训练后触发 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  batch_index| batch训练的index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_end_epoch 
+每个epoch训练完成的Event 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+### IterationProcess 
+遍历执行过程 
+**method** 
+- \_\_init\_\_ 
+初始化方法 
+| name|note | 
+| ----|---- | 
+|  model| 需要进行遍历的IterationProcessModelBase模型 | 
+|  sample_set| 遍历执行的数据set | 
+|  state_obj| 迭代状态信息 | 
+|  session_id| 遍历的SessionID，同ID支持事务的进度记录，为None为不记录进度 | 
+- execute 
+执行遍历 
+| name|note | 
+| ----|---- | 
+|  result_func| 结果的处理过程 （model返回的result， item_convert_fun返回的结果） 无返回值 | 
+|  item_convert_fun| 每个Item进入model前的处理过程，(set遍历的item)-》返回待model处理结果 | 
+| return| 无返回 | 
+- is_completed 
+此循环是否结束 
+| name|note | 
+| ----|---- | 
+| return| 是否循环已经结束 | 
+### IterationProcessModelBase 
+遍历的模型定义（抽象类） 
+**method** 
+- \_\_init\_\_ 
+模型的初始化 
+| name|note | 
+| ----|---- | 
+|  name| 模型的名称 | 
+- call 
+抽象方法，每个循环体Item的执行过程 
+| name|note | 
+| ----|---- | 
+|  item| 循环体的Item | 
+|  item| 循环的processbar实例，用于对状态进行输出 | 
+|  state| 状态信息 | 
+| return| 无返回 | 
+- prepare 
+循环前的准备过程 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+### MLComponentBase 
+统一ML处理过程的基类，抽象类 
+**method** 
+- \_\_getitem\_\_ 
+无文档 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  modules| 需要倒入的module | 
+- call 
+执行过程，抽象方法 
+| name|note | 
+| ----|---- | 
+|  linked_item| 处理的目标数据 | 
+|  ori_item| 处理的原始数据 | 
+| return| 处理的结果 | 
+- load_model 
+模型的加载过程，（如有） 
+| name|note | 
+| ----|---- | 
+|  model_path| 模型存储的路径 | 
+| return| 无返回 | 
+### MetricsBase 
+**method** 
+- call 
+无文档 
+### BatchTrain 
+基于数据Batch的训练迭代 
+**method** 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  model| 需要迭代的模型 | 
+|  epochs| 最大epoch次数 | 
+|  parse_batch_func| 样本预处理function | 
+|  create_buffer_set| 是否创建样本缓存set，None为不创建，否则填写缓存名字，若存在则直接训练，不训练会递归创建 | 
+|  buffer_set_source| 创建缓存set的source | 
+|  session_id| 缓存创建的session key | 
+- evaluate 
+无文档 
+- set_evaluate 
+无文档 
+- train 
+训练方法 
+| name|note | 
+| ----|---- | 
+|  kwargs| 向model train传递的参数 | 
+|  sampleset| 数据的dataset | 
+|  parse_batch_func| 每batch数据的预处理过程,返回（input_data, label_data） | 
+| return| 无返回 | 
+### TrainableProcessModelBase 
+基于迭代训练模型的基类（抽象类） 
+**method** 
+- \_\_call\_\_ 
+同predict方法 
+| name|note | 
+| ----|---- | 
+|  args| 参数 | 
+|  kwargs| 参数 | 
+| return| 结果 | 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  name| 模型名称 | 
+- input_convert 
+无文档 
+- load 
+模型的加载 
+| name|note | 
+| ----|---- | 
+|  model_key| 模型的标识key | 
+| return| 无返回 | 
+- model_call 
+无文档 
+- output_convert 
+无文档 
+- predict 
+无文档 
+- save 
+模型的存储 
+| name|note | 
+| ----|---- | 
+|  model_key| 存储的标识key | 
+| return| 无返回 | 
+- train 
+训练过程 
+| name|note | 
+| ----|---- | 
+|  input| 训练集的batch,其中input为convert_input后的Input | 
+|  lable| 训练集的label | 
+### TrainableProcessState 
+训练过程的状态记录的处理类（抽象类） 
+**method** 
+- event_begin_batch 
+每个batch训练开始前触发 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  batch_index| batch训练的index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_begin_epoch 
+每个batch训练完成的Event 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_end_batch 
+每个batch训练后触发 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  batch_index| batch训练的index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_end_epoch 
+每个epoch训练完成的Event 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+### _generate_tfmodel_input_buffer_set 
+**method** 
+- \_\_init\_\_ 
+模型的初始化 
+| name|note | 
+| ----|---- | 
+|  name| 模型的名称 | 
+- call 
+抽象方法，每个循环体Item的执行过程 
+| name|note | 
+| ----|---- | 
+|  item| 循环体的Item | 
+|  item| 循环的processbar实例，用于对状态进行输出 | 
+|  state| 状态信息 | 
+| return| 无返回 | 
+- prepare 
+循环前的准备过程 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+### precision_metrics 
+**method** 
+- call 
+无文档 
+### accuracy_metrics 
+**method** 
+- call 
+无文档 
+## Function 
+### confusion_dic_2_matrix 
+无文档 
+# sample_util 
+## Class 
+### LocalDisk_NLSampleSource 
+本地磁盘的数据源. 
+**method** 
+- \_\_del\_\_ 
+提交所有打开的文档更改并关闭 
+| name|note | 
+| ----|---- | 
+| return| | 
+- \_\_init\_\_ 
+初始化数据源 
+| name|note | 
+| ----|---- | 
+|  folder_path| 数据源存储的本地目录 | 
+- add_attachment 
+向set添加特定的附加信息 
+| name|note | 
+| ----|---- | 
+|  set_name| 添加的set | 
+|  key| 附加信息的key | 
+|  data| 附加信息 | 
+| return| 无返回 | 
+- add_row 
+添加新行 
+| name|note | 
+| ----|---- | 
+|  name| 添加的目标set | 
+|  data| 列信息，list形式，顺序与set的列名顺序相同 | 
+| return| 是否成功的bool返回 | 
+- arrange_dir_list 
+构建基于树形目录的控制台输出 
+| name|note | 
+| ----|---- | 
+|  dir_list| metadata列表，一般取自 get_metadata_keys | 
+| return| 返回树形字典，表示此数据源所有set的树形结构 | 
+- create_new_set 
+header format:  file_index(int): 文件序号
+
+append_seek(pointer): 添加新数据指针
+
+data_start_seek(int): 本文件中数据的开始位置
+
+data_count(int): 数据的个数
+
+file_count(int): 文件链个数
+
+current_file_count(int): 当前数据数量
+
+header_node: 数据 
+| name|note | 
+| ----|---- | 
+|  name| | 
+|  description| | 
+|  tags| | 
+|  label_keys| | 
+| return| | 
+- delete_set 
+删除特定的set 
+| name|note | 
+| ----|---- | 
+|  name| 要删除的set名称 | 
+| return| 无返回 | 
+- flush 
+提交所有的更改 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+- get_dir_list 
+获得当前源的所有set的列表信息 
+| name|note | 
+| ----|---- | 
+| return| 字典类型的set集合 | 
+- get_metadata_keys 
+获得set的metadata信息，包括set的定义信息、数量等 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 字典类型的属性集合 | 
+- get_set_count 
+获得set的数量 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 返回数量信息 | 
+- has_set 
+此数据源中是否包含特定的数据set 
+| name|note | 
+| ----|---- | 
+|  name| 需要查找的set名称 | 
+| return| 结果bool类型的值 | 
+- iter_data 
+遍历set中所有数据行 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 可迭代的数据对象，每个迭代是一行数据 | 
+- iter_pointer 
+遍历返回set中所有行的指针信息 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 可迭代的指针对象 | 
+- load_pointer_data 
+通过特定的指针信息获得该指针信息的行 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+|  pointer| 指针信息 | 
+| return| 该指针指向的行信息 | 
+- print_markdown_arrange_dir_list 
+打印此数据源所有数据set的预览页（markdown） 
+| name|note | 
+| ----|---- | 
+|  dir_list| metadata列表，一般取自 get_metadata_keys | 
+|  path| 输出目录 | 
+|  max_length| 每行数据的最大现实长度 | 
+| return| | 
+- print_set_info 
+在控制台打印某个set的信息 
+| name|note | 
+| ----|---- | 
+|  name| set的名称 | 
+| return| 无返回 | 
+- read_attachment 
+读取set的附加信息 
+| name|note | 
+| ----|---- | 
+|  set_name| 读取的set名称 | 
+| return| 返回附加信息 | 
+- read_one_row 
+读取set的第一行信息 
+| name|note | 
+| ----|---- | 
+|  set_name| set名称 | 
+| return| 第一行的数据 | 
+### Memory_NLSampleSource 
+构建一个基于内存的SampleSource 
+**method** 
+- \_\_init\_\_ 
+无文档 
+- add_attachment 
+向set添加特定的附加信息 
+| name|note | 
+| ----|---- | 
+|  set_name| 添加的set | 
+|  key| 附加信息的key | 
+|  data| 附加信息 | 
+| return| 无返回 | 
+- add_row 
+添加新行 
+| name|note | 
+| ----|---- | 
+|  name| 添加的目标set | 
+|  data| 列信息，list形式，顺序与set的列名顺序相同 | 
+| return| 是否成功的bool返回 | 
+- arrange_dir_list 
+构建基于树形目录的控制台输出 
+| name|note | 
+| ----|---- | 
+|  dir_list| metadata列表，一般取自 get_metadata_keys | 
+| return| 返回树形字典，表示此数据源所有set的树形结构 | 
+- create_new_set 
+创建新的数据set，抽象方法 
+| name|note | 
+| ----|---- | 
+|  name| 新set的名称 | 
+|  description| 新set的描述信息 | 
+|  tags| 新set的tag信息 | 
+|  keys| 新set的列名 | 
+|  base_set| 父set的名称 | 
+| return| 是否成功，bool类型返回 | 
+- delete_set 
+删除特定的set 
+| name|note | 
+| ----|---- | 
+|  name| 要删除的set名称 | 
+| return| 无返回 | 
+- flush 
+提交所有更改 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+- get_dir_list 
+获得当前源的所有set的列表信息 
+| name|note | 
+| ----|---- | 
+| return| 字典类型的set集合 | 
+- get_metadata_keys 
+获得set的metadata信息，包括set的定义信息、数量等 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 字典类型的属性集合 | 
+- get_set_count 
+获得set的数量 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 返回数量信息 | 
+- has_set 
+此数据源中是否包含特定的数据set 
+| name|note | 
+| ----|---- | 
+|  name| 需要查找的set名称 | 
+| return| 结果bool类型的值 | 
+- iter_data 
+遍历set中所有数据行 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 可迭代的数据对象，每个迭代是一行数据 | 
+- iter_pointer 
+遍历返回set中所有行的指针信息 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 可迭代的指针对象 | 
+- load_pointer_data 
+通过特定的指针信息获得该指针信息的行 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+|  pointer| 指针信息 | 
+| return| 该指针指向的行信息 | 
+- print_markdown_arrange_dir_list 
+打印此数据源所有数据set的预览页（markdown） 
+| name|note | 
+| ----|---- | 
+|  dir_list| metadata列表，一般取自 get_metadata_keys | 
+|  path| 输出目录 | 
+|  max_length| 每行数据的最大现实长度 | 
+| return| | 
+- read_attachment 
+读取set的附加信息 
+| name|note | 
+| ----|---- | 
+|  set_name| 读取的set名称 | 
+| return| 返回附加信息 | 
+- read_one_row 
+读取set的第一行信息 
+| name|note | 
+| ----|---- | 
+|  set_name| set名称 | 
+| return| 第一行的数据 | 
+### NLSampleSourceBase 
+数据存储源的基类，抽象类 
+**method** 
+- add_attachment 
+向set添加特定的附加信息 
+| name|note | 
+| ----|---- | 
+|  set_name| 添加的set | 
+|  key| 附加信息的key | 
+|  data| 附加信息 | 
+| return| 无返回 | 
+- add_row 
+添加新行 
+| name|note | 
+| ----|---- | 
+|  name| 添加的目标set | 
+|  data| 列信息，list形式，顺序与set的列名顺序相同 | 
+| return| 是否成功的bool返回 | 
+- arrange_dir_list 
+构建基于树形目录的控制台输出 
+| name|note | 
+| ----|---- | 
+|  dir_list| metadata列表，一般取自 get_metadata_keys | 
+| return| 返回树形字典，表示此数据源所有set的树形结构 | 
+- create_new_set 
+创建新的数据set，抽象方法 
+| name|note | 
+| ----|---- | 
+|  name| 新set的名称 | 
+|  description| 新set的描述信息 | 
+|  tags| 新set的tag信息 | 
+|  keys| 新set的列名 | 
+|  base_set| 父set的名称 | 
+| return| 是否成功，bool类型返回 | 
+- delete_set 
+删除特定的set 
+| name|note | 
+| ----|---- | 
+|  name| 要删除的set名称 | 
+| return| 无返回 | 
+- flush 
+提交所有更改 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+- get_dir_list 
+获得当前源的所有set的列表信息 
+| name|note | 
+| ----|---- | 
+| return| 字典类型的set集合 | 
+- get_metadata_keys 
+获得set的metadata信息，包括set的定义信息、数量等 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 字典类型的属性集合 | 
+- get_set_count 
+获得set的数量 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 返回数量信息 | 
+- has_set 
+此数据源中是否包含特定的数据set 
+| name|note | 
+| ----|---- | 
+|  name| 需要查找的set名称 | 
+| return| 结果bool类型的值 | 
+- iter_data 
+遍历set中所有数据行 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 可迭代的数据对象，每个迭代是一行数据 | 
+- iter_pointer 
+遍历返回set中所有行的指针信息 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 可迭代的指针对象 | 
+- load_pointer_data 
+通过特定的指针信息获得该指针信息的行 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+|  pointer| 指针信息 | 
+| return| 该指针指向的行信息 | 
+- print_markdown_arrange_dir_list 
+打印此数据源所有数据set的预览页（markdown） 
+| name|note | 
+| ----|---- | 
+|  dir_list| metadata列表，一般取自 get_metadata_keys | 
+|  path| 输出目录 | 
+|  max_length| 每行数据的最大现实长度 | 
+| return| | 
+- read_attachment 
+读取set的附加信息 
+| name|note | 
+| ----|---- | 
+|  set_name| 读取的set名称 | 
+| return| 返回附加信息 | 
+- read_one_row 
+读取set的第一行信息 
+| name|note | 
+| ----|---- | 
+|  set_name| set名称 | 
+| return| 第一行的数据 | 
+### MinioSampleSource 
+Minio远程数据源，同步LocalDisk数据源，继承自LocalDisk 
+**method** 
+- \_\_del\_\_ 
+提交所有打开的文档更改并关闭 
+| name|note | 
+| ----|---- | 
+| return| | 
+- \_\_init\_\_ 
+初始化方法 
+| name|note | 
+| ----|---- | 
+|  folder_path| 本地缓存目录 | 
+|  endpoint| minio的地址 | 
+|  access_key| minio的access key | 
+|  secret_key| minio的secret key | 
+|  bucket_name| bucket名称 | 
+- add_attachment 
+无文档 
+- add_row 
+添加新行 
+| name|note | 
+| ----|---- | 
+|  name| 添加的目标set | 
+|  data| 列信息，list形式，顺序与set的列名顺序相同 | 
+| return| 是否成功的bool返回 | 
+- arrange_dir_list 
+构建基于树形目录的控制台输出 
+| name|note | 
+| ----|---- | 
+|  dir_list| metadata列表，一般取自 get_metadata_keys | 
+| return| 返回树形字典，表示此数据源所有set的树形结构 | 
+- create_new_set 
+header format:  file_index(int): 文件序号
+
+append_seek(pointer): 添加新数据指针
+
+data_start_seek(int): 本文件中数据的开始位置
+
+data_count(int): 数据的个数
+
+file_count(int): 文件链个数
+
+current_file_count(int): 当前数据数量
+
+header_node: 数据 
+| name|note | 
+| ----|---- | 
+|  name| | 
+|  description| | 
+|  tags| | 
+|  label_keys| | 
+| return| | 
+- delete_set 
+无文档 
+- download 
+下载特定的set到本地 
+| name|note | 
+| ----|---- | 
+|  name| 需要下载的set名称 | 
+| return| 无返回 | 
+- flush 
+提交所有的更改 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+- get_dir_list 
+获得当前源的所有set的列表信息 
+| name|note | 
+| ----|---- | 
+| return| 字典类型的set集合 | 
+- get_metadata_keys 
+获得set的metadata信息，包括set的定义信息、数量等 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 字典类型的属性集合 | 
+- get_remote_dir_list 
+获得远程所有set的列表信息 
+| name|note | 
+| ----|---- | 
+| return| 远程所有set信息的列表 | 
+- get_set_count 
+无文档 
+- has_set 
+此数据源中是否包含特定的数据set 
+| name|note | 
+| ----|---- | 
+|  name| 需要查找的set名称 | 
+| return| 结果bool类型的值 | 
+- iter_data 
+遍历set中所有数据行 
+| name|note | 
+| ----|---- | 
+|  name| set名称 | 
+| return| 可迭代的数据对象，每个迭代是一行数据 | 
+- iter_pointer 
+无文档 
+- load_pointer_data 
+无文档 
+- print_markdown_arrange_dir_list 
+打印此数据源所有数据set的预览页（markdown） 
+| name|note | 
+| ----|---- | 
+|  dir_list| metadata列表，一般取自 get_metadata_keys | 
+|  path| 输出目录 | 
+|  max_length| 每行数据的最大现实长度 | 
+| return| | 
+- print_set_info 
+在控制台打印某个set的信息 
+| name|note | 
+| ----|---- | 
+|  name| set的名称 | 
+| return| 无返回 | 
+- read_attachment 
+无文档 
+- read_one_row 
+无文档 
+- update 
+提交本地更改到服务器 
+| name|note | 
+| ----|---- | 
+|  set_name| 提交的set名称，默认为所有更改 | 
+| return| | 
+### SampleSet 
+数据源复杂遍历的对象，表征一个数据集 
+**method** 
+- \_\_init\_\_ 
+初始化方法 
+| name|note | 
+| ----|---- | 
+|  source_base| 数据源 | 
+|  set_name| 数据源的set名称 | 
+- \_\_iter\_\_ 
+遍历的内置实现 
+| name|note | 
+| ----|---- | 
+| return| 可迭代对象 | 
+- batch 
+对数据进行batch分组 
+| name|note | 
+| ----|---- | 
+|  batch_count| 每个batch的数量 | 
+| return| 返回可迭代的实例本身 | 
+- count 
+数据set的数量 
+| name|note | 
+| ----|---- | 
+| return| 返回数据set的数量 | 
+- shuffle 
+打乱顺序 
+| name|note | 
+| ----|---- | 
+| return| 返回可迭代的实例本身 | 
+- skip 
+跳过一定量的数据 
+| name|note | 
+| ----|---- | 
+|  count| 跳过的数量 | 
+| return| 返回可迭代的实例本身 | 
+- take 
+取一定数量的数据 
+| name|note | 
+| ----|---- | 
+|  count| 需要取的数量 | 
+| return| 返回可迭代的实例本身 | 
+## Function 
+### CopySet 
+遍历复制一个set，用于重新命名、修改metadata等信息 
+| name|note | 
+| ----|---- | 
+|  samplesource| 原始数据源 | 
+|  ori_set_name| 原始set名称 | 
+|  new_samplesource| 新数据源 | 
+|  new_name| 新的set名称 | 
+|  new_description| 新的描述 | 
+|  new_tags| 新的tag信息 | 
+|  new_lables| 新的lable信息 | 
+| return| 无返回 | 
+### Group_SampleSet_Label_vocdic_to_buffer 
+统计SampleSet中某个Label的数量，并生成互还字典，保存到buffer 
+| name|note | 
+| ----|---- | 
+|  samplesource| sample数据源 | 
+|  set_name| sampleset名称 | 
+|  key| 需要统计的key | 
+|  buffer_key| 保存的buffer key | 
+| return| （dict，dict）正义字典和反义字典 | 
+### Group_key_and_count 
+无文档 
+### splitset_by_labeltype_average 
+切分某个数据集，按照label进行平衡，并按照数量划分到不同的子set中， 
+| name|note | 
+| ----|---- | 
+|  samplesource| 数据源 | 
+|  ori_set_name| 需要进行切分的set | 
+|  get_label_type_func| 标识label的func回调，返回每条数据的lebel（均分依据） | 
+|  set_count_dic| 一个dic，表征需要划分不同子数据集的数量列表 | 
+| return| 返回每个label的数量 | 
+### import_str_base_csv_file 
+无文档 
+# spider_util 
+## Class 
+### BrowserSession 
+浏览器的实例 
+**method** 
+- \_\_del\_\_ 
+析构方法 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  drive_path| 浏览器的地址 | 
+- get_web_page 
+获得某个url的web_page是列 
+| name|note | 
+| ----|---- | 
+|  url| 需要解析的url | 
+| return| 一个web_page实例 | 
+### page_item 
+表征爬到的页面元素 
+**method** 
+- \_\_init\_\_ 
+初始化方法，从webpage中生成 
+| name|note | 
+| ----|---- | 
+|  xpath| 元素的xpath | 
+|  page| 页面实例 | 
+|  driver| driver实例 | 
+- \_\_str\_\_ 
+文字形式提取 
+| name|note | 
+| ----|---- | 
+| return| 范围节点的文字形式 | 
+- click 
+点击该item 
+| name|note | 
+| ----|---- | 
+| return| 返回点击后的新webpage | 
+### web_page 
+表征一个页面的解析和操作 
+**method** 
+- \_\_del\_\_ 
+析构方法 
+| name|note | 
+| ----|---- | 
+| return| 无返回 | 
+- \_\_init\_\_ 
+初始化函数，推荐从BrowserSession中生成 
+| name|note | 
+| ----|---- | 
+|  driver| 驱动实例 | 
+|  window_handle| window的句饼 | 
+|  url| 目标的URL | 
+- parse_page 
+智能联想的爬取方法 
+| name|note | 
+| ----|---- | 
+|  parse_content_xpath_dic| 需要爬取的内容字典，key-value，其中value为xpath | 
+| return| 爬到所有pageitem对象字典 | 
+- scroll_parse_page 
+滚动爬取特定内容 
+| name|note | 
+| ----|---- | 
+|  parse_content_xpath| 需要进行智能分析的xpath，该xpath必须处于滚动增量元素的子节点中 | 
+|  max_length| 爬取的最大长度 | 
+| return| 返回特定的pageitem列表 | 
+# nlp_util 
+## Class 
+### TFModelBase 
+基于TF框架的Model的抽象类，继承自TrainableProcessModelBase 
+**method** 
+- \_\_call\_\_ 
+同predict方法 
+| name|note | 
+| ----|---- | 
+|  args| 参数 | 
+|  kwargs| 参数 | 
+| return| 结果 | 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  name| 模型名称 | 
+- cal_loss 
+无文档 
+- define_input 
+无文档 
+- diagram 
+无文档 
+- input_convert 
+无文档 
+- load 
+模型的加载 
+| name|note | 
+| ----|---- | 
+|  model_key| 模型的标识key | 
+| return| 无返回 | 
+- load_by_path 
+无文档 
+- load_last_model 
+无文档 
+- model_call 
+无文档 
+- optimizer_obj 
+无文档 
+- output_convert 
+无文档 
+- predict 
+无文档 
+- save 
+模型的存储 
+| name|note | 
+| ----|---- | 
+|  model_key| 存储的标识key | 
+| return| 无返回 | 
+- train 
+训练过程 
+| name|note | 
+| ----|---- | 
+|  input| 训练集的batch,其中input为convert_input后的Input | 
+|  lable| 训练集的label | 
+### TFTrainableProcessState 
+基于TF框架的过程状态类的默认实现 
+**method** 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+- add_epoch_loss 
+累加epoch的loss 
+| name|note | 
+| ----|---- | 
+|  loss_value| loss | 
+| return| 无返回 | 
+- event_begin_batch 
+每个batch训练开始前触发 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  batch_index| batch训练的index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_begin_epoch 
+每个batch训练完成的Event 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_end_batch 
+每个batch训练后触发 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  batch_index| batch训练的index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+- event_end_epoch 
+每个epoch训练完成的Event 
+| name|note | 
+| ----|---- | 
+|  train_obj| 训练的过程引用 | 
+|  epoch_index| epoch index | 
+|  model| 训练的model | 
+|  process_bar| 训练的状态条 | 
+| return| 无 | 
+### process_enum 
+封装统一NLP过程的枚举 
+**method** 
+### process_setting 
+封装调用的统一入口 
+**method** 
+- \_\_getitem\_\_ 
+无文档 
+- \_\_init\_\_ 
+静态类型 
+| name|note | 
+| ----|---- | 
+- get_process_obj 
+获取特定过程的方法实例 
+| name|note | 
+| ----|---- | 
+|  process_key| 方法类型的枚举-process_enum | 
+| return| 特定方法的实例 | 
+- replace_process 
+替换特定的方法实例 
+| name|note | 
+| ----|---- | 
+|  process_key| 方法实例的枚举 process_enum | 
+|  process_type| 方法实例的类型 | 
+| return| 无返回 | 
+### default_bert 
+**method** 
+- \_\_getitem\_\_ 
+无文档 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  modules| 需要倒入的module | 
+- call 
+执行过程，抽象方法 
+| name|note | 
+| ----|---- | 
+|  linked_item| 处理的目标数据 | 
+|  ori_item| 处理的原始数据 | 
+| return| 处理的结果 | 
+- load_model 
+模型的加载过程，（如有） 
+| name|note | 
+| ----|---- | 
+|  model_path| 模型存储的路径 | 
+| return| 无返回 | 
+### default_sentencecut 
+**method** 
+- \_\_getitem\_\_ 
+无文档 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  modules| 需要倒入的module | 
+- call 
+执行过程，抽象方法 
+| name|note | 
+| ----|---- | 
+|  linked_item| 处理的目标数据 | 
+|  ori_item| 处理的原始数据 | 
+| return| 处理的结果 | 
+- load_model 
+模型的加载过程，（如有） 
+| name|note | 
+| ----|---- | 
+|  model_path| 模型存储的路径 | 
+| return| 无返回 | 
+### default_bert 
+**method** 
+- \_\_getitem\_\_ 
+无文档 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  modules| 需要倒入的module | 
+- call 
+执行过程，抽象方法 
+| name|note | 
+| ----|---- | 
+|  linked_item| 处理的目标数据 | 
+|  ori_item| 处理的原始数据 | 
+| return| 处理的结果 | 
+- load_model 
+模型的加载过程，（如有） 
+| name|note | 
+| ----|---- | 
+|  model_path| 模型存储的路径 | 
+| return| 无返回 | 
+### default_jieba 
+**method** 
+- \_\_getitem\_\_ 
+无文档 
+- \_\_init\_\_ 
+初始化 
+| name|note | 
+| ----|---- | 
+|  modules| 需要倒入的module | 
+- call 
+执行过程，抽象方法 
+| name|note | 
+| ----|---- | 
+|  linked_item| 处理的目标数据 | 
+|  ori_item| 处理的原始数据 | 
+| return| 处理的结果 | 
+- call_with_poss 
+无文档 
+- load_model 
+模型的加载过程，（如有） 
+| name|note | 
+| ----|---- | 
+|  model_path| 模型存储的路径 | 
+| return| 无返回 | 
+
+
