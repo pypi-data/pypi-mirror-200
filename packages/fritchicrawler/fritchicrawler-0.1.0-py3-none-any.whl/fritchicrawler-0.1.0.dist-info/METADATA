@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: fritchicrawler
+Version: 0.1.0
+Summary: a crawler to make custom filtering on frtichi.fr
+Author: shobu13
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: docopt (>=0.6.2,<0.7.0)
+Requires-Dist: path (>=16.6.0,<17.0.0)
+Requires-Dist: pendulum (>=2.1.2,<3.0.0)
+Requires-Dist: playwright (>=1.32.0,<2.0.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Description-Content-Type: text/markdown
+
+# FritchCrawler
+package for crawling the fritchi main page to extract products data using Playwright
+due to the application being dynamicly rendered on client side.  
+Since the product since is mainly static and refreshed once per day at 8h00, the data is cached
+in a pickle file until a request was made the next day.
