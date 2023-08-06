@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: abm-colony-collection
+Version: 0.3.2
+Summary: Collection of tasks for analyzing colony dynamics.
+License: BSD-3-Clause
+Author: Jessica S. Yu
+Author-email: jesyu@uw.edu
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: networkx (>=3.0,<4.0)
+Requires-Dist: numpy (>=1.24.2,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: prefect (>=2.8.2,<3.0.0)
+Requires-Dist: scikit-image (>=0.19.3,<0.20.0)
+Requires-Dist: scipy (>=1.9.3,<2.0.0)
+Description-Content-Type: text/markdown
+
+[![Build Status](https://github.com/allen-cell-animated/abm-colony-collection/workflows/build/badge.svg)](https://github.com/allen-cell-animated/abm-colony-collection/actions?query=workflow%3Abuild)
+[![Codecov](https://img.shields.io/codecov/c/gh/allen-cell-animated/abm-colony-collection?token=YSWZXHUW1R)](https://codecov.io/gh/allen-cell-animated/abm-colony-collection)
+[![Lint Status](https://github.com/allen-cell-animated/abm-colony-collection/workflows/lint/badge.svg)](https://github.com/allen-cell-animated/abm-colony-collection/actions?query=workflow%3Alint)
+[![Documentation](https://github.com/allen-cell-animated/abm-colony-collection/workflows/documentation/badge.svg)](https://allen-cell-animated.github.io/abm-colony-collection/)
+[![Code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
