@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['envless']
+
+package_data = \
+{'': ['*']}
+
+setup_kwargs = {
+    'name': 'envless',
+    'version': '0.2.0',
+    'description': 'Declare your python dependencies inside your scripts',
+    'long_description': '# envless: a python utility for running scripts with dependencies declared inline\n\nPython scripts are great and useful, but for simple tasks that require a\ndependency or two, it can be annoying to manage virtualenvs. This is especially\nannoying if you want to write the scripts to manage your dev environment in python.\n\n`envless` provides a self-contained way for python scripts to declare and load\ntheir dependencies. To make the idea clearer, here\'s an example script that\nfetches and prints the `python.org` site:\n\n```python\nimport envless\n\nenvless.script_dependencies({"requests": "==2.28.2"}, __file__)\n\nimport requests\n\nresponse = requests.get("https://python.org")\nprint(response.text)\n```\n\nIn short, this will run the script, installing `requests` if needed, so that\nyou don\'t need to have it preinstalled or set up a virtualenv or anything\nfirst. If this script is called `show_python.py`, then you just run `python\nshow_python.py`, and it works!\n\nThis is heavily inspired by how\n[deno](https://deno.land/manual@v1.31.3/examples/manage_dependencies) and\n[go](https://go.dev/blog/using-go-modules) automatically determine dependencies\nbased on the source code rather than declaring them manually in a separate file.\n\n## Installation\n\nThe only requirement is that you need to be able to `import envless` when\nyou\'re running the python you want to use for the script. This usually means\nthat you should `pip install --user envless`.\n\nIf you have multiple versions of python on your system, this means you should\ninstall with the corresponding `pip`. So if your system default python is 3.8,\nbut you also have 3.11 installed, and you want to run with 3.11, you might need\nto `pip3.11 install --user envless` and then `python3.11 <script>` to run your\nscript.\n\n`envless` should always support all\n[currently supported python versions](https://devguide.python.org/versions/),\nexcept python3.7, which is about to go end-of-life at the time of writing this\npackage.\n\n## How it works\n\nThe `script_dependencies` function turns the requirements dict into a\n`requirements.txt` tempfile. It then hashes that tempfile and the running\npython version to get a version ID, creates a virtualenv with that ID if\nneeded, and installs the dependencies into that virtualenv. Then it `exec`s the\ncurrent interpreter with that virtualenv active so that the dependencies are\navailable to the script.\n\nNote that this implies that the dependencies do not contaminate your global\nenvironment, and also that virtualenvs can be shared among scripts with the\nsame dependency declarations (so don\'t go messing with them manually).\n\nIf you want to clear out old envs, they live in your platform\'s equivalent of\n`~/.local/share/envless/virtualenvs`. It should always be safe to delete this\ndirectory if there isn\'t a script actively running; envs will be recreated as\nneeded.\n\n## API\n\n`envless.script_dependencies`: the only function in the package you should need\nto use from your code.\n\nArgs:\n- `requirements`: a `dict` where keys are package names that can be installed\n  via `pip` and values are version specifiers for those packages (again, any\n  version specifier that `pip` can handle). If you don\'t care about the version\n  you get, just pass `""` as the version specifier.\n- `source_file`: the path of the file that is calling this function. You should\n  always just pass the python builtin variable `__file__` for this argument.\n\n## Examples\n\nSee the `tests` dir, which contains scripts that use `envless`.\n\n## Limitations\n\nYour call to `envless.script_dependencies` must come before you import any code\noutside the standard library.\n\n`envless` only works well when used in the script that you\'re using as an\nentrypoint. Importing another script that uses envless will end up executing\nthat other script as the entrypoint, which is probably not what you want. If\nyou think you might need to import a script that uses envless, you can put the\ncall to `envless.script_dependencies` inside an `if __name__ == "__main__":`\nblock (which still must occur prior to any imports outside the standard\nlibrary). For example:\n```python\nif __name__ == "__main__":\n    import envless\n    envless.script_dependencies({"requests": "==2.28.2"}, __file__)\n\nimport requests\n\nresponse = requests.get("https://python.org")\nprint(response.text)\n```\n\nNote, however, that this means that the script doing the importing is\nresponsible for providing all the dependencies; in this example, `requests`\nwill not be installed automatically if the script is not the entrypoint.\n\n',
+    'author': 'Colin Fuller',
+    'author_email': 'colin@cjf.io',
+    'maintainer': None,
+    'maintainer_email': None,
+    'url': 'https://github.com/cjfuller/envless',
+    'packages': packages,
+    'package_data': package_data,
+    'python_requires': '>=3.8',
+}
+
+
+setup(**setup_kwargs)

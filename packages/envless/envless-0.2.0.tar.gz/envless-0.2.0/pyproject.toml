@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "envless"
+version = "0.2.0"
+description = "Declare your python dependencies inside your scripts"
+authors = ["Colin Fuller <colin@cjf.io>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/cjfuller/envless"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+
+[tool.poetry.dev-dependencies]
+black = "^23.1.0"
+mypy = "^1.1.1"
+ruff = "==0.0.258"
+
+[tool.ruff]
+# E402 is "module level import is not at top of file"
+# which is necessarily violated in all the tests.
+ignore = ["E402"]
+
+[tool.ruff.per-file-ignores]
+"envless/__init__.py" = ["F403"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
