@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: plagiat
+Version: 0.1.0
+Summary: Library untuk memeriksa tingkat plagiarisme.
+Home-page: https://novay.web.id/
+Author: Novianto Rahmadi
+Author-email: novay@btekno.id
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Plagiat (Py)
+Library untuk memeriksa tingkat Plagiarisme menggunakan Bahasa Python.
+
+### Instalasi
+```
+pip install plagiat
+```
+
+### Contoh Penggunaan
+
+```Python
+import plagiat
+
+```
+
+### TODO
+Library ini hanya untuk keperluan pembuatan tugas Data Science.
