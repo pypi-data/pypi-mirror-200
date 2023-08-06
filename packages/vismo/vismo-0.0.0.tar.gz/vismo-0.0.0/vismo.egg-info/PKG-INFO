@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: vismo
+Version: 0.0.0
+Summary: Pytorch Vision Models
+Home-page: https://github.com/moreih29/vismo
+Author: moreih29
+Author-email: moreih29@gmail.com
+License: MIT
+Keywords: pytorch vision model classification object detection segmentation pose estimation
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+License-File: LICENSE
+
+# vismo
+Implementation of various vision models - classfication, object detection, segmentation, pose estimation etc.
