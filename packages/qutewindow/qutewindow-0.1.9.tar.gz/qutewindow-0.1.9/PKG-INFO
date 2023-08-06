@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: qutewindow
+Version: 0.1.9
+Summary: Cross-platform frameless window based on Python and Qt
+Home-page: https://github.com/parhamoyan/qutewindow
+License: MIT
+Keywords: qt,pyqt,pyqt6,pyqt5,pyside,pyside2,pyside6,frameless-window,cross-platform
+Author: Parham Oyan
+Author-email: parhamoyan@yahoo.com
+Requires-Python: >=3.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: PySide6
+Requires-Dist: pyobjc-framework-Cocoa (==9.0.1) ; sys_platform == "darwin"
+Requires-Dist: pywin32 (==304) ; sys_platform == "win32"
+Project-URL: Repository, https://github.com/parhamoyan/qutewindow
+Description-Content-Type: text/markdown
+
+# Qute Window
+Cross-platform frameless window based on Python and Qt
+
+## Examples
+
+### Qute Window on macOS
+<p align="center">
+  <img src="readme/mac_qute_window.gif")>
+</p>
+
+### Qute Window on Windows
+<p align="center">
+  <img src="readme/win32_qute_window.gif")>
+</p>
+
+## Features
+* Moving (the title bar area is draggable)
+* Stretching
+* Native window shadow
+* Native window animations
+* Win11 snap layout
+
+## Installing via PIP
+```shell
+pip install qutewindow
+```
+
+## Usage
+Here is a minimal example:
+
+```python
+import sys
+
+from PySide6.QtWidgets import QApplication
+from qutewindow import QuteWindow
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    demo = QuteWindow()
+    demo.show()
+    sys.exit(app.exec())
+```
+
