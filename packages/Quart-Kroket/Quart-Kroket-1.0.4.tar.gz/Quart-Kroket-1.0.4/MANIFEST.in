@@ -1,0 +1,14 @@
+include LICENSE
+include CHANGELOG.md
+include README.md
+include setup.cfg
+include requirements.txt
+recursive-include quart_kroket *.py
+recursive-include quart_kroket *.md
+recursive-include quart_kroket *.ttf
+recursive-include quart_kroket *.woff
+recursive-include quart_kroket *.jinja2
+exclude .gitlab-ci.yml
+exclude examples
+exclude docs
+exclude venv
