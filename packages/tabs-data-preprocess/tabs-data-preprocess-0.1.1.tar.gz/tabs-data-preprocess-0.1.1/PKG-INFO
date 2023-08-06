@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: tabs-data-preprocess
+Version: 0.1.1
+License: MIT
+Author-email: Alexis Rosuel <rosuelalexis1@gmail.com>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# tabs-data-preprocess
+Preprocess downloaded data. It does two steps: 
+- normalize data across various exchanges and asset type 
+- store it in a compressed way (h5 or compressed json)
