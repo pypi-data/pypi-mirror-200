@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "ibd_dendrogram"
+version = "0.10.0"
+description = "module that helps to form a dendrogram"
+authors = ["jtb <james.baker@vanderbilt.edu>"]
+repository = "https://github.com/jtb324/ibd_dendrogram"
+homepage = "https://github.com/jtb324/ibd_dendrogram"
+readme = "README.md"
+keywords = ["python, dendrogram", "IBD", "genetics", "relatedness"]
+
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+pandas = "^1.4.1"
+numpy = "^1.22.2"
+scipy = "^1.8.0"
+matplotlib = "^3.5.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.1.0"
+data-science-types = "^0.2.23"
+mypy = "^0.931"
+ipykernel = "^6.9.1"
+
+[project.urls]
+Homepage = "https://github.com/jtb324/ibd_dendrogram"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
