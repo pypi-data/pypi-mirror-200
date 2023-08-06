@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: verihubs
+Version: 0.0.3
+Summary: Use our SMS API or Campaign Manager to send messages to all mobile phones globally. Verihubs’ comprehensive API and super network of direct operators makes it quick, easy, and secure.
+Project-URL: Homepage, https://blog.dhanipro.com
+Author-email: DhaniPro <ramadhani.dhanipro@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+# VeriHubs
+
+Use our SMS API or Campaign Manager to send messages to all mobile phones globally. Verihubs’ comprehensive API and super network of direct operators makes it quick, easy, and secure.
+
+### Send SMS OTP
+```
+from verihubs import Verihubs
+
+v = Verihubs('your-app-id', 'your-secret')
+
+response = v.send_sms_otp('628XXXXXXXX')
+
+response.status_code
+response.ok
+response.json()
+```
+
+
+This package use requests, you can use same way like request
+
+### Verify SMS OTP
+```
+from verihubs import Verihubs
+
+v = Verihubs('your-app-id', 'your-secret')
+
+response = v.verify_sms_otp('628XXXXXXXX', '1234')
+
+response.status_code
+response.ok
+response.json()
+```
