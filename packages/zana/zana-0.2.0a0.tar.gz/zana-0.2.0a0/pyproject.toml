@@ -1,0 +1,118 @@
+[tool.poetry]
+name = "zana"
+version = "0.2.0.a0"
+description = "general utility functions and types"
+authors = ["David Kyalo <davidmkyalo@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/python-zana/zana"
+documentation = "https://python-zana.github.io/zana"
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+keywords = [
+    "zana",
+    "toolkit",
+]
+packages = [{ include = "zana" }]
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+typing-extensions = "^4.4.0"
+attrs = ">=21.4.0"
+
+
+[tool.poetry.group.dev]
+optional = true
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+ipython = "^8.10.0"
+mypy = "*"
+
+[tool.poetry.group.test]
+optional = true
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+pytest-asyncio = "^0.20.3"
+pytest-cov = {version = "^4.0.0", extras = ["toml"]}
+pytest-lazy-fixture = "^0.6.3"
+mypy = "*"
+
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "*"
+mkdocs-material = "*"
+mike = "*"
+mkdocstrings = {version = "*", extras = ["python"]}
+
+
+[tool.pytest.ini_options]
+addopts = "--showlocals --cov=zana --cov-report html --cov-config pyproject.toml"
+asyncio_mode="auto"
+xfail_strict= "True"
+log_level = "DEBUG"
+python_files = "tests.py test.py test_*.py"
+python_classes = "test_* Test_*"
+python_functions = "test_* test"
+
+
+
+[tool.coverage.report]
+# Here we specify plugins for coverage to be used:
+exclude_lines = [
+    "pragma: no cover",
+    "^\\s*pass\\s*$",
+    "^\\s*\\.\\.\\.\\s*$",
+    "raise NotImplementedError",
+    "if\\s+([a-zA-Z0-9_]+\\.)?TYPE_CHECKING",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.pyi?$'
+
+[tool.isort]
+line_length = 100
+profile = "black"
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = "True"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_any_unimported = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+implicit_reexport = false
+no_implicit_optional = true
+show_column_numbers = true
+show_error_codes = true
+strict_equality = true
+strict_optional = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_configs = true
