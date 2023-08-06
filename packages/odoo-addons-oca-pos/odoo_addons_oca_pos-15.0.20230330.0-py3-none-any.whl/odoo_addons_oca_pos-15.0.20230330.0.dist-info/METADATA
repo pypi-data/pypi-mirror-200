@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: odoo-addons-oca-pos
+Version: 15.0.20230330.0
+Summary: Meta package for oca-pos Odoo addons
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 15.0
+Requires-Dist: odoo-addon-pos-cash-move-reason (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-event-sale (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-event-sale-registration-qr-code (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-event-sale-session (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-hide-cost-price-and-margin (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-lot-barcode (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-lot-selection (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-payment-change (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-product-display-default-code (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-receipt-hide-price (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-report-session-summary (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-sale-pos-event-sale (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-sale-pos-event-sale-session (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-supplierinfo-barcode (<15.1dev,>=15.0dev)
+Requires-Dist: odoo-addon-pos-supplierinfo-search (<15.1dev,>=15.0dev)
+
+UNKNOWN
+
