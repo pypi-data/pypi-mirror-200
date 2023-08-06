@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: lilyanncabinets
+Version: 0.5.2
+Summary: Package for use by Lily Ann Cabinets
+Home-page: https://github.com/JosephCaligiuri/lilyanncabinets
+Author: Joseph Caligiuri
+Author-email: jcaligiuri1@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Version 0.5.2
+
+patch notes: 
+
+- 0.5.2: "Added equations for "limelight" functions"
+
+- 0.5.1: "Started Unstable build 0.5"
+
+reminder to py -m build
+and py -m twine upload --repository pypi dist/*
