@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: nidalee
+Version: 0.1.16
+Summary: Bayes API Match wrapper
+Home-page: https://github.com/Bcastet/twisted-fate
+Author: Benjamin Castet
+Author-email: benjamin.castet@gmail.com
+License: BSD 2-clause
+Requires-Dist: kayle
+Requires-Dist: munch (==2.5.0)
+Requires-Dist: Pillow (==9.3.0)
+Requires-Dist: requests (==2.28.1)
+
