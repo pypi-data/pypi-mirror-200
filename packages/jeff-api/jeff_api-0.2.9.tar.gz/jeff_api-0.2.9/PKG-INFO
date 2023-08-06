@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: jeff_api
+Version: 0.2.9
+Summary: A Python library for intercommunicating with Jeff.
+Author-email: Mark CDA <aclo.create@gmail.com>
+Project-URL: Homepage, https://github.com/markcda/jeff
+Project-URL: Bug Tracker, https://github.com/markcda/jeff/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# jeff-api
+
+Python library for Jeff interaction. Supports both `jeff-qt` and `jeff-core`.
+
+## Installing from PyPi.org
+
+```bash
+pip install jeff-api
+```
+
+## Usage
+
+```python
+from jeff_api import server, client
+
+srv = server.Server(None, ext_port)
+cli = client.Client('localhost', jeff_port)
+
+data = srv.listen()
+cli.send_msg(data)
+```
+
+```python
+from jeff_api import client, server, scenario
+
+srv = server.Server(None, ext_port)
+cli = client.Client('localhost', jeff_port)
+scn = scenario.Scenario(cli, srv, "Example scenario")
+```
+
+## Building
+
+```bash
+cd jeff-api
+python -m pip install --upgrade build
+python -m build
+```
