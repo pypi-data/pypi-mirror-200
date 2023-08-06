@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "OpenAI Client Demo: Image Generation",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/",
+            "module": "src.openai_client.clients.images.demos.url_image_gen_demo", 
+            "justMyCode": true
+        },
+        {
+            "name": "OpenAI Client Demo: Image Edit",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/",
+            "module": "src.openai_client.clients.images.demos.url_image_edit_demo", 
+            "justMyCode": true
+        },
+        {
+            "name": "OpenAI Client Demo: Image Variation",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/",
+            "module": "src.openai_client.clients.images.demos.url_image_variation_demo", 
+            "justMyCode": true
+        },
+        {
+            "name": "OpenAI Client Demo: Completion Classifier",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/",
+            "module": "src.openai_client.clients.completion.demos.tweet_classification_demo",
+            "justMyCode": true
+        },
+        {
+            "name": "OpenAI Client Demo: Completion Code Generation",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/",
+            "module": "src.openai_client.clients.completion.demos.code_generation_demo",
+            "justMyCode": true
+        },
+        {
+            "name": "OpenAI Client Demo: Chatbot",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/",
+            "module": "src.openai_client.clients.chatbot.demos.d_and_d_chatbot_demo",
+            "justMyCode": true
+        },
+    ]
+}
