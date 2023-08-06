@@ -1,0 +1,21 @@
+[project]
+name = "vml-parser"
+version = "0.0.6"
+authors = [
+  { name="Valerio Iacobucci", email="valerio@valerioiacobucci.com" },
+]
+description = "velocitous markup language to JSON parser"
+readme = "README.md"
+
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/iacobucci/vml"
+
+[project.scripts]
+vml = "vml_parser.vml:main"
