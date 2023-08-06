@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: btleWeatherStation
+Version: 2.2.1
+Summary: Scan for and get data from an Oregon Scientific BtLE weather station
+Home-page: https://github.com/mincebert/bleWeatherStation
+Author: Arnaud Balmelle & Robert Franklin
+Author-email: rcf@mince.net
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bluepy
+
+BTLEWEATHERSTATION
+==================
+
+This Python module uses Bluetooth (BtLE) to connect to an Oregon Scientific
+weather station and retrieve the current, minimum and maximum temperatures
+and humidities, for the internal (0) and external (1-3) sensors.
+
+The module can be run as a 'main' utilities ("python3 -m btleWeatherStation")
+or used as a module in other scripts.
+
+For now, all documentation is inside the module classes.  The __main__.py file
+gives an example of how to use it.
