@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: py-gutenberg
+Version: 0.0.1
+Summary: A library to access the Project Gutenberg API
+Author-email: Peter Rauscher <peterrauscher@protonmail.com>
+Project-URL: Homepage, https://github.com/peterrauscher/gutenberg-py
+Project-URL: Bug Tracker, https://github.com/peterrauscher/gutenberg-py/issues
+Project-URL: Source Code, https://github.com/peterrauscher/gutenberg-py
+Project-URL: Funding, https://ko-fi.com/peterrauscher
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# gutenberg-py
+
+[![Install from PyPi](https://img.shields.io/badge/pip%20install-gutenberg-py-brightgreen)](https://pypi.org/project/gutenberg-py/) [![Version Number](https://img.shields.io/pypi/v/gutenberg-py?label=version)](https://pypi.org/project/gutenberg-py/releases) [![Tests Status](https://github.com/peterrauscher/gutenberg-py/workflows/Test/badge.svg)](https://github.com/peterrauscher/gutenberg-py/actions) [![License](https://img.shields.io/github/license/peterrauscher/gutenberg-py)](https://github.com/peterrauscher/gutenberg-py/blob/main/LICENSE)
