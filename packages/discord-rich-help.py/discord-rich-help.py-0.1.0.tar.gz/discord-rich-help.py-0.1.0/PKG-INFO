@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: discord-rich-help.py
+Version: 0.1.0
+Summary: The extension which make a rich-help command for discord.py
+Author-email: PescadoGames <official@pescadogames.com>
+Maintainer-email: Awayume <dev@awayume.jp>
+License: MIT License
+Project-URL: Repository, https://github.com/PescadoGames/discord-rich-help.py
+Project-URL: Documentation, https://github.com/PescadoGames/discord-rich-help.py/wiki
+Project-URL: Bug Tracker, https://github.com/PescadoGames/discord_rich_help.py/issues
+Keywords: discord,discord.py
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Plugins
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+Provides-Extra: test
+Provides-Extra: build
+License-File: LICENSE
+
+discord-rich-help.py
+====================
+
+.. image:: https://img.shields.io/pypi/v/discord-rich-help.py.svg
+   :target: https://pypi.python.org/pypi/discord-rich-help.py
+   :alt: PyPI version info
+.. image:: https://img.shields.io/pypi/pyversions/discord-rich-help.py.svg
+   :target: https://pypi.python.org/pypi/discord-rich-help.py
+   :alt: PyPI supported Python versions
+
+The extension which make a rich-help command for discord.py
+
+Key Features
+-------------
+
+- Supports both message and slash commands.
+
+Installing
+-----------
+
+**Python 3.8 or higher is required**
+
+.. code:: sh
+
+    # Linux/MacOS
+    python3 -m pip install -U discord-rich-help.py
+
+    # Windows
+    py -3 -m pip install -U discord-rich-help.py
+
+Bot Example
+~~~~~~~~~~~~
+
+.. code:: py
+
+    import discord
+    from discord.ext import commands
+    from discord_rich_help import RichHelpCommand
+
+    intents = discord.Intents.default()
+    intents.message_content = True
+    bot = commands.Bot(command_prefix='?', intents=intents, help_command=RichHelpCommand())
+
+    bot.run('token')
+
+Links
+------
+
+- `Documentation <https://github.com/PescadoGames/discord-rich-help.py/wiki>`_
+- `discord.py <https://pypi.python.org/pypi/discord.py>`_
