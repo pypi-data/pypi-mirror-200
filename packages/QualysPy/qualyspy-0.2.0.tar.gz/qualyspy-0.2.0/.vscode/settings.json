@@ -1,0 +1,18 @@
+{
+    "python.linting.pylamaEnabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--allow-untyped-calls",
+        "--follow-imports=silent",
+        "--ignore-missing-imports",
+        "--show-column-numbers",
+        "--no-pretty",
+        "--strict"
+    ],
+    "python.linting.enabled": true,
+    "python.linting.ignorePatterns": [
+        "debug/*.py"
+    ],
+    "python.formatting.provider": "black",
+    "python.analysis.typeCheckingMode": "strict"
+}
