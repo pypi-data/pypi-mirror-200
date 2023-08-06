@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/exchangerate/__init__.py
+src/exchangerate/client.py
+src/exchangerate/config.py
+src/exchangerate/exceptions.py
+src/exchangerate_client.egg-info/PKG-INFO
+src/exchangerate_client.egg-info/SOURCES.txt
+src/exchangerate_client.egg-info/dependency_links.txt
+src/exchangerate_client.egg-info/requires.txt
+src/exchangerate_client.egg-info/top_level.txt
+tests/test_client.py
