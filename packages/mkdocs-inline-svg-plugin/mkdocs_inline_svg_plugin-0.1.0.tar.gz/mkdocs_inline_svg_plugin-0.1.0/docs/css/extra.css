@@ -1,0 +1,47 @@
+:root {
+    --bytefield-green:#a0ffa0;
+    --bytefield-yellow:#ffffa0;
+    --bytefield-red:#ffb0a0;
+    --bytefield-blue:#a0fafa;
+    --bytefield-purple:#e4b5f7;
+
+    --plantuml-grey:#F1F1F1;
+    --plantuml-black:#181818;
+
+    --vegalite-stroke:#ddd;
+    --vegalite-stroke2:#888;
+    --vegalite-red:#c30d24;
+    --vegalite-orange:#f3a583;
+    --vegalite-grey:#cccccc;
+    --vegalite-light-blue:#94c6da;
+    --vegalite-blue:#1770ab;
+
+    --nomnoml-stroke:#33322E;
+    --nomnoml-yellow:#eee8d5;
+    --nomnoml-yellow2:#fdf6e3;
+}
+
+@media screen {
+    [data-md-color-scheme="slate"] {
+        --bytefield-green:#a0ffa060;
+        --bytefield-yellow:#ffffa060;
+        --bytefield-red:#ffb0a060;
+        --bytefield-blue:#a0fafa60;
+        --bytefield-purple:#e4b5f760;
+
+        --plantuml-grey:#f1f1f127;
+        --plantuml-black:#f0f0f0;
+
+        --vegalite-stroke:#5b5b5b;
+        --vegalite-stroke2:#919191;
+        --vegalite-red:#650714;
+        --vegalite-orange:#764e3d;
+        --vegalite-grey:#525252;
+        --vegalite-light-blue:#3b525b;
+        --vegalite-blue:#083552;
+
+        --nomnoml-stroke:#908c7f;
+        --nomnoml-yellow:#4e4a43;
+        --nomnoml-yellow2:#434039;
+    }
+}

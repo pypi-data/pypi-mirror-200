@@ -1,0 +1,26 @@
+site_name: MkDocs inline SVG plugin
+
+theme:
+  name: material
+#   palette:
+#     - scheme: default
+#       toggle:
+#         icon: material/brightness-7
+#         name: Switch to dark mode
+#     - scheme: slate
+#       toggle:
+#         icon: material/brightness-4
+#         name: Switch to light mode
+
+# extra_css:
+#   - css/extra.css
+
+plugins:
+  - kroki:
+      # ServerURL: http://127.0.0.1:9000
+      FencePrefix: ''
+      HttpMethod: 'POST'
+      DownloadImages: true
+  - inline-svg:
+      AltName: Kroki
+      # PatchStyle: true
