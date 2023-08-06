@@ -1,0 +1,35 @@
+[project]
+name = "pyroll-sparling-spreading"
+description = "Plugin for PyRolL providing spreading claclulation using Sparling's equation."
+authors = [
+    { name = "Christoph Renzing", email = "christoph.renzing@imf.tu-freiberg.de" },
+    { name = "Max Weiner", email = "max.weiner@imf.tu-freiberg.de" }
+]
+license = "BSD-3-Clause"
+requires-python = ">=3.9, <4.0"
+dependencies = [
+    "pyroll-core ~= 2.0",
+]
+readme = "README.md"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Manufacturing",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering"
+]
+
+dynamic = ["version"]
+
+[project.optional-dependencies]
+pillar-model = [
+    "pyroll-pillar-model ~= 2.0",
+]
+
+[project.urls]
+Homepage = "https://pyroll-project.github.io"
+Repository = "https://github.com/pyroll-project/pyroll-sparling-spreading"
+Documentation = "https://github.com/pyroll-project/pyroll-sparling-spreading/blob/main/docs/docs.pdf"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
