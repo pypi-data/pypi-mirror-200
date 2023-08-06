@@ -1,0 +1,34 @@
+include:
+  - project: "empaia/integration/ci-templates"
+    ref: "main"
+    file:
+      - "pipeline-templates/pipeline-base.yml"
+      - "job-templates/docker-init.yml"
+      - "job-templates/poetry-codecheck.yml"
+
+variables:
+  RUNNER_TAG: "empaia-parallel"
+  RUNNER_DOCKER_TAG: "empaia-docker"
+
+poetry-codecheck:
+  extends: .poetry-codecheck
+  variables:
+    DIRECTORY: "."
+
+docker-based-pytest:
+  extends: .docker-init
+  tags:
+    - empaia-docker
+  before_script:
+    - !reference [.docker-init, before_script]
+    - cp sample.env .env
+    - docker-compose down -v
+    - docker-compose up -d
+    - poetry install
+    - sleep 10
+    - docker-compose ps -a
+  script:
+    - poetry run pytest tests -s
+  after_script:
+    - docker-compose down -v
+    - !reference [.docker-init, after_script]

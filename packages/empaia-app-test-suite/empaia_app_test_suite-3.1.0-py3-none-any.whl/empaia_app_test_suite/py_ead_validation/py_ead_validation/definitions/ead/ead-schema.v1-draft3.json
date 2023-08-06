@@ -1,0 +1,597 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "required": [
+        "name",
+        "name_short",
+        "namespace",
+        "description",
+        "inputs",
+        "outputs"
+    ],
+    "properties": {
+        "$schema": {},
+        "name": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 30,
+            "pattern": "^[a-zA-Z0-9_\\s\\-]+$"
+        },
+        "name_short": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 10,
+            "pattern": "^[a-zA-Z0-9_\\s\\-]+$"
+        },
+        "namespace": {
+            "type": "string",
+            "pattern": "^(org\\.empaia\\.)(?!global)([a-zA-Z0-9_]+\\.){2}(v[0-9]+)$"
+        },
+        "data_transmission_to_external_service_provider": {
+            "type": "boolean"
+        },
+        "classes": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9_-]+$": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/class_leaf"
+                        },
+                        {
+                            "$ref": "#/definitions/class_node"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "configuration": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9_]+$": {
+                    "type": "object",
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/configuration_data"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "description": {
+            "$ref": "#/definitions/description"
+        },
+        "inputs": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9_]+$": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/io_data"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "outputs": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9_]+$": {
+                    "type": "object",
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/io_data"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "reference": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 400,
+            "pattern": "^(inputs.|outputs.)"
+        },
+        "description": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+        },
+        "classes": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^(^(org\\.empaia\\.)(?!global)([a-zA-Z0-9_]+\\.){2}(v[0-9]+)|(org\\.empaia\\.global\\.)(v[0-9]+))(\\.([a-zA-Z0-9_]+)+)*$"
+            }
+        },
+        "class_node": {
+            "type": "object",
+            "patternProperties": {
+                "^[a-zA-Z0-9_]+$": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/class_leaf"
+                        },
+                        {
+                            "$ref": "#/definitions/class_node"
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+        "class_leaf": {
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 30,
+                    "pattern": "^[a-zA-Z0-9_\\s]+$"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                }
+            },
+            "additionalProperties": false
+        },
+        "configuration_data": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/bool_config"
+                },
+                {
+                    "$ref": "#/definitions/integer_config"
+                },
+                {
+                    "$ref": "#/definitions/float_config"
+                },
+                {
+                    "$ref": "#/definitions/string_config"
+                }
+            ]
+        },
+        "io_data": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/bool"
+                },
+                {
+                    "$ref": "#/definitions/integer"
+                },
+                {
+                    "$ref": "#/definitions/float"
+                },
+                {
+                    "$ref": "#/definitions/string"
+                },
+                {
+                    "$ref": "#/definitions/collection"
+                },
+                {
+                    "$ref": "#/definitions/wsi"
+                },
+                {
+                    "$ref": "#/definitions/class"
+                },
+                {
+                    "$ref": "#/definitions/point"
+                },
+                {
+                    "$ref": "#/definitions/line"
+                },
+                {
+                    "$ref": "#/definitions/arrow"
+                },
+                {
+                    "$ref": "#/definitions/rectangle"
+                },
+                {
+                    "$ref": "#/definitions/polygon"
+                },
+                {
+                    "$ref": "#/definitions/circle"
+                }
+            ]
+        },
+        "bool": {
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "const": "bool"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "integer": {
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "const": "integer"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "float": {
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "const": "float"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "string": {
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "const": "string"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "bool_config": {
+            "type": "object",
+            "required": [
+                "type",
+                "storage"
+            ],
+            "properties": {
+                "type": {
+                    "const": "bool"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "storage": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "integer_config": {
+            "type": "object",
+            "required": [
+                "type",
+                "storage"
+            ],
+            "properties": {
+                "type": {
+                    "const": "integer"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "storage": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "float_config": {
+            "type": "object",
+            "required": [
+                "type",
+                "storage"
+            ],
+            "properties": {
+                "type": {
+                    "const": "float"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "storage": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "string_config": {
+            "type": "object",
+            "required": [
+                "type",
+                "storage"
+            ],
+            "properties": {
+                "type": {
+                    "const": "string"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "storage": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "collection": {
+            "type": "object",
+            "required": [
+                "type",
+                "items"
+            ],
+            "properties": {
+                "type": {
+                    "const": "collection"
+                },
+                "items": {
+                    "type": "object",
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/bool"
+                        },
+                        {
+                            "$ref": "#/definitions/integer"
+                        },
+                        {
+                            "$ref": "#/definitions/float"
+                        },
+                        {
+                            "$ref": "#/definitions/string"
+                        },
+                        {
+                            "$ref": "#/definitions/collection"
+                        },
+                        {
+                            "$ref": "#/definitions/wsi"
+                        },
+                        {
+                            "$ref": "#/definitions/class"
+                        },
+                        {
+                            "$ref": "#/definitions/point"
+                        },
+                        {
+                            "$ref": "#/definitions/line"
+                        },
+                        {
+                            "$ref": "#/definitions/arrow"
+                        },
+                        {
+                            "$ref": "#/definitions/rectangle"
+                        },
+                        {
+                            "$ref": "#/definitions/polygon"
+                        },
+                        {
+                            "$ref": "#/definitions/circle"
+                        }
+                    ]
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "point": {
+            "type": "object",
+            "required": [
+                "type",
+                "reference"
+            ],
+            "properties": {
+                "type": {
+                    "const": "point"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                },
+                "classes": {
+                    "$ref": "#/definitions/classes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "line": {
+            "type": "object",
+            "required": [
+                "type",
+                "reference"
+            ],
+            "properties": {
+                "type": {
+                    "const": "line"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                },
+                "classes": {
+                    "$ref": "#/definitions/classes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "arrow": {
+            "type": "object",
+            "required": [
+                "type",
+                "reference"
+            ],
+            "properties": {
+                "type": {
+                    "const": "arrow"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                },
+                "classes": {
+                    "$ref": "#/definitions/classes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "rectangle": {
+            "type": "object",
+            "required": [
+                "type",
+                "reference"
+            ],
+            "properties": {
+                "type": {
+                    "const": "rectangle"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                },
+                "classes": {
+                    "$ref": "#/definitions/classes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "polygon": {
+            "type": "object",
+            "required": [
+                "type",
+                "reference"
+            ],
+            "properties": {
+                "type": {
+                    "const": "polygon"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                },
+                "classes": {
+                    "$ref": "#/definitions/classes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "circle": {
+            "type": "object",
+            "required": [
+                "type",
+                "reference"
+            ],
+            "properties": {
+                "type": {
+                    "const": "circle"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                },
+                "classes": {
+                    "$ref": "#/definitions/classes"
+                }
+            },
+            "additionalProperties": false
+        },
+        "wsi": {
+            "type": "object",
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "const": "wsi"
+                },
+                "description": {
+                    "$ref": "#/definitions/description"
+                }
+            },
+            "additionalProperties": false
+        },
+        "class": {
+            "type": "object",
+            "required": [
+                "type",
+                "reference"
+            ],
+            "properties": {
+                "type": {
+                    "const": "class"
+                },
+                "reference": {
+                    "$ref": "#/definitions/reference"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

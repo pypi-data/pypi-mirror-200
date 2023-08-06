@@ -1,0 +1,6 @@
+[submodule "py_ead_validation/definitions"]
+	path = py_ead_validation/definitions
+	url = ../definitions.git
+[submodule "tests/empaia_sender_auth"]
+	path = tests/job_validation/empaia_sender_auth
+	url = ../empaia-sender-auth

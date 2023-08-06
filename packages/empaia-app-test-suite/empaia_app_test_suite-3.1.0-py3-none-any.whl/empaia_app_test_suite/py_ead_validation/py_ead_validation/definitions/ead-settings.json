@@ -1,0 +1,12 @@
+{
+    "allowed": [
+        "ead-schema.v3.json"
+    ],
+    "allowed_legacy": [
+        "ead-schema.v1-draft3.json"
+    ],
+    "mappings": {
+        "ead-app-schema-draft-1.json": "ead-schema.v1-draft1.json",
+        "ead-app-schema-draft-3.json": "ead-schema.v1-draft3.json"
+    }
+}
