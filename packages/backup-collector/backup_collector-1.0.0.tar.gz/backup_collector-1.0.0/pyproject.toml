@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "backup_collector"
+version = "1.0.0"
+description = ""
+authors = ["David Pineda <dahalpi@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+watchdog = "^2.1.9"
+typer = "^0.6.1"
+tasktools = "^1.1.69"
+tomli = "^2.0.1"
+dacite = "^1.6.0"
+numpy = "^1.23.4"
+networktools = "^1.5.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+backup_collector = 'backup_collector.__main__:app'
