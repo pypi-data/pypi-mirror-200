@@ -1,0 +1,16 @@
+method_opts:
+  shell:
+    queues: False
+    mail_support: False
+    has_parallel_envs: False
+    map_ram: False
+    job_priorities: False
+    array_holds: False
+    architecture: False
+    job_resources: False
+    script_conf: False
+    projects: False
+    run_parallel: True
+    parallel_disable_matches:
+      - '*_gpu'
+    log_to_file: True
