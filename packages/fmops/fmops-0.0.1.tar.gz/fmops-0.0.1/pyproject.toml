@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "fmops"
+version = "0.0.1"
+description = "FMOps Python SDK"
+authors = ["Feynman Liang <feynman.liang@gmail.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
