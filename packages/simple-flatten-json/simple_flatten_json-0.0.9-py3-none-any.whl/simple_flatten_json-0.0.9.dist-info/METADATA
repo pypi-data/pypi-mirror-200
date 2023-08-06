@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: simple-flatten-json
+Version: 0.0.9
+Summary: For flattening complex JSONs
+Home-page: https://github.com/at-75/simple_json_flatten_py
+Author: Abhishek Thakur
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: <4,>=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Usage
+
+simple_json_flatten_py is a Python library for flattening complex JSONs
+
+From
+
+```JSON
+{
+"a": [ {"b":37},{"c":64}],
+"g": 26
+}
+```
+To
+
+```
+{
+  "a_b":37,
+  "a_c":64,
+  "g":26
+}
+```
+
+```Python
+from simple_flatten_json_py import simple_flatten_json
+
+# Sample JSON data
+data={
+   "cat":[
+      {
+         "fish":"tuna"
+      },
+      {
+         "chicken":3
+      },
+      {
+         "medicine":{
+            "pills":5
+         }
+      }
+   ]
+}
+# returns a flattened json 
+# {"cat_0_fish": "tuna",  "cat_1_chicken": 3,"cat_2_medicine_pills": 20}
+
+print(simple_flatten_json.flatten_json(data))
+```
