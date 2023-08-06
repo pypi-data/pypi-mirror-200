@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+protobuf
+parse
+mercantile
+fiona
+pyproj
+mapbox_vector_tile>=2.0.1
