@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: ezmsg-websocket
+Version: 1.1.1
+Summary: Websockets for ezmsg
+Home-page: https://github.com/iscoe/ezmsg
+Author: Griffin Milsap
+Author-email: griffin.milsap@jhuapl.edu
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: test
+License-File: LICENSE.txt
+
+# ezmsg.websocket
+
+Websocket server and client units for ezmsg
+
+## Installation
+`pip install ezmsg-websocket`
+
+## Dependencies
+* `websockets`
+
+## Setup (Development)
+1. Install `ezmsg` either using `pip install ezmsg` or set up the repo for development as described in the `ezmsg` readme.
+2. `cd` to this directory (`ezmsg-websocket`) and run `pip install -e .`
+3. Signal processing modules are available under `import ezmsg.websocket`
+
+

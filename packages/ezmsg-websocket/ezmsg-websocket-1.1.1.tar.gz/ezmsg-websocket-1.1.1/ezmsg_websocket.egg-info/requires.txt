@@ -1,0 +1,6 @@
+ezmsg>=2.1.0
+websockets>=8.1
+
+[test]
+pytest
+pytest-cov
