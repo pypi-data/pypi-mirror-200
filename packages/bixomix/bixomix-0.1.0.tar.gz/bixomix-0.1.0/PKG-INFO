@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: bixomix
+Version: 0.1.0
+Summary: Collection of SQLAlchemy mixins
+Home-page: https://github.com/Bixoto/bixomix
+License: MIT
+Author: Baptiste Fontaine
+Author-email: baptiste@bixoto.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: sqlalchemy (>=2.0,<3.0)
+Description-Content-Type: text/markdown
+
+# Bixomix
+
+**bixomix** is a collection of SQLAlchemy mixins.
+
+## Support
+
+* Python 3.9+
+* SQLAlchemy 2.0+
+
+## Usage
+
+Add mixins after the `Base` class in each model’s parent classes. The order of the mixins doesn’t matter.
+
+```python
+from sqlalchemy.orm import DeclarativeBase
+
+from bixomix import CreatedAtMixin
+
+
+class Base(DeclarativeBase):
+    pass
+
+
+class MyModel(Base, CreatedAtMixin):
+    # Add your own fields here
+    ...
+```
+
+## Mixins
+
+* `CreatedAtMixin`: add a `created_at` datetime field that’s automatically filled with the record’s creation date
+* `UpdatedAtMixin`: add an `updated_at` datetime field that’s automatically filled with the record’s last update date
+* `CreatedUpdatedAtMixin`: combined version of the previous two mixins
