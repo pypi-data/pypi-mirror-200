@@ -1,0 +1,43 @@
+QTextEdit#TextArea{
+	font-family:Segeo UI;
+	font-size:15px;
+	border-radius:10px;
+	background-color:white;
+	padding:10px;
+}
+
+
+QToolBar{
+	background-color:white;
+	min-height:25;
+	border:none;
+	border-bottom:1px solid #E7EAED;
+}
+
+QToolButton{
+	border:none;
+	margin:2px;
+	padding:5px;
+	border-radius:3px;
+}
+
+QToolButton:hover{
+	background-color:#E7EAED;
+}
+
+
+QScrollBar
+{	
+	border:none;
+
+	width:5px;
+	background : transparent;
+}
+QScrollBar::handle
+{
+	background : #D4D4D4;
+}
+QScrollBar::handle::pressed
+{
+	background : #C2C2C2;
+}

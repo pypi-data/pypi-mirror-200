@@ -1,0 +1,48 @@
+body{
+	margin-left: 10%;
+	margin-right: 10%;
+	font-family: Segoe UI;
+}
+
+p{
+	text-align: justify;
+	padding-left: 20px;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: Segoe UI;
+	color: #133163;
+}
+
+a{
+	color: darkblue;
+}
+
+pre{
+	background: #f5f5f5;
+	padding: 20px;
+	border-radius: 5px ;
+	border: 1px solid lightgray;
+	overflow:auto;
+}
+.language-python, code{
+	font-size: 16px;
+	font-family: Consolas;
+}
+
+.python-words{
+	font-weight: bold;
+	color: rgb(127, 0, 85);
+}
+
+blockquote{
+	border-left: 3px solid darkblue;
+	padding: 1px;
+	padding-left: 10px;
+}
+
+table,td{
+	border: 1px solid gray;
+	width: 80%;
+	text-align: justify;
+}
