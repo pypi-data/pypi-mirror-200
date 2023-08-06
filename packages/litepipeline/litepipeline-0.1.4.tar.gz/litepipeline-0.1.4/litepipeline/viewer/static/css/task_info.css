@@ -1,0 +1,26 @@
+#task-running-info,
+#task-info {
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-x: auto;
+}
+
+#task-info-title,
+#task-running-info-title {
+    width: 100%;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.span-pre {
+    display: block;
+    unicode-bidi: embed;
+    font-family: monospace;
+    white-space: pre;
+}
+
+.center-stop-signal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
