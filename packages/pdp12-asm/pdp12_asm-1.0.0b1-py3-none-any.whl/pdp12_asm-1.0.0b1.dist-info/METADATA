@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pdp12-asm
+Version: 1.0.0b1
+Summary: PDP-12 Cross Assembler
+License: GPL-3.0-or-later
+Author: Julian Nowaczek
+Author-email: jnowaczek@users.noreply.github.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: ply (>=3.11,<4.0)
