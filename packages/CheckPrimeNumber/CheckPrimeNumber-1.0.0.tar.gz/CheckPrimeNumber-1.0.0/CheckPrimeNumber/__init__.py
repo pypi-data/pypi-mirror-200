@@ -1,0 +1,2 @@
+from CheckPrimeNumber import isPrimeNumber
+from CheckPrimeNumber import primeNumberList
