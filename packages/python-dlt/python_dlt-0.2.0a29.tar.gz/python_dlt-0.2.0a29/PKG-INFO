@@ -1,0 +1,165 @@
+Metadata-Version: 2.1
+Name: python-dlt
+Version: 0.2.0a29
+Summary: DLT is an open-source python-native scalable data loading framework that does not require any devops efforts to run.
+Home-page: https://github.com/dlt-hub
+License: Apache-2.0
+Keywords: etl
+Author: dltHub Inc.
+Author-email: services@dlthub.com
+Maintainer: Marcin Rudolf
+Maintainer-email: marcin@dlthub.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries
+Provides-Extra: bigquery
+Provides-Extra: dbt
+Provides-Extra: duckdb
+Provides-Extra: gcp
+Provides-Extra: postgres
+Provides-Extra: redshift
+Requires-Dist: PyYAML (>=5.4.1)
+Requires-Dist: SQLAlchemy (>=1.3.5)
+Requires-Dist: astunparse (>=1.6.3)
+Requires-Dist: asyncstdlib (>=3.10.5)
+Requires-Dist: cachetools (>=5.2.0)
+Requires-Dist: click (>=7.1)
+Requires-Dist: cron-descriptor (>=1.2.32)
+Requires-Dist: dbt-bigquery (>=1.3.0,<1.5.0); extra == "dbt"
+Requires-Dist: dbt-core (>=1.3.0,<1.5.0); extra == "dbt"
+Requires-Dist: dbt-duckdb (>=1.3.0,<1.5.0); extra == "dbt"
+Requires-Dist: dbt-redshift (>=1.3.0,<1.5.0); extra == "dbt"
+Requires-Dist: duckdb (>=0.6.1,<0.8.0); extra == "duckdb"
+Requires-Dist: gitpython (>=3.1.29)
+Requires-Dist: giturlparse (>=0.10.0)
+Requires-Dist: google-cloud-bigquery (>=2.26.0); extra == "gcp" or extra == "bigquery"
+Requires-Dist: grpcio (>=1.50.0); extra == "gcp" or extra == "bigquery"
+Requires-Dist: hexbytes (>=0.2.2)
+Requires-Dist: humanize (>=4.4.0)
+Requires-Dist: json-logging (==1.4.1rc0)
+Requires-Dist: makefun (>=1.15.0)
+Requires-Dist: orjson (>=3.8.6,<4.0.0); platform_python_implementation != "PyPy"
+Requires-Dist: pathvalidate (>=2.5.2)
+Requires-Dist: pendulum (>=2.1.2)
+Requires-Dist: pipdeptree (>=2.3.3)
+Requires-Dist: prometheus-client (>=0.11.0)
+Requires-Dist: psycopg2-binary (>=2.9.1); extra == "postgres" or extra == "redshift"
+Requires-Dist: psycopg2cffi (>=2.9.0); (platform_python_implementation == "PyPy") and (extra == "postgres" or extra == "redshift")
+Requires-Dist: pyarrow (>=8.0.0); extra == "gcp" or extra == "bigquery"
+Requires-Dist: pytz (>=2022.6)
+Requires-Dist: requests (>=2.26.0)
+Requires-Dist: requirements-parser (>=0.5.0)
+Requires-Dist: reretry (>=0.11.8)
+Requires-Dist: semver (>=2.13.0)
+Requires-Dist: sentry-sdk (>=1.4.3)
+Requires-Dist: setuptools (>=65.6.0)
+Requires-Dist: simplejson (>=3.17.5)
+Requires-Dist: tenacity (>=8.2.2,<9.0.0)
+Requires-Dist: tomlkit (>=0.11.3)
+Requires-Dist: tqdm (>=4.64.1)
+Requires-Dist: typing-extensions (>=4.0.0)
+Requires-Dist: tzdata (>=2022.1)
+Project-URL: Repository, https://github.com/dlt-hub/dlt
+Description-Content-Type: text/markdown
+
+![](https://github.com/dlt-hub/dlt/raw/devel/docs/DLT-Pacman-Big.gif)
+
+<p align="center">
+
+[![PyPI version](https://badge.fury.io/py/python-dlt.svg)](https://pypi.org/project/python-dlt/)
+[![LINT Badge](https://github.com/dlt-hub/dlt/actions/workflows/lint.yml/badge.svg)](https://github.com/dlt-hub/dlt/actions/workflows/lint.yml)
+[![TEST COMMON Badge](https://github.com/dlt-hub/dlt/actions/workflows/test_common.yml/badge.svg)](https://github.com/dlt-hub/dlt/actions/workflows/test_common.yml)
+[![TEST DESTINATIONS Badge](https://github.com/dlt-hub/dlt/actions/workflows/test_destinations.yml/badge.svg)](https://github.com/dlt-hub/dlt/actions/workflows/test_destinations.yml)
+[![TEST BIGQUERY Badge](https://github.com/dlt-hub/dlt/actions/workflows/test_destination_bigquery.yml/badge.svg)](https://github.com/dlt-hub/dlt/actions/workflows/test_destination_bigquery.yml)
+[![TEST DBT Badge](https://github.com/dlt-hub/dlt/actions/workflows/test_dbt_runner.yml/badge.svg)](https://github.com/dlt-hub/dlt/actions/workflows/test_dbt_runner.yml)
+
+
+</p>
+
+# data load tool (dlt)
+
+**data load tool (dlt)** is a simple, open source Python library that makes data loading easy
+- Automatically turn the JSON returned by any API into a live dataset stored wherever you want it
+- `pip install python-dlt` and then include `import dlt` to use it in your Python loading script
+- The **dlt** library is licensed under the Apache License 2.0, so you can use it for free forever
+
+Read more about it on the [dlt Docs](https://dlthub.com/docs)
+
+# semantic versioning
+`python-dlt` will follow the semantic versioning with [`MAJOR.MINOR.PATCH`](https://peps.python.org/pep-0440/#semantic-versioning) pattern. Currently we do **pre-release versioning** with major version being 0.
+- `minor` version change means breaking changes
+- `patch` version change means new features that should be backward compatible
+- any suffix change ie. `a10` -> `a11` is a patch
+
+# development
+`python-dlt` uses `poetry` to manage, build and version the package. It also uses `make` to automate tasks. To start
+```sh
+make install-poetry  # will install poetry, to be run outside virtualenv
+```
+then
+```sh
+make dev  # will install all deps including dev
+```
+Executing `poetry shell` and working in it is very convenient at this moment.
+
+## python version
+Use python 3.8 for development which is the lowest supported version for `python-dlt`. You'll need `distutils` and `venv`:
+
+```shell
+sudo apt-get install python3.8
+sudo apt-get install python3.8-distutils
+sudo apt install python3.8-venv
+```
+You may also use `pyenv` as [poetry](https://python-poetry.org/docs/managing-environments/) suggests.
+
+## bumping version
+Please use `poetry version prerelease` to bump patch and then `make build-library` to apply changes. The source of the version is `pyproject.toml` and we use poetry to manage it.
+
+## testing and linting
+`python-dlt` uses `mypy` and `flake8` with several plugins for linting. We do not reorder imports or reformat code.
+
+`pytest` is used as test harness. `make test-common` will run tests of common components and does not require any external resources.
+
+### testing destinations
+To test destinations use `make test`. You will need following external resources
+1. `BigQuery` project
+2. `Redshift` cluster
+3. `Postgres` instance. You can find a docker compose for postgres instance [here](tests/load/postgres/docker-compose.yml). When run the instance is configured to work with the tests.
+```shell
+cd tests/load/postgres/
+docker-compose up --build -d
+```
+
+See `tests/.example.env` for the expected environment variables and command line example to run the tests. Then create `tests/.env` from it. You configure the tests as you would configure the dlt pipeline.
+We'll provide you with access to the resources above if you wish to test locally.
+
+To test local destinations (`duckdb` and `postgres`) run `make test-local`. You can run this tests without additional credentials (just copy `.example.env` into `.env`)
+
+## publishing
+
+1. Make sure that you are on `devel` branch and you have the newest code that passed all tests on CI.
+2. Verify the current version with `poetry version`
+3. You'll need `pypi` access token and use `poetry config pypi-token.pypi your-api-token` then
+```
+make publish-library
+```
+4. Make a release on github, use version and git tag as release name
+
+## contributing
+
+To contribute via pull request:
+1. Create an issue with your idea for a feature etc.
+2. Write your code and tests
+3. Lint your code with `make lint`. Test the common modules with `make test-common`
+4. If you work on a destination code then contact us to get access to test destinations
+5. Create a pull request
+
