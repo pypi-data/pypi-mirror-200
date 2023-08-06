@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: helloworlds
+Version: 0.1.0
+Summary: Demo library
+Home-page: https://helloworlds.readthedocs.io/
+Author: Vishnu K S
+Author-email: vishnusajeevks@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+Medium multiply
+
+
+A small demo library
+
+
+Installation
+
+    pip install helloworlds
+
+
+Get started
+
+    greetings = Hello()
+
+    # Call the  method
+    greetings.sayhello()
+
+
