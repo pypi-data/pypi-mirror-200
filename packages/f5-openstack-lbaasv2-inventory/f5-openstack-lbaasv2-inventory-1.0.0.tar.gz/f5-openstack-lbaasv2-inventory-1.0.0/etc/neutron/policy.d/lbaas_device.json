@@ -1,0 +1,7 @@
+{
+    "get_devices": "rule:admin_only",
+    "get_device": "rule:admin_only",
+    "create_device": "rule:admin_only",
+    "delete_device": "rule:admin_only",
+    "update_device": "rule:admin_only"
+}

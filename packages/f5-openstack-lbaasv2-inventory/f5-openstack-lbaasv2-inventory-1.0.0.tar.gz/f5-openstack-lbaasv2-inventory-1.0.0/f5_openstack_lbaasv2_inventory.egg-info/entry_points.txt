@@ -1,0 +1,6 @@
+[neutron.db.alembic_migrations]
+neutron-lbaas-inventory = neutron_lbaas_inventory.db.migration:alembic_migrations
+
+[neutron.service_plugins]
+lbaas_device = neutron_lbaas_inventory.plugins.lbaasdevice:LbaasDevicePlugin
+
