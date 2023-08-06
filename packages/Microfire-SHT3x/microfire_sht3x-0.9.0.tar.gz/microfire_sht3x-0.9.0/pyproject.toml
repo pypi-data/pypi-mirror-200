@@ -1,0 +1,22 @@
+[project]
+name = "Microfire_SHT3x"
+version = "0.9.0"
+authors = [
+  { name="Microfire LLC", email="contact@microfire.co" },
+]
+description = "Measure temperature and humidity with the Sensiron SHT3x sensor. VPD and dew point are also calculated."
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://microfire.co"
+"Bug Tracker" = "https://github.com/u-fire/SHT3x/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
