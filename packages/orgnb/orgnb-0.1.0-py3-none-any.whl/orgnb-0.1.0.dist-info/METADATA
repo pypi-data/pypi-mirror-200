@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: orgnb
+Version: 0.1.0
+Summary: Convert org-mode files to jupyter notebooks
+Author-email: Daniele Coslovich <dcoslovich@umontpellier.fr>
+License: GPLv3
+Project-URL: repository, https://framagit.org/coslo/orgnb
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 5 - Production/Stable
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pypandoc-binary
+Requires-Dist: nbformat
+Requires-Dist: argh
+
+orgnb
+==================
+
+Convert org-mode files to jupyter notebooks.
+
+I could not get pandoc to convert org mode files properly, so I wrote this.
+
+Quick start
+-----------
+
+```sh
+orgnb test.org
+```
+
+Installation
+------------
+From pypi
+```
+pip install orgnb
+```
+
+From source
+```
+git clone git@framagit.org:coslo/orgnb.git
+cd orgnb
+make install
+```
+
+Authors
+-------
+Daniele Coslovich: https://www.units.it/daniele.coslovich/
