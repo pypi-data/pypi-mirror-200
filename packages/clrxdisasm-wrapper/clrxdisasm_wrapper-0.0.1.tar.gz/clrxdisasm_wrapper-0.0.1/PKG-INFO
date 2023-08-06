@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: clrxdisasm-wrapper
+Version: 0.0.1
+Summary: clrxdisasm wrapper for code object V4 support
+Project-URL: Documentation, https://github.com/RubyUmbra/clrxdisasm-wrapper-py#readme
+Project-URL: Issues, https://github.com/RubyUmbra/clrxdisasm-wrapper-py/issues
+Project-URL: Source, https://github.com/RubyUmbra/clrxdisasm-wrapper-py
+Author-email: "Dmitry \"RubyUmbra\" Gromov" <rubyumbra@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Requires-Dist: argparse~=1.4.0
+Requires-Dist: construct~=2.10.68
+Requires-Dist: ormsgpack~=1.2.5
+Requires-Dist: pyelftools~=0.29
+Description-Content-Type: text/markdown
+
+# clrxdisasm wrapper for code object V4 support
+
+[![PyPI - Version](https://img.shields.io/pypi/v/clrxdisasm-wrapper.svg)](https://pypi.org/project/clrxdisasm-wrapper)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/clrxdisasm-wrapper.svg)](https://pypi.org/project/clrxdisasm-wrapper)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install clrxdisasm-wrapper
+```
+
+## License
+
+`clrxdisasm-wrapper` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
