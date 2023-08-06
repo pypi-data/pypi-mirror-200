@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: omnicloud-airport-gcp
+Version: 0.0.1
+Summary: Set of Gates to Google Cloud Platform for Omnicloud Airport
+Home-page: https://omnicloud.world/airport
+Keywords: omnicloud,supercloud,multicloud,cloud computing,migration,gcp,Google
+Author: Iurii Tarasenko
+Author-email: iurii@omnicloud.world
+Requires-Python: >=3.10,<4.0
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: google-cloud-storage (>=2.7.0,<3.0.0)
+Requires-Dist: omnicloud-airport (>=0.0.1,<0.0.2)
+Project-URL: Documentation, https://docs.omnicloud.world/py-airport
+Project-URL: Repository, https://github.com/omnicloudworld/py.airport.gcp
+Description-Content-Type: text/markdown
+
+
+# Omnicloud.Airport
+
+
+Omnicloud.Airport is a Python package for handling data transfer to and from cloud storage providers. It provides a set of classes that implement a common interface for working with cloud storage, making it easy to switch between providers and abstract classes for extending self.
+
+<br/>
+
+
+# This package
+
+It contains a set of Gates from Airport to the Google Cloud Platform and some tools for build own gate to GCP.
+
+This package contains ony gates for main python objects such as dic, csv, etc. 
+
+<br/>
+
+__[for more information read the docs of parent package](https://docs.omnicloud.world/py-airport)__
+
