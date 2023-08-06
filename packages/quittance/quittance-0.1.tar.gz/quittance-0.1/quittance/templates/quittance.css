@@ -1,0 +1,82 @@
+@font-face {
+  font-family: Pacifico;
+  src: url(pacifico.ttf);
+}
+@font-face {
+  font-family: Source Sans Pro;
+  font-weight: 400;
+  src: url(sourcesanspro-regular.otf);
+}
+@font-face {
+  font-family: Source Sans Pro;
+  font-weight: 700;
+  src: url(sourcesanspro-bold.otf);
+}
+
+@page {
+  font-family: Pacifico;
+  margin: 3cm;
+}
+
+html {
+  color: #14213d;
+  font-family: Source Sans Pro;
+  font-size: 11pt;
+  line-height: 1.6;
+}
+body {
+  margin: 0;
+}
+
+h1 {
+  color: #1ee494;
+  font-family: Pacifico;
+  font-size: 40pt;
+  margin: 0;
+}
+
+aside {
+  display: flex;
+  margin: 2em 0 4em;
+}
+aside address {
+  font-style: normal;
+  white-space: pre-line;
+}
+aside address#from {
+  color: #a9a;
+  flex: 1;
+}
+aside address#to {
+  text-align: right;
+}
+
+dl#informations {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+
+dt, dd {
+  display: inline;
+  margin: 0;
+}
+dt {
+  color: #a9a;
+}
+dt::before {
+  content: '';
+  display: block;
+}
+dt::after {
+  content: ' : ';
+}
+
+b#recu {
+    font-size: 16pt;
+}
+
+p#legal {
+    font-size: 8pt;
+}

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quittance"
+description = "Génère des quittances de loyers."
+readme = "README.md"
+license = {text = "MIT License"}
+authors = [
+    {name = "Julien Palard", email = "julien@palard.fr"},
+]
+requires-python = ">= 3.7"
+dependencies = [
+    "weasyprint",
+    "tomlkit",
+    "jinja2",
+]
+dynamic = ["version"]
+
+[project.urls]
+homepage = "https://git.afpy.org/mdk/quittance"
+
+[project.scripts]
+quittance = "quittance.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages]
+find = {}
+
+[tool.setuptools.dynamic.version]
+attr = "quittance.__version__"
+
+[tool.black]

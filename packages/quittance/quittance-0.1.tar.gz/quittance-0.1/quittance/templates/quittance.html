@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="quittance.css" media="print" rel="stylesheet">
+    <title>Quittance de loyer</title>
+    <meta name="description" content="Quittance de loyer">
+  </head>
+
+  <body>
+    <h1>Quittance de loyer</h1>
+
+    <aside>
+      <address id="from">
+        <b>Bailleur</b>
+        {{ bailleur_name }}
+        {{ bailleur_address }}
+        {{ bailleur_code_postal }} {{ bailleur_city }}
+        {{ bailleur_country }}
+      </address>
+
+      <address id="to">
+        <b>Locataire Destinataire</b>
+        {{ locataire_name }}
+        {{ locataire_address }}
+        {{ locataire_code_postal}} {{ locataire_city }}
+        {{ locataire_country }}
+      </address>
+    </aside>
+
+    <dl id="informations">
+      <dt>Quittance №</dt>
+      <dd>{{ quittance_no }}</dd>
+    </dl>
+
+    <dl id="payment">
+      <dt><b id="recu">Reçu</b> de</dt>
+      <dd>{{ locataire_name }}</dd>
+      <dt>La somme de</dt>
+      <dd>{{ loyer_hors_charges + charges }} €</dd>
+      <dt>Au titre du paiement du loyer et des charges du logement sis</dt>
+      <dd>{{ locataire_address }} {{locataire_city }}</dd>
+      <dt>Pour la période de location</dt>
+      <dd>{{ periode }}</dd>
+      <dt>Date du règlement</dt>
+      <dd>{{ date }}</dd>
+    </dl>
+
+    <br/>
+    <h3>Détail de la quittance de loyer</h3>
+
+    <dl>
+      <dt>Loyer hors charge</dt><dd>{{ loyer_hors_charges}} €</dd>
+      <dt>Charges / Provisions de charges</dt><dd>{{ charges }} €</dd>
+      <dt>Régularisation annuelle</dt><dd>ø</dd>
+      <dt>Total</dt><dd>{{ loyer_hors_charges + charges}} €</dd>
+    </dl>
+    <br/>
+    <dl id="where">
+      <dt>Fait à</dt>
+      <dd>{{ bailleur_city }}</dd>
+      <dt>Le</dt>
+      <dd>{{ date }}</dd>
+      <dt>Signature du bailleur</dt>
+      <dd>{{ bailleur_name }}</dd>
+    </dl>
+
+    <p id="legal">
+      Le paiement de la présente n'emporte pas présomption de paiement des termes antérieurs. Cette quittance ou ce reçu annule tous les reçus qui auraient pu être donnés pour acompte versé sur le présent terme. En cas de congé précédemment donné, cette quittance ou ce reçu représenterait l'indemnité d'occupation et ne saurait être considéré comme un titre d'occupation. Sous réserve d'encaissement.
+    </p>
+  </body>
+</html>
