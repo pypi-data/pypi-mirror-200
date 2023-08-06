@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+{% block headers %}
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script src="/static/js/dataset_landing_page.js"></script>
+<script src="/static/js/quill.min.js"></script>
+<script src="/static/js/utils.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/pub.css" />
+<link href="/static/css/quill.4tu.css" rel="stylesheet">
+<style>
+#access-request-wrapper { display: none; }
+#content-wrapper {padding: 0}
+#content-wrapper input[type="text"],
+#content-wrapper input[type="datetime-local"],
+#content-wrapper input[type="date"],
+#content-wrapper textarea, .texteditor {
+    display: block;
+    padding: .7em;
+    border: solid 1pt #aaa;
+    border-radius: 0em .5em .5em .5em;
+    width: 832pt;
+    margin-top: 0em;
+    margin-bottom: 1em;
+    font-size: 13pt;
+}
+.texteditor {
+    padding: 0em !important;
+    border-radius: 0em 0em .5em .5em !important;
+    resize: vertical;
+    font-size: 1.0em;
+    width: 852pt;
+}
+#content-wrapper label {
+    display: inline-block;
+    background: #ffeecc;
+    color: #000;
+    padding: .5em .5em .25em .5em;
+    border-radius: .5em .5em 0em 0em;
+    font-weight: bold;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+{% set doi = item.doi %}
+{% set pid = item.dataset_id %}
+{% set item_type = "dataset" %}
+
+{% include 'public_metadata.html' %}
+
+<div id="data">
+
+{% if item.is_embargoed %}
+    <h3>DATA - under embargo</h3>
+        <div id="limited_access">
+            <p>The files in this dataset are under embargo{% if item.embargo_until_date %} until {{item.embargo_until_date}}{% endif %}.</p>
+    {% if item.embargo_reason or item.confidential_reason %}
+            <h4>Reason</h4>
+        {% autoescape false %}
+        {% if item.embargo_reason %}
+            {{item.embargo_reason}}
+        {% else %}
+            {{item.confidential_reason}}
+        {% endif %}
+        {% endautoescape %}
+    {% endif %}
+       </div>
+{% elif item.is_restricted %}
+    <h3>DATA - restricted access</h3>
+{# test 12999575 #}
+        <div id="limited_access">
+            <h4>Reason</h4>
+    {% autoescape false %}
+    {% if item.embargo_reason %}
+            {{item.embargo_reason}}
+    {% elif item.confidential_reason %}
+            {{item.confidential_reason}}
+    {% else %}
+            Data is confidential.
+    {% endif %}
+    {% if item.eula %}
+            <h4>End User Licence Agreement</h4>
+            {{item.eula}}
+    {% endif %}
+    {% endautoescape %}
+        </div>
+        {% include 'dataset_access_request.html' %}
+{% elif item.is_metadata_record %}
+{# test 18586031 #}
+    <h3>DATA - not available</h3>
+        <div id="metadata_only">
+    {% if item.metadata_reason %}
+            {{item.metadata_reason}}
+    {% else %}
+            Data is undisclosed.
+    {% endif %}
+        </div>
+{% else %}
+    <h3>DATA</h3>
+{% if services %}
+{# test 12717890 #}
+    <div id="services">
+        <div class="label">data service</div>
+        <ul>
+    {% for url in services %}
+            <li><a href="{{url}}" target="_blank" rel="noopener noreferrer" title="opens in new window">{{url}}</a></li>
+    {% endfor %}
+        </ul>
+    </div>
+{% endif%}
+{% if opendap %}
+{# test 17122553 #}
+    <div id="opendap">
+        <div class="label">OPeNDAP data service</div>
+        <ul>
+    {% for url in opendap %}
+            <li>
+                <a href="{{url}}" target="_blank" rel="noopener noreferrer" title="opens in new window">{{url}}</a>
+                [<a href="{{url|replace('.html','.xml')}}" target="_blank" rel="noopener noreferrer">xml</a>]
+            </li>
+    {% endfor %}
+        </ul>
+    </div>
+{% endif%}
+{%- if git_repository_url %}
+    <div id="git-repository">
+      <p>To access the source code, use the following command:</p>
+      <pre>git clone {{git_repository_url}}</pre>
+    </div>
+{%- endif %}
+{% if files %}
+{# test 16545714 #}
+    <div id="files">
+        <div class="label">files</div>
+        <ul>
+    {% for file in files %}
+            <li>
+                <span class="size">{{'{:,}'.format(file.size)}} bytes</span>
+                <span class="md5">
+                    <span>md5</span>
+                    <input readonly value="{{file.computed_md5}}"> </input>
+                </span>
+                <a href="/file/{{item.container_uuid}}/{{file.uuid}}">{{file.name}}</a>
+            </li>
+    {% endfor %}
+    {% if files|length > 1 %}
+            <li class="zip"><a href="/ndownloader/items/{{item.container_uuid}}/versions/{{item.version | default('draft', False)}}">download all files (zip)</a></li>
+    {% endif %}
+        </ul>
+    </div>
+{% endif %}
+{% endif %}
+</div>
+{%- if not in_production: %}
+{% set debug_vars = {"item":item, "version":version, "versions":versions, "citation":citation, "authors":authors, "contributors":contributors,
+                     "files":files, "services":services, "tags":tags, "categories":categories, "fundings":fundings,
+                     "references": references, "derived_from":derived_from, "collections":collections, "my_collections":my_collections,
+                     "dates":dates, "coordinates":coordinates, "id_version":id_version, "opendap":opendap, "statistics":statistics,
+                     "my_email":my_email, "my_name":my_name, "private_view":private_view} %}
+{% set djehuty_API   = "/v2/articles/"~pid %}
+{% set figshare_html = "https://data.4tu.nl/articles/_/"~pid %}
+{% set figshare_API = "https://api.figshare.com/v2/articles/"~pid %}
+{% if version %}
+    {% set djehuty_API   = djehuty_API~"/versions/"~version %}
+    {% set figshare_html = figshare_html~"/"~version %}
+    {% set figshare_API  = figshare_API~"/versions/"~version %}
+{% endif %}
+{% include 'debug.html' %}
+{%- endif %}
+{% endblock %}

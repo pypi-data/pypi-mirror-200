@@ -1,0 +1,29 @@
+{% extends "prefixes.sparql" %}
+{% block query %}
+DELETE {
+  GRAPH <{{state_graph}}> {
+    ?dataset  ?predicate            ?object .
+    ?list     djht:index             ?list_index .
+    ?list     ?any                  ?list_item .
+
+    ?container djht:draft           ?dataset .
+  }
+}
+WHERE {
+  GRAPH <{{state_graph}}> {
+    ?container rdf:type             djht:DatasetContainer ;
+               djht:account          <account:{{account_uuid}}> ;
+               djht:draft            ?dataset .
+
+    ?dataset   ?predicate           ?object ;
+               ?list_predicate      ?list .
+    OPTIONAL {
+      ?list      rdf:type             rdf:List ;
+                 djht:index            ?list_index ;
+                 rdf:rest*/rdf:first  ?list_item .
+    }
+  }
+
+  FILTER (?container = <{{container_uri}}>)
+}
+{% endblock %}

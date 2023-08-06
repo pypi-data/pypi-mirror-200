@@ -1,0 +1,51 @@
+{% extends "prefixes.sparql" %}
+{% block query %}
+SELECT DISTINCT ?name          ?size          ?is_link_only
+                ?id            ?download_url  ?supplied_md5
+                ?computed_md5  ?viewer_type   ?preview_state
+                ?status        ?upload_url    ?upload_token
+                ?order_index   ?uuid          ?filesystem_location
+                ?container_uuid
+WHERE {
+  GRAPH <{{state_graph}}> {
+    ?file              rdf:type                djht:File .
+    ?dataset_uri       rdf:type                djht:Dataset ;
+                       djht:container          ?container ;
+                       djht:files              ?files .
+    ?files             rdf:rest*               ?rest .
+    ?rest              rdf:first               ?file ;
+                       djht:index              ?order_index .
+    {%- if account_uuid is not none %}
+    ?container         rdf:type/rdfs:subClassOf djht:Container ;
+                       djht:account             <account:{{account_uuid}}> .
+    {%- endif %}
+    OPTIONAL { ?dataset_uri djht:embargo_until_date ?embargo_until_date . }
+    OPTIONAL { ?file  djht:id                   ?id . }
+    OPTIONAL { ?file  djht:name                 ?name . }
+    OPTIONAL { ?file  djht:filesystem_location  ?filesystem_location . }
+    OPTIONAL { ?file  djht:size                 ?size . }
+    OPTIONAL { ?file  djht:is_link_only         ?is_link_only . }
+    OPTIONAL { ?file  djht:download_url         ?download_url . }
+    OPTIONAL { ?file  djht:supplied_md5         ?supplied_md5 . }
+    OPTIONAL { ?file  djht:computed_md5         ?computed_md5 . }
+    OPTIONAL { ?file  djht:viewer_type          ?viewer_type . }
+    OPTIONAL { ?file  djht:preview_state        ?preview_state . }
+    OPTIONAL { ?file  djht:status               ?status . }
+    OPTIONAL { ?file  djht:upload_url           ?upload_url . }
+    OPTIONAL { ?file  djht:upload_token         ?upload_token . }
+
+    BIND(STRAFTER(STR(?file), "file:") AS ?uuid)
+    BIND(STRAFTER(STR(?container), "container:") AS ?container_uuid)
+  }
+  {%- if account_uuid is none %}
+  FILTER (! (BOUND(?embargo_until_date) && ?embargo_until_date > NOW()))
+  {%- endif %}
+{%- if dataset_uri is not none %}
+  FILTER (?dataset_uri = <{{dataset_uri}}>)
+{%- endif %}
+{%- if file_uuid is not none %}
+  FILTER (?file = <file:{{file_uuid}}>)
+{%- endif %}
+{%- if filters is not none %}{{ filters | safe }}{% endif %}
+}
+{% endblock %}

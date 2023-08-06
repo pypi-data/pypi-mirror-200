@@ -1,0 +1,52 @@
+Name:        djehuty
+Version:     0.0.2
+Release:     1%{?dist}
+Summary:     Repository system for 4TU.ResearchData
+Source0:     %{name}-%{version}.tar.gz
+License:     GPLv3+
+Group:       System Environment/Daemons
+BuildRoot:   %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Prefix:      %{_prefix}
+BuildArch:   noarch
+Vendor:      Roel Janssen <r.r.e.janssen@tudelft.nl>
+Url:         https://github.com/4TUResearchData/djehuty
+BuildRequires: python3-devel
+BuildRequires: python3dist(setuptools)
+Requires: git
+Requires: python3dist(requests)
+requires: python3dist(jinja2)
+Requires: python3dist(rdflib)
+Requires: python3dist(pygit2)
+Requires: python3dist(sparqlwrapper)
+Requires: python3dist(urllib3)
+Requires: python3dist(werkzeug)
+
+%description
+This package provides the repository system for 4TU.ResearchData.
+
+%prep
+%autosetup -p1 -n %{name}-%{version}
+
+
+%build
+%py3_build
+
+
+%install
+%py3_install
+mkdir -p %{buildroot}%{_unitdir}
+cp etc/%{name}.service %{buildroot}%{_unitdir}/
+mkdir -p %{buildroot}/etc/%{name}
+cp etc/%{name}/djehuty-example-config.xml %{buildroot}/etc/%{name}/
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root)
+%doc README.md
+%{python3_sitelib}/%{name}/
+%{python3_sitelib}/%{name}-0.0.2*
+%{_unitdir}/%{name}.service
+/etc/%{name}/djehuty-example-config.xml
+/usr/bin/djehuty

@@ -1,0 +1,394 @@
+{% extends "layout.html" %}
+{% block headers %}
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script src="/static/js/quill.min.js"></script>
+<script src="/static/js/utils.js"></script>
+<script src="/static/js/edit-dataset.js"></script>
+<script src="/static/js/dropzone.min.js"></script>
+<script>
+Dropzone.autoDiscover = false;
+jQuery(document).ready(function (){
+    root_categories = []
+    jQuery(".hide-for-javascript").removeClass("hide-for-javascript");
+    jQuery(".subcategory-wrapper").hide();
+{%- for category in categories: %}
+    root_categories.push("{{category.uuid}}");
+    jQuery("#category_{{category.uuid}}").change(function () {
+        if (this.checked) {
+            jQuery("#category_{{category.uuid}}").prop("checked", true);
+            jQuery("#subcategories_{{category.uuid}}").slideDown(200);
+        } else {
+            jQuery("#subcategories_{{category.uuid}} input[name='categories']").prop("checked", false);
+            jQuery("#subcategories_{{category.uuid}}").slideUp(200);
+        }
+    });
+{%- endfor %}
+    activate ("{{container_uuid}}");
+});
+</script>
+<link href="/static/css/quill.4tu.css" rel="stylesheet">
+<link href="/static/css/dropzone.min.css" rel="stylesheet">
+<link href="/static/css/form.css" rel="stylesheet">
+<style>
+.upload-wrapper { text-align: center; }
+.upload-container {
+    display: block;
+    width: auto;
+    border: 2pt dashed #ccc;
+    background: #f9f9f9;
+    border-radius: .5em;
+    margin: auto auto 1em auto;
+    vertical-align: middle;
+    text-align: center;
+    color: #333;
+}
+.upload-container:hover { cursor: pointer; }
+.upload-container p { font-size: 1.2em; }
+#file { display: none; }
+#expanded-categories { display: none; }
+.files td { text-align: left; }
+#software_upload_field h4 {
+    font-size: 1.25em;
+    margin: .75em 0em .25em 0em;
+    font-weight: bold;
+    border-bottom: 2px dotted #f49120;
+}
+#access-wrapper #access-type-wrapper {
+    border: none;
+    border-bottom: solid 2pt #333;
+    border-radius: 0em;
+    width: 812pt !important;
+    padding-bottom: 0pt;
+}
+#access-wrapper #access-type-wrapper label { border-radius: .5em .5em 0em 0em;  }
+#access-wrapper input[type="text"],
+#access-wrapper input[type="datetime-local"],
+#access-wrapper input[type="date"],
+#access-wrapper textarea,
+#access-wrapper .options-wrapper { width: 812pt !important; }
+#access-wrapper select,
+#access-wrapper .ql-toolbar.ql-4tu,
+#access-wrapper .texteditor { width: 832pt !important; }
+#embargoed_access_form { display: none }
+#restricted_access_form { display: none; }
+#file-upload h4 { font-size: 1.5em; padding: 0em; margin: .75em 0em .75em 0em; }
+#categories-wrapper .subitem-checkbox { margin-left: 3em; }
+#new-author { text-align: center; line-height: 3.5em; height: 3.5em; }
+#new-funding { text-align: center; line-height: 3.5em; height: 3.5em; }
+#new-author-form { padding: 1em; }
+#new-author-form label { background: #eee; }
+#new-author-form input[type="text"] { width: 800pt; }
+#new-funding-form { padding: 1em; }
+#new-funding-form label { background: #eee; }
+#new-funding-form input[type="text"] { width: 800pt; }
+#geolocation-wrapper label { background: #eee; }
+#geolocation-wrapper input[type="text"] { width: 812pt; }
+#references-list { display: none; border: none; }
+#references-list thead { display: none; }
+#tags-list { display: none; border: none; padding: 0em; }
+#tags-list li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0em 1em .5em 0em;
+  padding: .5em;
+  border-radius: .5em;
+  background: #eee;
+}
+#groups-wrapper h4 {
+    padding: .5em;
+    margin: .5em 0em 0em 0em;
+    font-weight: bold;
+    font-size: 1em;
+    background: #eee;
+    border-radius: .5em;
+    user-select: none;
+}
+#groups-wrapper h4:nth-child(1) { margin: 0em; }
+#metadata_reason_field, #external_link_field, #file_upload_field { display: none; }
+#git-files { margin: 0em; padding: 0em; }
+#git-files li { list-style-type: none; margin: 0em; padding: .5em; }
+#git-files li:nth-child(even) { background: #fafafa; }
+#embargo_options { display: none; }
+#refresh-git-files { font-size: .75em; }
+.decline-button a { background: #aa3333 !important; }
+.decline-button a:hover { background: #cc3333 !important; }
+.publish-button a { background: #f49120 !important; }
+.publish-button a:hover { background: #f7ad58 !important; }
+.preview-button a { background: #736f53 !important; }
+.preview-button a:hover { background: #96937e !important; }
+#doi-wrapper p { margin: 0pt; }
+.article-content-loader { display: none; }
+</style>
+{% endblock %}
+{% block submenu %}
+<ul>
+  {%- if article.is_under_review and is_reviewing %}
+  <li><a href="/logout">&#8592; Go back</a>
+  {%- else %}
+  <li><a href="/my/datasets">&#8592; Go back</a>
+  {%- endif %}
+  <li class="active">Edit dataset
+  <li class="hide-for-javascript save-button"><a id="save" href="#">Save draft</a>
+  {%- if not article.is_under_review %}
+  <li class="hide-for-javascript submit-button"><a id="submit" href="#">Submit for review</a>
+  {%- endif %}
+  {%- if article.is_under_review and is_reviewing %}
+  <li class="hide-for-javascript publish-button"><a id="publish" href="#">Publish</a>
+  <li class="hide-for-javascript decline-button"><a id="decline" href="#">Decline</a>
+  {%- endif %}
+  <li class="hide-for-javascript delete-button"><a id="delete" href="#">Delete</a>
+  <li class="hide-for-javascript preview-button"><a id="preview" href="#">Preview</a>
+</ul>
+{% endblock %}
+{% block body %}
+<div class="article-content-loader"></div>
+<div class="article-content">
+{%- if article.title == "Untitled item" %}
+<h1>Add new dataset</h1>
+{%- else %}
+<h1>Edit dataset</h1>
+{%- endif %}
+<noscript>
+  <p class="no-script">Sorry, this page requires JavaScript to work correctly.</p>
+</noscript>
+<div class="hide-for-javascript">
+<h2>Dataset details</h2>
+<p>Fields marked with <span class="required-field">&#8727;</span> are required.</p>
+<label for="title">Title</label><div class="fas fa-question-circle help-icon"><span class="help-text">Give your research a title that is more descriptive than just a file name. This will help making your items discoverable via search engines such as Google. The title should have at least three characters.</span></div><span class="required-field">&#8727;</span>
+<input type="text" id="title" name="title" value="{{article["title"]}}" />
+<label for="authors">Authors</label><div class="fas fa-question-circle help-icon"><span class="help-text">Select authors from the list or manually add them by creating a new author record. Hit enter after adding each author and drag and drop names to arrange them in the order you wish.</span></div><span class="required-field">&#8727;</span>
+<input type="text" id="authors" name="authors" />
+<table class="inside-form-table multi-list" id="authors-list">
+  <thead>
+    <tr><th>Author</th><th>Actions</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<label>Description</label><div class="fas fa-question-circle help-icon"><span class="help-text">Add as much context as possible so that others can interpret your research and reproduce it. Make sure you include methodology, techniques used, and if relevant information about approval for data collection to confirm adherence to legal or ethical requirements. The description should have at least four characters.</span></div><span class="required-field">&#8727;</span>
+<div id="description" class="texteditor">
+  {{article["description"] | default("", True) | replace("\\n", "<br>") | safe }}
+</div>
+<label>Licence &#38; Access</label>
+<div id="access-wrapper">
+  <div id="access-type-wrapper" class="options-wrapper">
+<input type="radio" name="access_type" id="open_access" value="open" checked="checked" /><!--
+--><label for="open_access" class="no-head">Open access</label><!--
+--><input type="radio" name="access_type" id="embargoed_access" value="embargoed" /><!--
+--><label for="embargoed_access" class="no-head">Embargoed access</label><!--
+--><input type="radio" name="access_type" id="restricted_access" value="restricted" /><!--
+--><label for="restricted_access" class="no-head">Restricted access</label>
+  </div>
+  <div class="access_level" id="open_access_form">
+    <p>
+      Open access is the default setting in 4TU.ResearchData by which your dataset will be directly accessible to others.
+    </p>
+    <label for="license_open" class="inner-head">Licence</label><div class="fas fa-question-circle help-icon"><span class="help-text">Select the appropriate licence from the list. Need to know more? Read our <a target="_blank" rel="noopener noreferrer" href="https://data.4tu.nl/info/en/use/publish-cite/upload-your-data-in-our-data-repository/licencing">guidance</a> for more information on the licence types we offer.</span></div><span class="required-field"> &#8727;</span>
+    <select id="license_open" class="license-selector" name="license">
+      <option value="" disabled selected>Select a licence</option>
+    </select>
+  </div>
+  <div class="access_level" id="embargoed_access_form">
+    <p>
+      Embargo is a period during which a dataset is unavailable and not accessible to anyone else.
+      Please enter the end date of the embargo period and add the reason why the files are under embargo.  
+    </p>
+    <label for="license_embargoed" class="inner-head">Licence</label><div class="fas fa-question-circle help-icon"><span class="help-text">Select the appropriate licence from the list. Need to know more? Read our <a target="_blank" rel="noopener noreferrer" href="https://data.4tu.nl/info/en/use/publish-cite/upload-your-data-in-our-data-repository/licencing">guidance</a> for more information on the licence types we offer.</span></div><span class="required-field"> &#8727;</span>
+    <select id="license_embargoed" class="license-selector" name="license">
+      <option value="" disabled selected>Select a licence</option>
+    </select>
+    <label for="embargo_until_date" class="inner-head">Until date</label><span class="required-field"> &#8727;</span>
+    <input id="embargo_until_date" type="date" name="embargo_until_date" value="{{article["embargo_until_date"]}}" />
+    <label class="inner-head">Embargo type</label><span class="required-field"> &#8727;</span>
+    <div id="record-type-wrapper" class="options-wrapper">
+      <input type="radio" name="embargo_type" id="files_only_embargo" value="file" /><!--
+--><label for="files_only_embargo" class="no-head">Files-only embargo</label>
+      <input type="radio" name="embargo_type" id="content_embargo" value="article" /><!--
+--><label for="content_embargo" class="no-head">Full content embargo</label></div>
+    <label class="inner-head">Reason</label><span class="required-field"> &#8727;</span>
+    <div id="embargo_reason" class="texteditor">
+      {{article["embargo_reason"] | default("", True) | replace("\\n", "<br>") | safe }}
+    </div>
+  </div>
+  <div class="access_level" id="restricted_access_form">
+    <p>
+      Restricted access allows you to share your dataset under specific
+      conditions and with users who have been granted access. Please specify
+      the End-User Licence Agreement (EULA) in which you specify the
+      conditions under which you grant users access to your data files,
+      and add the reason why your dataset is restricted.
+    </p>
+    <label class="inner-head">Reason</label><span class="required-field"> &#8727;</span>
+    <div id="restricted_access_reason" class="texteditor">
+      {{article["embargo_reason"] | default("", True) | replace("\\n", "<br>") | safe }}
+    </div>
+    <label class="inner-head">EULA</label><span class="required-field"> &#8727;</span>
+    <div id="restricted_access_eula" class="texteditor">
+      {{article["eula"] | default("", True) | replace("\\n", "<br>") | safe }}
+    </div>
+    <!--
+        * Upload box for EULA document.
+        * Reason for restricted access field.
+      -->
+  </div>
+</div>
+<label>Categories</label><div class="fas fa-question-circle help-icon"><span class="help-text">Select one or multiple categories that this research best correlates with.</span></div><span class="required-field">&#8727;</span>
+<div id="categories-wrapper" class="options-wrapper">
+  <a id="expand-categories-button" href="#" onclick="javascript:toggle_categories(); return false;">Select categories</a>
+  <div class="expand-categories"></div>
+  <div id="expanded-categories">
+{%- for root in categories: %}
+<input type="checkbox" name="categories" value="{{root.uuid}}" id="category_{{root.uuid}}"><!--
+--><label class="item-label" for="category_{{root.uuid}}">{{root.title}}</label><br>
+<div id="subcategories_{{root.uuid}}" class="subcategory-wrapper">
+{%- for sub in root.subcategories: %}
+<input class="subitem-checkbox" type="checkbox" name="categories" value="{{sub.uuid}}" id="category_{{sub.uuid}}"><!--
+--><label class="subitem-label no-head" for="category_{{sub.uuid}}">{{sub.title}}</label><br>
+{%- endfor %}
+</div>
+{%- endfor %}
+  </div>
+</div>
+<label>Group</label><span class="required-field"> &#8727;</span>
+<div id="groups-wrapper">
+{%- for group in groups: %}
+<h4>{{group.name}}</h4>
+<div id="subgroups_{{group.id}}" class="subgroup-wrapper">
+<input class="subitem-checkbox" type="radio" name="groups" value="{{group.id}}" id="group_{{group.id}}" {% if account.group_id == group.id: %}checked="checked"{% endif %}><!--
+--><label class="subitem-label no-head" for="group_{{group.id}}">{{group.name}}</label><br>
+{%- for sub in group.subgroups: %}
+<input class="subitem-checkbox" type="radio" name="groups" value="{{sub.id}}" id="group_{{sub.id}}"><!--
+--><label class="subitem-label no-head" for="group_{{sub.id}}">{{sub.name}}</label><br>
+{%- endfor %}
+</div>
+{%- endfor %}
+</div>
+<label for="publisher">Publisher</label>
+<input type="text" id="publisher" name="publisher" value="{{article["publisher"] | default("4TU.ResearchData", True)}}">
+<label for="funding">Funding</label><div class="fas fa-question-circle help-icon"><span class="help-text">Select from the list by searching for funder name, grant number or grant name or manually add them by creating a new funding record.</span></div>
+<input type="text" id="funding" name="funding" />
+<table class="inside-form-table multi-list" id="funding-list">
+  <thead>
+    <tr><th>Name</th><th>Actions</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<h3>Linked resource &amp; references</h3>
+<p>If the dataset is published as part of a scientific paper, add its title and DOI here.</p>
+<label for="resource_title">Resource title</label><div class="fas fa-question-circle help-icon"><span class="help-text">Please add the title of the peer-reviewed article/paper or research you want to link back to. This will appear on the public page as the link title. If you add the Resource title, you will need to complete the Resource DOI field.</span></div>
+<input type="text" id="resource_title" name="resource_title" value="{{article["resource_title"] | default("", True)}}" />
+<label for="resource_doi">Resource DOI</label><div class="fas fa-question-circle help-icon"><span class="help-text">Please add the DOI of the peer-reviewed article/paper or research you want to link back to. This is the link destination for the Resource title. If you add the Resource DOI, you will need to complete the Resource title field.</span></div>
+<input type="text" id="resource_doi" name="resource_doi" value="{{article["resource_doi"] | default("", True)}}" />
+<p>Add any other relevant URLs or DOIs below.</p>
+<label for="references">References</label><div class="fas fa-question-circle help-icon"><span class="help-text">Add references (links) to any relevant content or external sources that help describe the resource. All links must be full, valid URLs or DOIs in order to function, eg: https://doi.org/10.4233/uuid:35022242-b3ba-48d9-b3f6-c6ab20b8cc19. Hit return to enter new references.</span></div>
+<input type="text" id="references" name="references" value="" />
+<table class="inside-form-table" id="references-list">
+  <thead>
+    <tr><th>Reference</th><th>Actions</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<label>DOI reservation</label><div class="fas fa-question-circle help-icon"><span class="help-text">Upon publication, a DOI will be assigned to your dataset. If you need to have the DOI before publication, reserve it here.</span></div>
+<div id="doi-wrapper" class="options-wrapper">
+  <p><a href="#" onclick="javascript:reserve_doi('{{article["container_uuid"]}}'); return false;">Reserve DOI</a>.</p>
+</div>
+<h3>Findability</h3>
+<label for="language">Language</label><div class="fas fa-question-circle help-icon"><span class="help-text">Select a language from the list.</span></div><span class="required-field">&#8727;</span>
+{% set item = article %}
+{% include 'depositor/language-selector.html' %}
+<label for="time_coverage">Time coverage</label><div class="fas fa-question-circle help-icon"><span class="help-text">Indicate the dates to which the data refer. Enter the year, or the beginning and ending date.</span></div>
+<input type="text" id="time_coverage" name="time_coverage" value="{{article["time_coverage"] | default("", True)}}" />
+<label>Geolocation</label>
+<div id="geolocation-wrapper">
+  <label for="geolocation">Name</label><div class="fas fa-question-circle help-icon"><span class="help-text">The geographic area to which the data refer (e.g. municipality, town/city, region, country)</span></div>
+  <input type="text" id="geolocation" name="geolocation" placeholder="Example: Dam Square, Amsterdam" value="{{article["geolocation"] | default("", True)}}" />
+  <label for="longitude">Longitude</label><div class="fas fa-question-circle help-icon"><span class="help-text">Geographic longitude in decimal degrees, East is positive, West is negative. Values: -180 to 180.</span></div>
+  <input type="text" id="longitude" name="longitude" placeholder="Example: 4.893" value="{{article["longitude"] | default("", True)}}" />
+  <label for="latitude">Latitude</label><div class="fas fa-question-circle help-icon"><span class="help-text">Geographic latitude in decimal degrees, North is positive, South is negative. Values: -90 to 90.</span></div>
+  <input type="text" id="latitude" name="latitude" placeholder="Example: 52.893" value="{{article["latitude"] | default("", True)}}" />
+</div>
+<label for="format">Format</label><div class="fas fa-question-circle help-icon"><span class="help-text">Format of the data file(s), e.g. the media type like image/jpeg or a description like &#8220;gzipped shape files&#8221;.</span></div>
+<input type="text" id="format" name="format" placeholder="Example: image/jpeg" value="{{article["format"] | default("", True)}}" />
+<label for="data_link">Data Link</label><div class="fas fa-question-circle help-icon"><span class="help-text">Link to extra data that belong to the current item, e.g. an OpenDAP catalog with netCDF files on our OpenDAP server.</span></div>
+<input type="text" id="data_link" name="data_link" placeholder="Link to extra data related to the current item" value="{{article["data_link"] | default("", True)}}" />
+<label for="derived_from">Derived From</label><div class="fas fa-question-circle help-icon"><span class="help-text">URL of the dataset from which the current item was derived.</span></div>
+<input type="text" id="derived_from" name="derived_from" value="{{article["derived_from"] | default("", True)}}" />
+<label for="same_as">Same As</label><div class="fas fa-question-circle help-icon"><span class="help-text">URL of exactly the same data. This can be a copy in another location or an alternative URL that redirects to the current item.</span></div>
+<input type="text" id="same_as" name="same_as" value="{{article["same_as"] | default("", True)}}" />
+<label for="tag">Keywords</label><div class="fas fa-question-circle help-icon"><span class="help-text">Add keywords that will help make your research more discoverable. Hit return after each keyword you enter.</span></div><span class="required-field">&#8727;</span>
+<div class="input-with-button">
+  <input type="text" id="tag" name="tag" value="" />
+  <a id="add-keyword-button" class="form-button neutral-button" href="#">Add keyword</a>
+</div>
+<ul id="tags-list"></ul>
+<label for="organizations">Organizations</label><div class="fas fa-question-circle help-icon"><span class="help-text">Name of the organizations that contributed to the creation of the resource. Separate different names with a semicolon (;)</span></div>
+<textarea id="organizations" name="organizations" placeholder="Example: Delft University of Technology">{{article["organizations"] | default("", True) }}</textarea>
+<h3>Files</h3>
+<label>Type</label>
+<div id="record-type-wrapper" class="options-wrapper">
+<input type="radio" name="record_type" id="metadata_record_only" value="meta" /><!--
+--><label for="metadata_record_only" class="no-head">Metadata-only record</label><!--
+--><input type="radio" name="record_type" id="external_link" value="link" /><!--
+--><label for="external_link" class="no-head">External link</label><!--
+--><input type="radio" name="record_type" id="upload_files" value="files" /><!--
+--><label for="upload_files" class="no-head">File deposit</label><!--
+--><input type="radio" name="record_type" id="upload_software" value="software" /><!--
+--><label for="upload_software" class="no-head">Software deposit</label>
+</div>
+<div id="metadata_reason_field" class="record-type-field">
+  <p>Only use this option when there are no files to attach.  Enter the reason
+    for creating a metadata only record and why the files cannot be shared.</p>
+  <label for="metadata_only_reason">Reason</label>
+  <input type="text" name="metadata_only_reason" id="metadata_only_reason" value="{{article["metadata_reason"]}}"/>
+</div>
+<div id="external_link_field" class="record-type-field">
+  <p>Only use when no files can be attached. Add the URL where your files can
+    be found. Note that 4TU.ResearchData is not responsible for maintaining the
+    link or for its validity.</p>
+  <label for="external_link">External URL</label>
+  <input type="text" name="external_url" id="external_url" value="{{article["url"]}}" />
+  <div class="a-button">
+    <a href="#" onclick="javascript:submit_external_link('{{article["container_uuid"]}}'); return false;">Save URL</a>
+  </div>
+</div>
+<div id="software_upload_field" class="record-type-field">
+  <h4>Publish source code through Git</h4>
+  <p>To publish from a Git repository, push a branch to the <code>4tu</code> remote.</p>
+  <p>First, add the <code>4tu</code> remote:</p>
+  <pre>git remote add 4tu {{base_url}}/v3/datasets/{{article.git_uuid}}.git</pre>
+  <p>Then, push the repository to it:</p>
+  <pre>
+git push 4tu --all
+git push 4tu --tags</pre>
+  <h4>Repository file tree<span class="no-select"> &nbsp;<a id="refresh-git-files" href="#" class="fas fa-sync"></a></span></h4>
+  <ul id="git-files"></ul>
+  <h4>Distribution artefacts</h4>
+  <p>
+    Software packages oftentimes have separate distribution tarballs
+    produced by a build system. If applicable, upload them as files below.
+  </p>
+</div>
+<div id="file_upload_field" class="upload-wrapper record-type-field">
+<form id="dropzone-field" class="upload-container dropzone" action="/v3/datasets/{{container_uuid}}/upload" method="post">
+  <div class="fallback">
+    <input type="file" name="file" id="file" aria-label="Upload file" multiple="">
+  </div>
+</form>
+</div>
+<div id="files-wrapper" class="record-type-field">
+  <table class="inside-form-table" id="files">
+    <thead>
+      <tr><th>Filename</th><th>MD5 Checksum</th><th>Actions</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+</div>
+<h3>Terms and agreement</h3>
+<input type="checkbox" name="deposit_agreement" id="deposit_agreement">
+<label class="no-head" for="deposit_agreement">I agree with the <a target="_blank" rel="noopener noreferrer" href="/s/docs/deposit-agreement.pdf">Deposit Agreement</a>.</label><span class="required-field">&#8727;</span><br />
+<input type="checkbox" name="publish_agreement" id="publish_agreement">
+<label class="no-head" for="publish_agreement">I agree that my dataset will be published once
+  the review is complete.</label><span class="required-field">&#8727;</span>
+</div>
+</div>
+{% endblock %}
