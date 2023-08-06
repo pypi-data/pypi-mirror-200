@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: tvmer
+Version: 0.1.5dev2
+License: MIT
+Author-email: zrr1999 <2742392377@qq.com>
+Requires-Python: >=3.8
+Provides-Extra: tvm
+Description-Content-Type: text/markdown
+
+# Tvmer
+
+## Usage
+### 库调用
+TODO
+
+### 命令行工具
+运行命令
+```shell
+tvmer run --help
+```
+编译命令
+```shell
+tvmer compile --help
+```
+调优命令
+```shell
+tvmer tune --help
+```
+
+
