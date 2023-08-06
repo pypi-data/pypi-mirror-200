@@ -1,0 +1,59 @@
+six>=1.11.0
+wirerope>=0.4.7
+attrs>=19.3.0
+
+[:python_version < "3.0"]
+functools32>=3.2.3-2
+
+[:python_version < "3.0.0"]
+inspect2>=0.1.0
+
+[dev]
+pytest>=3.10.1
+pytest-cov
+pytest-lazy-fixture>=0.6.2
+mock
+patch
+pymemcache
+requests
+diskcache>=4.1.0
+django<4
+numpy
+pylibmc
+pytest-asyncio
+aiomcache
+python3-memcached
+sphinx
+django
+
+[dev:python_version < "3.0"]
+redis
+
+[dev:python_version >= "3.0"]
+redis>=4.2.0
+
+[docs]
+sphinx
+django
+
+[tests]
+pytest>=3.10.1
+pytest-cov
+pytest-lazy-fixture>=0.6.2
+mock
+patch
+pymemcache
+requests
+diskcache>=4.1.0
+django<4
+numpy
+pylibmc
+pytest-asyncio
+aiomcache
+python3-memcached
+
+[tests:python_version < "3.0"]
+redis
+
+[tests:python_version >= "3.0"]
+redis>=4.2.0
