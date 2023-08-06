@@ -1,0 +1,90 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Localiza\u00e7\u00e3o j\u00e1 est\u00e1 configurada"
+        },
+        "error": {
+            "cannot_connect": "Falha ao conectar",
+            "invalid_sensors_data": "Dados de sensores inv\u00e1lidos para esta esta\u00e7\u00e3o de medi\u00e7\u00e3o.",
+            "wrong_station_id": "O ID da esta\u00e7\u00e3o de medi\u00e7\u00e3o n\u00e3o est\u00e1 correto."
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "name": "Nome",
+                    "station_id": "ID da esta\u00e7\u00e3o de medi\u00e7\u00e3o"
+                },
+                "title": "GIO\u015a (Inspetor-Chefe Polon\u00eas de Prote\u00e7\u00e3o Ambiental)"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "aqi": {
+                "state": {
+                    "bad": "Ruim",
+                    "good": "Bom",
+                    "moderate": "Moderado",
+                    "sufficient": "Suficiente",
+                    "very_bad": "Muito ruim",
+                    "very_good": "Muito bom"
+                }
+            },
+            "no2_index": {
+                "state": {
+                    "bad": "Ruim",
+                    "good": "Bom",
+                    "moderate": "Moderado",
+                    "sufficient": "Suficiente",
+                    "very_bad": "Muito mal",
+                    "very_good": "Muito bom"
+                }
+            },
+            "o3_index": {
+                "state": {
+                    "bad": "Ruim",
+                    "good": "Bom",
+                    "moderate": "Moderado",
+                    "sufficient": "Suficiente",
+                    "very_bad": "Muito mal",
+                    "very_good": "Muito bom"
+                }
+            },
+            "pm10_index": {
+                "state": {
+                    "bad": "Ruim",
+                    "good": "Bom",
+                    "moderate": "Moderado",
+                    "sufficient": "Suficiente",
+                    "very_bad": "Muito mal",
+                    "very_good": "Muito bom"
+                }
+            },
+            "pm25_index": {
+                "state": {
+                    "bad": "Ruim",
+                    "good": "Bom",
+                    "moderate": "Moderado",
+                    "sufficient": "Suficiente",
+                    "very_bad": "Muito mal",
+                    "very_good": "Muito bom"
+                }
+            },
+            "so2_index": {
+                "state": {
+                    "bad": "Ruim",
+                    "good": "Bom",
+                    "moderate": "Moderado",
+                    "sufficient": "Suficiente",
+                    "very_bad": "Muito mal",
+                    "very_good": "Muito bom"
+                }
+            }
+        }
+    },
+    "system_health": {
+        "info": {
+            "can_reach_server": "Alcance o servidor GIO\u015a"
+        }
+    }
+}
