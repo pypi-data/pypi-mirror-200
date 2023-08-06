@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: casatools
+Version: 6.5.5.20
+Summary: CASA Python Module
+Home-page: https://open-bitbucket.nrao.edu/projects/CASA/repos/casatools/browse
+Author: CASA development team
+Author-email: aips2-request@nrao.edu
+Maintainer: Darrell Schiebel
+Maintainer-email: drs@nrao.edu
+License: GNU Library or Lesser General Public License (LGPL)
+Download-URL: https://casa.nrao.edu/download/
+Platform: posix
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: C++
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Requires-Dist: numpy
+
+This is a standard python module that provides CASA tools and tasks
+without regular CASA's bespoke CLI.
+
+

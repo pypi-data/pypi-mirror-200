@@ -1,0 +1,12 @@
+prefix=/root/casa6/casatools/build/lib.linux-x86_64-3.6/casatools/__casac__
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: gRPC
+Description: high performance general RPC framework
+Version: 5.0.0
+Cflags: -I${includedir} 
+Requires.private:  zlib 
+Libs: -L${libdir} -lgrpc
+Libs.private:  

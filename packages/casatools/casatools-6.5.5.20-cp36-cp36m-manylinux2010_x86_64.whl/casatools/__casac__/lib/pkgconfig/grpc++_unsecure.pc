@@ -1,0 +1,12 @@
+prefix=/root/casa6/casatools/build/lib.linux-x86_64-3.6/casatools/__casac__
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: gRPC++ unsecure
+Description: C++ wrapper for gRPC without SSL
+Version: 1.8.7
+Cflags: -I${includedir} 
+Requires.private: grpc_unsecure 
+Libs: -L${libdir} -lgrpc++
+Libs.private: 
