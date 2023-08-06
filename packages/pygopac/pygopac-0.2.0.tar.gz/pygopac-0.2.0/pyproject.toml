@@ -1,0 +1,33 @@
+[project]
+name = "pygopac"
+version = "0.2.0"
+description = "A simple library for working with pac files."
+authors = [{name = "Aleksey Petrunnik", email = "petrunnik.a@gmail.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development",
+    "Intended Audience :: Developers",
+]
+requires-python = ">=3.8, <3.12"
+dependencies = [
+    "requests>=2.18.4",
+]
+
+[project.urls]
+homepage = "https://github.com/aleksey925/py-gopac"
+repository = "https://github.com/aleksey925/py-gopac"
+
+[build-system]
+requires = [
+    "setuptools>=61.0.0",
+    "setuptools-golang-cli @ git+https://github.com/aleksey925/setuptools-golang-cli.git@0.0.3",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
