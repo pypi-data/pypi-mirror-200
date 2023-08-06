@@ -1,0 +1,1 @@
+KUKAJ_DOMAINS = ("serial.kukaj.io", "film.kukaj.io")
