@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: macleod_ide
+Version: 0.0.2.dev0
+Summary: An IDE plugin for the macleod parser
+Home-page: https://github.com/jesiahharris/macleod_ide
+Author: Reading Club Development
+Author-email: jesiah.harris4@gmail.com
+License: GNU General Public License v3
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >= 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+License-File: AUTHORS.md
+
+A plugin for the macelod parser designed for use in the Spyder IDE
