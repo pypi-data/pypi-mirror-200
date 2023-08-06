@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling","postgresdave_package","mysqldave_package","sqlitedave_package","garbledave_package"]
+
+build-backend = "hatchling.build"
+
+[project]
+name = "schemawizard_package"
+version = "2.3.6"
+dependencies = [
+  'postgresdave_package >= 1.7.6',
+  'mysqldave_package >= 1.3.7',
+  'sqlitedave_package >= 1.2.6',
+  'garbledave_package >= 1.0.0 '
+]
+authors = [
+  { name="Dave Skura", email="dskura@gmail.com" },
+]
+description = "Reads a csv and generates a table design for Postgres, MySQL, sqlite or BigQuery"
+readme = "README.md"
+requires-python = ">=3.7"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/daveskura/schemawizard"
+"Author Linkedin" = "https://www.linkedin.com/in/2166883"
