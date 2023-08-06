@@ -1,0 +1,13 @@
+ibm-cos-sdk>=2.13.0
+s3fs
+jupyter_server
+nbformat
+tornado
+traitlets
+
+[dev]
+black
+bumpver
+isort
+pip-tools
+pytest
