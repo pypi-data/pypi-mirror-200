@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: PyProtolinc
+Version: 0.1.6
+Summary: Projection Tool for Life Insurance Cash Flows
+Home-page: https://github.com/mseehafer/PyProtolinc
+Author: Martin Seehafer
+License: MIT
+Keywords: actuarial,projection,cash flows,life,insurance
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: numpy (==1.23.1)
+Requires-Dist: pandas
+Requires-Dist: xlrd
+Requires-Dist: cython (==3.0.0a11)
+Requires-Dist: pyyaml
+Requires-Dist: fire
+Requires-Dist: requests
+Requires-Dist: openpyxl
+Requires-Dist: pytest
+
