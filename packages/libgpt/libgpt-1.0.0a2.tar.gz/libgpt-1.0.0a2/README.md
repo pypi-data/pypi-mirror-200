@@ -1,0 +1,35 @@
+# libgpt
+libgpt is a free, tokenless ChatGPT for Python that uses Chrome (or Chromium) to generate responses based on the input message.
+Installation
+
+You can install libgpt with pip by running the following command:
+
+```
+pip install libgpt
+```
+You also need to have Chrome or Chromium installed on your system for this library to work properly.
+Usage
+
+After installation, you can import the libgpt class and create a new instance:
+
+```
+from libgpt import *
+# dont use any parameters
+gpt = libgpt()
+
+# set chromedriver
+gpt = libgpt(chromedriver='/path/to/chromedriver')
+
+# set chromepath
+gpt = libgpt(chromepath="/path/to/chrome")
+
+# set chromepath and chromedriver
+
+gpt = libgpt(chromepath="/path/to/chrome", chromedriver='/path/to/chromedriver')
+
+response = gpt.chat("Who are you?")
+print(responce)
+```
+This will prompt the user to input a message, which will be used as input to the GPT model. The libgpt() function will then return a generated response based on this message.
+
+libgpt is released under the MIT license. See the LICENSE file for more information.
