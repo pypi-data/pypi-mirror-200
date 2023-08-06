@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "pydantic_socket"
+version = "0.1.1"
+description = "Simple TCP socket client and server with Pydantic models"
+authors = ["pylakey <pylakey@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/pylakey/pydantic_socket"
+repository = "https://github.com/pylakey/pydantic_socket"
+packages = [
+    { include = "pydantic_socket" },
+]
+include = [
+    "README.md",
+    "CHANGELOG.md",
+]
+classifiers = [
+    "Framework :: AsyncIO",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic = "^1.10.7"
+ujson = "^5.7.0"
+aiohttp = { extras = ["speedups"], version = "^3.8.4" }
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
