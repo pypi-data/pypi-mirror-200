@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditAlertDialog</class>
+ <widget class="QDialog" name="EditAlertDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>323</width>
+    <height>145</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Edit Alerts</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QCheckBox" name="meanHighEnabled">
+     <property name="text">
+      <string>Mean High Alert</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="UnitFormatterDoubleSpinBox" name="meanHigh">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QCheckBox" name="meanLowEnabled">
+     <property name="text">
+      <string>Mean Low Alert</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="UnitFormatterDoubleSpinBox" name="meanLow">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QCheckBox" name="stdHighEnabled">
+     <property name="text">
+      <string>Std High Alert</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="UnitFormatterDoubleSpinBox" name="stdHigh">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QCheckBox" name="stdLowEnabled">
+     <property name="text">
+      <string>Std Low Alert</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="UnitFormatterDoubleSpinBox" name="stdLow">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>UnitFormatterDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>hyperborea.unit_formatter_spinbox</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>EditAlertDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>127</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>EditAlertDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>173</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>meanHighEnabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>meanHigh</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>53</x>
+     <y>19</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>19</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>meanLowEnabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>meanLow</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>56</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>40</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stdHighEnabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>stdHigh</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>67</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>71</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stdLowEnabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>stdLow</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>97</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

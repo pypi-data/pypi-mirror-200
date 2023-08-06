@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RFTestDialog</class>
+ <widget class="QDialog" name="RFTestDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>251</width>
+    <height>413</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RF Test</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0,1">
+   <item row="17" column="0" colspan="4">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="16" column="0" colspan="4">
+    <spacer name="verticalSpacer_8">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>10</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="8" column="2">
+    <widget class="QLabel" name="stopChannelLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Stop Channel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="2">
+    <widget class="QLabel" name="startFreqLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Start Frequency</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="3">
+    <widget class="QSpinBox" name="hopCount">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="maximum">
+      <number>65535</number>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="3">
+    <widget class="QSpinBox" name="hopInterval">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="suffix">
+      <string> ms</string>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>65535</number>
+     </property>
+    </widget>
+   </item>
+   <item row="14" column="1" colspan="3">
+    <widget class="QRadioButton" name="rxCarrierRadioButton">
+     <property name="text">
+      <string>RX Carrier</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="2">
+    <widget class="QLabel" name="hopCountLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Hop Count (0=∞)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="1" colspan="3">
+    <widget class="QRadioButton" name="txCarrierRadioButton">
+     <property name="text">
+      <string>TX Carrier</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="2">
+    <widget class="QLabel" name="hopIntervalLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Hop Interval</string>
+     </property>
+    </widget>
+   </item>
+   <item row="12" column="0" colspan="2">
+    <widget class="QLabel" name="testModeLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Test Mode</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLabel" name="fixedChannelLabel">
+     <property name="text">
+      <string>Channel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer_6">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>13</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1">
+    <spacer name="horizontalSpacer_7">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="8" column="3">
+    <widget class="QSpinBox" name="stopChannel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="singleStep">
+      <number>2</number>
+     </property>
+     <property name="value">
+      <number>78</number>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="3">
+    <widget class="QSpinBox" name="fixedDuration">
+     <property name="suffix">
+      <string> ms</string>
+     </property>
+     <property name="maximum">
+      <number>65535</number>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="1" colspan="3">
+    <widget class="QRadioButton" name="txModulatedRadioButton">
+     <property name="text">
+      <string>TX Modulated Carrier</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="testTypeLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Test Type</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="3">
+    <widget class="QSpinBox" name="startChannel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="singleStep">
+      <number>2</number>
+     </property>
+     <property name="value">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="2">
+    <widget class="QLabel" name="startChannelLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Start Channel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QSpinBox" name="fixedChannel">
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="singleStep">
+      <number>2</number>
+     </property>
+     <property name="value">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" colspan="3">
+    <widget class="QRadioButton" name="fixedRadioButton">
+     <property name="text">
+      <string>Fixed Frequency</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="2">
+    <widget class="QLabel" name="stopFreqLabel">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Stop Frequency</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="2">
+    <widget class="QLabel" name="fixedDurationLabel">
+     <property name="text">
+      <string>Duration (0=∞)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1" colspan="3">
+    <widget class="QRadioButton" name="sweepRadioButton">
+     <property name="text">
+      <string>Sweep</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="2">
+    <widget class="QLabel" name="centerFreqLabel">
+     <property name="text">
+      <string>Center Frequency</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="3">
+    <widget class="QLabel" name="stopFreq">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>2478 MHz</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="3">
+    <widget class="QLabel" name="startFreq">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>2402 MHz</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="3">
+    <widget class="QLabel" name="centerFreq">
+     <property name="text">
+      <string>2402 MHz</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>fixedRadioButton</tabstop>
+  <tabstop>fixedChannel</tabstop>
+  <tabstop>fixedDuration</tabstop>
+  <tabstop>sweepRadioButton</tabstop>
+  <tabstop>startChannel</tabstop>
+  <tabstop>stopChannel</tabstop>
+  <tabstop>hopInterval</tabstop>
+  <tabstop>hopCount</tabstop>
+  <tabstop>txCarrierRadioButton</tabstop>
+  <tabstop>rxCarrierRadioButton</tabstop>
+  <tabstop>txModulatedRadioButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>RFTestDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>403</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>RFTestDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>403</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fixedRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>fixedChannelLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>37</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>62</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fixedRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>fixedChannel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>166</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>189</x>
+     <y>59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fixedRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>fixedDurationLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fixedRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>fixedDuration</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>241</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startChannelLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startChannel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>241</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>stopChannelLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>stopChannel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>206</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>241</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hopIntervalLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>153</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hopInterval</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>241</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>241</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hopCountLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>128</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>hopCount</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>241</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fixedRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>centerFreqLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>101</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>109</x>
+     <y>86</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fixedRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>centerFreq</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>205</x>
+     <y>36</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>209</x>
+     <y>89</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startFreqLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>103</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>startFreq</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>188</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>192</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>stopFreqLabel</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>89</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sweepRadioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>stopFreq</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>127</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>214</x>
+     <y>226</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

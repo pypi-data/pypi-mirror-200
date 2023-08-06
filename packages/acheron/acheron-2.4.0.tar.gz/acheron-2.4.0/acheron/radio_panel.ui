@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RadioPanel</class>
+ <widget class="QGroupBox" name="RadioPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>141</width>
+    <height>270</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Radio Panel</string>
+  </property>
+  <property name="title">
+   <string>Radio</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="detailScanButton">
+       <property name="text">
+        <string>Detail Scan...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="clearButton">
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QListWidget" name="deviceList">
+     <property name="contextMenuPolicy">
+      <enum>Qt::ActionsContextMenu</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="connectButton">
+     <property name="text">
+      <string>Connect</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="disconnectButton">
+     <property name="text">
+      <string>Disconnect</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="advancedMenuButton">
+     <property name="text">
+      <string>Advanced Menu</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="ctrlVarLayout"/>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="goToRemoteButton">
+     <property name="text">
+      <string>Go To Remote Tab</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <action name="actionConnectAnyBootloader">
+   <property name="text">
+    <string>Connect Any Bootloader</string>
+   </property>
+  </action>
+  <action name="actionConnectSpecificBootloader">
+   <property name="text">
+    <string>Connect Specific Bootloader...</string>
+   </property>
+  </action>
+  <action name="actionConnectNoStreaming">
+   <property name="text">
+    <string>Connect (No Streaming)</string>
+   </property>
+  </action>
+  <action name="actionBulkClaim">
+   <property name="text">
+    <string>Bulk Claim</string>
+   </property>
+   <property name="toolTip">
+    <string>Bulk Claim</string>
+   </property>
+  </action>
+  <action name="actionBulkUpdateFirmware">
+   <property name="text">
+    <string>Bulk Update Firmware</string>
+   </property>
+  </action>
+  <action name="actionConnectSpecificSerial">
+   <property name="text">
+    <string>Connect Specific Serial...</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="text">
+    <string>Clear Scan List</string>
+   </property>
+   <property name="toolTip">
+    <string>Clear Scan List</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,8 @@
+# include the main requirements
+-r requirements.txt
+
+cx-Freeze==6.13.1
+lief==0.12.1
+packaging==21.3
+pyparsing==3.0.9
+wheel==0.37.1
