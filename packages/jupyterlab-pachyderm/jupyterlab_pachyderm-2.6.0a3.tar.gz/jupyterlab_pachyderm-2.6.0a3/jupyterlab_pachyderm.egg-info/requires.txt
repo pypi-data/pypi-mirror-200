@@ -1,0 +1,12 @@
+jupyter_server<2,>=1.6
+sameproject==0.2.5
+
+[dev]
+black
+jupyter_packaging<2,~=0.10.0
+jupyterlab>=3.0.14
+pre-commit
+pytest
+pytest-asyncio
+pytest-tornasync
+python-pachyderm<8,>=v7.4.0
