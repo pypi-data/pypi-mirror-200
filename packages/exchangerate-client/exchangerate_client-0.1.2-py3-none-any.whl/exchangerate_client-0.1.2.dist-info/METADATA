@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: exchangerate-client
+Version: 0.1.2
+Summary: Unofficial exchangerate.host python client library
+Home-page: https://github.com/dannyp11/exchangerate-python-client
+Author: Daniel Pham
+Author-email: tdpham1105@yahoo.com
+Project-URL: Documentation, https://github.com/dannyp11/exchangerate-python-client
+Project-URL: Bug Reports, https://github.com/dannyp11/exchangerate-python-client/issues
+Project-URL: Source Code, https://github.com/dannyp11/exchangerate-python-client
+Keywords: exchangerate.host,exchangerate,client
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+
+# Introduction
+This is unofficial https://exchangerate.host (https://github.com/Formicka/exchangerate.host) python client library
+
+# Getting started
+
+## Installation
+- Using pip `pip install exchangerate-client`
+
+## Usage
+- Get all currency symbols
+```
+import exchangerate
+client = exchangerate.ExchangerateClient()
+print(client.symbols())
+```
+
+- Get latest rates
+```
+import exchangerate
+client = exchangerate.ExchangerateClient()
+print(client.latest())
+```
+
+## Configuration
+- 
+
+# Development guide
+## Testing
+This package uses `tox` to run testing automation against multiple python versions, to install and run tox, use
+
+```
+pip install tox
+tox
+```
+
+## Local development
+- Install to local env with `pip install --editable .`
+- Then this will work `python -c "import exchangerate"`
