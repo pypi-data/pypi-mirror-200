@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: curldl
+Version: 0.1.0
+Summary: Safely and reliably download files with PycURL
+Author-email: Michael Orlov <orlovm@noexec.org>
+License: LGPL-3.0-or-later
+Project-URL: repository, https://github.com/noexec/curldl
+Keywords: cURL,PycURL,download
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: File Transfer Protocol (FTP)
+Classifier: Topic :: System :: Networking
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: minimal
+Provides-Extra: test
+Provides-Extra: environment
+License-File: LICENSE.md
+
+[![Tests with Coverage and Static Analysis](https://github.com/noexec/curldl/actions/workflows/tests.yml/badge.svg)](https://github.com/noexec/curldl/actions/workflows/tests.yml)
+
+# curldl
+
+__curldl__ safely and reliably downloads files with PycURL.
+
+
+## Testing
+```shell
+./venv.sh install-venv
+./venv.sh pytest
+./venv.sh bandit -c pyproject.toml -r .
+```
+
+## License
+
+This project is released under the [GNU LGPL License Version 3](LICENSE.md) or any later version.
