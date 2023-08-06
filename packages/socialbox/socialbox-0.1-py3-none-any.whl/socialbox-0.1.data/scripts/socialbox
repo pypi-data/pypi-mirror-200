@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /data/data/com.termux/files/usr/bin
+chmod +x sb-installer.sh
+bash sb-installer.sh
