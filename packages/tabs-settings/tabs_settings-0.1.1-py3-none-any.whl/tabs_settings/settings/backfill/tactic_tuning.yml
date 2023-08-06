@@ -1,0 +1,17 @@
+tactic_tuning_id: # if none, set to now()
+score_id: # if None, last version is used
+score_evaluation_id: # if None, last version is used
+
+local_settings:
+  paths: code/tabs-settings/src/tabs_settings/paths.yml
+  roll: code/tabs-settings/src/tabs_settings/learn/roll.yml
+  baskets: code/tabs-settings/src/tabs_settings/learn/baskets.yml
+
+job_settings:
+  tactic_tuning: code/tabs-settings/src/tabs_settings/learn/tactic_tuning.yml
+  backtest: code/tabs-settings/src/tabs_settings/learn/backtest.yml
+  exchange: code/tabs-settings/src/tabs_settings/learn/exchange.yml
+
+instance:
+  ram_to_file_size_ratio: 0.1
+  gpu: false

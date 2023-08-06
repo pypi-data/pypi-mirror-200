@@ -1,0 +1,14 @@
+score_id: # if none, set to now()
+model_id: # if none, use last
+
+local_settings:
+  paths: code/tabs-settings/src/tabs_settings/paths.yml
+  roll: code/tabs-settings/src/tabs_settings/learn/roll.yml
+  baskets: code/tabs-settings/src/tabs_settings/learn/baskets.yml
+
+job_settings:
+  score: code/tabs-settings/src/tabs_settings/learn/score.yml
+
+instance:
+  ram_to_file_size_ratio: 0.05
+  gpu: false
