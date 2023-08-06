@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: bigraph-viz
+Version: 0.0.3
+Summary: A graphviz-based plotting tool for compositional bigraph schema
+Home-page: https://github.com/vivarium-collective/bigraph-viz
+Author: Eran Agmon
+Author-email: agmon.eran@gmail.com
+License: UNKNOWN
+Description: # Bigraph-viz
+        A graphviz-based plotting tool for compositional bigraph schema
+        
+        ## Getting Started
+        
+        Bigraph-viz is available on PyPI [here](https://pypi.org/project/bigraph-viz/0.0.1/), and can be installed as a python 
+        library like this:
+        
+        ```console
+        $ pip install bigraph-viz
+        ```
+        
+        This requires [graphviz](https://pypi.org/project/graphviz/)
+        
+        <p align="center">
+            <img src="https://github.com/vivarium-collective/bigraph-viz/blob/main/doc/_static/nested_composite.png?raw=true" width="340">
+        </p>
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
