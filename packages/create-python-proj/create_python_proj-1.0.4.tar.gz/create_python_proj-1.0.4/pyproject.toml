@@ -1,0 +1,40 @@
+[project]
+name = "create-python-proj-wiresv"
+version = "1.0.4"
+authors = [{ name = "wiresv", email = "austinhwx@gmail.com" }]
+description = "Set up a modern Python project by running one command."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/wiresv/create-python-proj"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[tool.poetry]
+name = "create-python-proj"
+version = "1.0.4"
+description = "Set up a modern Python project by running one command."
+authors = ["wiresv <austinhwx@gmail.com>"]
+license = "MIT"
+include = ["create_python_proj.sh"]
+
+[tool.poetry.scripts]
+create-python-proj = "create_python_proj.main:main"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.dev-dependencies]
+mypy = "^1.1.1"
+black = "^23.3.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+pytest = "^7.2.2"
+pytest-sugar = "^0.9.6"
