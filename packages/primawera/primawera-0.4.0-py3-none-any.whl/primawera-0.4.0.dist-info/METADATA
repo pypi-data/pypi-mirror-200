@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: primawera
+Version: 0.4.0
+Summary: Simple image viewer with 3D, complex and floating images support.
+Author-email: Bruno Petrus <xpetrus@fi.muni.cz>
+Project-URL: Source, https://gitlab.fi.muni.cz/xpetrus/primawera
+Project-URL: Bug tracker, https://gitlab.fi.muni.cz/xpetrus/primawera/-/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: COPYING.txt
+Requires-Dist: numpy (>=1.23)
+Requires-Dist: Pillow (>=9.2)
+Requires-Dist: PyQt5 (>=5.15.7)
+Requires-Dist: h5py (>=3.7)
+
+# Intro
+
+Primawera is a simple imager viewer with support for non-standard image data such as complex, floating point
+or 3D image data.
+
+# Installation
+
+This package is available at [PyPI](https://pypi.org/project/primawera/). To install the package using `pip`
+run:
+```bash
+python -m pip install primawera
+```
+
+# Building
+
+## Required packages
+
+More detailed information about version of packages is inside the `pyproject.toml` file.
+
+- Python 3.10
+- numpy
+- PIL
+- PyQt5
+- Qt
+- h5py
+
+## Building and installing the package
+
+Make sure you have the latest version of `setuptools`, `pip` and `venv` packages as the building requires some
+newer features of `setuptools`.
+
+Inside the root folder run:
+```bash
+python -m build
+```
+
+The command should build a wheel file inside the `dist` folder. To install it run:
+```bash
+pip install <PATH TO WHEEL FILE>
+```
+
+# Usage
+
+## Start without any data
+
+It is possible to run the viewer without any data.
+```python
+from primawera.app import create_window
+create_window()
+```
+
+## Visualise numpy data
+
+If you want to visualise data inside a numpy array, you will have to import the function `run_app`. Sometimes it is not
+possible to automatically infer the mode (see [Pillow image modes](https://pillow.readthedocs.io/en/stable/handbook/concepts.html)).
+in which case it has to be provided it manually.
+```python
+from primawera.app import run_app
+import numpy as np
+data = np.random.random((10, 10, 10))
+run_app(data)
+# Or
+run_app(data, mode="float")
+```
+
+## Run from terminal
+
+Simply run
+
+```bash
+primawera
+```
+
+## Recognized image modes (case insensitive)
+
+| Image type | Legal Mode                                   |
+|------------|----------------------------------------------|
+| Boolean    | 1, bool                                      |
+| Grayscale  | gray, grey, grayscale, greyscale, I;16 I;16B |
+| RGB        | rgb, color, colour                           |
+| Floating   | f, float, floating                           |
+| Complex    | c, complex                                   |                                            
