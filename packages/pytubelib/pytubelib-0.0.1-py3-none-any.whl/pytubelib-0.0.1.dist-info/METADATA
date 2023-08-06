@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: pytubelib
+Version: 0.0.1
+Summary: PyTubeLib is a tool for interacting with the YouTube Data v3 API using Python. With PyTubeLib, you can search for channels and videos using keywords, get details about specific channels and videos, and search for the latest videos from a channel. The class is designed to handle common API errors and returns results in JSON format for easy processing.
+Home-page: https://github.com/xXBlackDev9010Xx/PyTubeLib
+Author: xXBlackDev9010Xx
+Author-email: tecnoblue9010@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: google-api-python-client
+Requires-Dist: google-auth-oauthlib
+Requires-Dist: google-auth-httplib2
+Requires-Dist: colors-terminal
+
+# PyTubeLib
+
+## Installation
+
+`pip install pytubelib`
+## Usage
+
+	from pytubelib import YTAPI
+
+	# Load credentials from a JSON file
+	creds_file = '/path/to/credentials.json'
+
+	# Create an instance of the YTAPI class
+	yt = YTAPI(creds_file)
+
+	# Search for channels by keyword
+	channels = yt.search_channels('xXBlackDev9010Xx')
+
+	# Get details for the first channel in the list
+	channel_id = channels[0]
+	channel_details = yt.get_channel_details(channel_id)
+
+	# Search for videos in the channel by keyword
+	videos = yt.search_new_videos(channel_id, 'tutorial')
+
+	# Get details for the first video in the list
+	video_id = videos[0]['id']['videoId']
+	video_details = yt.get_video_details(video_id)
