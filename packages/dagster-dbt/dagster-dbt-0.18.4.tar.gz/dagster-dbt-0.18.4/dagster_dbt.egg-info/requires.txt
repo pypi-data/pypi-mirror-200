@@ -1,0 +1,9 @@
+dagster==1.2.4
+dbt-core>=1.1
+requests
+typer[all]
+
+[test]
+Jinja2
+dbt-rpc<0.3.0
+dbt-postgres
