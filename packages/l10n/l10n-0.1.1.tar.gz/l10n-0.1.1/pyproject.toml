@@ -1,0 +1,106 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "l10n"
+authors = [
+    {name = "Gram", email = "gram@orsinium.dev"},
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.7"
+dynamic = ["version", "description"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Internationalization",
+    "Topic :: Software Development :: Localization",
+    "Topic :: Text Processing :: Linguistic",
+    "Typing :: Typed",
+]
+keywords = [
+    "localization",
+    "internationalization",
+    "l10n",
+    "i18n",
+    "locale",
+    "locales",
+    "translation",
+    "gettext",
+]
+dependencies = []
+
+[project.optional-dependencies]
+cli = [
+    "mypy",
+    "tomli",
+    "polib",
+    "googletrans==4.0.0rc1",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+]
+lint = [
+    "flake8-length",
+    "flake8",
+    "isort",
+    "mypy",
+    "types-polib",
+    "types-toml",
+    "unify",
+]
+docs = [
+    "sphinx",
+    "myst-parser",
+]
+
+[project.urls]
+Source = "https://github.com/orsinium-labs/l10n"
+
+[tool.mypy]
+files = ["l10n", "tests"]
+python_version = 3.9
+ignore_missing_imports = true
+# follow_imports = "silent"
+show_error_codes = true
+
+# Settings making mypy checks harder.
+# If something here produces too many false-positives,
+# consider turning it off.
+check_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+warn_redundant_casts = true
+warn_unreachable = true
+# warn_unused_ignores = true
+
+[tool.isort]
+profile = "django"
+lines_after_imports = 2
+skip = ".venvs/"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov=l10n",
+    "--cov-report=html",
+    "--cov-report=xml",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-fail-under=72",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING",
+    "    pass",
+    "except ImportError:",
+]
+
+[tool.coverage.run]
+branch = true
