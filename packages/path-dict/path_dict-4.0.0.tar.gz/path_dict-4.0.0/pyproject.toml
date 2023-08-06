@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "path_dict"
+version = "4.0.0"
+repository = "https://github.com/mkrd/PathDict"
+description = "Extends Python's dict with useful extras"
+authors = ["Marcel Kröker <kroeker.marcel@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+classifiers=[
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+	"Intended Audience :: Developers",
+	"Programming Language :: Python",
+	"Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+pycodestyle = "^2.10.0"
+black = "^23.1.0"
+pytest-cov = "^4.0.0"
+pyinstrument = "^4.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
