@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "tui-rsync"
+version = "0.8.11"
+description = "tui-rsync will help you to manage yours backups."
+authors = ["Kostiantyn Klochko <kostya_klochko@ukr.net>"]
+readme = "README.rst"
+license = "GPL-3.0-or-later"
+packages = [{include = "tui_rsync"}]
+repository = "https://gitlab.com/KKlochko/tui-rsync"
+keywords = ["tui", "cli", "rsync", "backup"]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://gitlab.com/KKlochko/tui-rsync/issues"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+rich = "^13.3.1"
+typer = "^0.7.0"
+peewee = "^3.15.4"
+pyfzf = "^0.3.1"
+platformdirs = "^3.1.1"
+
+[tool.poetry.scripts]
+tui-rsync = "tui_rsync.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

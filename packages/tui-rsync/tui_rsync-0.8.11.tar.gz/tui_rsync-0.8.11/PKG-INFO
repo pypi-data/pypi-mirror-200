@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: tui-rsync
+Version: 0.8.11
+Summary: tui-rsync will help you to manage yours backups.
+Home-page: https://gitlab.com/KKlochko/tui-rsync
+License: GPL-3.0-or-later
+Keywords: tui,cli,rsync,backup
+Author: Kostiantyn Klochko
+Author-email: kostya_klochko@ukr.net
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: peewee (>=3.15.4,<4.0.0)
+Requires-Dist: platformdirs (>=3.1.1,<4.0.0)
+Requires-Dist: pyfzf (>=0.3.1,<0.4.0)
+Requires-Dist: rich (>=13.3.1,<14.0.0)
+Requires-Dist: typer (>=0.7.0,<0.8.0)
+Project-URL: Bug Tracker, https://gitlab.com/KKlochko/tui-rsync/issues
+Project-URL: Repository, https://gitlab.com/KKlochko/tui-rsync
+Description-Content-Type: text/x-rst
+
+tui-rsync
+=========
+
+|PyPI version|
+
+tui-rsync is the application that will help you to manage yours backups.
+It uses rsync for syncing backups.
+
+Dependencies
+============
+
+-  rsync
+-  fzf
+
+Author
+======
+
+Kostiantyn Klochko (c) 2023
+
+License
+=======
+
+Under GNU GPL v3 license
+
+.. |PyPI version| image:: https://badge.fury.io/py/tui-rsync.svg
+   :target: https://badge.fury.io/py/tui-rsync
+
