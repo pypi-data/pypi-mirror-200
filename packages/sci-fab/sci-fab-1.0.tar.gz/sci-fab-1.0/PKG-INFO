@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: sci-fab
+Version: 1.0
+Summary: Build system for scientific software
+Home-page: https://github.com/Metomi/fab
+Author: SciFab Developers
+Author-email: metomi@metoffice.gov.uk
+License: UNKNOWN
+Project-URL: Bug reports, https://github.com/metomi/fab/issues
+Project-URL: Source, https://github.com/metomi/fab/
+Description: # Fab - A Build System for Tomorrow!
+        
+        ![](https://github.com/Metomi/fab/workflows/Build/badge.svg)
+        
+        The "Fab" build system aims to provide a quick and easy build process tailored towards a
+        specific subset of scientific software developers. Quick should be in both use and
+        operation. Easy should mean the simple things are simple and the complicated things
+        possible.
+        
+        The tool is not intended for general use outside its intended domain although you are,
+        of course, welcome to use it there. Just don't expect high priority to be given to
+        features which do not target scientific software development.
+        
+        ## Licence
+        
+        The software is made available under a 3-clause BSD licence.
+        
+        ## Installation
+        
+        You may simply use `pip install sci-fab`.
+        
+        ## Usage
+        
+        Although Fab is in its initial development phases right now and much of the
+        functionality is yet to be added, the command line interface to the tool is 
+        in place and can be run using the command `fab` 
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Provides-Extra: tests
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: features
