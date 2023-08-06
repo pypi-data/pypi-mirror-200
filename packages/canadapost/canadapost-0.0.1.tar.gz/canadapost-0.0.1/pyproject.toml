@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools", "wheel", "build"]
+# build-backend = "setuptools.build_meta"
+
+[project]
+name = "canadapost"
+version = "0.0.1"
+description = "CanadaPost API implementation"
+readme = "README.rst"
+requires-python = ">3.7"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "requests",
+    "lxml",
+    "asyncio",
+    "aiohttp",
+]
+
+[[project.authors]]
+name = "Loïc Faure-Lacroix"
+email = "lamerstar@gmail.com"
+
+[project.optional-dependencies]
+test = [
+    'coverage[toml]',
+    'pytest',
+    'pytest-asyncio',
+    'pytest-cov',
+    'pytest-mock',
+    'typing-extensions>=4.3,<5',
+]
+
+[tools.pytest]
+    asyncio_mode = "strict"

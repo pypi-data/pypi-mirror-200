@@ -1,0 +1,12 @@
+requests
+lxml
+asyncio
+aiohttp
+
+[test]
+coverage[toml]
+pytest
+pytest-asyncio
+pytest-cov
+pytest-mock
+typing-extensions<5,>=4.3
