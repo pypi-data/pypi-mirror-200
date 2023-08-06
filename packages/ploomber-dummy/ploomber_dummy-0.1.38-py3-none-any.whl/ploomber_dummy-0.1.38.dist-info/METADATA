@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: ploomber-dummy
+Version: 0.1.38
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: invoke ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
