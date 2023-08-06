@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: anomalearn
+Version: 0.0.1
+Summary: A modular and extensible end-to-end library for time series anomaly detection
+Home-page: https://marcopetri98.github.io/anomalearn
+License: European Union Public Licence 1.2 (EUPL 1.2)
+Keywords: time series,anomaly detection,machine learning,development
+Author: Marco Petri
+Author-email: marco.petri@mail.polimi.it
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+
+# anomalearn: time series anomaly detection library
+
+## When will the code be fully released?
+
+ASAP since it is part of a thesis work whose dissertation is planned
+for 4th May 2023.
+
+## Current state of the package
+
+Because of how thesis' submission is handled, the name of the library must be
+"registered" in some way before thesis submission in university's online
+services.
+
+## What is it?
+
+anomalearn is a [**Python**][python-url] package that provides modular and
+extensible functionalities for developing anomaly detection methods for time
+series data, reading publicly available time series anomaly detection datasets,
+creating the loading of data for experiments, and dataset evaluation functions.
+Additionally, anomalearn development's plans include the implementation of
+several state-of-the-art and historical anomaly detection methods, and the
+implementation of objects to automate the training process of methods. See
+Discussion and development section for more details.
+
+[python-url]: https://www.python.org/

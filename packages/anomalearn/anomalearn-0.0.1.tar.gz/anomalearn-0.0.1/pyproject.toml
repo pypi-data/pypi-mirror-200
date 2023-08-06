@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "anomalearn"
+version = "0.0.1"
+description = "A modular and extensible end-to-end library for time series anomaly detection"
+authors = ["Marco Petri <marco.petri@mail.polimi.it>"]
+license = "European Union Public Licence 1.2 (EUPL 1.2)"
+readme = "README.md"
+homepage = "https://marcopetri98.github.io/anomalearn"
+keywords = ["time series", "anomaly detection", "machine learning", "development"]
+classifiers = [
+	"Development Status :: 2 - Pre-Alpha",
+	"Intended Audience :: Developers",
+	"Intended Audience :: Science/Research",
+	"License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)",
+	"Operating System :: OS Independent",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Topic :: Scientific/Engineering :: Artificial Intelligence",
+	"Topic :: Software Development :: Libraries :: Python Modules"
+]
+packages = [
+	{ include = "anomalearn" }
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
