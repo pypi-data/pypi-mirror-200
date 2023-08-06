@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: scikit-fmm
+Version: 2023.4.2
+Summary: An extension module implementing the fast marching method
+Home-page: https://github.com/scikit-fmm/scikit-fmm
+Maintainer: Jason Furtney
+Maintainer-email: jkfurtney@gmail.com
+License: BSD
+Keywords: fast marching method,Eikonal equation,interface,boundary
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.txt
+
+scikit-fmm is a Python extension module which implements the fast
+marching method.
+
+- Signed distance functions
+- Travel time transforms (solutions to the Eikonal equation)
+- Extension velocities
+
+https://github.com/scikit-fmm/scikit-fmm

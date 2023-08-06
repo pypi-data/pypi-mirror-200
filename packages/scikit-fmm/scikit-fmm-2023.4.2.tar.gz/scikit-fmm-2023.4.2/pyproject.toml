@@ -1,0 +1,6 @@
+[build-system]
+requires = [
+    "wheel",
+    "setuptools==64.0.0",
+    "oldest-supported-numpy",
+]
