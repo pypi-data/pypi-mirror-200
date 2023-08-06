@@ -1,0 +1,13 @@
+# Rust stuff
+/target
+
+# Python stuff
+/dist
+.tox
+__pycache__
+
+# GitLab CI stuff
+/.cargo/
+/cargo/
+/mypy_venv/
+/pdoc_venv/
