@@ -1,0 +1,15 @@
+ulid-py<2,>=1
+httpx==0.23.0
+
+[events]
+pydantic<2,>=1
+
+[gcp_cloud_run]
+google-cloud-run<1
+
+[gcp_cloud_tasks]
+google-cloud-tasks<3,>=2
+
+[gcp_pubsub]
+google-cloud-pubsub<3,>=2
+tenacity<9,>=8
