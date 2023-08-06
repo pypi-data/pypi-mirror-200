@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pybarb
+Version: 0.1
+Summary: A package to interact with the BARB API
+Home-page: https://github.com/coppeliaMLA/barb_api
+Author: Simon Raper
+Author-email: info@barb.co.uk
+Requires-Dist: requests
+Requires-Dist: json
+Requires-Dist: pandas
+Requires-Dist: sqlalchemy
+Requires-Dist: plotly
+
