@@ -1,0 +1,18 @@
+from cdek_interface.models import (
+    CdekThreshold,
+    CdekMoney,
+    CdekPhones,
+    CdekContact,
+    CdekSeller,
+    CdekLocation,
+    CdekService,
+    CdekItem,
+    CdekPackage,
+    CDEK_MANAGERS_ERROR_CODES,
+    CdekIntakes,
+    CdekIntakesMongo,
+    CdekTypeEnum,
+    BaseCdekInternetShopOrder,
+    CdekServices,
+    TariffCodesInternetShops,
+)
