@@ -1,0 +1,9 @@
+dask-cloudprovider[aws]==2022.10.0
+pandas
+numpy
+cryptography
+botocore~=1.27.59
+distributed~=2023.3.0
+dask~=2023.3.0
+GitPython
+requests
