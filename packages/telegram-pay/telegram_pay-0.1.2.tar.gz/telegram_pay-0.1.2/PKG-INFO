@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: telegram-pay
+Version: 0.1.2
+Summary: Wrapper for api.pay.4u.studio
+License: MIT
+Author: Snimshchikov Ilya
+Author-email: snimshchikov.ilya@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiohttp (>=3.8.4,<4.0.0)
+Requires-Dist: pydantic (>=1.10.6,<2.0.0)
+Requires-Dist: pytz (>=2022.7.1,<2023.0.0)
+Description-Content-Type: text/markdown
+
+# Install
+`pip install telegram-pay`
+
+# Use
+```python
+from telegram_pay import TelegramPay
+
+async def main():
+    
+    client = TelegramPay(shop_id=SHOP_ID, shop_token=SHOP_TOKEN)
+    subscription = await client.get_user_subscription(USER_ID, SUBSCRIPTION_ID)
+
+    if subscription.valid:
+        # User is subscribed
+    else:
+        # User is not subscribed
+```

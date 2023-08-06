@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "telegram-pay"
+version = "0.1.2"
+description = "Wrapper for api.pay.4u.studio"
+authors = ["Snimshchikov Ilya <snimshchikov.ilya@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "telegram_pay"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiohttp = "^3.8.4"
+pytz = "^2022.7.1"
+pydantic = "^1.10.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
