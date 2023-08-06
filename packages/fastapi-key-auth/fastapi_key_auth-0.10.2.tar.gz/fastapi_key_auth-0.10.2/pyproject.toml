@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "fastapi-key-auth"
+version = "0.10.2"
+description = "API key validation Middleware"
+authors = ["Benjamin Ramser <legionaerr@googlemail.com>"]
+license = "MIT"
+readme = "readme.md"
+homepage = "https://github.com/iwpnd/fastapi-key-auth"
+repository = "https://github.com/iwpnd/fastapi-key-auth"
+keywords = ["tile38", "async", "client"]
+
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fastapi = ">=0.84.0"
+starlette = ">=0.25.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
+pre-commit = "^2.21.0"
+black = "^23.1.0"
+gitlint = "^0.19.0"
+poethepoet = ">=0.18.1,<0.20.0"
+isort = "^5.11.5"
+pytest-cov = "^4.0.0"
+flake8 = "^5.0.4"
+requests = "^2.28.2"
+mypy = "^1.1.1"
+python-semantic-release = "^7.33.1"
+httpx = "^0.23.3"
+
+[mypy]
+python_version = 3.7
+ignore_missing_imports = true
+
+
+[tool.semantic_release]
+version_variable = [
+    "fastapi_key_auth/__init__.py:__version__",
+    "pyproject.toml:version"
+]
+commit_subject = "ci: release v{version}"
+branch = "main"
+upload_to_pypi = true
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
+
+[tool.poe.tasks]
+test       = "poetry run pytest -vv -s tests/"
+test-cov   = "poetry run pytest -vv -s --cov=fastapi_key_auth tests/"
+mypy       = "poetry run mypy --ignore-missing-imports --config-file pyproject.toml"
+lint       = "flake8 ."
+publish		 = "poetry run semantic-release publish"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
