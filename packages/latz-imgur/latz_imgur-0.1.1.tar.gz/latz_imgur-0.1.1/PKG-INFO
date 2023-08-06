@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: latz-imgur
+Version: 0.1.1
+Summary: Imgur plugin for the popular latz image search CLI tool
+License: GPUv3
+Author: Travis Hathaway
+Author-email: travis.j.hathaway@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: httpx (>=0.23.1,<0.24.0)
+Requires-Dist: latz (==0.2.0)
+Requires-Dist: pydantic (>=1.10.4,<2.0.0)
+Description-Content-Type: text/markdown
+
+# latz-imgur
+Imgur plugin for the popular latz image search CLI tool
+
