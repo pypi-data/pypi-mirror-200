@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: resotoeventlog
+Version: 3.3.0
+Summary: Event log aggregator for resoto.
+Home-page: https://github.com/someengineering/resoto/tree/main/resotoeventlog
+License: Apache Software License 2.0
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp-swagger3 (==0.7.4)
+Requires-Dist: aiohttp[speedups] (==3.8.4)
+Requires-Dist: aiostream (==0.4.5)
+Requires-Dist: resotolib (==3.3.0)
+Requires-Dist: setuptools (==67.2.0)
+Requires-Dist: jsons (~=1.6.2)
+
+# `resotoeventlog`
+Resoto event log aggregator
+
+
+## Table of contents
