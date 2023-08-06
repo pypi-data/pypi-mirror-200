@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: launchflow
+Version: 0.1.0
+Author-email: Caleb Van Dyke <caleb@launchflow.com>, Josh Tanke <josh@launchflow.com>
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+
+# Launchflow CLI
+
+CLI for launching buildflows on launchflow.
+
+## Example usage:
+
+```
+launch --help
+```
+
+```
+launch organization get <ORG_NAME>
+```
+
+```
+launch flow get <ORG_NAME>/<FLOW_NAME>
+```
