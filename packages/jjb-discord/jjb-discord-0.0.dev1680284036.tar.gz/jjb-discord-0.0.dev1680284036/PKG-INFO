@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: jjb-discord
+Version: 0.0.dev1680284036
+Summary: Jenkins Job Builder Discord Notifier
+Home-page: https://github.com/ettoreleandrotognoli/jjb-discord
+Download-URL: https://github.com/ettoreleandrotognoli/jjb-discord/tree/v0.0.dev1680284036/
+Author: Ettore Leandro Tognoli
+Author-email: ettoreleandrotognoli@gmail.com
+License: Apache License 2.0
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# jjb-discord
+
+Now on [jenkins-job-builder repo](https://review.opendev.org/admin/repos/jjb/jenkins-job-builder) 
+
+Issue: https://github.com/ettoreleandrotognoli/jjb-discord/issues/1
+
+Merged: https://review.opendev.org/c/jjb/jenkins-job-builder/+/878944
+
+---
+
+Jenkins job builder for Discord Notifier
+
+[discord-notifier](https://plugins.jenkins.io/discord-notifier/)@[1.4.14](https://github.com/jenkinsci/discord-notifier-plugin/tree/v1.4.14)
+
+# Getting started
+
+```yaml
+- project:
+    publishers:
+      - discord-notifier:
+          webhook-url: "https://discord.com/api/webhooks/..."
+          enable-url-linking: true
+          send-start-notification: true
+          status-title: "Title"
+```
