@@ -1,0 +1,104 @@
+# This data were extracted  from FANUC manual:
+# OPERATOR'S MANUAL (Alarm Code List)
+# R-30+B CONTROLLER 
+# B-83284EN-1/02
+#
+#
+# by Wael Hojak (codeberg.org/hojak)
+#
+#
+Facility Name,Facility Code (Decimal),Facility Code (Hexadecimal),Description
+ACAL,112,0x70,AccuCal
+APSH,38,0x26,Application shell
+ARC,53,0x35,Arc welding application
+ASBN,22,0x16,Mnemonic editor
+ATGP,102,0x66,Attach group
+ATZN,138,0x8a,Auto zone
+BBOX,118,0x76,Bump box
+CALM,106,0x6a,Calibration Mate
+CD,82,0x52,Coordinated motion
+CMND,42,0x2a,Command processor
+CNTR,73,0x49,Continuous turn
+COND,4,0x4,Condition handler
+COPT,37,0x25,Common options
+CPMO,114,0x72,Constant Path
+CUST,97,0x61,Customer specific errors
+CVIS,117,0x75,Vision
+DICT,33,0x21,Dictionary processor
+DJOG,64,0x40,Detached jog
+DMDR,84,0x54,Dual Motion Drive
+DMER,40,0x28,Data monitor
+DNET,76,0x4c,DeviceNet
+DX,72,0x48,Delta Tool/Frame
+ELOG,5,0x5,Error logger
+FILE,2,0x2,File system
+FLPY,10,0xa,Serial floppy disk system
+FORC,91,0x5b,force control (force sensor)
+FRSY,85,0x55,Flash file system
+FXTL,136,0x88,C-flex tool
+HOST,67,0x43,Host communications general
+HRTL,66,0x42,Host communications run time library
+IB-S,88,0x58,Interbus-S
+INTP,12,0xc,Interpreter internal errors
+ISD,39,0x27,ISD (Integral Servo Dispenser)
+JOG,19,0x13,Manual jog
+KALM,122,0x7a,KAREL alarm
+LANG,21,0x15,Language utility
+LECO,109,0x6d,Arc errors from Lincoln Electric
+LNTK,44,0x2c,Line tracking
+LSTP,108,0x6c,Local Stop error
+MACR,57,0x39,MACRO
+MARL,83,0x53,Material removal
+MCTL,6,0x6,Motion control
+MEMO,7,0x7,Memory
+MENT,68,0x44,ME-NET
+MHND,41,0x29,Material Handling shell and menus
+MOTN,15,0xf,Motion
+MUPS,48,0x30,Multi-pass motion
+NOM,133,0x85,Nominal Position
+OPTN,65,0x41,Option installation
+OS,0,0x0,Operating system
+PALL,115,0x73,PalletTool
+PALT,26,0x1a,Palletizing application
+PICK,132,0x84,Pick tool
+PMON,28,0x1c,PC monitor
+PNT1,86,0x56,Paint application
+PNT2,137,0x89,Paint application
+PRIO,13,0xd,Digital I/O
+PROF,92,0x5c,Profibus DP
+PROG,3,0x3,Interpreter
+PTPG,140,0x8c,Paint plug-in
+PWD,31,0x1f,Password logging
+QMGR,61,0x3d,KAREL queue manager
+RIPE,130,0x82,Ros IP errors
+ROUT,17,0x11,Softpart built-in routine for interpreter
+RPC,93,0x5d,RPC
+RPM,43,0x2b,Root Pass Memorization
+RTCP,89,0x59,Remote TCP
+SCIO,25,0x19,Syntax checking for teach pendant programs
+SDTL,123,0x7b,System design tool
+SEAL,51,0x33,Sealing application
+SENS,58,0x3a,Sensor interface
+SHAP,79,0x4f,Shape generation
+SPOT,23,0x17,Spot welding application
+SPRM,131,0x83,Ramp motion
+SRIO,1,0x1,Serial driver
+SRVO,11,0xb,FLTR & SERVO
+SSPC,69,0x45,Special space checking
+SVGN,30,0x1e,Servo weld gun application
+SYST,24,0x18,System
+TAST,47,0x2f,Through-Arc Seam Tracking
+TCPP,46,0x2e,TCP speed prediction
+TG,90,0x5a,Triggering accuracy
+THSR,60,0x3c,Touch Sensing
+TJOG,116,0x74,Tracking Jog
+TMAT,119,0x77,Torch Mate
+TOOL,29,0x1d,Servo tool change
+TPIF,9,0x9,Teach pendant user interface
+TRAK,54,0x36,Tracking
+TRSV,134,0x86,Tray server
+VARS,16,0x10,Variable
+WEAV,45,0x2d,Weaving
+WMAP,103,0x67,All wafer handling robot
+WNDW,18,0x12,Window I/O
+XMLF,129,0x81,XML errors
