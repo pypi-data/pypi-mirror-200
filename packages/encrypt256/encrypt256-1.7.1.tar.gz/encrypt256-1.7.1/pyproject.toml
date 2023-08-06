@@ -1,0 +1,18 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "encrypt256"
+version = "1.7.1"
+description = "一个用于加密str型和bytes型数据的加密器"
+dependencies = ["pycryptodome"]
+keywords = ["encrypt256", "encrypt", "AES", "pycryptodome", "Crypto"]
+
+readme = "README.md"
+authors = [{name = "许灿标", email = "lcctoor@outlook.com"}]
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+
+[project.urls]
+Documentation = "https://github.com/lcctoor/lccpy/blob/main/encrypt256/docs/doc.md"
