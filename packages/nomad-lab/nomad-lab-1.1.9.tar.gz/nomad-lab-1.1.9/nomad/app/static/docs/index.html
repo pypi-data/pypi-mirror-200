@@ -1,0 +1,1061 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#materials-science-data-managed-and-shared" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        Introduction
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-nomad-work" class="md-nav__link">
+    How does NOMAD work?
+  </a>
+  
+    <nav class="md-nav" aria-label="How does NOMAD work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#managing-data-based-on-automatically-extract-rich-metadata" class="md-nav__link">
+    Managing data based on automatically extract rich metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-common-hierarchical-machine-processable-format-for-all-data" class="md-nav__link">
+    A common hierarchical machine processable format for all data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datamodel-uploads-entries-files-datasets" class="md-nav__link">
+    Datamodel: uploads, entries, files, datasets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-nomad-software-locally-the-oasis" class="md-nav__link">
+    Using NOMAD software locally (the Oasis)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-containerized-cloud-enabled-architecture" class="md-nav__link">
+    A containerized cloud enabled architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-uses-a-modern-and-rich-stack-frameworks-systems-and-libraries" class="md-nav__link">
+    NOMAD uses a modern and rich stack frameworks, systems, and libraries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="web.html" class="md-nav__link">
+        Using the web interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api.html" class="md-nav__link">
+        Using the APIs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python package
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python package" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python package
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pythonlib.html" class="md-nav__link">
+        Install the Python library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="archive_query.html" class="md-nav__link">
+        Query Processed Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="local_parsers.html" class="md-nav__link">
+        Run NOMAD parser locally
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/basics.html" class="md-nav__link">
+        Yaml schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/python.html" class="md-nav__link">
+        Python schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/elns.html" class="md-nav__link">
+        Schemas for ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/workflows.html" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/hdf5.html" class="md-nav__link">
+        Large data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Developing NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developing NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developing NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/setup.html" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/gitlab.html" class="md-nav__link">
+        Using Git/GitLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/search.html" class="md-nav__link">
+        Extending the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/parser.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Operating NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operating NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Operating NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oasis.html" class="md-nav__link">
+        Operating an OASIS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-nomad-work" class="md-nav__link">
+    How does NOMAD work?
+  </a>
+  
+    <nav class="md-nav" aria-label="How does NOMAD work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#managing-data-based-on-automatically-extract-rich-metadata" class="md-nav__link">
+    Managing data based on automatically extract rich metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-common-hierarchical-machine-processable-format-for-all-data" class="md-nav__link">
+    A common hierarchical machine processable format for all data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datamodel-uploads-entries-files-datasets" class="md-nav__link">
+    Datamodel: uploads, entries, files, datasets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-nomad-software-locally-the-oasis" class="md-nav__link">
+    Using NOMAD software locally (the Oasis)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-containerized-cloud-enabled-architecture" class="md-nav__link">
+    A containerized cloud enabled architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-uses-a-modern-and-rich-stack-frameworks-systems-and-libraries" class="md-nav__link">
+    NOMAD uses a modern and rich stack frameworks, systems, and libraries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="materials-science-data-managed-and-shared">Materials science data managed and shared<a class="headerlink" href="#materials-science-data-managed-and-shared" title="Permanent link">&para;</a></h1>
+<p>The <strong>NOvel Materials Discovery (NOMAD)</strong> is a data management platform for materials
+science data. Here, NOMAD is a <a href="https://nomad-lab.eu/prod/v1/gui/search">web-application and database</a>
+that allows to centrally publish data. But you can also use the NOMAD software to build your
+own local <a href="oasis.html">NOMAD Oasis</a>. See more basic information about NOMAD on the
+official <a href="https://nomad-lab.eu">homepage</a>.</p>
+<!--
+
+![NOMAD](assets/nomad-hero-shot.png){ align=right width=400 }
+*More than 12 million of simulations from over 400 authors world-wide*
+
+- Free publication and sharing of data
+- Manage research data though its whole life-cycle
+- Extracts <b>rich metadata</b> from data automatically
+- All data in <b>raw</b> and <b>machine processable</b> form
+- Use integrated tools to <b>explore</b>, <b>visualize</b>, and <b>analyze</b> -->
+
+<h2 id="how-does-nomad-work">How does NOMAD work?<a class="headerlink" href="#how-does-nomad-work" title="Permanent link">&para;</a></h2>
+<h3 id="managing-data-based-on-automatically-extract-rich-metadata">Managing data based on automatically extract rich metadata<a class="headerlink" href="#managing-data-based-on-automatically-extract-rich-metadata" title="Permanent link">&para;</a></h3>
+<p><img alt="how does nomad work" src="assets/how-does-nomad-work.png" /></p>
+<p>NOMAD is based on a <em>bottom-up</em> approach. Instead of only managing data of a specific
+predefined format, we use parsers and processing to support an extendable variety of
+data formats. Uploaded <em>raw</em> files are analysed and files with a recognized format are parsed.
+Parsers are small programs that transform data from the recognized <em>mainfiles</em> into a common machine
+processable version that we call <em>archive</em>. The information in the common archive representation
+drives everything else. It is the based for our search interface, the representation of materials
+and their properties, as well as all analytics.</p>
+<h3 id="a-common-hierarchical-machine-processable-format-for-all-data">A common hierarchical machine processable format for all data<a class="headerlink" href="#a-common-hierarchical-machine-processable-format-for-all-data" title="Permanent link">&para;</a></h3>
+<p><img alt="archive example" src="assets/archive-example.png" /></p>
+<p>The <em>archive</em> is a hierarchical data format with a strict schema.
+All the information is organized into logical nested <em>sections</em>.
+Each <em>section</em> comprised a set of <em>quantities</em> on a common subject.
+All <em>sections</em> and <em>quantities</em> are supported by a formal schema that defines names, descriptions, types, shapes, and units.
+We sometimes call this data <em>archive</em> and the schema <em>metainfo</em>.</p>
+<h3 id="datamodel-uploads-entries-files-datasets">Datamodel: <em>uploads</em>, <em>entries</em>, <em>files</em>, <em>datasets</em><a class="headerlink" href="#datamodel-uploads-entries-files-datasets" title="Permanent link">&para;</a></h3>
+<p>Uploaded <em>raw</em> files are managed in <em>uploads</em>.
+Users can create <em>uploads</em> and use them like projects.
+You can share them with other users, incrementally add and modify data in them, publish (incl. embargo) them, or transfer them between NOMAD installations.
+As long as an <em>upload</em> is not published, you can continue to provide files, delete the upload again, or test how NOMAD is processing your files.
+Once an upload is published, it becomes immutable.</p>
+<figure>
+<p><img alt="datamodel" src="assets/datamodel.png" width="600" />
+  </p>
+<figcaption>NOMAD's main entities</figcaption>
+</figure>
+<p>An <em>upload</em> can contain an arbitrary directory structure of <em>raw</em> files.
+For each recognized <em>mainfile</em>, NOMAD creates an entry.
+Therefore, an <em>upload</em> contains a list of <em>entries</em>.
+Each <em>entry</em> is associated with its <em>mainfile</em>, an <em>archive</em>, and all other <em>auxiliary</em> files in the same directory.
+<em>Entries</em> are automatically aggregated into <em>materials</em> based on the extract materials metadata.
+<em>Entries</em> (of many uploads) can be manually curated into <em>datasets</em>for which you can also get a DOI.</p>
+<h3 id="using-nomad-software-locally-the-oasis">Using NOMAD software locally (the Oasis)<a class="headerlink" href="#using-nomad-software-locally-the-oasis" title="Permanent link">&para;</a></h3>
+<p>The software that runs NOMAD is Open-Source and can be used independently of the NOMAD
+<em>central installation</em> at <a href="http://nomad-lab.eu">http://nomad-lab.eu</a>.
+We call any NOMAD installation that is not the <em>central</em> one a NOMAD Oasis.</p>
+<figure>
+<p><img alt="oasis use-cases" src="assets/oasis-use-cases.png" width="700" />
+  </p>
+<figcaption>NOMAD Oasis use-cases</figcaption>
+</figure>
+<p>There are several use-cases how the NOMAD software could be used. Of course other
+uses and hybrids are imaginable:</p>
+<ul>
+<li>Academia: Use the Oasis for local management of unpublished research data</li>
+<li>Mirror: Use the Oasis as a mirror that hosts a copy of all published NOMAD data</li>
+<li>Industry: Use of Oasis to manage private data and full internal use of published data in compliance with strict privacy policies</li>
+<li>FAIRmat: Use Oasis to form a network of repositories to build a federated data infrastructure
+for materials science.
+This is what we do in the <a href="https://www.fair-di.eu/fairmat/consortium">FAIRmat project</a>.</li>
+</ul>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<h3 id="a-containerized-cloud-enabled-architecture">A containerized cloud enabled architecture<a class="headerlink" href="#a-containerized-cloud-enabled-architecture" title="Permanent link">&para;</a></h3>
+<p>NOMAD is a modern web-application that requires a lot of services to run. Some are
+NOMAD specific, others are 3rd party products. While all services can be traditionally
+installed and run on a single sever, NOMAD advocates the use of containers and operating
+NOMAD in a cloud environment.</p>
+<figure>
+<p><img alt="nomad architecture" src="assets/architecture.png" />
+  </p>
+<figcaption>NOMAD architecture</figcaption>
+</figure>
+<p>NOMAD comprises two main services, its <em>app</em> and the <em>worker</em>. The <em>app</em> services
+our API, graphical user interface, and documentation. It is the outward facing part of
+NOMAD. The worker runs all the processing (parsing, normalization). Their separation allows
+to scale the system for various use-cases.</p>
+<p>Other services are:</p>
+<ul>
+<li>rabbitmq: a task queue that we use to distribute tasks for the <em>worker</em> containers</li>
+<li>mongodb: a no-sql database used to maintain processing state and user-metadata</li>
+<li>elasticsearch: a no-sql database and search engine that drives our search</li>
+<li>a regular file system to maintain all the files (<em>raw</em> and <em>archive</em>)</li>
+<li>jupyterhub: run ai toolkit notebooks</li>
+<li>keycloak: our SSO user management system (can be used by all Oasises)</li>
+<li>a content management system to provide other web-page content (not part of the Oasis)</li>
+</ul>
+<p>All NOMAD software is bundled in a single NOMAD docker image and a Python package
+(<a href="https://pypi.org/project/nomad-lab/">nomad-lab on pypi</a>). The NOMAD docker
+image can be downloaded from our public registry.
+NOMAD software is organized in multiple git repositories. We use continuous integration
+to constantly provide the latest version of docker image and Python package.</p>
+<h3 id="nomad-uses-a-modern-and-rich-stack-frameworks-systems-and-libraries">NOMAD uses a modern and rich stack frameworks, systems, and libraries<a class="headerlink" href="#nomad-uses-a-modern-and-rich-stack-frameworks-systems-and-libraries" title="Permanent link">&para;</a></h3>
+<p>Besides various scientific computing, machine learning, and computational material
+science libraries (e.g. numpy, skikitlearn, tensorflow, ase, spglib, matid, and many more),
+Nomad uses a set of freely available technologies that already solve most
+of its processing, storage, availability, and scaling goals. The following is a non
+comprehensive overview of used languages, libraries, frameworks, and services.</p>
+<figure>
+<p><img alt="nomad stack" src="assets/stack.png" />
+  </p>
+<figcaption>NOMAD components and dependencies</figcaption>
+</figure>
+<h4 id="python-3">Python 3<a class="headerlink" href="#python-3" title="Permanent link">&para;</a></h4>
+<p>The <em>backend</em> of nomad is written in Python. This includes all parsers, normalizers,
+and other data processing. We only use Python 3 and there is no compatibility with
+Python 2. Code is formatted close to <a href="https://www.python.org/dev/peps/pep-0008/">pep8</a>,
+critical parts use <a href="https://www.python.org/dev/peps/pep-0484/">pep484</a> type-hints.
+<a href="https://pypi.org/project/pycodestyle/">Pycodestyle</a>,
+<a href="https://www.pylint.org/">pylint</a>, and
+<a href="http://mypy-lang.org/">mypy</a> (static type checker) are used to ensure quality.
+Tests are written with <a href="https://docs.pytest.org/en/latest/contents.html">pytest</a>.
+Logging is done with <a href="https://www.structlog.org/en/stable/">structlog</a> and <em>logstash</em> (see
+Elasticstack below). Documentation is driven by <a href="http://www.sphinx-doc.org/en/master/">Sphinx</a>.</p>
+<h4 id="celery">celery<a class="headerlink" href="#celery" title="Permanent link">&para;</a></h4>
+<p><a href="http://celeryproject.org">Celery</a> (+ <a href="https://www.rabbitmq.com/">rabbitmq</a>)
+is a popular combination for realizing long running tasks in internet applications.
+We use it to drive the processing of uploaded files.
+It allows us to transparently distribute processing load while keeping processing state
+available to inform the user.</p>
+<h4 id="elastic-search">elastic search<a class="headerlink" href="#elastic-search" title="Permanent link">&para;</a></h4>
+<p><a href="https://www.elastic.co/webinars/getting-started-elasticsearch">Elasticsearch</a>
+is used to store repository data (not the raw files).
+Elasticsearch enables flexible, scalable search and analytics.</p>
+<h4 id="mongodb">mongodb<a class="headerlink" href="#mongodb" title="Permanent link">&para;</a></h4>
+<p><a href="https://docs.mongodb.com/">Mongodb</a> is used to store and track the state of the
+processing of uploaded files and the generated entries. We use
+<a href="http://docs.mongoengine.org/">mongoengine</a> to program with mongodb.</p>
+<h4 id="keycloak">Keycloak<a class="headerlink" href="#keycloak" title="Permanent link">&para;</a></h4>
+<p><a href="https://www.keycloak.org/">Keycloak</a> is used for user management. It manages users and
+provides functions for registration, forgetting passwords, editing user accounts, and single
+sign-on to fairdi@nomad and other related services.</p>
+<h4 id="fastapi">FastAPI<a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h4>
+<p>The ReSTful API is build with the <a href="https://fastapi.tiangolo.com/">FastAPI</a>
+framework. This allows us to automatically derive a <a href="https://swagger.io/specification/">OpenAPI</a> description
+of the nomad API.
+Fruthermore, you can browse and use the API via <a href="https://swagger.io/tools/swagger-ui/">OpenAPI dashboard</a>.</p>
+<h4 id="elasticstack">Elasticstack<a class="headerlink" href="#elasticstack" title="Permanent link">&para;</a></h4>
+<p>The <a href="https://www.elastic.co/guide/index.html">elastic stack</a>
+(previously <em>ELK</em> stack) is a centralized logging, metrics, and monitoring
+solution that collects data within the cluster and provides a flexible analytics front end
+for that data.</p>
+<h4 id="javascript-react-material-ui">Javascript, React, Material-UI<a class="headerlink" href="#javascript-react-material-ui" title="Permanent link">&para;</a></h4>
+<p>The frontend (GUI) of <strong>nomad@FAIRDI</strong> is built on the
+<a href="https://reactjs.org/docs/getting-started.html">React</a> component framework.
+This allows us to build the GUI as a set of re-usable components to
+achieve a coherent representations for all aspects of nomad, while keeping development
+efforts manageable. React uses <a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a>
+(a ES6 variety) that allows to mix HTML with Javascript code.
+The component library <a href="https://material-ui.com/">Material-UI</a>
+(based on Google's popular material design framework) provides a consistent look-and-feel.</p>
+<h4 id="docker">docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h4>
+<p>To run a <strong>nomad@FAIRDI</strong> instance, many services have to be orchestrated:
+the nomad app, nomad worker, mongodb, Elasticsearch, Keycloak, RabbitMQ,
+Elasticstack (logging), the nomad GUI, and a reverse proxy to keep everything together.
+Further services might be needed (e.g. JypiterHUB), when nomad grows.
+The container platform <a href="https://docs.docker.com/">Docker</a> allows us to provide all services
+as pre-build images that can be run flexibly on all types of platforms, networks,
+and storage solutions. <a href="https://docs.docker.com/compose/">Docker-compose</a> allows us to
+provide configuration to run the whole nomad stack on a single server node.</p>
+<h4 id="kubernetes-helm">kubernetes + helm<a class="headerlink" href="#kubernetes-helm" title="Permanent link">&para;</a></h4>
+<p>To run and scale nomad on a cluster, you can use <a href="https://kubernetes.io/docs/home/">kubernetes</a>
+to orchestrated the  necessary containers. We provide a <a href="https://docs.helm.sh/">helm</a>
+chart with all necessary service and deployment descriptors that allow you to set up and
+update nomad with only a few commands.</p>
+<h4 id="gitlab">GitLab<a class="headerlink" href="#gitlab" title="Permanent link">&para;</a></h4>
+<p>Nomad as a software project is managed via <a href="https://docs.gitlab.com/">GitLab</a>.
+The <strong>nomad@FAIRDI</strong> project is hosted <a href="https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR">here</a>.
+GitLab is used to manage versions, different branches of development, tasks and issues,
+as a <a href="https://docs.gitlab.com/ee/user/packages/container_registry/index.html">registry for Docker images</a>,
+and <a href="https://docs.gitlab.com/ee/ci/">CI/CD platform</a>.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="web.html" class="md-footer__link md-footer__link--next" aria-label="Next: Using the web interface" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Using the web interface
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

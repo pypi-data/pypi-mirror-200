@@ -1,0 +1,1715 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Schemas for ELNs - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#schemas-for-elns" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Schemas for ELNs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web.html" class="md-nav__link">
+        Using the web interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api.html" class="md-nav__link">
+        Using the APIs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python package
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python package" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python package
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonlib.html" class="md-nav__link">
+        Install the Python library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive_query.html" class="md-nav__link">
+        Query Processed Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_parsers.html" class="md-nav__link">
+        Run NOMAD parser locally
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="basics.html" class="md-nav__link">
+        Yaml schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python.html" class="md-nav__link">
+        Python schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Schemas for ELNs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="elns.html" class="md-nav__link md-nav__link--active">
+        Schemas for ELNs
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    Annotations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-eln" class="md-nav__link">
+    Example ELN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eln-annotation" class="md-nav__link">
+    ELN Annotation
+  </a>
+  
+    <nav class="md-nav" aria-label="ELN Annotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sectionproperties" class="md-nav__link">
+    SectionProperties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    Filter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser-annotation" class="md-nav__link">
+    Browser Annotation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabular-annotations" class="md-nav__link">
+    Tabular Annotations
+  </a>
+  
+    <nav class="md-nav" aria-label="Tabular Annotations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabular-parser" class="md-nav__link">
+    Tabular Parser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabular" class="md-nav__link">
+    Tabular
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-annotation" class="md-nav__link">
+    Plot Annotation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-base-sections-for-elns" class="md-nav__link">
+    Built-in base sections for ELNs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-normalizers" class="md-nav__link">
+    Custom normalizers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="workflows.html" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hdf5.html" class="md-nav__link">
+        Large data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Developing NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developing NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developing NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/setup.html" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/gitlab.html" class="md-nav__link">
+        Using Git/GitLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/search.html" class="md-nav__link">
+        Extending the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/parser.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Operating NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operating NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Operating NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis.html" class="md-nav__link">
+        Operating an OASIS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    Annotations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-eln" class="md-nav__link">
+    Example ELN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eln-annotation" class="md-nav__link">
+    ELN Annotation
+  </a>
+  
+    <nav class="md-nav" aria-label="ELN Annotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sectionproperties" class="md-nav__link">
+    SectionProperties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    Filter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser-annotation" class="md-nav__link">
+    Browser Annotation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabular-annotations" class="md-nav__link">
+    Tabular Annotations
+  </a>
+  
+    <nav class="md-nav" aria-label="Tabular Annotations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabular-parser" class="md-nav__link">
+    Tabular Parser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabular" class="md-nav__link">
+    Tabular
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-annotation" class="md-nav__link">
+    Plot Annotation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-base-sections-for-elns" class="md-nav__link">
+    Built-in base sections for ELNs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-normalizers" class="md-nav__link">
+    Custom normalizers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="schemas-for-elns">Schemas for ELNs<a class="headerlink" href="#schemas-for-elns" title="Permanent link">&para;</a></h1>
+<p>A schema defines all possible data structures. With small editions to our schemas,
+we can instruct NOMAD to provide respective editors for data. This allows us
+to build Electronic Lab Notebooks (ELNs) as tools to acquire data in a formal and
+structured way. For schemas with ELN annotations, users can create new entries
+in NOMAD GUI and edit the archive (structured data) of these entries directly in the GUI.</p>
+<h2 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h2>
+<p>Definitions in a schema can have annotations. These annotations provide additional information that NOMAD can use to alter its behavior around these definitions. Annotations
+are named blocks of key-value pairs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">definitions</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">sections</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">MyAnnotatedSection</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">annotation_name</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">          </span><span class="nt">key1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">          </span><span class="nt">key2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+</code></pre></div>
+<p>Many annotations control the representation of data in the GUI. This can be for plots
+or data entry/editing capabilities. There are three main categories of annotations
+relevant to ELNs.</p>
+<ul>
+<li><code>eln</code> annotations shape the data editor, i.e. allow you to control which type of forms to use to edit quantities.</li>
+<li>With <code>tabular</code> annotation data from linked <code>.csv</code> or <code>Excel</code> files can be parsed and added
+to data.</li>
+<li><code>plot</code> annotation allows you to plot numerical data (e.g. added via tables) directly
+in the ELN (or)</li>
+</ul>
+<h2 id="example-eln">Example ELN<a class="headerlink" href="#example-eln" title="Permanent link">&para;</a></h2>
+<p>The is the commented ELN schema from our ELN example upload that can be created from
+NOMAD's upload page:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Schemas can be defined as yaml files like this. The archive.yaml format will be</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># interpreted by nomad as a nomad archive. Therefore, all definitions have to be</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># put in a top-level section called &quot;definitions&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">definitions</span><span class="p">:</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="c1"># The &quot;definitions&quot; section is interpreted as a nomad schema package</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="c1"># Schema packages can have a name:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Electronic</span><span class="nv"> </span><span class="s">Lab</span><span class="nv"> </span><span class="s">Notebook</span><span class="nv"> </span><span class="s">example</span><span class="nv"> </span><span class="s">schema&#39;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="c1"># Schema packages contain section definitions. This is where the interesting schema</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="c1"># information begins.</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nt">sections</span><span class="p">:</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="c1"># Here we define a section called &quot;Chemical&quot;:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nt">Chemical</span><span class="p">:</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="c1"># Section definition can have base_sections. Base sections are other schema</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="c1"># definition and all properties of these will be inherited.</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nt">base_sections</span><span class="p">:</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;nomad.datamodel.metainfo.eln.Chemical&#39;</span><span class="w">  </span><span class="c1"># Provides typical quantities like name, descriptions, chemical_formula and makes those available for search</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;nomad.datamodel.data.EntryData&#39;</span><span class="w">  </span><span class="c1"># Declares this as a top-level entry section. This determines the types of entries you can create. With this we will be able to create a &quot;Chemical&quot; entry.</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="c1"># All definitions, sections, sub_sections, quantities, can provide a description.</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="no">This is an example description for Chemical.</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="no">A description can contain **markdown** markup and TeX formulas, like $\sum\limits_{i=0}^{n}$.</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="c1"># Sections define quantities. Quantities allow to manage actual data. Quantities</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">      </span><span class="c1"># can have various types, shapes, and units.</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">      </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="c1"># Here we define a quantity called &quot;from&quot;</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="nt">form</span><span class="p">:</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">          </span><span class="c1"># This defines a Enum type with pre-defined possible values.</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">            </span><span class="nt">type_kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enum</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">            </span><span class="nt">type_data</span><span class="p">:</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">crystalline solid</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">powder</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">          </span><span class="c1"># Annotations allow to provide additional information that is beyond just defining</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">          </span><span class="c1"># the possible data.</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">            </span><span class="c1"># The eln annotation allows add the quantity to a ELN</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EnumEditQuantity</span><span class="w">  </span><span class="c1"># A form field component for EnumQuantities that uses a pull down menu.</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">        </span><span class="nt">cas_number</span><span class="p">:</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StringEditQuantity</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">        </span><span class="nt">ec_number</span><span class="p">:</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StringEditQuantity</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="nt">Instrument</span><span class="p">:</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">      </span><span class="nt">base_sections</span><span class="p">:</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad.datamodel.metainfo.eln.Instrument</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad.datamodel.data.EntryData</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">    </span><span class="nt">Process</span><span class="p">:</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">      </span><span class="nt">base_section</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad.datamodel.metainfo.eln.Process</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">      </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">        </span><span class="nt">instrument</span><span class="p">:</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instrument</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceEditQuantity</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">    </span><span class="nt">Sample</span><span class="p">:</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">        </span><span class="c1"># The template annotation allows to define what freshly created entries (instances of this schema) will look like.</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">        </span><span class="c1"># In this example we create a sample with an empty pvd_evaporation process.</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">        </span><span class="nt">template</span><span class="p">:</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">          </span><span class="nt">processes</span><span class="p">:</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">            </span><span class="nt">pvd_evaporation</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">      </span><span class="nt">base_sections</span><span class="p">:</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;nomad.datamodel.metainfo.eln.Sample&#39;</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;nomad.datamodel.data.EntryData&#39;</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">      </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span><span class="w">  </span><span class="c1"># The simple string type</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">          </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Default Sample Name</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StringEditQuantity</span><span class="w">  </span><span class="c1"># A simple text edit form field</span>
+<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">        </span><span class="nt">tags</span><span class="p">:</span>
+<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span>
+<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">            </span><span class="nt">type_kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enum</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">            </span><span class="nt">type_data</span><span class="p">:</span>
+<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">internal</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">collaboration</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other</span>
+<a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="w">          </span><span class="nt">shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;*&#39;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># Shapes define non scalar values, like lists [&#39;*&#39;], vectors [&#39;*&#39;, 3], etc.</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AutocompleteEditQuantity</span><span class="w">  </span><span class="c1"># Allows to edit enums with an auto complete text form field</span>
+<a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="w">        </span><span class="nt">chemicals</span><span class="p">:</span>
+<a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Chemical</span><span class="w">  </span><span class="c1"># Types can also be other sections. This allows to reference a different section.</span>
+<a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a><span class="w">          </span><span class="nt">shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;*&#39;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReferenceEditQuantity</span><span class="w">  </span><span class="c1"># A editor component that allows to select from available &quot;Chemical&quot;s</span>
+<a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a><span class="w">        </span><span class="nt">substrate_type</span><span class="p">:</span>
+<a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span>
+<a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a><span class="w">            </span><span class="nt">type_kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enum</span>
+<a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a><span class="w">            </span><span class="nt">type_data</span><span class="p">:</span>
+<a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fused quartz glass</span>
+<a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SLG</span>
+<a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a><span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other</span>
+<a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RadioEnumEditQuantity</span>
+<a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a><span class="w">        </span><span class="nt">substrate_thickness</span><span class="p">:</span>
+<a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">np.float64</span>
+<a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a><span class="w">          </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m</span>
+<a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-111" name="__codelineno-1-111" href="#__codelineno-1-111"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NumberEditQuantity</span>
+<a id="__codelineno-1-112" name="__codelineno-1-112" href="#__codelineno-1-112"></a><span class="w">        </span><span class="nt">sample_is_from_collaboration</span><span class="p">:</span>
+<a id="__codelineno-1-113" name="__codelineno-1-113" href="#__codelineno-1-113"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bool</span>
+<a id="__codelineno-1-114" name="__codelineno-1-114" href="#__codelineno-1-114"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-115" name="__codelineno-1-115" href="#__codelineno-1-115"></a><span class="w">            </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-116" name="__codelineno-1-116" href="#__codelineno-1-116"></a><span class="w">              </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BoolEditQuantity</span>
+<a id="__codelineno-1-117" name="__codelineno-1-117" href="#__codelineno-1-117"></a><span class="w">      </span><span class="c1"># Besides quantities, a section can define sub_sections. This allows hierarchies</span>
+<a id="__codelineno-1-118" name="__codelineno-1-118" href="#__codelineno-1-118"></a><span class="w">      </span><span class="c1"># of information.</span>
+<a id="__codelineno-1-119" name="__codelineno-1-119" href="#__codelineno-1-119"></a><span class="w">      </span><span class="nt">sub_sections</span><span class="p">:</span>
+<a id="__codelineno-1-120" name="__codelineno-1-120" href="#__codelineno-1-120"></a><span class="w">        </span><span class="c1"># Here we define a sub_section of &quot;Sample&quot; called &quot;processes&quot;</span>
+<a id="__codelineno-1-121" name="__codelineno-1-121" href="#__codelineno-1-121"></a><span class="w">        </span><span class="nt">processes</span><span class="p">:</span>
+<a id="__codelineno-1-122" name="__codelineno-1-122" href="#__codelineno-1-122"></a><span class="w">          </span><span class="nt">section</span><span class="p">:</span>
+<a id="__codelineno-1-123" name="__codelineno-1-123" href="#__codelineno-1-123"></a><span class="w">            </span><span class="c1"># The sub-section&#39;s section, is itself a section definition</span>
+<a id="__codelineno-1-124" name="__codelineno-1-124" href="#__codelineno-1-124"></a><span class="w">            </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-125" name="__codelineno-1-125" href="#__codelineno-1-125"></a><span class="w">              </span><span class="nt">eln</span><span class="p">:</span><span class="w">  </span><span class="c1"># adds the sub-section to the eln and allows users to create new instances of this sub-section</span>
+<a id="__codelineno-1-126" name="__codelineno-1-126" href="#__codelineno-1-126"></a><span class="w">            </span><span class="c1"># We can also nest sub_sections. It goes aribitrarely deep.</span>
+<a id="__codelineno-1-127" name="__codelineno-1-127" href="#__codelineno-1-127"></a><span class="w">            </span><span class="nt">sub_sections</span><span class="p">:</span>
+<a id="__codelineno-1-128" name="__codelineno-1-128" href="#__codelineno-1-128"></a><span class="w">              </span><span class="nt">pvd_evaporation</span><span class="p">:</span>
+<a id="__codelineno-1-129" name="__codelineno-1-129" href="#__codelineno-1-129"></a><span class="w">                </span><span class="nt">section</span><span class="p">:</span>
+<a id="__codelineno-1-130" name="__codelineno-1-130" href="#__codelineno-1-130"></a><span class="w">                  </span><span class="nt">base_sections</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;Process&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;nomad.parsing.tabular.TableData&#39;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-131" name="__codelineno-1-131" href="#__codelineno-1-131"></a><span class="w">                  </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-132" name="__codelineno-1-132" href="#__codelineno-1-132"></a><span class="w">                    </span><span class="c1"># We can use the eln annotations to put the section to the overview</span>
+<a id="__codelineno-1-133" name="__codelineno-1-133" href="#__codelineno-1-133"></a><span class="w">                    </span><span class="c1"># page, and hide unwanted inherited quantities.</span>
+<a id="__codelineno-1-134" name="__codelineno-1-134" href="#__codelineno-1-134"></a><span class="w">                    </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-135" name="__codelineno-1-135" href="#__codelineno-1-135"></a><span class="w">                      </span><span class="nt">overview</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-136" name="__codelineno-1-136" href="#__codelineno-1-136"></a><span class="w">                      </span><span class="nt">hide</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;name&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;lab_id&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;description&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;method&#39;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-137" name="__codelineno-1-137" href="#__codelineno-1-137"></a><span class="w">                    </span><span class="c1"># Plots are shown in the eln. Currently we only support simple x,y</span>
+<a id="__codelineno-1-138" name="__codelineno-1-138" href="#__codelineno-1-138"></a><span class="w">                    </span><span class="c1"># line plots</span>
+<a id="__codelineno-1-139" name="__codelineno-1-139" href="#__codelineno-1-139"></a><span class="w">                    </span><span class="nt">plot</span><span class="p">:</span>
+<a id="__codelineno-1-140" name="__codelineno-1-140" href="#__codelineno-1-140"></a><span class="w">                      </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pressure and Temperature over Time</span>
+<a id="__codelineno-1-141" name="__codelineno-1-141" href="#__codelineno-1-141"></a><span class="w">                      </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time</span>
+<a id="__codelineno-1-142" name="__codelineno-1-142" href="#__codelineno-1-142"></a><span class="w">                      </span><span class="nt">y</span><span class="p">:</span>
+<a id="__codelineno-1-143" name="__codelineno-1-143" href="#__codelineno-1-143"></a><span class="w">                        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chamber_pressure</span>
+<a id="__codelineno-1-144" name="__codelineno-1-144" href="#__codelineno-1-144"></a><span class="w">                        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">substrate_temperature</span>
+<a id="__codelineno-1-145" name="__codelineno-1-145" href="#__codelineno-1-145"></a><span class="w">                  </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-1-146" name="__codelineno-1-146" href="#__codelineno-1-146"></a><span class="w">                    </span><span class="nt">data_file</span><span class="p">:</span>
+<a id="__codelineno-1-147" name="__codelineno-1-147" href="#__codelineno-1-147"></a><span class="w">                      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-1-148" name="__codelineno-1-148" href="#__codelineno-1-148"></a><span class="w">                      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-1-149" name="__codelineno-1-149" href="#__codelineno-1-149"></a><span class="w">                        </span><span class="no">A reference to an uploaded .csv produced by the PVD evaporation instruments</span>
+<a id="__codelineno-1-150" name="__codelineno-1-150" href="#__codelineno-1-150"></a><span class="w">                        </span><span class="no">control software.</span>
+<a id="__codelineno-1-151" name="__codelineno-1-151" href="#__codelineno-1-151"></a><span class="w">                      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-152" name="__codelineno-1-152" href="#__codelineno-1-152"></a><span class="w">                        </span><span class="c1"># The tabular_parser annotation, will treat the values of this</span>
+<a id="__codelineno-1-153" name="__codelineno-1-153" href="#__codelineno-1-153"></a><span class="w">                        </span><span class="c1"># quantity as files. It will try to interpret the files and fill</span>
+<a id="__codelineno-1-154" name="__codelineno-1-154" href="#__codelineno-1-154"></a><span class="w">                        </span><span class="c1"># quantities in this section (and sub_section) with the column</span>
+<a id="__codelineno-1-155" name="__codelineno-1-155" href="#__codelineno-1-155"></a><span class="w">                        </span><span class="c1"># data of .csv or .xlsx files. There is also a mode option that by default, is set to column.</span>
+<a id="__codelineno-1-156" name="__codelineno-1-156" href="#__codelineno-1-156"></a><span class="w">                        </span><span class="nt">tabular_parser</span><span class="p">:</span>
+<a id="__codelineno-1-157" name="__codelineno-1-157" href="#__codelineno-1-157"></a><span class="w">                          </span><span class="nt">sep</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;\t&#39;</span>
+<a id="__codelineno-1-158" name="__codelineno-1-158" href="#__codelineno-1-158"></a><span class="w">                          </span><span class="nt">comment</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#&#39;</span>
+<a id="__codelineno-1-159" name="__codelineno-1-159" href="#__codelineno-1-159"></a><span class="w">                        </span><span class="nt">browser</span><span class="p">:</span>
+<a id="__codelineno-1-160" name="__codelineno-1-160" href="#__codelineno-1-160"></a><span class="w">                          </span><span class="nt">adaptor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RawFileAdaptor</span><span class="w">  </span><span class="c1"># Allows to navigate to files in the data browser</span>
+<a id="__codelineno-1-161" name="__codelineno-1-161" href="#__codelineno-1-161"></a><span class="w">                        </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-162" name="__codelineno-1-162" href="#__codelineno-1-162"></a><span class="w">                          </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FileEditQuantity</span><span class="w">  </span><span class="c1"># A form field that allows to drop and select files.</span>
+<a id="__codelineno-1-163" name="__codelineno-1-163" href="#__codelineno-1-163"></a><span class="w">                    </span><span class="nt">time</span><span class="p">:</span>
+<a id="__codelineno-1-164" name="__codelineno-1-164" href="#__codelineno-1-164"></a><span class="w">                      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">np.float64</span>
+<a id="__codelineno-1-165" name="__codelineno-1-165" href="#__codelineno-1-165"></a><span class="w">                      </span><span class="nt">shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;*&#39;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-166" name="__codelineno-1-166" href="#__codelineno-1-166"></a><span class="w">                      </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s</span>
+<a id="__codelineno-1-167" name="__codelineno-1-167" href="#__codelineno-1-167"></a><span class="w">                      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-168" name="__codelineno-1-168" href="#__codelineno-1-168"></a><span class="w">                        </span><span class="c1"># The tabular annotation defines a mapping to column headers used in</span>
+<a id="__codelineno-1-169" name="__codelineno-1-169" href="#__codelineno-1-169"></a><span class="w">                        </span><span class="c1"># tabular data files</span>
+<a id="__codelineno-1-170" name="__codelineno-1-170" href="#__codelineno-1-170"></a><span class="w">                        </span><span class="nt">tabular</span><span class="p">:</span>
+<a id="__codelineno-1-171" name="__codelineno-1-171" href="#__codelineno-1-171"></a><span class="w">                          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Process Time in seconds</span>
+<a id="__codelineno-1-172" name="__codelineno-1-172" href="#__codelineno-1-172"></a><span class="w">                    </span><span class="nt">chamber_pressure</span><span class="p">:</span>
+<a id="__codelineno-1-173" name="__codelineno-1-173" href="#__codelineno-1-173"></a><span class="w">                      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">np.float64</span>
+<a id="__codelineno-1-174" name="__codelineno-1-174" href="#__codelineno-1-174"></a><span class="w">                      </span><span class="nt">shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;*&#39;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-175" name="__codelineno-1-175" href="#__codelineno-1-175"></a><span class="w">                      </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mbar</span>
+<a id="__codelineno-1-176" name="__codelineno-1-176" href="#__codelineno-1-176"></a><span class="w">                      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-177" name="__codelineno-1-177" href="#__codelineno-1-177"></a><span class="w">                        </span><span class="nt">tabular</span><span class="p">:</span>
+<a id="__codelineno-1-178" name="__codelineno-1-178" href="#__codelineno-1-178"></a><span class="w">                          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Vacuum Pressure1</span>
+<a id="__codelineno-1-179" name="__codelineno-1-179" href="#__codelineno-1-179"></a><span class="w">                        </span><span class="nt">plot</span><span class="p">:</span>
+<a id="__codelineno-1-180" name="__codelineno-1-180" href="#__codelineno-1-180"></a><span class="w">                          </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time</span>
+<a id="__codelineno-1-181" name="__codelineno-1-181" href="#__codelineno-1-181"></a><span class="w">                          </span><span class="nt">y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chamber_pressure</span>
+<a id="__codelineno-1-182" name="__codelineno-1-182" href="#__codelineno-1-182"></a><span class="w">                    </span><span class="nt">substrate_temperature</span><span class="p">:</span>
+<a id="__codelineno-1-183" name="__codelineno-1-183" href="#__codelineno-1-183"></a><span class="w">                      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">np.float64</span>
+<a id="__codelineno-1-184" name="__codelineno-1-184" href="#__codelineno-1-184"></a><span class="w">                      </span><span class="nt">shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;*&#39;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-185" name="__codelineno-1-185" href="#__codelineno-1-185"></a><span class="w">                      </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kelvin</span>
+<a id="__codelineno-1-186" name="__codelineno-1-186" href="#__codelineno-1-186"></a><span class="w">                      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-187" name="__codelineno-1-187" href="#__codelineno-1-187"></a><span class="w">                        </span><span class="nt">tabular</span><span class="p">:</span>
+<a id="__codelineno-1-188" name="__codelineno-1-188" href="#__codelineno-1-188"></a><span class="w">                          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substrate PV</span>
+<a id="__codelineno-1-189" name="__codelineno-1-189" href="#__codelineno-1-189"></a><span class="w">                          </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">degC</span>
+<a id="__codelineno-1-190" name="__codelineno-1-190" href="#__codelineno-1-190"></a><span class="w">                        </span><span class="nt">plot</span><span class="p">:</span>
+<a id="__codelineno-1-191" name="__codelineno-1-191" href="#__codelineno-1-191"></a><span class="w">                          </span><span class="nt">x</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time</span>
+<a id="__codelineno-1-192" name="__codelineno-1-192" href="#__codelineno-1-192"></a><span class="w">                          </span><span class="nt">y</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">substrate_temperature</span>
+<a id="__codelineno-1-193" name="__codelineno-1-193" href="#__codelineno-1-193"></a><span class="w">              </span><span class="nt">hotplate_annealing</span><span class="p">:</span>
+<a id="__codelineno-1-194" name="__codelineno-1-194" href="#__codelineno-1-194"></a><span class="w">                </span><span class="nt">section</span><span class="p">:</span>
+<a id="__codelineno-1-195" name="__codelineno-1-195" href="#__codelineno-1-195"></a><span class="w">                  </span><span class="nt">base_section</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Process</span>
+<a id="__codelineno-1-196" name="__codelineno-1-196" href="#__codelineno-1-196"></a><span class="w">                  </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-197" name="__codelineno-1-197" href="#__codelineno-1-197"></a><span class="w">                    </span><span class="c1"># We can use the eln annotations to put the section to the overview</span>
+<a id="__codelineno-1-198" name="__codelineno-1-198" href="#__codelineno-1-198"></a><span class="w">                    </span><span class="c1"># page, and hide unwanted inherited quantities.</span>
+<a id="__codelineno-1-199" name="__codelineno-1-199" href="#__codelineno-1-199"></a><span class="w">                    </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-200" name="__codelineno-1-200" href="#__codelineno-1-200"></a><span class="w">                      </span><span class="nt">overview</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-201" name="__codelineno-1-201" href="#__codelineno-1-201"></a><span class="w">                      </span><span class="nt">hide</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;name&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;lab_id&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;description&#39;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-202" name="__codelineno-1-202" href="#__codelineno-1-202"></a><span class="w">                  </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-1-203" name="__codelineno-1-203" href="#__codelineno-1-203"></a><span class="w">                    </span><span class="nt">set_temperature</span><span class="p">:</span>
+<a id="__codelineno-1-204" name="__codelineno-1-204" href="#__codelineno-1-204"></a><span class="w">                      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">np.float64</span><span class="w">  </span><span class="c1"># For actual numbers, we use numpy datatypes</span>
+<a id="__codelineno-1-205" name="__codelineno-1-205" href="#__codelineno-1-205"></a><span class="w">                      </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K</span><span class="w">  </span><span class="c1"># The unit system is based on Pint and allows all kinds of abreviations, prefixes, and complex units</span>
+<a id="__codelineno-1-206" name="__codelineno-1-206" href="#__codelineno-1-206"></a><span class="w">                      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-207" name="__codelineno-1-207" href="#__codelineno-1-207"></a><span class="w">                        </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-208" name="__codelineno-1-208" href="#__codelineno-1-208"></a><span class="w">                          </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NumberEditQuantity</span><span class="w">  </span><span class="c1"># A component to enter numbers (with units)</span>
+<a id="__codelineno-1-209" name="__codelineno-1-209" href="#__codelineno-1-209"></a><span class="w">                    </span><span class="nt">duration</span><span class="p">:</span>
+<a id="__codelineno-1-210" name="__codelineno-1-210" href="#__codelineno-1-210"></a><span class="w">                      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">np.float64</span>
+<a id="__codelineno-1-211" name="__codelineno-1-211" href="#__codelineno-1-211"></a><span class="w">                      </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s</span>
+<a id="__codelineno-1-212" name="__codelineno-1-212" href="#__codelineno-1-212"></a><span class="w">                      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-1-213" name="__codelineno-1-213" href="#__codelineno-1-213"></a><span class="w">                        </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-1-214" name="__codelineno-1-214" href="#__codelineno-1-214"></a><span class="w">                          </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NumberEditQuantity</span>
+</code></pre></div></p>
+<h2 id="eln-annotation">ELN Annotation<a class="headerlink" href="#eln-annotation" title="Permanent link">&para;</a></h2>
+<p>These annotations control how data can be entered and edited.
+Use the key <code>eln</code> to add this annotations. For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span> <span class="nc">Sample</span><span class="p">(</span><span class="n">EntryData</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">sample_id</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">a_eln</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">component</span><span class="o">=</span><span class="s1">&#39;StringEditQuantity&#39;</span><span class="p">))</span><span class="err">`</span><span class="p">)</span>
+</code></pre></div>
+<p>or in YAML schemas:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">Sample</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">sample_id</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">          </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StringEditQuantity</span>
+</code></pre></div></p>
+<p>An <code>eln</code> annotation can be added to <em>section</em> and <em>quantity</em> definitions to different
+effects. In both cases, it controls how sections and quantities are represented in the GUI
+with different parameters; see below.</p>
+<p>The UI gives an overview about all ELN edit annotations and components
+<a href="https://nomad-lab.eu/prod/v1/staging/gui/dev/editQuantity">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>component</td>
+<td><code>str</code></td>
+<td>The form field component that is used to make the annotated quantity editable. If no component is given, the quantity won't be editable. This can be used on quantities only.<br/>The supported values are:<br/><code>StringEditQuantity</code>: For editing simple short string values.<br/> <code>URLEditQuantity</code>: For editing strings that are validated to be URLs.<br/> <code>EnumEditQuantity</code>: For Editing enum values. Uses a dropdown list with enum values. This component may be used for short enumerates.<br/> <code>RadioEnumEditQuantity</code>: For Editing enum values. Uses radio buttons.<br/> <code>AutocompleteEditQuantity</code>: For editing enum values. Uses an autocomplete form with dropdown list. This component may be used for longer enumerates.<br/> <code>FileEditQuantity</code>: For editing a reference to a file. Will allow to choose a file or upload a file.<br/> <code>BoolEditQuantity</code>: For editing boolean choices.<br/> <code>NumberEditQuantity</code>: For editing numbers with our without unit.<br/> <code>SliderEditQuantity</code>: For editing numbers with a horizontal slider widget.<br/> <code>DateTimeEditQuantity</code>: For editing datetimes.<br/> <code>RichTextEditQuantity</code>: For editing long styled text with a rich text editor.<br/> <code>ReferenceEditQuantity</code>: For editing references to other sections.<br/> <code>UserEditQuantity</code>: For entering user information. Lets you choose a nomad user or enter information manually.<br/> <code>AuthorEditQuantity</code>: For entering author information manually.</br><em>options:</em><br/> - <code>StringEditQuantity</code><br/> - <code>URLEditQuantity</code><br/> - <code>EnumEditQuantity</code><br/> - <code>RadioEnumEditQuantity</code><br/> - <code>AutocompleteEditQuantity</code><br/> - <code>FileEditQuantity</code><br/> - <code>BoolEditQuantity</code><br/> - <code>NumberEditQuantity</code><br/> - <code>SliderEditQuantity</code><br/> - <code>DateTimeEditQuantity</code><br/> - <code>RichTextEditQuantity</code><br/> - <code>ReferenceEditQuantity</code><br/> - <code>UserEditQuantity</code><br/> - <code>AuthorEditQuantity</code><br/></td>
+</tr>
+<tr>
+<td>label</td>
+<td><code>str</code></td>
+<td>Custom label for the quantity shown on the form field.</td>
+</tr>
+<tr>
+<td>props</td>
+<td><code>Dict[str, typing.Any]</code></td>
+<td>A dictionary with additional props that are passed to the  editcomponent.</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>typing.Any</code></td>
+<td>Prefills any set form field component with the given value. This is different from the quantities <code>default</code> property. The quantities default is not stored in the data; the default value is assumed if no other value is given. The ELN form field default value will be stored, even if not changed.</td>
+</tr>
+<tr>
+<td>defaultDisplayUnit</td>
+<td><code>str</code></td>
+<td>Allows to define a default unit to initialize a <code>NumberEditQuantity</code> with. The unit has to be compatible with the unit of the annotation quantity and the annotated quantity must have a unit. Only applies to quantities and with <code>component=NumberEditQuantity</code>.</td>
+</tr>
+<tr>
+<td>minValue</td>
+<td><code>Union[int, float]</code></td>
+<td>Allows to specify a minimum value for quantity annotations with number type. Will show an error, if outside numbers are entered. Only works on quantities and in conjunction with <code>component=NumberEditQuantity</code>.</td>
+</tr>
+<tr>
+<td>maxValue</td>
+<td><code>Union[int, float]</code></td>
+<td>Allows to specify a maximum value for quantity annotations with number type. Will show an error, if outside numbers are entered. Only works on quantities and in conjunction with <code>component=NumberEditQuantity</code>.</td>
+</tr>
+<tr>
+<td>hide</td>
+<td><code>List[str]</code></td>
+<td>The annotation "hide" is deprecated. Use "visible" key of "properties" annotation instead. Allows you to hide certain quantities from a section editor. Give a list of quantity names. Quantities must exist in the section that this annotation is added to. Can only be used in section annotations.</br><strong>deprecated</strong></td>
+</tr>
+<tr>
+<td>overview</td>
+<td><code>int</code></td>
+<td>Shows the annotation section on the entry's overview page. Can only be used on section annotations.</td>
+</tr>
+<tr>
+<td>lane_width</td>
+<td><code>Union[str, int]</code></td>
+<td>Value to overwrite the css width of the lane used to render the annotation section and its editor.</td>
+</tr>
+<tr>
+<td>properties</td>
+<td><code>SectionProperties</code></td>
+<td>The value to customize the quantities and sub sections of the annotation section. The supported keys: <code>visible</code>: To determine the visible quantities and sub sections by their names<br/> <code>editable</code>: To render things visible but not editable, e.g. in inheritance situations<br/> <code>order</code>: # To order things, properties listed in that order first, then the rest<br/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="sectionproperties">SectionProperties<a class="headerlink" href="#sectionproperties" title="Permanent link">&para;</a></h3>
+<p>A filter defined by an include list or and exclude list of the quantities and subsections. </p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visible</td>
+<td><code>Filter</code></td>
+<td>Defines the visible quantities and subsections.</br><em>default:</em> <code>1</code></td>
+</tr>
+<tr>
+<td>editable</td>
+<td><code>Filter</code></td>
+<td>Defines the editable quantities and subsections.</td>
+</tr>
+<tr>
+<td>order</td>
+<td><code>List[str]</code></td>
+<td>To customize the order of the quantities and subsections.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
+<p>A filter defined by an include list or and exclude list of the quantities or subsections. </p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include</td>
+<td><code>List[str]</code></td>
+<td>The list of quantity or subsection names to be included.</td>
+</tr>
+<tr>
+<td>exclude</td>
+<td><code>List[str]</code></td>
+<td>The list of quantity or subsection names to be excluded.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="browser-annotation">Browser Annotation<a class="headerlink" href="#browser-annotation" title="Permanent link">&para;</a></h2>
+<p>The <code>browser</code> annotation allows to specify if the processed data browser needs to
+display a quantity differently. It can be applied to quantities. For example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    <span class="k">class</span> <span class="nc">Experiment</span><span class="p">(</span><span class="n">EntryData</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>        <span class="n">description</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">a_browser</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">render_value</span><span class="o">=</span><span class="s1">&#39;HtmlValue&#39;</span><span class="p">))</span>
+</code></pre></div>
+<p>or in yaml</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">Experiment</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">description</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="nt">browser</span><span class="p">:</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">          </span><span class="nt">render_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HtmlValue</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adaptor</td>
+<td><code>str</code></td>
+<td>Allows to change the <em>Adaptor</em> implementation that is used to render the lane for this quantity. Possible values are:<br/><code>RawFileAdaptor</code>: An adopter that is used to show files, including all file actions, like file preview.</br><em>options:</em><br/> - <code>RawFileAdaptor</code><br/></td>
+</tr>
+<tr>
+<td>render_value</td>
+<td><code>str</code></td>
+<td>Allows to change the <em>Component</em> used to render the value of the quantity. Possible values are:<br/><code>HtmlValue</code>: Renders a string as HTML.<br/> <code>JsonValue</code>: Renders a dict or list in a collapsable tree.</br><em>options:</em><br/> - <code>JsonValue</code><br/> - <code>HtmlValue</code><br/></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tabular-annotations">Tabular Annotations<a class="headerlink" href="#tabular-annotations" title="Permanent link">&para;</a></h2>
+<p>In order to import your data from a <code>.csv</code> or <code>Excel</code> file, NOMAD provides three distinct (and separate) ways, that
+with each comes unique options for importing and interacting with your data. To better understand how to use
+NOMAD parsers to import your data, three commented sample schemas are presented below. Also, each section follows
+and extends a general example explained thereafter.</p>
+<p>Two main components of any tabular parser schema are:
+1) implementing the correct base-section(s), and
+2) providing a <code>data_file</code> <code>Quantity</code> with the correct <code>m_annotations</code> (only exception for the entry mode). </p>
+<p>Please bear in mind that the schema files should 1) follow the NOMAD naming convention
+(i.e. <code>My_Name.archive.yaml</code>), and 2) be accompanied by your data file in order for NOMAD to parse them.
+In the examples provided below, an <code>Excel</code> file is assumed to contain all the data, as both NOMAD and
+<code>Excel</code> support multiple-sheets data manipulations and imports. Note that the <code>Excel</code> file name in each schema
+should match the name of the <code>Excel</code> data file, which in case of using a <code>.csv</code> data file, it can be replaced by the
+<code>.csv</code> file name.</p>
+<p><code>TableData</code> (and any other section(s) that is inheriting from <code>TableData</code>) has a customizable checkbox Quantity 
+(i.e. <code>fill_archive_from_datafile</code>) to turn the tabular parser <code>on</code> or <code>off</code>.
+If you do not want to have the parser running everytime you make a change to your archive data, it is achievable then via
+unchecking the checkbox. It is customizable in the sense that if you do not wish to see this checkbox at all,
+you can configure the <code>hide</code> parameter of the section's <code>m_annotations</code> to hide the checkbox. This in turn sets 
+the parser to run everytime you save your archive. </p>
+<p>Be cautious though! Turning on the tabular parser (or checking the box) on saving your data will cause
+losing/overwriting your manually-entered data by the parser! </p>
+<h4 id="column-mode-sample">Column-mode Sample:<a class="headerlink" href="#column-mode-sample" title="Permanent link">&para;</a></h4>
+<p>The following sample schema creates one quantity off the entire column of an excel file (<code>column mode</code>).
+For example, suppose in an excel sheet, several rows contain information of a chemical product (e.g. <code>purity</code> in one
+column). In order to list all the purities under the column <code>purity</code> and import them into NOMAD, you can use the
+following schema by substituting <code>My_Quantity</code> with any name of your choice (e.g. <code>Purity</code>),
+<code>tabular-parser.data.xlsx</code> with the name of the <code>csv/excel</code> file where the data lies, and <code>My_Sheet/My_Column</code> with
+sheet_name/column_name of your targeted data. The <code>Tabular_Parser</code> can also be changed to any arbitrary name of your 
+choice.</p>
+<p>Important notes:</p>
+<ul>
+<li><code>shape: ['*']</code> under <code>My_Quantity</code> is essential to parse the entire column of the data file.</li>
+<li>The <code>data_file</code> Quantity can have any arbitrary name (e.g. <code>xlsx_file</code>) and can be referenced within the <code>tabular_parser</code>
+annotation of other sections which are of type <code>TableData</code> via <code>path_to_data_file</code> in  (please see <a href="#tabular-parser">Tabular Parser</a> section)</li>
+<li><code>My_Quantity</code> can also be defined within another subsection (see next sample schema)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># This schema is specially made for demonstration of implementing a tabular parser with</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># column mode.</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">definitions</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Tabular</span><span class="nv"> </span><span class="s">Parser</span><span class="nv"> </span><span class="s">example</span><span class="nv"> </span><span class="s">schema&#39;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">sections</span><span class="p">:</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">Tabular_Parser</span><span class="p">:</span><span class="w"> </span><span class="c1"># The main section that contains the quantities to be read from an excel file.</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="c1"># This name can be changed freely.</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="nt">base_sections</span><span class="p">:</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">       </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad.parsing.tabular.TableData</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="nt">data_file</span><span class="p">:</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">            </span><span class="nt">tabular_parser</span><span class="p">:</span><span class="w"> </span><span class="c1"># The tabular_parser annotation, will treat the values of this</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">          </span><span class="c1"># quantity as files. It will try to interpret the files and fill</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">          </span><span class="c1"># quantities in this section (and sub_sections) with the column</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">          </span><span class="c1"># data of .csv or .xlsx files.</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">              </span><span class="nt">comment</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#&#39;</span><span class="w"> </span><span class="c1"># Skipping lines in csv or excel file that start with the sign `#`</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">              </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">column</span><span class="w"> </span><span class="c1"># Here the mode can be set. If removed, by default,</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">              </span><span class="c1"># the parser assumes mode to be column</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">        </span><span class="nt">My_Quantity</span><span class="p">:</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">          </span><span class="nt">shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;*&#39;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">            </span><span class="nt">tabular</span><span class="p">:</span><span class="w"> </span><span class="c1"># The tabular annotation defines a mapping to column headers used in tabular data files</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My_Sheet/My_Column</span><span class="w"> </span><span class="c1"># Here you can define where the data for the given quantity is to be taken from</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">                </span><span class="c1"># The convention for selecting the name is if the data is to be taken from an excel file,</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">                </span><span class="c1"># you can specify the sheet_name followed by a forward slash and the column_name to target the desired quantity.</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">                </span><span class="c1"># If only a column name is provided, then the first sheet in the excel file (or the .csv file)</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">                </span><span class="c1"># is assumed to contain the targeted data.</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="nt">data</span><span class="p">:</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">  </span><span class="nt">m_def</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tabular_Parser</span><span class="w"> </span><span class="c1"># this is a reference to the section definition above</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="w">  </span><span class="nt">data_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tabular-parser.data.xlsx</span><span class="w"> </span><span class="c1"># name of the excel/csv file to be uploaded along with this schema yaml file</span>
+</code></pre></div>
+<h4 id="row-mode-sample">Row-mode Sample:<a class="headerlink" href="#row-mode-sample" title="Permanent link">&para;</a></h4>
+<p>The sample schema provided below, creates separate instances of a repeated section from each row of an excel file
+(<code>row mode</code>). For example, suppose in an excel sheet, you have the information for a chemical product
+(e.g. <code>name</code> in one column), and each row contains one entry of the aforementioned chemical product.
+Since each row is separate from others, in order to create instances of the same product out of all rows
+and import them into NOMAD, you can use the following schema by substituting <code>My_Subsection</code>,
+<code>My_Section</code> and <code>My_Quantity</code> with any appropriate name (e.g. <code>Substance</code>, <code>Chemical_product</code>
+and <code>Name</code> respectively).</p>
+<p>Important notes:</p>
+<ul>
+<li>This schema demonstrates how to import data within a subsection of another subsection, meaning the
+targeted quantity should not necessarily go into the main <code>quantites</code>.</li>
+<li>Setting <code>mode</code> to <code>row</code> signals that for each row in the sheet_name (provided in <code>My_Quantity</code>),
+one instance of the corresponding (sub-)section (in this example, <code>My_Subsection</code> sub-section as it has the <code>repeats</code>
+option set to true), will be appended. Please bear in mind that if this mode is selected, then all other quantities
+should exist in the same sheet_name.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># This schema is specially made for demonstration of implementing a tabular parser with</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># row mode.</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">definitions</span><span class="p">:</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Tabular</span><span class="nv"> </span><span class="s">Parser</span><span class="nv"> </span><span class="s">example</span><span class="nv"> </span><span class="s">schema&#39;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">sections</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">Tabular_Parser</span><span class="p">:</span><span class="w"> </span><span class="c1"># The main section that contains the quantities to be read from an excel file</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="c1"># This name can be changed freely.</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="nt">base_sections</span><span class="p">:</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">       </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad.parsing.tabular.TableData</span><span class="w"> </span><span class="c1"># Here we specify that we need to acquire the data from a .xlsx or a .csv file</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">      </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="nt">data_file</span><span class="p">:</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="nt">tabular_parser</span><span class="p">:</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">              </span><span class="nt">comment</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#&#39;</span><span class="w"> </span><span class="c1"># Skipping lines in csv or excel file that start with the sign `#`</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">              </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">row</span><span class="w"> </span><span class="c1"># Setting mode to row signals that for each row in the sheet_name (provided in quantity)</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">              </span><span class="nt">target_sub_section</span><span class="p">:</span><span class="w"> </span><span class="c1"># This is the reference to where the targeted (sub-)section lies within this example schema file</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My_Subsection/My_Section</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">      </span><span class="nt">sub_sections</span><span class="p">:</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">        </span><span class="nt">My_Subsection</span><span class="p">:</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">          </span><span class="nt">section</span><span class="p">:</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">            </span><span class="nt">sub_sections</span><span class="p">:</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">              </span><span class="nt">My_Section</span><span class="p">:</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">                </span><span class="nt">repeats</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># The repeats option set to true means there can be multiple instances of this</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">                </span><span class="c1"># section</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">                </span><span class="nt">section</span><span class="p">:</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">                  </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">                    </span><span class="nt">My_Quantity</span><span class="p">:</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">                      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">                      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">                        </span><span class="nt">tabular</span><span class="p">:</span><span class="w"> </span><span class="c1"># The tabular annotation defines a mapping to column headers used in tabular data files</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">                          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My_Sheet/My_Column</span><span class="w"> </span><span class="c1"># sheet_name and column name of the targeted data in csv/xlsx file</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="nt">data</span><span class="p">:</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">  </span><span class="nt">m_def</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tabular_Parser</span><span class="w"> </span><span class="c1"># this is a reference to the section definition above</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">  </span><span class="nt">data_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tabular-parser.data.xlsx</span><span class="w"> </span><span class="c1"># name of the excel/csv file to be uploaded along with this schema yaml file</span>
+</code></pre></div>
+<h4 id="entry-mode-sample">Entry-mode Sample:<a class="headerlink" href="#entry-mode-sample" title="Permanent link">&para;</a></h4>
+<p>The following sample schema creates one entry for each row of an excel file (<code>entry mode</code>).
+For example, suppose in an excel sheet, you have the information for a chemical product (e.g. <code>name</code> in one column),
+and each row contains one entry of the aforementioned chemical product. Since each row is separate from others, in
+order to create multiple archives of the same product out of all rows and import them into NOMAD, you can use the
+following schema by substituting <code>My_Quantity</code> with any appropriate name (e.g. <code>Name</code>).</p>
+<p>Important note:</p>
+<ul>
+<li>For entry mode, the convention for reading data from csv/excel file is to provide only the column name and the
+data are assumed to exist in the first sheet</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># This schema is specially made for demonstration of implementing a tabular parser with</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># entry mode.</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nt">definitions</span><span class="p">:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Tabular</span><span class="nv"> </span><span class="s">Parser</span><span class="nv"> </span><span class="s">example</span><span class="nv"> </span><span class="s">schema&#39;</span><span class="w"> </span><span class="c1"># The main section that contains the quantities to be read from an excel file</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="c1"># This name can be changed freely.</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">sections</span><span class="p">:</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nt">Tabular_Parser</span><span class="p">:</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="nt">base_sections</span><span class="p">:</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad.parsing.tabular.TableRow</span><span class="w"> </span><span class="c1"># To create entries from each row in the excel file</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="c1"># the base section should inherit from `nomad.parsing.tabular.TableRow`. For this specific case,</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="c1"># the datafile should be accompanied</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">        </span><span class="nt">My_Quantity</span><span class="p">:</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">          </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">            </span><span class="nt">tabular</span><span class="p">:</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My_Column</span>
+</code></pre></div>
+<p>Here are all parameters for the two annotations <code>Tabular Parser</code> and <code>Tabular</code>.</p>
+<h3 id="tabular-parser">Tabular Parser<a class="headerlink" href="#tabular-parser" title="Permanent link">&para;</a></h3>
+<p>Instructs NOMAD to treat a string valued scalar quantity as a file path and
+interprets the contents of this file as tabular data. Supports both
+<code>.csv</code> and Excel files.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comment</td>
+<td><code>str</code></td>
+<td>The character denoting the commented lines in <code>.csv</code> files. This is passed to pandas to parse the file. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</td>
+</tr>
+<tr>
+<td>sep</td>
+<td><code>str</code></td>
+<td>The character used to separate cells in a <code>.csv</code> file. This is passed to pandas to parse the file. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</td>
+</tr>
+<tr>
+<td>skiprows</td>
+<td><code>int</code></td>
+<td>Number of <code>.csv</code> file rows that are skipped. This is passed to pandas to parse the file. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</td>
+</tr>
+<tr>
+<td>separator</td>
+<td><code>str</code></td>
+<td>An alias for <code>sep</code></td>
+</tr>
+<tr>
+<td>mode</td>
+<td><code>str</code></td>
+<td>Either <code>column</code>, <code>row</code>, <code>entry</code> or <code>root</code>. With <code>column</code> the whole column is mapped into a quantity (needs to be a list). With <code>row</code> each row (and its cells) are mapped into instances of a repeating sub section, where each section represents a row (quantities need to be scalars). With <code>entry</code> new entry is created and populated from each row (and its cells) where all quantities should remain to be scalars. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>column</code></br><em>options:</em><br/> - <code>row</code><br/> - <code>column</code><br/> - <code>root</code><br/> - <code>entry</code><br/></td>
+</tr>
+<tr>
+<td>target_sub_section</td>
+<td><code>List[str]</code></td>
+<td>A lists of paths to sub-sections of the annotation quantity's section. Each path is a <code>/</code> separated list of nested sub-sections. The targeted sub-sections, will be considered when mapping table columns to quantities. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>[]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="tabular">Tabular<a class="headerlink" href="#tabular" title="Permanent link">&para;</a></h3>
+<p>Allows to map a quantity to a row of a tabular data-file. Should only be used
+in conjunction with <code>tabular_parser</code>.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>str</code></td>
+<td>The column name that should be mapped to the annotation quantity. Has to be the same string that is used in the header, i.e. first <code>.csv</code> line or first excel file <code>row</code>. For excel files with multiple sheets, the name can have the form <code>&lt;sheet name&gt;/&lt;column name&gt;</code>. Otherwise, only the first sheets is used. Has to be applied to the quantity that a column should be mapped to.</td>
+</tr>
+<tr>
+<td>unit</td>
+<td><code>str</code></td>
+<td>The unit of the value in the file. Has to be compatible with the annotated quantity's unit. Will be used to automatically convert the value. If this is not defined, the values will not be converted. Has to be applied to the quantity that a column should be mapped to.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="plot-annotation">Plot Annotation<a class="headerlink" href="#plot-annotation" title="Permanent link">&para;</a></h2>
+<p>This annotation can be used to add a plot to a section or quantity. Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span> <span class="nc">Evaporation</span><span class="p">(</span><span class="n">MSection</span><span class="p">):</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">m_def</span> <span class="o">=</span> <span class="n">Section</span><span class="p">(</span><span class="n">a_plot</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Temperature and Pressure&#39;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;process_time&#39;</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;./substrate_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;./chamber_pressure&#39;</span><span class="p">],</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>            <span class="s1">&#39;editable&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="s1">&#39;scrollZoom&#39;</span><span class="p">:</span> <span class="kc">False</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>        <span class="p">}</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="p">})</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="n">time</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    <span class="n">substrate_temperature</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;K&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="n">chamber_pressure</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Pa&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>You can create multi-line plots by using lists of the properties <code>y</code> (and <code>x</code>).
+You either have multiple sets of <code>y</code>-values over a single set of <code>x</code>-values. Or
+you have pairs of <code>x</code> and <code>y</code> values. For this purpose the annotation properties
+<code>x</code> and <code>y</code> can reference a single quantity or a list of quantities.
+For repeating sub sections, the section instance can be selected with an index, e.g.
+"sub_section_name/2/parameter_name" or with a slice notation <code>start:stop</code> where
+negative values index from the end of the array, e.g.
+"sub_section_name/1:-5/parameter_name".</p>
+<p>The interactive examples of the plot annotations can be found
+<a href="https://nomad-lab.eu/prod/v1/staging/gui/dev/plot">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>label</td>
+<td><code>str</code></td>
+<td>Is passed to plotly to define the label of the plot.</td>
+</tr>
+<tr>
+<td>x</td>
+<td><code>Union[List[str], str]</code></td>
+<td>A path or list of paths to the x-axes values. Each path is a <code>/</code> separated list of sub-section and quantity names that leads from the annotation section to the quantity. Repeating sub sections are indexed between two <code>/</code>s with an integer or a slice <code>start:stop</code>.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>Union[List[str], str]</code></td>
+<td>A path or list of paths to the y-axes values. list of sub-section and quantity names that leads from the annotation section to the quantity. Repeating sub sections are indexed between two <code>/</code>s with an integer or a slice <code>start:stop</code>.</td>
+</tr>
+<tr>
+<td>lines</td>
+<td><code>List[dict]</code></td>
+<td>A list of dicts passed as <code>traces</code> to plotly to configure the lines of the plot. See <a href="https://plotly.com/javascript/reference/scatter/">https://plotly.com/javascript/reference/scatter/</a> for details.</td>
+</tr>
+<tr>
+<td>layout</td>
+<td><code>dict</code></td>
+<td>A dict passed as <code>layout</code> to plotly to configure the plot layout. See <a href="https://plotly.com/javascript/reference/layout/">https://plotly.com/javascript/reference/layout/</a> for details.</td>
+</tr>
+<tr>
+<td>config</td>
+<td><code>dict</code></td>
+<td>A dict passed as <code>config</code> to plotly to configure the plot functionallity. See <a href="https://plotly.com/javascript/configuration-options/">https://plotly.com/javascript/configuration-options/</a> for details.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="built-in-base-sections-for-elns">Built-in base sections for ELNs<a class="headerlink" href="#built-in-base-sections-for-elns" title="Permanent link">&para;</a></h2>
+<p>Coming soon ...</p>
+<h2 id="custom-normalizers">Custom normalizers<a class="headerlink" href="#custom-normalizers" title="Permanent link">&para;</a></h2>
+<p>For custom schemas, you might want to add custom normalizers. All files are parsed
+and normalized when they are uploaded or changed. The NOMAD metainfo Python interface
+allows you to add functions that are called when your data is normalized.</p>
+<p>Here is an example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">nomad.datamodel</span> <span class="kn">import</span> <span class="n">EntryData</span><span class="p">,</span> <span class="n">ArchiveSection</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">from</span> <span class="nn">nomad.metainfo.metainfo</span> <span class="kn">import</span> <span class="n">Quantity</span><span class="p">,</span> <span class="n">Datetime</span><span class="p">,</span> <span class="n">SubSection</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">class</span> <span class="nc">Sample</span><span class="p">(</span><span class="n">ArchiveSection</span><span class="p">):</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">added_date</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">Datetime</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">formula</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">sample_id</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">archive</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="nb">super</span><span class="p">(</span><span class="n">Sample</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">archive</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">sample_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">added_date</span><span class="si">}</span><span class="s1">--</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">formula</span><span class="si">}</span><span class="s1">&#39;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="k">class</span> <span class="nc">SampleDatabase</span><span class="p">(</span><span class="n">EntryData</span><span class="p">):</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    <span class="n">samples</span> <span class="o">=</span> <span class="n">SubSection</span><span class="p">(</span><span class="n">section</span><span class="o">=</span><span class="n">Sample</span><span class="p">,</span> <span class="n">repeats</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>To add a <code>normalize</code> function, your section has to inherit from <code>ArchiveSection</code> which
+provides the base for this functionality. Now you can overwrite the <code>normalize</code> function
+and add you own behavior. Make sure to call the <code>super</code> implementation properly to
+support schemas with multiple inheritance.</p>
+<p>If we parse an archive like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">data</span><span class="p">:</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">m_def</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;examples.archive.custom_schema.SampleDatabase&#39;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">samples</span><span class="p">:</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">formula</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NaCl</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">      </span><span class="nt">added_date</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2022-06-18&#39;</span>
+</code></pre></div>
+<p>we will get a final normalized archive that contains our data like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">&quot;m_def&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;examples.archive.custom_schema.SampleDatabase&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">&quot;samples&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="nt">&quot;added_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-06-18T00:00:00+00:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="nt">&quot;formula&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NaCl&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="nt">&quot;sample_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-06-18 00:00:00+00:00--NaCl&quot;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">}</span>
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="python.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Python schemas" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Python schemas
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="workflows.html" class="md-footer__link md-footer__link--next" aria-label="Next: Workflows" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Workflows
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="../javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

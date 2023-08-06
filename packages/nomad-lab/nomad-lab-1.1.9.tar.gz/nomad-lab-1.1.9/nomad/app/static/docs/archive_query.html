@@ -1,0 +1,989 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Query Processed Data - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#query-processed-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Query Processed Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="web.html" class="md-nav__link">
+        Using the web interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api.html" class="md-nav__link">
+        Using the APIs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python package
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python package" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python package
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pythonlib.html" class="md-nav__link">
+        Install the Python library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Query Processed Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="archive_query.html" class="md-nav__link md-nav__link--active">
+        Query Processed Data
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    Basic Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchronous-interface" class="md-nav__link">
+    Synchronous Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-interface" class="md-nav__link">
+    Asynchronous Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-complete-rundown" class="md-nav__link">
+    A Complete Rundown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-list" class="md-nav__link">
+    Argument List
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="local_parsers.html" class="md-nav__link">
+        Run NOMAD parser locally
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/basics.html" class="md-nav__link">
+        Yaml schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/python.html" class="md-nav__link">
+        Python schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/elns.html" class="md-nav__link">
+        Schemas for ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/workflows.html" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/hdf5.html" class="md-nav__link">
+        Large data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Developing NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developing NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developing NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/setup.html" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/gitlab.html" class="md-nav__link">
+        Using Git/GitLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/search.html" class="md-nav__link">
+        Extending the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/parser.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="develop/normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Operating NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operating NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Operating NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oasis.html" class="md-nav__link">
+        Operating an OASIS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    Basic Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchronous-interface" class="md-nav__link">
+    Synchronous Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-interface" class="md-nav__link">
+    Asynchronous Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-complete-rundown" class="md-nav__link">
+    A Complete Rundown
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-list" class="md-nav__link">
+    Argument List
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="query-processed-data">Query Processed Data<a class="headerlink" href="#query-processed-data" title="Permanent link">&para;</a></h1>
+<p>The <code>ArchiveQuery</code> allows you to search for entries and access their parsed and processed <em>archive</em> data
+at the same time. Furthermore, all data is accessible through a convenient Python interface
+based on the <a href="schema/python.html#wrap-data-with-python-schema-classes">NOMAD metainfo</a> rather than plain JSON.</p>
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<p>To define a query, one can, for example, write</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">nomad.client.archive</span> <span class="kn">import</span> <span class="n">ArchiveQuery</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">query</span> <span class="o">=</span> <span class="n">ArchiveQuery</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="p">{},</span> <span class="n">required</span><span class="o">=</span><span class="p">{},</span> <span class="n">page_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">results_max</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre></div>
+<p>Although the above query object has an empty query.</p>
+<p>The query object is constructed only. To access the desired data, users need to perform two operations manually.</p>
+<h3 id="synchronous-interface">Synchronous Interface<a class="headerlink" href="#synchronous-interface" title="Permanent link">&para;</a></h3>
+<h4 id="fetch">Fetch<a class="headerlink" href="#fetch" title="Permanent link">&para;</a></h4>
+<p>The fetch process is carried out <strong>synchronously</strong>. Users can call</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># number_of_entries = query.fetch(1000) # fetch 1000 entries</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">number_of_entries</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">()</span>  <span class="c1"># fetch at most results_max entries</span>
+</code></pre></div>
+<p>to perform the fetch process to fetch up to <code>results_max</code> entries. An indicative number <code>n</code> can be provided <code>fetch(n)</code>
+. Given that each upload may contain various numbers of entries, the fetch process guarantees at least <code>n</code> entries
+will be fetched. The exact number is determined by <code>page_size</code>, indicating how many uploads in each page. However, this
+would be limited to the <code>results_max</code>. The exact qualified number of entries will be returned. Meanwhile, the qualified
+upload list would be populated with their IDs. To check all qualified upload IDs, one can call <code>upload_list()</code> method to
+return the full list.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">upload_list</span><span class="p">())</span>
+</code></pre></div>
+<p>If applicable, it is possible to fetch a large number of entries first and then perform a second fetch by using some
+upload ID in the first fetch result as the <code>after</code> argument so that some middle segment can be downloaded.</p>
+<h4 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h4>
+<p>After fetching the qualified uploads, the desired data can be downloaded <strong>asynchronously</strong>. One can call</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># results = query.download(1000) # download 1000 entries</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">results</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>  <span class="c1"># download all fetched entries if fetched otherwise fetch and download up to `results_max` entries</span>
+</code></pre></div>
+<p>to download up to <code>results_max</code> entries. The downloaded results are returned as a list. Alternatively, it is possible to
+just download a portion of previously fetched entries at a single time. For example,</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># previously fetched for example 1000 entries</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># but only download the first 100 (approx.) entries</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">results</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+<p>The same <code>download(n)</code> method can be called repeatedly. If there are no sufficient entries, new entries will be
+automatically fetched. If there are no more entries, the returned result list is empty. For example,</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">total_results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="k">break</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">total_results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>There is no retry mechanism in the download process. If any uploads fail to be downloaded due to server error, it is
+kept in the list otherwise removed.</p>
+<h3 id="asynchronous-interface">Asynchronous Interface<a class="headerlink" href="#asynchronous-interface" title="Permanent link">&para;</a></h3>
+<p>Some applications, such as Jupyter Notebook, may run a global/top level event loop. To query data in those environments,
+one can use the asynchronous interface.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">number_of_entries</span> <span class="o">=</span> <span class="k">await</span> <span class="n">query</span><span class="o">.</span><span class="n">async_fetch</span><span class="p">()</span>  <span class="c1"># indicative number n applies: async_fetch(n)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">query</span><span class="o">.</span><span class="n">async_download</span><span class="p">()</span>  <span class="c1"># indicative number n applies: async_download(n)</span>
+</code></pre></div>
+<p>Alternatively, if one wants to use the asynchronous interface, it is necessary to patch the global event loop to allow
+nested loops.</p>
+<p>To do so, one can add the following at the beginning of the notebook.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">nest_asyncio</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="a-complete-rundown">A Complete Rundown<a class="headerlink" href="#a-complete-rundown" title="Permanent link">&para;</a></h2>
+<p>Here we show a valid query and acquire data from server.</p>
+<p>We first define the desired query and construct the object. We limit the maximum number of entries to be 10000 and 10
+uploads per page.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">nomad.client.archive</span> <span class="kn">import</span> <span class="n">ArchiveQuery</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">required</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="s1">&#39;workflow&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="s1">&#39;calculation_result_ref&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>            <span class="s1">&#39;energy&#39;</span><span class="p">:</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>            <span class="s1">&#39;system_ref&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>                <span class="s1">&#39;chemical_composition_reduced&#39;</span><span class="p">:</span> <span class="s1">&#39;*&#39;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>            <span class="p">}</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="p">}</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="p">}</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="n">query</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="s1">&#39;results.method.simulation.program_name&#39;</span><span class="p">:</span> <span class="s1">&#39;VASP&#39;</span><span class="p">,</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    <span class="s1">&#39;results.material.elements&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ti&#39;</span><span class="p">]</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="n">query</span> <span class="o">=</span> <span class="n">ArchiveQuery</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="n">required</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">results_max</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</code></pre></div>
+<p>Let's fetch some entries.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">query</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">query</span><span class="o">.</span><span class="n">upload_list</span><span class="p">())</span>
+</code></pre></div>
+<p>If we print the upload list, it would be</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[(&#39;-19NlAwxTCCXb6YT9Plifw&#39;, 526), (&#39;-2ewONNGTZ68zuTQ6zrRZw&#39;, 4), (&#39;-3LrFBvFQtCtmEp3Hy15EA&#39;, 12), (&#39;-3ofEqLvSZiqo59vtf-TAQ&#39;, 4), (&#39;-4W-jogwReafpdva4ELdrw&#39;, 32), (&#39;-BLVfvlJRWawtHyuUWvP_g&#39;, 68), (&#39;-Dm30DqRQX6pZUbJYwHUmw&#39;, 320), (&#39;-Jfjp-lZSjqyaph2chqZfw&#39;, 6), (&#39;-K2QS7s4QiqRg6nMPqzaTw&#39;, 82), (&#39;-Li36ZXhQPucJvkd8yzYoA&#39;, 10)]
+</code></pre></div>
+<p>So upload <code>-19NlAwxTCCXb6YT9Plifw</code> has 526 qualified entries, upload <code>-2ewONNGTZ68zuTQ6zrRZw</code> has 4 qualified entries,
+and so on. The summation of the above entries gives 1064 entries in total as shown in terminal message.</p>
+<p>Now data can be downloaded.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">result</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Downloaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s1"> entries.&#39;</span><span class="p">)</span>  <span class="c1"># Downloaded 526 entries.</span>
+</code></pre></div>
+<p>Since the first upload has 526 entries, they will be downloaded in this call. The list would have the first upload
+removed as it has been downloaded.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>[(&#39;-2ewONNGTZ68zuTQ6zrRZw&#39;, 4), (&#39;-3LrFBvFQtCtmEp3Hy15EA&#39;, 12), (&#39;-3ofEqLvSZiqo59vtf-TAQ&#39;, 4), (&#39;-4W-jogwReafpdva4ELdrw&#39;, 32), (&#39;-BLVfvlJRWawtHyuUWvP_g&#39;, 68), (&#39;-Dm30DqRQX6pZUbJYwHUmw&#39;, 320), (&#39;-Jfjp-lZSjqyaph2chqZfw&#39;, 6), (&#39;-K2QS7s4QiqRg6nMPqzaTw&#39;, 82), (&#39;-Li36ZXhQPucJvkd8yzYoA&#39;, 10)]
+</code></pre></div>
+<p>It is possible to download more data.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">result</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Downloaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s1"> entries.&#39;</span><span class="p">)</span>  <span class="c1"># Downloaded 440 entries.</span>
+</code></pre></div>
+<p>The first six uploads will be downloaded to meet the required (at least) 300 entries, which total to 440 entries. What's
+left in the list would be</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>[(&#39;-Jfjp-lZSjqyaph2chqZfw&#39;, 6), (&#39;-K2QS7s4QiqRg6nMPqzaTw&#39;, 82), (&#39;-Li36ZXhQPucJvkd8yzYoA&#39;, 10)]
+</code></pre></div>
+<p>We perform one more download call to illustrate that fetch process will be automatically performed.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">result</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Downloaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s1"> entries.&#39;</span><span class="p">)</span>  <span class="c1"># Downloaded 102 entries.</span>
+</code></pre></div>
+<p>In the above, we request additional 100 entries, however, the list contains only <code>6+82+10=98</code> entries, fetch process
+will be called to fetch new entries from server. You will see the following message in terminal.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Fetching remote uploads...
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>787 entries are qualified and added to the download list.
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Downloading required data...
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>Downloaded 102 entries.
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>[(&#39;-NiRWNGjS--JtFoEnYrCfg&#39;, 8), (&#39;-OcPUKZtS6u3lXlkWBM4qg&#39;, 129), (&#39;-PA35e2ZRsq4AdDfBU4M_g&#39;, 14), (&#39;-TG77dGiSTyrDAFNqTKa6Q&#39;, 366), (&#39;-VzlPYtnS4q1tSl3NOmlCw&#39;, 178), (&#39;-XeqzVqwSMCJFwhvDqWs8A&#39;, 14), (&#39;-Y7gwnleQI6Q61jp024fXQ&#39;, 16), (&#39;-Zf1RO1MQXegYVTbFybtQQ&#39;, 8), (&#39;-Zm4S9VGRdOX-kbF1J5lOA&#39;, 50)]
+</code></pre></div>
+<h2 id="argument-list">Argument List<a class="headerlink" href="#argument-list" title="Permanent link">&para;</a></h2>
+<p>The following arguments are acceptable for <code>ArchiveQuery</code>.</p>
+<ul>
+<li><code>owner</code> : <code>str</code> The scope of data to access. Default: <code>'visible'</code></li>
+<li><code>query</code> : <code>dict</code> The API query. There are no validations of any means carried out by the class, users shall make sure
+  the provided query is valid. Otherwise, server would return error message.</li>
+<li><code>required</code> : <code>dict</code> The required quantities.</li>
+<li><code>url</code> : <code>str</code> The database url. It can be the one of your local database. The official NOMAD database is used be
+  default if no valid one defined. Default: <code>http://nomad-lab.eu/prod/v1/api</code></li>
+<li><code>after</code> : <code>str</code> It can be understood that the data is stored in a sequential list. Each upload has a unique ID,
+  if <code>after</code> is not provided, the query always starts from the first upload. One can choose to query the uploads in the
+  middle of storage by assigning a proper value of <code>after</code>.</li>
+<li><code>results_max</code> : <code>int</code> Determine how many entries to download. Note each upload may have multiple entries.</li>
+<li><code>page_size</code> : <code>int</code> Page size.</li>
+<li><code>username</code> : <code>str</code> Username for authentication.</li>
+<li><code>password</code> : <code>str</code> Password for authentication.</li>
+<li><code>retry</code> : <code>int</code> In the case of server errors, the fetch process is automatically retried every <code>sleep_time</code> seconds.
+  This argument limits the maximum times of retry.</li>
+<li><code>sleep_time</code> : <code>float</code> The interval of fetch retry.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="pythonlib.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install the Python library" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Install the Python library
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="local_parsers.html" class="md-footer__link md-footer__link--next" aria-label="Next: Run NOMAD parser locally" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Run NOMAD parser locally
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

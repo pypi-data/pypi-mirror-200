@@ -1,0 +1,1359 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Python schemas - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#write-nomad-schemas-in-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python schemas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web.html" class="md-nav__link">
+        Using the web interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api.html" class="md-nav__link">
+        Using the APIs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python package
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python package" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python package
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonlib.html" class="md-nav__link">
+        Install the Python library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive_query.html" class="md-nav__link">
+        Query Processed Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_parsers.html" class="md-nav__link">
+        Run NOMAD parser locally
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="basics.html" class="md-nav__link">
+        Yaml schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Python schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="python.html" class="md-nav__link md-nav__link--active">
+        Python schemas
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#starting-example" class="md-nav__link">
+    Starting example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    Definitions
+  </a>
+  
+    <nav class="md-nav" aria-label="Definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-attributes-of-metainfo-definitions" class="md-nav__link">
+    Common attributes of Metainfo Definitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    Sections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantities" class="md-nav__link">
+    Quantities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-section" class="md-nav__link">
+    Sub-Section
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references-and-proxies" class="md-nav__link">
+    References and Proxies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    Categories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    Packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-python-schemas-to-nomad" class="md-nav__link">
+    Adding Python schemas to NOMAD
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Python schemas to NOMAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-super-structure" class="md-nav__link">
+    Schema super structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-existing-sections" class="md-nav__link">
+    Extending existing sections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-conventions" class="md-nav__link">
+    Schema conventions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-python-schemas-to-work-with-data" class="md-nav__link">
+    Use Python schemas to work with data
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Python schemas to work with data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-structured-data-via-api" class="md-nav__link">
+    Access structured data via API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrap-data-with-python-schema-classes" class="md-nav__link">
+    Wrap data with Python schema classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-structured-data-via-the-nomad-python-package" class="md-nav__link">
+    Access structured data via the NOMAD Python package
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="elns.html" class="md-nav__link">
+        Schemas for ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="workflows.html" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hdf5.html" class="md-nav__link">
+        Large data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Developing NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developing NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developing NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/setup.html" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/gitlab.html" class="md-nav__link">
+        Using Git/GitLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/search.html" class="md-nav__link">
+        Extending the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/parser.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Operating NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operating NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Operating NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis.html" class="md-nav__link">
+        Operating an OASIS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#starting-example" class="md-nav__link">
+    Starting example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    Definitions
+  </a>
+  
+    <nav class="md-nav" aria-label="Definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-attributes-of-metainfo-definitions" class="md-nav__link">
+    Common attributes of Metainfo Definitions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    Sections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantities" class="md-nav__link">
+    Quantities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-section" class="md-nav__link">
+    Sub-Section
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references-and-proxies" class="md-nav__link">
+    References and Proxies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    Categories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    Packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-python-schemas-to-nomad" class="md-nav__link">
+    Adding Python schemas to NOMAD
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Python schemas to NOMAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-super-structure" class="md-nav__link">
+    Schema super structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-existing-sections" class="md-nav__link">
+    Extending existing sections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema-conventions" class="md-nav__link">
+    Schema conventions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-python-schemas-to-work-with-data" class="md-nav__link">
+    Use Python schemas to work with data
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Python schemas to work with data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-structured-data-via-api" class="md-nav__link">
+    Access structured data via API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrap-data-with-python-schema-classes" class="md-nav__link">
+    Wrap data with Python schema classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-structured-data-via-the-nomad-python-package" class="md-nav__link">
+    Access structured data via the NOMAD Python package
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="write-nomad-schemas-in-python">Write NOMAD schemas in Python<a class="headerlink" href="#write-nomad-schemas-in-python" title="Permanent link">&para;</a></h1>
+<p>Writing and uploading schemas in <code>.archive.yaml</code> format is a good way for NOMAD users
+to add schemas. But it has limitations. As a NOMAD developer or Oasis administrator
+you can add Python schemas to NOMAD. All build in NOMAD schemas (e.g. for electronic structure code data) are written an Python and are part of the NOMAD sources (<code>nomad.datamodel.metainfo.*</code>).</p>
+<p>There is a 1-1 translation between Python schemas (written in classes) and YAML (or JSON)
+schemas (written in objects). Both use the same fundamental concepts, like
+<em>section</em>, <em>quantity</em>, or <em>sub-section</em>, introduced in <a href="basics.html">YAML schemas</a>.</p>
+<h2 id="starting-example">Starting example<a class="headerlink" href="#starting-example" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">nomad.metainfo</span> <span class="kn">import</span> <span class="n">MSection</span><span class="p">,</span> <span class="n">Quantity</span><span class="p">,</span> <span class="n">SubSection</span><span class="p">,</span> <span class="n">Units</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">class</span> <span class="nc">System</span><span class="p">(</span><span class="n">MSection</span><span class="p">):</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="sd">    A system section includes all quantities that describe a single simulated</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="sd">    system (a.k.a. geometry).</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="sd">    &#39;&#39;&#39;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">n_atoms</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="s1">        A Defines the number of atoms in the system.</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="s1">        &#39;&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">atom_labels</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="nb">type</span><span class="o">=</span><span class="n">MEnum</span><span class="p">(</span><span class="n">ase</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">chemical_symbols</span><span class="p">),</span> <span class="n">shape</span><span class="p">[</span><span class="s1">&#39;n_atoms&#39;</span><span class="p">])</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">atom_positions</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_atoms&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="n">Units</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">simulation_cell</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="n">Units</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">pbc</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">class</span> <span class="nc">Run</span><span class="p">(</span><span class="n">MSection</span><span class="p">):</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">section_system</span> <span class="o">=</span> <span class="n">SubSection</span><span class="p">(</span><span class="n">sub_section</span><span class="o">=</span><span class="n">System</span><span class="p">,</span> <span class="n">repeats</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>We define simple metainfo schema with two <em>sections</em> called <code>System</code> and <code>Run</code>. Sections
+allow to organize related data into, well, <em>sections</em>. Each section can have two types of
+properties: <em>quantities</em> and <em>sub-sections</em>. Sections and their properties are defined with
+Python classes and their attributes.</p>
+<p>Each <em>quantity</em> defines a piece of data. Basic quantity attributes are <code>type</code>, <code>shape</code>,
+<code>unit</code>, and <code>description</code>.</p>
+<p><em>Sub-sections</em> allow to place section within each other, forming containment
+hierarchies or sections and the respective data within them. Basic sub-section attributes are
+<code>sub_section</code>(i.e. a reference to the section definition of the sub-section) and <code>repeats</code>
+(determines whether a sub-section can be included once or multiple times).</p>
+<p>The above simply defines a schema. To use the schema and create actual data, we have to
+instantiate the above classes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">run</span> <span class="o">=</span> <span class="n">Run</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">system</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">m_create</span><span class="p">(</span><span class="n">System</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">system</span><span class="o">.</span><span class="n">n_atoms</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">system</span><span class="o">.</span><span class="n">atom_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">atom_labels</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">n_atoms</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p>Section <em>instances</em> can be used like regular Python objects: quantities and sub-sections
+can be set and accessed like any other Python attribute. Special meta-info methods, starting
+with <code>m_</code> allow us to realize more complex semantics. For example <code>m_create</code> will
+instantiate a sub-section and add it to the <em>parent</em> section in one step.</p>
+<p>Another example for an <code>m_</code>-method is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">run</span><span class="o">.</span><span class="n">m_to_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>This will convert the data into JSON:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="s2">&quot;m_def&quot;</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;Run&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;systems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">            </span><span class="s2">&quot;n_atoms&quot;</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">            </span><span class="s2">&quot;atom_labels&quot;</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">                </span><span class="s2">&quot;H&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">                </span><span class="s2">&quot;H&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">                </span><span class="s2">&quot;O&quot;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="definitions">Definitions<a class="headerlink" href="#definitions" title="Permanent link">&para;</a></h2>
+<p>The following describes the schema language (the sum of all possible definitions) and how it is expressed in Python.</p>
+<h3 id="common-attributes-of-metainfo-definitions">Common attributes of Metainfo Definitions<a class="headerlink" href="#common-attributes-of-metainfo-definitions" title="Permanent link">&para;</a></h3>
+<p>In the example, you have already seen the basic Python interface to the Metainfo. <em>Sections</em> are
+represented in Python as objects. To define a section, you write a Python classe that inherits
+from <code>MSection</code>. To define sub-sections and quantities you use Python properties. The
+definitions themselves are also objects derived from classes. For sub-sections and
+quantities, you directly instantiate :class<code>SubSection</code> and :class<code>Quantity</code>. For sections
+there is a generated object derived from :class:<code>Section</code> and available via
+<code>m_def</code> from each <em>section class</em> and <em>section instance</em>.</p>
+<p>These Python classes, used to represent metainfo definitions, form an inheritance
+hierarchy to share common properties</p>
+<ul>
+<li><code>name</code>, each definition has a name. This is typically defined by the corresponding
+Python property. E.g. a sections class name, becomes the section name; a quantity gets the name
+from its Python property, etc.</li>
+<li><code>description</code>, each definition should have one. Either set it directly or use <em>doc strings</em></li>
+<li><code>links</code>, a list of useful internet references.</li>
+<li><code>more</code>, a dictionary of custom information. Any additional <code>kwargs</code> set when creating a definition
+    are added to <code>more</code>.</li>
+</ul>
+<h3 id="sections">Sections<a class="headerlink" href="#sections" title="Permanent link">&para;</a></h3>
+<p>Sections are defined with Python classes that extend <code>MSection</code> (or other section classes).</p>
+<ul>
+<li><code>base_sections</code> are automatically taken from the base classes ofc the Python class.</li>
+<li><code>extends_base_section</code> is a boolean that determines the inheritance. If this is <code>False</code>,
+normal Python inheritance implies and this section will inherit all properties (sub-sections,
+quantities) from all base classes. If this is <code>True</code>, all definitions in this section
+will be added to the properties of the base class section. This allows the extension of existing
+sections with additional properties.</li>
+</ul>
+<h3 id="quantities">Quantities<a class="headerlink" href="#quantities" title="Permanent link">&para;</a></h3>
+<p>Quantity definitions are the main building block of meta-info schemas. Each quantity
+represents a single piece of data. Quantities can be defined by:</p>
+<ul>
+<li>A <code>type</code>, that can be a primitive Python type (<code>str</code>, <code>int</code>, <code>bool</code>), a numpy
+data type (<code>np.dtype('float64')</code>), a <code>MEnum('item1', ..., 'itemN')</code>, a predefined
+metainfo type (<code>Datetime</code>, <code>JSON</code>, <code>File</code>, ...), or another section or quantity to define
+a reference type.</li>
+<li>A <code>shape</code> that defines the dimensionality of the quantity. Examples are: <code>[]</code> (number),
+<code>['*']</code> (list), <code>[3, 3]</code> (3 by 3 matrix), <code>['n_elements']</code> (a vector of length defined by
+another quantity <code>n_elements</code>).</li>
+<li>A physics <code>unit</code>. We use <a href="https://pint.readthedocs.io/en/stable/">Pint</a> here. You can
+use unit strings that are parsed by Pint, e.g. <code>meter</code>, <code>m</code>, <code>m/s^2</code>. As a convention the
+metainfo uses only SI units.</li>
+</ul>
+<h3 id="sub-section">Sub-Section<a class="headerlink" href="#sub-section" title="Permanent link">&para;</a></h3>
+<p>A sub-section defines a named property of a section that refers to another section. It
+allows to define that a section can contain another section.</p>
+<ul>
+<li><code>sub_section</code> (aliases <code>section_def</code>, <code>sub_section_def</code>) defines the section that can
+be contained.</li>
+<li><code>repeats</code> is a boolean that determines whether the sub-section relationship allows multiple section
+or only one.</li>
+</ul>
+<h3 id="references-and-proxies">References and Proxies<a class="headerlink" href="#references-and-proxies" title="Permanent link">&para;</a></h3>
+<p>Beside creating hierarchies (e.g. tree structures) with subsections, the metainfo
+also allows to create cross references between sections and other sections or quantity
+values:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span> <span class="nc">Calculation</span><span class="p">(</span><span class="n">MSection</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">system</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">System</span><span class="o">.</span><span class="n">m_def</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">atom_labels</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">System</span><span class="o">.</span><span class="n">atom_labels</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">calc</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">()</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">calc</span><span class="o">.</span><span class="n">system</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">systems</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">calc</span><span class="o">.</span><span class="n">atom_labels</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">systems</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>To define a reference, define a normal quantity and simply use the section or quantity
+you want to refer to as type. Then you can assign respective section instances
+as values.</p>
+<p>In Python memory, quantity values that reference other sections simply contain a
+Python reference to the respective <em>section instance</em>. However, upon serializing/storing
+metainfo data, these references have to be represented differently.</p>
+<p>Value references are a little different. When you read a value reference, it behaves like
+the reference value. Internally, we do not store the values, but a reference to the
+section that holds the referenced quantity. Therefore, when you want to
+assign a value reference, use the section with the quantity and not the value itself.</p>
+<p>References are serialized as URLs. There are different types of reference URLs:</p>
+<ul>
+<li><code>#/run/0/calculation/1</code>, a reference in the same Archive</li>
+<li><code>/run/0/calculation/1</code>, a reference in the same archive (legacy version)</li>
+<li><code>../upload/archive/mainfile/{mainfile}#/run/0</code>, a reference into an Archive of the same upload</li>
+<li><code>/entries/{entry_id}/archive#/run/0/calculation/1</code>, a reference into the Archive of a different entry on the same NOMAD installation</li>
+<li><code>/uploads/{upload_id}/archive/{entry_id}#/run/0/calculation/1</code>, similar to the previous one but based on uploads</li>
+<li><code>https://myoasis.de/api/v1/uploads/{upload_id}/archive/{entry_id}#/run/0/calculation/1</code>, a global reference towards a different NOMAD installation (Oasis)</li>
+</ul>
+<p>The host and path parts of URLs correspond with the NOMAD API. The anchors are paths from the root section of an Archive, over its sub-sections, to the referenced section or quantity value. Each path segment is the name of the subsection or an index in a repeatable subsection: <code>/system/0</code> or <code>/system/0/atom_labels</code>.</p>
+<p>References are automatically serialized by <code>:py:meth:MSection.m_to_dict</code>. When de-serializing
+data with <code>:py:meth:MSection.m_from_dict</code> these references are not resolved right away,
+because the reference section might not yet be available. Instead references are stored
+as <code>:class:MProxy</code> instances. These objects are automatically replaced by the referenced
+object when a respective quantity is accessed.</p>
+<p>If you want to define references, it might not be possible to define the referenced
+section or quantity beforehand, due to the way Python definitions and imports work. In these
+cases, you can use a proxy to reference the reference type. There is a special proxy
+implementation for sections:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span> <span class="nc">Calculation</span><span class="p">(</span><span class="n">MSection</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">system</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">SectionProxy</span><span class="p">(</span><span class="s1">&#39;System&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>The strings given to <code>SectionProxy</code> are paths within the available definitions.
+The above example works, if <code>System</code> is eventually defined in the same package.</p>
+<h3 id="categories">Categories<a class="headerlink" href="#categories" title="Permanent link">&para;</a></h3>
+<p>In the old meta-info this was known as <em>abstract types</em>.</p>
+<p>Categories are defined with Python classes that have :class:<code>MCategory</code> as base class.
+Their name and description are taken from the name and docstring of the class. An example
+category looks like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span> <span class="nc">CategoryName</span><span class="p">(</span><span class="n">MCategory</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39; Category description &#39;&#39;&#39;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">m_def</span> <span class="o">=</span> <span class="n">Category</span><span class="p">(</span><span class="n">links</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;http://further.explanation.eu&#39;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="n">ParentCategory</span><span class="p">])</span>
+</code></pre></div>
+<h3 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link">&para;</a></h3>
+<p>Metainfo packages correspond to Python packages. Typically your metainfo Python files should follow this pattern:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">nomad.metainfo</span> <span class="kn">import</span> <span class="n">Package</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">m_package</span> <span class="o">=</span> <span class="n">Package</span><span class="p">()</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Your section classes and categories</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">m_package</span><span class="o">.</span><span class="n">__init_metainfo__</span><span class="p">()</span>
+</code></pre></div></p>
+<h2 id="adding-python-schemas-to-nomad">Adding Python schemas to NOMAD<a class="headerlink" href="#adding-python-schemas-to-nomad" title="Permanent link">&para;</a></h2>
+<p>Now you know how to write a schema as a Python module, but how should you
+integrate new schema modules into the existing code and what conventions need to be
+followed?</p>
+<h3 id="schema-super-structure">Schema super structure<a class="headerlink" href="#schema-super-structure" title="Permanent link">&para;</a></h3>
+<p>You should follow the basic <a href="../develop/setup.html">developer's getting started</a> to setup a development environment. This will give you all the necessary libraries and allows you
+to place your modules into the NOMAD code.</p>
+<p>The <code>EntryArchive</code> section definition sets the root of the archive for each entry in
+NOMAD. It therefore defines the top level sections:</p>
+<ul>
+<li><code>metadata</code>, all "administrative" metadata (ids, permissions, publish state, uploads, user metadata, etc.)</li>
+<li><code>results</code>, a summary with copies and references to data from method specific sections. This also
+presents the <a href="../develop/search.html">searchable metadata</a>.</li>
+<li><code>workflows</code>, all workflow metadata</li>
+<li>Method specific sub-sections, e.g. <code>run</code>. This is were all parsers are supposed to
+add the parsed data.</li>
+</ul>
+<p>The main NOMAD Python project includes Metainfo definitions in the following modules:</p>
+<ul>
+<li><code>nomad.metainfo</code> defines the Metainfo itself. This includes a self-referencing schema. E.g. there is a section <code>Section</code>, etc.</li>
+<li><code>nomad.datamodel</code> mostly defines the section <code>metadata</code> that contains all "administrative"
+metadata. It also contains the root section <code>EntryArchive</code>.</li>
+<li><code>nomad.datamodel.metainfo</code> defines all the central, method specific (but not parser specific) definitions.
+For example the section <code>run</code> with all the simulation definitions (computational material science definitions)
+that are shared among the respective parsers.</li>
+</ul>
+<h3 id="extending-existing-sections">Extending existing sections<a class="headerlink" href="#extending-existing-sections" title="Permanent link">&para;</a></h3>
+<p>Parsers can provide their own definitions. By conventions, these are placed into a
+<code>metainfo</code> sub-module of the parser Python module. The definitions here can add properties
+to existing sections (e.g. from <code>nomad.datamodel.metainfo</code>). By convention us a <code>x_mycode_</code>
+prefix. This is done with the
+<code>extends_base_section</code> <a href="#sections">Section property</a>. Here is an example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">nomad.metainfo</span> <span class="kn">import</span> <span class="n">Section</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">nomad.datamodel.metainfo.simulation</span> <span class="kn">import</span> <span class="n">Method</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">class</span> <span class="nc">MyCodeRun</span><span class="p">(</span><span class="n">Method</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">m_def</span> <span class="o">=</span> <span class="n">Section</span><span class="p">(</span><span class="n">extends_base_section</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">x_mycode_execution_mode</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="nb">type</span><span class="o">=</span><span class="n">MEnum</span><span class="p">(</span><span class="s1">&#39;hpc&#39;</span><span class="p">,</span> <span class="s1">&#39;parallel&#39;</span><span class="p">,</span> <span class="s1">&#39;single&#39;</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="schema-conventions">Schema conventions<a class="headerlink" href="#schema-conventions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use lower snake case for section properties; use upper camel case for section definitions.</li>
+<li>Use a <code>_ref</code> suffix for references.</li>
+<li>Use subsections rather than inheritance to add specific quantities to a general section.
+E.g. the section <code>workflow</code> contains a section <code>geometry_optimization</code> for all geometry optimization specific
+workflow quantities.</li>
+<li>Prefix parser-specific and user-defined definitions with <code>x_name_</code>, where <code>name</code> is the
+short handle of a code name or other special method prefix.</li>
+</ul>
+<h2 id="use-python-schemas-to-work-with-data">Use Python schemas to work with data<a class="headerlink" href="#use-python-schemas-to-work-with-data" title="Permanent link">&para;</a></h2>
+<h3 id="access-structured-data-via-api">Access structured data via API<a class="headerlink" href="#access-structured-data-via-api" title="Permanent link">&para;</a></h3>
+<p>The <a href="../api.html#access-archives">API section</a> demonstrates how to access an Archive, i.e.
+retrieve the processed data from a NOAMD entry. This API will give you JSON data likes this:</p>
+<div class="highlight"><span class="filename">https://nomad-lab.eu/prod/v1/api/v1/entries/--dLZstNvL_x05wDg2djQmlU_oKn/archive</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nt">&quot;run&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">            </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">            </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">                </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">                </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">                </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">                </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">                    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bulk&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">                    </span><span class="nt">&quot;configuration_raw_gid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-ZnDK8gT9P3_xtArfKlCrDOt9gba&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">                    </span><span class="nt">&quot;is_representative&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">                    </span><span class="nt">&quot;chemical_composition&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;KKKGaGaGaGaGaGaGaGaGa&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">                    </span><span class="nt">&quot;chemical_composition_hill&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ga9K3&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">                    </span><span class="nt">&quot;chemical_composition_reduced&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;K3Ga9&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">                    </span><span class="nt">&quot;atoms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">                    </span><span class="nt">&quot;springer_material&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">                    </span><span class="nt">&quot;symmetry&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">            </span><span class="nt">&quot;calculation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="nt">&quot;workflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">    </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">    </span><span class="nt">&quot;results&quot;</span><span class="p">:{</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">        </span><span class="nt">&quot;material&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">        </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="p">}</span>
+</code></pre></div>
+<p>This will show you the Archive as a hierarchy of JSON objects (each object is a section),
+where each key is a property (e.g. a quantity or subsection). Of course you can use
+this data in this JSON form. You can expect that the same keys (each item has a formal
+definition) always provides the same type of data. However, not all keys are present in
+every archive, and not all lists might have the same number of objects. This depends on the
+data. For example, some <em>runs</em> contain many systems (e.g. geometry optimizations), others
+don't; typically <em>bulk</em> systems will have <em>symmetry</em> data, non bulk systems might not.
+To learn what each key means, you need to look up its definition in the Metainfo.</p>
+<p>You can browse the <a href="../gui/analyze/metainfo">NOMAD metainfo schema</a>
+or the archive of each entry (e.g. <a href="../gui/search/entries/entry/id/d5OYC0SJTDevHMPk7YHd4A/-7j8ojKkna2NLXdytv_OjV4zsBXw/archive">a VASP example</a>)
+in the web-interface.</p>
+<h3 id="wrap-data-with-python-schema-classes">Wrap data with Python schema classes<a class="headerlink" href="#wrap-data-with-python-schema-classes" title="Permanent link">&para;</a></h3>
+<p>In Python, JSON data is typically represented as nested combinations of dictionaries
+and lists. Of course, you could work with this right away. To make it easier for Python
+programmers the <a href="../pythonlib.html">NOMAD Python package</a> allows you to use this
+JSON data with a higher level interface, which provides the following advantages:</p>
+<ul>
+<li>code completion in dynamic coding environments like Jupyter notebooks</li>
+<li>a cleaner syntax that uses attributes instead of dictionary access</li>
+<li>all higher dimensional numerical data is represented as numpy arrays</li>
+<li>allows to navigate through references</li>
+<li>numerical data has a Pint unit attached to it</li>
+</ul>
+<p>For each section the Python package contains a Python class that corresponds to its
+definition in the metainfo. You can use these classes to access <code>json_data</code> downloaded
+via API:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">nomad.datamodel</span> <span class="kn">import</span> <span class="n">EntryArchive</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">archive</span> <span class="o">=</span> <span class="n">EntryArchive</span><span class="o">.</span><span class="n">m_from_dict</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">calc</span> <span class="o">=</span> <span class="n">archive</span><span class="o">.</span><span class="n">run</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">calculation</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">total_energy_in_ev</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">total</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">eV</span><span class="p">)</span><span class="o">.</span><span class="n">m</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">formula</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">system_ref</span><span class="o">.</span><span class="n">chemical_formula_reduced</span>
+</code></pre></div></p>
+<p>Archive data can also be serialized into JSON again:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">json</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">m_to_dict</span><span class="p">(),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div></p>
+<h3 id="access-structured-data-via-the-nomad-python-package">Access structured data via the NOMAD Python package<a class="headerlink" href="#access-structured-data-via-the-nomad-python-package" title="Permanent link">&para;</a></h3>
+<p>The NOMAD Python package provides utilities to <a href="/archive_query.md">query large amounts of
+archive data</a>. This uses the build-in Python schema classes as
+an interface to the data.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="basics.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Yaml schemas" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Yaml schemas
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="elns.html" class="md-footer__link md-footer__link--next" aria-label="Next: Schemas for ELNs" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Schemas for ELNs
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="../javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

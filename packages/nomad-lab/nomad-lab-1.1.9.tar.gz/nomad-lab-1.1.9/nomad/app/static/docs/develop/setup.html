@@ -1,0 +1,1496 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Getting started - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setup-a-dev-environment-run-the-app-and-run-test" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web.html" class="md-nav__link">
+        Using the web interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api.html" class="md-nav__link">
+        Using the APIs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python package
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python package" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python package
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonlib.html" class="md-nav__link">
+        Install the Python library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive_query.html" class="md-nav__link">
+        Query Processed Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_parsers.html" class="md-nav__link">
+        Run NOMAD parser locally
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/basics.html" class="md-nav__link">
+        Yaml schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/python.html" class="md-nav__link">
+        Python schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/elns.html" class="md-nav__link">
+        Schemas for ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/workflows.html" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/hdf5.html" class="md-nav__link">
+        Large data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Developing NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developing NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developing NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Getting started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="setup.html" class="md-nav__link md-nav__link--active">
+        Getting started
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clone-the-sources" class="md-nav__link">
+    Clone the sources
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone the sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-sub-modules" class="md-nav__link">
+    Install sub-modules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-a-python-environment" class="md-nav__link">
+    Setup a Python environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-missing-system-libraries-eg-on-macos" class="md-nav__link">
+    Install missing system libraries (e.g. on MacOS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-nomad" class="md-nav__link">
+    Install nomad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-gui-artifacts" class="md-nav__link">
+    Update GUI artifacts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-infrastructure" class="md-nav__link">
+    Run the infrastructure
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    Install docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-required-3rd-party-services" class="md-nav__link">
+    Run required 3rd party services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-nomad" class="md-nav__link">
+    Run NOMAD
+  </a>
+  
+    <nav class="md-nav" aria-label="Run NOMAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app-and-worker" class="md-nav__link">
+    App and Worker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jupyterhub" class="md-nav__link">
+    JupyterHUB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    Running tests
+  </a>
+  
+    <nav class="md-nav" aria-label="Running tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-tests" class="md-nav__link">
+    Backend tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-tests" class="md-nav__link">
+    Frontend tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-docker-image" class="md-nav__link">
+    Build the docker image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-your-ide" class="md-nav__link">
+    Setup your IDE
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gitlab.html" class="md-nav__link">
+        Using Git/GitLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="search.html" class="md-nav__link">
+        Extending the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parser.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Operating NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operating NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Operating NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis.html" class="md-nav__link">
+        Operating an OASIS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clone-the-sources" class="md-nav__link">
+    Clone the sources
+  </a>
+  
+    <nav class="md-nav" aria-label="Clone the sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-sub-modules" class="md-nav__link">
+    Install sub-modules
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-a-python-environment" class="md-nav__link">
+    Setup a Python environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-missing-system-libraries-eg-on-macos" class="md-nav__link">
+    Install missing system libraries (e.g. on MacOS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-nomad" class="md-nav__link">
+    Install nomad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-gui-artifacts" class="md-nav__link">
+    Update GUI artifacts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-infrastructure" class="md-nav__link">
+    Run the infrastructure
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the infrastructure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    Install docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-required-3rd-party-services" class="md-nav__link">
+    Run required 3rd party services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-nomad" class="md-nav__link">
+    Run NOMAD
+  </a>
+  
+    <nav class="md-nav" aria-label="Run NOMAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app-and-worker" class="md-nav__link">
+    App and Worker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jupyterhub" class="md-nav__link">
+    JupyterHUB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    Running tests
+  </a>
+  
+    <nav class="md-nav" aria-label="Running tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-tests" class="md-nav__link">
+    Backend tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-tests" class="md-nav__link">
+    Frontend tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-docker-image" class="md-nav__link">
+    Build the docker image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-your-ide" class="md-nav__link">
+    Setup your IDE
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="setup-a-dev-environment-run-the-app-and-run-test">Setup a dev environment, run the app, and run test<a class="headerlink" href="#setup-a-dev-environment-run-the-app-and-run-test" title="Permanent link">&para;</a></h1>
+<p>This is a step-by-step guide to get started with NOMAD development. You will clone
+all sources, set-up a <em>Python</em> and <em>node</em> environment, install all necessary dependency,
+run the infrastructure in development mode, learn to run out test-suites, and setup-up
+<em>Visual Studio Code</em> for NOMAD development.</p>
+<p>This is not about working with the NOMAD Python package. You can find the <code>nomad-lab</code>
+documentation <a href="../pythonlib.html">here</a>.</p>
+<h2 id="clone-the-sources">Clone the sources<a class="headerlink" href="#clone-the-sources" title="Permanent link">&para;</a></h2>
+<p>If not already done, you should clone nomad. If you have a gitlab@MPCDF account, you can clone with git URL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git clone git@gitlab.mpcdf.mpg.de:nomad-lab/nomad-FAIR.git nomad
+</code></pre></div>
+<p>Otherwise, clone using HTTPS URL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git clone https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR.git nomad
+</code></pre></div>
+<p>then change directory to nomad</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd nomad
+</code></pre></div>
+<p>There are several branches in the repository. The master branch contains the latest released version,
+but there is also a develop (new features) and release branch (hotfixes). There are also
+tags for each version called vX.X.X. Checkout the branch you want to work on.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git checkout develop
+</code></pre></div>
+The development branches are protected and you should create a new branch including your changes.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git checkout -b &lt;my-branch-name&gt;
+</code></pre></div>
+This branch can be pushed to the repo, and then later may be merged to the relevant branch.</p>
+<h3 id="install-sub-modules">Install sub-modules<a class="headerlink" href="#install-sub-modules" title="Permanent link">&para;</a></h3>
+<p>Nomad is based on python modules from the NOMAD-coe project.
+This includes parsers, python-common and the meta-info. These modules are maintained as
+their own GITLab/git repositories. To clone and initialize them run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init
+</code></pre></div>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h3 id="setup-a-python-environment">Setup a Python environment<a class="headerlink" href="#setup-a-python-environment" title="Permanent link">&para;</a></h3>
+<p>You should work in a Python virtual environment.</p>
+<h4 id="pyenv">pyenv<a class="headerlink" href="#pyenv" title="Permanent link">&para;</a></h4>
+<p>The nomad code currently targets python 3.9. If your host machine has an older version installed,
+you can use <a href="https://github.com/pyenv/pyenv">pyenv</a> to use python 3.9 in parallel to your
+system's python.</p>
+<h4 id="virtualenv">virtualenv<a class="headerlink" href="#virtualenv" title="Permanent link">&para;</a></h4>
+<p>Create a virtual environment. It allows you
+to keep nomad and its dependencies separate from your system's python installation.
+Make sure that the virtual environment is based on Python 3.9 or higher.
+Use the built-in <code>venv</code> or (virtualenv)[https://pypi.org/project/virtualenv/] alternatively.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python3 -m venv .pyenv
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>source .pyenv/bin/activate
+</code></pre></div>
+<h4 id="conda">conda<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h4>
+<p>If you are a conda user, there is an equivalent, but you have to install pip and the
+right python version while creating the environment.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>nomad_env<span class="w"> </span>pip<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>nomad_env
+</code></pre></div></p>
+<p>To install libmagick for conda, you can use (other channels might also work):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>--name<span class="w"> </span>nomad_env<span class="w"> </span>libmagic
+</code></pre></div></p>
+<h4 id="upgrade-pip">Upgrade pip<a class="headerlink" href="#upgrade-pip" title="Permanent link">&para;</a></h4>
+<p>Make sure you have the most recent version of pip:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</code></pre></div></p>
+<h3 id="install-missing-system-libraries-eg-on-macos">Install missing system libraries (e.g. on MacOS)<a class="headerlink" href="#install-missing-system-libraries-eg-on-macos" title="Permanent link">&para;</a></h3>
+<p>Even though the NOMAD infrastructure is written in python, there is a C library
+required by one of our python dependencies. Libmagic is missing on some systems.
+Libmagic allows to determine the MIME type of files. It should be installed on most
+unix/linux systems. It can be installed on MacOS with homebrew:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>brew<span class="w"> </span>install<span class="w"> </span>libmagic
+</code></pre></div>
+<p>If you are using an Mac with Apple Silicon, we recommend to use rosetta, homebrew
+for Intel, and install and use an Intel based Python. The second answer in this
+<a href="https://stackoverflow.com/questions/64882584/how-to-run-the-homebrew-installer-under-rosetta-2-on-m1-macbook">Stackoverflow post</a>
+describes how to use both the Apple and Intel homebrew simultaneously.</p>
+<h3 id="install-nomad">Install nomad<a class="headerlink" href="#install-nomad" title="Permanent link">&para;</a></h3>
+<p>The following command can be used to install all dependencies of all submodules and nomad
+itself. If successful you can skip the rest of this <em>Install nomad</em> section.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./scripts/setup_dev_env.sh
+</code></pre></div></p>
+<p>Install all the requirements needed for development (including submodul requirements):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pip<span class="w"> </span>install<span class="w"> </span>--prefer-binary<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
+</code></pre></div>
+<p>Finally, you can add nomad to the environment itself (including all extras).
+The <code>-e</code> option will install the NOMAD with symbolic links allowing you
+to change the code without having to reinstall after each change.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>parsing,infrastructure,dev<span class="o">]</span>
+</code></pre></div></p>
+<p>If pip tries to use and compile sources and this creates errors, it can be told to prefer binary version:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>parsing,infrastructure,dev<span class="o">]</span><span class="w"> </span>--prefer-binary
+</code></pre></div>
+<h3 id="update-gui-artifacts">Update GUI artifacts<a class="headerlink" href="#update-gui-artifacts" title="Permanent link">&para;</a></h3>
+<p>The NOMAD GUI requires static artifacts that are generated from the NOMAD Python codes.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>python<span class="w"> </span>-m<span class="w"> </span>nomad.cli<span class="w"> </span>dev<span class="w"> </span>gui-artifacts<span class="w"> </span>--output-directory<span class="w"> </span>gui/src
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>python<span class="w"> </span>-m<span class="w"> </span>nomad.cli<span class="w"> </span>dev<span class="w"> </span>gui-config<span class="w"> </span>&gt;gui/public/env.js
+</code></pre></div></p>
+<p>Or simply run
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>./scripts/generate_gui_artifacts.sh
+</code></pre></div></p>
+<p>The generated files are stored in GIT. The GUI code might not match the expected data in
+outdated files. If there are changes to units, metainfo, new parsers, new toolkit notebooks it
+might be necessary to regenerate these gui artifacts.</p>
+<p>In addition, you have to do some more steps to prepare your working copy to run all
+the tests. See below.</p>
+<h2 id="run-the-infrastructure">Run the infrastructure<a class="headerlink" href="#run-the-infrastructure" title="Permanent link">&para;</a></h2>
+<h3 id="install-docker">Install docker<a class="headerlink" href="#install-docker" title="Permanent link">&para;</a></h3>
+<p>You need to install <a href="https://docs.docker.com/engine/install/">docker</a>.
+Docker nowadays comes with <code>docker compose</code> build in. Prior, you needed to
+install the standalone <a href="https://docs.docker.com/compose/install/">docker-compose</a>.</p>
+<h3 id="run-required-3rd-party-services">Run required 3rd party services<a class="headerlink" href="#run-required-3rd-party-services" title="Permanent link">&para;</a></h3>
+<p>To run NOMAD, some 3rd party services are needed</p>
+<ul>
+<li>elastic search: nomad's search and analytics engine</li>
+<li>mongodb: used to store processing state</li>
+<li>rabbitmq: a task queue used to distribute work in a cluster</li>
+</ul>
+<p>All 3rd party services should be run via <em>docker-compose</em> (see below).
+Keep in mind the <em>docker-compose</em> configures all services in a way that mirror
+the configuration of the python code in <code>nomad/config.py</code> and the gui config in
+<code>gui/.env.development</code>.</p>
+<p>The default virtual memory for Elasticsearch is likely to be too low. On Linux, you can run the following command as root:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sysctl<span class="w"> </span>-w<span class="w"> </span>vm.max_map_count<span class="o">=</span><span class="m">262144</span>
+</code></pre></div></p>
+<p>To set this value permanently, see <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html">here</a>. Then, you can run all services with:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">cd</span><span class="w"> </span>ops/docker-compose/infrastructure
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>mongo<span class="w"> </span>elastic<span class="w"> </span>rabbitmq
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nb">cd</span><span class="w"> </span>../../..
+</code></pre></div></p>
+<p>If your system almost ran out of disk space the elasticsearch enforces a read-only index block (<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.2/disk-allocator.html">read more</a>), but
+after clearing up the disk space you need to reset it manually using the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>curl<span class="w"> </span>-XPUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>http://localhost:9200/_all/_settings<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;index.blocks.read_only_allow_delete&quot;: false}&#39;</span>
+</code></pre></div>
+<p>Note that the ElasticSearch service has a known problem in quickly hitting the
+virtual memory limits of your OS. If you experience issues with the
+ElasticSearch container not running correctly or crashing, try increasing the
+virtual memory limits as shown <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html">here</a>.</p>
+<p>To shut down everything, just <code>ctrl-c</code> the running output. If you started everything
+in <em>deamon</em> mode (<code>-d</code>) use:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
+</code></pre></div></p>
+<p>Usually these services are used only by NOMAD, but sometimes you also
+need to check something or do some manual steps. You can access mongodb and elastic search
+via your preferred tools. Just make sure to use the right ports.</p>
+<h2 id="run-nomad">Run NOMAD<a class="headerlink" href="#run-nomad" title="Permanent link">&para;</a></h2>
+<p>Before you run NOMAD for development purposes, you should configure it to use the <code>test</code>
+realm of our user management system. By default, NOMAD will use the <code>fairdi_nomad_prod</code> realm.
+Create a <code>nomad.yaml</code> file in the root folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>keycloak:
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  realm_name: fairdi_nomad_test
+</code></pre></div>
+<h3 id="app-and-worker">App and Worker<a class="headerlink" href="#app-and-worker" title="Permanent link">&para;</a></h3>
+<p>NOMAD consist of the NOMAD app/api, a worker, and the GUI. You can run the app and the worker with
+the NOMAD cli. These commands will run the services and display their log output. You should open
+them in separate shells as they run continuously. They will not watch code changes and
+you have to restart manually.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>nomad<span class="w"> </span>admin<span class="w"> </span>run<span class="w"> </span>app
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>nomad<span class="w"> </span>admin<span class="w"> </span>run<span class="w"> </span>worker
+</code></pre></div>
+<p>Or both together in one process:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>nomad admin run appworker
+</code></pre></div></p>
+<p>On MacOS you might run into multiprocessing errors. That can be solved as described <a href="https://stackoverflow.com/questions/50168647/multiprocessing-causes-python-to-crash-and-gives-an-error-may-have-been-in-progr">here</a>.</p>
+<p>The app will run at port 8000 by default.</p>
+<p>To run the worker directly with celery, do (from the root)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>celery<span class="w"> </span>-A<span class="w"> </span>nomad.processing<span class="w"> </span>worker<span class="w"> </span>-l<span class="w"> </span>info
+</code></pre></div></p>
+<p>Before you can run the gui, make sure that generated artifacts are up-to-date:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>./scripts/generate_gui_artifacts.sh
+</code></pre></div></p>
+<p>Also, make sure that the config file (<code>gui/public/env.js</code>) have been properly created:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>./scripts/generate_gui_config.sh
+</code></pre></div></p>
+<p>If you run the gui on its own (e.g. with react dev server below), you also have to have
+the app manually. The gui and its dependencies run on <a href="https://nodejs.org">node</a> and
+the <a href="https://yarnpkg.com/">yarn</a> dependency manager. Read their documentation on how to
+install them for your platform.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">cd</span><span class="w"> </span>gui
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>yarn
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>yarn<span class="w"> </span>start
+</code></pre></div></p>
+<h3 id="jupyterhub">JupyterHUB<a class="headerlink" href="#jupyterhub" title="Permanent link">&para;</a></h3>
+<p>NOMAD also has a build in JupyterHUB that is used to launch remote tools (e.g. Jupyter
+notebooks).</p>
+<p>To run the JupyterHUB, some additional configuration might be necessary.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>north:
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">    </span>hub_connect_ip:<span class="w"> </span><span class="s1">&#39;host.docker.internal&#39;</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span>jupyterhub_crypt_key:<span class="w"> </span><span class="s1">&#39;&lt;crypt key&gt;&#39;</span>
+</code></pre></div></p>
+<p>On Windows system, you might have to activate further specific functionality:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>north:
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span>hub_connect_ip:<span class="w"> </span><span class="s1">&#39;host.docker.internal&#39;</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span>hub_connect_url:<span class="w"> </span><span class="s1">&#39;http://host.docker.internal:8081&#39;</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span>windows:<span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span>jupyterhub_crypt_key:<span class="w"> </span><span class="s1">&#39;&lt;crypt key&gt;&#39;</span>
+</code></pre></div></p>
+<ul>
+<li>If you are not on Linux, you need to configure how JupyterHUB can reach your host network from
+docker containers. For Windows and MacOS you need to set <code>hub_connect_ip</code> to <code>host.docker.internal</code>. For linux you can leave it out and use the default <code>172.17.0.1</code>, unless you changed your
+docker configuration.</li>
+<li>You have to generate a <code>crypt key</code> with <code>openssl rand -hex 32</code>.</li>
+<li>You might need to install <a href="https://github.com/jupyterhub/configurable-http-proxy">configurable-http-proxy</a>.</li>
+</ul>
+<p>The <em>configurable-http-proxy</em> It comes as a node package. See <a href="https://nodejs.org">node</a> for how to install <code>npm</code>. The proxy can be globally installed with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>configurable-http-proxy
+</code></pre></div>
+<p>The JupyterHUB is a separate application. You can run the JuypterHUB similar
+tp the other part.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>nomad<span class="w"> </span>admin<span class="w"> </span>run<span class="w"> </span>hub
+</code></pre></div>
+<p>To run the JupyterHUB directly, do (from the root)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>jupyterhub<span class="w"> </span>-f<span class="w"> </span>nomad/jupyterhub_config.py<span class="w"> </span>--port<span class="w"> </span><span class="m">9000</span>
+</code></pre></div></p>
+<h2 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
+<h3 id="backend-tests">Backend tests<a class="headerlink" href="#backend-tests" title="Permanent link">&para;</a></h3>
+<p>To run the tests some additional settings and files are necessary that are not part
+of the code base.</p>
+<p>You have to provide static files to serve the docs and NOMAD distribution:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>./scripts/generate_docs_artifacts.sh
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>site<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdocs<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>site<span class="w"> </span>nomad/app/static/docs
+</code></pre></div></p>
+<p>You need to have the infrastructure partially running: elastic, rabbitmq.
+The rest should be mocked or provided by the tests. Make sure that you do no run any
+worker, as they will fight for tasks in the queue.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nb">cd</span><span class="w"> </span>ops/docker-compose/infrastructure
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>elastic<span class="w"> </span>rabbitmq
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="nb">cd</span><span class="w"> </span>../..
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>pytest<span class="w"> </span>-svx<span class="w"> </span>tests
+</code></pre></div></p>
+<p>We use pylint, pycodestyle, and mypy to ensure code quality. To run those:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>nomad<span class="w"> </span>dev<span class="w"> </span>qa<span class="w"> </span>--skip-test
+</code></pre></div></p>
+<p>To run all tests and code qa:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>nomad<span class="w"> </span>dev<span class="w"> </span>qa
+</code></pre></div></p>
+<p>This mimics the tests and checks that the GitLab CI/CD will perform.</p>
+<h3 id="frontend-tests">Frontend tests<a class="headerlink" href="#frontend-tests" title="Permanent link">&para;</a></h3>
+<p>We use
+<a href="https://testing-library.com/docs/react-testing-library/intro/"><code>testing-library</code></a>
+to implement our GUI tests and testing-library itself uses
+<a href="https://jestjs.io/"><code>jest</code></a> to run the tests. Tests are written in <code>\*.spec.js</code>
+files that accompany the implementation. Tests should focus on functionality,
+not on implementation details: <code>testing-library</code> is designed to enforce this kind
+of testing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When testing HTML output, the elements are rendered using
+<a href="https://github.com/jsdom/jsdom">jsdom</a>: this is not completely identical
+to using an actual browser (does not support e.g. WebGL), but in practice
+is realistic enough for the majority of the test.</p>
+</div>
+<p>We have adopted a <code>pytest</code>-like structure for organizing the test utilities:
+each source code folder may contain a <code>conftest.js</code> file that contains
+utilities that are relevant for testing the code in that particular folder.
+These utilities can usually be placed into the following categories:</p>
+<ul>
+<li>Custom renders: When testing React components, the
+   <a href="https://testing-library.com/docs/react-testing-library/api/#render"><code>render</code></a>-function
+   is used to display them on the test DOM. Typically your components require
+   some parts of the infrastructure to work properly, which is achieved by
+   wrapping your component with other components that provide a context. Custom
+   render functions can do this automatically for you. E.g. the default render
+   as exported from <code>src/components/conftest.js</code> wraps your components with an
+   infrastructure that is very similar to the production app. See
+   <a href="https://testing-library.com/docs/react-testing-library/setup/#custom-render">here</a>
+   for more information.</li>
+<li>Custom queries: See
+   <a href="https://testing-library.com/docs/react-testing-library/setup/#add-custom-queries">here</a>
+   for more information.</li>
+<li>Custom expects: These are reusable functions that perform actual tests using
+   the expect-function. Whenever the same tests are performed by several
+   *.spec.js files, you should formalize these common tests into a
+   <code>expect*</code>-function and place it in a relevant conftest.js file.</li>
+</ul>
+<p>Often you components will need to communicate with the API during tests. One
+should generally avoid using manually created mocks for the API traffic, and
+instead prefer using API responses that originate from an actual API call
+during testing. Manually created mocks require a lot of manual work in creating
+them and keeping them up to date and true integration tests are impossible
+to perform without live communication with an API. In order to simplify the API
+communication during testing, you can use the <code>startAPI</code>+<code>closeAPI</code> functions, that
+will prepare the API traffic for you. A simple example could look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">waitFor</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@testing-library/dom&#39;</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">startAPI</span><span class="p">,</span><span class="w"> </span><span class="nx">closeAPI</span><span class="p">,</span><span class="w"> </span><span class="nx">screen</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../../conftest&#39;</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">renderSearchEntry</span><span class="p">,</span><span class="w"> </span><span class="nx">expectInputHeader</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../conftest&#39;</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;periodic table shows the elements retrieved through the API&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="w">  </span><span class="nx">startAPI</span><span class="p">(</span><span class="s1">&#39;&lt;state_name&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;snapshot_name&gt;&#39;</span><span class="p">)</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="w">  </span><span class="nx">renderSearchEntry</span><span class="p">(...)</span>
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="w">  </span><span class="nx">expect</span><span class="p">(...)</span>
+<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="w">  </span><span class="nx">closeAPI</span><span class="p">()</span>
+<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="p">})</span>
+</code></pre></div>
+<p>Here the important parameters are:</p>
+<ul>
+<li><code>&lt;state_name&gt;</code>: Specifies an initial backend configuration for this test. These
+   states are defined as python functions that are stored in
+   nomad-FAIR/tests/states, example given below. These functions may e.g.
+   prepare several uploads entries, datasets, etc. for the test.</li>
+<li><code>&lt;snapshot_name&gt;</code>: Specifies a filepath for reading/recording pre-recorded API
+   traffic.</li>
+</ul>
+<p>An example of a simple test state could look like this:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kn">from</span> <span class="nn">nomad</span> <span class="kn">import</span> <span class="n">infrastructure</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="kn">from</span> <span class="nn">nomad.utils</span> <span class="kn">import</span> <span class="n">create_uuid</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="kn">from</span> <span class="nn">nomad.utils.exampledata</span> <span class="kn">import</span> <span class="n">ExampleData</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="k">def</span> <span class="nf">search</span><span class="p">():</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>    <span class="n">infrastructure</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>    <span class="n">main_author</span> <span class="o">=</span> <span class="n">infrastructure</span><span class="o">.</span><span class="n">user_management</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">ExampleData</span><span class="p">(</span><span class="n">main_author</span><span class="o">=</span><span class="n">main_author</span><span class="p">)</span>
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>    <span class="n">upload_id</span> <span class="o">=</span> <span class="n">create_uuid</span><span class="p">()</span>
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>    <span class="n">data</span><span class="o">.</span><span class="n">create_upload</span><span class="p">(</span><span class="n">upload_id</span><span class="o">=</span><span class="n">upload_id</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">embargo_length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a>    <span class="n">data</span><span class="o">.</span><span class="n">create_entry</span><span class="p">(</span>
+<a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a>        <span class="n">upload_id</span><span class="o">=</span><span class="n">upload_id</span><span class="p">,</span>
+<a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a>        <span class="n">entry_id</span><span class="o">=</span><span class="n">create_uuid</span><span class="p">(),</span>
+<a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a>        <span class="n">mainfile</span><span class="o">=</span><span class="s2">&quot;test_content/test_entry/mainfile.json&quot;</span><span class="p">,</span>
+<a id="__codelineno-39-15" name="__codelineno-39-15" href="#__codelineno-39-15"></a>        <span class="n">results</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-39-16" name="__codelineno-39-16" href="#__codelineno-39-16"></a>            <span class="s2">&quot;material&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;elements&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">]},</span>
+<a id="__codelineno-39-17" name="__codelineno-39-17" href="#__codelineno-39-17"></a>            <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-39-18" name="__codelineno-39-18" href="#__codelineno-39-18"></a>            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<a id="__codelineno-39-19" name="__codelineno-39-19" href="#__codelineno-39-19"></a>        <span class="p">}</span>
+<a id="__codelineno-39-20" name="__codelineno-39-20" href="#__codelineno-39-20"></a>    <span class="p">)</span>
+<a id="__codelineno-39-21" name="__codelineno-39-21" href="#__codelineno-39-21"></a>    <span class="n">data</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</code></pre></div>
+When running in the <code>test-integration</code> or <code>test-record</code> mode (see below), this
+function will be executed in order to prepare the application backend. The
+<code>closeAPI</code> function will handle cleaning the test state between successive
+<code>startAPI</code> calls: it will completely wipe out MongoDB, ElasticSearch and the
+upload files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tests are using the configuration specified in <code>gui/tests/nomad.yaml</code>, that
+specifies a separate database/filesystem config in order to prevent interacting with
+any other instances of NOMAD.</p>
+</div>
+<p>In order to control how the API traffic is handled, there are three main ways
+for running the test suite, as configured in <code>package.json</code>:</p>
+<ul>
+<li><code>yarn test [&lt;filename&gt;]</code>: Runs the tests parallelly in an 'offline'
+   mode: <code>startAPI</code> will use pre-recorded API snapshot files that are found in
+   gui/tests.</li>
+<li><code>yarn test-integration filename&gt;]</code>: Runs the tests serially and <code>startAPI</code>
+   will forward any API traffic to a live API that is running locally.</li>
+<li><code>yarn test-record [&lt;filename&gt;]</code>: Runs the tests serially and <code>startAPI</code> will
+   forward traffic to a live API that is running locally, additionally
+   recording the traffic to the specified snapshot file.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before running against a live API (<code>yarn test-integration</code> and <code>yarn
+test-record</code>), you need to boot up the infrastructure and ensure that the
+nomad package is available with the correct test configuration:</p>
+<ol>
+<li>
+<p>Have the docker infrastructure running: <code>docker compose up</code></p>
+</li>
+<li>
+<p>Have the <code>nomad appworker</code> running with the config found in
+   <code>gui/tests/nomad.yaml</code>. This can be achieved e.g. with the command: <code>export
+   NOMAD_CONFIG=gui/tests/nomad.yaml; nomad admin run appworker</code></p>
+</li>
+<li>
+<p>Activate the correct python virtual environment before running the tests
+   with yarn (yarn will run the python functions that prepare the state).</p>
+</li>
+</ol>
+</div>
+<h2 id="build-the-docker-image">Build the docker image<a class="headerlink" href="#build-the-docker-image" title="Permanent link">&para;</a></h2>
+<p>Normally the docker image is build via a CI/CD pipeline that is run when pushing
+commits to NOMAD's gitlab at MPCDF. These images are distributed via NOMAD's gitlab
+container registry. For most purposes you would use these automatically build images.</p>
+<p>If you want to build a custom images, e.g. to be used in your Oasis, you can
+run the NOMAD docker built manually. From the cloned project root run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>&lt;image-name&gt;:&lt;image-tag&gt;<span class="w"> </span>.
+</code></pre></div>
+<p>This will build the normal image indented for production use. There are other build
+targets: <code>dev_python</code> and <code>dev_node</code>. Especially <code>dev_python</code> might be interesting
+for debugging purposes as it contains all sources and dev dependencies. You
+can build specific targets with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>docker<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>dev_python<span class="w"> </span>-t<span class="w"> </span>&lt;image-name&gt;:&lt;image-tag&gt;<span class="w"> </span>.
+</code></pre></div>
+<p>If you want to build an image directly from a remote git repository (e.g. for a specific <code>branch</code>), run</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>DOCKER_BUILDKIT=1 docker build --build-arg BUILDKIT_CONTEXT_KEEP_GIT_DIR=1 --pull -t &lt;image-name&gt;:&lt;image-tag&gt; https://github.com/nomad-coe/nomad.git#&lt;branch&gt;
+</code></pre></div>
+<p>The buildkit parametrization ensures that the the <code>.git</code> directory is available in the
+docker build context. NOMAD's build process requires the <code>.git</code> folder to determine the
+package version from version tags in the repository.</p>
+<p>The build process installs a substantial amount of dependencies and requires multiple
+docker images for various build stages. Make sure that docker has at least 20 GB of
+storage available.</p>
+<h2 id="setup-your-ide">Setup your IDE<a class="headerlink" href="#setup-your-ide" title="Permanent link">&para;</a></h2>
+<p>The documentation section for development guidelines (see below) details how the code is organized,
+tested, formatted, and documented. To help you meet these guidelines, we recommend to
+use a proper IDE for development and ditch any VIM/Emacs (mal-)practices.</p>
+<p>We strongly recommend that all developers use <em>visual studio code</em>, or <em>vscode</em> for short,
+(this is a completely different product than <em>visual studio</em>). It is available for free
+for all major platforms <a href="https://code.visualstudio.com/download">here</a>.</p>
+<p>You should launch and run vscode directly from the projects root directory. The source
+code already contains settings for vscode in the <code>.vscode</code> directory. The settings
+contain the same setup for stylechecks, linter, etc. that is also used in our CI/CD
+pipelines.
+In order to ractually use the these features you have to make sure that they are enabled
+in your own User settings:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>    &quot;python.linting.pycodestyleEnabled&quot;: true,
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>    &quot;python.linting.pylintEnabled&quot;: true,
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>    &quot;python.linting.mypyEnabled&quot;: true,
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>    &quot;python.testing.pytestEnabled&quot;: true,
+</code></pre></div></p>
+<p>The settings also include a few launch configuration for vscode's debugger. You can create
+your own launch configs in <code>.vscode/launch.json</code> (also in .gitignore).</p>
+<p>The settings expect that you have installed a python environment at <code>.pyenv</code> as
+described in this tutorial (see above).</p>
+<p>We also provide developers a vscode extension which is designed to support nomad schema language.
+One can generate the extension using the following command after nomad installation</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="w">  </span>nomad<span class="w"> </span>dev<span class="w"> </span>vscode-extension<span class="w"> </span>-o<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>output&gt;
+</code></pre></div>
+<p>this command generate an up-to-date extension folder namely <code>nomad-vscode</code>. You can either copy
+this folder into vscode extensions folder <code>~/.vscode/extensions/</code> or create an installable package as follows</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="w">  </span>sudo<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>vsce<span class="w"> </span><span class="c1"># if vsce is not installed</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">  </span><span class="nb">cd</span><span class="w"> </span>./nomad-vscode
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">  </span>vsce<span class="w"> </span>package
+</code></pre></div>
+<p>then install the extension by drag the file <code>nomad-0.0.x.vsix</code> and drop it into the extension panel of the vscode.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../schema/hdf5.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Large data" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Large data
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="guides.html" class="md-footer__link md-footer__link--next" aria-label="Next: Code guidelines" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Code guidelines
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="../javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

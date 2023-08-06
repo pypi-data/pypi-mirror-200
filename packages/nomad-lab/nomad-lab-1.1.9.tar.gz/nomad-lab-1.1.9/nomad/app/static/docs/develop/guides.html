@@ -1,0 +1,1079 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Code guidelines - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#principles-and-rules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Code guidelines
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web.html" class="md-nav__link">
+        Using the web interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api.html" class="md-nav__link">
+        Using the APIs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python package
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python package" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python package
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonlib.html" class="md-nav__link">
+        Install the Python library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../archive_query.html" class="md-nav__link">
+        Query Processed Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_parsers.html" class="md-nav__link">
+        Run NOMAD parser locally
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/basics.html" class="md-nav__link">
+        Yaml schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/python.html" class="md-nav__link">
+        Python schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/elns.html" class="md-nav__link">
+        Schemas for ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/workflows.html" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/hdf5.html" class="md-nav__link">
+        Large data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Developing NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developing NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developing NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup.html" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Code guidelines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="guides.html" class="md-nav__link md-nav__link--active">
+        Code guidelines
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#principles-and-rules" class="md-nav__link">
+    Principles and rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enforcing-rules-with-cicd" class="md-nav__link">
+    Enforcing Rules with CI/CD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-code" class="md-nav__link">
+    Documenting code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#names-and-identifiers" class="md-nav__link">
+    Names and identifiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyright-notices" class="md-nav__link">
+    Copyright Notices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-submodules-and-other-in-house-dependencies" class="md-nav__link">
+    Git submodules and other "in-house" dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gitlab.html" class="md-nav__link">
+        Using Git/GitLab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="search.html" class="md-nav__link">
+        Extending the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parser.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Operating NOMAD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operating NOMAD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Operating NOMAD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis.html" class="md-nav__link">
+        Operating an OASIS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#principles-and-rules" class="md-nav__link">
+    Principles and rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enforcing-rules-with-cicd" class="md-nav__link">
+    Enforcing Rules with CI/CD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-code" class="md-nav__link">
+    Documenting code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#names-and-identifiers" class="md-nav__link">
+    Names and identifiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyright-notices" class="md-nav__link">
+    Copyright Notices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-submodules-and-other-in-house-dependencies" class="md-nav__link">
+    Git submodules and other "in-house" dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>Code guidelines</h1>
+
+<p>NOMAD has a long history and many people are involved in its development. These
+guidelines are set out to keep the code quality high and consistent. Please read
+them carefully.</p>
+<h2 id="principles-and-rules">Principles and rules<a class="headerlink" href="#principles-and-rules" title="Permanent link">&para;</a></h2>
+<ul>
+<li>simple first, complicated only when necessary</li>
+<li>search and adopt generic established 3rd party solutions before implementing specific solutions</li>
+<li>only uni directional dependencies between components/modules, no circles</li>
+<li>only one language: Python (except, GUI of course)</li>
+</ul>
+<p>The are some <em>rules</em> or better strong <em>guidelines</em> for writing code. The following
+applies to all python code (and were applicable, also to JS and other code):</p>
+<ul>
+<li>
+<p>Use an IDE (e.g. <a href="https://code.visualstudio.com/">vscode</a> or otherwise automatically
+  enforce code (<a href="https://code.visualstudio.com/docs/python/linting">formatting and linting</a>).
+  Use <code>nomad qa</code> before committing. This will run all tests, static type checks, linting, etc.</p>
+</li>
+<li>
+<p>There is a style guide to python. Write <a href="https://www.python.org/dev/peps/pep-0008/">pep-8</a>
+  compliant python code. An exception is the line cap at 79, which can be broken but keep it 90-ish.</p>
+</li>
+<li>
+<p>Test the public interface of each sub-module (i.e. python file)</p>
+</li>
+<li>
+<p>Be <a href="https://docs.python-guide.org/writing/style/">pythonic</a> and watch
+  <a href="https://www.youtube.com/watch?v=wf-BqAjZb8M">this</a>.</p>
+</li>
+<li>
+<p>Add doc-strings to the <em>public</em> interface of each sub-module (e.g. python file). Public meaning API that
+  is exposed to other sub-modules (i.e. other python files).</p>
+</li>
+<li>
+<p>The project structure is according to <a href="https://docs.python-guide.org/writing/structure/">this guide</a>.
+  Keep it!</p>
+</li>
+<li>
+<p>Write tests for all contributions.</p>
+</li>
+<li>
+<p>Adopt <em>Clean Code</em> practices. Here is a <a href="https://youtu.be/7EmboKQH8lM">good introduction</a>.</p>
+</li>
+</ul>
+<h2 id="enforcing-rules-with-cicd">Enforcing Rules with CI/CD<a class="headerlink" href="#enforcing-rules-with-cicd" title="Permanent link">&para;</a></h2>
+<p>These <em>guidelines</em> are partially enforced by CI/CD. As part of CI all tests are run on all
+branches; further we run a <em>linter</em>, <em>pep8</em> checker, and <em>mypy</em> (static type checker). You can
+run <code>nomad qa</code> to run all these tests and checks before committing.</p>
+<p>See <a href="gitlab.html">git/gitlab</a> for more details on how to work with issues, branches, merge
+requests, and CI/CD.</p>
+<h2 id="documenting-code">Documenting code<a class="headerlink" href="#documenting-code" title="Permanent link">&para;</a></h2>
+<p>Write <a href="https://youtu.be/7EmboKQH8lM">clean code</a> that is easy to comprehend.</p>
+<p>However, you should document the whole publically exposed interface of a module. For Python this
+include most classes and functions that you will write. For react its exported components
+and their props.</p>
+<p>For all functionality that is exposed to clients (APIs, CLI, schema base classes and annotations, UI functionality),
+you must consider to add explanations, tutorials, and examples to the documentation system (i.e. the <code>/docs</code> folder).
+This is built with <a href="https://www.mkdocs.org/">mkdocs</a> and published as part of each NOMAD installation.
+Also mind <code>/nomad/mkdocs.py</code> and <code>mkdocs.yaml</code> and have a look at used plugins and extra functions.
+E.g. this includs generation of markdown from <code>/examples</code> or Pydantic models.</p>
+<p>To document Python functions and classes, use google <a href="https://github.com/NilsJPWerner/autoDocstring/blob/HEAD/docs/google.md">docstrings</a>.
+Use markdown if you need to add markup, but try to reduce this to a minimum.
+You can use VSCode plugins like
+<a href="https://github.com/NilsJPWerner/autoDocstring/tree/f7bc9f427d5ebcd87e6f5839077a87ecd1cbb404">autoDocstring</a>
+to help. Use single quotes (as always), pad single-line docstrings with spaces and start
+multi-line ones on a new line.
+ Here are a few examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">generate_uuid</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39; Generates a base64 encoded Version 4 unique identifier. &#39;&#39;&#39;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">uuid4</span><span class="p">())</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="sd">    Adds two numbers.</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="sd">      a (float): One number.</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="sd">      b (float): The other number.</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="sd">      float: The sum of a and b.</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="sd">    &#39;&#39;&#39;</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+<p>The only reason to comment individual lines is because there is absolutely no way
+to write it simple enough. The typical scenarios are:</p>
+<ul>
+<li>workarrounds to known issues with used dependencies</li>
+<li>complex interactions between seemingly unrelated pieces of code that cannot be resolved otherwise</li>
+<li>code that has to be cumbersome due to performance optimizations</li>
+</ul>
+<p>DO NOT out-comment code. We have git for that.</p>
+<h2 id="names-and-identifiers">Names and identifiers<a class="headerlink" href="#names-and-identifiers" title="Permanent link">&para;</a></h2>
+<p>There is a certain terminology consistently used in this documentation and the source
+code. Use this terminology for identifiers.</p>
+<p>Do not use abbreviations. There are (few) exceptions: <code>proc</code> (processing); <code>exc</code>, <code>e</code> (exception);
+<code>calc</code> (calculation), <code>repo</code> (repository), <code>utils</code> (utilities), and <code>aux</code> (auxiliary).
+Other exceptions are <code>f</code> for file-like streams and <code>i</code> for index running variables.
+Btw., the latter is almost never necessary in python.</p>
+<p>Terms:</p>
+<ul>
+<li>upload: A logical unit that comprises a collection of files uploaded by a user, organized
+  in a directory structure.</li>
+<li>entry: An archive item, created by parsing a <em>mainfile</em>. Each entry belongs to an upload and
+  is associated with various metadata (an upload may have many entries).</li>
+<li>child entry: Some parsers generate multiple entries - a <em>main</em> entry plus some number of
+  <em>child</em> entries. Child entries are identified by the mainfile plus a <em>mainfile_key</em>
+  (string value).</li>
+<li>calculation: denotes the results of a theoretical computation, created by CMS code.
+  Note that entries do not have to be based on calculations; they can also be based on
+  experimental results.</li>
+<li>raw file: A user uploaded file, located somewhere in the upload's directory structure.</li>
+<li>mainfile: A raw file identified as parseable, defining an entry of the upload in question.</li>
+<li>aux file: Additional files the user uploaded within an upload.</li>
+<li>entry metadata: Some quantities of an entry that are searchable in NOMAD.</li>
+<li>archive data: The normalized data of an entry in nomad's meta-info-based format.</li>
+</ul>
+<p>Throughout nomad, we use different ids. If something
+is called <em>id</em>, it is usually a random uuid and has no semantic connection to the entity
+it identifies. If something is called a <em>hash</em> then it is a hash generated based on the
+entity it identifies. This means either the whole thing or just some properties of
+this entities.</p>
+<ul>
+<li>The most common hashes is the <code>entry_hash</code> based on mainfile and auxfile contents.</li>
+<li>The <code>upload_id</code> is a UUID assigned to the upload on creation. It never changes.</li>
+<li>The <code>mainfile</code> is a path within an upload that points to a file identified as parseable.
+  This also uniquely identifies an entry within the upload.</li>
+<li>The <code>entry_id</code> (previously called <code>calc_id</code>) uniquely identifies an entry. It is a hash
+  over the <code>mainfile</code> and respective <code>upload_id</code>. <strong>NOTE:</strong> For backward compatibility,
+  <code>calc_id</code> is also still supported in the api, but using it is strongly discouraged.</li>
+<li>We often use pairs of <code>upload_id/entry_id</code>, which in many contexts allow to resolve an entry-related
+  file on the filesystem without having to ask a database about it.</li>
+<li>The <code>pid</code> or (<code>coe_calc_id</code>) is a legacy sequential interger id, previously used to identify
+  entries. We still store the <code>pid</code> on these older entries for historical purposes.</li>
+<li>Calculation <code>handle</code> or <code>handle_id</code> are created based on those <code>pid</code>.
+  To create hashes we use :py:func:<code>nomad.utils.hash</code>.</li>
+</ul>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>There are three important prerequisites to understand about nomad-FAIRDI's logging:</p>
+<ul>
+<li>All log entries are recorded in a central elastic search database. To make this database
+  useful, log entries must be sensible in size, frequence, meaning, level, and logger name.
+  Therefore, we need to follow some rules when it comes to logging.</li>
+<li>We use an <em>structured</em> logging approach. Instead of encoding all kinds of information
+  in log messages, we use key-value pairs that provide context to a log <em>event</em>. In the
+  end all entries are stored as JSON dictionaries with <code>@timestamp</code>, <code>level</code>,
+  <code>logger_name</code>, <code>event</code> plus custom context data. Keep events very short, most
+  information goes into the context.</li>
+<li>We use logging to inform about the state of nomad-FAIRDI, not about user
+  behavior, input, or data. Do not confuse this when determining the log-level for an event.
+  For example, a user providing an invalid upload file should never be an error.</li>
+</ul>
+<p>Please follow the following rules when logging:</p>
+<ul>
+<li>If a logger is not already provided, only use
+  :py:func:<code>nomad.utils.get_logger</code> to acquire a new logger. Never use the
+  build-in logging directly. These logger work like the system loggers, but
+  allow you to pass keyword arguments with additional context data. See also
+  the <a href="https://structlog.readthedocs.io/en/stable/">structlog docs</a>.</li>
+<li>In many context, a logger is already provided (e.g. api, processing, parser, normalizer).
+  This provided logger has already context information bounded. So it is important to
+  use those instead of acquiring your own loggers. Have a look for methods called
+  <code>get_logger</code> or attributes called <code>logger</code>.</li>
+<li>Keep events (what usually is called <em>message</em>) very short. Examples are: <em>file uploaded</em>,
+  <em>extraction failed</em>, etc.</li>
+<li>Structure the keys for context information. When you analyse logs in ELK, you will
+  see that the set of all keys over all log entries can be quit large. Structure your
+  keys to make navigation easier. Use keys like <code>nomad.proc.parser_version</code> instead of
+  <code>parser_version</code>. Use module names as prefixes.</li>
+<li>Don't log everything. Try to anticipate, how you would use the logs in case of bugs,
+  error scenarios, etc.</li>
+<li>Don't log sensitive data.</li>
+<li>Think before logging data (especially dicts, list, numpy arrays, etc.).</li>
+<li>Logs should not be abused as a <em>printf</em>-style debugging tool.</li>
+</ul>
+<p>The following keys are used in the final logs that are piped to Logstash.
+Notice that the key name is automatically formed by a separate formatter and
+may differ from the one used in the actual log call.</p>
+<p>Keys that are autogenerated for all logs:</p>
+<ul>
+<li><code>@timestamp</code>: Timestamp for the log</li>
+<li><code>@version</code>: Version of the logger</li>
+<li><code>host</code>: The host name from which the log originated</li>
+<li><code>path</code>: Path of the module from which the log was created</li>
+<li><code>tags</code>: Tags for this log</li>
+<li><code>type</code>: The <em>message_type</em> as set in the LogstashFormatter</li>
+<li><code>level</code>: The log level: <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code></li>
+<li><code>logger_name</code>: Name of the logger</li>
+<li><code>nomad.service</code>: The service name as configured in <code>config.py</code></li>
+<li><code>nomad.release</code>: The release name as configured in <code>config.py</code></li>
+</ul>
+<p>Keys that are present for events related to processing an entry:</p>
+<ul>
+<li><code>nomad.upload_id</code>: The id of the currently processed upload</li>
+<li><code>nomad.entry_id</code>: The id of the currently processed entry</li>
+<li><code>nomad.mainfile</code>: The mainfile of the currently processed entry</li>
+</ul>
+<p>Keys that are present for events related to exceptions:</p>
+<ul>
+<li><code>exc_info</code>: Stores the full python exception that was encountered. All
+   uncaught exceptions will be stored automatically here.</li>
+<li><code>digest</code>: If an exception was raised, the last 256 characters of the message
+   are stored automatically into this key. If you wish to search for exceptions
+   in Kibana, you will want to use this value as it will be indexed unlike the
+   full exception object.</li>
+</ul>
+<h2 id="copyright-notices">Copyright Notices<a class="headerlink" href="#copyright-notices" title="Permanent link">&para;</a></h2>
+<p>We follow this <a href="https://www.linuxfoundation.org/blog/2020/01/copyright-notices-in-open-source-software-projects/">recommendation</a>
+of the Linux Foundation for the copyright notice that is placed on top of each source
+code file.</p>
+<p>It is intended to provide a broad generic statement that allows all authors/contributors
+of the NOMAD project to claim their copyright, independent of their organization or
+individual ownership.</p>
+<p>You can simply copy the notice from another file. From time to time we can use a tool
+like <a href="https://pypi.org/project/licenseheaders/">licenseheaders</a> to ensure correct
+notices. In addition we keep an purely informative AUTHORS file.</p>
+<h2 id="git-submodules-and-other-in-house-dependencies">Git submodules and other "in-house" dependencies<a class="headerlink" href="#git-submodules-and-other-in-house-dependencies" title="Permanent link">&para;</a></h2>
+<p>As the NOMAD eco-systems grows, you might develop libraries that are used by NOMAD instead
+of being part of its main code-base. The same guide-lines should apply. You can
+use git-hub actions if you library is hosted on github to ensure automated linting and tests.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="setup.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting started" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Getting started
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="gitlab.html" class="md-footer__link md-footer__link--next" aria-label="Next: Using Git/GitLab" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Using Git/GitLab
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="../javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
