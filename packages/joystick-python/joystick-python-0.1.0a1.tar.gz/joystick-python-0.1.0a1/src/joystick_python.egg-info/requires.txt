@@ -1,0 +1,6 @@
+httpx[http2]<1.0,>=0.23.3
+pylru<2.0.0,>=1.2.1
+
+[dev]
+nox
+wheel
