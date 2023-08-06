@@ -1,0 +1,11 @@
+google-auth
+pydata-google-auth
+pyaml
+typer[all]
+
+[dev]
+pytest
+flake8
+requests-mock
+setuptools
+wheel
