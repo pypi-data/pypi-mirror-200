@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <utility name="bootstrap3" factory=".grids.Bootstrap3" />
+  <utility name="bootstrap2" factory=".grids.Bootstrap2" />
+
+</configure>

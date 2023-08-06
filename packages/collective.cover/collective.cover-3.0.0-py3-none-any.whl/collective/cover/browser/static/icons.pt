@@ -1,0 +1,5 @@
+<tal:block define="isAnon context/@@plone_portal_state/anonymous" condition="not: isAnon">
+
+  <link rel="stylesheet" tal:attributes="href string:${view/site_url}/++plone++collective.cover/icons-8c2bf03.css" />
+
+</tal:block>
