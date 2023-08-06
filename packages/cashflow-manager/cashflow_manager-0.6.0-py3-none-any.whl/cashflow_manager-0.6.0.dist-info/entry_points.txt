@@ -1,0 +1,5 @@
+[console_scripts]
+budget_processor=cashflow.budget.cli:main
+days_generator=cashflow.days.main:main
+statement_processor=cashflow.statement.cli:main
+

@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: cashflow-manager
+Version: 0.6.0
+Summary: Import transaction in Notion cashflow and budget manager
+License: MIT
+Author: lparolari
+Author-email: luca.parolari23@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pandas (>=1.5.2,<2.0.0)
