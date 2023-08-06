@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: popgen23
+Version: 1.0.2
+Summary: Synthetic population generator
+Home-page: https://github.com/tomnetutc/popgen
+Author: TOMNET
+Author-email: tomnet@asu.edu
+Project-URL: Bug Tracker, https://github.com/tomnetutc/popgen/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Synthetic Population Generator 2.0
+
+## Features
+
+For PopGen 2.1
+* Automatic data validator
+* Census data importer
+
+For PopGen 2.2
+* Output Data Analyzer with charting and table generation capabilities
+
+## Installation
+
+`pip install popgen`
+
+## Setup
+
+```python
+from popgen import Project
+
+project = Project('path/to/config/file')
+project.load_project()
+project.run_scenarios()
+```
