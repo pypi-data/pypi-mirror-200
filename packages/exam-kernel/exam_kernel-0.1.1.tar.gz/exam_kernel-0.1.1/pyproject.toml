@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "exam_kernel"
+version = "0.1.1"
+description = "A restricted configurable Python kernel for exams"
+readme = "README.md"
+requires-python = ">3.7"
+license = "MIT"
+authors = [
+    { name = "Tim Metzler", email = "tim.metzler@h-brs.de"}
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9"
+]
+dependencies = [
+    "IPython",
+    "ipykernel",
+    "jupyter_client"
+]
+
+[project.optional-dependencies]
+dev = [
+    "sphinx",
+    "sphinx-rtd-theme"
+]
+
+[project.urls]
+Documentation = "https://e2x.inf.h-brs.de"
+Issues = "https://github.com/Digiklausur/exam_kernel/issues"
+Source = "https://github.com/Digiklausur/exam_kernel"
