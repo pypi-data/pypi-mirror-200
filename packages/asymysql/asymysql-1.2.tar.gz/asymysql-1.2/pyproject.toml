@@ -1,0 +1,18 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "asymysql"
+version = "1.2"
+description = "异步的 mysql ORM"
+dependencies = ["aiomysql", "vtype", "coolfunc"]
+keywords = ["asymysql", "aiomysql", "mysql", "pymysql"]
+
+readme = "README.md"
+authors = [{name = "许灿标", email = "lcctoor@outlook.com"}]
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+
+[project.urls]
+Documentation = "https://github.com/lcctoor/lccpy/blob/main/asymysql/docs/doc.md"
