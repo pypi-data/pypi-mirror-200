@@ -1,0 +1,127 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# __time__: 2021/10/20 __auth__: 
+# __remark__: MuteSwitchRouterDynamic setting
+
+from web3 import Web3
+from trader._utils import ContractBasic
+
+class MuteSwitchRouterDynamic(ContractBasic):
+    def __init__(self, client: Web3) -> None:
+        addr = '0x8B791913eB07C32779a16750e3868aA8495F5964'
+        
+        super().__init__(client, addr, [
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "amountOutMin",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "path",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "to",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "deadline",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool[]",
+                        "name": "stable",
+                        "type": "bool[]"
+                    }
+                ],
+                "name": "swapExactETHForTokensSupportingFeeOnTransferTokens",
+                "outputs": [],
+                "stateMutability": "payable",
+                "type": "function"
+            },
+            {
+                "inputs":[
+                    {
+                        "internalType":"uint256",
+                        "name":"amountIn",
+                        "type":"uint256"
+                    },
+                    {
+                        "internalType":"uint256",
+                        "name":"amountOutMin",
+                        "type":"uint256"
+                    },
+                    {
+                        "internalType":"address[]",
+                        "name":"path",
+                        "type":"address[]"
+                    },
+                    {
+                        "internalType":"address",
+                        "name":"to",
+                        "type":"address"
+                    },
+                    {
+                        "internalType":"uint256",
+                        "name":"deadline",
+                        "type":"uint256"
+                    },
+                    {
+                        "internalType":"bool[]",
+                        "name":"stable",
+                        "type":"bool[]"
+                    }
+                ],
+                "name":"swapExactTokensForETHSupportingFeeOnTransferTokens",
+                "outputs":[
+
+                ],
+                "stateMutability":"nonpayable",
+                "type":"function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "amountIn",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "tokenIn",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "tokenOut",
+                        "type": "address"
+                    }
+                ],
+                "name": "getAmountOut",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "amountOut",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "stable",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "fee",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ])
