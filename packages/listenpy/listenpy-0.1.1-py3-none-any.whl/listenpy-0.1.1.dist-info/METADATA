@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: listenpy
+Version: 0.1.1
+Summary:  
+Home-page: https://github.com/denisxab/listenpy
+Author: Denis Kustov
+Author-email: pro-progerkustov@yandex.ru
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pyaudio (>=0.2.13,<0.3.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Requires-Dist: vosk (>=0.3.45,<0.4.0)
+Project-URL: Repository, https://github.com/denisxab/listenpy
+Description-Content-Type: text/markdown
+
+# ListenPy
+
+ListenPy - это библиотека для распознавания речи с использованием KaldiRecognizer.
+
+## Модели Vosk
+
+Все модели Vosk: <https://alphacephei.com/vosk/models>
+Легкая модель Vosk для русского языка: <https://alphacephei.com/vosk/models/vosk-model-small-ru-0.22.zip>
+
+## Установка
+
+```bash
+pip install listenpy
+```
+
+## Запуск
+
+```bash
+python -m listenpy
+```
+
