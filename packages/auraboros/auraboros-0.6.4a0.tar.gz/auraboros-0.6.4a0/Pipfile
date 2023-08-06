@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pygame = "*"
+sphinx-autobuild = "*"
+
+[dev-packages]
+flake8 = "*"
+autopep8 = "*"
+sphinx = "*"
+pyinstaller = "*"
+sphinx-rtd-theme = "*"
+sphinx-intl = "*"
+twine = "*"
+pytest = "*"
+pyautogui = "*"
+
+[requires]
+python_version = "3.10.8"
