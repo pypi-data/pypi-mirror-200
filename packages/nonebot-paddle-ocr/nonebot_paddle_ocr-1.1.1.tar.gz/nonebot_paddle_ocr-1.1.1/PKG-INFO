@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: nonebot_paddle_ocr
+Version: 1.1.1
+Summary: nonebot_paddle_ocr
+Home-page: https://github.com/canxin121/nonebot_paddle_ocr
+Author: canxin
+Author-email: 1969730106@qq.com
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+**Supports use in group chat and private chat**
+**Supports images and PDF formats**
+**Supports continuous conversation**
+
+**Usage**
+Local recognition: start recognition by sending a private message or /ocr. You can then send photos or PDFs continuously. After sending a PDF, you will be prompted to enter the number of pages to recognize. 0 means all (too many pages will cause slow recognition and reply, and too many characters may cause sending failure). Sending the corresponding language English abbreviation can switch the language (effective continuously). Send /end to end the current user conversation, and users do not affect each other.
+Web API recognition: send /apiocr, only support photos of Chinese, English and digital punctuation, cannot switch languages, other usage is the same as above.
