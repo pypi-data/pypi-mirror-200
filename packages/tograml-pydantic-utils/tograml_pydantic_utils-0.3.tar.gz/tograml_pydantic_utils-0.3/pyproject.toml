@@ -1,0 +1,105 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tograml-pydantic-utils"
+description = "A simple library for management pydantic models"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "tograml", email = "sermed512@gmail.com" }
+]
+keywords = [
+    "utils",
+    "pydantic",
+]
+dynamic = ["version"]
+
+[tool.hatch.version]
+path = "src/tograml_pydantic_utils/__init__.py"
+
+[project.optional-dependencies]
+pydantic = [
+    "pydantic~=1.10.4",
+]
+dev = [
+    "black~=23.1",
+    "isort~=5.11",
+    "ruff~=0.0.246",
+]
+test = [
+    "pydantic~=1.10.4",
+    "pytest~=7.2.1",
+    "pytest-cov~=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/tograml/tograml-pydantic-utils"
+Repository = "https://github.com/tograml/tograml-pydantic-utils"
+
+[tool.hatch.envs.defaults]
+features = [
+    "pydantic",
+    "dev",
+]
+post-install-commands = [
+    "pre-commit install",
+]
+
+[tool.ruff]
+line-length = 99
+select = [
+    "C4",
+    "E",
+    "F",
+    "T10",
+    "T20",
+    "Q",
+    "RET",
+]
+src = ["src/tograml_pydantic_utils"]
+ignore = [
+    "F401"
+]
+exclude = [
+    ".git",
+    "dist",
+    ".venv",
+]
+target-version = "py38"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+omit = [
+    "*__init__.py",
+    "*_logger.py",
+    "*types.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if TYPE_CHECKING:",
+    "pragma: no cover",
+]
+
+[tool.coverage.html]
+directory = "covreport"
+
+[tool.black]
+line-length = 99
+target-version = ["py38", "py39", "py310", "py311"]
+exclude = '''
+(
+    \.git
+  | dist
+  | venv
+)
+'''
+
+[tool.isort]
+profile = "black"
