@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "web3-upgradeable-contract"
+version = "0.1.0"
+description = "Deploy contract with transparent upgradeable proxy schema"
+readme = "README.md"
+authors = ["Tino Martínez Molina <tino@martinezmolina.es>"]
+license = "MIT"
+homepage = "https://github.com/tinom9/web3-upgradeable-contract"
+packages = [{ include = "upgradeable_contract" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+web3 = "^6.0.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.991"
+isort = "^5.11.3"
+black = "^22.12.0"
+pytest = "^7.2.1"
+web3 = { extras = ["tester"], version = "^6.0.0" }
+py-solc-x = "^1.1.1"
+pytest-cov = "^4.0.0"
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 88
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
