@@ -1,0 +1,44 @@
+{% extends "mediforms/pages/form_mrt.html" %}
+
+
+{% block introduction %}
+<h1>Magnetresonanz-Untersuchung bei 7 Tesla unter Verwendung paralleler Sendetechniken (pTx) am Max-Planck-Institut für Kognitions- und Neurowissenschaften (MPI CBS)</h1>
+<p>
+Sehr geehrte Studienteilnehmerin, sehr geehrter Studienteilnehmer,<br>
+wir bedanken uns für Ihr Interesse, an unseren wissenschaftlichen Studien unter Ausnutzung der Magnetresonanztomographie (MRT) teilzunehmen.
+</p>
+<p>Wir möchten Sie herzlich dazu einladen, mehr über MRT zu erfahren und Ihnen im Anschluss einige Fragen stellen. </p>
+<p>Die gesamte Online-Befragung dauert etwa <b>30 Minuten</b> und besteht aus 5 Teilen:</p>
+<ol div="ui list">
+  <li><b>Video</b> mit wichtigen Informationen zur MRT (Dauer: 9 Minuten).</li>
+  <li><b>Informationstext</b> zur MRT (Dauer: 4 Minuten).</li>
+  <li><b>FRAGEBOGEN</b> zur MRT mit kurzen Fragen (Dauer: 15 Minuten).</li>
+  <li><b>Einwilligung zur Speicherung meiner Daten</b> (Dauer: 1 Minute).</li>
+  <li><b>Einwilligungserklärung zur Magnetresonanz-Untersuchung bei 7 Tesla pTx</b> und <b>Erklärung zur Speicherung und Nutzung von Daten</b> (Dauer: 4 Minuten).</li>
+</ol>
+<p>Die in diesem Fragebogen erhobenen Daten werden von uns in digitaler Form gespeichert und dienen der Klärung einer möglichen Teilnahme an einer Magnetresonanztomographie-Studie. Dabei werden Ihre Angaben streng vertraulich behandelt und es ist kein unrechtmäßiger Zugang durch Dritte möglich.</p>
+
+<h3>MRT-Aufklärungsgespräch mit unserer Studienärztin/unserem Studienarzt</h3>
+<p>
+Zu einem späteren Zeitpunkt erfolgt ein Gespräch zur MRT-Aufklärung. Dieser Termin wird durch unsere StudienärztInnen durchgeführt. Dafür werden die von Ihnen in diesem Fragebogen gemachten Angaben den MRT-Aufklärungsunterlagen beigefügt.<br>
+Notieren Sie sich daher gerne aufkommende Fragen. Bei dem ärztlichen Gespräch werden Sie ausführlich über den Ablauf der MRT-Untersuchung aufgeklärt, Ihre Fragen beantwortet und die Gesundheitsfragen einzeln besprochen.<br>
+Nach diesem Gespräch bestätigen Sie Ihre Angaben und die "Einwilligungserklärung zur Magnetresonanz-Untersuchung bei 7 Tesla pTx" sowie "Die Erklärung zur Speicherung und Nutzung von Daten" mit Ihrer Unterschrift. Danach sind Sie für die Teilnahme an MRT-Studien berechtigt.
+</p>
+
+<h3>Vielen Dank!</h3>
+<p>Bevor es mit dem Fragebogen losgeht, möchten wir Sie über die Magnetresonanztomographie informieren.</p>
+<p>Auf der Webseite <a href="https://www.cbs.mpg.de/mrt-info">https://www.cbs.mpg.de/mrt-info</a> haben unsere ÄrztInnen ein <b>Video</b> für Sie bereitgestellt mit wichtigen Informationen zur MRT. Nach dem Aufrufen der Webseite tragen sie bitte Benutzer: <b>mrt</b> und Passwort: <b>mrt</b> ein.</p>
+<p>Bitte lesen Sie sich den <b>Informationstext</b> <a href="{% url 'information-text' method.key %}">MRT - Hintergrund, Ablauf, Risiken und Zufallsfunde</a> aufmerksam durch.</p>
+<p>Der nachfolgende Fragebogen besteht aus kurzen Fragen und dauert ca. 15 Minuten. Beantworten Sie bitte alle Fragen gewissenhaft.</p>
+{% endblock introduction %}
+
+
+{% block headline_questionaire %}
+<h1 style="color:black;">Fragebogen zur Person und zu Kontraindikationen im Rahmen der Studie</h1>
+<h1>Magnetresonanz-Untersuchung bei 7 Tesla pTx</h1>
+{% endblock headline_questionaire %}
+
+
+{% block agreement_consents_text %}
+Ich habe die <a href="{% url 'exploration-consent' method.key %}">Einwilligungserklärung zur Magnetresonanz-Untersuchung bei 7 Tesla pTx</a> und die <a href="{% url 'data-storage-and-usage-consent-mrt' %}">Erklärung zur Speicherung und Nutzung von Daten</a> gelesen.
+{% endblock agreement_consents_text %}
