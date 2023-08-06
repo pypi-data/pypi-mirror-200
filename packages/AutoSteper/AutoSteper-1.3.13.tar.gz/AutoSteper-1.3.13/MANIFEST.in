@@ -1,0 +1,12 @@
+prune tests
+recursive-include doc *
+recursive-include src *
+include README.md
+include CHANGELOG.md
+include version.txt
+include setup.py
+include setup.cfg
+include overview.png
+include LICENSE.txt
+include CONTRIBUTING.rst
+include AUTHORS.rst
