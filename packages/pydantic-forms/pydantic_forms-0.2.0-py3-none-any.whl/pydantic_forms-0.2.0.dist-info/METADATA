@@ -1,0 +1,192 @@
+Metadata-Version: 2.1
+Name: pydantic-forms
+Version: 0.2.0
+Summary: This is the pydantic-forms engine.
+Home-page: https://github.com/workfloworchestrator/pydantic-forms
+Author: SURF
+Author-email: automation-beheer@surf.nl
+Requires-Python: >=3.9,<=3.12
+Description-Content-Type: text/markdown
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development
+Classifier: Typing :: Typed
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: AsyncIO
+Classifier: Framework :: FastAPI
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: pydantic[email] >=1.9.0,<2.0.0
+Requires-Dist: toml ; extra == "dev"
+Requires-Dist: bumpversion ; extra == "dev"
+Requires-Dist: mypy_extensions ; extra == "dev"
+Requires-Dist: pre-commit ; extra == "dev"
+Requires-Dist: pydocstyle ; extra == "dev"
+Requires-Dist: python-dotenv ; extra == "dev"
+Requires-Dist: watchdog ; extra == "dev"
+Requires-Dist: mkdocs ; extra == "doc"
+Requires-Dist: mkdocs-material ; extra == "doc"
+Requires-Dist: mkdocs-render-swagger-plugin ; extra == "doc"
+Requires-Dist: mkdocs-include-markdown-plugin ; extra == "doc"
+Requires-Dist: fastapi >=0.80.0,<1.0.0 ; extra == "fastapi"
+Requires-Dist: orjson >=3.6.0,<4.0.0 ; extra == "orjson"
+Requires-Dist: rapidjson >=1.0.0,<2.0.0 ; extra == "rapidjson"
+Requires-Dist: apache-license-check ; extra == "test"
+Requires-Dist: black ; extra == "test"
+Requires-Dist: flake8 ; extra == "test"
+Requires-Dist: flake8-bandit ; extra == "test"
+Requires-Dist: flake8-bugbear ; extra == "test"
+Requires-Dist: flake8-comprehensions ; extra == "test"
+Requires-Dist: flake8-docstrings ; extra == "test"
+Requires-Dist: flake8-junit-report ; extra == "test"
+Requires-Dist: flake8-logging-format ; extra == "test"
+Requires-Dist: flake8-pep3101 ; extra == "test"
+Requires-Dist: flake8-print ; extra == "test"
+Requires-Dist: flake8-rst ; extra == "test"
+Requires-Dist: flake8-rst-docstrings ; extra == "test"
+Requires-Dist: flake8-tidy-imports ; extra == "test"
+Requires-Dist: isort ; extra == "test"
+Requires-Dist: structlog ; extra == "test"
+Requires-Dist: jsonref ; extra == "test"
+Requires-Dist: mypy ; extra == "test"
+Requires-Dist: pytest ; extra == "test"
+Requires-Dist: pytest-cov ; extra == "test"
+Requires-Dist: pytest-asyncio ; extra == "test"
+Requires-Dist: pytest-xdist ; extra == "test"
+Requires-Dist: types-Deprecated ; extra == "test"
+Requires-Dist: types-certifi ; extra == "test"
+Requires-Dist: types-itsdangerous ; extra == "test"
+Requires-Dist: types-pkg_resources ; extra == "test"
+Requires-Dist: types-python-dateutil ; extra == "test"
+Requires-Dist: types-pytz ; extra == "test"
+Requires-Dist: types-toml ; extra == "test"
+Requires-Dist: types-ujson ; extra == "test"
+Requires-Dist: types-orjson ; extra == "test"
+Project-URL: Documentation, https://github.com/workfloworchestrator/pydantic-forms/blob/main/README.md
+Provides-Extra: dev
+Provides-Extra: doc
+Provides-Extra: fastapi
+Provides-Extra: orjson
+Provides-Extra: rapidjson
+Provides-Extra: test
+
+# Pydantic forms
+
+A python package that lets you add smart forms to [FastAPI](https://fastapi.tiangolo.com/)
+and [Flask](https://palletsprojects.com/p/flask/). Forms will respond with a JSON scheme that
+contains all info needed in a Recat frontend with uniforms to render the forms and handle all validation tasks.
+
+Forms can also consist out of wizard; so you can create complex form flows consisting out of multiple
+consecutive forms. The forms and the validation logic are defined by
+using [Pydantic](https://pydantic-docs.helpmanual.io/) models.
+
+Documentation regarding the usage of Forms can be found
+[here](https://github.com/workfloworchestrator/orchestrator-core/blob/main/docs/architecture/application/forms.md)
+
+### Todo
+
+This package is not ready for use in other projects. To make it production ready:
+
+- [ ] Add Flask example; a reference implementation is available in
+  the [pricelist-backend](https://github.com/acidjunk/pricelist-backend/blob/master/server/main.py)
+- [ ] Setup docs boilerplate
+- [ ] Copy orchestrator core form docs
+- [x] Publish package
+
+### Installation (Development standalone)
+Install the project and its dependencies to develop on the code.
+
+#### Step 1 - install flit:
+
+```shell
+python3 -m venv venv
+source venv/bin/activate
+pip install flit
+```
+
+#### Step 2 - install the development code:
+```shell
+flit install --deps develop --symlink --python venv/bin/python
+```
+
+!!! danger
+    Make sure to use the flit binary that is installed in your environment. You can check the correct
+    path by running
+    ```shell
+    which flit
+    ```
+
+To be sure that the packages will be installed against the correct venv you can also prepend the python interpreter
+that you want to use:
+
+```shell
+flit install --deps develop --symlink --python venv/bin/python
+```
+
+
+### Running tests
+Run the unit-test suite to verify a correct setup.
+
+#### Step 2 - Run tests
+```shell
+pytest test/unit_tests
+```
+
+or with xdist:
+
+```shell
+pytest -n auto test/unit_tests
+```
+
+If you do not encounter any failures in the test, you should be able to develop features in the pydantic-forms.
+
+### Installation (Development symlinked into project that use pydantic-forms)
+
+If you are working on a project that already uses the `pydantic-forms` and you want to test your new form features
+against it, you can use some `flit` magic to symlink the dev version of the forms to your project. It will
+automatically replace the pypi dep with a symlink to the development version
+of the core and update/downgrade all required packages in your own project.
+
+#### Step 1 - install flit:
+
+```shell
+python - m venv venv
+source venv/bin/activate
+pip install flit
+```
+
+### Step 2 - symlink the core to your own project
+
+```shell
+flit install --deps develop --symlink --python /path/to/a/project/venv/bin/python
+```
+
+# Increasing the version number for a (pre) release.
+
+When your PR is accepted you will get a version number.
+
+You can do the necessary change with a clean, e.g. every change committed, branch:
+
+```shell
+bumpversion patch --new-version 0.0.1
+```
+
+Note: specifying it like this, instead of relying on bumpversion itself to increase the version, allows you to
+set a "RC1" version if needed.
+
