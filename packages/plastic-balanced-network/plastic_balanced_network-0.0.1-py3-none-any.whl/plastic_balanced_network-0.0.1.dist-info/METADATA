@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: plastic-balanced-network
+Version: 0.0.1
+Summary: Plastic Balanced Network Package (Akil et al., 2021)
+Maintainer: Alan Akil
+Maintainer-email: alan.akil@yahoo.com
+Platform: Windows
+Platform: Linux
+Platform: Mac OS-X
+Platform: UNIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7,<3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: random2
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: datetime
+Requires-Dist: black
+Requires-Dist: flake8
+Requires-Dist: pre-commit
+Requires-Dist: isort
+Requires-Dist: pytest
+Requires-Dist: coverage
+Requires-Dist: pytest-cov
+Requires-Dist: artifacts-keyring
+Requires-Dist: build
+Requires-Dist: keyring
+Requires-Dist: setuptools
+Requires-Dist: twine
+Requires-Dist: numpydoc
+Requires-Dist: sphinx
+Requires-Dist: sphinx-rtd-theme
+Requires-Dist: flake8-bugbear
+Requires-Dist: flake8-builtins
+Requires-Dist: flake8-colors
+Requires-Dist: flake8-comprehensions
+Requires-Dist: flake8-isort
+Requires-Dist: pep8-naming
+Requires-Dist: check-manifest
+Requires-Dist: scikit-learn
+Provides-Extra: dev
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: coverage ; extra == 'tests'
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+
+This is a package with functions to simulate a plastic balanced network as defined in Akil et al., 2021.
