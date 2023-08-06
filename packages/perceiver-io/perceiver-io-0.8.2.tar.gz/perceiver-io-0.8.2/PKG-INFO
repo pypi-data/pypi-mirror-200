@@ -1,0 +1,144 @@
+Metadata-Version: 2.1
+Name: perceiver-io
+Version: 0.8.2
+Summary: Perceiver IO
+Home-page: https://github.com/krasserm/perceiver-io
+License: Apache-2.0
+Keywords: perceiver-io,perceiver-ar,deep-learning
+Author: Martin Krasser
+Author-email: krasserm@googlemail.com
+Requires-Python: >=3.8,<3.11
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Provides-Extra: text
+Provides-Extra: vision
+Requires-Dist: cchardet (>=2.1,<3.0)
+Requires-Dist: datasets (>=2.4,<3.0); extra == "text" or extra == "vision"
+Requires-Dist: einops (>=0.4,<0.5)
+Requires-Dist: fairscale (>=0.4,<0.5)
+Requires-Dist: fsspec[s3]
+Requires-Dist: jsonargparse[signatures] (>=4.12,<5.0)
+Requires-Dist: opencv-python (>=4.6.0.66,<5.0.0.0); extra == "vision"
+Requires-Dist: pytorch-lightning (>=1.7,<2.0)
+Requires-Dist: tensorboard (>=2.11,<3.0)
+Requires-Dist: tokenizers (>=0.12,<0.13); extra == "text"
+Requires-Dist: torch (>=1.13,<2.0)
+Requires-Dist: torch-optimizer (>=0.3,<0.4)
+Requires-Dist: torchmetrics (>=0.9,<0.10)
+Requires-Dist: torchvision (>=0.14,<0.15); extra == "vision"
+Requires-Dist: transformers (>=4.21,<5.0); extra == "text"
+Description-Content-Type: text/markdown
+
+# Perceiver, Perceiver IO and Perceiver AR
+
+This repository is a PyTorch and PyTorch Lightning implementation of
+
+<table>
+  <tr>
+    <td>
+       <b>Perceiver</b>: General Perception with Iterative Attention
+       (<a href="https://arxiv.org/abs/2103.03206">paper</a>,
+        <a href="https://www.youtube.com/watch?v=P_xeshTnPZg">video</a>)
+    </td>
+    <td><img src="docs/images/small-perceiver.png" alt="Perceiver"/></td>
+  </tr>
+  <tr>
+    <td>
+      <b>Perceiver IO</b>: A General Architecture for Structured Inputs & Outputs
+      (<a href="https://arxiv.org/abs/2107.14795">paper</a>,
+       <a href="https://www.deepmind.com/blog/building-architectures-that-can-handle-the-worlds-data">blog post</a>)
+    </td>
+    <td><img src="docs/images/small-perceiver-io.png" alt="Perceiver IO"/></td>
+  </tr>
+  <tr>
+    <td>
+      General-purpose, long-context autoregressive modeling with <b>Perceiver AR</b>
+      (<a href="https://arxiv.org/abs/2202.07765">paper</a>,
+       <a href="https://www.deepmind.com/blog/perceiver-ar-general-purpose-long-context-autoregressive-generation">blog post</a>)
+    </td>
+    <td><img src="docs/images/small-perceiver-ar.png" alt="Perceiver AR"/></td>
+  </tr>
+</table>
+
+All model classes are written in plain PyTorch and can be wrapped into [PyTorch Lightning](https://pytorch-lightning.readthedocs.io/en/stable/)
+modules for training at scale. The command line interface is implemented with the [Lightning CLI](https://pytorch-lightning.readthedocs.io/en/stable/cli/lightning_cli.html).
+[Pretrained weights](docs/pretrained-models.md) can be imported for [official models](docs/pretrained-models.md#official-models)
+from the 🤗 Hub, [training checkpoints](docs/pretrained-models.md#training-checkpoints) from [training examples](docs/training-examples.md)
+are available for download too. Datasets used in the training examples are 🤗 [datasets](https://huggingface.co/docs/datasets)
+wrapped into PyTorch Lightning [data modules](perceiver/data). For NLP tasks, this library supports all 🤗
+[fast tokenizers](https://huggingface.co/docs/transformers/fast_tokenizers) and the 🤗 Perceiver UTF-8 bytes tokenizer.
+
+## Installation
+
+### Via pip
+
+```shell
+pip install perceiver-io[text,vision]
+```
+
+### From sources
+
+Installation from sources requires a [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and a
+[Poetry](https://python-poetry.org/docs/#installation) (1.2.0 or higher) installation.
+
+Create and activate the `perceiver-io` conda environment:
+
+```shell
+conda env create -f environment.yml
+conda activate perceiver-io
+```
+
+Install main and test dependencies, including all extras:
+
+```shell
+# Without dependencies required for examples
+poetry install --all-extras
+```
+
+If you want to run the [examples](examples) locally, additionally use `--with examples`:
+
+```shell
+poetry install --all-extras --with examples
+```
+
+### Docker image
+
+```shell
+docker pull ghcr.io/krasserm/perceiver-io:latest
+```
+
+See [Docker image](docs/docker-image.md) for details.
+
+## Documentation
+
+- [Getting started](docs/getting-started.md)
+- [Model construction](docs/model-construction.md)
+- [Pretrained models](docs/pretrained-models.md)
+- [Training examples](docs/training-examples.md)
+- [Inference examples](examples/inference.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/krasserm/perceiver-io/blob/0.8.1/examples/inference.ipynb)
+- [Building blocks](docs/building-blocks.md)
+
+## Articles
+
+Articles referencing this repository:
+
+- [Training compute-optimal Perceiver AR language models](https://krasserm.github.io/2023/01/23/scaling-perceiver-ar/)
+- [A gentle introduction to Rotary Position Embedding](https://krasserm.github.io/2022/12/13/rotary-position-embedding/)
+
+## Other implementations
+
+- [Perceiver](https://paperswithcode.com/paper/perceiver-general-perception-with-iterative#code)
+- [Perceiver IO](https://paperswithcode.com/paper/perceiver-io-a-general-architecture-for#code)
+- [Perceiver AR](https://paperswithcode.com/paper/general-purpose-long-context-autoregressive#code)
+
