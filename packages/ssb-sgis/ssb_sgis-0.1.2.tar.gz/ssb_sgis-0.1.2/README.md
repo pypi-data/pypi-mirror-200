@@ -1,0 +1,226 @@
+# ssb-sgis
+
+GIS Python tools used in [Statistics Norway](https://www.ssb.no/en).
+
+[![PyPI](https://img.shields.io/pypi/v/ssb-sgis.svg)][pypi_]
+[![Status](https://img.shields.io/pypi/status/ssb-sgis.svg)][status]
+[![Python Version](https://img.shields.io/pypi/pyversions/ssb-sgis)][python version]
+[![License](https://img.shields.io/pypi/l/ssb-sgis)][license]
+
+[![Read the documentation at https://ssb-sgis.readthedocs.io/](https://img.shields.io/readthedocs/ssb-sgis/latest.svg?label=Read%20the%20Docs)][read the docs]
+[![Tests](https://github.com/statisticsnorway/ssb-sgis/workflows/Tests/badge.svg)][tests]
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=statisticsnorway_ssb-sgis&metric=coverage)][coverage]
+
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
+[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
+
+[pypi_]: https://pypi.org/project/ssb-sgis/
+[status]: https://pypi.org/project/ssb-sgis/
+[python version]: https://pypi.org/project/ssb-sgis
+[read the docs]: https://ssb-sgis.readthedocs.io/
+[tests]: https://github.com/statisticsnorway/ssb-sgis/actions?workflow=Tests
+[coverage]: https://sonarcloud.io/component_measures?metric=coverage&id=statisticsnorway_ssb-sgis
+[pre-commit]: https://github.com/pre-commit/pre-commit
+[black]: https://github.com/psf/black
+
+sgis builds on the geopandas package and provides functions that make it easier to do advanced GIS in python.
+Features include network analysis, functions for exploring multiple GeoDataFrames in a layered interactive map,
+and vector operations like finding k-nearest neighbours, splitting lines by points, snapping and closing holes
+in polygons by size.
+
+## Network analysis examples
+
+Preparing for network analysis:
+
+```python
+import sgis as sg
+
+
+roads = sg.read_parquet_url(
+    "https://media.githubusercontent.com/media/statisticsnorway/ssb-sgis/main/tests/testdata/roads_oslo_2022.parquet"
+)
+
+nw = (
+    sg.DirectedNetwork(roads)
+    .remove_isolated()
+    .make_directed_network(
+        direction_col="oneway",
+        direction_vals_bft=("B", "FT", "TF"),
+        minute_cols=("drivetime_fw", "drivetime_bw"),
+    )
+)
+
+rules = sg.NetworkAnalysisRules(weight="minutes")
+
+nwa = sg.NetworkAnalysis(network=nw, rules=rules)
+
+nwa
+```
+
+```
+    NetworkAnalysis(
+        network=DirectedNetwork(6364 km, percent_bidirectional=87),
+        rules=NetworkAnalysisRules(weight=minutes, search_tolerance=250, search_factor=0, split_lines=False, ...),
+        log=True, detailed_log=True,
+    )
+```
+
+Get number of times each line segment was visited.
+
+```python
+freq = nwa.get_route_frequencies(points.sample(75), points.sample(75))
+
+sg.qtm(
+    sg.buff(freq, 15),
+    "frequency",
+    scheme="naturalbreaks",
+    cmap="plasma",
+    title="Number of times each road was used.",
+)
+```
+
+![png](docs/examples/network_analysis_examples_files/network_analysis_examples_6_0.png)
+
+Fast many-to-many travel times/distances.
+
+```python
+od = nwa.od_cost_matrix(points, points)
+
+print(od)
+```
+
+```
+            origin  destination    minutes
+    0            0            0   0.000000
+    1            0            1  13.039830
+    2            0            2  10.902453
+    3            0            3   8.297021
+    4            0            4  14.742294
+    ...        ...          ...        ...
+    999995     999          995  11.038673
+    999996     999          996  17.820664
+    999997     999          997  10.288465
+    999998     999          998  14.798257
+    999999     999          999   0.000000
+
+    [1000000 rows x 3 columns]
+```
+
+Get the area that can be reached within one or more breaks.
+
+```python
+sa = nwa.service_area(
+    points.iloc[[0]],
+    breaks=np.arange(1, 11),
+)
+
+sg.qtm(sa, "minutes", k=10, title="Roads that can be reached within 1 to 10 minutes")
+```
+
+![png](docs/examples/network_analysis_examples_files/network_analysis_examples_10_0.png)
+
+Get one or more route per origin-destination pair.
+
+```python
+routes = nwa.get_k_routes(
+    points.iloc[[0]], points.iloc[[1]], k=5, drop_middle_percent=50
+)
+
+sg.qtm(sg.buff(routes, 15), "k", title="Five fastest routes from A to B", legend=False)
+```
+
+![png](docs/examples/network_analysis_examples_files/network_analysis_examples_12_1.png)
+
+More network analysis examples can be found here: https://github.com/statisticsnorway/ssb-sgis/blob/main/docs/network_analysis_demo_template.md
+
+Road data for Norway can be downloaded here: https://kartkatalog.geonorge.no/metadata/nvdb-ruteplan-nettverksdatasett/8d0f9066-34f9-4423-be12-8e8523089313
+
+## Developer information
+
+### Git LFS
+
+The data in the testdata directory is stored with [Git LFS](https://git-lfs.com/).
+Make sure `git-lfs` is installed and that you have run the command `git lfs install`
+at least once. You only need to run this once per user account.
+
+### Dependencies
+
+[Poetry](https://python-poetry.org/) is used for dependency management. Install
+poetry and run the command below from the root directory to install the dependencies.
+
+```shell
+poetry install --no-root
+```
+
+### Tests
+
+Use the following command from the root directory to run the tests:
+
+```shell
+poetry run pytest  # from root directory
+```
+
+#### Jupyter Notebooks
+
+The files ending with `_ipynb.py` in the tests directory are jupyter notebooks
+stored as plain python files, using `jupytext`. To open them as Jupyter notebooks,
+right-click on them in JupyterLab and select Open With &rarr; Notebook.
+
+When testing locally, start JupyterLab with this command:
+
+```shell
+poetry run jupter lab
+```
+
+For VS Code there are extensions for opening a python script as Jupyter Notebook,
+for example:
+[Jupytext for Notebooks](https://marketplace.visualstudio.com/items?itemName=donjayamanne.vscode-jupytext).
+
+### Formatting
+
+Format the code with `black` and `isort` by running the following command from the
+root directory:
+
+```shell
+poetry run black .
+poetry run isort .
+```
+
+### Pre-commit hooks
+
+We are using [pre-commit hooks](https://pre-commit.com/) to make sure the code is
+correctly formatted and consistent before committing. Use the following command from
+the root directory in the repo to install the pre-commit hooks:
+
+```shell
+poetry run pre-commit install
+```
+
+It then checks the changed files before committing. You can run the pre-commit checks
+on all files by using this command:
+
+```shell
+poetry run pre-commit run --all-files
+```
+
+### Documentation
+
+To generate the API-documentation locally, run the following command from the root
+directory:
+
+```shell
+poetry run sphinx-build docs docs/_build
+```
+
+Then open the file `docs/_build/index.html`.
+
+To check and run the docstrings examples, run this command:
+
+```shell
+poetry run xdoctest --command=all ./src/sgis
+```
+
+<!-- github-only -->
+
+[license]: https://github.com/statisticsnorway/ssb-sgis/blob/main/LICENSE
+[contributor guide]: https://github.com/statisticsnorway/ssb-sgis/blob/main/CONTRIBUTING.md
