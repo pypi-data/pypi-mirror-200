@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "comrad"
+version = "0.0.1"
+description = "A framework for quickly deploying simple Python applications."
+authors = [
+    "Kaj Siebert <kaj@k-si.com>",
+    "Francisco Macedo <franciscovcbm@gmail.com>",
+]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "comrad"}, {include = "pyodide_dill"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+prpc-python = {extras = ["cli"], version = "^0.9.1"}
+pyyaml = "^6.0"
+jinja2 = "^3.1.2"
+pydantic = "^1.10.4"
+flask = {version = "^2.2.2", optional = true}
+flask-cors = {version = "^3.0.10", optional = true}
+jupyterlab = {version = "^3.6.0", optional = true}
+matplotlib = {version = "^3.5.2", optional = true}
+tqdm = {version = "^4.64.1", optional = true}
+openpyxl = {version = "^3.1.0", optional = true}
+plotly = {version = "^5.13.0", optional = true}
+pandas = {version = "^1.5.2", optional = true}
+numpy = {version = "^1.23.5", optional = true}
+dill = "^0.3.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1"
+coverage = "^6.3"
+black = "^22.8.0"
+isort = "^5.10.1"
+
+[tool.poetry.extras]
+web = ["Flask", "Flask-Cors"]
+jupyter = ["jupyterlab", "matplotlib", "tqdm", "openpyxl", "plotly"]
+examples = ["pandas", "numpy"]
+pyodide = ["openpyxl", "plotly"]
+
+[tool.poetry.plugins."prpc_python"]
+d2i-patch = "d2i_patch.api:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[flake8]
+max-line-length = 88
+extend-ignore = "E203"
