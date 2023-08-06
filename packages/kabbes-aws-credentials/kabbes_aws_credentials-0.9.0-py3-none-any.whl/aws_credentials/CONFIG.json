@@ -1,0 +1,16 @@
+{
+    "access_keys":{
+        "!Path":{
+            "$ref": "{R{package.config.cache.Dir}R}",
+            "method":{
+                "name": "join_Path",
+                "kwargs":{
+                    "path": "access_keys.json"
+                }
+            }
+        }
+    },
+    "SLEEP_SUCCESS":1,
+    "SLEEP_FAILURE":3,
+    "role": null
+}
