@@ -1,0 +1,4 @@
+[console_scripts]
+createSpec = versionoverlord.commands.CreateSpecification:commandHandler
+querySlugs = versionoverlord.commands.QuerySlugs:commandHandler
+updateDeps = versionoverlord.commands.UpdateDependencies:commandHandler
