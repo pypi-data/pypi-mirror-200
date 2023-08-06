@@ -1,0 +1,1877 @@
+# Russian translations for SoL.
+# Copyright (C) 2020 Lele Gaifax
+# This file is distributed under the same license as the SoL project.
+# Irina <irinaabissinian@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SoL 4.21\n"
+"Report-Msgid-Bugs-To: lele@metapensiero.it\n"
+"POT-Creation-Date: 2023-03-29 20:12+0200\n"
+"PO-Revision-Date: 2023-01-10 09:20+0100\n"
+"Last-Translator: Irina <irinaabissinian@gmail.com>\n"
+"Language: ru\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/sol/client/ru/>\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#. TRANSLATORS: this is the URL of the manual page
+#. explaining championship management, do not change unless
+#. the manual is actually translated in the target language
+#: src/sol/static/app/module/Championships.js:510
+msgid "/static/manual/en/championships.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. championship insert/edit, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Championships.js:347
+msgid "/static/manual/en/championships.html#insert-and-edit"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. clubs management, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Clubs.js:632
+msgid "/static/manual/en/clubs.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining clubs
+#. insert/edit, do not change unless the manual is actually
+#. translated in the target language
+#: src/sol/static/app/module/Clubs.js:464
+msgid "/static/manual/en/clubs.html#insert-and-edit"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. club/user management, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/ClubUsers.js:111
+msgid "/static/manual/en/clubusers.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. competitors management, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Competitors.js:141
+msgid "/static/manual/en/competitors.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the support chapter in
+#. the user manual
+#: src/sol/static/app/desktop/App.js:70
+msgid "/static/manual/en/development.html#donations"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the user manual
+#: src/sol/static/app/desktop/App.js:52
+msgid "/static/manual/en/index.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. players management, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Players.js:742
+msgid "/static/manual/en/players.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining players
+#. insert/edit, do not change unless the manual is actually translated
+#. in the target language
+#: src/sol/static/app/module/Players.js:443
+msgid "/static/manual/en/players.html#insert-and-edit"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page
+#. explaining players rates management, do not change
+#. unless the manual is actually translated in the target
+#. language
+#: src/sol/static/app/module/RatedPlayers.js:195
+msgid "/static/manual/en/playersrates.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. ratings management, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Ratings.js:515
+msgid "/static/manual/en/ratings.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. ratings insert/edit, do not change unless the manual is actually
+#. translated in the target language
+#: src/sol/static/app/module/Ratings.js:372
+msgid "/static/manual/en/ratings.html#insert-and-edit"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the carrom rules chapter in
+#. the user manual
+#: src/sol/static/app/desktop/App.js:61
+msgid "/static/manual/en/rules.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. tourney management, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Tourney.js:124
+msgid "/static/manual/en/tourney.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. tourneys management, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Tourneys.js:1005
+msgid "/static/manual/en/tourneys.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. tourneys insert/edit, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Tourneys.js:433
+msgid "/static/manual/en/tourneys.html#insert-and-edit"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining
+#. users management, do not change unless the manual is
+#. actually translated in the target language
+#: src/sol/static/app/module/Users.js:532
+msgid "/static/manual/en/users.html"
+msgstr ""
+
+#. TRANSLATORS: this is the URL of the manual page explaining users
+#. insert/edit, do not change unless the manual is actually
+#. translated in the target language
+#: src/sol/static/app/module/Users.js:412
+msgid "/static/manual/en/users.html#insert-and-edit"
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:379
+msgid "<b>Championships</b><br />Basic championships management."
+msgstr ""
+
+#: src/sol/static/app/module/ClubUsers.js:27
+msgid "<b>Club's users</b><br />Basic club-users association management."
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:509
+msgid "<b>Clubs</b><br />Basic clubs management."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:544
+msgid "<b>Players</b><br />Basic players management."
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:405
+msgid "<b>Ratings</b><br />Basic ratings management."
+msgstr ""
+
+#: src/sol/static/app/module/Tourney.js:29
+msgid "<b>Tourney</b><br />Tourney management."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:786
+msgid "<b>Tourneys</b><br />Basic tourneys management."
+msgstr ""
+
+#: src/sol/static/app/module/Upload.js:25
+msgid "<b>Upload</b><br />Upload tourneys data."
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:444
+msgid "<b>Users</b><br />Basic users management."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:516
+msgid "<b>{lastname}</b> {firstname}"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:510
+msgid "<b>{lastname}</b> {firstname} {nickname}"
+msgstr ""
+
+#. TRANSLATORS: this is the "average misses of the first competitor",
+#. keep it as short as possible
+#: src/sol/static/app/view/Matches.js:1354
+msgid "A1"
+msgstr "A1"
+
+#. TRANSLATORS: this is the "average misses of the second competitor",
+#. keep it as short as possible
+#: src/sol/static/app/view/Matches.js:1362
+msgid "A2"
+msgstr "A2"
+
+#: src/sol/static/app/window/Login.js:57
+msgid "About…"
+msgstr "О…"
+
+#: src/sol/static/app/view/Competitors.js:36
+msgid "Add…"
+msgstr "Добавить…"
+
+#: src/sol/static/app/view/Matches.js:945
+msgid "All competitors have been notified with a link to insert their results."
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:216
+msgid "All players"
+msgstr "Все участники"
+
+#: src/sol/static/app/view/Matches.js:120
+msgid "All results"
+msgstr "Все результаты"
+
+#: src/sol/static/app/window/Signin.js:64
+msgid ""
+"An email has been sent to the given address, you should receive it "
+"shortly: please check your inbox and follow the link within two days to "
+"confirm the account."
+msgstr ""
+
+#: src/sol/static/app/window/LostPassword.js:64
+msgid ""
+"An email has been sent to the given address, you should receive it "
+"shortly: please check your inbox and follow the link within two days to "
+"renew your password."
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:35
+msgid "Assign"
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:128
+#: src/sol/static/app/view/Ranking.js:162
+msgid "Assign final prizes."
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:133
+msgid "Assign ownership"
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:36
+msgid "Assign ownership of selected records."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:124
+#: src/sol/static/app/view/Ranking.js:159
+msgid "Assign prizes"
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:98
+msgid "Associates"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:171
+msgid ""
+"At least one of the selected players does not belong to you, and thus "
+"cannot be modified, sorry!"
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:58
+#: src/sol/static/app/view/Ranking.js:100
+msgid "Badges"
+msgstr "Бэджи"
+
+#: src/sol/static/app/module/Tourneys.js:184
+msgid "Board labels"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:176
+msgid "Boards details"
+msgstr ""
+
+#: src/sol/static/app/module/Upload.js:52
+#: src/sol/static/app/module/Users.js:100
+msgid "Browse"
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:40 src/sol/static/app/view/Ranking.js:377
+msgid "By nationality"
+msgstr "По национальности"
+
+#: src/sol/static/app/window/Signin.js:166
+msgid ""
+"By registering, you <strong>agree</strong> with the <a "
+"href=\"/static/manual/en/privacy.html\" target=\"_blank\">SoL privacy "
+"policy</a>."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:298
+#: src/sol/static/app/module/Clubs.js:407
+#: src/sol/static/app/module/Players.js:386
+#: src/sol/static/app/module/Ratings.js:323
+#: src/sol/static/app/module/Tourneys.js:384
+#: src/sol/static/app/module/Tourneys.js:654
+#: src/sol/static/app/module/Tourneys.js:727
+#: src/sol/static/app/module/Upload.js:70
+#: src/sol/static/app/module/Users.js:109
+#: src/sol/static/app/module/Users.js:363
+#: src/sol/static/app/view/Matches.js:837
+#: src/sol/static/app/view/Matches.js:1404
+#: src/sol/static/app/view/Ranking.js:433
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/sol/static/app/module/Players.js:934
+#: src/sol/static/app/module/Tourneys.js:497
+#: src/sol/static/app/module/Tourneys.js:572
+#: src/sol/static/app/view/Matches.js:210
+#: src/sol/static/app/view/Matches.js:242
+#: src/sol/static/app/view/Matches.js:274
+#: src/sol/static/app/view/Matches.js:652
+#: src/sol/static/app/view/Matches.js:708
+#: src/sol/static/app/view/Matches.js:909
+#: src/sol/static/app/view/Matches.js:938
+#: src/sol/static/app/view/Ranking.js:142
+msgid "Cannot decode JSON object"
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:56
+msgid "Carrom playing rules."
+msgstr ""
+
+#: src/sol/static/app/window/Login.js:102
+msgid "Carrom tournaments management"
+msgstr ""
+
+#: src/sol/static/app/view/Boards.js:224
+msgid "Carromboard #{0}"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:86
+msgid "Championship"
+msgstr "Чемпионат"
+
+#: src/sol/static/app/module/Championships.js:376
+#: src/sol/static/app/module/Clubs.js:59 src/sol/static/app/module/Users.js:206
+msgid "Championships"
+msgstr "Чемпионаты"
+
+#: src/sol/static/app/module/Championships.js:580
+msgid "Championships managed by {0}"
+msgstr "Чемпионаты управляются {0}"
+
+#: src/sol/static/app/module/Clubs.js:381
+msgid "Change emblem…"
+msgstr "Изменить эмблему…"
+
+#: src/sol/static/app/window/ResetPassword.js:47
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: src/sol/static/app/module/Players.js:360
+msgid "Change portrait…"
+msgstr "Изменить портрет…"
+
+#: src/sol/static/app/window/ChangeLanguage.js:64
+#: src/sol/static/app/window/ChangePassword.js:61
+msgid "Change succeeded"
+msgstr "Изменение успешно"
+
+#: src/sol/static/app/window/ChangeLanguage.js:16
+msgid "Change your account UI language"
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:92
+msgid "Change your account UI language."
+msgstr ""
+
+#: src/sol/static/app/window/ChangePassword.js:16
+msgid "Change your account password"
+msgstr "Изменить пароль аккаунта"
+
+#: src/sol/static/app/desktop/App.js:84
+msgid "Change your account password."
+msgstr "Изменить пароль аккаунта."
+
+#: src/sol/static/app/module/Championships.js:315
+#: src/sol/static/app/module/Clubs.js:432
+#: src/sol/static/app/module/Players.js:162
+#: src/sol/static/app/module/Players.js:411
+#: src/sol/static/app/module/Ratings.js:340
+#: src/sol/static/app/module/Tourneys.js:401
+#: src/sol/static/app/module/Users.js:380
+#: src/sol/static/app/view/Matches.js:1420
+msgid "Changes have been applied…"
+msgstr "Изменения применены…"
+
+#: src/sol/static/app/window/ChangeLanguage.js:59
+msgid "Changing UI language…"
+msgstr "Изменение языка UI…"
+
+#: src/sol/static/app/view/Matches.js:560
+msgid "Changing old results"
+msgstr "Изменение старых результатов"
+
+#: src/sol/static/app/window/ChangePassword.js:56
+#: src/sol/static/app/window/ResetPassword.js:56
+msgid "Changing password…"
+msgstr "Изменение пароля…"
+
+#: src/sol/static/app/module/RatedPlayers.js:34
+msgid "Chart"
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:78
+msgid "Club"
+msgstr "Клуб"
+
+#: src/sol/static/app/module/Clubs.js:506
+#: src/sol/static/app/module/Users.js:190
+msgid "Clubs"
+msgstr "Клубы"
+
+#: src/sol/static/app/module/Clubs.js:702
+msgid "Clubs managed by {0}"
+msgstr "Клубы управляются {0}"
+
+#: src/sol/static/app/view/Matches.js:225
+msgid "Competitor 1 digital scorecard"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:257
+msgid "Competitor 2 digital scorecard"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:102
+#: src/sol/static/app/view/Competitors.js:47
+#: src/sol/static/app/view/Competitors.js:442
+msgid "Competitors"
+msgstr ""
+
+#: src/sol/static/app/module/Tourney.js:154
+msgid "Competitors ({0})"
+msgstr ""
+
+#. TRANSLATORS: {0} is the tourney description, {1} the
+#. championship description and {2} the date of the tourney
+#: src/sol/static/app/module/Competitors.js:121
+msgid "Competitors of tourney “{0}” ({1}), {2}"
+msgstr ""
+
+#: src/sol/static/app/window/Signin.js:17
+msgid "Complete the form to request a new account"
+msgstr "Заполнить форму для запроса нового аккаунта"
+
+#: src/sol/static/app/view/Matches.js:209
+#: src/sol/static/app/view/Matches.js:241
+#: src/sol/static/app/view/Matches.js:273
+#: src/sol/static/app/view/Matches.js:651
+#: src/sol/static/app/view/Matches.js:707
+#: src/sol/static/app/view/Matches.js:908
+#: src/sol/static/app/view/Matches.js:937
+#: src/sol/static/app/view/Ranking.js:141
+msgid "Comunication error"
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:306
+#: src/sol/static/app/module/Clubs.js:415
+#: src/sol/static/app/module/Players.js:394
+#: src/sol/static/app/module/Ratings.js:331
+#: src/sol/static/app/module/Tourneys.js:392
+#: src/sol/static/app/module/Tourneys.js:659
+#: src/sol/static/app/module/Tourneys.js:732
+#: src/sol/static/app/module/Upload.js:75
+#: src/sol/static/app/module/Users.js:114
+#: src/sol/static/app/module/Users.js:371
+#: src/sol/static/app/view/Matches.js:842
+#: src/sol/static/app/view/Matches.js:1409
+#: src/sol/static/app/view/Ranking.js:438
+#: src/sol/static/app/window/ChangeLanguage.js:50
+#: src/sol/static/app/window/ChangePassword.js:47
+#: src/sol/static/app/window/LostPassword.js:48
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: src/sol/static/app/view/Competitors.js:515
+msgid "Confirm competitor withdraw"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:546
+msgid "Confirm edit of old round results"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:908
+msgid "Confirm players merge"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:452
+msgid "Confirm tourney duplication"
+msgstr ""
+
+#: src/sol/static/app/module/Upload.js:110
+msgid "Couldn't upload selected file:"
+msgstr "Невозможно подгрузить выбранный файл:"
+
+#: src/sol/static/app/module/Tourneys.js:138
+msgid "Create a knockout tourney from the selected one."
+msgstr ""
+
+#: src/sol/static/app/window/Login.js:65
+msgid "Create a new account."
+msgstr "Создать новый аккаунт."
+
+#: src/sol/static/app/view/Matches.js:51
+msgid "Create all possible rounds."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:64
+msgid "Create final round."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:137
+#: src/sol/static/app/module/Tourneys.js:666
+msgid "Create knockout tourney"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:51
+msgid "Create next round."
+msgstr ""
+
+#: src/sol/static/app/view/Boards.js:143
+msgid "Current round pairings"
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:399
+msgid "Delete emblem"
+msgstr "Удалить эмблему"
+
+#: src/sol/static/app/view/Matches.js:471
+msgid "Delete last round?"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:378
+msgid "Delete portrait"
+msgstr "Удалить портрет"
+
+#: src/sol/static/app/module/Tourneys.js:57
+msgid "Details"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:190
+msgid "Digital scorecard"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:105
+msgid "Distribution"
+msgstr ""
+
+#. TRANSLATORS: {0} is the name of the player, or the
+#. list of the names of the players in the team; {1}
+#. is the singular “she” or “he” pronoun
+#: src/sol/static/app/view/Competitors.js:520
+msgid ""
+"Do you confirm the withdraw of {0}?<br/>Doing so {1} won't play further "
+"matches!"
+msgid_plural ""
+"Do you confirm the withdraw of {0}?<br/>Doing so they won't play further "
+"matches!"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/sol/static/app/view/Matches.js:548
+msgid ""
+"Do you confirm you want to edit the results {0} round, even if the "
+"ranking is currently at {1}?<br/>Doing so the ranking will be updated but"
+" following rounds pairing will remain unchanged!"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:473
+msgid "Do you really want to delete {0} round?<br/>This is <b>NOT</b> revertable!"
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:64
+msgid "Donate"
+msgstr "Пожертвовать"
+
+#: src/sol/static/app/module/Players.js:940
+#: src/sol/static/app/module/Ratings.js:117
+#: src/sol/static/app/module/Tourneys.js:473
+#: src/sol/static/app/module/Tourneys.js:548
+#: src/sol/static/app/module/Upload.js:94
+msgid "Done"
+msgstr "Готово"
+
+#: src/sol/static/app/view/Ranking.js:364
+msgid "Double click on a player to view his matches."
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:315
+msgid "Double click to withdraw this competitor."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:95
+#: src/sol/static/app/module/Clubs.js:115
+#: src/sol/static/app/module/Ratings.js:145
+#: src/sol/static/app/module/Tourneys.js:151
+msgid "Download"
+msgstr "Загрузить"
+
+#: src/sol/static/app/module/Ratings.js:146
+msgid "Download all tourneys related to this rating."
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:116
+msgid ""
+"Download data of all the tourneys in every championship organized by this"
+" club."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:152
+msgid "Download this tourney data."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:96
+msgid "Download this whole championship of tourneys data."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:124
+msgid "Duplicate selected tourney and its competitors on today."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:58
+#: src/sol/static/app/module/Players.js:69
+msgid "Duplicates"
+msgstr "Дубликаты"
+
+#: src/sol/static/app/module/Championships.js:326
+msgid "Edit championship"
+msgstr "Изменить чемпионат"
+
+#: src/sol/static/app/module/Clubs.js:443
+msgid "Edit club"
+msgstr "Изменить клуб"
+
+#: src/sol/static/app/module/Players.js:422
+msgid "Edit player"
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:351
+msgid "Edit rating"
+msgstr "Изменить рейтинг"
+
+#: src/sol/static/app/module/Championships.js:41
+msgid "Edit selected championship."
+msgstr "Изменить выбранный чемпионат."
+
+#: src/sol/static/app/module/Clubs.js:47
+msgid "Edit selected club."
+msgstr "Изменить выбранный клуб."
+
+#: src/sol/static/app/module/Players.js:46
+msgid "Edit selected player."
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:43
+msgid "Edit selected rating."
+msgstr "Изменить выбранный рейтинг."
+
+#: src/sol/static/app/module/Tourneys.js:45
+msgid "Edit selected tourney."
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:178
+msgid "Edit selected user."
+msgstr "Изменить выбранного пользователя."
+
+#: src/sol/static/app/module/Tourneys.js:412
+msgid "Edit tourney"
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:391
+msgid "Edit user"
+msgstr "Изменить пользователя"
+
+#: src/sol/static/app/view/Matches.js:1149
+msgid "Either one or the other player's coins must be equal to 0!"
+msgstr ""
+
+#: src/sol/static/app/window/LostPassword.js:94
+#: src/sol/static/app/window/Signin.js:117
+msgid "Email"
+msgstr "Email"
+
+#: src/sol/static/app/window/Login.js:85
+msgid "Email address"
+msgstr "Email-адрес"
+
+#: src/sol/static/app/view/Matches.js:944
+msgid "Emails have been sent…"
+msgstr "Письма отправлены…"
+
+#: src/sol/static/app/module/Clubs.js:264
+#: src/sol/static/app/module/Clubs.js:273
+#: src/sol/static/app/module/Clubs.js:281
+#: src/sol/static/app/module/Players.js:249
+#: src/sol/static/app/module/Players.js:258
+#: src/sol/static/app/module/Players.js:266
+#: src/sol/static/app/module/Players.js:948
+#: src/sol/static/app/module/Players.js:957
+#: src/sol/static/app/module/Ratings.js:126
+#: src/sol/static/app/module/Ratings.js:135
+#: src/sol/static/app/module/Tourneys.js:494
+#: src/sol/static/app/module/Tourneys.js:505
+#: src/sol/static/app/module/Tourneys.js:569
+#: src/sol/static/app/module/Tourneys.js:580
+#: src/sol/static/app/module/Upload.js:101
+#: src/sol/static/app/module/Upload.js:112
+#: src/sol/static/app/view/Matches.js:215
+#: src/sol/static/app/view/Matches.js:247
+#: src/sol/static/app/view/Matches.js:279
+#: src/sol/static/app/view/Matches.js:679
+#: src/sol/static/app/view/Matches.js:732
+#: src/sol/static/app/view/Matches.js:919
+#: src/sol/static/app/view/Matches.js:949
+#: src/sol/static/app/view/Ranking.js:165
+#: src/sol/static/app/window/ChangeLanguage.js:76
+#: src/sol/static/app/window/ChangePassword.js:73
+#: src/sol/static/app/window/LostPassword.js:75
+#: src/sol/static/app/window/ResetPassword.js:74
+#: src/sol/static/app/window/Signin.js:75
+msgid "Error"
+msgstr "Ошибка"
+
+#: src/sol/static/app/view/Matches.js:849
+msgid "Estimated start"
+msgstr ""
+
+#: src/sol/static/app/module/Upload.js:56
+msgid "File"
+msgstr "Файл"
+
+#: src/sol/static/app/view/Ranking.js:256
+#: src/sol/static/app/view/Ranking.js:354
+msgid "Final ranking"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:63
+msgid "Final round"
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:112
+msgid "Finals"
+msgstr ""
+
+#: src/sol/static/app/window/Signin.js:134
+msgid "First name"
+msgstr "Имя"
+
+#: src/sol/static/app/window/Login.js:95
+msgid "Go to the light HTML only interface…"
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:348
+msgid "Help on championship insert/edit"
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:511
+msgid "Help on championships management"
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:465
+msgid "Help on club insert/edit"
+msgstr ""
+
+#: src/sol/static/app/module/ClubUsers.js:112
+msgid "Help on club's users management"
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:633
+msgid "Help on clubs management"
+msgstr ""
+
+#: src/sol/static/app/module/Competitors.js:142
+msgid "Help on competitors management"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:444
+msgid "Help on player insert/edit"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:743
+msgid "Help on players management"
+msgstr ""
+
+#: src/sol/static/app/module/RatedPlayers.js:196
+msgid "Help on rated players window"
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:373
+msgid "Help on ratings insert/edit"
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:516
+msgid "Help on ratings management"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:434
+msgid "Help on tourney insert/edit"
+msgstr ""
+
+#: src/sol/static/app/module/Tourney.js:125
+msgid "Help on tourney management"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:1006
+msgid "Help on tourneys management"
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:413
+msgid "Help on user insert/edit"
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:533
+msgid "Help on users management"
+msgstr ""
+
+#: src/sol/static/app/window/ChangeLanguage.js:169
+msgid "If you change this setting, it will be applied at your <b>next</b> login."
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:265
+#: src/sol/static/app/module/Players.js:250
+msgid "Image too big, max 512k allowed"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:876
+msgid "Incomplete scores"
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:138
+msgid "Insert selected players"
+msgstr ""
+
+# | msgid "Minutes"
+#: src/sol/static/app/desktop/App.js:73
+#, fuzzy
+msgid "Issues"
+msgstr "Минуты"
+
+#: src/sol/static/app/view/Ranking.js:89
+msgid "Junior ranking"
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:91
+#: src/sol/static/app/window/ChangeLanguage.js:144
+#: src/sol/static/app/window/Signin.js:148
+msgid "Language"
+msgstr "Язык"
+
+#: src/sol/static/app/window/Signin.js:141
+msgid "Last name"
+msgstr "Фамилия"
+
+#: src/sol/static/app/module/Championships.js:129
+#: src/sol/static/app/module/Clubs.js:131
+#: src/sol/static/app/module/Players.js:121
+#: src/sol/static/app/module/Ratings.js:178
+#: src/sol/static/app/module/Tourneys.js:168
+msgid "Lit page"
+msgstr ""
+
+#: src/sol/static/app/component/IFrame.js:18
+#: src/sol/static/app/window/ChangeLanguage.js:149
+#: src/sol/static/app/window/Signin.js:153
+msgid "Loading…"
+msgstr "Загрузка…"
+
+#: src/sol/static/app/window/LostPassword.js:17
+msgid "Lost password"
+msgstr "Забытый пароль"
+
+#: src/sol/static/app/window/Login.js:73
+msgid "Lost password?"
+msgstr "Забыли пароль?"
+
+#: src/sol/static/app/module/Players.js:137
+msgid "Make the selected players “discernible” in public views."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:103
+msgid ""
+"Manage tourney competitors, allowing player substitutions, even after "
+"prize-giving.<br>Use with <b>caution</b> only when you <i>know what "
+"you're doing</i>!"
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:47
+msgid "Manual"
+msgstr "Вручную"
+
+#: src/sol/static/app/module/Tourney.js:187
+#: src/sol/static/app/view/Matches.js:131
+#: src/sol/static/app/view/Matches.js:443
+#: src/sol/static/app/view/Matches.js:721
+msgid "Matches"
+msgstr ""
+
+#: src/sol/static/app/module/Tourney.js:239
+msgid "Matches played by {0}"
+msgstr ""
+
+#: src/sol/static/app/module/Tourney.js:189
+msgid "Matches {0} final round"
+msgstr ""
+
+#: src/sol/static/app/module/Tourney.js:192
+#: src/sol/static/app/view/Matches.js:442
+msgid "Matches {0} round"
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:445
+msgid "Maximum age"
+msgstr "Максимальный возраст"
+
+#: src/sol/static/app/module/Clubs.js:81
+msgid "Members"
+msgstr "Члены"
+
+#: src/sol/static/app/module/Players.js:917
+msgid "Merging selected players…"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:1000
+msgid "Minutes"
+msgstr "Минуты"
+
+#: src/sol/static/app/module/Championships.js:40
+#: src/sol/static/app/module/Clubs.js:46
+#: src/sol/static/app/module/Players.js:45
+#: src/sol/static/app/module/Ratings.js:42
+#: src/sol/static/app/module/Tourneys.js:44
+#: src/sol/static/app/module/Users.js:177
+msgid "Modify"
+msgstr "Изменить"
+
+#: src/sol/static/app/module/Tourneys.js:616
+msgid "Must be a power-of-two, i.e. 2, 4, 8, 16..."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:63
+msgid "National ranking"
+msgstr ""
+
+#: src/sol/static/app/window/ChangePassword.js:100
+#: src/sol/static/app/window/ResetPassword.js:92
+msgid "New password"
+msgstr "Новый пароль"
+
+#: src/sol/static/app/view/Matches.js:50
+msgid "New round"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:1028
+msgid "No"
+msgstr "Нет"
+
+#: src/sol/static/app/window/ChangeLanguage.js:79
+#: src/sol/static/app/window/ChangePassword.js:76
+#: src/sol/static/app/window/LostPassword.js:78
+#: src/sol/static/app/window/ResetPassword.js:77
+#: src/sol/static/app/window/Signin.js:78
+msgid "No response from the server"
+msgstr "Сервер не отвечает"
+
+#: src/sol/static/app/view/Ranking.js:380
+msgid "Normal"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:720
+msgid "Number of carromboards"
+msgstr ""
+
+#: src/sol/static/app/window/ChangePassword.js:91
+msgid "Old password"
+msgstr "Старый пароль"
+
+#: src/sol/static/app/module/Clubs.js:282
+#: src/sol/static/app/module/Players.js:267
+msgid "Only image files allowed"
+msgstr "Разрешены только файлы изображений"
+
+#: src/sol/static/app/view/Boards.js:66
+msgid "Only new round pairings can be manually adjusted."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:186
+msgid "Other…"
+msgstr "Другое…"
+
+#: src/sol/static/app/module/Users.js:106
+msgid "Owner"
+msgstr "Владелец"
+
+#: src/sol/static/app/desktop/App.js:83 src/sol/static/app/window/Signin.js:125
+msgid "Password"
+msgstr "Пароль"
+
+#: src/sol/static/app/window/ResetPassword.js:61
+msgid "Password changed"
+msgstr "Пароль изменен"
+
+#: src/sol/static/app/view/Matches.js:85
+msgid "Play"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:198
+msgid "Playbill"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:909
+msgid ""
+"Player {0} will be replaced by {1} everywhere, if possible. Do you "
+"confirm?"
+msgid_plural ""
+"Players {0} will be replaced by {1} everywhere, if possible. Do you "
+"confirm?"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/sol/static/app/module/Clubs.js:198
+#: src/sol/static/app/module/Players.js:71
+#: src/sol/static/app/module/Players.js:541
+#: src/sol/static/app/module/Ratings.js:72
+#: src/sol/static/app/module/Users.js:222
+msgid "Players"
+msgstr ""
+
+#. TRANSLATORS: {0} is the description of the rating
+#: src/sol/static/app/module/RatedPlayers.js:175
+msgid "Players in rating “{0}”"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:993
+msgid "Players managed by {0}"
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:207
+msgid "Players of last year's “{0}” tourneys"
+msgstr ""
+
+#: src/sol/static/app/module/RatedPlayers.js:97
+msgid "Players rates."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:918
+#: src/sol/static/app/module/Ratings.js:101
+#: src/sol/static/app/module/Tourneys.js:459
+#: src/sol/static/app/module/Tourneys.js:531
+#: src/sol/static/app/module/Upload.js:82
+msgid "Please wait"
+msgstr "Пожалуйста, подождите"
+
+#: src/sol/static/app/module/Players.js:81
+msgid "Possibly duplicated players"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:1015
+msgid "Prealarm"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:74
+msgid "Prepare"
+msgstr "Подготовка"
+
+#: src/sol/static/app/module/RatedPlayers.js:62
+msgid "Print"
+msgstr "Печать"
+
+#: src/sol/static/app/view/Ranking.js:113
+msgid "Print 1st/2nd and 3rd/4th place finals scorecards."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:185
+msgid ""
+"Print board labels for this tourney, to allow self-insertion of matches "
+"results."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:739
+msgid "Print carromboard labels"
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:48
+msgid "Print current list of participants."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:64
+msgid "Print current national ranking."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:51
+msgid "Print current ranking."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:97
+msgid "Print current round scorecards."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:101
+msgid "Print final badges with ranking and matches."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:90
+msgid "Print junior ranking."
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:40
+msgid "Print one sheet of blank scorecards."
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:59
+msgid "Print participant badges."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:121
+msgid "Print results of all played rounds."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:132
+msgid "Print selected round matches."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:108
+msgid "Print selected round results."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:199
+msgid "Print the tourney playbill with QRCode to reach its Lit page."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:113
+msgid "Print this championship ranking."
+msgstr ""
+
+#: src/sol/static/app/module/RatedPlayers.js:63
+#: src/sol/static/app/module/Ratings.js:162
+msgid "Print this rating ranking."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:77
+msgid "Print women ranking."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:136
+msgid "Privacy"
+msgstr "Конфиденциальность"
+
+#: src/sol/static/app/desktop/App.js:74
+msgid "Propose enhancements or report issues."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:112
+#: src/sol/static/app/module/Ratings.js:161
+#: src/sol/static/app/view/Ranking.js:50 src/sol/static/app/view/Ranking.js:254
+#: src/sol/static/app/view/Ranking.js:352
+msgid "Ranking"
+msgstr "Ранжирование"
+
+#: src/sol/static/app/view/Ranking.js:258
+#: src/sol/static/app/view/Ranking.js:346
+#: src/sol/static/app/view/Ranking.js:356
+msgid "Ranking after {0} round"
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:342
+msgid "Ranking used to compute {0} round"
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:402
+#: src/sol/static/app/module/Users.js:238
+msgid "Ratings"
+msgstr "Рейтинги"
+
+#: src/sol/static/app/module/Ratings.js:585
+msgid "Ratings managed by {0}"
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:89
+msgid "Recompute"
+msgstr "Пересчитать"
+
+#: src/sol/static/app/module/Ratings.js:90
+msgid "Recompute the selected rating from scratch."
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:100
+msgid "Recomputing…"
+msgstr "Пересчитывание…"
+
+#: src/sol/static/app/view/Matches.js:157
+msgid "Refresh"
+msgstr "Обновить"
+
+#: src/sol/static/app/window/Signin.js:48
+msgid "Register"
+msgstr ""
+
+# | msgid "Registration…"
+#: src/sol/static/app/window/Login.js:64
+#, fuzzy
+msgid "Register…"
+msgstr "Регистрация…"
+
+#: src/sol/static/app/window/Signin.js:63
+msgid "Registration succeeded"
+msgstr "Регистрация успешна"
+
+#: src/sol/static/app/window/Signin.js:57
+msgid "Registration…"
+msgstr "Регистрация…"
+
+#: src/sol/static/app/view/Matches.js:158
+msgid "Reload matches from the database and possibly update the ranking."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:465
+msgid "Remove last round."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:123
+msgid "Replay again"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:458
+#: src/sol/static/app/module/Tourneys.js:530
+msgid "Replicating selected tourney…"
+msgstr ""
+
+#: src/sol/static/app/window/Login.js:74
+msgid "Request a reset of the password."
+msgstr "Запрос сброса пароля."
+
+#: src/sol/static/app/window/LostPassword.js:63
+msgid "Request succeeded"
+msgstr "Запрос успешен"
+
+#: src/sol/static/app/window/LostPassword.js:57
+msgid "Requesting password reset…"
+msgstr "Запрос сброса пароля…"
+
+#: src/sol/static/app/view/Ranking.js:127
+#: src/sol/static/app/view/Ranking.js:156
+msgid "Reset assigned final prizes."
+msgstr ""
+
+#: src/sol/static/app/window/ResetPassword.js:16
+msgid "Reset lost password"
+msgstr "Сбросить забытый пароль"
+
+#: src/sol/static/app/view/Ranking.js:124
+#: src/sol/static/app/view/Ranking.js:153
+msgid "Reset prizes"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:1148
+msgid "Result of board {0} is not valid"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:107
+msgid "Results"
+msgstr "Результаты"
+
+#: src/sol/static/app/view/Matches.js:50
+msgid "Rounds"
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:55
+msgid "Rules"
+msgstr "Правила"
+
+#: src/sol/static/app/desktop/App.js:39 src/sol/static/app/view/Matches.js:96
+msgid "Scorecards"
+msgstr ""
+
+#: src/sol/static/app/module/Upload.js:53
+msgid "Select archive"
+msgstr "Выбрать архив"
+
+#: src/sol/static/app/module/Users.js:101
+msgid "Select responsible"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:146
+msgid "Send emails"
+msgstr "Отправить письма"
+
+#: src/sol/static/app/view/Matches.js:147
+msgid "Send emails to allow competitors to self compile their scores."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:86
+msgid "Show a countdown for the current round."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:75
+msgid "Show a countdown while preparing for the next round."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:79
+msgid "Show all"
+msgstr "Показать все"
+
+#: src/sol/static/app/view/Competitors.js:151
+#: src/sol/static/app/view/Competitors.js:189
+msgid "Show all players"
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:60
+msgid "Show championships organized by this club."
+msgstr "Показать чемпионаты, организованные этим клубом."
+
+#: src/sol/static/app/module/Users.js:207
+msgid "Show championships owned by the selected user."
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:191
+msgid "Show clubs owned by the selected user."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:1040
+msgid "Show countdown to next round?"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:58
+msgid "Show details of this tourney."
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:210
+msgid "Show only active players"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:177
+msgid "Show or edit per-board results of the selected match."
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:99
+msgid "Show players associated with this federation."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:106
+msgid "Show players distribution around the globe."
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:82
+msgid "Show players members of this club."
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:223
+msgid "Show players owned by the selected user."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:59
+msgid "Show possibly duplicated players that should be merged together."
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:73
+msgid "Show rated players in the selected rating."
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:239
+msgid "Show ratings owned by the selected user."
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:37
+msgid "Show selectable players."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:87
+msgid "Show the championship this tourney belongs."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:79
+msgid "Show the club this championship belongs."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:130
+#: src/sol/static/app/module/Clubs.js:132
+#: src/sol/static/app/module/Players.js:122
+#: src/sol/static/app/module/Ratings.js:179
+#: src/sol/static/app/module/Tourney.js:132
+#: src/sol/static/app/module/Tourneys.js:169
+msgid "Show the corresponding Lit page."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:191
+msgid ""
+"Show the digital scorecard that allows the competitors of selected match "
+"to self-insert their per-board results."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:226
+msgid ""
+"Show the digital scorecard that allows the first competitor of the "
+"selected match to self-insert own per-board results."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:258
+msgid ""
+"Show the digital scorecard that allows the second competitor of the "
+"selected match to self-insert own per-board results."
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:457
+#: src/sol/static/app/view/Matches.js:667
+msgid "Show the matches {0} round."
+msgstr ""
+
+#: src/sol/static/app/module/RatedPlayers.js:35
+msgid "Show the rating chart of selected players."
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:172
+msgid "Show tourneys hosted by this club."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:54
+msgid "Show tourneys of this championship."
+msgstr ""
+
+#: src/sol/static/app/module/Users.js:255
+msgid "Show tourneys owned by the selected user."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:89
+msgid "Show tourneys played by the selected player."
+msgstr ""
+
+#: src/sol/static/app/module/Ratings.js:56
+msgid "Show tourneys related to the selected rating."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:338
+#: src/sol/static/app/module/Championships.js:501
+#: src/sol/static/app/module/ClubUsers.js:102
+#: src/sol/static/app/module/Clubs.js:455
+#: src/sol/static/app/module/Clubs.js:623
+#: src/sol/static/app/module/Competitors.js:132
+#: src/sol/static/app/module/Players.js:434
+#: src/sol/static/app/module/Players.js:733
+#: src/sol/static/app/module/RatedPlayers.js:185
+#: src/sol/static/app/module/Ratings.js:363
+#: src/sol/static/app/module/Ratings.js:506
+#: src/sol/static/app/module/Tourney.js:115
+#: src/sol/static/app/module/Tourneys.js:424
+#: src/sol/static/app/module/Tourneys.js:996
+#: src/sol/static/app/module/Users.js:403
+#: src/sol/static/app/module/Users.js:523
+msgid "Show user manual section."
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:48
+msgid "Show user manual."
+msgstr "Показать руководство пользователя."
+
+#: src/sol/static/app/module/Clubs.js:147
+msgid "Show users associated to this club."
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:274
+#: src/sol/static/app/module/Players.js:259
+msgid "Sorry, could not read image file"
+msgstr "К сожалению, невозможно прочесть файл изображения"
+
+#: src/sol/static/app/view/Competitors.js:139
+msgid "Subscribe selected players to the tourney if not already present."
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:65
+msgid "Support SoL development through a donation."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:453
+msgid ""
+"The selected tourney, with its competitors but not the matches, will be "
+"replicated on the current day. Do you confirm?"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:747
+msgid "There are uncommitted changes, cannot switch to a different round!"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:877
+msgid ""
+"There is at least one match without result: the ranking will "
+"<strong>not</strong> be recomputed until you insert all of them!"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:1004
+msgid "This field cannot be empty, must contain at least one non-space character"
+msgstr ""
+
+#: src/sol/static/app/module/Upload.js:55
+msgid "This field is required"
+msgstr "Это поле обязательное"
+
+#: src/sol/static/app/window/Login.js:38
+msgid "This field must be a valid email address"
+msgstr "В этом поле должен быть верный адрес эл. почты"
+
+#: src/sol/static/app/view/Competitors.js:152
+msgid ""
+"Toggle between all players or only active ones, whose participated to at "
+"least a tourney organized by the current club in the last year."
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:41
+msgid "Toggle between normal ranking and grouped by competitor's nationality."
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:645
+msgid "Top competitors"
+msgstr ""
+
+#: src/sol/static/app/module/Competitors.js:26
+msgid "Tourney competitors management."
+msgstr ""
+
+#: src/sol/static/app/module/Championships.js:53
+#: src/sol/static/app/module/Clubs.js:171
+#: src/sol/static/app/module/Players.js:88
+#: src/sol/static/app/module/Ratings.js:55
+#: src/sol/static/app/module/Tourneys.js:783
+#: src/sol/static/app/module/Users.js:254
+msgid "Tourneys"
+msgstr ""
+
+#: src/sol/static/app/module/Tourneys.js:1075
+msgid "Tourneys managed by {0}"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:170
+msgid "Unauthorized"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:746
+msgid "Uncommitted changes"
+msgstr ""
+
+#: src/sol/static/app/desktop/App.js:105
+#: src/sol/static/app/module/Upload.js:124
+msgid "Upload"
+msgstr "Подгрузка"
+
+#: src/sol/static/app/module/Upload.js:81
+#: src/sol/static/app/module/Upload.js:87
+msgid "Uploading…"
+msgstr "Подгрузка…"
+
+#: src/sol/static/app/window/ChangeLanguage.js:132
+msgid "Use browser setting"
+msgstr ""
+
+#: src/sol/static/app/module/Clubs.js:146
+#: src/sol/static/app/module/Users.js:441
+msgid "Users"
+msgstr "Пользователи"
+
+#: src/sol/static/app/module/ClubUsers.js:92
+msgid "Users associated with club {0}"
+msgstr ""
+
+#: src/sol/static/app/view/Ranking.js:76
+msgid "Women ranking"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:1033
+msgid "Yes"
+msgstr "Да"
+
+#: src/sol/static/app/view/Matches.js:562
+msgid "You are now allowed to change the results {0} round"
+msgstr ""
+
+#: src/sol/static/app/window/ChangeLanguage.js:65
+msgid ""
+"Your account UI language has been successfully updated, it will be used "
+"at your next login."
+msgstr ""
+
+#: src/sol/static/app/window/ChangePassword.js:62
+msgid "Your account password has been successfully updated."
+msgstr "Ваш пароль аккаунта успешно обновлен."
+
+#: src/sol/static/app/module/Championships.js:316
+#: src/sol/static/app/module/Clubs.js:433
+#: src/sol/static/app/module/Players.js:163
+#: src/sol/static/app/module/Players.js:412
+#: src/sol/static/app/module/Ratings.js:341
+#: src/sol/static/app/module/Tourneys.js:402
+#: src/sol/static/app/module/Users.js:381
+#: src/sol/static/app/view/Matches.js:1421
+msgid ""
+"Your changes have been applied <strong>locally</strong>.<br/><br/>To make"
+" them permanent you must click on the <blink>Save</blink> button."
+msgstr ""
+
+#: src/sol/static/app/window/ResetPassword.js:62
+msgid ""
+"Your password has been successfully changed, you will be redirected to "
+"the authentication panel."
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:912
+#: src/sol/static/app/view/Competitors.js:322
+#: src/sol/static/app/view/Competitors.js:329
+#: src/sol/static/app/view/Competitors.js:335
+#: src/sol/static/app/view/Competitors.js:523
+msgid "and"
+msgstr "и"
+
+#. TRANSLATORS: this is the explanation on the window title when
+#. the filter is a federation
+#: src/sol/static/app/module/Players.js:658
+msgid "associated with {0}"
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:505
+msgid "he"
+msgstr "он"
+
+#. TRANSLATORS: this is the explanation on the window title when
+#. the filter is a club
+#: src/sol/static/app/module/Tourneys.js:876
+msgid "hosted by"
+msgstr ""
+
+#. TRANSLATORS: this is the explanation on the window title when
+#. the filter is a championship
+#: src/sol/static/app/module/Tourneys.js:870
+msgid "in championship"
+msgstr ""
+
+#. TRANSLATORS: this is the explanation on the window title when the
+#. filter is a championship, with its club
+#: src/sol/static/app/module/Tourneys.js:861
+msgid "in championship {0}, organized by {1}"
+msgstr ""
+
+#. TRANSLATORS: this is the explanation on the window title when
+#. the filter is a club
+#: src/sol/static/app/module/Players.js:674
+msgid "members of {0}"
+msgstr "члены {0}"
+
+#: src/sol/static/app/view/Matches.js:393
+msgid "of the eighth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:396
+msgid "of the eleventh"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:400
+msgid "of the fifteenth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:390
+msgid "of the fifth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:386
+msgid "of the first"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:399
+msgid "of the fourteenth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:389
+msgid "of the fourth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:394
+msgid "of the ninth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:387
+msgid "of the second"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:392
+msgid "of the seventh"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:401
+msgid "of the sixteenth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:391
+msgid "of the sixth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:395
+msgid "of the tenth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:388
+msgid "of the third"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:398
+msgid "of the thirteenth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:397
+msgid "of the twelfth"
+msgstr ""
+
+#. TRANSLATORS: this is the explanation on the window title when the
+#. filter is a club
+#: src/sol/static/app/module/Championships.js:461
+msgid "organized by {0}"
+msgstr ""
+
+#. TRANSLATORS: this is the explanation on the window title when
+#. the filter is a user
+#: src/sol/static/app/module/Tourneys.js:894
+msgid "owned by"
+msgstr ""
+
+#. TRANSLATORS: this is the explanation on the window title when the
+#. filter is a user
+#: src/sol/static/app/module/Championships.js:481
+#: src/sol/static/app/module/Clubs.js:601
+#: src/sol/static/app/module/Players.js:711
+#: src/sol/static/app/module/Ratings.js:484
+msgid "owned by {0}"
+msgstr ""
+
+#. TRANSLATORS: this is the explanation on the window title when
+#. the filter is a player
+#: src/sol/static/app/module/Tourneys.js:882
+msgid "played by"
+msgstr ""
+
+#. TRANSLATORS: this is the explanation on the window title when
+#. the filter is a rating
+#: src/sol/static/app/module/Tourneys.js:888
+msgid "related with"
+msgstr ""
+
+#: src/sol/static/app/view/Competitors.js:505
+msgid "she"
+msgstr "она"
+
+#: src/sol/static/app/view/Matches.js:367
+msgid "the eighth"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:370
+msgid "the eleventh"
+msgstr ""
+
+#: src/sol/static/app/view/Matches.js:374
+msgid "the fifteenth"
+msgstr "пятнадцатый"
+
+#: src/sol/static/app/view/Matches.js:364
+msgid "the fifth"
+msgstr "пятый"
+
+#: src/sol/static/app/view/Matches.js:360
+msgid "the first"
+msgstr "первый"
+
+#: src/sol/static/app/view/Matches.js:373
+msgid "the fourteenth"
+msgstr "четырнадцатый"
+
+#: src/sol/static/app/view/Matches.js:363
+msgid "the fourth"
+msgstr "четвертый"
+
+#: src/sol/static/app/view/Matches.js:368
+msgid "the ninth"
+msgstr "девятый"
+
+#: src/sol/static/app/view/Matches.js:361
+msgid "the second"
+msgstr "второй"
+
+#: src/sol/static/app/view/Matches.js:366
+msgid "the seventh"
+msgstr "седьмой"
+
+#: src/sol/static/app/view/Matches.js:375
+msgid "the sixteenth"
+msgstr "шестнадцатый"
+
+#: src/sol/static/app/view/Matches.js:365
+msgid "the sixth"
+msgstr "шестой"
+
+#: src/sol/static/app/view/Matches.js:369
+msgid "the tenth"
+msgstr "десятый"
+
+#: src/sol/static/app/view/Matches.js:362
+msgid "the third"
+msgstr "третий"
+
+#: src/sol/static/app/view/Matches.js:372
+msgid "the thirteenth"
+msgstr "тринадцатый"
+
+#: src/sol/static/app/view/Matches.js:371
+msgid "the twelfth"
+msgstr "двенадцатый"
+
+#: src/sol/static/app/module/Players.js:823
+msgid "{0} player"
+msgid_plural "{0} players"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/sol/static/app/module/Players.js:637
+msgid "{0} selected"
+msgid_plural "{0} selected"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/sol/static/app/module/Players.js:529
+msgid "{lastname} {firstname}"
+msgstr ""
+
+#: src/sol/static/app/module/Players.js:523
+msgid "{lastname} {firstname} {nickname}"
+msgstr ""
+
+#~ msgid "Competitor 1 boards self-insert form"
+#~ msgstr ""
+
+#~ msgid "Competitor 2 boards self-insert form"
+#~ msgstr ""
+
+#~ msgid "Match boards self-insert form"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Show the form that allows the "
+#~ "competitors of selected match to "
+#~ "self-insert their per-board results."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Show the form that allows the "
+#~ "first competitor of the selected match"
+#~ " to self-insert own per-board "
+#~ "results."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Show the form that allows the "
+#~ "second competitor of the selected match"
+#~ " to self-insert own per-board "
+#~ "results."
+#~ msgstr ""
+
