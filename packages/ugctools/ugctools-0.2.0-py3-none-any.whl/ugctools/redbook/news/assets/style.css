@@ -1,0 +1,129 @@
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.5;
+    color: #281125;
+    width: 100%;
+    height: 100%;
+    font-size: 14pt;
+    margin: 0;
+    padding: 0;
+}
+
+#rb {
+    margin: 0 auto;
+    padding: 2em 2.5em;
+    width: 30em;
+    height: 40em;
+    border: 0px;
+    background: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    display: flex;
+    flex-flow: column;
+}
+
+#header {
+    display: grid;
+    margin-bottom: 50px;
+}
+
+#title {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+#date_extra {
+    font-size: 0.8em;
+    width: 12em;
+    justify-self: start;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+
+#subtitle {
+    font-size: 0.5em;
+    display: flex;
+    justify-content: space-around;
+    text-align:center;
+    justify-self: center;
+    width: 80%
+}
+
+h1 {
+      font-size: 1.8em;
+}
+
+h2 {
+    border-bottom: 1px solid #000000;
+    text-transform: uppercase;
+    font-size: 130%;
+    margin: 1em 0 0 0;
+    padding: 0;
+}
+
+h4 {
+    font-size: 0.8em;
+    margin: 1em;
+}
+
+cite {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+re {
+    font-size: 0.8em;
+    font-style: italic;
+    display: block;
+}
+
+p {
+    margin-bottom: 2em 0;
+    text-align:justify;
+}
+
+ul {
+    padding: 0;
+    margin: 0 1.5em;
+}
+
+li {
+    line-height: 1.5em;
+    margin: 1.5 em 0 !important;
+    list-style-type: decimal-leading-zero;
+}
+
+ol > li::marker {
+    font-weight: bold;
+}
+
+green {
+    color:#2A483A;
+    font-weight:bolder;
+    font-size:1.05em;
+}
+
+#content {
+    color:#000000;
+}
+
+@media print {
+    body {
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+}
+@page {
+    /* Change margins and paper size of PDF */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/@page */
+    size: 30em 40em;
+    margin: 0;
+}
+
+/* @media screen and (max-width: 800px) {
+
+} */
