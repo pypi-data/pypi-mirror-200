@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: paxml
+Version: 0.4.0
+Summary: Framework to configure and run machine learning experiments on top of Jax.
+Home-page: https://github.com/google/paxml
+Author: PAX team
+Author-email: pax-dev@google.com
+License: Apache-2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+Requires-Dist: absl-py
+Requires-Dist: clu
+Requires-Dist: etils
+Requires-Dist: flax
+Requires-Dist: jax
+Requires-Dist: lingvo
+Requires-Dist: numpy
+Requires-Dist: orbax
+Requires-Dist: praxis
+Requires-Dist: protobuf (==3.19.6)
+Requires-Dist: pyglove
+Requires-Dist: seqio
+Requires-Dist: t5
+Requires-Dist: tensorflow-text (~=2.9.0)
+Requires-Dist: tensorflow (~=2.9.2)
+Requires-Dist: tensorstore
+Provides-Extra: gpu
+Requires-Dist: jax-triton (==0.1.3) ; extra == 'gpu'
+Requires-Dist: jsonlines (==3.1.0) ; extra == 'gpu'
+Requires-Dist: pysimdjson (==5.0.2) ; extra == 'gpu'
+Requires-Dist: zstandard (==0.18.0) ; extra == 'gpu'
+
+UNKNOWN
+
+
