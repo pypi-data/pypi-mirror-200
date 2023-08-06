@@ -1,0 +1,59 @@
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning", "setuptools"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry]
+name = "quri-parts-riqu"
+version = "0.1.1"
+description = "QURI Parts riqu is a support library for using quantum computers provided by the cloud server with riqu (Rest Interface for QUantum computing) interface."
+license = "Apache-2.0"
+authors = ["QIQB, Osaka University"]
+readme = "README.md"
+repository = "https://github.com/qiqb-osaka/quri-parts-riqu"
+documentation = "https://quri-parts-riqu.readthedocs.io/"
+keywords = ["quantum", "quantum computing"]
+classifiers = [
+    "Topic :: Scientific/Engineering :: Physics",
+    "Typing :: Typed"
+]
+packages = [
+    { include = "quri_parts" }
+]
+include = ["NOTICE"]
+
+[tool.poetry-dynamic-versioning]
+enable = true
+style = "pep440"
+
+[tool.poetry.dependencies]
+python = ">=3.9.8,<3.12"
+typing-extensions = "^4.1.1"
+certifi = "*"
+six = "*"
+urllib3 = "*"
+quri-parts-openqasm = ">=0.9.2"
+quri-parts-circuit = "*"
+quri-parts-core = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.1"
+pytest-mock = "^3.8.0"
+black = "^22.1.0"
+flake8 = "^4.0.1"
+mypy = ">=0.950"
+docformatter = "^1.4"
+isort = "^5.10.1"
+
+Sphinx = "^4.4.0"
+furo = "^2022.2.23"
+sphinx-autobuild = "^2021.3.14"
+nbsphinx = "^0.8.9"
+ipython = "^8.4.0"
+notebook = "^6.4.12"
+myst-parser = "^0.18.1"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
