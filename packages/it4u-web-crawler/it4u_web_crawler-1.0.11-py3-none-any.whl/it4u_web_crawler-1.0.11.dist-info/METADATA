@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: it4u-web-crawler
+Version: 1.0.11
+Summary: WebCrawler will fetch all requests parallel
+Home-page: https://github.com/louis-it4u/web-crawler
+Download-URL: https://github.com/louis-it4u/web-crawler/archive/refs/tags/v1.0.11.tar.gz
+Author: Louis
+Author-email: thonh.it@gmail.com
+Keywords: requests,crawler
+Requires-Dist: requests
+Requires-Dist: reactivex
+Requires-Dist: tqdm
+Requires-Dist: it4u-http-request (==1.0.16)
+
