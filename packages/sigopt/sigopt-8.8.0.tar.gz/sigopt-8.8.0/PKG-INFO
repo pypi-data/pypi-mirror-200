@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: sigopt
+Version: 8.8.0
+Summary: SigOpt Python API Client
+Home-page: https://sigopt.com/
+Author: SigOpt
+Author-email: support@sigopt.com
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: dev
+Provides-Extra: hyperopt
+Provides-Extra: orchestrate
+Provides-Extra: xgboost
+Provides-Extra: lite
+License-File: LICENSE
