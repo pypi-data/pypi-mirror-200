@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cavey-gw2-tools"
+version = "0.1.0"
+description = ""
+authors = ["Cavey <m.123051427@gmail.com>"]
+readme = "ReadMe.md"
+packages = [{include = "cavey_gw2_tools"}]
+
+[tool.poetry.scripts]
+gw2-tools = "cavey_gw2_tools.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.7.0"}
+pymem = "^1.10.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
