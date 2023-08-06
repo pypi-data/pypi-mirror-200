@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: string2string
+Version: 0.0.146
+Summary: String-to-String Algorithms for Natural Language Processing
+Home-page: https://github.com/suzgunmirac/string2string
+Author: Mirac Suzgun
+Author-email: msuzgun@cs.stanford.edu
+License: MIT
+Keywords: string matching,pattern matching,edit distance,string to string correction,string to string matching,Levenshtein edit distance,Hamming distance,Damerau-Levenshtein distance,Jaro-Winkler distance,longest common subsequence,longest common substring,dynamic programming,approximate string matching,semantic similarity,natural language processing,NLP,information retrieval,rouge,sacrebleu,bertscore,bartscore,fasttext,glove,cosine similarity,Smith-Waterman,Needleman-Wunsch,Hirschberg,Karp-Rabin,Knuth-Morris-Pratt,Boyer-Moore
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Typing :: Typed
+Requires-Python: >=3.7
+License-File: LICENSE
+License-File: LICENSE.txt
+Requires-Dist: torch
+Requires-Dist: numpy
+Requires-Dist: transformers
+Requires-Dist: datasets
+Requires-Dist: faiss-cpu (==1.7.3)
+Requires-Dist: bert-score
+Requires-Dist: fasttext
+Requires-Dist: pandas
+
+UNKNOWN
+
