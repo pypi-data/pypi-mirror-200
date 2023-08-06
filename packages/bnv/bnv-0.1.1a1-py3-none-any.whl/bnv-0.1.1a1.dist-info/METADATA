@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: bnv
+Version: 0.1.1a1
+Summary: semver based version management tool, for bumping next version.
+Home-page: https://gitlab.com/bsimpson888/bnv
+License: GPL-3.0-or-later
+Author: Marco Bartel
+Author-email: bsimpson888@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Project-URL: Repository, https://gitlab.com/bsimpson888/bnv
