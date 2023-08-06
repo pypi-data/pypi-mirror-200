@@ -1,0 +1,4 @@
+[console_scripts]
+dsl-gen = pysui_gadgets.dsl.dslgen:main
+package = pysui_gadgets.package.package:main
+to-one = pysui_gadgets.to_one.to_one:main
