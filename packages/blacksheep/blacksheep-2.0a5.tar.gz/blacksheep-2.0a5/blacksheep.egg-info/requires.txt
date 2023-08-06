@@ -1,0 +1,25 @@
+httptools>=0.5
+certifi>=2022.9.24
+guardpost~=1.0.0
+rodi~=2.0.2
+essentials<2.0,>=1.1.4
+essentials-openapi<1.1,>=1.0.6
+python-dateutil~=2.8.2
+itsdangerous~=2.1.2
+
+[:python_version < "3.11"]
+cchardet~=2.1.7
+
+[:python_version < "3.8"]
+typing_extensions
+
+[:python_version > "3.10"]
+chardet==5.0.0
+
+[full]
+cryptography~=38.0.1
+PyJWT~=2.6.0
+websockets~=10.3
+
+[jinja]
+Jinja2~=3.1.2
