@@ -1,0 +1,7 @@
+certifi>=2022.12.7
+qaseio>=3.2.1
+attrs>=19.3.0
+
+[testing]
+pytest
+pytest-cov

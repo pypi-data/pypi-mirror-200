@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: qase-python-commons
+Version: 1.0.4
+Summary: A library for Qase TestOps and Qase Report
+Home-page: https://github.com/qase-tms/qase-python/tree/master/qase-python-commons
+Author: Qase Team
+Author-email: support@qase.io
+License: apache
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Provides-Extra: testing
+License-File: AUTHORS.rst
+
+# Qase Python Commons
+
+## Description
+
+This package contains reporters for Qase TestOps and Qase Report that are used in [qase-pytest](https://github.com/qase-tms/qase-python/tree/master/qase-pytest) and [qase-robotframework](https://github.com/qase-tms/qase-python/tree/master/qase-robotframework).
+
+## How to install
+
+`pip install qase-python-commons`
+
