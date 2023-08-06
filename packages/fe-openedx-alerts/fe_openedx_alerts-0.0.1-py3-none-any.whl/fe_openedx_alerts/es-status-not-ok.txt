@@ -1,0 +1,17 @@
+● elasticsearch.service - Starts and stops a single elasticsearch instance on this system
+   Loaded: loaded (/usr/lib/systemd/system/elasticsearch.service; enabled; vendor preset: enabled)
+   Active: failed (Result: exit-code) since Sat 2023-04-01 13:53:36 UTC; 12s ago
+     Docs: http://www.elasticsearch.org
+  Process: 30555 ExecStart=/usr/share/elasticsearch/bin/elasticsearch -Des.default.config=$CONF_FILE -Des.default.path.home=$ES_HOME -Des.default.path.logs=$LOG_DIR -Des.default.path.data=$DATA_DIR -Des.default.path.work=$WORK_DIR -Des.default.path.conf=$CONF_DIR (code=exited, status=143)
+ Main PID: 30555 (code=exited, status=143)
+
+Apr 01 04:28:37 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 04:28:37,210][INFO ][gateway                  ] [Ereshkigal] recovered [11] indices into cluster_state
+Apr 01 13:53:36 ip-172-31-20-145 systemd[1]: Stopping Starts and stops a single elasticsearch instance on this system...
+Apr 01 13:53:36 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 13:53:36,116][INFO ][node                     ] [Ereshkigal] stopping ...
+Apr 01 13:53:36 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 13:53:36,196][INFO ][node                     ] [Ereshkigal] stopped
+Apr 01 13:53:36 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 13:53:36,196][INFO ][node                     ] [Ereshkigal] closing ...
+Apr 01 13:53:36 ip-172-31-20-145 elasticsearch[30555]: [2023-04-01 13:53:36,200][INFO ][node                     ] [Ereshkigal] closed
+Apr 01 13:53:36 ip-172-31-20-145 systemd[1]: elasticsearch.service: Main process exited, code=exited, status=143/n/a
+Apr 01 13:53:36 ip-172-31-20-145 systemd[1]: Stopped Starts and stops a single elasticsearch instance on this system.
+Apr 01 13:53:36 ip-172-31-20-145 systemd[1]: elasticsearch.service: Unit entered failed state.
+Apr 01 13:53:36 ip-172-31-20-145 systemd[1]: elasticsearch.service: Failed with result 'exit-code'.
