@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: tabs-data-download
+Version: 0.1.0
+License: MIT
+Author-email: Alexis Rosuel <rosuelalexis1@gmail.com>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# tabs-data-download
+Download data from exchanges and dump it with minimal processing. (the tabs-data-preprocess package is responsible for normalization of data).
+
+Currently supported are the following:
+
+| Exchange | Instrument | Data Type   | Availability |
+|----------|------------|-------------|--------------|
+| binance  | spot       | Trade       | ✅            |
+| binance  | spot       | Order Book  | ✅            |
+| binance  | future     | Trade       | ✅            |
+| binance  | future     | Order Book  | ❌            |
+| kraken   | spot       | Trade       | ✅            |
+| kraken   | spot       | Order Book  | ✅            |
+| kraken   | future     | Trade       | ✅            |
+| kraken   | future     | Order Book  | ✅            |

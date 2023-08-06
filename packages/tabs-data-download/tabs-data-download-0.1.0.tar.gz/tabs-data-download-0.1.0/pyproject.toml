@@ -1,0 +1,76 @@
+[build-system]
+requires = [
+    "pdm-pep517>=1.0",
+]
+build-backend = "pdm.pep517.api"
+
+[project]
+name = "tabs-data-download"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "Alexis Rosuel", email = "rosuelalexis1@gmail.com" },
+]
+dependencies = [
+    "ccxt>=3.0.4",
+    "tabs-storage>=0.1.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[project.scripts]
+tabs-data-download = "tabs_data_download.main:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = [
+    "src",
+]
+exclude = [
+    "tests",
+]
+namespaces = true
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=7.2.2",
+    "pytest-cov>=4.0.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src",
+]
+addopts = "--cov=tabs_data_download"
+
+[tool.black]
+line-length = 88
+target-version = [
+    "py39",
+]
+include = "\\.pyi?$"
+preview = true
+
+[tool.flake8]
+per-file-ignores = [
+    "__init__.py:F401",
+]
+max-line-length = 88
+count = true
+
+[tool.isort]
+known_third_party = []
+known_first_party = [
+    "tabs_data_download",
+]
