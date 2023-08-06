@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "AQAInterpreter"
+requires-python = ">=3.10"
+license = "MIT"
+version = "0.0.4"
+authors = [
+  { name = "CyberWarrior5466", email = "asaleen898@gmail.com" },
+]
+dependencies = ["click==8.*"]
+
+[project.urls]
+Documentation = "https://github.com/CyberWarrior5466/nea"
+Issues = "https://github.com/CyberWarrior5466/nea/issues"
+Source = "https://github.com/CyberWarrior5466/nea"
+
+
+[tool.hatch.envs.default]
+dependencies = ["black", "inotify", "pytest"]
