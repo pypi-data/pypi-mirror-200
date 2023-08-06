@@ -1,0 +1,305 @@
+# pydsxkline
+
+pydsxkline是一个有趣的python包，一行代码即可显示K线图，主要应用于股票金融量化领域，当您想要把股票数据图形化的时候，可以试试这个小工具，希望能帮到有需要的朋友。
+
+pydsxkline基于dsxkline进行封装,具体的接口可以查看官网 http://www.dsxkline.com
+
+![PyPI](https://img.shields.io/pypi/v/pydsxkline?color=0&label=pypi%20pydsxkline) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pydsxkline?color=0) ![PyPI - Downloads](https://img.shields.io/pypi/dm/pydsxkline) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dsxkline/dsxkline_python)
+
+# 预览
+
+<img width="600" alt="WechatIMG548" src="https://user-images.githubusercontent.com/105279193/211977193-cae8cb52-fcb6-4d95-b812-c07b157d91e7.png">
+
+# Getting started
+
+### Install
+
+``` bash
+pip install pydsxkline
+```
+
+- Currently only python version 3.8 or older supported 
+
+### Hello world
+``` python
+from pydsxkline.dsxkline import DsxKline
+DsxKline.show("sh000001","上证指数")
+```
+### 分时图
+``` python
+DsxKline.show("sh000001","上证指数",CycleType.t)
+```
+<img width="600" alt="WechatIMG549" src="https://user-images.githubusercontent.com/105279193/212050752-c76aabbd-b909-470f-bad4-d68f5c2a2cb1.png">
+
+### 五日图
+``` python
+# 五日图
+DsxKline.show("sh000001","上证指数",CycleType.t5)
+```
+<img width="600" alt="WechatIMG550" src="https://user-images.githubusercontent.com/105279193/212050872-06e0bf47-8920-43e4-a70d-24013908bd2c.png">
+
+### 日K
+``` python
+DsxKline.show("sh000001","上证指数",CycleType.day)
+```
+
+### 周K
+``` python
+DsxKline.show("sh000001","上证指数",CycleType.week)
+```
+
+
+### 月K
+``` python
+DsxKline.show("sh000001","上证指数",CycleType.month)
+```
+
+### 年K
+``` python
+DsxKline.show("sh000001","上证指数",CycleType.year)
+```
+
+### 1分钟k线
+``` python
+DsxKline.show("sh000001","上证指数",CycleType.m1)
+```
+
+### 自定义
+``` python
+DsxKline.show("sh000001","上证指数",CycleType.day,FqType.qfq,theme=DsxThemeName.white,sides["VOL","MACD","KDJ","RSI","WR","CCI","PSY","BIAS"],height=1600)
+```
+
+
+
+### 加载本地数据
+``` python
+# 日线数据
+datas = [
+    "20210915,3651.16,3677.53,3638.32,3656.22,474970001.00,60423154.41",
+    "20210916,3664.84,3677.92,3606.73,3607.09,546741474.00,67395534.04",
+    "20210917,3595.27,3620.96,3569.27,3613.97,516850210.00,62883439.43",
+    "20210922,3563.21,3629.45,3560.50,3628.49,472296053.00,55987472.96",
+    "20210923,3651.27,3670.95,3632.28,3642.22,534995486.00,63321892.91",
+    "20210924,3637.87,3651.43,3607.79,3613.07,507304772.00,60678860.91",
+    ...
+]
+
+DsxKline.show("sh000001","上证指数",datas=datas,enable_data_api=False,cycle=CycleType.day)
+```
+
+### 画买卖点
+```python
+def draw_event():
+        return [
+        DsxKline.draw_cycle_with_date("20230313","买","red","#ffffff"),
+        DsxKline.draw_cycle_with_date("20221129","卖","green","#ffffff",12.99),
+        DsxKline.draw_cycle_with_date("202303241104","买","red","#ffffff")
+        ]
+DsxKline.show("sh000001","上证指数",CycleType.day,draw_event=draw_event(),main=["SAR"]) 
+```
+
+### 自定义头部HTML
+```python
+header = """
+    <h1 style="color:#fff;text-align:center;font-size:20px;line-height:50px;border-bottom:1px solid #191b28">这是一个大师兄线图 pydsxkline </h1>
+    <ul class="mycss">
+        <li><span>累计收益率：</span><b>30.6%</b></li>
+        <li><span>年化收益率：</span><b>80.6%</b></li>
+        <li><span>夏普比率：</span><b>0.35</b></li>
+        <li><span>盈亏比：</span><b>1.2</b></li>
+        <li><span>胜率：</span><b>67.6%</b></li>
+        <li><span>最大回撤：</span><b>30.6%</b></li>
+        <li><span>最大收益率：</span><b>10.6%</b></li>
+        <li><span>最小收益率：</span><b>-8.6%</b></li>
+        <li><span>总资产：</span><b>240098.9 元</b></li>
+        <li><span>盈利：</span><b>20366 元</b></li>
+        <li><span>亏损：</span><b>-90880 元</b></li>
+    </ul>
+    <style>
+        .mycss{
+            list-style:none;
+            padding:10px 20px;
+            color:#c5cbc0;
+            font-size:14px;
+        }
+        .mycss li{
+            float:left;
+            width:25%;
+            padding:5px 0;
+        }
+        .mycss li span{
+            color:#c5cbce;
+        }
+    </style>
+"""
+DsxKline.show("sh000001","上证指数",CycleType.day,header_html=header,header_height=160)
+```
+
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/105279193/227477956-1a5ebc76-12de-4937-883a-0131dcc01c86.png">
+
+### 自定义指标数据
+```python
+# 自定义指标数据
+# 这个要准备跟K线数据一一对应的指标数据
+# 指标名称
+name1 = "MYMA"
+def _install_js():
+    # 指标值名称 MA10，line 画折线，颜色 #ff0000
+    _model = [DrawModel("MA10","line","#ff0000")]
+    # 支持蜡烛图
+    _chartType = [ChartType.candle]
+    # 副图 sides 或者主图 main 或者两者
+    _location = ["sides"]
+    # 指标数据
+    _datas = []
+    # 这里模拟计算一个均线指标
+    N = 10
+    # 获取K线数据
+    klines = get_datas()
+    for i in range(len(klines)):
+        if i>=N:
+            amount = 0
+            for j in range(max(0,i-N+1),i+1):
+                subitem = klines[j]
+                subobj = subitem.split(",")
+                close = float(subobj[4])
+                amount += close
+            MA10 = amount / N
+            _datas.append({"MA10":MA10})
+        else:
+            _datas.append({"MA10":None})
+    
+    # 生成js 
+    install_js = DsxKline.get_install_index_js(name1,_model,_chartType,_location,_datas)
+    return install_js
+
+DsxKline.show("sh000001","上证指数",CycleType.day,main=["SAR"],sides=[name1,"VOL","MACD","KDJ"],datas=get_datas(),enable_data_api=False,install_index_js=_install_js())
+```
+
+### 自定义指标算法
+自定义指标算法比较麻烦，因为js引擎只能执行js代码，所以指标算法需要用js代码来写
+```python
+# 自定义指标算法，这个比较麻烦，算法需要用js来写
+name2 = "MYMAMA"
+def _create_index_js():
+    # 指标值名称 MA10，line 画折线，颜色 #ff0000
+    _model = [
+        DrawModel("MA10","line","#ff0000"),
+        DrawModel("MA30","line","#ffff00")
+    ]
+    # 支持蜡烛图
+    _chartType = [ChartType.candle]
+    # 副图 sides 或者主图 main 或者两者
+    _location = ["sides"]
+    # 指标算法帧函数
+    _func = """
+    // 这里写js函数代码
+    var _name2 = "%s";
+    var _func = function(){
+        
+        // 取得当前坐标数据
+        var item = this.datas[this.day];
+        // 初始化指标
+        if (item.ZHIBIAO[_name2] == null)
+            item.ZHIBIAO[_name2] = {
+            };
+        // 开始计算指标值，这里我们计算个均线指标吧
+        var N = 10;
+        if(this.day<N) {
+            item.ZHIBIAO[_name2]["MA10"] = null;
+            item.ZHIBIAO[_name2]["MA30"] = null;
+            return;
+        }
+        var amount = 0;
+        for(var i=Math.max(this.day-N+1,0);i<=this.day;i++){
+            var subitem = this.datas[i];
+            amount += subitem.CLOSE;
+        }
+        var MA10 = amount / N;
+        item.ZHIBIAO[_name2]["MA10"] = MA10;
+        N = 30;
+        if(this.day<N) {
+            item.ZHIBIAO[_name2]["MA30"] = null;
+            return;
+        }
+        amount = 0;
+        for(var i=Math.max(this.day-N+1,0);i<=this.day;i++){
+            var subitem = this.datas[i];
+            // 这里模型数据里有K线所有的字段值可以引用
+            amount += subitem.CLOSE;
+        }
+        var MA30 = amount / N;
+        // 保存指标值
+        item.ZHIBIAO[_name2]["MA30"] = MA30;
+    }
+    """ % name2
+    # 生成js 
+    create_js = DsxKline.get_create_index_js(name2,_model,_chartType,_location,_func)
+    return create_js
+
+DsxKline.show("sh000001","上证指数",CycleType.day,main=["SAR"],sides=[name2,"VOL","MACD","KDJ"],create_index_js=_create_index_js())
+```
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/105279193/229328387-2d3543c3-94e9-4b8a-8bd1-900bc6a30da8.png">
+
+### 参数属性
+- 详细的文档可参考：http://www.dsxkline.com
+``` python
+    # 名称
+    name = ""
+    # 证券代码
+    symbol = ""
+    # 昨日收盘价
+    last_close = 0
+    # 宽
+    width = 800
+    # 高
+    height = 600
+    # 图表类型
+    chartType = ChartType.timeSharing
+    # 周期类型
+    cycle = CycleType.t
+    # 复权类型
+    fq = FqType.default
+    # 主题
+    theme = DsxThemeName.dark
+    # 主图指标
+    main = ["MA"]
+    # 副图指标
+    sides = ["VOL","MACD","RSI"]
+    # 数据
+    datas = []
+    # 每页请求数据大小
+    page_size = 320
+    # 页码
+    page = 1
+    # 十字线回调
+    on_crossing = None
+    # 更新完成
+    update_complate = None
+    # 副图高度
+    side_height = 80
+    # 底部间距
+    padding_bottom = 10
+    # 蜡烛图类型 默认空心
+    candel_type = CandleType.hollow
+    # 缩放类型 默认固定左边进行缩放
+    zoom_lock_type = ZoomLockType.right
+    # 是否显示提示面板，十字线移动的时候显示的详情面板
+    is_show_kline_tip_pannel = True
+    # 自动适配，k线图根据父窗口的大小自动调整
+    autosize = False
+    # 是否启用内置行情数据接口，当使用本地数据的时候请关闭设置为 false
+    enable_data_api = True
+    # debug
+    debug = False
+    # 画图事件集合
+    draw_event = None
+    # 头部html
+    header_html = None
+    # 头部高度
+    header_height = 0
+    # 安装自定义指标数据
+    install_index_js = install_index_js
+    # 创建自定义指标算法js代码
+    create_index_js = create_index_js
+```
