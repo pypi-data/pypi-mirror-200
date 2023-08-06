@@ -1,0 +1,5 @@
+# Section: Results
+results['timings']['total'] = time.perf_counter() - time_start
+
+with open('{{ results.filename_output }}', 'w') as handle:
+    json.dump(results, handle)
