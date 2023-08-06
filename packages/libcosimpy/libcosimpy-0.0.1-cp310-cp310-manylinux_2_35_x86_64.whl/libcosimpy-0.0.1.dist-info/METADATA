@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: libcosimpy
+Version: 0.0.1
+Summary: Python wrapper for the libcosim library
+Project-URL: Homepage, https://github.com/open-simulation-platform/libcosimpy
+Author-email: Magnus Steinstø <magnus.steinsto@dnv.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# libcosimpy 
+
+Python wrapper for the [libcosim](https://github.com/open-simulation-platform/libcosim/tree/master/src/cosim) library. The wrapper uses the [libcosimc](https://github.com/open-simulation-platform/libcosimc) C wrapper and the python [ctypes](https://docs.python.org/3/library/ctypes.html) library to make OSP accessible to python developers. 
+
+# Getting Started
+
+`libcosimpy` is available from PyPI. Run the following command to install the package:
+```bash
+pip install libcosimpy
+```
+To install from the source, run the following command at the root directory of the repository:
+```bash
+pip install .
+```
+`libcosimpy` requires [ctypes](https://docs.python.org/3/library/ctypes.html) to call `libcosimc` functions. `ctypes` is included with python and does not have to be installed.
+
+## Tests
+
+Tests can be run using the `pytest` command in the terminal. `libcosimc` log level for all tests can be set in the `./tests/conftest.py` file.
