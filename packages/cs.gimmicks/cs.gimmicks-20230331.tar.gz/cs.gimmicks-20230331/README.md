@@ -1,0 +1,69 @@
+Gimmicks and hacks to make some of my other modules more robust and
+less demanding of others.
+
+*Latest release 20230331*:
+New open_append to handle idiotic Linux do-not-open-tty-for-append semantics.
+
+## Function `debug(*a, **kw)`
+
+Wrapper for `debug()` which does a deferred import.
+
+## Function `error(*a, **kw)`
+
+Wrapper for `error()` which does a deferred import.
+
+## Function `exception(*a, **kw)`
+
+Wrapper for `exception()` which does a deferred import.
+
+## Function `info(*a, **kw)`
+
+Wrapper for `info()` which does a deferred import.
+
+## Function `log(*a, **kw)`
+
+Wrapper for `log()` which does a deferred import.
+
+## Function `open_append(path)`
+
+Ghastly hack to open something for append
+entirely because some Linux systems do not let you open a
+character device for append.
+Tries sane `'a'` and falls back through 'r+' and finally to
+'w' only if `path` refers to a character device.
+
+## Function `trace(*a, **kw)`
+
+Wrapper for `info()` which does a deferred import.
+
+## Function `warning(*a, **kw)`
+
+Wrapper for `warning()` which does a deferred import.
+
+# Release Log
+
+
+
+*Release 20230331*:
+New open_append to handle idiotic Linux do-not-open-tty-for-append semantics.
+
+*Release 20230212*:
+Add gimmicks for cs.lex.r and cs.lex.s.
+
+*Release 20230210*:
+DEVNULL default open for "r+b" instead of "wb".
+
+*Release 20221228*:
+Generalise the logging function map, add trace function, bugfix logging call lookup.
+
+*Release 20220429*:
+Add DEVNULL symbol, needed before Python 3.3.
+
+*Release 20211208*:
+Define TimeoutError.
+
+*Release 20210306*:
+Add simple implementations of nullcontext and SimpleNamespace.
+
+*Release 20200418.1*:
+Initial release with logging call stubs.
