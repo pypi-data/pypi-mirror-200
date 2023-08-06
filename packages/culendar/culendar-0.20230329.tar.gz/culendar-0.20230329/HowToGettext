@@ -1,0 +1,8 @@
+cd /home/mit/frama_culendar/src/culendar
+pygettext3 -d culendar culendar.py cul/*py
+mv culendar.pot locale/fr/LC_MESSAGES/new.pot
+cd locale/fr/LC_MESSAGES/
+msgmerge culendar.pot new.pot > tmp.pot
+mv tmp.pot culendar.pot
+vim culendar.pot # et traduire
+msgfmt -o culendar.mo culendar.pot #(sans doublon de texte)
