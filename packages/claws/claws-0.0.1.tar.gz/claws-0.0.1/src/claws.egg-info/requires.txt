@@ -1,0 +1,8 @@
+boto3
+aiohttp
+yarl
+moto
+pytest==6.2.5
+pytest-asyncio==0.20.3
+pytest-localstack==0.6.0
+pytest-mock==3.10.0

@@ -1,0 +1,40 @@
+[project]
+name = "claws"
+version = "0.0.1"
+description = "The Crossref Labs AWS tooling system."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE.md"}
+keywords = ["distributed computing"]
+authors = [
+  {email = "meve@crossref.org"},
+  {name = "Martin Paul Eve"}
+]
+maintainers = [
+  {name = "Martin Paul Eve", email = "meve@crossref.org"}
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+dependencies = [
+    "boto3",
+    "aiohttp",
+    "yarl",
+    "moto",
+    "pytest==6.2.5",
+    "pytest-asyncio==0.20.3",
+    "pytest-localstack==0.6.0",
+    "pytest-mock==3.10.0",
+]
+
+[project.urls]
+homepage = "https://labs.crossref.org"
+documentation = "https://labs.crossref.org"
+repository = "https://gitlab.com/crossref/labs/longsight"
+changelog = "https://gitlab.com/crossref/labs/longsight/-/blob/main/CHANGELOG.md"
+
+[build-system]
+requires = ['setuptools>=40.8.0', 'wheel']
+build-backend = 'setuptools.build_meta:__legacy__'
