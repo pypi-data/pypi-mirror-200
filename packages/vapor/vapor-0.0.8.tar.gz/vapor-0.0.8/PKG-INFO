@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: vapor
+Version: 0.0.8
+Summary: Django ORM meets Cloudformation
+Home-page: https://github.com/xiaket/vapor
+License: MIT
+Keywords: cloudformation,boto3
+Author: Kai Xia
+Author-email: kaix+github@fastmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Requires-Dist: Jinja2 (>=3.0.1,<4.0.0)
+Requires-Dist: PyYAML (>=5.4.1,<6.0.0)
+Requires-Dist: boto3 (>=1.18,<2.0)
+Requires-Dist: cfn-flip (>=1.2.3,<2.0.0)
+Requires-Dist: cfn-lint (>=0.53.0,<0.54.0)
+Description-Content-Type: text/markdown
+
+# vapor
+
+![build](https://github.com/xiaket/vapor/workflows/build/badge.svg)
+![PyPI version](https://badge.fury.io/py/vapor.svg)
+![Coverage](https://coveralls.io/repos/github/xiaket/vapor/badge.svg)
+![license](https://img.shields.io/pypi/l/vapor)
+
+Vapor is an alternative way to write and manage your cloudformation stacks. Think of CDK, but with a promise to generate a template that is easy to understand and easy to manage. Also, if you are familiar with Django ORM, the way we define resources is really similar to how we define models in Django.
+
