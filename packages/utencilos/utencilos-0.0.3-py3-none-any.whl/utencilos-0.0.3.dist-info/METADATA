@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: utencilos
+Version: 0.0.3
+Summary: A collection of useful code for working with data.
+Author-email: Anthony Castro-Yoskovich <author@example.com>
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas (==1.5.3)
+
+# utencilos
+
+A collection of useful code for working with data. "Utencilos" is the spanish word for utensils.
+
+### Dev Tips
+
+To install package in dev mode to venv:
+```
+$ pip install -e .
+```
+
+To create distribution archives
+```
+$ python3 -m pip install --upgrade build
+$ python3 -m build
+```
+
+To upload package to test pypi
+```
+$ python3 -m twine upload -r testpypi dist/*
+```
+
+
+https://packaging.python.org/en/latest/
