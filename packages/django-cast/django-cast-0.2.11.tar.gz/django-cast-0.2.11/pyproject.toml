@@ -1,0 +1,143 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "django-cast"
+authors = [
+    {name = "Jochen Wersdörfer", email = "jochen-wagtailsrcset@wersdoerfer.de"},
+    {name = "Dominik Geldmacher", email = "oryon@cyberise.de"},
+]
+dynamic = ["version", "description"]
+requires-python = ">=3.9"
+keywords = [
+    "blog",
+    "podcast",
+    "video",
+    "audio"
+]
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.1",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Topic :: Internet",
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+
+dependencies = [
+    "coreapi",
+    "crispy-bootstrap4",
+    "django",
+    "django-allauth",
+    "django-crispy-forms",
+    "django-contrib-comments",
+    "django-environ",
+    "django-filter",
+    "django-fluent-comments",
+    "django-htmx",
+    "django-model-utils",
+    "django-tag-parser",
+    "django-threadedcomments",
+    "markdown",
+    "Pygments",
+    "python-akismet",
+    "python-slugify",
+    "wagtail",
+    "wagtail_srcset",
+]
+
+[project.optional-dependencies]
+test = [
+    "factory_boy",
+    "feedparser",
+    "pytest >= 6",
+    "pytest-cov >= 3",
+    "pytest-django",
+    "pytest-mock",
+    "pytest-randomly",
+]
+doc = [
+    "furo",
+]
+dev = [
+    "black",
+    "flake8",
+    "django-environ",
+    "django_extensions",
+    "django-stubs[compatible-mypy]",
+    "isort",
+    "jupyter",
+    "mypy",
+    "nb-black",
+    "rich",
+    "tox",
+    "typer",
+    "types-python-slugify",
+    "types-requests",
+]
+
+[project.urls]
+Documentation = "https://django-cast.readthedocs.io/en/latest/"
+Source = "https://github.com/ephes/django-cast"
+
+[tool.flit.module]
+name = "cast"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 119
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+minversion = "6.0"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::django.utils.deprecation.RemovedInDjango50Warning",
+    "ignore::wagtail.utils.deprecation.RemovedInWagtail50Warning",
+    "ignore::DeprecationWarning",
+]
+addopts = [
+    "-ra",
+    "--reuse-db",
+    "--no-migrations",
+    "--randomly-seed=1234",
+]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+plugins = ["mypy_django_plugin.main"]
+exclude = "[a-zA-Z]*/(migrations)|(example)/(.)*"  # ignore migrations
+
+[tool.django-stubs]
+django_settings_module = "cast.settings"
+
+[tool.coverage.run]
+branch = true
+source = ["cast"]
+omit = [
+    "cast/migrations/*",
+    "cast/runner.py",
+    "cast/settings.py",
+]
+command_line = "runtests.py tests"
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
