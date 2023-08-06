@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: hydraulic
+Version: 0.2.0
+Summary: A 1D hydraulic simulator in python. 
+Home-page: https://github.com/Dessia_tech/hydraulic
+Author: Dessia Technologies
+Author-email: root@dessia.tech
+License: LGPL v3
+Keywords: hydraulics,hydraulic
+Platform: UNKNOWN
+Classifier: Topic :: Scientific/Engineering
+Classifier: Development Status :: 3 - Alpha
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: dessia-common (>=0.10.0)
+Requires-Dist: volmdlr (>0.8.0)
+
+# Hydraulic
+
+
+A python package to compute pressure, flows and temperatures in hydraulic circuits
+![alt](https://raw.githubusercontent.com/Dessia-tech/hydraulic/master/doc/source/images/circuit4.png)
+
+
+## Installing
+`pip(3) install hydraulic`
+
+
+## Documentation
+https://hydraulic.readthedocs.io/en/latest/
+
+
+## Contributors
+
+- [DessiA team](https://github.com/orgs/Dessia-tech/people)
+- [Clément Roch](https://www.linkedin.com/in/clément-roch-121320140)
+
+
