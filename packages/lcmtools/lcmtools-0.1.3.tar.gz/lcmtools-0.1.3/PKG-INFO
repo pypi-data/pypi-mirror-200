@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: lcmtools
+Version: 0.1.3
+Summary: A script that calls LCModel through Python.
+Home-page: https://github.com/luodeb/lcmtools
+Author: Luo Debin
+Author-email: luodeb@qq.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+```shell
+                     _     ____ __  __ _____           _     
+                    | |   / ___|  \/  |_   _|__   ___ | |___ 
+                    | |  | |   | |\/| | | |/ _ \ / _ \| / __|
+                    | |__| |___| |  | | | | (_) | (_) | \__ \
+                    |_____\____|_|  |_| |_|\___/ \___/|_|___/
+                                                    ---- by Luo Debin
+
+```
+# <p align="center">LCMTools: A script that calls LCModel through Python:</p>
+
+<p align="center">
+    <a href="https://github.com/luodeb/LCMTools/blob/master/LICENSE">
+        <img src="https://img.shields.io/cocoapods/l/EFQRCode.svg?style=flat">
+        </a>
+    <a href="https://pypi.python.org/pypi/lcmtools">
+        <img src="https://img.shields.io/pypi/v/pqi.svg">
+        </a>
+    <a href="https://github.com/python/cpython">
+        <img src="https://img.shields.io/badge/language-python-ff69b4.svg">
+        </a>
+</p>
+一个在Python里面方便调用LCModel的Python模块。
+
+## 怎么使用(兼容linux/MacOS)
+
+### 1.安装
+#### 方法一（推荐）
+
+```
+>>> pip install lcmtools
+```
+
+#### 方法二
+```
+>>> git clone https://github.com/luodeb/LCMTools.git
+>>> python3 setup.py install
+```
+
+## LICENSE
+[MIT](https://github.com/luodeb/LCMTools/blob/master/LICENSE)
+
