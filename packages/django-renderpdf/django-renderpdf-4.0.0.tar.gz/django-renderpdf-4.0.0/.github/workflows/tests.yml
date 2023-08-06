@@ -1,0 +1,25 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [ '3.8', '3.9', '3.10' ]
+        django: [ '32', '40' ]
+    name: python${{ matrix.python }}, django-${{ matrix.django }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python }}
+          architecture: x64
+      - run: pip install tox codecov
+      - run: tox
+        env:
+          TOXENV: django${{ matrix.django }}
+      - run: codecov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
