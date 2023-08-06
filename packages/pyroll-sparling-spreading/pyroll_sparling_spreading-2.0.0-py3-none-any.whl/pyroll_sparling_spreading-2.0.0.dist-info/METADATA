@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: pyroll-sparling-spreading
+Version: 2.0.0
+Summary: Plugin for PyRolL providing spreading claclulation using Sparling's equation.
+Project-URL: Homepage, https://pyroll-project.github.io
+Project-URL: Repository, https://github.com/pyroll-project/pyroll-sparling-spreading
+Project-URL: Documentation, https://github.com/pyroll-project/pyroll-sparling-spreading/blob/main/docs/docs.pdf
+Author-email: Christoph Renzing <christoph.renzing@imf.tu-freiberg.de>, Max Weiner <max.weiner@imf.tu-freiberg.de>
+License-Expression: BSD-3-Clause
+License-File: LICENSE
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: <4.0,>=3.9
+Requires-Dist: pyroll-core~=2.0
+Provides-Extra: pillar-model
+Requires-Dist: pyroll-pillar-model~=2.0; extra == 'pillar-model'
+Description-Content-Type: text/markdown
+
+# PyRoll Sparling Spreading
+
+Plugin for PyRoll providing the Sparling spreading model.
+
+For the docs, see [here](docs/docs.pdf).
+
+This project is licensed under the [BSD-3-Clause license](LICENSE).
+
+The package is available via [PyPi](https://pypi.org/project/pyroll-sparling-spreading/) and can be installed with
+    
+    pip install pyroll-sparling-spreading
