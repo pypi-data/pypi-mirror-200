@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "impersonation"
+version = "1.1.0"
+description = "Utility for user impersonation by running instructions under given user"
+authors = ["Renato Damas <rena2damas@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+packages = [
+    { include = "*", from = "src" }
+]
+homepage = ""
+repository = "https://github.com/codectl/impersonation"
+documentation = ""
+keywords = [
+    "process",
+    "multiprocessing",
+    "impersonate",
+    "python",
+    "python3"
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+coverage = "^7.2.2"
+pre-commit = "^3.2.1"
+pytest = "^7.2.2"
+pytest-mock = "^3.10.0"
+
+[tool.poetry.urls]
+issues = "https://github.com/codectl/impersonation/issues"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
