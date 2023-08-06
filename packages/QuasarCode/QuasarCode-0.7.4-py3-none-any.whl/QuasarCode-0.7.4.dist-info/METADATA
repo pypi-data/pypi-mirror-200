@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: QuasarCode
+Version: 0.7.4
+Summary: A general purpose library for Python applications.
+Author-email: Christopher Rowe <thequasarx1@gmail.com>
+Project-URL: Homepage, https://github.com/QuasarX1/QuasarCode
+Project-URL: Bug Tracker, https://github.com/QuasarX1/QuasarCode/issues
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: pyyaml
+
+# Quasar Code
+
+The Python implementation of the QuasarCode library.
+
+Source files are avalable at https://github.com/QuasarX1/QuasarCode.
+
+The QuasarCode library is also avalable for .NET
