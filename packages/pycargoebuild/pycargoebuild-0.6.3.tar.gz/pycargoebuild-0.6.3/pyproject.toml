@@ -1,0 +1,54 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "pycargoebuild"
+authors = [{name = "Michał Górny", email = "mgorny@gentoo.org"}]
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+readme = "README.rst"
+requires-python = ">=3.8"
+dependencies = [
+    "license_expression",
+    "tomli >= 1.2.3; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+pretty-log = ["rich"]
+test = [
+    "pytest",
+]
+
+[project.scripts]
+pycargoebuild = "pycargoebuild.__main__:entry_point"
+
+[project.urls]
+Homepage = "https://github.com/projg2/pycargoebuild/"
+
+[tool.mypy]
+disallow_untyped_defs = true
+no_implicit_optional = true
+
+[[tool.mypy.overrides]]
+module = [
+    "integration_test.*",
+    "test.*",
+]
+# requiring explicit types for all test methods would be cumbersome
+disallow_untyped_defs = false
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = [
+    "license_expression.*",
+    "portage.*",
+    "rich.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = [
+    "test",
+]
