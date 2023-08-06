@@ -1,0 +1,37 @@
+[project]
+name = "odb-plotter"
+description = "Python3 API for Abaqus FEA .odb Files and related Command Line Visualization Tool, with an Additive Manufacturing Focus"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["TODO"]
+authors = [{name = "Clark Hensley", email = "clarkhensley@duck.com"}]
+maintainers = [{name = "Clark Hensley", email = "clarkhensley@duck.com"}]
+dependencies = [
+"platformdirs",
+"h5py",
+"numpy",
+"tomli>=1.1.0; python_version < '3.11'",
+"tomli_w",
+"pandas",
+"matplotlib",
+"vtk==9.2.2; python_version < '3.11'", # pyvista is unstable on some platforms with vtk 9.2.5 or greater
+"vtk==9.2.4; python_version >= '3.11'",
+"pyreadline3; platform_system == 'Windows'",
+"pyvista",
+]
+dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://www.cmml.me.msstate.edu"
+"Bug Reports" = "https://www.github.com/Computational-Mechanics-Materials-Lab/ODBPlotter/issues"
+"Source" = "https://www.github.com/Computational-Mechanics-Materials-Lab/ODBPlotter"
+
+[tool.setuptools]
+package-data = {odbp = ["data/views.toml", "data/config.toml", "py2_scripts/odb_to_npz.py", "py2_scripts/extract.py"]}
+
+[tool.setuptools.dynamic]
+version = {attr = "odbp.__version__"}
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
