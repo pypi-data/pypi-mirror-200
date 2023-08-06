@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "schema_st4_parser"
+dynamic = ["version"]
+authors = [
+  { name="Lukas Kreussel"},
+]
+description = "Parse Schema ST4 xml files into pytohn objects"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/LLukas22/ST4-Python-Parser"
+"Bug Tracker" = "https://github.com/LLukas22/ST4-Python-Parser/issues"

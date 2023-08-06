@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+setup.py
+.github/workflows/publish_on_pipy.yml
+.vscode/settings.json
+src/schema_st4_parser/__init__.py
+src/schema_st4_parser.egg-info/PKG-INFO
+src/schema_st4_parser.egg-info/SOURCES.txt
+src/schema_st4_parser.egg-info/dependency_links.txt
+src/schema_st4_parser.egg-info/top_level.txt
+tests/__init__.py
+tests/test.xml
+tests/test_get_namespaces.py
+tests/test_parser.py
