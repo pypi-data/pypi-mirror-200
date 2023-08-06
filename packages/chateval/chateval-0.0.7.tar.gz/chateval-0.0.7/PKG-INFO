@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: chateval
+Version: 0.0.7
+Summary: Evaluation Framework for Chatbots in Generative AI
+Home-page: https://github.com/GAIR-NLP/chateval
+Author: Pengfei Liu
+License: Apache License
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+
+# chateval
+Evaluation Framework for Chatbot in Generative AI
+
+
+
+
+## Install and Precommit
+
+```bash
+pip install -e .
+pre-commit install
+```
+
+## Run formating
+```shell
+git init
+git add .
+pre-commit run
+```
+
+## Peform Unittest of a specific file
+```
+export export OPENAI_API_KEY=XXXX.YYYY.ZZZ
+python -m unittest integration_tests.gptscore_test
+```
+
+
+
+## Usage
+
+
+### Evaluate with GPTScore
+
+```shell
+export OPENAI_API_KEY=XXXX.YYYY.ZZZ
+```
+````
+
+```python
+from chateval.metrics import get_metric
+
+dataset = [{"input": "write a movie review of Titanic"}]
+predictions = [
+    'James Cameron\'s 1997 epic romantic disaster film "Titanic" tells the '
+]
+
+metric = get_metric("generic_likert/helpfulness")
+results = metric.compute(dataset, predictions)
+
+print(results)
+
+```
+where results is a `dict` with following keys:
+* `value`: the overall evaluated score (i.e., average) on the dataset
+* `no_score`: the number of samples that cannot be evaluated due to api accessing error or invalid evaluated string
+* `sample_values`: the evaluated score for each sample in the dataset
+* `details`: the detailed evaluation results for each sample in the dataset, including the evaluation prompt, textual judgment. 
+
+Here is one example of the above case:
+
+```json
+{
+'value': 1.0,
+'no_score': 0,
+'sample_values': [1.0], 
+'details': [{'prompt': 'You are evaluating a response that has been submitted for a particular task, using a specific set of standards. Below is the data:\n[BEGIN DATA]\n***\n[Task]: write a movie review of Titanic\n***\n[Submission]: James Cameron\'s 1997 epic romantic disaster film "Titanic" tells the \n***\n[Criterion]: \n1:Not helpful - The generated text is completely irrelevant, unclear, or incomplete. It does not provide any useful information to the user.\n2:Somewhat helpful - The generated text has some relevance to the user\'s question, but it may be unclear or incomplete. It provides only partial information, or the information provided may not be useful for the user\'s needs.\n3:Moderately helpful - The generated text is relevant to the user\'s question, and it provides a clear and complete answer. However, it may lack detail or explanation that would be helpful for the user.\n4:Helpful - The generated text is highly relevant to the user\'s question, and it provides a clear, complete, and detailed answer. It offers additional information or explanations that are useful for the user.\n5:Highly helpful - The generated text is highly relevant to the user\'s question, and it provides a clear, complete, and detailed answer. It offers additional information or explanations that are not only useful but also insightful and valuable to the user.\n***\n[END DATA]\nDoes the submission meet the criterion? First, write out in a step by step manner your reasoning about the criterion to be sure that your conclusion is correct. Avoid simply stating the correct answers at the outset. Then print the choice only from 1, 2, 3, 4, 5 (without quotes or punctuation) on its own line corresponding to the correct answer. At the end, repeat just the selected choice again by itself on a new line.\nReasoning:', 'judgment': '1. The task is to write a movie review of Titanic.\n2. The submission only provides the title and director of the movie, but does not offer any review or analysis of the film.\n3. Therefore, the submission is not helpful and does not meet the criterion.\nChoice: 1\n\n1'}]}
+```
+
+
+ 
+
+
+### Evaluate in terms of `write_email` scenario
+```python
+from chateval import load
+
+scenario = load("../scenarios/write_email")
+predictions = [
+    "My name is [name], and I am currently a student in your [class name].",
+]
+
+print(scenario.evaluate(predictions))
+```
+
+
+
+### Meta Evaluation
+
+```python
+from chateval import load
+
+scenario = load("metaeval_helpfulness")
+metric_model = scenario.get_default_setting_config()["metric_model"]
+result = scenario.evaluate(metric_model, "metric")
+
+print(result)
+```
+
