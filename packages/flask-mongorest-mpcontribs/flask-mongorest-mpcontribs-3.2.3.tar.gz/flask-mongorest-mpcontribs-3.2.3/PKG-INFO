@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: flask-mongorest-mpcontribs
+Version: 3.2.3
+Summary: Flask restful API framework for MongoDB/MongoEngine
+Home-page: http://github.com/tschaume/flask-mongorest
+Author: Close.io
+Author-email: engineering@close.io
+Maintainer: Patrick Huck
+Maintainer-email: phuck@lbl.gov
+License: BSD
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/x-rst
+Provides-Extra: dev
+License-File: LICENSE
+License-File: AUTHORS
+
+Flask-MongoEngine is a Flask extension that provides integration with MongoEngine, WtfForms and FlaskDebugToolbar.
