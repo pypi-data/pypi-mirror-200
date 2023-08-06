@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pcloud-dl
+Version: 0.1.2b0
+Summary: pcloud downloader
+Home-page: https://github.com/JavSensei/pcloud-dl
+Author: JavierSC
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tqdm
+
+# pcloud-dl
+PCloud downloader from public link
