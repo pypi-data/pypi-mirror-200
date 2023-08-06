@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: zomboid_rcon
+Version: 0.2.1
+Summary: Python class for interacting with Project Zomboid servers using RCON 
+Home-page: https://github.com/JMWhitworth/zomboid_rcon
+Download-URL: https://github.com/JMWhitworth/zomboid_rcon/archive/refs/tags/0.2.1.tar.gz
+Author: Jack Whitworth
+Author-email: jack@jackwhitworth.com
+License: GPL-3.0
+Keywords: project-zomboid,rcon,project-zomboid-rcon
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# zomboid-rcon version 0.2.1 (Beta)
+ 
+A Python package for interacting with Project Zomboid Servers using RCON.
+
+This project uses the timeout_decorator package which is Unix/Linux only. Timeouts will cause errors on Windows due to this.
+
+<br>
+
+# How to use
+
+Example:
+```
+from zomboid_rcon import ZomboidRCON
+
+if __name__ == "__main__":
+    pz = ZomboidRCON(ip='localhost', password='myPassword')
+    command = pz.serverMsg("You dead yet?")
+    print(command.response)
+    print(command.response)
+```
+
+Outputs:
+```
+Message sent.
+True
+```
+
+<br>
+
+# Available commands:
+
+The follow commands are available through built-in methods:
+- serverMsg
+- players
+- save
+- quit
+- help
+- showoptions
+
+Or execute any command using the command method:
+```
+from zomboid_rcon import ZomboidRCON
+
+if __name__ == "__main__":
+    pz = ZomboidRCON(ip='localhost', password='myPassword')
+    command = pz.command("servermsg", "Hello!")
+```
+
+
+
+<br>
+
+# To do:
+
+- Add all possible commands
+- Find alternate solution for timeouts for Windows
