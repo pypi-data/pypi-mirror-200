@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[9389],{3679:function(e){function n(e){!function(e){function n(n,a){e.languages[n]&&e.languages.insertBefore(n,"comment",{"doc-comment":a})}var a=e.languages.markup.tag,t={pattern:/\/\/\/.*/,greedy:!0,alias:"comment",inside:{tag:a}},s={pattern:/'''.*/,greedy:!0,alias:"comment",inside:{tag:a}};n("csharp",t),n("fsharp",t),n("vbnet",s)}(e)}e.exports=n,n.displayName="xmlDoc",n.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_xmlDoc.8ecc1358.chunk.js.map

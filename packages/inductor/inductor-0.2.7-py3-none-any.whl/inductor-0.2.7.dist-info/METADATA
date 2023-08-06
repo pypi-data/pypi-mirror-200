@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: inductor
+Version: 0.2.7
+Home-page: https://inductor.ai
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: typing-extensions (<5,>=4.4)
+Requires-Dist: fastapi (<1,>=0.85.1)
+Requires-Dist: uvicorn[standard] (<1,>=0.19)
+Requires-Dist: aiofiles (<23,>=22.1)
+Requires-Dist: apscheduler (<4,>=3.9.1)
+Requires-Dist: pandas (<2,>=1.3.5)
+Requires-Dist: typer[all] (<1,>=0.6.1)
+Requires-Dist: watchgod (<1,>=0.8.2)
+Requires-Dist: joblib (<2,>=1.2)
+Requires-Dist: PyMySQL (<2,>=1.0.2)
+Requires-Dist: Pillow (<10,>=9.2)
+Requires-Dist: plotly (<6,>=5.11)
+Requires-Dist: numpy (<2,>=1.21.6)
+Requires-Dist: boto3 (<2,>=1.24.76)
+Requires-Dist: psycopg2 (<3,>=2.9.5)
+Provides-Extra: snowflake
+Requires-Dist: snowflake-connector-python (<4,>=3.0.0) ; extra == 'snowflake'
+Requires-Dist: pyarrow (<10.1.0,>=10.0.1) ; extra == 'snowflake'
+
