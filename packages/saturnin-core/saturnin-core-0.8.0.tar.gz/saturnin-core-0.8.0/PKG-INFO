@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: saturnin-core
+Version: 0.8.0
+Summary: Saturnin core services
+Author-email: Pavel Cisar <pcisar@users.sourceforge.net>
+License: MIT License
+        
+        Copyright (c) 2019-2021 FirebirdSQL
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Home, http://firebirdsql.org/en/saturnin/
+Project-URL: Documentation, https://saturnin-core.rtfd.io
+Project-URL: Bug Reports, https://github.com/FirebirdSQL/saturnin-core/issues
+Project-URL: Funding, https://www.firebirdsql.org/en/donate/
+Project-URL: Source, https://github.com/FirebirdSQL/saturnin-core
+Keywords: Saturnin,Core,Services,Firebird,Butler,Platform,ZeroMQ
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Logging
+Classifier: Topic :: Database
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+======================
+Saturnin core services
+======================
+
+This repository contains core set of services for Saturnin_.
+
+For installation instructions, see the Saturnin_ documentation.
+
+For information how to use these services, see saturnin-core documentation_.
+
+The core set of services for Saturnin currently contains next services:
+
+* Text file reader microservice [saturnin.text.reader]
+* Text file writer microservice [saturnin.text.writer]
+* Text line filter microservice [saturnin.text.linefilter]
+* Binary data file reader microservice [saturnin.binary.reader]
+* Binary data file writer microservice [saturnin.binary.writer]
+* Protobuf printer microservice [saturnin.proto.printer]
+* Protobuf filter microservice [saturnin.proto.filter]
+* Protobuf aggregator microservice [saturnin.proto.aggregator]
+* Firebird log from server provider microservice [saturnin.firebird.log.fromsrv]
+* Firebird log parser microservice [saturnin.firebird.log.parser]
+* Firebird trace parser microservice [saturnin.firebird.trace.parser]
+* Firebird trace session provider microservice [saturnin.firebird.trace.session]
+
+.. _Saturnin: https://saturnin.readthedocs.io/en/latest/
+.. _documentation: https://saturnin-core.readthedocs.io/en/latest/
