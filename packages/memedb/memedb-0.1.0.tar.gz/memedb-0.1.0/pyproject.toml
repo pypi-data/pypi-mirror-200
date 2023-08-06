@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "memedb"
+version = "0.1.0"
+description = "MemeDB - the fun and quirky side project for data storage, because sometimes it's good to take a break from the serious stuff!"
+authors = ["Vahid Al <thevahidal@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
