@@ -1,0 +1,785 @@
+2023-03-23  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Update external libraries to the highest level
+	that works.
+
+	* src/ecscmdb/finddifferences.py
+	(FindDifferences.find_differences): Comment out code that adds a
+	line to a worksheet.
+
+	* README.md: Update documentation for filters.
+
+	* pyproject.toml: Update version to v1.7.2.
+
+2023-03-08  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecscmdb/cmdb.py: Add exit when running as a dry run.
+
+2023-03-03  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Bumping version from v1.6.38.1 to v1.7.0
+
+	* src/ecscmdb/finddifferences.py
+	(FindDifferences.find_differences): Replace logic for finding
+	altered rows in a sheet.
+
+2023-02-21  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Update ECSpylibs to v1.1.26 and ECScmdb to
+	v1.6.38.
+
+2023-02-20  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Update ECScmdb to v1.6.37 and ECSpylibs to
+	v1.1.25.
+
+2023-02-17  Thomas R. Stevenson  <tom@thomas.fedora36>
+
+	* pyproject.toml: Update ECScmdb to v1.6.34 and ECSpylibs to
+	v1.1.22.
+
+	* src/ecscmdb/updatecells.py (UpdateCells): Update hints per
+	pycharm suggestions.
+
+	* src/ecscmdb/initcheck.py (InitCheck): Update hints per pycharm
+	suggestions.
+
+	* src/ecscmdb/finddifferences.py (FindDifferences): Update hints
+	per pycharm suggestions.
+
+	* src/ecscmdb/cmdbdiff.py: Update hints per pycharm suggestions.
+
+	* src/ecscmdb/cmdb.py: Update hints per pycharm suggestions.
+
+	* src/ecscmdb/api.py (API): Update hints per pycharm suggestions.
+
+	* pyproject.toml: Update ECScmdb to v1.6.31 and ECSpylibs to
+	v1.1.20.
+
+2023-02-14  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Update ECScmdb from v1.6.29 to v1.6.30.
+
+2023-02-09  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Update ECScmdb from v1.6.28 to v1.6.29.
+
+	* README.md: Update version info.
+
+	* pyproject.toml: Update ECScmdb from v1.6.27 to v1.6.28.
+
+	* src/ecscmdb/cmdb.py (main): Rename funtions listIDs to list_ids
+	and listPWs to list_pws.  Replace variable arguments["--verbose"]
+	with variable verbose.
+
+	* pyproject.toml: Update ECScmdb from v1.6.23 to v1.6.27.
+
+2023-02-08  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml: Update ECScmdb from v1.6.21 to v1.6.22, and
+	ECSpylibs from 1.1.15 to v1.1.16.
+
+	* README.md: Update file to reflect changes in the package.
+
+	* pyproject.toml: Update ECScmdb from 1.6.16 to v1.6.20, and
+	ECSpylibs from 1.1.9 to v1.1.14.
+
+	* src/ecscmdb/cmdb.py: Move the Parallel function from ECScmdb to
+	ECSpylibs.  Reorder the import and from commands.  Call Parallel
+	with the Pool Executor to use, in this case, ProcessPoolExecutor.
+
+2023-02-02  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecscmdb/cmdb.py (main): Fix typo.  "verbosepart" to
+	"verbose".
+
+	* src/ecscmdb/cmdbdiff.py: Update variable and function names to
+	match PyCharm recommendations.
+
+	* src/ecscmdb/cmdb.py (main): Update variable and function names
+	to match PyCharm recommendations.
+
+2023-02-01  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecscmdb/parallel.py (Parallel.__init__): Make sure variables
+	exist before using them.
+
+	* src/ecscmdb/initcheck.py (InitCheck.__init__): Make sure
+	variables "name" and "email" exist before using them.  Update
+	variable and function names to match PyCharm recommendations.
+
+	* src/ecscmdb/finddifferences.py
+	(FindDifferences.find_differences): Fix line length of command.
+
+	* src/ecscmdb/cmdbdiff.py: Update variable and function names to
+	match PyCharm recommendations.  Simplify the setting of CONF_LIST.
+
+	* pyproject.toml (cmdbdiff): Change version of ecspylibs to 1.1.7.
+
+	* src/ecscmdb/parallel.py (Parallel.__init__): Calculate the run
+	time within Parallel.run.
+
+	* src/ecscmdb/cmdb.py: Clean up long lines.  Replace
+	"get_inv_details.finish - get_inv_details.start" with
+	"get_inv_details.run_time:.2f".
+
+	* pyproject.toml: Update version to 1.6.14 for testing.
+
+	* src/ecscmdb/api.py (API.__init__): Add missing variables to
+	__init__.
+
+2023-01-31  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* src/ecscmdb/updatecells.py (UpdateCells): Update variable names
+	to match PyCharm recommendations.
+
+	* src/ecscmdb/parallel.py (Parallel.__init__): Update variable
+	names to match PyCharm recommendations.
+
+	* src/ecscmdb/finddifferences.py (FindDifferences): Update
+	variable names to match PyCharm recommendations.
+
+	* src/ecscmdb/cmdbdiff.py: Update variable names to match PyCharm
+	recommendations.
+
+	* src/ecscmdb/cmdb.py: Update variable names to match PyCharm
+	recommendations.
+
+	* src/ecscmdb/api.py (API): Update variable names to match PyCharm
+	recommendations.
+
+	* pyproject.toml: Update version to 1.6.13.
+
+	* VERSION: Update version to 1.6.13.
+
+2023-01-19  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* README.md: Update version to 1.6.5.
+
+	* pyproject.toml: Update version to 1.6.5.
+
+	* src/ecscmdb/updatecells.py: Convert file to support Python
+	Poetry and pypackage.toml.
+
+	* src/ecscmdb/parallel.py: Convert file to support Python Poetry
+	and pypackage.toml.
+
+	* src/ecscmdb/__init__.py: Convert file to support Python Poetry
+	and pypackage.toml.
+
+	* src/ecscmdb/initcheck.py: Convert file to support Python Poetry
+	and pypackage.toml.
+
+	* src/ecscmdb/finddifferences.py: Convert file to support Python
+	Poetry and pypackage.toml.
+
+	* src/ecscmdb/cmdb.py: Convert file to support Python Poetry and
+	pypackage.toml.
+
+	* src/ecscmdb/cmdbdiff.py: Convert file to support Python Poetry
+	and pypackage.toml.
+
+	* src/ecscmdb/api.py: Convert file to support Python Poetry and
+	pypackage.toml.
+
+2023-01-18  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* pyproject.toml (include): Change dependencies versions to
+	absolute values.  Add data files to wheel.
+
+	* data/etc/cmdb.yml: Rename package from ECScmdb to cmdb.
+
+	* data/bin/cmdbdiff: Rename package from ECScmdb to cmdb.
+
+	* data/bin/cmdb: Rename package from ECScmdb to cmdb.
+
+	* cmdb/initcheck.py: Rename package from ECSpylibs to ecspylibs.
+
+	* cmdb/cmdbdiff.py: Rename package from ECSpylibs to
+	ecspylibs. Rename package from ECScmdb to cmdb.
+
+	* cmdb/cmdb.py: Rename package from ECSpylibs to ecspylibs. Rename
+	package from ECScmdb to cmdb.
+
+	* cmdb/api.py: Rename package from ECSpylibs to ecspylibs.
+
+2023-01-06  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* VERSION: Update version to 1.6.3.
+
+	* ECScmdb/cmdb.py (cmdb): Cleaned up some F-Strings.  Added some
+	logger.info entries.  Added some print commands.
+
+	* VERSION: Update version to 1.6.2.
+
+	* data/bin/cmdbdiff: Delete commented lines.  Add a "main()"
+	function.
+
+	* data/bin/cmdb: Delete commented lines.  Add a "main()" function.
+
+2022-12-21  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* VERSION: Update VERSION to 1.5.11.
+
+	* ECScmdb/finddifferences.py (FindDifferences.find_differences):
+	Add logging.
+
+2022-12-19  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* ECScmdb/finddifferences.py (FindDifferences.find_differences):
+	Add code to check for added or deleted rows in worksheets.
+
+2023-01-06  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* VERSION: Update version to 1.6.2.
+
+	* data/bin/cmdbdiff: Delete commented lines.  Add a "main()"
+	function.
+
+	* data/bin/cmdb: Delete commented lines.  Add a "main()" function.
+
+>>>>>>> multi_processing
+2022-12-02  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* ECScmdb/api.py (API.login): Fix print commands to write to
+	sys.stderr.
+
+2022-11-30  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* ECScmdb/cmdb.py: Replace
+	FQ_PGM_FILE.parent.parent.parent.parent.parent with
+	FQ_PGM_FILE.parents[5].  Fix typo on assert by adding .parts.
+
+	* ECScmdb/cmdbdiff.py: Replace FQ_PGM_FILE.parent.parent with
+	FQ_PGM_FILE.parents[2].  Fix typo on assert by adding .parts.
+
+	* data/etc/cmdbdiff.yml (config): Remove Paul Arquette from
+	cmdbdiff.yml file.
+
+2022-11-29  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* VERSION: Update version to 1.5.6.
+
+	* README.md (cmdbdiff): Update the help output for cmdb and
+	cmdbdiff.
+
+	* data/etc/cmdbdiff.yml (config): Add Jeanne Noel Purrenhage
+	<eg8587@wayne.edu> to the email list.  Update text for no changes.
+	Add section for Full reports.
+	(config): Add a missing line feed in the output.
+
+2022-11-28  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* VERSION: Change version from 1.5.2 to 1.5.3.
+
+	* ECScmdb/cmdbdiff.py: Remove function updateSheet from cmdbdiff.
+
+2022-11-25  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* ECScmdb/initcheck.py: Fixed the order of imported packages.
+
+	* ECScmdb/finddifferences.py: Rewrite the finddifferences package.
+
+	* ECScmdb/cmdbdiff.py: Fixed the order of imported packages.
+	Switched to package finddirrecences.
+
+2022-11-23  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* setup.cfg (classifiers): Allow python 3.10.
+
+2022-11-18  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* VERSION: Starting version 1.5.1.
+
+2022-10-20  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* ECScmdb/cmdb.py (cmdb): Fix typo in variable CONF_FILE.
+
+2022-10-19  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* setup.cfg (project_urls): Getting ECScmdb ready to use ECSpylibs
+	version 1.1.0.
+
+2022-10-18  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* ECScmdb/cmdbdiff.py (cmdbdiff): Fix typos for Path.mkdir.
+
+	* ECScmdb/cmdb.py (cmdb): Fix typos for Path.mkdir.
+
+2022-10-05  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* VERSION: Update version to 1.4.20
+
+	* ECScmdb/initcheck.py: Convert from os.path to pathlib for
+	processing file I/O path names.
+
+	* ECScmdb/cmdb.py: Stop using jinja2.
+
+	* ECScmdb/cmdbdiff.py (cmdbdiff): Rename variable REPORT_FILE to
+	REPORT_NAME.
+
+	* ECScmdb/initcheckdiff.py: Convert from os.path to pathlib for
+	processing file I/O path names.
+
+2022-09-30  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* ECScmdb/cmdb.py: Convert from os.path to pathlib for processing
+	file I/O path names.
+
+	* data/bin/cmdb: Convert from os.path to pathlib for processing
+	file I/O path names.
+
+	* ECScmdb/cmdbdiff.py: Convert from os.path to pathlib for
+	processing file I/O path names.
+
+	* setup.cfg (console_scripts): Change the etc configuration
+	directory to etc/ECScmdb.
+
+	* data/bin/cmdbdiff: Convert from os.path to pathlib for
+	processing file I/O path names.
+
+	* VERSION: Change version to 1.4.19
+
+2022-05-18  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* setup.cfg (universal): Add code for flake8.
+
+	* VERSION: Update version to 1.4.18
+
+	* ECScmdb/updatecells.py: Some cleanup based on flake8.
+
+	* ECScmdb/initcheck.py: Some cleanup based on flake8.
+
+	* ECScmdb/initcheckdiff.py: Some cleanup based on flake8.
+
+	* ECScmdb/flagdifferences.py: Some cleanup based on flake8.
+
+	* ECScmdb/cmdb.py: Some cleanup based on flake8.
+
+	* ECScmdb/cmdbdiff.py: Some cleanup based on flake8.
+
+	* ECScmdb/api.py: Some cleanup based on flake8.
+
+2022-04-22  Thomas R. Stevenson  <tom@tom.cc.wayne.edu>
+
+	* README.md: Update Readme file.
+
+	* setup.cfg (formats): Add ChangeLog and README.md files to the
+	etc/cmdb directory.
+
+	* VERSION: Update version to 1.4.17.
+
+2022-04-22  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying README.md
+
+2022-04-22  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ChangeLog README.md
+
+2022-04-22  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ChangeLog README.md VERSION setup.cfg
+
+2022-04-22  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ChangeLog README.md VERSION setup.cfg
+
+2022-04-18  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/updatecells.py VERSION
+
+2022-04-18  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/updatecells.py VERSION
+
+2022-04-06  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/api.py ECScmdb/cmdb.py data/bin/cmdb
+	data/bin/cmdbdiff
+
+2022-04-06  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/api.py ECScmdb/cmdb.py data/bin/cmdb
+	data/bin/cmdbdiff
+
+2022-04-06  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying VERSION
+
+2022-04-06  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py
+
+2022-04-06  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py
+
+2022-04-06  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Test using PyCharm for changes.
+
+2022-04-06  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Cleanup file using PyCharm.
+
+2022-04-04  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdb.py ECScmdb/cmdbdiff.py
+	ECScmdb/initcheck.py ECScmdb/initcheckdiff.py ECScmdb/updatecells.py VERSION
+	setup.cfg
+
+2022-04-04  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdb.py ECScmdb/cmdbdiff.py
+	ECScmdb/initcheck.py ECScmdb/initcheckdiff.py ECScmdb/updatecells.py VERSION
+	setup.cfg
+
+2022-03-31  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdb.py ECScmdb/updatecells.py VERSION
+
+2022-03-31  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdb.py ECScmdb/updatecells.py VERSION
+
+2022-03-31  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Deleting build/lib/ECScmdb/updatecells.py
+
+2022-03-18  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Adding .idea/misc.xml
+
+2022-03-18  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers .idea/.gitignore .idea/ECScmdb.iml
+	.idea/dbnavigator.xml .idea/inspectionProfiles/profiles_settings.xml
+	.idea/modules.xml .idea/vcs.xml
+
+2022-03-18  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Adding .idea/.gitignore .idea/ECScmdb.iml .idea/dbnavigator.xml
+	.idea/inspectionProfiles/profiles_settings.xml .idea/modules.xml .idea/vcs.xml
+
+2022-02-14  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Deleting .idea/.gitignore .idea/dbnavigator.xml
+	.idea/inspectionProfiles/profiles_settings.xml .idea/misc.xml .idea/modules.xml
+	.idea/testing.iml
+
+2022-02-14  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying VERSION data/etc/cmdbdiff.xml
+
+2022-02-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdb.py VERSION
+
+2022-02-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdb.py VERSION
+
+2022-02-04  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py VERSION
+	data/etc/cmdbdiff.xml
+
+2022-02-04  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py VERSION data/etc/cmdbdiff.xml
+
+2022-02-03  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/api.py ECScmdb/cmdb.py VERSION
+
+2022-02-03  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/api.py ECScmdb/cmdb.py VERSION
+
+2022-02-03  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying VERSION
+
+2022-02-03  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdb.py
+
+2022-02-03  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdb.py
+
+2022-01-31  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/api.py ECScmdb/cmdb.py
+
+2022-01-31  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/api.py ECScmdb/cmdb.py
+
+2022-01-06  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying VERSION data/etc/cmdbdiff.xml
+
+2022-01-05  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py VERSION
+	data/etc/cmdbdiff.xml
+
+2022-01-05  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py VERSION data/etc/cmdbdiff.xml
+
+2022-01-05  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py ECScmdb/initcheckdiff.py
+	VERSION data/etc/cmdbdiff.xml requirements.txt setup.cfg
+
+2022-01-05  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py ECScmdb/initcheckdiff.py VERSION
+	data/etc/cmdbdiff.xml requirements.txt setup.cfg
+
+2021-12-09  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying VERSION data/etc/cmdbdiff.xml
+
+2021-12-09  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py ECScmdb/initcheckdiff.py
+	VERSION data/etc/cmdb.xml data/etc/cmdbdiff.xml
+
+2021-12-09  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py ECScmdb/initcheckdiff.py VERSION
+	data/etc/cmdb.xml data/etc/cmdbdiff.xml
+
+2021-12-08  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdb.py ECScmdb/cmdbdiff.py VERSION
+
+2021-12-08  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdb.py ECScmdb/cmdbdiff.py VERSION
+
+2021-12-08  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py VERSION
+
+2021-12-08  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py VERSION
+
+2021-12-08  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying VERSION
+
+2021-12-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py
+
+2021-12-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py
+
+2021-12-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Duplicate ECScmdb/cmdbdiff.py.4.backup history in ECScmdb/cmdbdiff.py history.
+
+2021-12-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Duplicate ECScmdb/cmdbdiff.py.2.backup history in ECScmdb/cmdbdiff.py history.
+
+2021-12-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Duplicate ECScmdb/cmdbdiff.py.3.backup history in ECScmdb/cmdbdiff.py history.
+
+2021-12-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py
+
+2021-12-07  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py
+
+2021-12-02  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* After pull
+
+2021-12-02  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Delete .gitignore
+
+2021-12-02  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying .gitignore
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying VERSION
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers .gitignore ECScmdb/cmdbdiff.py
+	ECScmdb/flagdifferences.py
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying .gitignore ECScmdb/cmdbdiff.py
+	ECScmdb/flagdifferences.py
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Deleting ECScmdb.egg-info/PKG-INFO ECScmdb.egg-info/SOURCES.txt
+	ECScmdb.egg-info/dependency_links.txt ECScmdb.egg-info/entry_points.txt
+	ECScmdb.egg-info/not-zip-safe ECScmdb.egg-info/requires.txt
+	ECScmdb.egg-info/top_level.txt
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Merge branch 'testing' of git.wayne.edu:ECS_Projects/ECScmdb into testing
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Merge branch 'testing' of git.wayne.edu:ECS_Projects/ECScmdb into testing
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Duplicate ECScmdb/updatecells.py history in ECScmdb/flagdifferences.py history.
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Merge branch 'testing' of git.wayne.edu:ECS_Projects/ECScmdb into testing
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Delete build/lib/ECScmdb/api.py, build/lib/ECScmdb/cmdb.py,
+	build/lib/ECScmdb/cmdbdiff.py, build/lib/ECScmdb/initcheck.py, and
+	build/lib/ECScmdb/initcheckdiff.py
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Merge branch 'testing' of git.wayne.edu:ECS_Projects/ECScmdb into testing
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Getting everything in sync.
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Update .gitignore
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Update after rsync from master.
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/api.py ECScmdb/cmdb.py
+	ECScmdb/cmdbdiff.py ECScmdb/initcheck.py ECScmdb/initcheckdiff.py
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/api.py ECScmdb/cmdb.py ECScmdb/cmdbdiff.py
+	ECScmdb/initcheck.py ECScmdb/initcheckdiff.py
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Update after git pull on master.
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Adding dist/ECScmdb-1.3.6-py2.py3-none-any.whl
+	dist/ECScmdb-1.3.6.tar.gz dist/ECScmdb-1.3.6.zip
+
+2021-12-01  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Deleting dist/ECScmdb-1.3.6-py2.py3-none-any.whl
+	dist/ECScmdb-1.3.6.tar.gz dist/ECScmdb-1.3.6.zip
+
+2021-11-30  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py
+
+2021-11-30  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py
+
+2021-11-30  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers .gitignore ECScmdb/cmdbdiff.py
+
+2021-11-30  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying .gitignore ECScmdb/cmdbdiff.py
+
+2021-11-30  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Deleting build/lib/ECScmdb/cmdbdiff.py
+
+2021-11-30  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Deleting build/lib/ECScmdb/api.py build/lib/ECScmdb/cmdb.py
+	build/lib/ECScmdb/initcheck.py build/lib/ECScmdb/initcheckdiff.py
+	dist/ECScmdb-1.3.6-py2.py3-none-any.whl dist/ECScmdb-1.3.6.tar.gz
+	dist/ECScmdb-1.3.6.zip
+
+2021-11-30  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/__init__.py ECScmdb/api.py
+	ECScmdb/cmdb.py ECScmdb/initcheck.py ECScmdb/initcheckdiff.py
+
+2021-11-30  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/__init__.py ECScmdb/api.py ECScmdb/cmdb.py
+	ECScmdb/initcheck.py ECScmdb/initcheckdiff.py
+
+2021-11-29  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb/cmdbdiff.py
+	build/lib/ECScmdb/cmdbdiff.py dist/ECScmdb-1.3.6-py2.py3-none-any.whl
+	dist/ECScmdb-1.3.6.tar.gz dist/ECScmdb-1.3.6.zip
+
+2021-11-29  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb/cmdbdiff.py build/lib/ECScmdb/cmdbdiff.py
+	dist/ECScmdb-1.3.6-py2.py3-none-any.whl dist/ECScmdb-1.3.6.tar.gz
+	dist/ECScmdb-1.3.6.zip
+
+2021-11-24  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying dist/ECScmdb-1.3.6-py2.py3-none-any.whl
+	dist/ECScmdb-1.3.6.tar.gz dist/ECScmdb-1.3.6.zip
+
+2021-11-24  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: fix_git_headers ECScmdb.egg-info/PKG-INFO
+	ECScmdb/updatecells.py build/lib/ECScmdb/updatecells.py
+	dist/ECScmdb-1.3.6-py2.py3-none-any.whl dist/ECScmdb-1.3.6.tar.gz
+	dist/ECScmdb-1.3.6.zip setup.cfg
+
+2021-11-24  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* ECSansible@testing: Modifying ECScmdb.egg-info/PKG-INFO ECScmdb/updatecells.py
+	build/lib/ECScmdb/updatecells.py dist/ECScmdb-1.3.6-py2.py3-none-any.whl
+	dist/ECScmdb-1.3.6.tar.gz dist/ECScmdb-1.3.6.zip setup.cfg
+
+2020-11-09  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* py.build ECScmdb@testing
+
+2020-11-09  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Add branch ECScmdb@testing
+
+2020-11-08  Thomas R. Stevenson <aa0026@wayne.edu>
+
+	* Initial commit
