@@ -1,0 +1,33 @@
+wishlist : insert/replace dans inputs
+
+wishlist : déplacer un événement, ±1 jour, ±1 heure, ±custom
+exporter : actuellement, que le local
+            event, tout, local ?
+
+taguer un webcal/caldav en local doit copier en local et mettre à jour
+
+erreurs propres, exemple :
+    try:
+        predef = int(line)
+        if not (1 <= predef <= 4):
+            raise ValueError('entre 1 et 4')
+    except Exception as e:
+        print(f"{line} doit être entre 1 et 4 {type(e)} - {e}")
+    gérer proprement les exceptions
+    except <type d'erreur>:
+
+choper les erreurs quand un caldav est faux (genre une url)
+
+complétion : https://docs.python.org/3/library/readline.html
+
+------------------------------------------------------------------------
+    - import de VTODO
+    - export de VTODO
+
+donefaire proprement un message d'info lors du chargement
+        attention au changement de taille de fenêtre
+DONE    faire un message d'erreur
+DONE    faire une option, synchro auto à chaque semaine ou non
+
+faire du async sur le chargement des caldav ; (charger en background, refresh quand c'est fini)
+charger tous les calendriers de principal.calendars() -- attention à _iscaldav qui n'en attend qu'un

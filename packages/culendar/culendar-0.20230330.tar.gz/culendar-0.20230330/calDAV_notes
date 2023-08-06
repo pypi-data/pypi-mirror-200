@@ -1,0 +1,65 @@
+python3 -m radicale
+→ http://localhost:5232/
+
+Thunderbird
+Lightning
+
+Add a new calendar on the network with CalDAV. You have to enter the full URL of the collection (e.g. http://localhost:5232/user/calendar). If you want to add calendars from different users on the same server, you can specify the user name in the URL (e.g. http://user@localhost...)
+
+python-caldav
+url = "http://[login:mdp@]localhost:5232/user/calendar"
+client = caldav.DAVClient(url, username=usr, password=pwd)
+
+
+TODO if webcal in url, s/webcal/http/
+
+client = caldav.DAVClient(url)
+principal = client.principal()
+
+if len(principal.calendars()) == 0:
+    cal = principal.make_calendar()
+else:
+    cal = principal.calendars()[0]
+
+
+Mettre sur un caldav qui prend les Event… :
+    for e in c.events:
+    ...:         ie = icalendar.Event()
+    ...:         ie.add('dtstart', e.date)
+    ...:         ie.add('duration', datetime.timedelta(seconds = e.duration))
+    ...:         ie.add('summary', e.summary)
+    ...:         if e.place:
+    ...:             ie.add('location', e.place)
+    ...:         dav.add_event(ie.to_ical().decode())
+
+qui prend pas :
+ia = icalendar.Calendar()
+ia.add_component(ie)
+cal.add_event(ia.to_ical().decode())
+
+for y in range(2017, 2019):
+    for m in range(1, 13):
+        for d in range(1,32):
+            for ie in range(random.randint(0,4)):
+                c = icalendar.Calendar()
+                e = icalendar.Event()
+                try:
+                    e.add('dtstart', datetime.datetime(y, m, d, random.randint(8, 16)))
+                    e.add('duration', datetime.timedelta(seconds = 1800*random.randint(1, 10)))
+                    e.add('summary', "random event to test culendar/caldav")
+                    c.add_component(e)
+                    cal.add_event(c.to_ical().decode())
+                except:
+                    print("erreur année "+str(y)+" mois "+str(m)+" jour "+str(d))
+
+
+importer depuis un caldav
+    il faut importer élément par élément
+
+cal.event_by_uid("[UID]").delete()
+
+pour le webcal :
+avec urlht = s/webcal/https/
+ics = urllib.request.urlopen(urlht).read()
+
+

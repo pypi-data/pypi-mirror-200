@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "culendar"
+version = "0.20230330"
+authors = [
+  { name="Mit", email="culendar@miteux.net" },
+]
+description = "Culendar is a free/libre calendar application in python and curses."
+readme = "README.md"
+requires-python = ">=3.7"
+license = "WTFPL"
+classifiers = [ 
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "icalendar >= 4.0.1",
+  "caldav >= 0.5.0"
+]
+
+[project.urls]
+"Homepage" = "https://framagit.org/mit/culendar"
+"Bug Tracker" = "https://framagit.org/mit/culendar/-/issues"
+
+[project.scripts]
+culendar = "culendar.culendar:run"
