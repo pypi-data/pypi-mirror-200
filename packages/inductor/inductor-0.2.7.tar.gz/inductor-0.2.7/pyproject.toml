@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "-m \"not slow and not manualsetup\""
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "manualsetup: marks tests as requiring manual setup (deselect with '-m \"not manualsetup\"')",
+]

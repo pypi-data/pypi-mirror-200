@@ -1,0 +1,4 @@
+include inductor/ui/frontend/build/**
+include inductor/ui/frontend/build/static/**
+include inductor/ui/frontend/build/static/js/**
+global-exclude README*
