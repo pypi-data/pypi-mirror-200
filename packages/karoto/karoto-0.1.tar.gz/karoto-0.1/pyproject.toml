@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "karoto"
+version = "0.1"
+description = "A shopping list app for Linux Mobile"
+authors = ["DrRac27 <drrac27@riseup.net>"]
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["shopping", "list", "carrot", "storage", "stock", "management", "cart", "basket"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyqt6 = "^6.4.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest-qt = "^4.2.0"
+flake8 = "^6.0.0"
+
+[tool.pytest.ini_options]
+qt_api = "pyqt6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+karoto = 'karoto.main:main'
