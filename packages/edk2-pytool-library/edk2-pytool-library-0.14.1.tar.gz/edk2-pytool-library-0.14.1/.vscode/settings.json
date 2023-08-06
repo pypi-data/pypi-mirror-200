@@ -1,0 +1,10 @@
+{
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "${workspaceRoot}/edk2toollib/tests",
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "python.linting.pydocstyleEnabled": true
+}
