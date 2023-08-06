@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pykumaapi
+Version: 0.0.2
+Summary: A package to connect KUMA (SIEM)
+Home-page: https://github.com/arthurkondakov/pykumaapi/
+Author: Artur Kondakov
+Author-email: arthurkondakov@yandex.ru
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pykumaapi
+
+Библиотека для работы с Kaspersky Unified Monitoring and Analysis Platform
+по API
+
+Необходимо установить библиотеку:
+ pip install pykumaapi
+
+В проекте сделать импорт
+
+from pykumaapi.pykumaapi import getevent
+
+Созданы функции:
+1) getevent()
+
+Необходимо передать функции следующие параметры:
+
+    url: 
+    api_key_user:
+    clusterID:
+    sql:
+    period_from:
+    period_to: :
+
