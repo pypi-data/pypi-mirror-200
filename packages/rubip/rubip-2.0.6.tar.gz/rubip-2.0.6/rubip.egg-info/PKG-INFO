@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: rubip
+Version: 2.0.6
+Summary: Another example of the library making the Rubik's robot
+Home-page: https://rubika.ir/python_java_source
+Author: mamadcoder
+Author-email: mamadcoder@gmail.com
+License: MIT
+Keywords: rubika,bot,robot,library,rubikalib,rubikalib.ml,rubikalib.ir,rubika.ir,Rubika,Python,Pyrubika,pyrubika
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+
+
+## An example:
+``` python
+from rubip import rubip
+
+proxies = {'https': 'https://localhost:8080'}
+
+bot = rubip("Auth Account",proxies=proxies)
+
+gap = "guids"
+
+bot.sendMessage(gap,"pyrubika")
+```
+
+
+### How to import the Rubik's library
+
+``` bash
+from rubip import rubip
+```
+
+### How to install the library
+
+``` bash
+pip install rubip
+```
+
+### My ID in Rubika
+
+``` bash
+@mamadcoder1
+```
+## And My ID Channel in Rubika
+
+``` bash
+@python_java_source 
+```
