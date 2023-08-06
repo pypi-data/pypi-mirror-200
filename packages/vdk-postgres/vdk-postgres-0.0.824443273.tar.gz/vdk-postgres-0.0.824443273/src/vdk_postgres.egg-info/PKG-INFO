@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: vdk-postgres
+Version: 0.0.824443273
+Summary: Versatile Data Kit SDK plugin provides support for PostgreSQL database and postgres transformation templates.
+Home-page: https://github.com/vmware/versatile-data-kit
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+This plugin allows vdk-core to interface with and execute queries against a PostgreSQL database.
+
+# Usage
+
+Run
+```bash
+pip install vdk-postgres
+```
+
+After this, data jobs will have access to a Postgres database connection, managed by Versatile Data Kit SDK.
+
+If it is the only database plugin installed , vdk would automatically use it.
+Otherwise, users need to set VDK_DB_DEFAULT_TYPE=POSTGRES as an environment variable or set 'db_default_type' option in the data job config file (config.ini).
+
+For example
+
+```python
+    def run(job_input: IJobInput):
+        job_input.execute_query("select 'Hi Postgres!'")
+```
+
+# Configuration
+
+Run vdk config-help - search for those prefixed with "POSTGRES_" to see what configuration options are available.
+
+# Testing
+
+Testing this plugin locally requires installing the dependencies listed in vdk-plugins/vdk-postgres/requirements.txt
+
+Run
+```bash
+pip install -r requirements.txt
+```
