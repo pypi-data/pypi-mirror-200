@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: inductiva
+Version: 0.0.2
+Summary: Python client for the Inductiva API
+Home-page: https://github.com/inductiva/inductiva
+Author: Inductiva Research Labs
+Author-email: contact@inductiva.ai
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+Requires-Dist: frozendict
+Requires-Dist: absl-py
+Requires-Dist: tqdm
+Requires-Dist: jinja2
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: xarray
+Requires-Dist: gmsh
+Requires-Dist: meshio
+Requires-Dist: vtk
+Requires-Dist: imageio
+Requires-Dist: imageio-ffmpeg
+Requires-Dist: ipython
+
+![Python package](https://github.com/inductiva/inductiva/actions/workflows/python-package.yml/badge.svg)
+
+# Inductiva
+
+This repository holds a user-friendly client to Inductiva's scientific computing API.
