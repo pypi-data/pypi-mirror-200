@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: goodreads-export
+Version: 1.7.2
+Summary: Convert goodreads books to markdown files, for example for Obsidian.
+Home-page: https://andgineer.github.io/goodreads-export/
+Author: Andrey Sorokin
+Author-email: andrey@sorokin.engineer
+Keywords: goodreads book markdown obsidian
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: beautifulsoup4 (==4.11.2)
+Requires-Dist: certifi (==2022.12.7)
+Requires-Dist: charset-normalizer (==3.0.1)
+Requires-Dist: click (==8.1.3)
+Requires-Dist: idna (==3.4)
+Requires-Dist: jinja2 (==3.1.2)
+Requires-Dist: markdownify (==0.11.6)
+Requires-Dist: markupsafe (==2.1.2)
+Requires-Dist: numpy (==1.24.2)
+Requires-Dist: pandas (==1.5.3)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: pytz (==2022.7.1)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: soupsieve (==2.4)
+Requires-Dist: tqdm (==4.64.1)
+Requires-Dist: urllib3 (==1.26.14)
+Requires-Dist: tomli (>=1.1.0) ; python_version < "3.11"
+
+[![Build Status](https://github.com/andgineer/goodreads-export/workflows/Test/badge.svg)](https://github.com/andgineer/goodreads-export/actions)
+[![Coverage Status](https://coveralls.io/repos/github/andgineer/goodreads-export/badge.svg?branch=main)](https://coveralls.io/github/andgineer/goodreads-export?branch=main)
+# Export goodreads books into markdown files (Obsidian etc)
+
+![goodreads.png](https://andgineer.github.io/goodreads-export/goodreads.png)
+![goodreads-author.png](https://andgineer.github.io/goodreads-export/goodreads-author.png)
+
+# User manual
+
+[goodreads-export](https://andgineer.github.io/goodreads-export/)
+
+# Developers
+
+#### Create / activate environment
+    . ./activate.sh
+
+Delete `venv/` if you want to reinstall everything from requirements*.txt
+
+    make reqs  # if you want to refresh versions
+    deactivate
+    rm -f venv
+    pip install --upgrade pip-tools
+    . ./activate.sh
+
+#### Compile pinned to versions requirements*.txt from requirements*.in files
+
+Using pip-tools
+
+    make reqs
+
+#### Release version
+    make ver-bug/feature/release
+
+Github actin will automatically update the pip package on pypi.org
+
+# Docstrings documentation
+
+Documentation generated from source code.
+
+[reference](https://andgineer.github.io/goodreads-export/docstrings/)
