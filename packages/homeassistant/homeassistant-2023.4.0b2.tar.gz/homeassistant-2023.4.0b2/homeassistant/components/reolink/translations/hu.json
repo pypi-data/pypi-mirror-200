@@ -1,0 +1,78 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Az eszk\u00f6z m\u00e1r konfigur\u00e1lva van",
+            "reauth_successful": "Az \u00fajrahiteles\u00edt\u00e9s sikeres volt."
+        },
+        "error": {
+            "api_error": "API hiba t\u00f6rt\u00e9nt",
+            "cannot_connect": "Sikertelen csatlakoz\u00e1s",
+            "invalid_auth": "\u00c9rv\u00e9nytelen hiteles\u00edt\u00e9s",
+            "not_admin": "A felhaszn\u00e1l\u00f3nak adminisztr\u00e1tornak kell lennie, \"{username}\" felhaszn\u00e1l\u00f3 jogosults\u00e1gi szintje pedig \"{userlevel}\".",
+            "unknown": "V\u00e1ratlan hiba t\u00f6rt\u00e9nt"
+        },
+        "flow_title": "{hostname} ({ip_address})",
+        "step": {
+            "reauth_confirm": {
+                "description": "A Reolink integr\u00e1ci\u00f3nak \u00fajra kell hiteles\u00edtenie a kapcsolaot.",
+                "title": "Integr\u00e1ci\u00f3 \u00fajrahiteles\u00edt\u00e9se"
+            },
+            "user": {
+                "data": {
+                    "host": "C\u00edm",
+                    "password": "Jelsz\u00f3",
+                    "port": "Port",
+                    "use_https": "HTTPS enged\u00e9lyez\u00e9se",
+                    "username": "Felhaszn\u00e1l\u00f3n\u00e9v"
+                },
+                "description": "{error}"
+            }
+        }
+    },
+    "entity": {
+        "select": {
+            "auto_quick_reply_message": {
+                "state": {
+                    "off": "Ki"
+                }
+            },
+            "day_night_mode": {
+                "state": {
+                    "auto": "Automatikus",
+                    "blackwhite": "Fekete-feh\u00e9r",
+                    "color": "Sz\u00edn"
+                }
+            },
+            "floodlight_mode": {
+                "state": {
+                    "auto": "Automatikus",
+                    "off": "Ki",
+                    "schedule": "Id\u0151z\u00edt\u00e9s"
+                }
+            }
+        }
+    },
+    "issues": {
+        "enable_port": {
+            "description": "A {ports} port(ok) automatikus enged\u00e9lyez\u00e9se sikertelen volt a {name} eszk\u00f6z\u00f6n. Haszn\u00e1lja a [Reolink kliens]({info_link}) alkalmaz\u00e1st a k\u00e9zi bekapcsol\u00e1shoz.",
+            "title": "A Reolink port nincs enged\u00e9lyezve"
+        },
+        "firmware_update": {
+            "description": "\"{name}\" \"{model}\" modellel \u00e9s \"{hw_version}\" hardver verzi\u00f3val, \"{current_firmware}\" r\u00e9gi firmware verzi\u00f3t futtatja, m\u00edg a Reolink integr\u00e1ci\u00f3 megfelel\u0151 m\u0171k\u00f6d\u00e9s\u00e9hez legal\u00e1bb a \"{required_firmware}\" firmware verzi\u00f3 sz\u00fcks\u00e9ges. A leg\u00fajabb firmware let\u00f6lthet\u0151 a [Reolink let\u00f6lt\u00e9si k\u00f6zpontb\u00f3l]({download_link}).",
+            "title": "Reolink firmware friss\u00edt\u00e9s sz\u00fcks\u00e9ges"
+        },
+        "https_webhook": {
+            "description": "A Reolink term\u00e9kek nem tudj\u00e1k a mozg\u00e1sesem\u00e9nyeket HTTPS-c\u00edmre (SSL) tov\u00e1bb\u00edtani, ez\u00e9rt arra van sz\u00fcks\u00e9g, hogy a [h\u00e1l\u00f3zati be\u00e1ll\u00edt\u00e1sok]({network_link}) \"Home Assistant URL\" alatt egy helyi, HTTP-c\u00edm legyen be\u00e1ll\u00edtva. A most be\u00e1ll\u00edtott (helyi) c\u00edm a k\u00f6vetkez\u0151: `{base_url}`",
+            "title": "A Reolink webhook URL c\u00edme HTTPS (SSL) protokollt haszn\u00e1l"
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "protocol": "Protokoll"
+                }
+            }
+        }
+    }
+}
