@@ -1,0 +1,12 @@
+Quart>=0.10.0
+aiohttp
+aiofiles
+aioredis
+pyjwt
+quart-session>=1.0.6
+python-jose[cryptography]
+packaging
+pydantic
+
+[dotenv]
+python-dotenv
