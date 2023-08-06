@@ -1,0 +1,7 @@
+recursive-include graphblas *.py
+include setup.py
+include README.md
+include LICENSE
+include MANIFEST.in
+include graphblas/graphblas.yaml
+include graphblas/tests/pickle*.pkl
