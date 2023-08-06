@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: ifly-ailab
+Version: 0.1.1
+Summary: a iflytek ailab library ...
+License: Apache License 2
+Author: ybyang
+Author-email: ybyang7@iflytek.com
+Requires-Python: >3.7
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: pyailab (>0.0)
