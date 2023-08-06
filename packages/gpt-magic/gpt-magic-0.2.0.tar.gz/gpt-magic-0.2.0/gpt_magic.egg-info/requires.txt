@@ -1,0 +1,16 @@
+openai
+requests
+
+[dev]
+pytest
+pytest-mock
+requests-mock
+notebook
+python-dotenv
+
+[test]
+pytest
+pytest-mock
+requests-mock
+notebook
+python-dotenv

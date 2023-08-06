@@ -1,0 +1,94 @@
+Metadata-Version: 2.1
+Name: gpt-magic
+Version: 0.2.0
+Summary: A Jupyter/IPython magic command for generating code using GPT.
+Author-email: BIFF <info@biff.ai>
+License: MIT License
+        
+        Copyright (c) 2023 BIFF
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://biff.ai/bif-0003
+Keywords: jupyter,ipython,gpt,ai
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: dev
+License-File: LICENSE
+
+# GPT magic
+A Jupyter/IPython magic command for generating code using GPT
+
+## Example
+Generating code with GPT by loading the extension and prefixing your line with `%gpt`.
+
+![Alt text](GPTMagic.gif)
+
+## Install
+
+Install with pip
+```python
+pip install gpt-magic
+````
+
+Please note that users will need to provide their own OpenAI API key. Set an environment variable called `OPEN_AI_KEY` with your key. Or pass the API key when loading the extension, by running the following line before %load_ext gpt_magic:
+
+```python
+import os
+os.environ["OPENAI_API_KEY"] = "your_openai_api_key_here"
+```
+
+## Usage
+```python
+%load_ext gpt
+%gpt "Your request here"
+```
+
+## Model
+
+The current default is the gpt-3-turbo model, but can be changed using `OPENAI_MODEL` environmental variable. 
+
+Using GPT-4 example
+```python
+import os
+os.environ["OPENAI_MODEL"] = "gpt-4"
+```
+
+## Arguments
+
+### Chat
+
+You can enable memory of all previous requests and responses with the `-c` argument. By default it's memory-less.
+
+```python
+%gpt -c "Write a function which calculates the average of a numpy array"
+```
+
+### Temperature
+
+You can set the temperature with `-t` argument. The default is 0.
+
+```python
+
+%gpt -t 0.5  "Write a function which calculates the average of a numpy array"
+```
+
