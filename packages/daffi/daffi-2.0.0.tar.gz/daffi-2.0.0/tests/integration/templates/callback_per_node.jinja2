@@ -1,0 +1,9 @@
+{% extends "layout/base.jinja2" %}
+
+{%- block content %}
+@callback
+def get_process_name{{ callback_index }}(path = None):
+    if path:
+        with open(path, "a") as f: f.write(f"{get_g().process_name}\n")
+    return get_g().process_name
+{% endblock %}
