@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/shurjopay_plugin/__init__.py
+src/shurjopay_plugin/logger_config.py
+src/shurjopay_plugin/models.py
+src/shurjopay_plugin/shurjopay_plugin.py
+src/shurjopay_plugin/utils.py
+src/shurjopay_plugin.egg-info/PKG-INFO
+src/shurjopay_plugin.egg-info/SOURCES.txt
+src/shurjopay_plugin.egg-info/dependency_links.txt
+src/shurjopay_plugin.egg-info/requires.txt
+src/shurjopay_plugin.egg-info/top_level.txt
+tests/test_shurjopay_plugin.py
