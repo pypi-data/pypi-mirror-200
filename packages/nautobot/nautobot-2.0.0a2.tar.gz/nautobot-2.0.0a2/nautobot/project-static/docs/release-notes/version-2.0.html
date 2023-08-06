@@ -1,0 +1,3760 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.nautobot.com/projects/core/en/stable/release-notes/version-2.0.html">
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Version 2.0 - Nautobot Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nautobot-v20" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Nautobot Documentation" class="md-header__button md-logo" aria-label="Nautobot Documentation" data-md-component="logo">
+      
+  <img src="../assets/nautobot_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nautobot Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Version 2.0
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nautobot/nautobot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/index.html" class="md-tabs__link">
+        Documentation
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../plugins/development.html" class="md-tabs__link">
+        App Developer Guide
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../development/index.html" class="md-tabs__link">
+        Core Developer Guide
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        Release Notes
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../apps/index.html" class="md-tabs__link">
+        Nautobot Apps
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://docs.nautobot.com/" class="md-tabs__link">
+      Nautobot Docs Home ↗︎
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Nautobot Documentation" class="md-nav__button md-logo" aria-label="Nautobot Documentation" data-md-component="logo">
+      
+  <img src="../assets/nautobot_logo.svg" alt="logo">
+
+    </a>
+    Nautobot Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nautobot/nautobot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/index.html" class="md-nav__link">
+        Installing Prerequisites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/nautobot.html" class="md-nav__link">
+        Installing Nautobot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/services.html" class="md-nav__link">
+        Deploying Nautobot Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/http-server.html" class="md-nav__link">
+        Configuring an HTTP Server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/external-authentication.html" class="md-nav__link">
+        External Authentication (Optional)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/index.html" class="md-nav__link">
+        Nautobot Docker Images
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/migrating-from-netbox.html" class="md-nav__link">
+        Migrating from NetBox
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/migrating-from-postgresql.html" class="md-nav__link">
+        Migrating from PostgreSQL to MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/upgrading.html" class="md-nav__link">
+        Upgrading Nautobot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/upgrading-from-nautobot-v1.html" class="md-nav__link">
+        Upgrading Nautobot from v1.X to v2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/region-and-site-data-migration-guide.html" class="md-nav__link">
+        Migrating from Region and Site to Location
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/index.html" class="md-nav__link">
+        Configuring Nautobot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/required-settings.html" class="md-nav__link">
+        Required Settings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/optional-settings.html" class="md-nav__link">
+        Optional Settings
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          External Authentication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="External Authentication" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          External Authentication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/authentication/ldap.html" class="md-nav__link">
+        LDAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/authentication/sso.html" class="md-nav__link">
+        SSO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/authentication/remote.html" class="md-nav__link">
+        Remote Header
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Administration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Administration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Administration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/nautobot-server.html" class="md-nav__link">
+        Nautobot Server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/nautobot-shell.html" class="md-nav__link">
+        Nautobot Shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/permissions.html" class="md-nav__link">
+        Permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/replicating-nautobot.html" class="md-nav__link">
+        Replicating Nautobot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../administration/celery-queues.html" class="md-nav__link">
+        Task Queues
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          User Guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="User Guides" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          User Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/creating-devices.html" class="md-nav__link">
+        Creating Devices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/custom-fields.html" class="md-nav__link">
+        Custom Fields
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/index.html" class="md-nav__link">
+        Getting Started In the Web UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/git-data-source.html" class="md-nav__link">
+        Git as a Data Source
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/graphql.html" class="md-nav__link">
+        GraphQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/interfaces.html" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/ipam.html" class="md-nav__link">
+        IP Address Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/platforms.html" class="md-nav__link">
+        Platforms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/regions.html" class="md-nav__link">
+        Regions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/tenants.html" class="md-nav__link">
+        Tenants
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/search-bar.html" class="md-nav__link">
+        The Search Bar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/git-data-source.html" class="md-nav__link">
+        Git as a Data Source
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/graphql.html" class="md-nav__link">
+        GraphQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/relationships.html" class="md-nav__link">
+        Relationships
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/s3-django-storage.html" class="md-nav__link">
+        Django Storages with S3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guides/getting-started/vlans-and-vlan-groups.html" class="md-nav__link">
+        VLANS and VLAN Groups
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Core Functionality
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Core Functionality" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Core Functionality
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/circuits.html" class="md-nav__link">
+        Circuits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/devices.html" class="md-nav__link">
+        Devices and Cabling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/device-types.html" class="md-nav__link">
+        Device Types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/ipam.html" class="md-nav__link">
+        IP Address Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/power.html" class="md-nav__link">
+        Power Tracking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/secrets.html" class="md-nav__link">
+        Secrets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/services.html" class="md-nav__link">
+        Service Mapping
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/sites-and-racks.html" class="md-nav__link">
+        Sites, Locations, and Racks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/tenancy.html" class="md-nav__link">
+        Tenancy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/virtualization.html" class="md-nav__link">
+        Virtualization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core-functionality/vlans.html" class="md-nav__link">
+        VLAN Management
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Additional Features
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Additional Features" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Additional Features
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/caching.html" class="md-nav__link">
+        Caching
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/change-logging.html" class="md-nav__link">
+        Change Logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/computedfield.html" class="md-nav__link">
+        Computed Fields
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/config-contexts.html" class="md-nav__link">
+        Context Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/customfield.html" class="md-nav__link">
+        Custom Fields
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/customlink.html" class="md-nav__link">
+        Custom Links
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/dynamicgroup.html" class="md-nav__link">
+        Dynamic Groups
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/exporttemplate.html" class="md-nav__link">
+        Export Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/gitrepository.html" class="md-nav__link">
+        Git Repositories
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/healthcheck.html" class="md-nav__link">
+        Health Check
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/jobs.html" class="md-nav__link">
+        Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/jobbutton.html" class="md-nav__link">
+        Job Buttons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/jobhook.html" class="md-nav__link">
+        Job Hooks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/job-scheduling-and-approvals.html" class="md-nav__link">
+        Job Scheduling and Approvals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/napalm.html" class="md-nav__link">
+        NAPALM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/note.html" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/prometheus-metrics.html" class="md-nav__link">
+        Prometheus Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/relationship.html" class="md-nav__link">
+        Relationships
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/status.html" class="md-nav__link">
+        Statuses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/tag.html" class="md-nav__link">
+        Tags
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/template-filters.html" class="md-nav__link">
+        Template Filters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/extras/webhook.html" class="md-nav__link">
+        Webhooks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          REST API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="REST API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          REST API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest-api/overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest-api/filtering.html" class="md-nav__link">
+        Filtering
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest-api/authentication.html" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          GraphQL API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GraphQL API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          GraphQL API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-features/graphql.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/index.html" class="md-nav__link">
+        Installing and Using Plugins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          App Developer Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="App Developer Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          App Developer Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/development.html" class="md-nav__link">
+        Developing Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/porting-from-netbox.html" class="md-nav__link">
+        Porting NetBox Plugins to Nautobot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Code Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Code Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/__init__.html" class="md-nav__link">
+        nautobot.apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/admin.html" class="md-nav__link">
+        nautobot.apps.admin
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/api.html" class="md-nav__link">
+        nautobot.apps.api
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/choices.html" class="md-nav__link">
+        nautobot.apps.choices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/datasources.html" class="md-nav__link">
+        nautobot.apps.datasources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/filters.html" class="md-nav__link">
+        nautobot.apps.filters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/forms.html" class="md-nav__link">
+        nautobot.apps.forms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/models.html" class="md-nav__link">
+        nautobot.apps.models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/secrets.html" class="md-nav__link">
+        nautobot.apps.secrets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/tables.html" class="md-nav__link">
+        nautobot.apps.tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/testing.html" class="md-nav__link">
+        nautobot.apps.testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/ui.html" class="md-nav__link">
+        nautobot.apps.ui
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/urls.html" class="md-nav__link">
+        nautobot.apps.urls
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-reference/nautobot/apps/views.html" class="md-nav__link">
+        nautobot.apps.views
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Core Developer Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Core Developer Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Core Developer Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/getting-started.html" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/docker-compose-advanced-use-cases.html" class="md-nav__link">
+        Advanced Docker Compose Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/best-practices.html" class="md-nav__link">
+        Best Practices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/style-guide.html" class="md-nav__link">
+        Style Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/extending-models.html" class="md-nav__link">
+        Extending Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/testing.html" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/application-registry.html" class="md-nav__link">
+        Application Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/model-features.html" class="md-nav__link">
+        Model Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/natural-keys.html" class="md-nav__link">
+        Natural Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/templates.html" class="md-nav__link">
+        Page Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/navigation-menu.html" class="md-nav__link">
+        Navigation Menu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/homepage.html" class="md-nav__link">
+        Home Page Panels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/user-preferences.html" class="md-nav__link">
+        User Preferences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/release-checklist.html" class="md-nav__link">
+        Release Checklist
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Release Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Release Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Version 2.0
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="version-2.0.html" class="md-nav__link md-nav__link--active">
+        Version 2.0
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-overview" class="md-nav__link">
+    Release Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Release Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    Added
+  </a>
+  
+    <nav class="md-nav" aria-label="Added">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generic-role-model-1063" class="md-nav__link">
+    Generic Role Model (#1063)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added-site-fields-to-location-2954" class="md-nav__link">
+    Added Site Fields to Location (#2954)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#natural-key-support-across-nautobot-models-2900" class="md-nav__link">
+    Natural Key Support Across Nautobot Models (#2900)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    Changed
+  </a>
+  
+    <nav class="md-nav" aria-label="Changed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-model-migrated-to-prefix-3302" class="md-nav__link">
+    Aggregate model Migrated to Prefix (#3302)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collapse-region-and-site-models-into-location-2517" class="md-nav__link">
+    Collapse Region and Site Models into Location (#2517)
+  </a>
+  
+    <nav class="md-nav" aria-label="Collapse Region and Site Models into Location (#2517)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-data-migration" class="md-nav__link">
+    Initial Data Migration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-site-and-region-related-fields-from-models" class="md-nav__link">
+    Remove Site and Region Related Fields from Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collapsed-nautobotutilities-into-nautobotcore-2721" class="md-nav__link">
+    Collapsed nautobot.utilities into nautobot.core (#2721)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renamed-database-foreign-keys-and-related-names-2520" class="md-nav__link">
+    Renamed Database Foreign Keys and Related Names (#2520)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renamed-filter-fields-2804" class="md-nav__link">
+    Renamed Filter Fields (#2804)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enhanced-filter-fields-2804" class="md-nav__link">
+    Enhanced Filter Fields (#2804)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corrected-filter-fields-2804" class="md-nav__link">
+    Corrected Filter Fields (#2804)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generic-role-model-1063_1" class="md-nav__link">
+    Generic Role Model (#1063)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefix-is_pool-field-and-container-status-replaced-by-new-field-prefixtype-1362" class="md-nav__link">
+    Prefix is_pool field and "Container" status replaced by new field Prefix.type (#1362)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    Removed
+  </a>
+  
+    <nav class="md-nav" aria-label="Removed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removed-redundant-filter-fields-2804" class="md-nav__link">
+    Removed Redundant Filter Fields (#2804)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed-rq-support-2523" class="md-nav__link">
+    Removed RQ support (#2523)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v200-alpha2-2023-03-29" class="md-nav__link">
+    v2.0.0-alpha.2 (2023-03-29)
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.0.0-alpha.2 (2023-03-29)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    Fixed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed_1" class="md-nav__link">
+    Removed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v200-alpha1-2023-01-31" class="md-nav__link">
+    v2.0.0-alpha.1 (2023-01-31)
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.0.0-alpha.1 (2023-01-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    Fixed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed_2" class="md-nav__link">
+    Removed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version-1.5.html" class="md-nav__link">
+        Version 1.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version-1.4.html" class="md-nav__link">
+        Version 1.4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version-1.3.html" class="md-nav__link">
+        Version 1.3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version-1.2.html" class="md-nav__link">
+        Version 1.2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version-1.1.html" class="md-nav__link">
+        Version 1.1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version-1.0.html" class="md-nav__link">
+        Version 1.0
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Nautobot Apps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nautobot Apps" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Nautobot Apps
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apps/index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Network to Code App Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Network to Code App Docs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Network to Code App Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.nautobot.com/projects/chatops/en/latest/" class="md-nav__link">
+        Nautobot ChatOps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://nautobot-plugin-firewall-models.readthedocs.io/en/latest/" class="md-nav__link">
+        Nautobot Firewall Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.nautobot.com/projects/plugin-nornir/en/latest/" class="md-nav__link">
+        Nautobot Plugin Nornir
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.nautobot.com/projects/golden-config/" class="md-nav__link">
+        Nautobot Golden Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://nautobot-plugin-ssot.readthedocs.io/en/latest/" class="md-nav__link">
+        Nautobot Single Source of Truth
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apps/nautobot-apps.html" class="md-nav__link">
+        Community Apps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.nautobot.com/" class="md-nav__link">
+        Nautobot Docs Home ↗︎
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-overview" class="md-nav__link">
+    Release Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Release Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    Added
+  </a>
+  
+    <nav class="md-nav" aria-label="Added">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generic-role-model-1063" class="md-nav__link">
+    Generic Role Model (#1063)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added-site-fields-to-location-2954" class="md-nav__link">
+    Added Site Fields to Location (#2954)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#natural-key-support-across-nautobot-models-2900" class="md-nav__link">
+    Natural Key Support Across Nautobot Models (#2900)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    Changed
+  </a>
+  
+    <nav class="md-nav" aria-label="Changed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-model-migrated-to-prefix-3302" class="md-nav__link">
+    Aggregate model Migrated to Prefix (#3302)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collapse-region-and-site-models-into-location-2517" class="md-nav__link">
+    Collapse Region and Site Models into Location (#2517)
+  </a>
+  
+    <nav class="md-nav" aria-label="Collapse Region and Site Models into Location (#2517)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-data-migration" class="md-nav__link">
+    Initial Data Migration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-site-and-region-related-fields-from-models" class="md-nav__link">
+    Remove Site and Region Related Fields from Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collapsed-nautobotutilities-into-nautobotcore-2721" class="md-nav__link">
+    Collapsed nautobot.utilities into nautobot.core (#2721)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renamed-database-foreign-keys-and-related-names-2520" class="md-nav__link">
+    Renamed Database Foreign Keys and Related Names (#2520)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renamed-filter-fields-2804" class="md-nav__link">
+    Renamed Filter Fields (#2804)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enhanced-filter-fields-2804" class="md-nav__link">
+    Enhanced Filter Fields (#2804)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corrected-filter-fields-2804" class="md-nav__link">
+    Corrected Filter Fields (#2804)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generic-role-model-1063_1" class="md-nav__link">
+    Generic Role Model (#1063)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefix-is_pool-field-and-container-status-replaced-by-new-field-prefixtype-1362" class="md-nav__link">
+    Prefix is_pool field and "Container" status replaced by new field Prefix.type (#1362)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    Removed
+  </a>
+  
+    <nav class="md-nav" aria-label="Removed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removed-redundant-filter-fields-2804" class="md-nav__link">
+    Removed Redundant Filter Fields (#2804)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed-rq-support-2523" class="md-nav__link">
+    Removed RQ support (#2523)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v200-alpha2-2023-03-29" class="md-nav__link">
+    v2.0.0-alpha.2 (2023-03-29)
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.0.0-alpha.2 (2023-03-29)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    Fixed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed_1" class="md-nav__link">
+    Removed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v200-alpha1-2023-01-31" class="md-nav__link">
+    v2.0.0-alpha.1 (2023-01-31)
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.0.0-alpha.1 (2023-01-31)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    Fixed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed_2" class="md-nav__link">
+    Removed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/nautobot/nautobot/edit/main/nautobot/docs/release-notes/version-2.0.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<!-- markdownlint-disable MD024 -->
+
+<h1 id="nautobot-v20">Nautobot v2.0<a class="headerlink" href="#nautobot-v20" title="Permanent link">&para;</a></h1>
+<p>This document describes all new features and changes in Nautobot 2.0.</p>
+<p>If you are a user migrating from Nautobot v1.X, please refer to the <a href="../installation/upgrading-from-nautobot-v1.html">"Upgrading from Nautobot v1.X"</a> documentation.</p>
+<h2 id="release-overview">Release Overview<a class="headerlink" href="#release-overview" title="Permanent link">&para;</a></h2>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<h4 id="generic-role-model-1063">Generic Role Model (<a href="https://github.com/nautobot/nautobot/issues/1063">#1063</a>)<a class="headerlink" href="#generic-role-model-1063" title="Permanent link">&para;</a></h4>
+<p>DeviceRole, RackRole, IPAM Role, and IPAddressRoleChoices have all been merged into a single generic Role model. A role can now be created and associated to one or more of the content-types that previously implemented role as a field. These model content-types include dcim.device, dcim.rack, virtualization.virtualmachine, ipam.ipaddress, ipam.prefix, and ipam.vlan.</p>
+<h4 id="added-site-fields-to-location-2954">Added Site Fields to Location (<a href="https://github.com/nautobot/nautobot/issues/2954">#2954</a>)<a class="headerlink" href="#added-site-fields-to-location-2954" title="Permanent link">&para;</a></h4>
+<p>Added Site Model Fields to Location. Location Model now has <code>asn</code>, <code>comments</code>, <code>contact_email</code>, <code>contact_name</code>, <code>contact_phone</code>, <code>facility</code>, <code>latitude</code>, <code>longitude</code>, <code>physical_address</code>, <code>shipping_address</code> and <code>time_zone</code> fields.</p>
+<h4 id="natural-key-support-across-nautobot-models-2900">Natural Key Support Across Nautobot Models (<a href="https://github.com/nautobot/nautobot/issues/2900">#2900</a>)<a class="headerlink" href="#natural-key-support-across-nautobot-models-2900" title="Permanent link">&para;</a></h4>
+<p>Nautobot's <code>BaseModel</code> base class and related classes now implement automatic support for Django <a href="https://docs.djangoproject.com/en/3.2/topics/serialization/#natural-keys">natural keys</a> for lookup and referencing, as well as supporting a <code>natural_key_slug</code> concept similar to that introduced by <code>django-natural-keys</code>. (Nautobot does not depend on <code>django-natural-keys</code> but its implementation is heavily inspired by that project.) For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">DeviceType</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">natural_key</span><span class="p">()</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">[</span><span class="s1">&#39;MegaCorp&#39;</span><span class="p">,</span> <span class="s1">&#39;Model 9000&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">DeviceType</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_by_natural_key</span><span class="p">(</span><span class="s2">&quot;MegaCorp&quot;</span><span class="p">,</span> <span class="s2">&quot;Model 9000&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="o">&lt;</span><span class="n">DeviceType</span><span class="p">:</span> <span class="n">Model</span> <span class="mi">9000</span><span class="o">&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">DeviceType</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">natural_key_slug</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s1">&#39;MegaCorp&amp;Model+9000&#39;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">DeviceType</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">natural_key_slug</span><span class="o">=</span><span class="s2">&quot;MegaCorp&amp;Model+9000&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="o">&lt;</span><span class="n">DeviceType</span><span class="p">:</span> <span class="n">Model</span> <span class="mi">9000</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>Developers can refer to the <a href="../development/natural-keys.html">documentation on natural keys</a> for details on how to support and use this feature.</p>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<h4 id="aggregate-model-migrated-to-prefix-3302">Aggregate model Migrated to Prefix (<a href="https://github.com/nautobot/nautobot/issues/3302">#3302</a>)<a class="headerlink" href="#aggregate-model-migrated-to-prefix-3302" title="Permanent link">&para;</a></h4>
+<p>The <code>ipam.Aggregate</code> model has been removed and all existing aggregates will be migrated to <code>ipam.Prefix</code> with <code>type</code> set to "Container". The <code>Aggregate.date_added</code> field will be migrated to <code>Prefix.date_allocated</code> and changed from a Date field to a DateTime field with the time set to <code>00:00</code>. <code>Aggregate.tenant</code>, <code>Aggregate.rir</code> and <code>Aggregate.description</code> will be migrated over to the same fields on <code>Prefix</code>.</p>
+<p>See the <a href="../installation/upgrading-from-nautobot-v1.html#aggregate-migrated-to-prefix">upgrade guide</a> for more details on the data migration.</p>
+<h4 id="collapse-region-and-site-models-into-location-2517">Collapse Region and Site Models into Location (<a href="https://github.com/nautobot/nautobot/issues/2517">#2517</a>)<a class="headerlink" href="#collapse-region-and-site-models-into-location-2517" title="Permanent link">&para;</a></h4>
+<h5 id="initial-data-migration">Initial Data Migration<a class="headerlink" href="#initial-data-migration" title="Permanent link">&para;</a></h5>
+<p>The <code>Site</code> and <code>Region</code> models have been removed in v2.0 and have been replaced with <code>Location</code> of specific <code>LocationType</code>. As a result, the existing <code>Site</code> and <code>Region</code> data will be migrated to corresponding <code>LocationType</code> and <code>Location</code> objects. Here is what to expect:</p>
+<ol>
+<li>If you do not have any <code>Site</code> and <code>Region</code> instances in your existing database, running this data migration will do nothing.</li>
+<li>If you only have <code>Region</code> instances in your existing database, a <code>LocationType</code> named <strong>Region</strong> will be created and for each legacy <code>Region</code> instance, a corresponding <code>Location</code> instance with the same attributes (<code>id</code>, <code>name</code>, <code>description</code>, etc.) and hierarchy will be created.</li>
+<li>
+<p>If you only have <code>Site</code> instances in your existing database:</p>
+<ul>
+<li>
+<p>A <code>LocationType</code> named <strong>Site</strong> will be created and every preexisting root level <code>LocationType</code> in your database will be updated to have the new <strong>Site</strong> <code>LocationType</code> as their parent.</p>
+</li>
+<li>
+<p>For each legacy <code>Site</code> instance, a corresponding <code>Location</code> instance with the same attributes (<code>id</code>, <code>name</code>, <code>description</code>, <code>tenant</code>, <code>facility</code>, <code>asn</code>, <code>latitude</code>, <code>longitude</code>, etc.) will be created, and any preexisting <code>Locations</code> in your database will be updated to have the appropriate "site" <code>Locations</code> as their parents.</p>
+</li>
+<li>
+<p>Model instances that had a <code>site</code> field (<code>CircuitTermination</code>, <code>Device</code>, <code>PowerPanel</code>, <code>RackGroup</code>, <code>Rack</code>, <code>Prefix</code>, <code>VLANGroup</code>, <code>VLAN</code>, <code>Cluster</code>) assigned and <em>did not</em> have a <code>location</code> attribute assigned will be updated to have their <code>location</code> point to the new <code>Location</code> corresponding to that <code>Site</code>. All other attributes on these models will remain unchanged.</p>
+</li>
+<li>
+<p>Model instances that were previously associated to the <code>ContentType</code> for <code>Site</code> (<code>ComputedField</code>, <code>CustomField</code>, <code>CustomLink</code>, <code>ExportTemplate</code>, <code>ImageAttachment</code>, <code>JobHook</code>, <code>Note</code>, <code>Relationship</code>, <code>Status</code>, <code>Tag</code> and <code>Webhook</code>) will have their <code>ContentType</code> replaced with <code>Location</code>. All other attributes on these models will remain unchanged.</p>
+</li>
+</ul>
+<p>For Example:</p>
+<ul>
+<li>
+<p>We will start with a <code>Site</code> instance with name <strong>AMS01</strong> as the base <code>Site</code> for two top-level <code>Location</code> objects with names <strong>root-01</strong> and <strong>root-02</strong> respectively.</p>
+</li>
+<li>
+<p>During the data migration, a <code>LocationType</code> named <strong>Site</strong> will be created, and a <code>Location</code> of <strong>Site</strong> <code>LocationType</code> named <strong>AMS01</strong> with all the information (<code>asn</code>, <code>latitude</code>, etc.) from the base <code>Site</code> will be created.</p>
+</li>
+<li>
+<p>The <code>Location</code> objects named <strong>root-01</strong> and <strong>root-02</strong> will have this <strong>AMS01</strong> <code>Location</code> set as their <code>parent</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>If you have both <code>Site</code> and <code>Region</code> instances in your existing database:</p>
+<ul>
+<li>
+<p>A <code>LocationType</code> named <strong>Region</strong> will be created.</p>
+</li>
+<li>
+<p>For each legacy <code>Region</code> instance, a corresponding <code>Location</code> instance with the same attributes (<code>id</code>, <code>name</code>, <code>description</code>, etc.) will be created.</p>
+</li>
+<li>
+<p>A <code>LocationType</code> named <strong>Site</strong> will be created with the new <code>LocationType</code> named <strong>Region</strong> set as its <code>parent</code>.</p>
+</li>
+<li>
+<p>Every pre-existing root-level <code>LocationType</code> in your database will be updated to have the new <code>LocationType</code> named <strong>Site</strong> as its <code>parent</code>.</p>
+</li>
+<li>
+<p>For each legacy <code>Site</code> instance, a corresponding "site" <code>Location</code> instance with the same attributes (<code>id</code>, <code>name</code>, <code>description</code>, <code>tenant</code>, <code>facility</code>, <code>asn</code>, <code>latitude</code>, <code>longitude</code>, etc.) will be created with its parent set to the corresponding "region" <code>Location</code> if any.</p>
+<ul>
+<li>If you have <code>Site</code> instances in your database without a <code>Region</code> assigned to them, one additional <code>Location</code> named <strong>Global Region</strong> of <code>LocationType</code> <strong>Region</strong> will be created and each <code>Location</code> of <code>LocationType</code> <strong>Site</strong> created from the legacy region-less <code>Site</code> instances will have the <strong>Global Region</strong> <code>Location</code> as their parent.</li>
+</ul>
+</li>
+<li>
+<p>Model instances that had a <code>site</code> attribute (<code>CircuitTermination</code>, <code>Device</code>, <code>Location</code>, <code>PowerPanel</code>, <code>Rack</code>, <code>RackGroup</code>, <code>Prefix</code>, <code>VLANGroup</code>, <code>VLAN</code>, <code>Cluster</code>) assigned and <em>did not</em> have a <code>location</code> attribute assigned will be updated to have their <code>location</code> point to the new <code>Location</code> of <code>LocationType</code> <strong>Site</strong>. All other attributes on these models will remain unchanged.</p>
+</li>
+<li>
+<p>Model instances that were previously associated to the <code>ContentType</code> for <code>Site</code>  or <code>Region</code> (<code>ComputedField</code>, <code>CustomField</code>, <code>CustomLink</code>, <code>ExportTemplate</code>, <code>ImageAttachment</code>, <code>JobHook</code>, <code>Note</code>, <code>Relationship</code>, <code>Status</code>, <code>Tag</code> and <code>Webhook</code>) will have their <code>ContentType</code> replaced with <code>Location</code>. All other attributes on these models will remain unchanged.</p>
+</li>
+</ul>
+<p>For Example:</p>
+<ul>
+<li>
+<p>There are two <code>Site</code> instances and one <code>Region</code> instance in your existing database. The <code>Region</code> with name <strong>America</strong> has one child <code>Site</code> instance named <strong>AMS01</strong>. And the other <code>Site</code> instance named <strong>AUS01</strong> is not associated with any <code>Region</code> (<code>region</code> attribute is set to <code>None</code>).</p>
+</li>
+<li>
+<p>The <code>Site</code> <strong>AMS01</strong> is the base <code>Site</code> for two top-level <code>Location</code> objects with names <strong>root-01</strong> and <strong>root-02</strong> respectively.</p>
+</li>
+<li>
+<p>During the data migration, a <code>LocationType</code> named <strong>Region</strong> and a <code>Location</code> of this <code>LocationType</code> named <strong>America</strong> with all the same information will be created.</p>
+</li>
+<li>
+<p>The <code>LocationType</code> named <strong>Site</strong> with its <code>parent</code> set as the new <code>LocationType</code> <strong>Region</strong> and a <code>Location</code> of <code>LocationType</code> named <strong>AMS01</strong> with all the same information (<code>asn</code>, <code>latitude</code>, etc.) will be created. The <code>Location</code> <strong>AMS01</strong> will have <code>Location</code> <strong>America</strong> as its <code>parent</code> and each - <code>Location</code> <strong>root-01</strong> and <strong>root-02</strong> will have <code>Location</code> <strong>AMS01</strong> as its <code>parent</code>.</p>
+</li>
+<li>
+<p>Finally, the <code>Site</code> instance <strong>AUS01</strong>, since it does not have a <code>Region</code> instance associated with it, its corresponding <code>Location</code> <strong>AUS01</strong> will have a new <code>Location</code> named <strong>Global Region</strong> of <code>LocationType</code> <strong>Region</strong> as its <code>parent</code>.</p>
+</li>
+<li>
+<p>In addition, legacy <code>Site</code> instance with name <strong>AMS01</strong> also has three <code>Device</code> instances associated with it named <strong>ams01-edge-01</strong>, <strong>ams01-edge-02</strong>,  and <strong>ams01-edge-03</strong>.</p>
+</li>
+<li>
+<p>However, <strong>ams01-edge-01</strong> only has its <code>site</code> attribute set as <code>Site</code> <strong>AMS01</strong> whereas <strong>ams01-edge-02</strong> and <strong>ams01-edge-03</strong> have both its <code>site</code> and <code>location</code> attributes set <code>Site</code> <strong>AMS01</strong> and <code>Location</code> <strong>root-01</strong> respectively.</p>
+</li>
+<li>
+<p>During the data migration, <strong>ams01-edge-01</strong>'s <code>location</code> attribute will point to the new <code>Location</code> of <code>LocationType</code> <strong>Site</strong> with name <strong>AMS01</strong> while devices <strong>ams01-edge-02</strong> and <strong>ams01-edge-03</strong> will remain unchanged.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="remove-site-and-region-related-fields-from-models">Remove Site and Region Related Fields from Models<a class="headerlink" href="#remove-site-and-region-related-fields-from-models" title="Permanent link">&para;</a></h5>
+<p><code>Region</code> and <code>Site</code> relationships are being removed from these models: <code>CircuitTermination</code>, <code>Device</code>, <code>Location</code>, <code>Rack</code>, <code>RackGroup</code>, <code>PowerFeed</code>, <code>PowerPanel</code>, <code>ConfigContext</code>, <code>Prefix</code>, <code>VLAN</code>, <code>VLANGroup</code>, <code>Cluster</code>.</p>
+<p>The <code>ContentType</code> for <code>Region</code> and <code>Site</code> are being replaced with <code>Location</code> on these models: <code>ComputedField</code>, <code>CustomField</code>, <code>CustomLink</code>, <code>ExportTemplate</code>, <code>ImageAttachment</code>, <code>JobHook</code>, <code>Note</code>, <code>Relationship</code>, <code>Status</code>, <code>Tag</code> and <code>Webhook</code>.</p>
+<p>The <code>region</code> and <code>site</code> fields are being removed in the <code>filter</code> data of <code>DynamicGroup</code> objects. The previously associated values are being added to the existing <code>location</code> field and its associated list of filter values or to a new <code>location</code> key with an empty list if one does not exist.</p>
+<p>Check out the API and UI endpoints changes incurred by the changes stated above in the <a href="../installation/upgrading-from-nautobot-v1.html">"Upgrading from Nautobot v1.X"</a> guide.</p>
+<p>Check out the <a href="../installation/region-and-site-data-migration-guide.html#region-and-site-related-data-model-migration-guide-for-existing-nautobot-app-installations">Region and Site Related Data Model Migration Guide</a> to learn how to migrate your Nautobot Apps and data models from <code>Site</code> and <code>Region</code> to <code>Location</code>.</p>
+<h4 id="collapsed-nautobotutilities-into-nautobotcore-2721">Collapsed <code>nautobot.utilities</code> into <code>nautobot.core</code> (<a href="https://github.com/nautobot/nautobot/issues/2721">#2721</a>)<a class="headerlink" href="#collapsed-nautobotutilities-into-nautobotcore-2721" title="Permanent link">&para;</a></h4>
+<p><code>nautobot.utilities</code> no longer exists as a separate Python module or Django app. Its functionality has been collapsed into the <code>nautobot.core</code> app. See details at <a href="../installation/upgrading-from-nautobot-v1.html#python-code-location-changes">Python Code Location Changes</a>.</p>
+<h4 id="renamed-database-foreign-keys-and-related-names-2520">Renamed Database Foreign Keys and Related Names (<a href="https://github.com/nautobot/nautobot/issues/2520">#2520</a>)<a class="headerlink" href="#renamed-database-foreign-keys-and-related-names-2520" title="Permanent link">&para;</a></h4>
+<p>Some Foreign Key fields have been renamed to follow a more self-consistent pattern across the Nautobot app. This change is aimed to offer more clarity and predictability when it comes to related object database operations:</p>
+<p>For example in v1.x to create a circuit object with <code>type</code> "circuit-type-1", you would do:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Circuit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">cid</span><span class="o">=</span><span class="s2">&quot;Circuit 1&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;provider-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;circuit-type-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">)</span>
+</code></pre></div>
+<p>and to filter <code>Circuit</code> objects of <code>type</code> "circuit-type-2", you would do:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Circuit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;circuit-type-2&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Now in v2.x, we have renamed the Foreign Key field <code>type</code> on Circuit Model to <code>circuit_type</code>, because this naming convention made it clearer that this Foregin Key field is pointing to the model <code>CircuitType</code>. The same operations would look like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Circuit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">cid</span><span class="o">=</span><span class="s2">&quot;Circuit 1&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;provider-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">circuit_type</span><span class="o">=</span><span class="s2">&quot;circuit-type-1&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Circuit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">circuit_type</span><span class="o">=</span><span class="s2">&quot;circuit-type-2&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Check out more Foreign Key related changes documented in the table <a href="../installation/upgrading-from-nautobot-v1.html#renamed-database-fields">Renamed Database Fields</a></p>
+<p>In addition to the changes made to Foreign Key fields' own names, some of their <code>related_names</code> are also renamed:</p>
+<p>For example in v1.x, to query <code>Circuit</code> objects with <code>CircuitTermination</code> instances located in sites ["ams01", "ams02", "atl03"], you would do:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Circuit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">terminations__site__in</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ams01&quot;</span><span class="p">,</span> <span class="s2">&quot;ams02&quot;</span><span class="p">,</span> <span class="s2">&quot;atl03&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>Now in v2.x, we have renamed the Foreign Key field <code>circuit</code>'s <code>related_name</code> attribute <code>terminations</code> on <code>CircuitTermination</code> Model to <code>circuit_terminations</code>, the same operations would look like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Circuit</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">circuit_terminations__site__in</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ams01&quot;</span><span class="p">,</span> <span class="s2">&quot;ams02&quot;</span><span class="p">,</span> <span class="s2">&quot;atl03&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>Check out more <code>related-name</code> changes documented in the table <a href="../installation/upgrading-from-nautobot-v1.html#renamed-database-fields">Renamed Database Fields</a></p>
+<h4 id="renamed-filter-fields-2804">Renamed Filter Fields (<a href="https://github.com/nautobot/nautobot/pull/2804">#2804</a>)<a class="headerlink" href="#renamed-filter-fields-2804" title="Permanent link">&para;</a></h4>
+<p>Some filter fields have been renamed to reflect their functionalities better.</p>
+<p>For example in v1.X, to filter <code>FrontPorts</code> that has a cable attached in the UI or make changes to them via Rest API, you would use the <code>cabled</code> filter:</p>
+<p><code>/dcim/front-ports/?cabled=True</code></p>
+<p>Now in v2.x, you would instead use the <code>has_cable</code> filter which has a more user-friendly name:</p>
+<p><code>/dcim/front-ports/?has_cable=True</code></p>
+<p>Check out the specific changes documented in the table at <a href="../installation/upgrading-from-nautobot-v1.html#renamed-filter-fields">UI and REST API Filter Changes</a></p>
+<h4 id="enhanced-filter-fields-2804">Enhanced Filter Fields (<a href="https://github.com/nautobot/nautobot/pull/2804">#2804</a>)<a class="headerlink" href="#enhanced-filter-fields-2804" title="Permanent link">&para;</a></h4>
+<p>Many filter fields have been enhanced to enable filtering by both slugs and UUID primary keys.</p>
+<p>For example in v1.X, to filter <code>Regions</code> with a specific <code>parent</code> value in the UI or make changes to them via Rest API, you are only able to input slugs as the filter values:</p>
+<p><code>/dcim/regions/?parent=&lt;slug&gt;</code></p>
+<p>Now in v2.x, you are able to filter those <code>Regions</code> by slugs or UUID primary keys:</p>
+<p><code>/dcim/regions/?parent=&lt;slug&gt;</code> or <code>/dcim/regions/?parent=&lt;uuid&gt;</code></p>
+<p>Check out the specific changes documented in the table at <a href="../installation/upgrading-from-nautobot-v1.html#enhanced-filter-fields">UI and REST API Filter Changes</a></p>
+<h4 id="corrected-filter-fields-2804">Corrected Filter Fields (<a href="https://github.com/nautobot/nautobot/pull/2804">#2804</a>)<a class="headerlink" href="#corrected-filter-fields-2804" title="Permanent link">&para;</a></h4>
+<p>There were also instances where a foreign-key related field (e.g. <code>console_ports</code>) was incorrectly mapped to a boolean membership filter (e.g. <code>has_console_ports</code>), making it impossible to filter based on specific values of the foreign key:</p>
+<p>For example in v1.x:</p>
+<p><code>/dcim/devices/?console_ports=True</code> and <code>/dcim/devices/?has_console_ports=True</code> are functionally the same and this behavior is <strong>incorrect</strong>.</p>
+<p>This has been addressed in v2.x as follows:</p>
+<p><code>console_ports</code> and similar filters are taking foreign key UUIDs as input values and can be used in this format: <code>/dcim/devices/?console_ports=&lt;uuid&gt;</code> whereas <code>has_console_ports</code> and similar filters remain the same.</p>
+<p>Check out the specific changes documented in the table at <a href="../installation/upgrading-from-nautobot-v1.html#corrected-filter-fields">UI and REST API Filter Changes</a></p>
+<h4 id="generic-role-model-1063_1">Generic Role Model (<a href="https://github.com/nautobot/nautobot/issues/1063">#1063</a>)<a class="headerlink" href="#generic-role-model-1063_1" title="Permanent link">&para;</a></h4>
+<p>The <code>DeviceRole</code>, <code>RackRole</code>, <code>ipam.Role</code>, and <code>IPAddressRoleChoices</code> have all been removed and replaced with a <code>extras.Role</code> model, This means that all references to any of the replaced models and choices now points to this generic role model.</p>
+<p>In addition, the <code>role</code> field of the <code>IPAddress</code> model has also been changed from a choice field to a foreign key related field to the <code>extras.Role</code> model.</p>
+<h4 id="prefix-is_pool-field-and-container-status-replaced-by-new-field-prefixtype-1362">Prefix <code>is_pool</code> field and "Container" status replaced by new field <code>Prefix.type</code> (<a href="https://github.com/nautobot/nautobot/issues/1362">#1362</a>)<a class="headerlink" href="#prefix-is_pool-field-and-container-status-replaced-by-new-field-prefixtype-1362" title="Permanent link">&para;</a></h4>
+<p>A new <code>type</code> field was added to <code>Prefix</code> to replace the <code>is_pool</code> boolean field and the "Container" status. The <code>type</code> field can be set to "Network", "Pool" or "Container", with "Network" being the default.</p>
+<p>Existing prefixes with a status of "Container" will be migrated to the "Container" type. Existing prefixes with <code>is_pool</code> set will be migrated to the "Pool" type. Prefixes with both <code>is_pool</code> set and a status of "Container" will be migrated to the "Pool" type.</p>
+<p>The "Container" status will be removed and all prefixes will be migrated to the "Active" status if it exists. If the "Active" status was deleted, prefixes will be migrated to the first available prefix status in the database that is not "Container".</p>
+<h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
+<h4 id="removed-redundant-filter-fields-2804">Removed Redundant Filter Fields (<a href="https://github.com/nautobot/nautobot/pull/2804">#2804</a>)<a class="headerlink" href="#removed-redundant-filter-fields-2804" title="Permanent link">&para;</a></h4>
+<p>As a part of breaking changes made in v2.X, shadowed filter/filterset fields are being removed throughout Nautobot.</p>
+<p>In Nautobot 1.x, for some of the foreign-key related fields:
+    - The field was shadowed for the purpose of replacing the PK filter with a lookup-based on a more human-readable value (typically <code>slug</code>, if available).
+    - A PK-based filter was available as well, generally with a name suffixed by <code>_id</code></p>
+<p>Now these two filter fields will be replaced by a single filter field that can support both slugs and UUID primary keys as inputs; As a result, PK-based filters suffixed by <code>_id</code> will no longer be supported in v2.0.</p>
+<p>For example in v1.X, to filter <code>Devices</code> with a specific <code>site</code> value in the UI or make changes to them via Rest API with a UUID primary key, you will use:</p>
+<p><code>/dcim/devices/?site_id=&lt;uuid&gt;</code></p>
+<p>Now in v2.x, that format is no longer supported. Instead, you would use:</p>
+<p><code>/dcim/devices/?site=&lt;uuid&gt;</code></p>
+<p>Check out the specific changes documented in the table at <a href="../installation/upgrading-from-nautobot-v1.html#removed-redundant-filter-fields">UI and REST API Filter Changes</a></p>
+<h4 id="removed-rq-support-2523">Removed RQ support (<a href="https://github.com/nautobot/nautobot/issue/2523">#2523</a>)<a class="headerlink" href="#removed-rq-support-2523" title="Permanent link">&para;</a></h4>
+<p>Support for RQ and <code>django-rq</code>, deprecated since Nautobot 1.1.0, has been fully removed from Nautobot 2.0.</p>
+<!-- towncrier release notes start -->
+<h2 id="v200-alpha2-2023-03-29">v2.0.0-alpha.2 (2023-03-29)<a class="headerlink" href="#v200-alpha2-2023-03-29" title="Permanent link">&para;</a></h2>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/2900">#2900</a> - Added natural-key support to most Nautobot models, inspired by the <code>django-natural-keys</code> library.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2957">#2957</a> - Added Location constraints for objects (CircuitTermination, Device, PowerPanel, PowerFeed, RackGroup, Rack, Prefix, VLAN, VLANGroup, Cluster).</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2957">#2957</a> - Added Region and Site data migration to Locations for existing ConfigContext instances.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Added <code>ForeignKeyWithAutoRelatedName</code> helper class.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3154">#3154</a> - Added ability for <code>tags</code> filters to filter by UUID as well as by slug.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3185">#3185</a> - Added missing user filterset fields.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3222">#3222</a> - Added Site and Region data migration for ConfigContext class and ensured that "Site" LocationType allows the correct ContentTypes.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3255">#3255</a> - Added <code>--cache-test-fixtures</code> command line argument to Nautobot unit and integration tests.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3256">#3256</a> - Added Site and Region data migration for ComputedFields, CustomFields, CustomLinks, ExportTemplates, ImageAttachments, JobHooks, Notes, Relationships, Webhooks, Statuses and Tags</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3283">#3283</a> - Added Site and Region migration to Location for filter data of DynamicGroups.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3360">#3360</a> - Added an alternate approach to updating model feature registry without having to decorate a model with <code>@extras_features</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3364">#3364</a> - Added FK fields migrated_location to Site and Region models before data migration is applied.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3403">#3403</a> - Added support for Nautobot Apps to provide Django Constance Fields for the settings.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3418">#3418</a> - Added ObjectPermission Data Migration from Region/Site to Location.</li>
+</ul>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/824">#824</a> - Renamed <code>slug</code> field to <code>key</code> on CustomField model class.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/824">#824</a> - Changed validation of CustomField <code>key</code> to enforce that it is valid as a GraphQL identifier.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/951">#951</a> - The <code>nautobot-server nbshell</code> command is now based on <code>shell_plus</code> from <code>django-extensions</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/1362">#1362</a> - Added <code>type</code> field to <code>Prefix</code>, replacing "Container" status and <code>is_pool</code> field.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2076">#2076</a> - Changed the <code>created</code> field of all models from a DateField to a DateTimeField for added granularity. Preexisting records will show as created at midnight UTC on their original creation date.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2611">#2611</a> - Changed <code>Job</code> model uniqueness constraints and <code>slug</code> field.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2806">#2806</a> - Enhanced VLAN <code>available_on_device</code> filter to permit specifying multiple Devices.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>related_name</code> values for path endpoints on <code>CablePath</code> for consistency and readability (<code>dcim_interface_related</code> to <code>interfaces</code>, <code>circuits_circuittermination_related</code> to <code>circuit_terminations</code>, etc.)</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>related_name</code> values for device components on <code>Device</code> for consistency and readability (<code>consoleports</code> to <code>console_ports</code>, <code>devicebays</code> to <code>device_bays</code>, etc.)</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>related_name</code> values for device component templates on <code>DeviceType</code> for consistency and readability (<code>consoleporttemplates</code> to <code>console_port_templates</code>, <code>devicebaytemplates</code> to <code>device_bay_templates</code>, etc.)</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>DeviceType.instances</code> to <code>devices</code> and renamed the corresponding query filters.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>DeviceRedundancyGroup.members</code> to <code>devices</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>FrontPortTemplate.rear_port</code> to <code>rear_port_template</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>Location.powerpanels</code> to <code>power_panels</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>PowerOutletTemplate.power_port</code> to <code>power_port_template</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>PowerPanel.powerfeeds</code> to <code>power_feeds</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>PowerPort.poweroutlets</code> to <code>power_outlets</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>PowerPortTemplate.poweroutlet_templates</code> to <code>power_outlet_templates</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>Rack.powerfeed_set</code> to <code>power_feeds</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>Rack.group</code> and <code>Rack.reservations</code> to <code>rack_group</code> and <code>rack_reservations</code> and renamed the corresponding query filters.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>RackGroup.powerpanel_set</code> to <code>power_panels</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>RearPort.frontports</code> to <code>front_ports</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>RearPortTemplate.frontport_templates</code> to <code>front_port_templates</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>SecretsGroup.device_set</code> and <code>SecretsGroup.deviceredundancygroup_set</code> to <code>devices</code> and <code>device_redundancy_groups</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>Tenant.rackreservations</code> to <code>rack_reservations</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>User.rackreservation_set</code> to <code>rack_reservations</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed REST API field on <code>Interface</code> from <code>count_ipaddresses</code> to <code>ip_address_count</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed REST API fields on <code>Manufacturer</code> from <code>devicetype_count</code> and <code>inventoryitem_count</code> to <code>device_type_count</code> and <code>inventory_item_count</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed REST API field on <code>Platform</code> from <code>virtualmachine_count</code> to <code>virtual_machine_count</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed REST API field on <code>PowerPanel</code> from <code>powerfeed_count</code> to <code>power_feed_count</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed REST API field on <code>Rack</code> from <code>powerfeed_count</code> to <code>power_feed_count</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Changed <code>RackReservation</code> <code>group</code> filter to <code>rack_group</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3154">#3154</a> - Renamed various <code>tag</code> filters to <code>tags</code> for self-consistency.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3160">#3160</a> - Changed logger names to use <code>__name__</code> instead of explicit module names.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3215">#3215</a> - Changed representation of related Status objects in the REST API to use a NestedStatusSerializer instead of presenting as enums.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3236">#3236</a> - Changed <code>Interface</code> and <code>VMInterface</code> relationship to <code>IPAddress</code> to many-to-many instead of one-to-many.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3262">#3262</a> - Changed extras FKs and related names.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3266">#3266</a> - Changed erroneous attribute "type" to correct "circuit_type" in circuit-related templates.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3302">#3302</a> - Migrated <code>Aggregate</code> model to <code>Prefix</code> with type set to "Container".</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3351">#3351</a> - Changed extras abstract model ForeignKeys to use ForeignKeyWithAutoRelatedName.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3354">#3354</a> - Synced in fixes from 1.5.x LTM branch up through v1.5.11.</li>
+</ul>
+<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/2521">#2521</a> - Removed dependency on <code>django-cryptography</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2524">#2524</a> - Removed no-longer-used <code>drf-yasg</code> dependency.</li>
+</ul>
+<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/633">#633</a> - Fixed job result not updating when job hard time limit is reached.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/1362">#1362</a> - Fixed migrations for <code>Prefix.type</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/1422">#1422</a> - Improved OpenAPI schema representation of polymorphic fields such as <code>cable_peer</code>, <code>assigned_object</code>, etc.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2806">#2806</a> - Fixed some issues with initialization and updating of the dynamic ("advanced") filter form.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Fixed incorrect <code>field_class</code> when filtering <code>FloatField</code> and <code>DecimalField</code> model fields.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Fixed inability to provide non-integer values when filtering on <code>FloatField</code> and <code>DecimalField</code> fields in GraphQL.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3066">#3066</a> - Fixed inability to specify partial substrings in the UI when filtering by MAC address.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3154">#3154</a> - Fixed incorrect initialization of <code>TagFilter</code> when auto-attached to a FilterSet.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3164">#3164</a> - Merged <code>TaskResult</code> from <code>django-celery-results</code> into <code>JobResult</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3291">#3291</a> - Fixed inheritance and <code>RoleField</code> definition on <code>Role</code> model mixins.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3342">#3342</a> - Fixed BaseFilterSet not using multiple choice filters for CharFields with choices.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3457">#3457</a> - Fixed bug preventing scheduled job from running.</li>
+</ul>
+<h3 id="removed_1">Removed<a class="headerlink" href="#removed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/824">#824</a> - Removed <code>name</code> field from CustomField model class.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/1634">#1634</a> - Removed unnecessary legacy <code>manage.py</code> file from Nautobot repository.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2521">#2521</a> - Removed support for storing Git repository credentials (username/token) in the Nautobot database. Use <a href="../models/extras/secret.html">Secrets</a> instead.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2957">#2957</a> - Removed Site constraints for model classes (CircuitTermination, Device, Location, PowerPanel, PowerFeed, RackGroup, Rack, Prefix, VLAN, VLANGroup, Cluster).</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2957">#2957</a> - Removed <code>regions</code> and <code>sites</code> attributes from ConfigContext model class.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2957">#2957</a> - Removed <code>region</code> and <code>site</code> related fields from Serializers for aforementioned model classes.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2957">#2957</a> - Removed <code>region</code> and <code>site</code> related fields from Forms for aforementioned model classes.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2957">#2957</a> - Removed <code>region</code> and <code>site</code> related UI and API Endpoints for aforementioned model classes.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2957">#2957</a> - Removed <code>region</code> and <code>site</code> columns from Tables for aforementioned model classes.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2958">#2958</a> - Removed Region and Site factories, filtersets, forms, factories, models, navigation menu items, serializers, tables, templates, tests and urls.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3224">#3224</a> - Removed support for Nautobot "1.x" REST API versions. The minimum supported REST API version is now "2.0".</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3233">#3233</a> - Removed <code>CeleryTestCase</code> and associated calling code as it is no longer needed.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3302">#3302</a> - Removed <code>Aggregate</code> and migrated all existing instances to <code>Prefix</code>.</li>
+</ul>
+<h2 id="v200-alpha1-2023-01-31">v2.0.0-alpha.1 (2023-01-31)<a class="headerlink" href="#v200-alpha1-2023-01-31" title="Permanent link">&para;</a></h2>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/204">#204</a> - Added style guide documentation for importing python modules in Nautobot.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/1731">#1731</a> - Added missing filters to <code>circuits</code> app.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/1733">#1733</a> - Added support for filtering on many more fields to the <code>Tenant</code> and <code>TenantGroup</code> filtersets.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2954">#2954</a> - Added fields (<code>contact_name</code>, <code>latitude</code>, etc.) from <code>Site</code> model to <code>Location</code> model to prepare for merging all sites into locations.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2955">#2955</a> - Added "Region" and "Site" <code>LocationTypes</code> and their respective locations based on existing <code>Site</code> and <code>Region</code> instances.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3132">#3132</a> - Added the ability for apps to register their models for inclusion in the global Nautobot search.</li>
+</ul>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/204">#204</a> - Changed imports to use module namespaces in <code>utilities/filters.py</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/510">#510</a> - The <code>Region</code>, <code>RackGroup</code>, <code>TenantGroup</code>, and <code>InventoryItem</code> models are now based on <code>django-tree-queries</code> instead of <code>django-mptt</code>. This does change the API for certain tree operations on these models, for example <code>get_ancestors()</code> is now <code>ancestors()</code> and <code>get_descendants()</code> is now <code>descendants()</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/510">#510</a> - The UI and REST API for <code>Region</code>, <code>RackGroup</code>, and <code>TenantGroup</code> now provide only the related count of objects (e.g. <code>site_count</code> for <code>Region</code>) that are directly related to each instance. Formerly they provided a cumulative total including objects related to its descendants as well.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/510">#510</a> - Renamed field <code>_depth</code> to <code>tree_depth</code> in the REST API for <code>Region</code>, <code>RackGroup</code>, <code>TenantGroup</code>, and <code>InventoryItem</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/510">#510</a> - Renamed InventoryItem database relation <code>child_items</code> and filter fields <code>child_items</code> and <code>has_child_items</code> to <code>children</code> and <code>has_children</code> respectively.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2163">#2163</a> - <code>JobLogEntry.log_object</code>, <code>JobLogEntry.absolute_url</code>, <code>ScheduledJob.queue</code>, and <code>WebHook.ca_file_path</code> no longer permit null database values; use <code>""</code> instead if needed.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2822">#2822</a> - Collapsed <code>DeviceRole</code>, <code>RackRole</code>, IPAM <code>Role</code> model and <code>IPAddressRoleChoices</code> into a single generic <code>Role</code> model.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2674">#2674</a> - Updated development dependency <code>black</code> to <code>~22.10.0</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2721">#2721</a> - Collapsed <code>nautobot.utilities</code> into <code>nautobot.core</code>. Refer to the 2.0 migration guide for details.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2771">#2771</a> - Updated <code>jsonschema</code> version to <code>~4.17.0</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2788">#2788</a> - Changed REST framework allowed versions logic to support 1.2-1.5 and 2.0+.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2803">#2803</a> - Updated <code>mkdocs-include-markdown-plugin</code> to <code>3.9.1</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2809">#2809</a> - Renamed <code>tag</code> filter on <code>TenantFilterSet</code> to <code>tags</code> same as elsewhere.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2844">#2844</a> - Updated development dependency <code>mkdocstrings-python</code> to 0.8.0.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2872">#2872</a> - Refactored imports in <code>utilities</code> app to follow new code style.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2883">#2883</a> - Updated <code>django-taggit</code> to <code>3.1.0</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2942">#2942</a> - Updated <code>django-tree-queries</code> to <code>0.13.0</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2943">#2943</a> - Updated dependency <code>rich</code> to <code>~12.6.0</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2955">#2955</a> - Changed <code>CircuitTermination</code>, <code>Device</code>, <code>PowerPanel</code>, <code>RackGroup</code>, <code>Rack</code>, <code>Prefix</code>, <code>VLANGroup</code>, <code>VLAN</code>, <code>Cluster</code> instances associated with existing <code>Site</code> model instances to use the newly created corresponding <code>Locations</code> of <code>LocationType</code> "Site".</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2993">#2993</a> - Implemented initial database backend for Celery task results.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3027">#3027</a> - Updated dependencies <code>prometheus-client</code>, <code>django-storages</code>, <code>drf-spectacular</code>, <code>black</code>, <code>django-debug-toolbar</code>, <code>mkdocstrings</code>, <code>mkdocstrings-python</code>, <code>pylint</code>, <code>requests</code>, <code>selenium</code>, <code>watchdog</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3068">#3068</a> - Renamed fields on <code>Circuit</code> model: <code>type</code> to <code>circuit_type</code>, <code>terminations</code> to <code>circuit_terminations</code>, <code>termination_a</code> to <code>circuit_termination_a</code>, and <code>termination_z</code> to <code>circuit_termination_z</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3068">#3068</a> - Renamed reverse-relation <code>circuittermination</code> to <code>circuit_terminations</code> on the <code>CablePath</code> model.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3068">#3068</a> - Renamed <code>group</code> field to <code>vlan_group</code> on VLAN model, renamed <code>ipaddresses</code> to <code>ip_addresses</code> on <code>Service</code> model.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3068">#3068</a> - Renamed <code>group</code> field to <code>tenant_group</code> on <code>Tenant</code> model.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3069">#3069</a> - Renamed foreign key fields and related names in Virtualization and DCIM apps to follow a common naming convention. See v2 upgrade guide for full list of changes.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3177">#3177</a> - Updated <code>VLANFactory</code> to generate longer and more "realistic" <code>VLAN</code> names.</li>
+</ul>
+<h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/1982">#1982</a> - Fixed a UI presentation/validation issue with dynamic-groups using foreign-key filters that aren't explicitly defined in the corresponding FilterForm.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2808">#2808</a> - Fixed incorrectly named filters in <code>circuits</code> app.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3126">#3126</a> - Fixed <code>Interface</code> not raising exception when adding a <code>VLAN</code> from a different <code>Site</code> in <code>tagged_vlans</code>.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3153">#3153</a> - Made integration test <code>CableConnectFormTestCase.test_js_functionality</code> more resilient and less prone to erroneous failures.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3167">#3167</a> - Fixed <code>ObjectChange</code> records not being migrated and <code>legacy_role__name</code> not being a property in <code>Role</code> migrations.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3177">#3177</a> - Fixed a spurious failure in <code>BulkEditObjectsViewTestCase.test_bulk_edit_objects_with_constrained_permission</code>.</li>
+</ul>
+<h3 id="removed_2">Removed<a class="headerlink" href="#removed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/nautobot/nautobot/issues/510">#510</a> - Removed dependency on <code>django-mptt</code>. Models (<code>Region</code>, <code>RackGroup</code>, <code>TenantGroup</code>, <code>InventoryItem</code>) that previously were based on MPTT are now implemented using <code>django-tree-queries</code> instead.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/1731">#1731</a> - Removed redundant filters from <code>circuits</code> app.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2163">#2163</a> - Removed unused <code>NullableCharField</code>, <code>NullableCharFieldFilter</code> and <code>MACAddressField</code> (not to be confused with <code>MACAddressCharField</code>, which remains) classes.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2523">#2523</a> - Removed <code>django-rq</code> dependency and support for RQ workers.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2815">#2815</a> - Removed <code>pycryptodome</code> dependency as it is no longer used.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2993">#2993</a> - Removed <code>NAUTOBOT_CELERY_RESULT_BACKEND</code> environment variable used to customize where Celery stores task results.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2993">#2993</a> - Removed optional settings documentation for <code>CELERY_RESULT_BACKEND</code> as it is no longer user-serviceable.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/2993">#2993</a> - Removed optional settings documentation for <code>CELERY_RESULT_BACKEND_TRANSPORT_OPTIONS</code> as it is no longer user-serviceable.</li>
+<li><a href="https://github.com/nautobot/nautobot/issues/3130">#3130</a> - Removed <code>CSS_CLASSES</code> definitions from legacy <code>ChoiceSets</code>.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="version-1.5.html" class="md-footer__link md-footer__link--next" aria-label="Next: Version 1.5" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Version 1.5
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+    
+    <div class="md-copyright__highlight">
+        Copyright &copy; The Authors
+    </div>
+    <a href="https://github.com/nautobot/nautobot/blob/main/LICENSE.txt">Apache-2.0 LICENSE</a>
+    
+</div>
+
+<div class="md-copyright">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Made with Material for MkDocs</a>
+    | <a href="https://www.networktocode.com/community/" target="_blank" rel="noopener">Join Nautobot Slack</a>
+    
+    | <a href="https://networktocode.com" target="_blank" rel="noopener">Sponsored by <img
+            src=../assets/networktocode_bw.png class="copyright-logo"></a>
+    
+</div>
+
+<!-- RTD version flyout injected on live site -->
+<div id="readthedocs-embed-flyout"></div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://blog.networktocode.com/blog/tags/nautobot" target="_blank" rel="noopener" title="Network to Code Blog" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 64c0-17.7 14.3-32 32-32 229.8 0 416 186.2 416 416 0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96 14.3 96 0 81.7 0 64zm128 352c0 35.3-28.7 64-64 64S0 451.3 0 416s28.7-64 64-64 64 28.7 64 64zM32 160c159.1 0 288 128.9 288 288 0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.youtube.com/playlist?list=PLjA0bhxgryJ2Ts4GJMDA-tPzVWEncv4pb" target="_blank" rel="noopener" title="Nautobot Videos" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.networktocode.com/community/" target="_blank" rel="noopener" title="Network to Code Community" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://github.com/nautobot/nautobot" target="_blank" rel="noopener" title="GitHub Repo" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://twitter.com/networktocode" target="_blank" rel="noopener" title="Network to Code Twitter" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+    
+    
+  </body>
+</html>
