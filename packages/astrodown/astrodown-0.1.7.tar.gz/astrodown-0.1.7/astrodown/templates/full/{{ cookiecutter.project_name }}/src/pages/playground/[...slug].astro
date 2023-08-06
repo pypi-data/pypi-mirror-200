@@ -1,0 +1,54 @@
+---
+import { CollectionEntry, getCollection, getEntryBySlug } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { PlaygroundWrapper } from "@astrodown/mars-react";
+import "@astrodown/mars-react/dist/style.css";
+import type { ExportData } from "@astrodown/schema";
+
+export const getStaticPaths = async () => {
+  const analysis = await getCollection("analysis");
+  const data = await getCollection("data");
+  return [...analysis, ...data].map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+};
+
+const { slug } = Astro.params;
+let exports: ExportData[] = [];
+let entry: CollectionEntry<"data"> | CollectionEntry<"analysis"> | undefined;
+if (slug) {
+  entry =
+    (await getEntryBySlug("analysis", slug)) ||
+    (await getEntryBySlug("data", slug));
+  if (entry) {
+    let entryExports = entry.data.exports;
+    if (entryExports && entryExports.length > 0) {
+      exports = entryExports;
+    }
+  }
+}
+---
+
+<BaseLayout>
+  {
+    entry && exports.length > 0 ? (
+      <>
+        <div class="max-w-2xl mx-auto text-sm">
+          <h1 class="text-zinc-700 mb-8">
+            This is a python notebook environment for the {entry.collection}{" "}
+            titled
+            <span class="font-serif font-bold">{entry.data.title}</span>. The
+            data in the `exports` field of the quarto document is already
+            loaded. All objects and packages will be lost when the page is
+            closed.
+          </h1>
+        </div>
+
+        <PlaygroundWrapper exports={exports} client:only="react" />
+      </>
+    ) : (
+      <h2>no playground environment is available for {slug}</h2>
+    )
+  }
+</BaseLayout>
