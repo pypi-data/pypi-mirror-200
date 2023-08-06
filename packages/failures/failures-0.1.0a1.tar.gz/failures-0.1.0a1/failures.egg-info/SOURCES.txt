@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+failures/__init__.py
+failures/context.py
+failures/handler.py
+failures/py.typed
+failures.egg-info/PKG-INFO
+failures.egg-info/SOURCES.txt
+failures.egg-info/dependency_links.txt
+failures.egg-info/requires.txt
+failures.egg-info/top_level.txt
+tests/test_failure_context.py
+tests/test_failure_handler.py
