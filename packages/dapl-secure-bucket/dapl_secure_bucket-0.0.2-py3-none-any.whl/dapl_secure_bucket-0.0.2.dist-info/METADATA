@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: dapl-secure-bucket
+Version: 0.0.2
+Summary: Secure S3 Bucket construct used in Enterprise DAPL
+Home-page: https://github.com/yvo.van.zee/dapl_secure_bucket.git
+Author: Yvo van Zee<yvo.vanzee@xebia.com>
+License: Apache-2.0
+Project-URL: Source, https://github.com/yvo.van.zee/dapl_secure_bucket.git
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Typing :: Typed
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aws-cdk-lib (<3.0.0,>=2.71.0)
+Requires-Dist: constructs (<11.0.0,>=10.0.5)
+Requires-Dist: jsii (<2.0.0,>=1.79.0)
+Requires-Dist: publication (>=0.0.3)
+Requires-Dist: typeguard (~=2.13.3)
+
+[![release](https://github.com/yvthepief/dapl_secure_bucket/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/yvthepief/dapl_secure_bucket/actions/workflows/release.yml)
+
+# DAPL Secure Bucket Construcs
+
+This Secure Bucket construcs extends the S3 Bucket construct. When using this construct, you will create a S3 bucket with default security best practises enabled. These are:
+
+* Block public access
+* Enabled versioning
+* Enable enforce SSL to connect to bucket
+* Enabled Bucket access logging
+* Encryption of the bucket with a customer managed KMS key with enabled key rotation and trusted account identities and admins.
+* Lifecycle management on objects, move items to Infrequently Access after one month
+
+These best practises are enforced. When creating a SecureBucket with for example versioning disabled, it will be overwritten to enabled.
+
+# Usage
+
+## install package
+
+```bash
+npm install @dapl_secure_bucket
+```
+
+## Import the secure bucket construct in your code.
+
+```python
+// Import necessary packages
+import { Stack, StackProps } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import { SecureBucket } from 'dapl-secure-bucket';
+
+export class SecureBucketStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
+    super(scope, id, props);
+
+    new SecureBucket(this, 'myEnterpriseLevelSecureBucket',{});
+  }
+}
+```
