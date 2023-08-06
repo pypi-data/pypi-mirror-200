@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=67.4.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sausage"
+version = "0.0.0"
+description = "Initial distribution for package `sausage`."
+readme = "README.md"
+authors = [{ name = "joumaico", email = "joumaico@gmx.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://github.com/joumaico/sausage"
