@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: unicat
+Version: 0.1.5
+Summary: Unicat client library
+Author-email: Marc Boeren <m.boeren@guidance.nl>
+License: MIT License
+        
+        Copyright (c) 2023 Guidance Rotterdam BV
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: defusedxml>=0.7
+Requires-Dist: openpyxl>=3.0
+Requires-Dist: requests>=2.28
+Description-Content-Type: text/markdown
+
+# Unicat client library
+
+This library is still a work in progress, not all Unicat API options are covered yet.
+
+No documentation yet either, just a few short examples.
+
+
+First, connect to Unicat (https://unicat.app):
+
+```
+import sys
+from unicat import Unicat
+from .env import server, project_gid, api_key, local_folder
+
+unicat = Unicat(server, project_gid, api_key, local_folder)
+if not unicat.connect():
+  print("Invalid connection settings")
+  sys.exit(1)
+```
+
+Download all assets for the project (you can find them in the local_folder):
+
+```
+for asset in unicat.walk_asset_tree():
+  if asset.is_file:
+    asset.download()
+```
+
+Or, write an XML product feed:
+
+```
+with open("product-feed.xml", "w") as f:
+  f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+  f.write('<products>\n')
+
+  for record in unicat.walk_record_tree():
+    if record.definition.name != "article":
+      continue
+
+    fields = record.fields["nl"]
+
+    artnr = fields["artnr"].value
+    price = fields["price"].value
+    stock = fields["stock"].value
+
+    f.write(f'  <product artnr="{artnr}" price="{price:%0.02f}" stock="{stock}"/>\n')
+  f.write('</products>\n')
+```
+
+There's also unicat.mutate, with options to update the Unicat project server-side, like unicat.mutate.create_record, unicat.mutate.modify_field and many more.
+
