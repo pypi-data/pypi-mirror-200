@@ -1,0 +1,57 @@
+{
+    "sets": {
+        "u": "ABCDEFGHJKLMNPRSTUVWXYZ",
+        "*": "ABCDEFGHJKLMNPRSTUVWXYZ23456789abcdefghijkmnopqrstuvwxyz",
+        "-": "-"
+    },
+    "combinations": {
+        "a": 1,
+        "ab":1,
+        "d": 8,
+        "dd": 64
+    },
+    "hexdigest": [
+        ["key", "salt", "8342d2719fa5821c254d6484cfc0716fc1e01b8e290ea575187762fc428d14bd293db60510a7d17e09a714d8aec70c6f5e430a966c499e3d1ad3dede7feb2e32"]
+    ],
+    "password": [
+        ["key", "salt", "****************", "5YhNDd77dZ8us6du"]
+    ],
+    "loading": {
+        "entity-one.org": {
+            "mail": "user@email.address",
+            "date": "2023-07-19",
+            "form": "u***-l***-d***"
+        },
+        "entity-two.com": {
+            "user": "username",
+            "date": "2022-02-19",
+            "form": "u***-l***-d***"
+        }
+    },
+    "matching": {
+        "input": {
+            "n1": {"form": "1"},
+            "n2": {"form": "2"}
+        },
+        "output": {
+            "n1": {"form": "1"}
+        }
+    },
+    "decoding": {
+        "key": "secret key",
+        "output": {
+            "entity-one.org": {
+                "mail": "user@email.address",
+                "date": "2023-07-19",
+                "form": "u***-l***-d***",
+                "password": "B2nG-hLAe-5Pom"
+            },
+            "entity-two.com": {
+                "user": "username",
+                "date": "2022-02-19",
+                "form": "u***-l***-d***",
+                "password": "G5Zo-jHSn-5KjN"
+            }
+        }
+    }
+}
