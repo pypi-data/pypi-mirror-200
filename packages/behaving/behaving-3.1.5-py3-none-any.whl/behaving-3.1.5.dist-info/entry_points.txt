@@ -1,0 +1,5 @@
+[console_scripts]
+gcmmock=behaving.notifications.gcm.mock:main
+mailmock=behaving.mail.mock:main
+smsmock=behaving.sms.mock:main
+
