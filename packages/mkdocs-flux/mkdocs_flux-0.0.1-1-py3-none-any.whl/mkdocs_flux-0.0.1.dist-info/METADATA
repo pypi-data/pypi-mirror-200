@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: mkdocs-flux
+Version: 0.0.1
+Summary: Flux: A minimalistic mkdocs theme
+Project-URL: Homepage, https://github.com/yqshao/mkdocs-flux
+Project-URL: Bug Tracker, https://github.com/yqshao/mkdocs-flux/issues
+Author-email: Yunqi Shao <yunqi_shao@yahoo.com>
+License-Expression: BSD-3-Clause
+License-File: LICENSE.txt
+Requires-Python: >=3.7
+Requires-Dist: mkdocs==1.4.2
+Provides-Extra: full
+Requires-Dist: mkdocs-bibtex==2.8.15; extra == 'full'
+Requires-Dist: pygments>=2.14.0; extra == 'full'
+Requires-Dist: pymdown-extensions==9.9.2; extra == 'full'
+Description-Content-Type: text/markdown
+
+# Flux: A minimalistic mkdocs theme
+
+See it in action here: yqshao.github.io/mkdocs-flux
