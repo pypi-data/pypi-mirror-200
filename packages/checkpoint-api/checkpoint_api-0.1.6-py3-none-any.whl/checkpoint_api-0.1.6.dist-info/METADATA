@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: checkpoint-api
+Version: 0.1.6
+Summary: Check Point REST API abstraction
+Home-page: 
+Author: Peter Gastinger
+Author-email: peter.gastinger@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# Check Point API
+
+![coverage](https://gitlab.com/peter.gastinger/checkpoint-api/badges/master/coverage.svg?job=coverage)
+
+
+## Installation
+
+- `pip install checkpoint-api`
+
+
+## Basic usage
+
+- get object
+```python
+from checkpoint_api.checkpoint import CheckpointSession
+
+with CheckpointSession("10.111.30.25", "api", "CGx3IjUSd47TrXKh6zJ7") as cps:
+    data = {'name': 'IP_10.14.1.2_xlsrv02', 'details-level': 'standard'}
+    response_json = cps.post("show-host", json=data)
+    print(response_json)
+```
+
+Output:
+```
+{'color': 'black',
+ 'comments': '',
+ 'domain': {'domain-type': 'domain',
+            'name': 'SMC User',
+            'uid': '41e821a0-3720-11e3-aa6e-0800200c9fde'},
+ 'groups': [],
+ 'icon': 'Objects/host',
+ 'interfaces': [],
+ 'ipv4-address': '10.14.1.2',
+ 'meta-info': {'creation-time': {'iso-8601': '2020-05-27T10:26+0200',
+                                 'posix': 1590567969972},
+               'creator': 'user01',
+               'last-modifier': 'user01',
+               'last-modify-time': {'iso-8601': '2020-05-27T10:26+0200',
+                                    'posix': 1590567969972},
+               'lock': 'unlocked',
+               'validation-state': 'ok'},
+ 'name': 'IP_10.14.1.2_xlsrv02',
+ 'nat-settings': {'auto-rule': False},
+ 'read-only': False,
+ 'tags': [],
+ 'type': 'host',
+ 'uid': '8874eceb-e217-476e-a16c-b1ec2926b921'}
+```
+
+- get gateways and servers for MDS
+
+```python
+from checkpoint_api.checkpoint import CheckpointSession
+from pprint import pprint
+
+checkpoint_username = "user01"
+checkpoint_password = "toosecret"
+
+with CheckpointSession(
+    "10.1.235.2",
+    checkpoint_user=checkpoint_username,
+    checkpoint_pass=checkpoint_password,
+) as cps:
+    pprint(cps.post("show-gateways-and-servers", json={"details-level": "full"}))
+
+```
+
+- Authenticate via api_key and add new access rule
+
+```python
+from checkpoint_api.checkpoint import CheckpointSession
+import logging
+from datetime import datetime
+
+cp_firewall_policy = "PoC Network"
+
+source_zone = "TRUST"
+destination_zone = "UNTRUST"
+now = datetime.now()
+user = "userxyz"
+
+with CheckpointSession(
+    "192.168.20.100", api_key="hc9emRAB+fECy7VJkLEIeg==", read_only=False
+) as cps:
+    logging.info(
+        cps.post(
+            "add-access-rule",
+            json={
+                "layer": cp_firewall_policy,
+                "position": {"above": "Cleanup rule"},
+                "name": f"Drop_zone_from_{source_zone}_to_{destination_zone}",
+                "source": f"GRP_ZONE_{source_zone}",
+                "destination": f"GRP_ZONE_{destination_zone}",
+                "track": {"type": "Log"},
+                "action": "Reject",
+                "comments": f"{now}-{user}",
+            },
+        )
+    )
+```
