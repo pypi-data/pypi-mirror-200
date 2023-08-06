@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: kirlent_docutils
+Version: 0.4
+Summary: Custom writers for docutils.
+Keywords: markup,html,rst,restructuredtext,docutils
+Author-email: "H. Turgut Uyar" <uyar@tekir.org>
+Requires-Python: ~=3.8
+Description-Content-Type: text/x-rst
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Requires-Dist: docutils>=0.18
+Requires-Dist: pygments
+Requires-Dist: kirlent_docutils[tests,lint] ; extra == "dev"
+Requires-Dist: tox ; extra == "dev"
+Requires-Dist: build ; extra == "dev"
+Requires-Dist: flake8 ; extra == "lint"
+Requires-Dist: flake8-isort ; extra == "lint"
+Requires-Dist: pytest ; extra == "tests"
+Requires-Dist: pytest-cov ; extra == "tests"
+Project-URL: homepage, https://tekir.org/kirlent_docutils/
+Project-URL: repository, https://repo.tekir.org/kirlent/kirlent_docutils
+Provides-Extra: dev
+Provides-Extra: lint
+Provides-Extra: tests
+
+kirlent_docutils is a set of tools
+for generating impress.js and reveal.js presentations
+from restructured text documents.
+
+Since it aims to be compatible with any restructured text tool,
+it doesn't define its own directives
+and instead uses only standard `docutils`_ features.
+
+At the moment, the tools are functional
+but their usage and the slide markup might change.
+This is also the reason why there is no documentation yet.
+You can check out the files in the "examples" directory.
+
+.. _docutils: https://docutils.sourceforge.io/
+

@@ -1,0 +1,23 @@
+/* Kirlent simple stylesheet for slides output. */
+
+body {
+  max-height: 100vh;
+}
+
+body,
+main {
+  display: grid;
+}
+
+main {
+  grid-auto-flow: column;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}

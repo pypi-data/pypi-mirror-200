@@ -1,0 +1,88 @@
+[project]
+name = "kirlent_docutils"
+version = "0.4"
+description = "Custom writers for docutils."
+readme = "README.rst"
+
+authors = [{name = "H. Turgut Uyar", email = "uyar@tekir.org"}]
+license = {file = "LICENSE.txt"}
+
+keywords = ["markup", "html", "rst", "restructuredtext", "docutils"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Text Processing :: Markup :: HTML"
+]
+
+requires-python = "~=3.8"
+dependencies = [
+    "docutils>=0.18",
+    "pygments",
+]
+
+[project.optional-dependencies]
+tests = [
+    "pytest",
+    "pytest-cov",
+]
+lint = [
+    "flake8",
+    "flake8-isort",
+]
+dev = [
+    "kirlent_docutils[tests,lint]",
+    "tox",
+    "build",
+]
+
+[project.scripts]
+rst2kirlenthtml5 = "kirlent_docutils:publish_cmdline_html5"
+kirlent2slides = "kirlent_docutils:publish_cmdline_slides"
+kirlent2impressjs = "kirlent_docutils:publish_cmdline_impressjs"
+kirlent2revealjs = "kirlent_docutils:publish_cmdline_revealjs"
+
+[project.urls]
+homepage = "https://tekir.org/kirlent_docutils/"
+repository = "https://repo.tekir.org/kirlent/kirlent_docutils"
+
+[tool.isort]
+lines_after_imports = 2
+known_test = "pytest,unittest"
+sections = "TEST,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py{38,39,310,311}, pypy{38,39}, style
+isolated_build = True
+
+[testenv]
+extras = tests
+commands =
+    pytest {posargs:tests}
+
+[testenv:coverage]
+commands =
+    pytest --cov={envsitepackagesdir}/kirlent_docutils --cov-report=term-missing tests
+
+[testenv:style]
+extras = lint
+commands =
+    flake8 kirlent_docutils
+"""
+
+[build-system]
+requires = ["flit_core>=3.2"]
+build-backend = "flit_core.buildapi"
