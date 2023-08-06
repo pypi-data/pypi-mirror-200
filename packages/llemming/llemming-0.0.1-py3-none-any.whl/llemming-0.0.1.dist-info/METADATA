@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: llemming
+Version: 0.0.1
+Summary: llemming: Just llm stuff
+Home-page: https://github.com/zomglings/llemming
+Author: Moonstream
+Author-email: nkashy1@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Provides-Extra: distribute
+Requires-Dist: setuptools ; extra == 'distribute'
+Requires-Dist: twine ; extra == 'distribute'
+Requires-Dist: wheel ; extra == 'distribute'
+
+# llemming
+Just llm stuff
+
+
