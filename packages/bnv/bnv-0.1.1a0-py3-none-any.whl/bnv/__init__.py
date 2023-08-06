@@ -1,0 +1,1 @@
+def bump(vtype: str)
