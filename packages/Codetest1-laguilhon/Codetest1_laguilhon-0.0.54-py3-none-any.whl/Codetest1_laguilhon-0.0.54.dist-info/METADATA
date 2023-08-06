@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: Codetest1-laguilhon
+Version: 0.0.54
+Summary: Développement logiciel
+Home-page: https://github.com/pypa/sampleproject
+Author: laguilhon
+Author-email: lea.aguilhon@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: fpdf (>=1.7.2)
+Requires-Dist: keras (>=2.6.0)
+Requires-Dist: matplotlib (>=3.4.3)
+Requires-Dist: numpy (==1.23.0)
+Requires-Dist: opencv-python-headless (>=4.5.4.58)
+Requires-Dist: pandas (>=1.3.3)
+Requires-Dist: pillow (>=8.3.2)
+Requires-Dist: scikit-image (>=0.18.3tk)
+Requires-Dist: scikit-learn (>=1.0)
+Requires-Dist: scipy (==1.9.0)
+Requires-Dist: tensorflow (>=2.6.0)
+
+UNKNOWN
+
+
