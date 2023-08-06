@@ -1,0 +1,53 @@
+[project]
+name = "slayer-in-the-shadows"
+version = "1.0.0"
+description = "Lets Build A Game's entry into PyWeek 35"
+authors = [
+    { name = "Bradley Reynolds", email = "bradley.reynolds@darbia.dev" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "arcade==2.6.17",
+]
+
+[project.urls]
+repository = "https://github.com/letsbuilda/slayer-in-the-shadows/"
+documentation = "https://docs.letsbuilda.dev/slayer-in-the-shadows/"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "pylint",
+]
+tests = [
+    "pytest",
+]
+docs = [
+    "sphinx",
+    "furo",
+    "sphinx-autoapi",
+    "releases",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+slayer_in_the_shadows = ["**/*.png", "**/*.tmx", "**/*.tsx", "**/*.wav"]
+
+[tool.black]
+target-version = ["py310"]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "tests -r a -v --doctest-modules src"
+
+[tool.pylint.format]
+max-line-length = 120

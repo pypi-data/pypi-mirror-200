@@ -1,0 +1,15 @@
+arcade==2.6.17
+
+[dev]
+black
+isort
+pylint
+
+[docs]
+sphinx
+furo
+sphinx-autoapi
+releases
+
+[tests]
+pytest
