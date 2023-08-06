@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pycid-dev
+Version: 0.0.17
+Summary: WIP API for CID
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (>=2.28.2)
+Requires-Dist: pyrebase4
+Requires-Dist: fasteners
+
+# pycid-dev Package
+
+# Setup
+
+pip install build
+
+Work in progress API for CID
+
+edit the setup.cfg
+run build.sh
+run upload.sh
