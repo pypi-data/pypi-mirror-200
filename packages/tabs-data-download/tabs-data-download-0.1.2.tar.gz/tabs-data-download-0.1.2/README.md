@@ -1,0 +1,15 @@
+# tabs-data-download
+Download data from exchanges and dump it with minimal processing. (the tabs-data-preprocess package is responsible for normalization of data).
+
+Currently supported are the following:
+
+| Exchange | Instrument | Data Type   | Availability |
+|----------|------------|-------------|--------------|
+| binance  | spot       | Trade       | ✅            |
+| binance  | spot       | Order Book  | ✅            |
+| binance  | future     | Trade       | ✅            |
+| binance  | future     | Order Book  | ❌            |
+| kraken   | spot       | Trade       | ✅            |
+| kraken   | spot       | Order Book  | ✅            |
+| kraken   | future     | Trade       | ✅            |
+| kraken   | future     | Order Book  | ✅            |
