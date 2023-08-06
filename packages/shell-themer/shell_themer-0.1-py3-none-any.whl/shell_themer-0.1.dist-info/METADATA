@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: shell-themer
+Version: 0.1
+Summary: Use consistent color themes for a variety of command line tools.
+Author-email: Jared Crapo <jared@kotfu.net>
+License: MIT License
+        
+        Copyright (c) 2023 kotfu
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: homepage, https://github.com/kotfu/shell-themer
+Project-URL: repository, https://github.com/kotfu/shell-themer
+Keywords: shell,bash,theme,command line
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rich
+Requires-Dist: rich-argparse
+Requires-Dist: tomlkit
+Requires-Dist: importlib-metadata (>=1.6.0) ; python_version < "3.8"
+Provides-Extra: dev
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-mock ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: codecov ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: rope ; extra == 'dev'
+Requires-Dist: invoke ; extra == 'dev'
+
+# shell-themer
+
+There are many modern *nix and *bsd command line tools which can output
+using a full 16.7 million color palette. For example:
+
+* [fzf](https://github.com/junegunn/fzf)
+* [dust](https://github.com/bootandy/dust)
+* [bat](https://github.com/sharkdp/bat)
+* [gum](https://github.com/charmbracelet/gum)
+
+Even the venerable `ls` can show various types of files in different colors.
+
+Unfortunately, these tools all use slightly different color configuration mechanisms.
+With enough fiddling, you can get your shell init scripts to make all these tools
+use a similar color scheme, but if you want to change it, you've got a lot of work
+ahead.
+
+`shell-themer` uses a single theme configuration file to standardize and unify
+a set of color configurations, and generates the shell code to implement those
+changes.
+
+All that hand tweaking in your shell init files can now be replaced with:
+```
+export THEME_FILE=~/themes/dracula.toml
+source <(shell-themer generate)
+```
+
+This changes all your environment variables and other settings for the many
+shell tools you use to reflect the colors in the theme you have specified.
+
+## Installation
+
+You'll need python version 3.7 or higher. Install with pip:
+```
+pip install shell_themer
+```
+
+You need a *nix-ish bash shell environment. Probably works in Windows Subsystem
+for Linux, but isn't tested there.
