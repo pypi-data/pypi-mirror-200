@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US"><!--<![endif]-->
+    <head>
+    <title>{{name_clean}}</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/fonts.css">
+        <style type="text/css" id="twentythirteen-header-css">
+                        .site-header {
+                        background: url(assets/images/cropped-Bando-BIPAA.png) no-repeat scroll top;
+                        background-size: 1600px auto;
+                }
+                @media (max-width: 767px) {
+                        .site-header {
+                                background-size: 768px auto;
+                        }
+                }
+                @media (max-width: 359px) {
+                        .site-header {
+                                background-size: 360px auto;
+                        }
+                }
+        </style>
+  </head>
+    <body class="home page page-parent page-template-default sidebar">
+        <div id="page" class="hfeed site">
+
+    <header id="masthead" class="site-header" role="banner">
+        <a class="home-link" href="{{ url_prefix }}/{{ sub_url }}/" title="BIPAA" rel="home">
+        </a>
+
+        <div id="navbar" class="navbar">
+            <nav id="site-navigation" class="navigation main-navigation" role="navigation">
+                <button class="menu-toggle">Menu</button>
+                <div class="menu-main-container">
+                    <ul id="primary-menu" class="nav-menu">
+                        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="https://bipaa.genouest.org/is/">BIPAA</a>
+                            <ul class="sub-menu">
+                                <li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-43"><a href="https://bipaa.genouest.org/is/aphidbase/">AphidBase</a></li>
+                                <li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-44"><a href="https://bipaa.genouest.org/is/parwaspdb/">ParWaspDB</a></li>
+                                <li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-78"><a href="https://bipaa.genouest.org/is/lepidodb/">LepidoDB</a></li>
+                                <li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-44"><a href="https://bipaa.genouest.org/is/coleoptera/">Coleoptera</a></li>
+                                <li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-44"><a href="https://bipaa.genouest.org/is/crustacea/">Crustacea</a></li>
+                                <li id="menu-item-130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-130"><a href="https://bipaa-galaxy.genouest.org/">Galaxy</a></li>
+                                <li id="menu-item-138" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-138"><a href="https://bipaa.genouest.org/account/">BIPAA account</a></li>
+                            </ul>
+                        </li>
+                        {% if deploy_jbrowse %}
+                        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/jbrowse">JBrowse</a>
+                        {% endif %}
+                        {% if deploy_blast %}
+                        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/blast">Blast</a>
+                        {% endif %}
+                        {% if src_data_folder %}
+                        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/download/">Download page</a>
+                        {% endif %}
+                        {% if use_apollo %}
+                        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="{{ apollo_url }}">Apollo</a>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav><!-- #site-navigation -->
+        </div><!-- #navbar -->
+    </header><!-- #masthead -->
+
+    <div id="main" class="site-main">
+
+        <div id="primary" class="content-area">
+            <div id="content" class="site-content" role="main">
+                <article class="page type-page status-publish hentry" style="text-align:center">
+
+                        <p>This is the BIPAA home page for the genome of <b>{{name_clean}}</b>.</p>
+
+                        <p>More will be available here soon, but you can already
+                          {% if deploy_blast %}<a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/blast">run blast jobs</a>{% endif %}
+                          {% if src_data_folder %}, <a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/download/">download raw data</a>{% endif %}
+                          {% if deploy_jbrowse %}, <a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/jbrowse/">access the genome on JBrowse</a>{% endif %}
+                          {% if use_apollo %}, or <a href="{{ apollo_url }}">access the genome on Apollo</a>.{% endif %}
+                        </p>
+
+              </article>
+            </div><!-- #content -->
+        </div><!-- #primary -->
+
+        <div id="tertiary" class="sidebar-container" role="complementary">
+            <div class="sidebar-inner">
+              <div class="widget-area">
+              </div><!-- .widget-area -->
+            </div><!-- .sidebar-inner -->
+            </div><!-- #tertiary -->
+
+            </div><!-- #main -->
+            <footer id="colophon" class="site-footer" role="contentinfo">
+            <div id="secondary" class="sidebar-container" role="complementary">
+            <div class="widget-area masonry" style="position: relative; height: 250px;">
+
+                <aside id="meta-2" class="widget widget_meta masonry-brick" style="position: absolute; left: 248px; top: 0px;"><h3 class="widget-title">Links</h3>                    <ul>
+                                <li><a href="https://bipaa.genouest.org/">BIPAA website</a></li>
+                        </aside>
+
+              <aside id="text-4" class="widget widget_text masonry-brick" style="position: absolute; left: 496px; top: 0px;">
+                  <div class="textwidget"><img src="assets/images/bipaa.png"></div>
+              </aside>
+            </div><!-- .widget-area -->
+        </div><!-- #secondary -->
+            </footer><!-- #colophon -->
+        </div><!-- #page -->
+
+  </body>
+</html>

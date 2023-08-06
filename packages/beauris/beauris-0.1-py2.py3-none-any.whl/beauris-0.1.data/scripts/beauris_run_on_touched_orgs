@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Run a given command on each modified organism yaml file
+# Just pass the command to run as arguments, and use ORG_YML as a placeholder
+# for the path to an organism yaml file
+# The command will be using the user defined in RUN_USER
+
+set -eo pipefail
+
+if [ -z "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" ]
+then
+    DIFF_RANGE="${CI_COMMIT_BEFORE_SHA}...${CI_COMMIT_SHA}"
+else
+    DIFF_RANGE="origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME} origin/${CI_MERGE_REQUEST_SOURCE_BRANCH_NAME}"
+fi
+
+for org_yml in `git diff --diff-filter=ACMT --name-only ${DIFF_RANGE} | ( grep "^organisms/.*\.ya\?ml" )`; do
+    cmd=`echo "$@" | sed "s|ORG_YML|$org_yml|"`
+    echo "Running (as $RUN_USER): $cmd"
+    su -c "$cmd" $RUN_USER
+done

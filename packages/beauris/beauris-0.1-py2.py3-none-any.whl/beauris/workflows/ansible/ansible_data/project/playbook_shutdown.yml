@@ -1,0 +1,12 @@
+---
+# Playbook Docker
+
+- name: Docker stack deployment
+  hosts: docker_swarm_host
+  tasks:
+    - name: Stop running stack
+      community.docker.docker_stack:
+        name: "{{ stack_name }}"
+        state: absent
+        absent_retries: 3
+        absent_retries_interval: 30

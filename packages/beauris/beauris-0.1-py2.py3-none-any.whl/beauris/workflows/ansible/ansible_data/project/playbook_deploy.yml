@@ -1,0 +1,22 @@
+---
+# Playbook Docker
+
+- name: Docker stack deployment
+  hosts: docker_swarm_host
+  tasks:
+
+    - name: Check if blast service is already running
+      community.docker.docker_swarm_service_info:
+        name: "{{ stack_name }}_blast"
+      register: blast_status_before
+
+    - name: Deploy internal stack
+      community.docker.docker_stack:
+        name: "{{ stack_name }}"
+        state: present
+        compose:
+          - "{{ deploy_dir }}/docker-compose.yml"
+
+    - name: Force update of blast service (cache clearing)
+      command: "docker service update --force {{ stack_name }}_blast"
+      when: blast_status_before.exists

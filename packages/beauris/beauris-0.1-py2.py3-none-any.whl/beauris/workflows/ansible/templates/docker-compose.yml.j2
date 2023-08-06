@@ -1,0 +1,131 @@
+version: '3.7'
+services:
+    proxy:
+        image: quay.io/abretaud/nginx-ldap:latest
+        volumes:
+            {% if deploy_download %}
+            - {{ src_data_folder }}:/project_data/:ro
+            - {{ locker_folder }}:{{ locker_folder }}:ro
+            {% endif %}
+            - ./nginx/conf/:/etc/nginx/conf.d/
+            - ./site/:/usr/local/nginx/html/:ro
+            {% if stage == "staging" %}
+            - {{ root_work_dir }}:{{ root_work_dir }}:ro
+            {% endif %}
+        networks:
+            - traefikbig
+            - {{ stack_name }}
+        deploy:
+          labels:
+            # Download page
+            - "traefik.http.routers.{{ stack_name }}-nginx.rule=(Host(`{{ netloc }}`) && PathPrefix(`{{ url_prefix }}/{{ sub_url }}`))"
+            - "traefik.http.routers.{{ stack_name }}-nginx.tls=true"
+            - "traefik.http.routers.{{ stack_name }}-nginx.entryPoints=webs"
+            - "traefik.http.routers.{{ stack_name }}-nginx.middlewares=sp-auth,sp-trailslash,sp-prefix"
+            - "traefik.http.services.{{ stack_name }}-nginx.loadbalancer.server.port=80"
+          restart_policy:
+            condition: on-failure
+            delay: 5s
+            max_attempts: 3
+            window: 120s
+
+    {% if deploy_jbrowse %}
+    jbrowse:
+        image: quay.io/galaxy-genome-annotation/jbrowse:v1.16.11
+        volumes:
+            {% if stage == "production" %}
+            - {{ locker_folder }}:{{ locker_folder }}:ro
+            {% endif %}
+            - ./docker_data/jbrowse/:/jbrowse/data/:ro
+            {% if stage == "staging" %}
+            - {{ root_work_dir }}:{{ root_work_dir }}:ro
+            {% endif %}
+        networks:
+            - traefikbig
+            - {{ stack_name }}
+        deploy:
+          labels:
+            - "traefik.http.routers.{{ stack_name }}-jbrowse.rule=(Host(`{{ netloc }}`) && PathPrefix(`{{ url_prefix }}/{{ sub_url }}/jbrowse`))"
+            - "traefik.http.routers.{{ stack_name }}-jbrowse.tls=true"
+            - "traefik.http.routers.{{ stack_name }}-jbrowse.entryPoints=webs"
+            - "traefik.http.routers.{{ stack_name }}-jbrowse.middlewares=sp-auth,sp-app-trailslash,sp-app-prefix"
+            - "traefik.http.services.{{ stack_name }}-jbrowse.loadbalancer.server.port=80"
+          restart_policy:
+            condition: on-failure
+            delay: 5s
+            max_attempts: 3
+            window: 120s
+    {% endif %}
+
+    {% if blast_job_folder %}
+    blast:
+        image: quay.io/abretaud/sf-blast:latest
+        depends_on:
+            - blast-db
+        environment:
+            DB_HOST: blast-db.{{ stack_name }}
+            UPLOAD_LIMIT: 20M
+            MEMORY_LIMIT: 128M
+            DB_NAME: 'postgres'
+            ADMIN_EMAIL: 'bipaa@inrae.fr'
+            ADMIN_NAME: 'BIPAA'
+            JOBS_METHOD: 'drmaa'
+            JOBS_WORK_DIR: '/groups/bipaa/SI/blast_jobs/'
+            CDD_DELTA_PATH: '/db/cdd_delta/current/flat/cdd_delta'
+            BLAST_TITLE: '{{ name_clean }} blast server'
+            JOBS_SCHED_NAME: 'blast_{{stack_name}}'
+            PRE_CMD: '. /local/env/envblast-2.6.0.sh; . /local/env/envpython-3.7.1.sh;'
+            APACHE_RUN_USER: 'bipaaweb'
+            APACHE_RUN_GROUP: 'bipaa'
+            BASE_URL_PATH: '{{ url_prefix }}/{{ sub_url }}/blast/'
+            RESULT_URL_HOST: '{{ base_url }}'
+            UID: 55914
+            GID: 40259
+            JOBS_DRMAA_NATIVE: '-p web'
+            DRMAA_METHOD: 'slurm'
+            INFLUX_HOST: 'gomngr2.genouest.org'
+            INFLUX_PORT: "8686"
+        volumes:
+            {% if blast_theme %}
+            - {{blast_theme}}:/var/www/blast/app/Resources/:ro
+            {% endif %}
+            - /data1/slurm/:/etc/slurm/:ro
+            - /etc/munge/:/etc/munge/:ro
+            - {{blast_job_folder}}:/groups/bipaa/SI/blast_jobs/
+            - ./blast/:/etc/blast_links/:ro
+        networks:
+            - traefikbig
+            - {{ stack_name }}
+        deploy:
+          labels:
+            - "traefik.http.routers.{{ stack_name }}-blast.rule=(Host(`{{ netloc }}`) && PathPrefix(`{{ url_prefix }}/{{ sub_url }}/blast`))"
+            - "traefik.http.routers.{{ stack_name }}-blast.tls=true"
+            - "traefik.http.routers.{{ stack_name }}-blast.entryPoints=webs"
+            - "traefik.http.routers.{{ stack_name }}-blast.middlewares=sp-big-req,sp-auth,sp-app-trailslash,sp-app-prefix"
+            - "traefik.http.services.{{ stack_name }}-blast.loadbalancer.server.port=80"
+          restart_policy:
+            condition: on-failure
+            delay: 5s
+            max_attempts: 3
+            window: 120s
+
+    blast-db:
+        image: postgres:9.5
+        environment:
+            - POSTGRES_PASSWORD=postgres
+            - PGDATA=/var/lib/postgresql/data/
+        volumes:
+            {% if stage == "production" %}
+            - ./docker_data/blast_db/:/var/lib/postgresql/data/
+            {% endif  %}
+            - ./postgres-blast-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
+        networks:
+            - {{ stack_name }}
+    {% endif %}
+
+networks:
+    traefikbig:
+        external: true
+    {{ stack_name }}:
+        driver: overlay
+        name: {{ stack_name }}

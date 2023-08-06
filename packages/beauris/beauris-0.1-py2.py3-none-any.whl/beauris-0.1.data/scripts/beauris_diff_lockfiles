@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -u # stop if a variable is not initialized
+set -e # stop in case of error
+
+if [[ -z $(git status -s locked) ]]; then
+  echo "Nothing to commit, exiting."
+  exit 0
+fi
+
+echo "Would commit the following changes after merge:"
+
+git status -s locked
+
+git add locked
+
+git diff --staged locked

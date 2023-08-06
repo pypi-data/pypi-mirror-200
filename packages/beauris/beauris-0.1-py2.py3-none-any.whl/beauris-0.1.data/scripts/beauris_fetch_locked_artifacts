@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Cop
+
+set -eo pipefail
+
+if [ "$(ls -A committed_locked)" ]
+then
+    # Technically we're not forced to cp files, but it's cheap, and dirname is better, and well, I prefer.
+    # We're in democracy you know.
+    echo "Copying locked yml artifacts from committed_locked/"
+    mkdir future_locked
+    cp -v committed_locked/* future_locked/
+else
+    echo "No artifacts found in committed_locked/"
+fi

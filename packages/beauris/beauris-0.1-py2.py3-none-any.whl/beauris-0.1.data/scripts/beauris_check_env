@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -euo pipefail
+
+: "$WORK_DIR:?WORK_DIR env var is not set"
+: "$RUN_USER:?RUN_USER env var is not set"
+: "$RUN_GROUP:?RUN_GROUP env var is not set"
+: "$UID:?UID env var is not set"
+: "$GID:?GID env var is not set"
+: "$GALAXY_URL:?GALAXY_URL env var is not set"
+: "$GALAXY_API_KEY:?GALAXY_API_KEY env var is not set"
+: "$ANSIBLE_REMOTE_USER:?ANSIBLE_REMOTE_USER env var is not set"
+: "$GITLAB_BOT_TOKEN:?GITLAB_BOT_TOKEN env var is not set"
+
+if [[ ! -d "$WORK_DIR" ]]
+then
+    echo "ERROR: $WORK_DIR does not exist" 1>&2
+    exit 1
+fi

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -u # stop if a variable is not initialized
+set -e # stop in case of error
+
+if [[ -z $(git status -s locked) ]]; then
+  echo "Nothing to commit, exiting."
+  exit 0
+fi
+
+echo "Will commit the following changes:"
+
+git status -s locked
+
+url_host=`git remote get-url origin | sed -e "s/https:\/\/gitlab-ci-token:.*@//g"`
+git remote set-url origin "https://gitlab-ci-token:${GITLAB_RW_TOKEN}@${url_host}"
+
+git config --global user.email "$GITLAB_USER_EMAIL"
+git config --global user.name "$GITLAB_USER_LOGIN"
+
+git add locked
+
+git diff --staged locked
+
+git commit -m "Automatic update of locked files [skip ci]"
+git push origin HEAD:$CI_COMMIT_REF_NAME

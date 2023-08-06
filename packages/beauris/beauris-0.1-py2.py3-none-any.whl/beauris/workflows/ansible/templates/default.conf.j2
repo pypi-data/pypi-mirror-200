@@ -1,0 +1,11 @@
+server {
+    listen 80;
+    server_name ~.;
+
+    {% if deploy_download %}
+    location /download/ {
+        alias /project_data/;
+        autoindex on;
+    }
+    {% endif %}
+}
