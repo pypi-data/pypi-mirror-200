@@ -1,0 +1,71 @@
+{% ckan_extends %}
+
+{% block search_input %}
+
+	{{super()}}
+
+	{% if query and count==0 %}
+		
+		{% if type == 'dataset' %}
+			{% set recomms = h.ckanext_ids_recomm_datasets_homepage(3) %}
+		{% endif %}
+ 
+		{% if type == 'service' %}
+			{% set recomms = h.ckanext_ids_recomm_services_homepage(3) %}
+		{% endif %}  
+ 
+		{% if type == 'application' %}
+			{% set recomms = h.ckanext_ids_recomm_applications_homepage(3) %}
+		{% endif %}  
+  
+		{% if recomms %}
+			<div>
+				<div style="display:inline-block; text-align:center; width:100%;">
+					
+					<h3 class="heading">Recommended {{type}}s </h3>
+					
+					<div style="float:left; width:100%;">
+						{% for recomm in recomms %}
+							<div class="row">
+								<a onclick="storeRecommClick( '{{ recomm['pkg_id'] }}', '{{ recomm['recoId'] }}' );" href="{{ recomm['id'] }} ">{{ recomm['title'] }}</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+		
+	{% endif %}
+    
+<script>
+    function storeRecommClick(entityId, recoId) {
+         
+        const XHR = new XMLHttpRequest(),
+        FD  = new FormData();
+
+		var data = {
+		  entityId: entityId, 
+		  recoId: recoId
+		};
+		
+		for( name in data ) {
+            FD.append( name, data[ name ] );
+        }
+
+        XHR.addEventListener( 'load', function( event ) {
+			return true;
+        } );
+
+        XHR.addEventListener(' error', function( event ) {
+            console.log("failed to store view recomm interaction");
+			return true;
+        } );
+
+        XHR.open( 'POST', '/ids/actions/store_view_recomm_interaction' );
+		XHR.send( FD );
+		
+		return true;
+    }
+</script>	
+
+{% endblock %}
