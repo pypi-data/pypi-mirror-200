@@ -1,0 +1,215 @@
+[build-system]
+requires = [
+    "hatchling>=1.10.0",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "nbclient"
+dynamic = [
+    "version",
+]
+description = "A client library for executing notebooks. Formerly nbconvert's ExecutePreprocessor."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.7.0"
+authors = [
+    { name = "Jupyter Development Team", email = "jupyter@googlegroups.com" },
+]
+keywords = [
+    "executor",
+    "jupyter",
+    "notebook",
+    "pipeline",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "jupyter_client>=6.1.12",
+    "jupyter_core>=4.12,!=5.0.*",
+    "nbformat>=5.1",
+    "traitlets>=5.3",
+]
+
+[project.optional-dependencies]
+test = [
+    "flaky",
+    "ipykernel",
+    "ipython",
+    "ipywidgets",
+    "nbconvert>=7.0.0",
+    "pytest-asyncio",
+    "pytest-cov>=4.0",
+    "pytest>=7.0",
+    "testpath",
+    "xmltodict",
+]
+docs = [
+    "autodoc-traits",
+    "mock",
+    "moto",
+    "myst-parser",
+    "sphinx-book-theme",
+    "sphinxcontrib_spelling",
+    "sphinx>=1.7",
+    "nbclient[test]",
+]
+dev = [
+    "pre-commit",
+]
+
+[project.scripts]
+jupyter-execute = "nbclient.cli:main"
+
+[project.urls]
+Documentation = "https://nbclient.readthedocs.io"
+Funding = "https://numfocus.org/"
+Homepage = "https://jupyter.org"
+Source = "https://github.com/jupyter/nbclient"
+Tracker = "https://github.com/jupyter/nbclient/issues"
+
+[tool.hatch.version]
+path = "nbclient/_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/nbclient",
+]
+
+[tool.hatch.envs.docs]
+features = ["docs"]
+[tool.hatch.envs.docs.scripts]
+build = "make -C docs html SPHINXOPTS='-W'"
+
+[tool.hatch.envs.test]
+features = ["test"]
+[tool.hatch.envs.test.scripts]
+test = "python -m pytest -vv {args}"
+nowarn = "test -W default {args}"
+
+[tool.hatch.envs.cov]
+features = ["test"]
+dependencies = ["coverage", "pytest-cov"]
+[tool.hatch.envs.cov.scripts]
+test = "python -m pytest -vv --cov nbclient --cov-branch --cov-report term-missing:skip-covered {args}"
+nowarn = "test -W default {args}"
+
+[tool.hatch.envs.typing]
+features = ["test"]
+dependencies = ["mypy>=0.990"]
+[tool.hatch.envs.typing.scripts]
+test = "mypy --install-types --non-interactive {args:nbclient}"
+
+[tool.hatch.envs.lint]
+dependencies = [
+  "black[jupyter]==22.10.0",
+  "mdformat>0.7",
+  "mdformat-gfm>=0.3.5",
+  "ruff==0.0.254"
+]
+detached = true
+[tool.hatch.envs.lint.scripts]
+style = [
+  "ruff {args:.}",
+  "black --check --diff {args:.}",
+  "mdformat --check {args:docs *.md}"
+]
+fmt = [
+  "black {args:.}",
+  "ruff --fix {args:.}",
+  "mdformat {args:docs *.md}"
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py37"]
+include = "\\.pyi?$"
+exclude = "/(\n    \\.git\n  | \\.hg\n  | \\.mypy_cache\n  | \\.tox\n  | \\.venv\n  | _build\n  | buck-out\n  | build\n  | dist\n\n  # The following are specific to Black, you probably don't want those.\n  | blib2to3\n  | tests/data\n  | profiling\n)/\n"
+skip-string-normalization = true
+
+[tool.pytest.ini_options]
+addopts = "-raXs --durations 10 --color=yes --doctest-modules"
+asyncio_mode = "auto"
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "if self.debug:",
+  "if settings.DEBUG",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "if 0:",
+  "if __name__ == .__main__.:",
+  "class .*\bProtocol\\):",
+"@(abc\\.)?abstractmethod",
+]
+
+[tool.mypy]
+python_version = 3.9
+check_untyped_defs = true
+disallow_any_generics = false
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+no_implicit_reexport = false
+pretty = true
+show_error_context = true
+show_error_codes = true
+strict_equality = true
+strict_optional = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = [
+    "async_generator.*",
+    "testpath",
+    "xmltodict",
+]
+ignore_missing_imports = true
+
+
+[tool.ruff]
+target-version = "py37"
+line-length = 100
+select = [
+  "A", "B", "C", "E", "F", "FBT", "I", "N", "Q", "RUF", "S", "T",
+  "UP", "W", "YTT",
+]
+ignore = [
+# Q000 Single quotes found but double quotes preferred
+"Q000",
+# FBT001 Boolean positional arg in function definition
+"FBT001", "FBT002", "FBT003",
+# C901 `async_setup_kernel` is too complex (12)
+"C901",
+]
+
+[tool.ruff.per-file-ignores]
+# S101 Use of `assert` detected
+"nbclient/tests/*" = ["S101"]
+"nbclient/client.py" = ["S101"]
+
+[tool.interrogate]
+ignore-init-module=true
+ignore-private=true
+ignore-semiprivate=true
+ignore-property-decorators=true
+ignore-nested-functions=true
+ignore-nested-classes=true
+fail-under=100
+exclude = ["*/tests", "docs"]
