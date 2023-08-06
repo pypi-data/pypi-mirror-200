@@ -1,0 +1,11 @@
+openmc>0.12.2
+numpy
+matplotlib
+PySide2
+
+[test]
+pytest
+pytest-qt
+
+[vtk]
+vtk
