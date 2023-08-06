@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: container-collection
+Version: 0.5.2
+Summary: Collection of tasks for running containerized models.
+License: BSD-3-Clause
+Author: Jessica S. Yu
+Author-email: jesyu@uw.edu
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: boto3 (>=1.24.59,<2.0.0)
+Requires-Dist: deepdiff (>=5.8.1,<6.0.0)
+Requires-Dist: docker (>=6.0.1,<7.0.0)
+Requires-Dist: numpy (>=1.24.2,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: prefect (>=2.8.2,<3.0.0)
+Requires-Dist: tabulate (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+[![Build Status](https://github.com/bagherilab/container-collection/workflows/build/badge.svg)](https://github.com/bagherilab/container-collection/actions?query=workflow%3Abuild)
+[![Codecov](https://img.shields.io/codecov/c/gh/bagherilab/container-collection?token=OH8080ZFCU)](https://codecov.io/gh/bagherilab/container-collection)
+[![Lint Status](https://github.com/bagherilab/container-collection/workflows/lint/badge.svg)](https://github.com/bagherilab/container-collection/actions?query=workflow%3Alint)
+[![Documentation](https://github.com/bagherilab/container-collection/workflows/documentation/badge.svg)](https://bagherilab.github.io/container-collection/)
+[![Code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
