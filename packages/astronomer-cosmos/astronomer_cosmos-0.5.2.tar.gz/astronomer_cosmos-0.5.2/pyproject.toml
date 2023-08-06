@@ -1,0 +1,130 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "astronomer-cosmos"
+dynamic = ["version"]
+description = "Render 3rd party workflows in Airflow"
+readme = "README.rst"
+license = "Apache-2.0"
+requires-python = ">=3.7"
+authors = [
+    { name = "Astronomer", email = "humans@astronomer.io" },
+]
+keywords = [
+    "airflow",
+    "apache-airflow",
+    "astronomer",
+    "dags",
+    "dbt",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "Framework :: Apache Airflow",
+    "Framework :: Apache Airflow :: Provider",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "apache-airflow>=2.4",
+    "filelock",
+    "Jinja2>=3.0.0",
+    "typing-extensions; python_version < '3.8'",
+]
+
+[project.optional-dependencies]
+dbt-all = [
+    "dbt-bigquery",
+    "dbt-databricks",
+    "dbt-postgres",
+    "dbt-redshift",
+    "dbt-snowflake",
+    "astronomer-cosmos[dbt-openlineage]"
+]
+dbt-bigquery = [
+    "dbt-bigquery",
+]
+dbt-databricks = [
+    "dbt-databricks",
+]
+dbt-postgres = [
+    "dbt-postgres",
+]
+dbt-redshift = [
+    "dbt-redshift",
+]
+dbt-snowflake = [
+    "dbt-snowflake",
+]
+dbt-openlineage = [
+    "dbt-core",
+    "openlineage-dbt>=0.21.1"
+]
+all = [
+    "astronomer-cosmos[dbt-all]",
+]
+docs =[
+    "sphinx",
+    "pydata-sphinx-theme",
+    "sphinx-autobuild",
+    "sphinx-tabs",
+    "sphinx-autoapi"
+]
+tests = [
+    "pytest>=6.0",
+    "pytest-split",
+    "pytest-dotenv",
+    "requests-mock",
+    "pytest-cov",
+    "pytest-describe",
+    "types-requests",
+    "mypy",
+    "sqlalchemy-stubs", # Change when sqlalchemy is upgraded https://docs.sqlalchemy.org/en/14/orm/extensions/mypy.html
+]
+
+[project.urls]
+Homepage = "https://github.com/astronomer/astronomer-cosmos"
+Documentation = "https://github.com/astronomer/astronomer-cosmos"
+
+[tool.hatch.version]
+path = "cosmos/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/cosmos",
+]
+
+[tool.hatch.envs.docs]
+dependencies = [
+    "sphinx",
+    "pydata-sphinx-theme",
+    "sphinx-autobuild",
+    "sphinx-tabs",
+    "sphinx-autoapi"
+]
+
+[tool.hatch.envs.docs.scripts]
+build = "sphinx-build -b html docs docs/_build"
+serve = "sphinx-autobuild docs docs/_build"
+
+[tool.isort]
+profile = "black"
+known_third_party = ["airflow", "jinja2"]
+
+[tool.mypy]
+strict = true
+
+[tool.ruff]
+line-length = 120
+
+[tool.distutils.bdist_wheel]
+universal = true
