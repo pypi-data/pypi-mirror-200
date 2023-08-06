@@ -1,0 +1,163 @@
+#!python
+from kaypacha.filters.scienti_filter import scienti_filter
+from ukupacha.Utils import replace_graph_db_field
+from ukupacha.Graph import UkuPachaGraph
+from ukupacha.CheckPoint import UkuPachaCheckPoint
+from pymongo import MongoClient
+import sys
+import importlib
+import argparse
+import faulthandler
+faulthandler.enable()
+
+parser = argparse.ArgumentParser(description='Oracle to MongoDB')
+parser.add_argument('--max_threads', type=int, default=2,
+                    help='an integer for number of threads, max threads 2')
+parser.add_argument('--ora_sysuser', type=str,
+                    default="system", help='Oracle System user')
+parser.add_argument('--ora_syspass', type=str,
+                    default="colavudea", help='Oracle System user password')
+parser.add_argument('--ora_dburi', type=str, default="localhost:1521",
+                    help='Oracle System db url default(localhost:1521)')
+parser.add_argument('--cvlac_user', type=str,
+                    default='UDEA_CV', help='user for CVLAC')
+parser.add_argument('--gruplac_user', type=str,
+                    default='UDEA_GR', help='user for GRUPLAC')
+parser.add_argument('--institulac_user', type=str,
+                    default='UDEA_IN', help='user for INSTITULAC')
+parser.add_argument('--mongo_dburi', type=str,
+                    default='mongodb://localhost:27017/', help='uri for MongoDb database')
+parser.add_argument('--mongo_dbname', type=str,
+                    default=None, help='uri for MongoDb database')
+parser.add_argument('--drop_mongodb', action='store_true',
+                    help='delete the database, use it with carefull, deletes everything!')
+parser.add_argument('--drop_mongocol', action='store_true',
+                    help='delete the collection in the db')
+parser.add_argument('--model', type=str,
+                    default=None, help='data model ex: product, network, project etc..')
+parser.add_argument('--sample', action='store_true',
+                    help='process data sample')
+parser.add_argument('--sample_size', type=int,
+                    default=100, help='size of the sample')
+parser.add_argument('--json', type=str,
+                    help='save results to json file')
+parser.add_argument('--json_save_regs', action='store_true',
+                    help='save regs results to json file. but it works only if --json is enabled')
+parser.add_argument('--checkpoint', action='store_true',
+                    help='delete the collection in the db')
+
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    print(args)
+    ora_graph = UkuPachaGraph(user=args.ora_sysuser,
+                              password=args.ora_syspass, dburi=args.ora_dburi)
+    model = args.model
+    mongo_dbname = args.mongo_dbname
+    if not mongo_dbname:
+        mongo_dbname = f"scienti"
+    graph_schema = importlib.import_module(
+        f'kaypacha.models.scienti.graph_schema').graph_schema
+    graph_fields = importlib.import_module(
+        f'kaypacha.models.scienti.graph_fields').graph_fields
+
+    graph_schema = replace_graph_db_field(
+        graph_schema, "__CVLAC__", args.cvlac_user)
+    graph_schema = replace_graph_db_field(
+        graph_schema, "__GRUPLAC__", args.gruplac_user)
+    graph_schema = replace_graph_db_field(
+        graph_schema, "__INSTITULAC__", args.institulac_user)
+    max_threads = args.max_threads
+
+    ckp = None
+    if args.checkpoint:
+        ckp = UkuPachaCheckPoint(user=args.ora_sysuser, password=args.ora_syspass,
+                                 dburi=args.ora_dburi, mongodb_uri=args.mongo_dburi)
+    if args.checkpoint and args.json:
+        print("Error in parameters, --checkpoint and --json dont make sense, --checkpoint only works for mongodb", output=sys.stderr)
+        sys.exit(1)
+    if args.checkpoint and args.sample:
+        print("Error in parameters, --checkpoint and --sample dont make sense, --sample only works for json and checkpoint is not compatible with json(only with mongodb)", output=sys.stderr)
+        sys.exit(1)
+
+    if max_threads > 2:
+        print("max_threads can't be greater than 2 (https://www.oracle.com/database/technologies/appdev/xe.html)")
+        print("setting max_threads=2")
+        max_threads = 2
+    if args.drop_mongodb:
+        client = MongoClient(args.mongo_dburi)
+        client.drop_database(mongo_dbname)
+        client.close()
+        print(f"Database {mongo_dbname} dropped from mongodb.")
+
+    if args.model:
+        model = graph_schema["MODELS"][args.model]
+        main_table = model["MAIN_TABLE"]
+        if args.drop_mongocol:
+            client = MongoClient(args.mongo_dburi)
+            colname = graph_fields[main_table][main_table]["alias"]
+            client[mongo_dbname][colname].drop()
+            client.close()
+            print(f"Collection {mongo_dbname}.{colname} dropped from mongodb.")
+
+        graph = model["GRAPH"]
+        data = []
+        initial_db = model["CHECKPOINT"]["DB"]
+        if args.checkpoint:
+            ckp_info = model["CHECKPOINT"]
+            model_alias = graph_fields[main_table][main_table]["alias"]
+            if not ckp.exists(mongo_dbname, model_alias):
+                print(
+                    f"CheckPoint not found for {mongo_dbname}.{model_alias} creating one...")
+                ckp.create(ckp_info["KEYS"], initial_db,
+                           main_table, mongo_dbname, model_alias)
+
+            print(f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
+            data = ckp.get_data_p(
+                initial_db, main_table, mongo_dbname, model_alias)
+        else:
+            query = f"select * from {initial_db}.{main_table}"
+            if args.sample:
+                query = f"select * from {initial_db}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+            data = ora_graph.utils.request(query)
+        print(
+            f"Processing database for model {main_table} with {data.shape[0]} registers.")
+        if args.json:
+            ora_graph.run2file(args.json, data, model, graph_fields[main_table], max_threads,
+                               debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
+        else:
+            ora_graph.run2mongodb(data, model, graph_fields[main_table],
+                                  mongo_dbname, args.mongo_dburi, max_threads, scienti_filter, ckp)
+    else:
+        for model_name in graph_schema["MODELS"].keys():
+            model = graph_schema["MODELS"][model_name]
+            main_table = model["MAIN_TABLE"]
+            graph = model["GRAPH"]
+            data = []
+            initial_db = model["CHECKPOINT"]["DB"]
+            if args.checkpoint:
+                ckp_info = model["CHECKPOINT"]
+                model_alias = graph_fields[main_table][main_table]["alias"]
+                if not ckp.exists(mongo_dbname, model_alias):
+                    print(
+                        f"CheckPoint not found for {mongo_dbname}.{model_alias} creating one...")
+                    ckp.create(ckp_info["KEYS"], initial_db,
+                               main_table, mongo_dbname, model_alias)
+
+                print(
+                    f"Getting checkpoint data for {mongo_dbname}.{model_alias}")
+                data = ckp.get_data_p(
+                    initial_db, main_table, mongo_dbname, model_alias)
+            else:
+                query = f"select * from {initial_db}.{main_table}"
+                if args.sample:
+                    query = f"select * from {initial_db}.{main_table} FETCH FIRST {args.sample_size} ROWS ONLY"
+                data = ora_graph.utils.request(query)
+            print(
+                f"Processing database for model {main_table} with {data.shape[0]} registers.")
+            if args.json:
+                ora_graph.run2file(args.json, data, model, graph_fields[main_table], max_threads,
+                                   debug=False, save_regs=False, save_raws=False, filter_function=scienti_filter)
+            else:
+                ora_graph.run2mongodb(data, model, graph_fields[main_table],
+                                      mongo_dbname, args.mongo_dburi, max_threads, scienti_filter, ckp)
