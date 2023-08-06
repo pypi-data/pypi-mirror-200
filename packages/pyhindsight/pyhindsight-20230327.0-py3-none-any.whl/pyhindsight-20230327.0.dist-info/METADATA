@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pyhindsight
+Version: 20230327.0
+Summary: Browser forensics for Google Chrome/Chromium
+Home-page: https://github.com/obsidianforensics/hindsight
+Author: Ryan Benson
+Author-email: ryan@dfir.blog
+License: Apache
+Keywords: chrome,forensics,dfir,google-chrome,chromium
+Requires-Python: >=3.8
+License-File: LICENSE.md
+Requires-Dist: bottle (>=0.12.18)
+Requires-Dist: keyring (>=21.2.1)
+Requires-Dist: pycryptodomex (>=3.9.7)
+Requires-Dist: pytz (>=2021.3)
+Requires-Dist: xlsxwriter (>=3.0.1)
+Requires-Dist: puremagic (>=1.11)
+
