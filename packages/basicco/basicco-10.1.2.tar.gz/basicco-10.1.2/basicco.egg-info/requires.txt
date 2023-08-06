@@ -1,0 +1,7 @@
+six
+slotted<6,>=5.1
+tippo<5,>=4
+typing_inspect<1,>=0
+
+[:python_version < "3.4"]
+enum34
