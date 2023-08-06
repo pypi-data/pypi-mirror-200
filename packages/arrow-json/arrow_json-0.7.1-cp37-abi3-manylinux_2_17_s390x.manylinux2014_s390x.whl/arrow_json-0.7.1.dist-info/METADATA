@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: arrow-json
+Version: 0.7.1
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: pyarrow>=11
+Requires-Dist: typing-extensions>=3; python_version < '3.8'
+Requires-Dist: pytest >=7.0.0; extra == 'test'
+Requires-Dist: maturin >= 0.14.0; extra == 'test'
+Requires-Dist: pre-commit>=2.16.0; extra == 'test'
+Requires-Dist: pyarrow >= 11.0.0; extra == 'test'
+Requires-Dist: polars >= 0.16.1; extra == 'test'
+Provides-Extra: bench
+Provides-Extra: test
+Summary: Arrow -> JSON encoder
+Author: Adrian Garcia Badaracco
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: documentation, https://github.com/adriangb/pgpq/README.md
+Project-URL: repository, https://github.com/adriangb/pgpq
+Project-URL: homepage, https://github.com/adriangb/pgpq
+
+# arrow-json
+
+Encode an arrow array into an array of json strings:
+
+```python
+import json
+import pyarrow as pa
+from arrow_json import array_to_utf8_json_array
+
+data = [[{"f": [1, 2]}], [], None]
+array = pa.array(data)
+print(nested_list_struct_array.type)
+# list<item: struct<f: list<item: int64>>>
+json_array = array_to_utf8_json_array(array)
+loaded = [json.loads(s) if s is not None else None for s in json_array.to_pylist()]
+assert loaded == data
+```
+
