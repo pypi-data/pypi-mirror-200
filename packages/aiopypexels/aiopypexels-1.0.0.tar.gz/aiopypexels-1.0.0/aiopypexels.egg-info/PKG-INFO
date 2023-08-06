@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: aiopypexels
+Version: 1.0.0
+Summary: An asynchronous wrapper for Pexels API based on aiohttp, which additionally allows to download photos in any of avaliable resolutions.
+Home-page: UNKNOWN
+Author: ggindinson
+License: UNKNOWN
+Keywords: pexels,api,photos
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+
+## An asynchronous wrapper for Pexels API based on aiohttp, which additionally allows to download photos in any of avaliable resolutions.
+
+
+## Installation
+
+Install aiopypexels with pip
+
+```bash
+  pip install aiopypexels
+```
+    
+## Examples
+
+Searching photos by query 
+```python
+from aiopypexels import AioPexels
+from aiopypexels.types import PhotoSearchResponse
+
+api = AioPexels(API_KEY)
+
+async def get_photos_by_query(query: str) -> PhotoSearchResponse:
+    response = await api.get_photos_by_query(query)
+    print(response.total_results)  # 498
+
+```
+Getting photo by ID 
+```python
+from aiopypexels import AioPexels
+from aiopypexels.types import PhotoSearchResponse
+
+api = AioPexels(API_KEY)
+
+async def get_photo_by_query(query: str) -> PhotoSearchResponse:
+    response = await api.get_photos_by_query(query)
+    print(response.total_results)  # 498
+
+```
+Downloading photo by ID 
+```python
+from aiopypexels import AioPexels
+
+api = AioPexels(API_KEY)
+
+async def get_photo_by_query(query: str) -> PhotoSearchResponse:
+    response = await api.download_photo_by_id(photo_id=9999, destination = './photos/test.jpeg', quality='original'))
+
+```
+
+
+## Links
+[![](https://img.shields.io/github/stars/ggindinson?label=GitHub%20Repo&style=social)](https://github.com/ggindinson/aiopypexels)
+
+[Latest Version](https://pypi.python.org/pypi/aiopypexels/)
+
+
+## Feedback
+
+I would be very pleased for a star
+
