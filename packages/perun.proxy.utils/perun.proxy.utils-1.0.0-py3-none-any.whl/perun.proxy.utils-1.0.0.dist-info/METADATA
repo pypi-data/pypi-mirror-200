@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: perun.proxy.utils
+Version: 1.0.0
+Summary: Module with utilities and monitoring probes
+Home-page: https://gitlab.ics.muni.cz/perun-proxy-aai/proxyidp-scripts.git
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.9
+Requires-Dist: asyncssh (~=2.13)
+Requires-Dist: beautifulsoup4 (~=4.12)
+Requires-Dist: docker (~=6.0)
+Requires-Dist: pymongo (~=4.3)
+Requires-Dist: setuptools
+
+UNKNOWN
+
+
