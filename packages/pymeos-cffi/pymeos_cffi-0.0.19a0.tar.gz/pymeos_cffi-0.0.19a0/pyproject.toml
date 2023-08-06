@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []
+
+[project]
+name = "pymeos_cffi"
+version = "0.0.19-alpha"
+authors = [
+    { name = "Victor Divi", email = "vdiviloper@gmail.com" }
+]
+description = "PyMEOS wrapper for the MEOS C Library."
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+readme = "README.md"
+license = { text = "PostgreSQL" }
+
+requires-python = ">=3.7"
+dependencies = [
+    'cffi',
+    'python-dateutil',
+    'spans',
+    'postgis',
+    'shapely'
+]
+
+[project.urls]
+"Homepage" = "https://github.com/MobilityDB/PyMEOS"
+"Bug Tracker" = "https://github.com/MobilityDB/PyMEOS/issues"
