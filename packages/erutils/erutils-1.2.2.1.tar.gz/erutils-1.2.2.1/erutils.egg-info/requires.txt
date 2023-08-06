@@ -1,0 +1,18 @@
+feedparser>=5.2.0
+html2text
+opencv-python~=4.6.0.66
+keyboard
+numpy
+pefile
+requests
+PyYAML
+pyyaml
+scikit-learn
+torch~=2.0.0
+setuptools
+moviepy
+imageio==2.4.1
+toml
+
+[:python_version < "3.11"]
+tomli
