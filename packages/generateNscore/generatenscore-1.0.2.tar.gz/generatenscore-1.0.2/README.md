@@ -1,0 +1,35 @@
+# generateNscore
+
+<strong>What is it?</strong>
+
+generateNscore is a Python package that provides as many personalized question sheets in HTML files as you want. It aims to be one of fundamental teaching tools.
+
+<strong>Help</strong>
+<ul>
+<li><a href="https://github.com/generateNscore/generateNscore/wiki">Documentation</a></li>
+<li><a href="https://github.com/generateNscore/generateNscore/blob/main/Changelog.md">Changelog</a></li></ul>
+
+<strong>Features</strong>
+<ul>
+<li>Generates as many personalized question sheets in HTML files as one wants with a few strings of text.</li>
+<li>The amount of random personalization is under total control of users.</li>
+<li>Each HTML file with a name corresponding to the identification number.</li>
+<li>Multi-choice as well as short, default, questions can be made.</li>
+<li>A figure, although a pre-made image can be used, can be varied as well as questions.</li>
+<li>Mathematical equations can be included in questions with Latex.</li>
+<li>User defined functions can be used.</li>
+<li>With the question sheets in HTML files, students require only a web browser to answer and send text files including the answers over the network.</li>
+<li>Scoring all different answers in text files submitted can be done in a second.</li>
+</ul>
+
+<strong>Where to get it</strong>
+<ul>
+<li>The source code is currently hosted on GitHub at: <a href="https://github.com/generateNscore/generateNscore">https://github.com/generateNscore/generateNscore</a></li>
+
+<pre lang=sh>pip install generateNscore</pre>
+
+<pre lang=sh>pip install generateNscore --upgrade</pre>
+</ul>
+
+<strong>Dependencies</strong>
+<ul><li>None</li></ul>
