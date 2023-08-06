@@ -1,0 +1,19 @@
+[package]
+name = "ceylon"
+version = "0.5.10"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "ceylon"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.18.1"
+futures = "0.3.27"
+pyo3-asyncio = { version = "0.18.0", features = ["tokio-runtime"] }
+pyo3-log = "0.8.1"
+rk-core = { path = "../local_dependencies/rk-core" }
+tokio = { version = "1.26.0", features = ["full"] }
+paris = { version = "1.5.13", features = ["macros", "timestamps"] }
+anyhow = "1.0.51"
