@@ -1,0 +1,17 @@
+dataclasses-json>=0.5
+openidc_client>=0.6
+requests>=2.10
+wwt_data_formats>=0.16
+
+[docs]
+astropy-sphinx-theme
+numpydoc
+sphinx
+sphinx-automodapi
+
+[test]
+httpretty
+mock
+pytest
+pytest-cov
+pytest-mock

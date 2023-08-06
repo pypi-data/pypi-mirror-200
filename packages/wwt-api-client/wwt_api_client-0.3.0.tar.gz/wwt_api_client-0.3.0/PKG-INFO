@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: wwt_api_client
+Version: 0.3.0
+Summary: An API client for the AAS WorldWide Telescope web services
+Home-page: https://github.com/WorldWideTelescope/wwt_api_client
+Author: AAS WorldWide Telescope Team
+Author-email: wwt@aas.org
+License: MIT
+Keywords: Science
+Platform: Linux
+Platform: Mac OS X
+Platform: Windows
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: docs
+License-File: LICENSE
+
+The [wwt_api_client] package provides a Python interface to the various web
+services that power the [AAS](https://aas.org/) [WorldWide
+Telescope](https://worldwidetelescope.org/) project.
+
+[wwt_api_client]: https://wwt-api-client.readthedocs.io/
+
+
+For more information, including installation instructions, please visit [the
+project homepage].
+
+[the project homepage]: https://wwt-api-client.readthedocs.io/
