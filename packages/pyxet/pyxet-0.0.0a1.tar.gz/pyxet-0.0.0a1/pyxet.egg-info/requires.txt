@@ -1,0 +1,17 @@
+fsspec
+
+[dev]
+pytest
+maturin
+
+[duckdb]
+duckdb
+
+[pandas]
+pandas
+
+[polars]
+polars
+
+[pyarrow]
+pyarrow
