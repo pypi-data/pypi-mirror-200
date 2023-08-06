@@ -1,0 +1,3 @@
+[console_scripts]
+arb_watchdog = arb_watchdog.process_watcher:main
+arb_watchdog_cli = arb_watchdog.cli:main
