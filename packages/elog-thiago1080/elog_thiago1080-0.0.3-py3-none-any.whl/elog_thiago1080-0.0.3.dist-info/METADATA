@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: elog_thiago1080
+Version: 0.0.3
+Summary: This is a Python package that provides decorators for logging function execution and timing function execution.
+Project-URL: Homepage, https://github.com/thiago1080/log_exc_decorator
+Project-URL: Bug Tracker, https://github.com/thiago1080/log_exc_decorator/issues
+Author-email: Thiago Henrique Martinelli <thiago.henrique.martinelli@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: loguru>=0.5.3
+Description-Content-Type: text/markdown
+
+# Function Logger and Timer
+This is a Python package that provides decorators for logging function execution and timing function execution.
+
+## Installation
+You can install the package using pip:
+'pip install log_exc_decorator'
+
+## Usage
+### Logging function execution
+To log function execution, use the elog decorator. Here's an example:
+
+`from log_exc_decorator import elog`
+
+```python
+@elog
+def my_function():
+    # your code here
+    pass
+```
+This will log the start and end of my_function, as well as any exceptions that may occur.
+
+### Timing function execution
+To time function execution, use the timeit decorator. Here's an example:
+
+```python
+from log_exc_decorator import timeit
+
+@timeit
+def my_function():
+    # your code here
+    pass
+```
+This will time how long it takes to execute my_function and log the elapsed time.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+Apache
