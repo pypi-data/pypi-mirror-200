@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "fritchicrawler"
+version = "0.1.0"
+description = "a crawler to make custom filtering on frtichi.fr"
+authors = ["shobu13"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.28.2"
+playwright = "^1.32.0"
+pendulum = "^2.1.2"
+docopt = "^0.6.2"
+path = "^16.6.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+ipython = "^8.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
