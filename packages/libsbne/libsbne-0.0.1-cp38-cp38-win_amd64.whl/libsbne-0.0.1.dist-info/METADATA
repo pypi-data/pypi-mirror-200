@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: libsbne
+Version: 0.0.1
+Summary: LibSBNE Python API
+Home-page: https://github.com/adelhpour/sbne
+Author: Adel Heydarabadipour
+Author-email: ad.heydarabadi@gmail.com
+License: MIT License
+Keywords: SBML,Layout,Render
+Platform: Windows
+Platform: MacOS
+Platform: Unix
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: C++
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+
+LibSBNE is a library for systems/synthetic biologist to work with the Layout and Render extensions of SBML models. It enables the users to straightforwardly read, manipulate, and write and also automatically generate the information about the Layout and Render extensions of an SBML model.
+
+
