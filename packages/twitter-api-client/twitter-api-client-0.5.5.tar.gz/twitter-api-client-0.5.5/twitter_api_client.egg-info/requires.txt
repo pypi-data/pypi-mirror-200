@@ -1,0 +1,8 @@
+tqdm
+orjson
+nest_asyncio
+aiohttp
+requests
+
+[:platform_system != "Windows"]
+uvloop
