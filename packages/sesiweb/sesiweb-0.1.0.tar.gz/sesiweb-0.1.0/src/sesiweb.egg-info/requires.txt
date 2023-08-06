@@ -1,0 +1,10 @@
+requests
+urllib3
+pydantic
+
+[dev]
+check-manifest
+
+[test]
+pytest
+coverage
