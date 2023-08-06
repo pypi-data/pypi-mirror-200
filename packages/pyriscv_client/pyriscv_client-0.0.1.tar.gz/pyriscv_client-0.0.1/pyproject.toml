@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyriscv_client"
+authors= [ { name = "pyriscv", email = "pyriscv@gmail.com" } ]
+readme = "README.md"
+license = { file = "LICENSE" }
+classifiers = [
+	"License :: OSI Approved :: MIT License",
+	"Programming Language :: Python :: 3",
+]
+dynamic = ["version", "description"]
+
+dependencies = [
+    "matplotlib",
+    "pygments",
+    "numpy",
+    "tkVideoPlayer",
+    "pillow"
+]
+
+[project.urls]
+Home = "https://github.com/pyriscv/pyriscv"
+
+[project.scripts]
+pyriscv = "pyriscv_client.__main__:main"
