@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+
+import concurrent.futures
+import configparser
+import os
+import re
+import subprocess
+import sys
+
+import gitignorefile
+
+
+DEFAULT_EXCLUDES = "/(\\.direnv|\\.eggs|\\.git|\\.hg|\\.mypy_cache|\\.nox|\\.tox|\\.venv|venv|\\.svn|_build|buck-out|build|dist|__pypackages__)/"
+DEFAULT_INCLUDES = "(\\.cc?|\\.cpp|\\.cxx|\\.c\\+\\+|\\.C|\\.hh?|\\.hpp|\\.hxx|\\.in[cl]|\\.H)$"
+
+check = "--check" in sys.argv
+
+
+def get_parents():
+    path = os.path.abspath(os.getcwd())
+    while True:
+        yield path
+
+        parent = os.path.dirname(path)
+        if os.path.samefile(path, parent):
+            return
+
+        else:
+            path = parent
+
+
+def filter_value(value):
+    assert value.startswith('"') and value.endswith('"')
+    return value[1:-1].replace("\\\\", "\\")
+
+
+for parent in get_parents():
+    path = os.path.join(parent, "cproject.toml")
+    if os.path.isfile(path):
+        language = "C"
+        break
+
+    path = os.path.join(parent, "cppproject.toml")
+    if os.path.isfile(path):
+        language = "C++"
+        break
+
+else:
+    assert False, "Could not find `cproject.toml` or `cppproject.toml`."
+
+config = configparser.ConfigParser()
+config.read(path)
+exclude = filter_value(config.get("tool.rojo", "exclude", fallback=f'"{DEFAULT_EXCLUDES}"'))
+include = filter_value(config.get("tool.rojo", "include", fallback=f'"{DEFAULT_INCLUDES}"'))
+gi = gitignorefile.Cache()
+
+loc = 0
+
+stats = {
+    "reformatted": 0,
+    "unchanged": 0,
+}
+
+
+def process_path(path):
+    r = subprocess.run(["clang-format", path], stdout=subprocess.PIPE)
+    r.check_returncode()
+    with open(path, "rb") as f:
+        t = f.read()
+    if t == r.stdout:
+        stats["unchanged"] += 1
+    else:
+        stats["reformatted"] += 1
+        if check:
+            return f"Would reformat {os.path.relpath(path)}"
+        else:
+            with open(path, "wb") as f:
+                f.write(r.stdout)
+            return f"Reformatted {os.path.relpath(path)}"
+
+
+executor = concurrent.futures.ThreadPoolExecutor()
+jobs = []
+for root, directories, names in os.walk(parent):
+    directories[:] = [d for d in directories if d != ".git" and not gi(os.path.join(root, d))]
+    for name in names:
+        path = os.path.join(root, name)
+        if not gi(path):
+            re_path = path[len(parent) :].replace("\\", "/")
+            if re.search(include, re_path) and not re.search(exclude, re_path):
+                jobs.append(executor.submit(process_path, path))
+
+for future in concurrent.futures.as_completed(jobs):
+    line = future.result()
+    if line:
+        print(line)
+
+if stats["reformatted"]:
+    print()
+
+print("All done! ✨ 🍰 ✨")
+would_be = "would be " if check else ""
+formatted = "checked" if check else "formatted"
+
+lines = []
+if stats["reformatted"]:
+    s = "s" if stats["reformatted"] > 1 else ""
+    lines.append(f"{stats['reformatted']} file{s} {would_be}reformatted")
+if stats["unchanged"]:
+    s = "s" if stats["unchanged"] > 1 else ""
+    lines.append(f"{stats['unchanged']} file{s} {would_be}left unchanged")
+if not lines:
+    lines.append("No {language} files are present to be {formatted}. Nothing to do 😴")
+
+print(", ".join(lines))
+
+sys.exit(check and stats["reformatted"] > 0)
