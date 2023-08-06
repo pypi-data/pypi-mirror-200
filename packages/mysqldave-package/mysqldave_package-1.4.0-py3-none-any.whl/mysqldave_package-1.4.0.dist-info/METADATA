@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: mysqldave_package
+Version: 1.4.0
+Summary: A wrapper for simplified Postgres usage using mysql.connector.
+Project-URL: Homepage, https://github.com/daveskura/mysqldave
+Project-URL: Author Linkedin, https://www.linkedin.com/in/2166883
+Author-email: Dave Skura <dskura@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: garbledave-package>=1.0.0
+Requires-Dist: mysql-connector-python>=8.0.32
+Description-Content-Type: text/markdown
+
+# mysqldave
+
+A wrapper for simplified MySQL access
+
+### install with pip
+pip install mysqldave_package
+
+### command line test
+py -m mysqldave_package.mysqldave
+
+### Quick Start Guide
+https://github.com/daveskura/mysqldave/blob/main/QuickStart.md
+
+### Methods
+https://github.com/daveskura/mysqldave/blob/main/methods.md
