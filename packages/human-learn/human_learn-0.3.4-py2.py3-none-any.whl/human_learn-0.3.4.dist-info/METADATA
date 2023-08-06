@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: human-learn
+Version: 0.3.4
+Summary: natural intelligence benchmarks for scikit-learn
+Author: Vincent D. Warmerdam
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+License-File: LICENSE
+Requires-Dist: scikit-learn (>=0.23.2)
+Requires-Dist: pandas (>=0.23.4)
+Requires-Dist: clumper (<0.3.0,>=0.2.5)
+Requires-Dist: Shapely (>=1.7.1)
+Requires-Dist: bokeh (<3.0.0,>=2.2.1)
+Provides-Extra: dev
+Requires-Dist: mkdocs-material (>=9.0.0) ; extra == 'dev'
+Requires-Dist: mkdocstrings (==0.8.0) ; extra == 'dev'
+Requires-Dist: flake8 (>=3.6.0) ; extra == 'dev'
+Requires-Dist: nbval (>=0.9.1) ; extra == 'dev'
+Requires-Dist: pytest (>=4.0.2) ; extra == 'dev'
+Requires-Dist: pytest-xdist (>=1.32.0) ; extra == 'dev'
+Requires-Dist: black (>=19.3b0) ; extra == 'dev'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'dev'
+Requires-Dist: pytest-mock (>=1.6.3) ; extra == 'dev'
+Requires-Dist: pre-commit (>=1.18.3) ; extra == 'dev'
+Requires-Dist: nbval (>=0.9.6) ; extra == 'dev'
+Requires-Dist: scikit-lego (>=0.6.0) ; extra == 'dev'
+Requires-Dist: matplotlib (>=3.0.2) ; extra == 'dev'
+Requires-Dist: mktestdocs (==0.1.1) ; extra == 'dev'
+Requires-Dist: jupyter (>=1.0.0) ; extra == 'dev'
+Requires-Dist: jupyterlab (>=0.35.4) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: mkdocs-material (>=9.0.0) ; extra == 'docs'
+Requires-Dist: mkdocstrings (==0.8.0) ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: flake8 (>=3.6.0) ; extra == 'test'
+Requires-Dist: nbval (>=0.9.1) ; extra == 'test'
+Requires-Dist: pytest (>=4.0.2) ; extra == 'test'
+Requires-Dist: pytest-xdist (>=1.32.0) ; extra == 'test'
+Requires-Dist: black (>=19.3b0) ; extra == 'test'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'test'
+Requires-Dist: pytest-mock (>=1.6.3) ; extra == 'test'
+Requires-Dist: pre-commit (>=1.18.3) ; extra == 'test'
+Requires-Dist: nbval (>=0.9.6) ; extra == 'test'
+Requires-Dist: scikit-lego (>=0.6.0) ; extra == 'test'
+Requires-Dist: matplotlib (>=3.0.2) ; extra == 'test'
+Requires-Dist: mktestdocs (==0.1.1) ; extra == 'test'
+
