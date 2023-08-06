@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: farm-haystack-text2speech
+Version: 1.1.1
+Summary: Haystack node to convert text entities (documents, answers, etc...) into audio files.
+Project-URL: Documentation, https://github.com/deepset-ai/haystack-extras/tree/main/nodes/text2speech#readme
+Project-URL: Issues, https://github.com/deepset-ai/haystack-extras/issues
+Project-URL: Source, https://github.com/deepset-ai/haystack-extras/tree/main/nodes/text2speech
+Author-email: deepset GmbH <info@deepset.ai>
+License-Expression: Apache-2.0
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Requires-Dist: espnet
+Requires-Dist: espnet-model-zoo
+Requires-Dist: farm-haystack
+Requires-Dist: ffmpeg-python
+Requires-Dist: numpy
+Requires-Dist: pydantic
+Requires-Dist: pydub
+Requires-Dist: pyworld<=0.2.12
+Requires-Dist: soundfile
+Requires-Dist: torch
+Requires-Dist: typeguard==2.13.3
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: pylint; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# text2speech
+
+[![PyPI - Version](https://img.shields.io/pypi/v/farm-haystack-text2speech.svg)](https://pypi.org/project/farm-haystack-text2speech)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/farm-haystack-text2speech.svg)](https://pypi.org/project/farm-haystack-text2speech)
+
+---
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+
+## Installation
+
+```console
+pip install farm-haystack-text2speech
+```
+
+## Installation
+
+Step 1. Install the audio system dependencies. On Debian-based systems:
+
+```console
+sudo apt-get install libsndfile1 ffmpeg
+```
+
+Step 2. Install the package. With pip:
+
+```console
+pip install farm-haystack-text2speech
+```
+
+## License
+
+`haystack-text2speech` is distributed under the terms of the [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) license.
