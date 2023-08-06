@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: unicboard-billing-sdk
+Version: 1.0.1
+Summary: Unicboard billing api
+Home-page: https://github.com/uniclab-01/billing-api
+Author: Unic-lab
+Author-email: a.brilon@unic-lab.by
+License: MIT
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Unicboard billing api is available on PyPI:
+
+## Requires:
+
+Python >=3.6
+
+## install:
+
+python -m pip install unicboard_billing_sdk
+
+## usage:
+
+```python
+from unicboard_billing_sdk import BillingApiSdk
+
+Api = BillingApiSdk(
+    api_billing_url="unicboard url",
+    api_token="yours token",
+) 
+```
+### get list devices
+```python
+devices = Api.get_device_list_info() # default limit = 1000
+
+devices = Api.get_device_list_info(limit: int, offset: int) #  for custom limit/offset
+
+list_device_id = [device.id for device in devices] 
+list_device_mac = [device.data_gateway_network_device.mac for device in devices]
+```
+
+### get device by device_id
+```python
+device = Api.get_device_info(UUID(device_id))
+```
+
+### get device by device_id
+```python
+devices_values = Api.get_device_value(
+    devices_id=list_device_id,
+    period_from: datetime,
+    period_to: Optional[datetime],  # default now
+)
+```
