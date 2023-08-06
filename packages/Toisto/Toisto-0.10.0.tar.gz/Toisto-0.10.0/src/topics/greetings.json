@@ -1,0 +1,240 @@
+{
+    "hi": {
+        "level": {
+            "A1": [
+                "EP",
+                "KK",
+                "OD"
+            ]
+        },
+        "en": "Hi!",
+        "fi": [
+            "Hei!",
+            "Moi!"
+        ],
+        "nl": "Hoi!"
+    },
+    "hello": {
+        "level": {
+            "A1": [
+                "EP",
+                "KK",
+                "OD"
+            ]
+        },
+        "en": "Hello!",
+        "fi": "Terve!",
+        "nl": "Hallo!"
+    },
+    "bye": {
+        "level": {
+            "A1": [
+                "EP",
+                "KK",
+                "OD"
+            ]
+        },
+        "en": [
+            "Bye!",
+            "Bye bye!"
+        ],
+        "fi": [
+            "Hei hei!",
+            "Moi moi!"
+        ],
+        "nl": [
+            "Doei!",
+            "Dag!",
+            "Tot ziens!"
+        ]
+    },
+    "welcome": {
+        "level": {
+            "A1": "OD",
+            "A2": "EP"
+        },
+        "en": "Welcome!",
+        "fi": "Tervetuloa!",
+        "nl": "Welkom!"
+    },
+    "who are you": {
+        "roots": [
+            "who",
+            "to be"
+        ],
+        "en": "Who are you?",
+        "fi": "Kuka sinä olet?|Kuka olet?",
+        "nl": "Wie ben jij?"
+    },
+    "I am alice": {
+        "roots": "to be",
+        "en": "I am Alice.|I'm Alice.",
+        "fi": "Minä olen Alice.",
+        "nl": "Ik ben Alice."
+    },
+    "how are you": {
+        "roots": [
+            "what",
+            "how",
+            "to be"
+        ],
+        "en": "How are you?",
+        "fi": [
+            "Mitä kuuluu?",
+            "Miten menee?"
+        ],
+        "nl": "Hoe gaat het?"
+    },
+    "name": {
+        "level": {
+            "A1": [
+                "EP",
+                "KK",
+                "OD"
+            ]
+        },
+        "singular": {
+            "en": "name",
+            "fi": "nimi",
+            "nl": "de naam"
+        },
+        "plural": {
+            "en": "names",
+            "fi": "nimet",
+            "nl": "de namen"
+        }
+    },
+    "what is your name": {
+        "roots": [
+            "what",
+            "to be",
+            "name"
+        ],
+        "en": "What is your name?",
+        "fi": "Mikä sinun nimesi on?",
+        "nl": "Wat is jouw naam?|Wat is je naam?"
+    },
+    "my name is bob": {
+        "roots": [
+            "name",
+            "to be"
+        ],
+        "en": "My name is Bob.",
+        "fi": "Minun nimeni on Bob.",
+        "nl": "Mijn naam is Bob."
+    },
+    "how old are you": {
+        "roots": [
+            "how",
+            "old",
+            "to be"
+        ],
+        "en": "How old are you?",
+        "fi": "Kuinka vanha olet?",
+        "nl": "Hoe oud ben jij?|Hoe oud ben je?"
+    },
+    "good morning": {
+        "level": {
+            "A1": "EP",
+            "none": "OD"
+        },
+        "roots": [
+            "good",
+            "morning"
+        ],
+        "en": "Good morning!",
+        "fi": [
+            "Hyvää huomenta!",
+            "Huomenta!"
+        ],
+        "nl": "Goedemorgen!"
+    },
+    "good afternoon": {
+        "level": {
+            "A1": "EP",
+            "none": "OD"
+        },
+        "roots": {
+            "en": [
+                "good",
+                "afternoon"
+            ],
+            "fi": [
+                "good",
+                "day"
+            ],
+            "nl": [
+                "good",
+                "afternoon"
+            ]
+        },
+        "en": "Good afternoon!",
+        "fi": [
+            "Hyvää päivää!;afternoon",
+            "Päivää!;afternoon"
+        ],
+        "nl": "Goedemiddag"
+    },
+    "good day": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": [
+            "good",
+            "day"
+        ],
+        "en": "Good day!",
+        "fi": [
+            "Hyvää päivää!",
+            "Päivää!"
+        ],
+        "nl": "Goedendag!"
+    },
+    "good evening": {
+        "level": {
+            "A1": "EP",
+            "none": "OD"
+        },
+        "roots": [
+            "good",
+            "evening"
+        ],
+        "en": "Good evening!",
+        "fi": [
+            "Hyvää iltaa!",
+            "Iltaa!"
+        ],
+        "nl": "Goedenavond!"
+    },
+    "good night": {
+        "level": {
+            "A1": "EP",
+            "none": "OD"
+        },
+        "roots": [
+            "good",
+            "night"
+        ],
+        "en": "Good night!",
+        "fi": "Hyvää yötä!",
+        "nl": "Goedenacht!"
+    },
+    "sleep well": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": "to sleep",
+        "en": "Sleep well!",
+        "fi": "Nuku hyvin!",
+        "nl": [
+            "Slaap lekker!",
+            "Welterusten!"
+        ]
+    }
+}

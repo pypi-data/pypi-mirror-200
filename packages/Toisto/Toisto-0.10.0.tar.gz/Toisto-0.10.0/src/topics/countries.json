@@ -1,0 +1,149 @@
+{
+    "country": {
+        "level": {
+            "A1": [
+                "EP",
+                "KK",
+                "OD"
+            ]
+        },
+        "singular": {
+            "en": "country",
+            "fi": "maa;geography",
+            "nl": "het land"
+        },
+        "plural": {
+            "en": "countries",
+            "fi": "maat;geography",
+            "nl": "de landen"
+        }
+    },
+    "finland": {
+        "level": {
+            "A1": "KK",
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": {
+            "nl": "country"
+        },
+        "en": "Finland",
+        "fi": "Suomi",
+        "nl": "Finland"
+    },
+    "estland": {
+        "level": {
+            "none": [
+                "EP",
+                "KK",
+                "OD"
+            ]
+        },
+        "roots": {
+            "nl": "country"
+        },
+        "en": "Estland",
+        "fi": "Viro",
+        "nl": "Estland"
+    },
+    "denmark": {
+        "en": "Denmark",
+        "fi": "Tanska",
+        "nl": "Denemarken"
+    },
+    "norway": {
+        "en": "Norway",
+        "fi": "Norja",
+        "nl": "Noorwegen"
+    },
+    "sweden": {
+        "en": "Sweden",
+        "fi": "Ruotsi",
+        "nl": "Zweden"
+    },
+    "russia": {
+        "roots": {
+            "nl": "country"
+        },
+        "en": "Russia",
+        "fi": "Venäjä",
+        "nl": "Rusland"
+    },
+    "belgium": {
+        "en": "Belgium",
+        "fi": "Belgia",
+        "nl": "België"
+    },
+    "netherlands": {
+        "roots": {
+            "fi": "country",
+            "nl": "country"
+        },
+        "en": "The Netherlands",
+        "fi": "Alankomaat",
+        "nl": "Nederland"
+    },
+    "germany": {
+        "roots": {
+            "nl": "country"
+        },
+        "en": "Germany",
+        "fi": "Saksa",
+        "nl": "Duitsland"
+    },
+    "france": {
+        "en": "France",
+        "fi": "Ranska",
+        "nl": "Frankrijk"
+    },
+    "england": {
+        "level": {
+            "none": [
+                "EP",
+                "KK",
+                "OD"
+            ]
+        },
+        "roots": {
+            "nl": "country"
+        },
+        "en": "England",
+        "fi": "Englanti",
+        "nl": "Engeland"
+    },
+    "iceland": {
+        "roots": {
+            "nl": "country"
+        },
+        "en": "Iceland",
+        "fi": "Islanti",
+        "nl": "IJsland"
+    },
+    "china": {
+        "en": "China",
+        "fi": "Kiina",
+        "nl": "China"
+    },
+    "hungary": {
+        "en": "Hungary",
+        "fi": "Unkari",
+        "nl": "Hongarije"
+    },
+    "japan": {
+        "en": "Japan",
+        "fi": "Japani",
+        "nl": "Japan"
+    },
+    "korea": {
+        "en": "Korea",
+        "fi": "Korea",
+        "nl": "Korea"
+    },
+    "spain": {
+        "en": "Spain",
+        "fi": "Espanja",
+        "nl": "Spanje"
+    }
+}
