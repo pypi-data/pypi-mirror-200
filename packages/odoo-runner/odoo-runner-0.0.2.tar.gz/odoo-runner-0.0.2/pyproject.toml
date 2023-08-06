@@ -1,0 +1,15 @@
+[project]
+name = "odoo-runner"
+version = "0.0.2"
+description = "Simple wrapper for running headless Odoo scripts"
+readme = "README.md"
+license = {file = "LICENSE"}
+dependencies = []
+authors = [
+  {name = "Janos Gerzson (@grzs)", email = "gerzsonj@gmail.com"}
+]
+keywords = ["odoo"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
