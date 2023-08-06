@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: aiida-optimize
+Version: 1.0.2
+Summary: AiiDA Plugin for running optimization algorithms.
+Home-page: https://aiida-optimize.readthedocs.io/
+Author: Dominik Gresch
+Author-email: greschd@gmx.ch
+License: Apache 2.0
+Keywords: AiiDA,workflows,optimization
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Framework :: AiiDA
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: aiida-core (<3.0.0,>=2.0.0)
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: decorator
+Requires-Dist: pyyaml
+Provides-Extra: dev
+Requires-Dist: yapf (==0.32.0) ; extra == 'dev'
+Requires-Dist: pre-commit (==2.19) ; extra == 'dev'
+Requires-Dist: pylint (==2.17.1) ; extra == 'dev'
+Requires-Dist: mypy (==0.961) ; extra == 'dev'
+Requires-Dist: types-PyYAML (==6.0.9) ; extra == 'dev'
+Requires-Dist: types-decorator (==5.1.7) ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: sphinxcontrib-details-directive ; extra == 'dev'
+Requires-Dist: markupsafe (==2.0.1) ; extra == 'dev'
+Requires-Dist: pytest (~=6.0) ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pgtest (>=1.3.1) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinxcontrib-details-directive ; extra == 'docs'
+Requires-Dist: markupsafe (==2.0.1) ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest (~=6.0) ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: pgtest (>=1.3.1) ; extra == 'tests'
+
+# aiida-optimize
+
+Defines AiiDA workchains that simplify running optimization workflows.
+
+Documentation: http://aiida-optimize.readthedocs.io
+
+[![Build Status](https://travis-ci.org/greschd/aiida-optimize.svg?branch=develop)](https://travis-ci.org/greschd/aiida-optimize) [![Documentation Status](https://readthedocs.org/projects/aiida-optimize/badge/?version=latest)](https://aiida-optimize.readthedocs.io/en/latest/?badge=latest)
