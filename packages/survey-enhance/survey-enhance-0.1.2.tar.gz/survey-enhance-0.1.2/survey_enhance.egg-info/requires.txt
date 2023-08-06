@@ -1,0 +1,16 @@
+numpy
+pandas
+microdf_python
+torch
+policyengine_core
+ipython
+scikit-learn
+tensorboard
+
+[dev]
+black
+jupyter-book
+sphinx<5,>=4.5.0
+sphinx-argparse<1,>=0.3.2
+sphinx-math-dollar<2,>=1.2.1
+furo<2023
