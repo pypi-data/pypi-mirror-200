@@ -1,0 +1,3 @@
+[console_scripts]
+conanbuild = conanbuild.builder:run
+startcpp = startcpp.entry:main
