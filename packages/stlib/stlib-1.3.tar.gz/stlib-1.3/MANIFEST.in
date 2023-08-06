@@ -1,0 +1,6 @@
+include LICENSE.md
+exclude pylintrc
+graft src
+prune src/steam_api/steamworks_sdk/sdk
+prune tests
+global-exclude *.zip *.yml *.ini .*
