@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: pyRawTools
+Version: 0.2.3
+Summary: pyRawTools is a Python package for loading Thermo MS data.
+Home-page: https://github.com/EstrellaXD/pyRawTools
+Author: EstrellaXD
+Author-email: Estrella Pan <estrellaxd05@gmail.com>
+Project-URL: Homepage, https://github.com/EstrellaXD/pyRawTools
+Project-URL: Bug Tracker, https://github.com/EstrellaXD/pyRawTools/issues
+Keywords: RAW MS data
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+
+# pyRawTools
+
+pyRawTools is a Python package for Windows/Linux/Mac processing raw data from mass spectrometry experiments. Base on RawTools and UNIX command line.
+
+# Install
+1. Must install mono
+   1. For macOS, use brew to install mono
+   ```zsh
+    brew install mono
+    ```
+   2. For Linux, use apt or yum to install mono
+   ```bash
+    sudo apt install mono-complete
+    ```
+2. Install or Build
+   1. Install
+
+      2. ```bash
+         pip install pyRawTools
+         ```
+         
+   2. Build
+      1. Clone this repository
+         ```bash
+         git clone https://github.com/EstrellaXD/pyRawTools.git
+         ```
+      2. Install python package
+         ```bash
+         cd pyRawTools
+         python setup.py install
+         ```
+
+# Usage
+1. Convert raw file to pandas DataFrame
+```python
+from pyRawTools import MSLoader
+
+
+loader = MSLoader()
+raw_data, raw_metrix = loader.load('path/to/raw/file.RAW')
+```
