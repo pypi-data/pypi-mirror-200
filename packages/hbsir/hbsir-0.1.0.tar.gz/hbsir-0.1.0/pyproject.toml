@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "hbsir"
+version = "0.1.0"
+description = "An intuitive platform designed to simplify the analysis of household budget survey data in Iran."
+authors = [
+    "Amin Alavian <m.amin.alavian@gmail.com>",
+    "TerseTears <tersetears@protonmail.com>"
+]
+readme = "README.md"
+repository = "https://github.com/Iran-Open-Data/HBSIR"
+packages = [
+    {include = "hbsir"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyyaml = "^6.0"
+pathlib = "^1.0.1"
+numpy = "^1.24.2"
+pandas = "^1.5.3"
+pyodbc = "^4.0.35"
+requests = "^2.28.2"
+tqdm = "^4.65.0"
+sympy = "^1.11.1"
+fastparquet = "^2023.2.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

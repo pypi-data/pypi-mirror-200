@@ -1,0 +1,136 @@
+
+
+household_information:
+  order:
+    - Year
+    - ID
+    - Season
+    - Weight	
+
+
+common_order: &common_order
+  - Year
+  - ID
+  - Code
+  - Provision_Method
+  - Price_System
+  - Amount
+  - Duration
+  - Price
+  - Expenditure
+  - Secondhand_Sale
+
+
+food:
+
+  columns:
+
+    Price_System:
+      1363:
+        type: categorical
+        categories:
+          Free_Price:       {Provision_Method: Purchase_Free_Price}
+          Subsidised_Price: {Provision_Method: Purchase_Subsidised_Price}
+      1369: null
+
+    Provision_Method:
+      1363:
+        type: categorical
+        categories:
+          Purchase: [Purchase_Free_Price, Purchase_Subsidised_Price]
+      1369: null
+
+    Amount:
+      1363:
+        type: numerical
+        expression: "Kilos"
+      1383:
+        type: numerical
+        expression: "0.001 * Grams + Kilos"
+
+  order: *common_order
+
+
+tobacco:
+
+  order: *common_order
+
+
+cloth:
+
+  order: *common_order
+
+
+home:
+
+  order: *common_order
+
+
+furniture:
+
+  order: *common_order
+
+
+medical:
+
+  order: *common_order
+
+
+transportation:
+
+  order: *common_order
+
+
+communication:
+
+  order: *common_order
+
+
+entertainment:
+
+  order: *common_order
+
+
+education:
+
+  order: *common_order
+
+
+hotel:
+
+  order: *common_order
+
+
+other:
+
+  order: *common_order
+
+
+durable:
+
+  order: *common_order
+
+
+investment:
+
+  order: *common_order
+
+
+
+Expenditures:
+  table_list:
+    - food
+    - tobacco
+    - cloth
+    - home
+    - furniture
+    - medical
+    - transportation
+    - communication
+    - entertainment
+    - education
+    - hotel
+    - other
+    - durable
+
+  order: *common_order
