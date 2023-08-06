@@ -1,0 +1,58 @@
+[project]
+name = "cs.typingutils"
+description = "Trite hacks for use with typing."
+authors = [
+    { name = "Cameron Simpson", email = "cs@cskk.id.au" },
+]
+keywords = [
+    "python3",
+]
+dependencies = []
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+version = "20230331"
+
+[project.license]
+text = "GNU General Public License v3 or later (GPLv3+)"
+
+[project.urls]
+URL = "https://bitbucket.org/cameron_simpson/css/commits/all"
+
+[project.readme]
+text = """
+Trite hacks for use with typing.
+
+*Latest release 20230331*:
+Initial release.
+
+## Function `subtype(t, name=None)`
+
+Construct a `TypeVar` for subtypes of the type `t`.
+
+Parameters:
+* `t`: the type which bounds the `TypeVar`
+* `name`: optional name for the `TypeVar`,
+  default `t.__name__ + 'SubType'`
+
+# Release Log
+
+
+
+*Release 20230331*:
+Initial release."""
+content-type = "text/markdown"
+
+[build-system]
+requires = [
+    "setuptools >= 61.2",
+    "trove-classifiers",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
