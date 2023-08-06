@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "skit-game"
+version = "0.1.6"
+description = "A tool for prototyping card games"
+authors = ["Matt Cooper <vtbassmatt@gmail.com>"]
+license = "MIT"
+readme = "readme.md"
+homepage = "https://github.com/vtbassmatt/skit"
+repository = "https://github.com/vtbassmatt/skit.git"
+packages = [{ include = "skit" }]
+classifiers = [
+  "Topic :: Artistic Software",
+  "Topic :: Games/Entertainment",
+  "Topic :: Games/Entertainment :: Board Games",
+  "Topic :: Multimedia :: Graphics",
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pillow = "^9.4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pdoc = "^13.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
