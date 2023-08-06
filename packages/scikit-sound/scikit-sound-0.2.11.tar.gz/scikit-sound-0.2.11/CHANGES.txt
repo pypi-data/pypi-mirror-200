@@ -1,0 +1,22 @@
+v0.1.0, 19-Feb-2017 -- Initial release
+v0.1.1, 20-Feb-2017 -- Make it compatible with Linux
+v0.1.2, 20-Feb-2017 -- Update doc
+v0.1.3, 20-Feb-2017 -- Add wav and mp3 to package
+v0.1.4, 20-Feb-2017 -- sounddev replaced by pygame
+v0.1.5, 15-Mar-2017 -- OSX fix
+v0.1.6, 19-Mar-2017 -- update documentation
+v0.1.7, 12-Apr-2017 -- fix bug when reading in a second file
+v0.1.8, 12-Apr-2017 -- convert float input files to integer
+v0.2.0, 23-Mar-2018 -- eliminate dependence on easygui
+v0.2.1, 23-Mar-2018 -- path-problem with "misc.py" fixed
+v0.2.2, 11-Mar-2019 -- Update the documentation
+v0.2.3, 28-March-2019 -- problem with Sound.write() when used without input fixed
+v0.2.3b, 05-April-2019 -- Documentation updated
+v0.2.4, 13-April-2019 -- Try to keep file-/dir-selection windows in the front
+v0.2.5, 13-April-2019 -- Exit gracefully if user cancels file selection
+v0.2.6, 28-March-2021 -- updated docu; renamed self.info -> self.ffmpeg_info
+v0.2.7, 02-April-2021 -- left tkinter root window visible to avoid some crashes
+v0.2.8, 02-April-2021 -- [erroneous fix]
+v0.2.9, 02-April-2021 -- moved the tkinter root to the top to be visible
+v0.2.10, 03-April-2022 -- fixed error in displayed name of out-file
+v0.2.11, 03-April-2023 -- implemented feedback from thmeier on github
