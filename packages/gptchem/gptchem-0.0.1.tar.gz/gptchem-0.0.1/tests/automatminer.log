@@ -1,0 +1,107 @@
+2023-01-17 18:15:32 INFO     Problem type is: classification
+2023-01-17 18:15:32 INFO     Fitting MatPipe pipeline to data.
+2023-01-17 18:15:32 INFO     AutoFeaturizer: Starting fitting.
+2023-01-17 18:15:32 INFO     AutoFeaturizer: Compositions detected as strings. Attempting conversion to Composition objects...
+2023-01-17 18:15:34 INFO     AutoFeaturizer: Guessing oxidation states of compositions, as they were not present in input.
+2023-01-17 18:15:37 INFO     AutoFeaturizer: Featurizer type structure not in the dataframe to be fitted. Skipping...
+2023-01-17 18:15:37 INFO     AutoFeaturizer: Featurizer type bandstructure not in the dataframe to be fitted. Skipping...
+2023-01-17 18:15:37 INFO     AutoFeaturizer: Featurizer type dos not in the dataframe to be fitted. Skipping...
+2023-01-17 18:15:37 INFO     AutoFeaturizer: Finished fitting.
+2023-01-17 18:15:37 INFO     AutoFeaturizer: Starting transforming.
+2023-01-17 18:15:37 INFO     AutoFeaturizer: Featurizing with ElementProperty.
+2023-01-17 18:15:40 INFO     AutoFeaturizer: Featurizing with OxidationStates.
+2023-01-17 18:15:43 INFO     AutoFeaturizer: Featurizing with ElectronAffinity.
+2023-01-17 18:15:46 INFO     AutoFeaturizer: Featurizing with IonProperty.
+2023-01-17 18:15:50 INFO     AutoFeaturizer: Featurizing with YangSolidSolution.
+2023-01-17 18:15:52 INFO     AutoFeaturizer: Featurizing with Miedema.
+2023-01-17 18:15:55 INFO     AutoFeaturizer: Featurizer type structure not in the dataframe. Skipping...
+2023-01-17 18:15:55 INFO     AutoFeaturizer: Featurizer type bandstructure not in the dataframe. Skipping...
+2023-01-17 18:15:55 INFO     AutoFeaturizer: Featurizer type dos not in the dataframe. Skipping...
+2023-01-17 18:15:55 INFO     AutoFeaturizer: Finished transforming.
+2023-01-17 18:15:55 INFO     DataCleaner: Starting fitting.
+2023-01-17 18:15:55 INFO     DataCleaner: Cleaning with respect to samples with sample na_method 'drop'
+2023-01-17 18:15:55 INFO     DataCleaner: Replacing infinite values with nan for easier screening.
+2023-01-17 18:15:55 INFO     DataCleaner: One-hot encoding used for columns ['Alloy', 'Phase']
+2023-01-17 18:15:55 INFO     DataCleaner: Before handling na: 100 samples, 251 features
+2023-01-17 18:15:55 INFO     DataCleaner: 0 samples did not have target values. They were dropped.
+2023-01-17 18:15:55 INFO     DataCleaner: Handling feature na by max na threshold of 0.01 with method 'drop'.
+2023-01-17 18:15:55 INFO     DataCleaner: These 11 features were removed as they had more than 1.0% missing values: {'compound possible', 'Miedema_deltaH_inter', 'avg anion electron affinity', 'minimum oxidation state', 'std_dev oxidation state', 'avg ionic char', 'Miedema_deltaH_amor', 'Miedema_deltaH_ss_min', 'max ionic char', 'range oxidation state', 'maximum oxidation state'}
+2023-01-17 18:15:55 INFO     DataCleaner: After handling na: 100 samples, 240 features
+2023-01-17 18:15:55 INFO     DataCleaner: Finished fitting.
+2023-01-17 18:15:55 INFO     FeatureReducer: Starting fitting.
+2023-01-17 18:15:55 INFO     FeatureReducer: 18 features removed due to cross correlation more than 0.95
+2023-01-17 18:18:09 INFO     Problem type is: classification
+2023-01-17 18:18:09 INFO     Fitting MatPipe pipeline to data.
+2023-01-17 18:18:09 INFO     AutoFeaturizer: Starting fitting.
+2023-01-17 18:18:09 INFO     AutoFeaturizer: Compositions detected as strings. Attempting conversion to Composition objects...
+2023-01-17 18:18:11 INFO     AutoFeaturizer: Guessing oxidation states of compositions, as they were not present in input.
+2023-01-17 18:18:14 INFO     AutoFeaturizer: Featurizer type structure not in the dataframe to be fitted. Skipping...
+2023-01-17 18:18:14 INFO     AutoFeaturizer: Featurizer type bandstructure not in the dataframe to be fitted. Skipping...
+2023-01-17 18:18:14 INFO     AutoFeaturizer: Featurizer type dos not in the dataframe to be fitted. Skipping...
+2023-01-17 18:18:14 INFO     AutoFeaturizer: Finished fitting.
+2023-01-17 18:18:14 INFO     AutoFeaturizer: Starting transforming.
+2023-01-17 18:18:14 INFO     AutoFeaturizer: Featurizing with ElementProperty.
+2023-01-17 18:18:18 INFO     AutoFeaturizer: Featurizing with OxidationStates.
+2023-01-17 18:18:21 INFO     AutoFeaturizer: Featurizing with ElectronAffinity.
+2023-01-17 18:18:24 INFO     AutoFeaturizer: Featurizing with IonProperty.
+2023-01-17 18:18:27 INFO     AutoFeaturizer: Featurizing with YangSolidSolution.
+2023-01-17 18:18:30 INFO     AutoFeaturizer: Featurizing with Miedema.
+2023-01-17 18:18:33 INFO     AutoFeaturizer: Featurizer type structure not in the dataframe. Skipping...
+2023-01-17 18:18:33 INFO     AutoFeaturizer: Featurizer type bandstructure not in the dataframe. Skipping...
+2023-01-17 18:18:33 INFO     AutoFeaturizer: Featurizer type dos not in the dataframe. Skipping...
+2023-01-17 18:18:33 INFO     AutoFeaturizer: Finished transforming.
+2023-01-17 18:18:33 INFO     DataCleaner: Starting fitting.
+2023-01-17 18:18:33 INFO     DataCleaner: Cleaning with respect to samples with sample na_method 'drop'
+2023-01-17 18:18:33 INFO     DataCleaner: Replacing infinite values with nan for easier screening.
+2023-01-17 18:18:33 INFO     DataCleaner: One-hot encoding used for columns ['Alloy', 'Phase']
+2023-01-17 18:18:34 INFO     DataCleaner: Before handling na: 100 samples, 251 features
+2023-01-17 18:18:34 INFO     DataCleaner: 0 samples did not have target values. They were dropped.
+2023-01-17 18:18:34 INFO     DataCleaner: Handling feature na by max na threshold of 0.01 with method 'drop'.
+2023-01-17 18:18:34 INFO     DataCleaner: These 11 features were removed as they had more than 1.0% missing values: {'compound possible', 'Miedema_deltaH_inter', 'avg anion electron affinity', 'minimum oxidation state', 'std_dev oxidation state', 'avg ionic char', 'Miedema_deltaH_amor', 'Miedema_deltaH_ss_min', 'max ionic char', 'range oxidation state', 'maximum oxidation state'}
+2023-01-17 18:18:34 INFO     DataCleaner: After handling na: 100 samples, 240 features
+2023-01-17 18:18:34 INFO     DataCleaner: Finished fitting.
+2023-01-17 18:18:34 INFO     FeatureReducer: Starting fitting.
+2023-01-17 18:18:34 INFO     FeatureReducer: 20 features removed due to cross correlation more than 0.95
+2023-01-17 18:21:28 INFO     Problem type is: classification
+2023-01-17 18:21:28 INFO     Fitting MatPipe pipeline to data.
+2023-01-17 18:21:28 INFO     AutoFeaturizer: Starting fitting.
+2023-01-17 18:21:28 INFO     AutoFeaturizer: Compositions detected as strings. Attempting conversion to Composition objects...
+2023-01-17 18:21:30 INFO     AutoFeaturizer: Guessing oxidation states of compositions, as they were not present in input.
+2023-01-17 18:21:33 INFO     AutoFeaturizer: Featurizer type structure not in the dataframe to be fitted. Skipping...
+2023-01-17 18:21:33 INFO     AutoFeaturizer: Featurizer type bandstructure not in the dataframe to be fitted. Skipping...
+2023-01-17 18:21:33 INFO     AutoFeaturizer: Featurizer type dos not in the dataframe to be fitted. Skipping...
+2023-01-17 18:21:33 INFO     AutoFeaturizer: Finished fitting.
+2023-01-17 18:21:33 INFO     AutoFeaturizer: Starting transforming.
+2023-01-17 18:21:33 INFO     AutoFeaturizer: Featurizing with ElementProperty.
+2023-01-17 18:24:32 INFO     Problem type is: classification
+2023-01-17 18:24:32 INFO     Fitting MatPipe pipeline to data.
+2023-01-17 18:24:32 INFO     AutoFeaturizer: Starting fitting.
+2023-01-17 18:24:32 INFO     AutoFeaturizer: Compositions detected as strings. Attempting conversion to Composition objects...
+2023-01-17 18:24:34 INFO     AutoFeaturizer: Guessing oxidation states of compositions, as they were not present in input.
+2023-01-17 18:24:37 INFO     AutoFeaturizer: Featurizer type structure not in the dataframe to be fitted. Skipping...
+2023-01-17 18:24:37 INFO     AutoFeaturizer: Featurizer type bandstructure not in the dataframe to be fitted. Skipping...
+2023-01-17 18:24:37 INFO     AutoFeaturizer: Featurizer type dos not in the dataframe to be fitted. Skipping...
+2023-01-17 18:24:37 INFO     AutoFeaturizer: Finished fitting.
+2023-01-17 18:24:37 INFO     AutoFeaturizer: Starting transforming.
+2023-01-17 18:24:37 INFO     AutoFeaturizer: Featurizing with ElementProperty.
+2023-01-17 18:24:40 INFO     AutoFeaturizer: Featurizing with OxidationStates.
+2023-01-17 18:24:42 INFO     AutoFeaturizer: Featurizing with ElectronAffinity.
+2023-01-17 18:24:45 INFO     AutoFeaturizer: Featurizing with IonProperty.
+2023-01-17 18:24:47 INFO     AutoFeaturizer: Featurizing with YangSolidSolution.
+2023-01-17 18:24:50 INFO     AutoFeaturizer: Featurizing with Miedema.
+2023-01-17 18:24:53 INFO     AutoFeaturizer: Featurizer type structure not in the dataframe. Skipping...
+2023-01-17 18:24:53 INFO     AutoFeaturizer: Featurizer type bandstructure not in the dataframe. Skipping...
+2023-01-17 18:24:53 INFO     AutoFeaturizer: Featurizer type dos not in the dataframe. Skipping...
+2023-01-17 18:24:53 INFO     AutoFeaturizer: Finished transforming.
+2023-01-17 18:24:53 INFO     DataCleaner: Starting fitting.
+2023-01-17 18:24:53 INFO     DataCleaner: Cleaning with respect to samples with sample na_method 'drop'
+2023-01-17 18:24:53 INFO     DataCleaner: Replacing infinite values with nan for easier screening.
+2023-01-17 18:24:53 INFO     DataCleaner: One-hot encoding used for columns ['Alloy', 'Phase']
+2023-01-17 18:24:53 INFO     DataCleaner: Before handling na: 100 samples, 251 features
+2023-01-17 18:24:53 INFO     DataCleaner: 0 samples did not have target values. They were dropped.
+2023-01-17 18:24:53 INFO     DataCleaner: Handling feature na by max na threshold of 0.01 with method 'drop'.
+2023-01-17 18:24:53 INFO     DataCleaner: These 11 features were removed as they had more than 1.0% missing values: {'compound possible', 'Miedema_deltaH_inter', 'avg anion electron affinity', 'minimum oxidation state', 'std_dev oxidation state', 'avg ionic char', 'Miedema_deltaH_amor', 'Miedema_deltaH_ss_min', 'max ionic char', 'range oxidation state', 'maximum oxidation state'}
+2023-01-17 18:24:53 INFO     DataCleaner: After handling na: 100 samples, 240 features
+2023-01-17 18:24:53 INFO     DataCleaner: Finished fitting.
+2023-01-17 18:24:53 INFO     FeatureReducer: Starting fitting.
+2023-01-17 18:24:53 INFO     FeatureReducer: 17 features removed due to cross correlation more than 0.95
