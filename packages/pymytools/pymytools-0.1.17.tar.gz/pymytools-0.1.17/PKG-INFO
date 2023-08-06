@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: pymytools
+Version: 0.1.17
+Summary: Tools used in my pystops project.
+Author: Kyoungseoun Chung
+Author-email: kyoungseoun.chung@gmail.com
+Requires-Python: >=3.10,<3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: h5py (>=3.8.0,<4.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: pyevtk (>=1.5.0,<2.0.0)
+Requires-Dist: pymyplot (>=0.2.7,<0.3.0)
+Requires-Dist: rich (>=13.3.2,<14.0.0)
+Requires-Dist: scipy (>=1.10.1,<2.0.0)
+Requires-Dist: simpleaudio (>=1.0.4,<2.0.0)
+Requires-Dist: tensorboard (>=2.12.0,<3.0.0)
+Requires-Dist: torch (>=2.0.0,<3.0.0)
+Requires-Dist: tqdm (>=4.65.0,<5.0.0)
+Requires-Dist: vtk (>=9.2.6,<10.0.0)
+Description-Content-Type: text/markdown
+
+# Collection of Useful Tools for `pystops` Project
+
+During my PhD, I noticed that some features that I implemented throughout my projects appeared repeatedly.
+As a result, I decided to separate these features and manage them appropriately.
+
+## Goal
+
+Manage/unify fragmented features and deploy to `pypi.org`.
+
+## Features
+
+- Diagnostics
+  - file I/O
+    - Supports: `csv`, `hdf5` (`.h5`), and `vtk` (both `.vti` and `.vtu`) formats
+    - All data loaded are `torch.Tensor`
+  - Tensorboard tracker
+- Logging, timer, and progress bar
+  - Prettier representation using `rich` package
+
+## Dependencies
+
+Main dependencies:
+
+- `python = "^3.10"`
+- `h5py = "^3.8.0"`
+- `pyevtk = "^1.5.0"`
+- `rich = "^13.3.2"`
+- `tensorboard = "^2.12.0"`
+- `tqdm = "^4.65.0"`
+- `pandas = "^1.5.3"`
+- `torch = "^1.13.1"`
+- `vtk = "^9.2.6"`
+
+My other personal project:
+
+- `pymyplot = "^0.2.7"` (for plotting)
+
