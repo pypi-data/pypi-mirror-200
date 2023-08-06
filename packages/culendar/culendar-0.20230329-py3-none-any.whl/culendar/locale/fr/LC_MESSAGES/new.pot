@@ -1,0 +1,598 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2023-03-29 22:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: cul/confscr.py:30
+msgid "General configuration"
+msgstr ""
+
+#: cul/confscr.py:31
+msgid "Keybinding"
+msgstr ""
+
+#: cul/confscr.py:32
+msgid "Categories"
+msgstr ""
+
+#: cul/confscr.py:33
+msgid "CalDAV"
+msgstr ""
+
+#: cul/confscr.py:50 cul/culendar.py:116 cul/helpscr.py:78
+msgid "\\_x< A dead duck. That's all such a small terminal deserves."
+msgstr ""
+
+#: cul/confscr.py:63
+msgid "q: quit configuration"
+msgstr ""
+
+#: cul/confscr.py:64
+msgid "Culendar configuration screen"
+msgstr ""
+
+#: cul/confscr.py:134
+msgid "Category "
+msgstr ""
+
+#: cul/confscr.py:147
+msgid "On"
+msgstr ""
+
+#: cul/confscr.py:150
+msgid "Off"
+msgstr ""
+
+#: cul/confscr.py:168
+msgid "Example"
+msgstr ""
+
+#: cul/confscr.py:198
+msgid "T"
+msgstr ""
+
+#: cul/confscr.py:199
+msgid "URL"
+msgstr ""
+
+#: cul/confscr.py:200
+msgid "Username"
+msgstr ""
+
+#: cul/confscr.py:201
+msgid "Password"
+msgstr ""
+
+#: cul/confscr.py:260
+msgid "Enter/Space: edit value"
+msgstr ""
+
+#: cul/confscr.py:262
+msgid "a: add key    d: delete key"
+msgstr ""
+
+#: cul/confscr.py:264
+msgid "a: add name   d: delete name"
+msgstr ""
+
+#: cul/confscr.py:265
+msgid "    Enter/Space: change colour"
+msgstr ""
+
+#: cul/confscr.py:267
+msgid "a: add caldav    d: delete caldav"
+msgstr ""
+
+#: cul/confscr.py:268
+msgid "    t: change tag    c: change colour"
+msgstr ""
+
+#: cul/confscr.py:269
+msgid "    u: edit url    n: edit username"
+msgstr ""
+
+#: cul/confscr.py:270
+msgid "    p: edit password"
+msgstr ""
+
+#: cul/confscr.py:344
+msgid "Enter new value [hh] or [h]:"
+msgstr ""
+
+#: cul/confscr.py:374
+msgid "Select item to delete, press Enter"
+msgstr ""
+
+#: cul/confscr.py:431
+msgid "Press the key to add (Escape to cancel)"
+msgstr ""
+
+#: cul/confscr.py:450
+msgid "Warning: key \""
+msgstr ""
+
+#: cul/confscr.py:452
+msgid "\" was used for function \""
+msgstr ""
+
+#: cul/confscr.py:453
+msgid "\""
+msgstr ""
+
+#: cul/confscr.py:454 cul/confscr.py:523 cul/culendar.py:305
+#: cul/culendar.py:355 cul/culendar.py:645 cul/culendar.py:1181
+msgid "Press any key to continue"
+msgstr ""
+
+#: cul/confscr.py:464
+msgid "Enter new category name:"
+msgstr ""
+
+#: cul/confscr.py:479
+msgid "Enter tag [a-z]:"
+msgstr ""
+
+#: cul/confscr.py:509
+msgid "Enter URL: (http(s)://[…] for a Caldav, "
+msgstr ""
+
+#: cul/confscr.py:510
+msgid "webcal(s)://[user:password@][…] for a Webcal)"
+msgstr ""
+
+#: cul/confscr.py:520
+msgid "Error: URL starts with http(s):// or webcal://"
+msgstr ""
+
+#: cul/confscr.py:531
+msgid "Enter username:"
+msgstr ""
+
+#: cul/confscr.py:542
+msgid "Enter password:"
+msgstr ""
+
+#: cul/confscr.py:555
+msgid "Enter new tag [a-z]:"
+msgstr ""
+
+#: cul/confscr.py:556 cul/culendar.py:607
+msgid "(Current tag: "
+msgstr ""
+
+#: cul/confscr.py:716
+msgid "Webcals do not require this parameter"
+msgstr ""
+
+#: cul/culdav.py:49
+msgid ": "
+msgstr ""
+
+#: cul/culdav.py:49
+msgid "Loading caldav "
+msgstr ""
+
+#: cul/culdav.py:68
+msgid "Error: can't contact caldav "
+msgstr ""
+
+#: cul/culdav.py:71 cul/culdav.py:159
+msgid " -- using offline copy"
+msgstr ""
+
+#: cul/culdav.py:72 cul/culdav.py:160
+msgid " -- press any key to continue"
+msgstr ""
+
+#: cul/culdav.py:112
+msgid "Synchronising caldavs…"
+msgstr ""
+
+#: cul/culdav.py:152
+msgid "Warning: contacting "
+msgstr ""
+
+#: cul/culdav.py:157
+msgid " gave a "
+msgstr ""
+
+#: cul/culendar.py:302
+msgid "Error: can't delete webcal event or offline copy"
+msgstr ""
+
+#: cul/culendar.py:314
+msgid "Deleting event from "
+msgstr ""
+
+#: cul/culendar.py:352
+msgid "Error: can't delete webcal event"
+msgstr ""
+
+#: cul/culendar.py:366
+msgid "Edit: (1) [s]tart time, (2) [e]nd time, (3) [d]escription, (4) [p]lace"
+msgstr ""
+
+#: cul/culendar.py:426
+msgid "Edit: (1) [i]tem, (2) [d]ate, (3) [r]emove date"
+msgstr ""
+
+#: cul/culendar.py:518
+msgid "Enter start time ([hh:mm], [hhmm], [hh] or [h]):"
+msgstr ""
+
+#: cul/culendar.py:532
+msgid "Enter end time ([hh:mm], [hhmm], [hh] or [h]) or duration ([+mm]):"
+msgstr ""
+
+#: cul/culendar.py:544
+msgid "Enter description[@location]:"
+msgstr ""
+
+#: cul/culendar.py:562
+msgid "Enter location:"
+msgstr ""
+
+#: cul/culendar.py:571
+msgid "Enter day ([yyyy/]mm/dd] or [yyyy]mmdd, [Enter for today]):"
+msgstr ""
+
+#: cul/culendar.py:606
+msgid "Enter tag number [0-7] or [a-z]:"
+msgstr ""
+
+#: cul/culendar.py:638
+msgid "Event moved to "
+msgstr ""
+
+#: cul/culendar.py:642
+msgid "Error: can't add an event to a webcal"
+msgstr ""
+
+#: cul/culendar.py:651
+msgid " is not an exisiting calDAV tag"
+msgstr ""
+
+#: cul/culendar.py:655
+msgid "Incorrect tag"
+msgstr ""
+
+#: cul/culendar.py:670
+msgid "Copy to next [d]ays, [w]eeks, [m]onths or [y]ears?"
+msgstr ""
+
+#: cul/culendar.py:672
+msgid "Copy to next [d]ay, [w]eek, [m]onth or [y]ear?"
+msgstr ""
+
+#: cul/culendar.py:678
+msgid "Invalid answer -- canceled"
+msgstr ""
+
+#: cul/culendar.py:709
+msgid "Event copied"
+msgstr ""
+
+#: cul/culendar.py:717
+msgid "Caldav event remotely copied"
+msgstr ""
+
+#: cul/culendar.py:720
+msgid "Webcal event locally copied"
+msgstr ""
+
+#: cul/culendar.py:739
+msgid "Error: can't change webcal event"
+msgstr ""
+
+#: cul/culendar.py:769
+msgid "Enter Todo[@date] ([yyyy/]mm/dd] or [yyyy]mmdd):"
+msgstr ""
+
+#: cul/culendar.py:822
+msgid " ☠ DON'T CLICK HERE ☠ "
+msgstr ""
+
+#: cul/culendar.py:863
+msgid "hours"
+msgstr ""
+
+#: cul/culendar.py:877
+msgid " Week "
+msgstr ""
+
+#: cul/culendar.py:883
+msgid ": help"
+msgstr ""
+
+#: cul/culendar.py:888
+msgid "Begin date: {}"
+msgstr ""
+
+#: cul/culendar.py:890
+msgid "End date:   {}"
+msgstr ""
+
+#: cul/culendar.py:895
+msgid "Summary: "
+msgstr ""
+
+#: cul/culendar.py:970
+msgid "\\_x<  too   >x_/"
+msgstr ""
+
+#: cul/culendar.py:971
+msgid "\\_x<  many  >x_/"
+msgstr ""
+
+#: cul/culendar.py:972
+msgid "\\_x< events >x_/"
+msgstr ""
+
+#: cul/culendar.py:1035
+msgid "TODO"
+msgstr ""
+
+#: cul/culendar.py:1164
+msgid "Enter the file name to import (ical or calcurse): (filename [tag])"
+msgstr ""
+
+#: cul/culendar.py:1179
+msgid "Unable to load file"
+msgstr ""
+
+#: cul/culendar.py:1203
+msgid "New events imported!"
+msgstr ""
+
+#: cul/culendar.py:1211
+msgid "Export to [i]cal or to [c]alcurse?"
+msgstr ""
+
+#: cul/culendar.py:1220
+msgid "Enter the file name to export:"
+msgstr ""
+
+#: cul/culendar.py:1229
+msgid "Calendar exported!"
+msgstr ""
+
+#: cul/helpscr.py:22
+msgid "Choosing date:"
+msgstr ""
+
+#: cul/helpscr.py:23
+msgid "Dealing with events:"
+msgstr ""
+
+#: cul/helpscr.py:24
+msgid "Reading and writing files:"
+msgstr ""
+
+#: cul/helpscr.py:25 cul/helpscr.py:122
+msgid "Miscellaneous:"
+msgstr ""
+
+#: cul/helpscr.py:29
+msgid "Select next day"
+msgstr ""
+
+#: cul/helpscr.py:30
+msgid "Select previous day"
+msgstr ""
+
+#: cul/helpscr.py:31
+msgid "Go to next week"
+msgstr ""
+
+#: cul/helpscr.py:32
+msgid "Go to previous week"
+msgstr ""
+
+#: cul/helpscr.py:33
+msgid "Go to next month"
+msgstr ""
+
+#: cul/helpscr.py:34
+msgid "Go to previous month"
+msgstr ""
+
+#: cul/helpscr.py:35
+msgid "Go to next year"
+msgstr ""
+
+#: cul/helpscr.py:36
+msgid "Go to previous year"
+msgstr ""
+
+#: cul/helpscr.py:37
+msgid "Go to today"
+msgstr ""
+
+#: cul/helpscr.py:38
+msgid "Go to first day of current week"
+msgstr ""
+
+#: cul/helpscr.py:39
+msgid "Go to last day of current week"
+msgstr ""
+
+#: cul/helpscr.py:40
+msgid "Enter the day to go"
+msgstr ""
+
+#: cul/helpscr.py:41
+msgid "Select next event of current day or next todo"
+msgstr ""
+
+#: cul/helpscr.py:43
+msgid "Select previous event of current day or previous todo"
+msgstr ""
+
+#: cul/helpscr.py:45
+msgid "Add an event or todo"
+msgstr ""
+
+#: cul/helpscr.py:46
+msgid "Delete selected event or todo (if any)"
+msgstr ""
+
+#: cul/helpscr.py:47
+msgid "Edit selected event todo (if any)"
+msgstr ""
+
+#: cul/helpscr.py:48
+msgid "Set a numerical [0-7] tag to selected event"
+msgstr ""
+
+#: cul/helpscr.py:50
+msgid " Alphabetic tag puts event on CalDAV"
+msgstr ""
+
+#: cul/helpscr.py:51
+msgid "Copy selected event to next day, week, month or year"
+msgstr ""
+
+#: cul/helpscr.py:53
+msgid "Shift selected event one hour earlier"
+msgstr ""
+
+#: cul/helpscr.py:55
+msgid "Shift selected event one hour later"
+msgstr ""
+
+#: cul/helpscr.py:56
+msgid "Shift selected event one day earlier"
+msgstr ""
+
+#: cul/helpscr.py:58
+msgid "Shift selected event one day later"
+msgstr ""
+
+#: cul/helpscr.py:59
+msgid "Save calendar and configuration"
+msgstr ""
+
+#: cul/helpscr.py:60
+msgid "Import a calendar (from iCalendar or calcurse)"
+msgstr ""
+
+#: cul/helpscr.py:62
+msgid "Export calendar (to iCalendar or calcurse)"
+msgstr ""
+
+#: cul/helpscr.py:63
+msgid "Toggle presence of week-end"
+msgstr ""
+
+#: cul/helpscr.py:64
+msgid "Toggle presence of Todo list"
+msgstr ""
+
+#: cul/helpscr.py:65
+msgid "Redraw screen"
+msgstr ""
+
+#: cul/helpscr.py:66
+msgid "Synchronize Caldavs and Webcals"
+msgstr ""
+
+#: cul/helpscr.py:67
+msgid "Configure Culendar"
+msgstr ""
+
+#: cul/helpscr.py:68
+msgid "Get this help"
+msgstr ""
+
+#: cul/helpscr.py:69
+msgid "Quit Culendar"
+msgstr ""
+
+#: cul/helpscr.py:91
+msgid "q: quit help"
+msgstr ""
+
+#: cul/helpscr.py:92
+msgid "Culendar help screen"
+msgstr ""
+
+#: cul/helpscr.py:113
+msgid "Key(s)"
+msgstr ""
+
+#: cul/helpscr.py:114
+msgid "Function name"
+msgstr ""
+
+#: cul/helpscr.py:115
+msgid "Function description"
+msgstr ""
+
+#: cul/helpscr.py:125
+msgid "number n>0"
+msgstr ""
+
+#: cul/helpscr.py:129
+msgid "Repeat following command n times (when reasonable)"
+msgstr ""
+
+#: cul/inputs.py:199
+msgid "Press [Enter] to continue"
+msgstr ""
+
+#: cul/inputs.py:233
+msgid "You entered an invalid time"
+msgstr ""
+
+#: cul/inputs.py:245
+msgid "Ending time should be greater than "
+msgstr ""
+
+#: cul/inputs.py:255
+msgid "You entered an invalid duration"
+msgstr ""
+
+#: cul/inputs.py:283
+msgid "Error: could not understand date"
+msgstr ""
+
+#: cul/inputs.py:299
+msgid "Error: unable to read the file "
+msgstr ""
+
+#: cul/inputs.py:301
+msgid "Error: unable to write the file "
+msgstr ""
+
+#: cul/inputs.py:307
+msgid "Error: should be higher than 0"
+msgstr ""
+
+#: cul/inputs.py:310
+msgid "Error: should be lower than 24"
+msgstr ""
+
+#: cul/inputs.py:314
+msgid "Error: must be an integer"
+msgstr ""
+
+#: culendar.py:115
+msgid "Saving configuration and calendar…"
+msgstr ""
+
+#: culendar.py:118
+msgid "Configuration and calendar saved!"
+msgstr ""
+
