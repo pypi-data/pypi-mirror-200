@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: coppeliasim_zmqremoteapi_client
+Version: 0.0.2
+Summary: Client for the CoppeliaSim's zmqRemoteApi
+Project-URL: Homepage, https://github.com/CoppeliaRobotics/zmqRemoteApi
+Project-URL: Bug Tracker, https://github.com/CoppeliaRobotics/zmqRemoteApi/issues
+Author-email: "Federico Ferri (Coppelia Robotics)" <federico@coppeliarobotics.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Requires-Dist: cbor
+Requires-Dist: pyzmq
+Description-Content-Type: text/markdown
+
+# CoppeliaSim Python zmqRemoteApi client
+
+Python client for the zmqRemoteApi.
+
+See https://github.com/CoppeliaRobotics/zmqRemoteApi/blob/master/README.md
