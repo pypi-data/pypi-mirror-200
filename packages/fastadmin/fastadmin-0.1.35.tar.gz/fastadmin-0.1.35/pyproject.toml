@@ -1,0 +1,89 @@
+[tool.poetry]
+name = "fastadmin"
+version = "0.1.35"
+description = ""
+authors = ["Seva D <vsdudakov@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/vsdudakov/fastadmin"
+repository = "https://github.com/vsdudakov/fastadmin"
+keywords = ["fastapi", "admin"]
+classifiers = [
+    "Environment :: Console",
+    "Framework :: FastAPI",
+    "Framework :: Django",
+    "Framework :: Flask",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Widget Sets",
+]
+include = [
+    "LICENSE",
+]
+packages = [
+    { include = "fastadmin" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jinja2 = "^3.1.2"
+pyjwt = "^2.6.0"
+python-dotenv = "^1.0.0"
+asgiref = "^3.6.0"
+pydantic = "^1.10.7"
+
+fastapi = { version = "^0.92.0", optional = true }
+flask = { version = "^2.2.3", optional = true }
+django = { version = "^4.1.7", optional = true }
+tortoise-orm = { version = "^0.19.3", optional = true }
+sqlalchemy = { version = "^2.0.4", optional = true }
+pony = { version = "^0.7.16", optional = true }
+
+[tool.poetry.extras]
+fastapi = ["fastapi"]
+flask = ["flask"]
+django = ["django"]
+tortoise-orm = ["tortoise-orm"]
+sqlalchemy = ["sqlalchemy"]
+pony = ["pony"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+isort = "^5.12.0"
+black = "^23.1.0"
+flake8 = "^6.0.0"
+flake8-black = "^0.3.6"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.10.0"
+uvicorn = "^0.20.0"
+mypy = "^1.0.1"
+pyupgrade = "^3.3.1"
+httpx = "^0.23.3"
+pytest-asyncio = "^0.20.3"
+aioshutil = "^1.2"
+jinja2 = "^3.1.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+exclude = ".git|.pytest_cache|.venv|.env|venv|env|static"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 120
+skip_glob = [".git", "*/.pytest_cache/*", "*/.venv/*", "*/.env/*", "*/venv/*", "*/env/*", "*/static/*"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+[tool.mypy]
+python_version = "3.10"
+pretty = true
+ignore_missing_imports = true
+disable_error_code = ["attr-defined", "assignment", "var-annotated", "call-overload"]
