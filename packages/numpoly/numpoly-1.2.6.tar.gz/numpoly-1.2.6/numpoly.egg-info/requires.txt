@@ -1,0 +1,15 @@
+numpy>=1.20
+setuptools>=40.9.0
+
+[dev]
+black==22.10.0
+pylint==2.15.5
+pydocstyle==3.0.0
+pydata_sphinx_theme==0.11.0
+sympy
+pytest
+pytest-cov
+codecov
+coverage>=5.0
+Sphinx
+sphinx_automodapi
