@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: QualysPy
+Version: 0.2.0
+Summary: A Python wrapper for the Qualys API.
+Project-URL: Homepage, https://github.com/JordanBarnartt/qualyspy
+Project-URL: Bug Tracker, https://github.com/JordanBarnartt/qualyspy/issues
+Author-email: Jordan Barnartt <jbarnart@uwaterloo.ca>
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Security
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Requires-Dist: lxml
+Requires-Dist: python-dateutil
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+A Python wrapper for the Qualys API.
