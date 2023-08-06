@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: cloudagnosticfass
+Version: 0.0.13
+Summary: Cloud Agnostic FaaS  Package
+Author: Jagruti Sakhare
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: google-auth (<3.0dev,>=1.25.0)
+Requires-Dist: google-api-core (!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0dev,>=1.31.5)
+Requires-Dist: google-cloud-core (<3.0dev,>=2.3.0)
+Requires-Dist: google-resumable-media (>=2.3.2)
+Requires-Dist: requests (<3.0.0dev,>=2.18.0)
+Requires-Dist: boto3
+Requires-Dist: botocore
+Requires-Dist: json-operator
+Requires-Dist: os0
+Requires-Dist: logging3
+Provides-Extra: protobuf
+Requires-Dist: protobuf (<5.0.0dev) ; extra == 'protobuf'
+
+# Cloud Agnostic Serverless Function as a Service
+
+Opearations supported with required parameters are given below.
+
+### Storage 
+- move_file(cloud, source_bucket, source_object, destination_bucket, destination_object) : Move object from one bucket to another
+
+- delete_file(cloud, source_bucket, source_object) : Delete file from bucket
