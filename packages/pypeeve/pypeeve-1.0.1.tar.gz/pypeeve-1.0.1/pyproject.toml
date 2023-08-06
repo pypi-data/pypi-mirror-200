@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pypeeve"
+dynamic = ["version"]
+authors = [{name = "Kallol Das", email = "kalloldash@gmail.com"},]
+description = "A Python Library For All Python Pet Peeves"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["python", "library"]
+classifiers = ["Programming Language :: Python :: 3",
+               "Programming Language :: Python :: 3.7",
+               "Programming Language :: Python :: 3.8",
+               "Programming Language :: Python :: 3.9",
+               "Programming Language :: Python :: 3.10"]
+dependencies = []
+
+[tool.setuptools.dynamic]
+version = {attr = "pypeeve.__version__"}
+
+[tool.setuptools.packages.find]
+# list of folders that contain the packages (["."] by default)
+where = ["."]
+# package names should match these glob patterns (["*"] by default)
+include = ["pypeeve", "pypeeve*"]
+# exclude packages matching these glob patterns (empty by default)
+exclude = ["*__pycache__*"]
+# to disable scanning PEP 420 namespaces (true by default)
+namespaces = true
