@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pylife-api
+Version: 0.1.2
+Summary: Python API for Play Your Life v2 user panel.
+Keywords: pylife,mta,api
+Author-email: David Sn <divad.nnamtdeis@gmail.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiohttp
+Requires-Dist: pydantic
+Requires-Dist: python-rapidjson ; extra == "rapidjson"
+Project-URL: Home, https://github.com/mapapylife/python-pylife
+Provides-Extra: rapidjson
+
+# pylife-api
+Python API for Play Your Life v2 user panel
+
