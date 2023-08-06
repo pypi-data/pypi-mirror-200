@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: rustlets
+Version: 0.2.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# rustlets
+A wavelet library written in Rust, with bindings to python.
+
+
+## steps to build
+
+Make sure you have rust and python installed, check rustc --version
+
+Setup virtual environment to your liking, make sure to export PYTHON_CONFIGURE_OPTS="--enable-shared"
+
+Install maturin python package into virtual environment. Install numpy as well
+
+For example, with pip, do 
+pip install maturin
+
+
+You will also need matplotlib, scipy to run demos
+
+
+To build, run maturin develop --release
+
