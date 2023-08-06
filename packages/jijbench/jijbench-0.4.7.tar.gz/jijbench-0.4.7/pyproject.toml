@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "jijbench"
+version = "0.4.7" # using poetry-dynamic-versioning
+description = "Experiment management and benchmark tools for mathematical optimization"
+authors = ["Jij  Inc."]
+license = "MIT"
+readme = "README.md"
+include = ["jijbench/*.py", "jijbench/*.json", "jijbench/*.JSON"]
+classifiers =[
+        "Operating System :: POSIX :: Linux",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3 :: Only",
+        "Operating System :: POSIX",
+        "Operating System :: Unix",
+        "Operating System :: MacOS"]
+
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+numpy = "^1.24.2"
+pandas = "^1.5.3"
+plotly = "^5.14.0"
+matplotlib = "^3.7.1"
+nbformat = "^5.8.0"
+networkx = "^3.0"
+dill = "^0.3.6"
+jijmodeling = "^0.10.21"
+jijzept = "^1.14.0"
+
+
+[tool.poetry.group.tests.dependencies]
+pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.10.0"
+pytest-html = "^3.2.0"
+pytest-runner = "^6.0.0"
+pytest-randomly = "^3.12.0"
+pytest-spec = "^3.2.0"
+pytest-asyncio = "^0.21.0"
+coverage = "^7.2.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.2.1"
+black = "^23.3.0"
+isort = "^5.12.0"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs-gen-files = "^0.4.0"
+mkdocs-literate-nav = "^0.6.0"
+mkdocs-section-index = "^0.3.5"
+mkdocs-minify-plugin = "^0.6.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry-dynamic-versioning]
+enable = false
+style = "pep440"
