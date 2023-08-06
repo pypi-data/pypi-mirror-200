@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: etradebot
+Version: 0.0.0
+Summary: A Python-based trading bot for the E-Trade platform
+Home-page: https://github.com/nathanramoscfa/etradebot
+Author: Nathan Ramos, CFA®
+Author-email: info@nrcapitalmanagement.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: cvxpy (==1.3.0)
+Requires-Dist: jupyterlab (==3.6.1)
+Requires-Dist: keyring (==23.13.1)
+Requires-Dist: matplotlib (==3.7.1)
+Requires-Dist: numpy (==1.24.2)
+Requires-Dist: pandas (==1.5.3)
+Requires-Dist: scikit-learn (==1.2.2)
+Requires-Dist: scipy (==1.10.1)
+Requires-Dist: selenium (==4.8.2)
+Requires-Dist: statsmodels (==0.13.5)
+Requires-Dist: tqdm (==4.65.0)
+Requires-Dist: xmltodict (==0.13.0)
+Requires-Dist: yahooquery (==2.3.0)
+Requires-Dist: yfinance (==0.2.12)
+
+
+
+# ETradeBot
+
+ETradeBot is an automated trading software for E-Trade accounts that allows users to execute trades based on custom trading strategies. ETradeBot is strategy-agnostic and will execute any strategy given to it. This project is not affiliated with E-Trade or any other financial institution.
+
+## Features
+
+-   Fetches real-time market data from E-Trade API
+-   Executes trades (buy/sell/sell short/short cover) based on user-defined strategies
+-   Manages portfolio: tracks positions, balance, and performance
+-   Trades common stocks, ETFs, and mutual funds
+
+Options, futures, and Forex will be added in future releases. 
+
+## Getting Started
+
+Refer to the [ETradeBot documentation](https://nr-capital-management.gitbook.io/etradebot/) for instructions on installing, configuring, and using the software. Your E-Trade account must be approved and have the required forms signed and submitted for each trade type. 
+
+## Contributing
+
+Contributions to ETradeBot are welcome! Please see the [contributing guidelines](https://github.com/nathanramoscfa/etradebot/blob/main/CONTRIBUTING.md) for more information.
+
+## Disclaimer
+
+Please note that while the developer has taken care to ensure the quality and functionality of ETradeBot, there is no guarantee that the software is free from errors or bugs. The developer does not assume responsibility or liability for any damages or losses incurred as a result of using ETradeBot. Users of ETradeBot should use the software at their own risk and verify the accuracy and correctness of its output before making any investment decisions. 
+
+## License
+
+ETradeBot is licensed under the [MIT License](https://github.com/nathanramoscfa/etradebot/blob/main/LICENSE).
