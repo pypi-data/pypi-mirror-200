@@ -1,0 +1,236 @@
+{
+    "language": {
+        "level": {
+            "A1": [
+                "EP",
+                "KK",
+                "OD"
+            ]
+        },
+        "singular": {
+            "en": "language",
+            "fi": "kieli",
+            "nl": "de taal"
+        },
+        "plural": {
+            "en": "languages",
+            "fi": "kielet",
+            "nl": "de talen"
+        }
+    },
+    "dialect": {
+        "level": {
+            "C1": "OD",
+            "C2": "EP"
+        },
+        "singular": {
+            "en": "dialect",
+            "fi": "murre",
+            "nl": "het dialect"
+        },
+        "plural": {
+            "en": "dialects",
+            "fi": "murteet",
+            "nl": "de dialecten"
+        }
+    },
+    "accent": {
+        "level": {
+            "C1": "OD",
+            "C2": "EP"
+        },
+        "singular": {
+            "en": "accent",
+            "fi": "aksentti",
+            "nl": "het accent"
+        },
+        "plural": {
+            "en": "accents",
+            "fi": "aksentit",
+            "nl": "de accenten"
+        }
+    },
+    "english": {
+        "level": {
+            "A1": "OD",
+            "C1": "EP"
+        },
+        "en": "English",
+        "fi": "englanti",
+        "nl": "Engels"
+    },
+    "chinese": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Chinese",
+        "fi": "kiina",
+        "nl": "Chinees"
+    },
+    "german": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "German",
+        "fi": "saksa",
+        "nl": "Duits"
+    },
+    "estonian": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Estonian",
+        "fi": "viro",
+        "nl": "Estisch"
+    },
+    "finnish": {
+        "level": {
+            "A1": "KK",
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Finnish",
+        "fi": "suomi",
+        "nl": "Fins"
+    },
+    "french": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "French",
+        "fi": "ranska",
+        "nl": "Frans"
+    },
+    "hungarian": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Hungarian",
+        "fi": "unkari",
+        "nl": "Hongaars"
+    },
+    "japanese": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Japanese",
+        "fi": "japani",
+        "nl": "Japans"
+    },
+    "korean": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Korean",
+        "fi": "korea",
+        "nl": "Koreaans"
+    },
+    "spanish": {
+        "level": {
+            "A1": "EP",
+            "none": "OD"
+        },
+        "en": "Spanish",
+        "fi": "espanja",
+        "nl": "Spaans"
+    },
+    "dutch": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Dutch",
+        "fi": "hollanti",
+        "nl": "Nederlands"
+    },
+    "danish": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Danish",
+        "fi": "tanska",
+        "nl": "Deens"
+    },
+    "norwegian": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Norwegian",
+        "fi": "norja",
+        "nl": "Noors"
+    },
+    "swedish": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Swedish",
+        "fi": "ruotsi",
+        "nl": "Zweeds"
+    },
+    "russian": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Russian",
+        "fi": "venäjä",
+        "nl": "Russisch"
+    },
+    "icelandic": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "Icelandic",
+        "fi": "islanti",
+        "nl": "IJslands"
+    },
+    "I have a dutch accent": {
+        "roots": [
+            "to have",
+            "dutch",
+            "accent"
+        ],
+        "en": "I have a Dutch accent.",
+        "fi": "Minulla on hollantilainen aksentti.",
+        "nl": "Ik heb een Nederlands accent."
+    }
+}

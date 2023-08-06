@@ -1,0 +1,284 @@
+{
+    "holiday": {
+        "level": {
+            "A1": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": "day",
+        "en": "holiday",
+        "fi": "juhlapäivä",
+        "nl": "de feestdag"
+    },
+    "christmas": {
+        "level": {
+            "A1": "OD",
+            "none": "EP"
+        },
+        "en": "Christmas",
+        "fi": "joulu",
+        "nl": "Kerstmis"
+    },
+    "christmas eve": {
+        "level": {
+            "C1": "OD",
+            "none": "EP"
+        },
+        "roots": {
+            "en": "christmas",
+            "fi": "christmas",
+            "nl": [
+                "christmas",
+                "evening"
+            ]
+        },
+        "en": "Christmas Eve",
+        "fi": "jouluaatto",
+        "nl": "kerstavond"
+    },
+    "christmas day": {
+        "level": {
+            "A1": "OD",
+            "none": "EP"
+        },
+        "roots": [
+            "christmas",
+            "day"
+        ],
+        "en": "Christmas Day",
+        "fi": "joulupäivä",
+        "nl": "eerste kerstdag"
+    },
+    "boxing day": {
+        "level": {
+            "C1": "OD",
+            "none": "EP"
+        },
+        "roots": {
+            "en": "day",
+            "fi": "day",
+            "nl": [
+                "christmas",
+                "day"
+            ]
+        },
+        "en": "Boxing Day",
+        "fi": "tapaninpäivä",
+        "nl": "tweede kerstdag"
+    },
+    "merry christmas": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": {
+            "en": "christmas",
+            "fi": [
+                "good",
+                "christmas"
+            ],
+            "nl": [
+                "cheerful",
+                "christmas"
+            ]
+        },
+        "en": "Merry Christmas!",
+        "fi": "Hyvää joulua!",
+        "nl": "Vrolijk kerstfeest!"
+    },
+    "christmas tree": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": [
+            "christmas",
+            "tree"
+        ],
+        "en": "Christmas tree",
+        "fi": "joulukuusi",
+        "nl": "de kerstboom"
+    },
+    "santa": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": {
+            "fi": "christmas",
+            "nl": "christmas"
+        },
+        "en": "Santa Claus|Santa",
+        "fi": "joulupukki",
+        "nl": "de kerstman"
+    },
+    "elf": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "en": "elf",
+        "fi": "tonttu",
+        "nl": "de elf"
+    },
+    "angel": {
+        "en": "angel",
+        "fi": "enkeli",
+        "nl": "de engel"
+    },
+    "bauble": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": {
+            "fi": [
+                "christmas tree",
+                "christmas"
+            ],
+            "nl": "christmas"
+        },
+        "en": "bauble",
+        "fi": "joulukuusenpallo|joulupallo",
+        "nl": "de kerstbal"
+    },
+    "new year": {
+        "level": {
+            "A1": "OD",
+            "none": "EP"
+        },
+        "roots": [
+            "new",
+            "year"
+        ],
+        "en": "New Year",
+        "fi": "Uusivuosi",
+        "nl": "Nieuwjaar"
+    },
+    "happy new year": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": {
+            "en": [
+                "happy",
+                "new year"
+            ],
+            "fi": [
+                "good",
+                "new",
+                "year"
+            ],
+            "nl": [
+                "happy",
+                "new year"
+            ]
+        },
+        "en": "Happy New Year!",
+        "fi": "Hyvää uutta vuotta!",
+        "nl": "Gelukkig nieuwjaar!"
+    },
+    "valentine's day": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": "day",
+        "en": "Valentine's Day",
+        "fi": "Ystävänpäivä",
+        "nl": "Valentijnsdag"
+    },
+    "epiphany": {
+        "level": {
+            "C2": "OD",
+            "none": "EP"
+        },
+        "en": "Epiphany",
+        "fi": "Loppiainen",
+        "nl": "Driekoningen"
+    },
+    "easter": {
+        "level": {
+            "B1": "OD",
+            "none": "EP"
+        },
+        "en": "Easter",
+        "fi": "Pääsiäinen",
+        "nl": "Pasen"
+    },
+    "happy easter": {
+        "roots": {
+            "en": [
+                "happy",
+                "easter"
+            ],
+            "fi": [
+                "good",
+                "easter"
+            ],
+            "nl": [
+                "cheerful",
+                "easter"
+            ]
+        },
+        "en": "Happy Easter!",
+        "fi": "Hyvää pääsiäistä!",
+        "nl": "Vrolijk Pasen!"
+    },
+    "first of may": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": {
+            "en": "may",
+            "nl": "day"
+        },
+        "en": "First of May",
+        "fi": "Vappu",
+        "nl": "Dag van de arbeid"
+    },
+    "midsummer": {
+        "level": {
+            "C1": "OD",
+            "none": "EP"
+        },
+        "roots": {
+            "en": "summer",
+            "nl": "summer"
+        },
+        "en": "midsummer",
+        "fi": "juhannus",
+        "nl": "midzomer"
+    },
+    "finnish independence day": {
+        "level": {
+            "none": [
+                "EP",
+                "OD"
+            ]
+        },
+        "roots": "day",
+        "en": "(Finnish independence day, December 6th)",
+        "fi": "Itsenäisyyspäivä",
+        "nl": "(Finse onafhankelijkheidsdag, 6 december)"
+    }
+}
