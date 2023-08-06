@@ -1,0 +1,39 @@
+<d:xie d:version="12.0.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:n="http://www.schema.de/2004/ST4/XmlImportExport/Node" xmlns:d="http://www.schema.de/2004/ST4/XmlImportExport/Data" xmlns:l="http://www.schema.de/2004/ST4/XmlImportExport/Link" xmlns:m="http://www.schema.de/2004/ST4/XmlImportExport/Meta" m:Dimension-GuiLanguage="de" m:Dimension-Sprache="de" xsi:schemaLocation="http://www.schema.de/2004/ST4/XmlImportExport/Node schemas/node.xsd http://www.schema.de/2004/ST4/XmlImportExport/Data schemas/data.xsd http://www.schema.de/2004/ST4/XmlImportExport/Link schemas/link.xsd">
+ <n:SystemFolder n:Id="" l:Id="" l:Sort="" l:Label="">
+    <n:Folder n:Id="" l:Id="" l:Sort="" l:Label="">
+        <n:ResourceFolder n:Id="" l:Id="" l:Sort="" l:Label="">
+          <n:GraficResource n:Id="nID" l:Id="lID" n:trans.EditLanguage="" l:Label="label">
+            <n:Data-Title>
+                  <n:Value n:Aspect="en">
+                    <n:Entry n:Key="1">title_en</n:Entry>
+                  </n:Value>
+                  <n:Value n:Aspect="de">
+                    <n:Entry n:Key="1">title_de</n:Entry>
+                  </n:Value>
+            </n:Data-Title>
+            <n:Data-Content>
+                <n:Value n:Aspect="en">
+                <n:Entry n:Key="1"><content>
+                    <p>English Content</p>
+                    </content></n:Entry>
+                </n:Value>
+                <n:Value n:Aspect="de">
+                <n:Entry n:Key="1"><content>
+                    <p>German Content</p>
+                    </content></n:Entry>
+                </n:Value>
+            </n:Data-Content>
+            <n:Data-Thumbnail>thumbnail</n:Data-Thumbnail>
+            <n:Data-Web>
+              <n:Value n:Aspect="en">data_web_en</n:Value>
+              <n:Value n:Aspect="de">data_web_de</n:Value>
+            </n:Data-Web>
+            <n:Data-Web.Data>
+              <n:Value n:Aspect="en">data_web_data_en</n:Value>
+              <n:Value n:Aspect="de">data_web_data_de</n:Value>
+            </n:Data-Web.Data>
+          </n:GraficResource>
+        </n:ResourceFolder>
+    </n:Folder>
+  </n:SystemFolder>
+</d:xie>
