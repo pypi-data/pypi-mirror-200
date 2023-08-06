@@ -1,0 +1,190 @@
+Metadata-Version: 2.1
+Name: coolmongo
+Version: 1.2
+Summary: The most elegant MongoDB ORM in history
+Keywords: coolmongo,pymongo,mongodb
+Author-email: 许灿标 <lcctoor@outlook.com>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Dist: pymongo
+Requires-Dist: vtype
+Project-URL: Documentation, https://github.com/lcctoor/lccpy/blob/main/coolmongo/docs/doc.md
+
+# Project description
+
+The most elegant MongoDB ORM in history.
+
+# Installation and documentation
+
+Install：`pip install coolmongo`
+
+[Documentation](https://github.com/lcctoor/lccpy/blob/main/coolmongo/docs/doc.md)
+
+[中文文档](https://github.com/lcctoor/lccpy/blob/main/coolmongo/docs/doc_zh.md)
+
+# Bug submission and feature proposal
+
+You can contact me through [Github-Issues](https://github.com/lcctoor/lccpy/issues), [WeChat](https://raw.githubusercontent.com/lcctoor/me/main/author/WeChatQR.jpg), [Technology exchange group on WeChat](https://raw.githubusercontent.com/lcctoor/me/main/ExchangeGroup/PythonTecQR.jpg) .
+
+# About the author
+
+Author：许灿标
+
+Email：lcctoor@outlook.com
+
+[Home Page](https://github.com/lcctoor/me/blob/main/home.md) | [WeChat](https://raw.githubusercontent.com/lcctoor/me/main/author/WeChatQR.jpg) | [Python technology exchange group on WeChat](https://raw.githubusercontent.com/lcctoor/me/main/ExchangeGroup/PythonTecQR.jpg)
+
+Open source projects：[Make Python simpler](https://github.com/lcctoor/lccpy#readme)
+
+# Syntax Preview
+
+Import：
+
+```python
+from pymongo import MongoClient
+import coolmongo as mg
+from coolmongo import mc, mup
+```
+
+Create an ORM:
+
+```python
+mkconn = lambda: MongoClient(host='localhost', port=27017)
+
+orm = mg.ORM(mkconn=mkconn)  # account ORM
+db = orm['city']  # db ORM
+sheet = db['school']  # sheet ORM
+```
+
+Add data:
+
+```python
+line1 = {'name': 'tony 1', 'age':11, 'lucky_numbers':[1, 2, 3], 'score':{'english':81, 'math':82}}
+line2 = {'name': 'tony 2', 'age':12, 'lucky_numbers':[2, 3, 4], 'score':{'english':82, 'math':83}}
+line3 = {'name': 'tony 3', 'age':13, 'lucky_numbers':[3, 4, 5], 'score':{'english':83, 'math':84}}
+line4 = {'name': 'tony 4', 'age':14, 'lucky_numbers':[4, 5, 6], 'score':{'english':84, 'math':85}}
+line5 = {'name': 'tony 5', 'age':15, 'lucky_numbers':[5, 6, 7], 'score':{'english':85, 'math':86}}
+line6 = {'name': 'tony 6', 'age':16, 'lucky_numbers':[6, 7, 8], 'score':{'english':86, 'math':87}}
+
+r1 = sheet + line1  # Add a row of data
+r2 = sheet + [line2, line3, line4, line5, line6]  # Add multiple rows of data
+```
+
+Query example:
+
+```python
+sheet[:]  # Query all data
+
+sheet[3]  # Query Article 3 data
+
+sheet[mc.score.english == 85][:]  # Query data with an English score of 85
+
+sheet[mc.age>13][mc.name=='tony 5'][1]  # Query the first data with the age greater than 13 and the name 'tony 5'
+```
+
+Modify Example:
+
+```python
+sheet[mc.age>10][2:5] = {
+    'vision': 5.0,
+    'gender': 'male',
+    'like': ['football','basketball','painting','rope skipping'],
+    'lucky_numbers': mup.push(15,16,17),  # Add to list
+    'age': mup.inc(2)  # Increment
+}
+```
+
+Delete example:
+
+```python
+# Delete all data with age>=15
+sheet[mc.age>=15][:] = None
+
+# Delete the second data with age greater than 10 and name containing 'tony'
+sheet[mc.age>10][mc.name == mg.re('tony')][2] = None
+
+# Delete all data
+sheet[:] = None
+```
+
+Member operation:
+
+| **Code**                                   | **Explanation**                                                       |
+| ------------------------------------------------ | --------------------------------------------------------------------------- |
+| mc.grade == mg.isin('junior 2', 'junior 3')      | if the field value is a member of the input value, it matches               |
+| mc.age == mg.notin(10, 30, 45)                   | if the field value is not a member of the input value, it matches           |
+| mc.like == mg.containAll('painting', 'football') | if the field value contains all the elements of the input value, it matches |
+| mc.like == mg.containAny('painting', 'football') | if the field value contains at least one element of the input value         |
+| mc.like == mg.containNo('painting', 'football')  | if the field value does not contain any elements of the input value         |
+
+Regular operation:
+
+| **Code**           |
+| ------------------------ |
+| mc.name == mg.re('tony') |
+
+Set operations between filters:
+
+| Code                                                                        | Explanation    |
+| --------------------------------------------------------------------------- | -------------- |
+| [ mc.age>3 ][ mc.age<100 ]                                                  | intersection   |
+| [ (mc.age==30)&#124; (mc.age>30) &#124; (mc.age<30) &#124; (mc.age==None) ] | union          |
+| [ (mc.age>3) - (mc.age>100) ]                                               | difference set |
+| [ ~(mc.age>100) ]                                                           | complement     |
+
+Slice example:
+
+```python
+sheet[filter]...[filter][1]  # Query the first eligible item
+sheet[filter]...[filter][1] = None  # Delete the eligible Article 1
+sheet[filter]...[filter][1] = {'grade':'junior 1'}  # Modify Article 1 that meets the conditions
+
+sheet[filter]...[filter][3:7]  # Query eligible items 3 to 7
+sheet[filter]...[filter][3:7] = None  # Delete articles 3 to 7 that meet the conditions
+sheet[filter]...[filter][3:7] = {'grade':'junior 1'}  # Modify articles 3 to 7 that meet the conditions
+```
+
+Limit return fields:
+
+Only the name and age fields are returned:
+
+```python
+sheet[mc.age>11][mc.age<30]['name','age'][:]
+```
+
+List of special operations:
+
+| **Syntax** | **Meaning**                                                        |
+| ---------------- | ------------------------------------------------------------------------ |
+| mup.inc(1)       | Auto-Increment 1                                                         |
+| mup.inc(-1)      | self-reduction 1                                                         |
+| mup.add(1, 2, 3) | adds an element to a list field only if the added element does not exist |
+| ...              | ...                                                                      |
+
+Statistics:
+
+| **Function**      | **Syntax**        |
+| ----------------------- | ----------------------- |
+| Total data              | len( sheet )            |
+| Data volume with age>10 | len( sheet[mc.age>10] ) |
+
+orm (account ORM):
+
+| **Function**                | **Syntax** | **Return**            |
+| --------------------------------- | ---------------- | --------------------------- |
+| obtain the names of all libraries | orm.getDbNames() | ['admin', 'config', 'city'] |
+| check whether a library exists.   | 'city'  in  orm  | True                        |
+| delete a library                  | del orm['city']  |                             |
+| delete all libraries except admin | del orm[:]       |                             |
+| number of statistical databases   | len( orm )       | 1                           |
+
+db (database ORM):
+
+| **Function**             | **Syntax**   | **Return** |
+| ------------------------------ | ------------------ | ---------------- |
+| obtain the names of all sheets | db.getSheetNames() | ['school']       |
+| check whether a sheet exists.  | 'school'  in  db   | True             |
+| delete a sheet                 | del db['school']   |                  |
+| delete all sheets              | del db[:]          |                  |
+| number of statistical sheets   | len( db )          | 0                |
+
