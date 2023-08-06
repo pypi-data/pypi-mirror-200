@@ -1,0 +1,37 @@
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+include = '\.pyi?$'
+exclude = '''
+/(
+\.git
+| \.idea
+| \__pycache__
+| venv
+| \.venv
+| docker
+| docs
+| \.github
+)/
+'''
+
+[tool.poetry]
+name = "log-request-id"
+version = "0.1.0"
+description = "Log-Request-ID is extension for handling request-ID in logging."
+authors = ["kuzxnia <kacper.kuzniarski@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+packages = [{include = "log_request_id"}]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.group.dev.dependencies]
+Flask = "1.0"
+fastapi = "0.1.19"
+pytest = "^7.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
