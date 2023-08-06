@@ -1,0 +1,18 @@
+[console_scripts]
+robodyno = robodyno:robodyno
+robodyno-motor = robodyno:robodyno_motor
+
+[robodyno.components.can_bus]
+Motor = robodyno.components.can_bus.motor:Motor
+SliderModule = robodyno.components.can_bus.slider_module:SliderModule
+VGripper = robodyno.components.can_bus.vacuum_gripper:VGripper
+
+[robodyno.components.webots]
+Motor = robodyno.components.webots.motor:Motor
+
+[robodyno.robots]
+FourDoFPallet = robodyno.robots.four_dof_palletizing_robot.four_dof_pallet_robot:FourDoFPallet
+FourDoFScara = robodyno.robots.four_dof_scara_robot.four_dof_scara_robot:FourDoFScara
+SixDoFCollabRobot = robodyno.robots.six_dof_collaborative_robot.six_dof_collab_robot:SixDoFCollabRobot
+ThreeDoFDelta = robodyno.robots.three_dof_delta_robot.three_dof_delta_robot:ThreeDoFDelta
+ThreeDoFPallet = robodyno.robots.three_dof_palletizing_robot.three_dof_pallet_robot:ThreeDoFPallet
