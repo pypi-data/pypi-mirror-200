@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: rssnotify
+Version: 0.1.1
+Summary: Simple RSS notify utility.
+Author-email: jamazi <jamazi@tutanota.com>
+Project-URL: Homepage, https://github.com/jamazi/rssnotify
+Project-URL: Bug Tracker, https://github.com/jamazi/rssnotify/issues
+Keywords: rss,notify
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+Requires-Dist: feedparser (==6.0.10)
+Requires-Dist: pydantic[dotenv] (==1.10.7)
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy (>=0.910) ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+rssnotify
+=========
+
+``rssnotify`` is a simple rss feed parser that will execute arbitrary command when specific news are found.
+
+Installation
+============
+
+.. code-block:: console
+
+    $ pip install rssnotify
+
+How To use rssnotify
+====================
+rssnotify use parameters from environment variables, create .env file and run rssnotify from the same directory:
+
+.. code-block:: shell
+
+    URLS=["https://www.kucoin.com/rss/news?lang=en"]
+    KEYWORDS=["DELIST"]
+    SINCE_HOURS=1
+    COMMAND=["notify-send", "-t", "30000", "-u", "critical", "$TITLE", "$LINK"]
+
+after than, you can run rssnotify in a cron job:
+
+.. code-block:: shell
+
+    13 * * * * bash -c "cd $HOME/.config/rssnotify ; XDG_RUNTIME_DIR=/run/user/$(id -u) rss-notify"
