@@ -1,0 +1,11 @@
+FROM python:3.9
+
+ENV PROJECTS_HOME_DIR "/opt/dbt/projects"
+ENV PROFILES_DIR "/opt/dbt/profies"
+RUN python -m pip install --no-cache-dir --upgrade pip
+
+RUN pip install --no-cache-dir boto3==1.26.4 awswrangler==2.18 PyAthena==2.23.0 \
+dbt-athena-community==1.4 \
+dbt-core==1.4.3
+
+CMD dbt --profiles-dir ${PROFILES_DIR} run --project-dir ${PROJECTS_HOME_DIR}
