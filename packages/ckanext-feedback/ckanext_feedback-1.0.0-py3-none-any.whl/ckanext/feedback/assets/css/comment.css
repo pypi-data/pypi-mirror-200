@@ -1,0 +1,47 @@
+.comment-explanation {
+  position: absolute;
+  padding-top: 5px;
+}
+
+.comment-content {
+  word-wrap: break-word;
+}
+.comment-content > p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.comment-disallowed {
+  color: red;
+}
+
+.divider {
+  background: #000000;
+  height: 1px;
+}
+
+.group-stars {
+  display: inline-table;
+}
+
+#rateable .rating-star {
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.rating-star {
+  height: 16px;
+  width: 16px;
+  margin-bottom: 4px;
+}
+
+.reply {
+  margin-left: 30px;
+}
+
+.unapproved {
+  color: #808080;
+  background-color: #EEEEEE;
+}
