@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mimeograph"
+version = "0.2.0"
+description = "Generate data based on a simple template"
+readme = "README.md"
+authors = [{ name = "T.A. Programming Svcs.", email = "tomasz.maciej.aniolowski@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Topic :: Database",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+]
+keywords = ["mimeograph", "mimeo", "generate", "generator"]
+dependencies = [
+    "requests",
+    "pandas",
+    "pyyaml",
+    "haggis"
+]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = ["bumpver", "build", "twine", "isort", "pytest", "pytest-cov", "responses"]
+
+[project.scripts]
+mimeo = "mimeo.__main__:main"
+
+[tool.bumpver]
+current_version = "0.2.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message  = "Bump version {old_version} to {new_version}"
+commit          = true
+tag             = true
+push            = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/mimeo/__init__.py" = ["{version}"]
+"src/mimeo/__main__.py" = ["{version}"]
