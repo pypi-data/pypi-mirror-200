@@ -1,0 +1,17 @@
+{% extends "bootstrap3/base.html" %}
+
+{% block content %}
+<div class="row-fluid">
+    {{ content }}
+</div>
+{% endblock %}
+
+{#
+  % block header %}
+    <p align="right">
+        [<a href="{{ site.site_prefix }}">admin</a>]
+        [{{ tostring(ar.obj2html(obj, "edit1")) }}]
+        [<a href="{{ ar.get_detail_url(ar.actor, obj.pk) }}">edit2</a>]
+        {#[<a href="{{ obj.publisher_url() }}">permalink</a>]#}
+    </p>
+{#% endblock %#}
