@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: uhugo
+Version: 1.1.1
+Summary: Hugo publisher is a CLI utility helper for Hugo static site builder
+Home-page: https://github.com/akshaybabloo/uHugo
+Author: Akshay Raj Gollahalli
+Author-email: akshay@gollahalli.com
+License: MIT
+Keywords: hugo,hugo cli helper
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: certifi (==2022.12.7)
+Requires-Dist: charset-normalizer (==3.1.0)
+Requires-Dist: click (==8.1.3)
+Requires-Dist: colorama (==0.4.6)
+Requires-Dist: idna (==3.4)
+Requires-Dist: markdown-it-py (==2.2.0)
+Requires-Dist: mdurl (==0.1.2)
+Requires-Dist: packaging (==23.0)
+Requires-Dist: psutil (==5.9.4)
+Requires-Dist: pydantic (==1.10.7)
+Requires-Dist: pygments (==2.14.0)
+Requires-Dist: pyyaml (==6.0)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: rich (==13.3.3)
+Requires-Dist: toml (==0.10.2)
+Requires-Dist: typing-extensions (==4.5.0)
+Requires-Dist: urllib3 (==1.26.15)
+
+# uHugo
+
+[![PyPI version](https://badge.fury.io/py/uhugo.svg)](https://badge.fury.io/py/uhugo) [![Docs](https://img.shields.io/badge/Documentation-Documentation%20for%20uHugo-green)](https://akshaybabloo.github.io/uHugo/)
+
+uHugo is a CLI tool to install and update Hugo binary as well as updating any cloud providers
+
+## Instillation
+
+uHugo depends on Python 3.6+, on your terminal:
+
+```sh
+> pip install uhugo
+```
+
+Once installed you can test it by:
+
+```sh
+> uhugo --version
+```
+
+## Usage
+
+uHugo provides two main commands - `install` and `update`
+
+### Install
+
+Using `uhugo install`, will download the latest binary file from [Hugo's repository](https://github.com/gohugoio/hugo) and adds it to `$HOME/bin` folder. You can force install by using `uhugo install --force`.
+
+> Note: Make sure you have `$HOME/bin` in your `$PATH` environment variable
+
+![uhugo install](https://github.com/akshaybabloo/uHugo/raw/main/screenshots/cmd-install.gif)
+
+### Update
+
+Using `uhugo update`, will update the current binary to the latest one. You can use `--to` flag to specify the version you want to rather update to. Example `uhugo update --to 0.80.0`
+
+![uhugo update](https://github.com/akshaybabloo/uHugo/raw/main/screenshots/cmd-update.gif)
+
+## Providers
+
+Providers can be used to update Hugo environment variables or configuration files of a cloud provider. See the [provider docs](https://akshaybabloo.github.io/uHugo/providers/index.html) for more information.
