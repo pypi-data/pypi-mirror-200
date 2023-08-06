@@ -1,0 +1,35 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metats"
+version = "0.2.0"
+description = "Meta-Learning for Time Series Forecasting"
+readme = "README.md"
+authors = [{ name = "Sasan Barak", email = "s.barak@soton.ac.uk" },
+           { name = "Amirabbas Asadi", email = "amir137825@gmail.com" },
+           { name = "Mohammad Joshaghani", email = "mjoshaghani10@gmail.com" }]
+
+license = { file = "LICENSE" }
+
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["timeseries", "metalearning", "forecasting", "unsupervised learning", "deeplearning", "machine learning"]
+
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+
+[project.optional-dependencies]
+dev = ["pytest", "pdoc"]
+
+[project.urls]
+Homepage = "https://drsasanbarak.github.io/metats/"
+
+[project.scripts]
+metats = "metats.__main__:main"
