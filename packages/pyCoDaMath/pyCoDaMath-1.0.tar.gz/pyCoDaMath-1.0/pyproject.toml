@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyCoDaMath"
+version = "1.0"
+authors = [
+  { name="Christian Brinch", email="cbri@food.dtu.dk" },
+]
+description = "Compositional data (CoDa) analysis tools for Python"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ['matplotlib>=3.1.1', 
+                'numpy>=1.17.2', 
+                'pandas>=0.25.1',
+                'python-ternary>=1.0.6', 
+                'scipy>=1.3.1',
+                'webcolors>=1.13',
+                'adjustText==0.7.3',
+                ]
+
+[project.urls]
+"Homepage" = "https://bitbucket.org/genomicepidemiology/pycodamath"
+"Bug Tracker" = "https://bitbucket.org/genomicepidemiology/pycodamath/issues?status=new&status=open&is_spam=!spam"
