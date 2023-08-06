@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: exphub
+Version: 0.1.5
+Summary: 
+License: MIT
+Author: SoliareofAstora
+Author-email: soliareofastorauj@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: neptune-client (>=0.16.17,<0.17.0)
+Requires-Dist: plotly (>=5.13.0,<6.0.0)
+Description-Content-Type: text/markdown
+
+
