@@ -1,0 +1,29 @@
+[build-system]
+requires = ['setuptools>=61.0', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'anyhedge'
+version = '0.1.3'
+authors = [
+  { name='emergent_reasons', email='emergent_reasons@gmail.com' },
+]
+license = { file = "LICENSE" }
+description = 'Basic components of AnyHedge contracts'
+readme = 'README.md'
+requires-python = '>=3.10'
+keywords = ['bitcoincash', 'bch', 'anyhedge', 'utxo']
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+]
+dependencies = [
+    'arrow >= 1.2.3',
+    'pytest [test] >= 7.2.1',
+    'pytest-cov [test] >= 4.0.0',
+]
+
+[project.urls]
+'Homepage' = 'https://gitlab.com/unauth/py-anyhedge'
+'Bug Tracker' = 'https://gitlab.com/unauth/py-anyhedge/issues'
