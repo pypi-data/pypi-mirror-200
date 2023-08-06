@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: accompanist
+Version: 1.0.3
+Summary: AWS WAF log analysis report generator
+Author: itsuki
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: boto3
+Requires-Dist: datetime
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: PdfPages
+
+
+# About
+
+Accomapnist - It's an accompanist on WAF log analysis.
+
+You can generate WAF log analysis report with only 2 CLI commands.
+
+# Prerequisition
+
+- WAF
+    - AWS WAFv2
+        - Logging: CloudWatch Logs
+        - Action: BLOCK or COUNT
+    - Third Party WAF
+        - Logging: CloudWatch Logs
+        - Action: BLOCK or COUNT
+
+- Client Environment
+    - OS: macOS
+    - IAM Role/User: including permissions to execute
+        - (1) `start_query` of Logs Insights
+        - (2) `get_query_result` of Logs Insights
+
+# Install
+
+```bash
+pip install accompanist
+```
+
+# Usage
+
+1. Create configuration file (JSON format) including 3 elements below
+
+(e.g.) config.json
+```json
+{
+  "log_group": "aws-waf-logs-foo-bar",
+  "target_uri": [
+    "/foo",
+    "/bar"
+  ],
+  "comment": [
+    "- note 1",
+    "- note 2",
+    "-",
+    "-",
+    "-"
+  ]
+}
+```
+
+2. Get query result
+
+```bash
+accompanist listen --action BLOCK --days 3
+```
+
+3. Generate report (PDF format)
+
+```bash
+accompanist play
+```
+
+# Uninstall
+
+```bash
+pip uninstall accompanist
+```
+
+
