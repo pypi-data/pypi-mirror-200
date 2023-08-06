@@ -1,0 +1,97 @@
+{
+  "folder": {
+    "routes": [
+      {
+        "path": "folder",
+        "http_method": "GET",
+        "sdk_method_name": "list"
+      }
+    ]
+  },
+  "template": {
+    "routes": [
+      {
+        "path": "template",
+        "http_method": "POST",
+        "sdk_method_name": "create"
+      },
+      {
+        "path": "template",
+        "http_method": "GET",
+        "sdk_method_name": "list"
+      },
+      {
+        "path": "template/{id}",
+        "http_method": "GET",
+        "sdk_method_name": "get"
+      }
+    ]
+  },
+  "render": {
+    "routes": [
+      {
+        "path": "render",
+        "http_method": "POST",
+        "sdk_method_name": "create"
+      },
+      {
+        "path": "render",
+        "http_method": "GET",
+        "sdk_method_name": "list"
+      },
+      {
+        "path": "render/{id}",
+        "http_method": "GET",
+        "sdk_method_name": "get"
+      },
+      {
+        "path": "render/{id}/pdf",
+        "http_method": "GET",
+        "sdk_method_name": "get_pdf"
+      }
+    ]
+  },
+  "batch": {
+    "routes": [
+      {
+        "path": "batch",
+        "http_method": "POST",
+        "sdk_method_name": "create"
+      },
+      {
+        "path": "batch",
+        "http_method": "GET",
+        "sdk_method_name": "list"
+      },
+      {
+        "path": "batch/{id}",
+        "http_method": "GET",
+        "sdk_method_name": "get"
+      }
+    ]
+  },
+  "document": {
+    "routes": [
+      {
+        "path": "document",
+        "http_method": "GET",
+        "sdk_method_name": "list"
+      },
+      {
+        "path": "document/{id}",
+        "http_method": "GET",
+        "sdk_method_name": "get"
+      },
+      {
+        "path": "document/{id}",
+        "http_method": "DELETE",
+        "sdk_method_name": "delete"
+      },
+      {
+        "path": "download/{id}",
+        "http_method": "GET",
+        "sdk_method_name": "download"
+      }
+    ]
+  }
+}
