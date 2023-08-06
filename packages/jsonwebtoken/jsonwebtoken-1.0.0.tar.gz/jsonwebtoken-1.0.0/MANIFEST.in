@@ -1,0 +1,10 @@
+include .pre-commit-config.yaml
+include AUTHORS.rst
+include LICENSE
+include README.rst
+include tox.ini
+include jsonwebtoken/py.typed
+graft tests
+exclude codecov.yml
+recursive-exclude * *.py[co]
+recursive-exclude * __pycache__
