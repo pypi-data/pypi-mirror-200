@@ -1,0 +1,17 @@
+[package]
+name = "pyscenewriter"
+version = "0.0.7"
+authors = ["Joe Button"]
+description = "Convert fountain screenplay format to html or pdf"
+edition = "2021"
+readme = "README.md"
+homepage = "https://github.com/Joeboy/pyscenewriter"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "pyscenewriter"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.18.1"
+scenewriter = { git = "https://github.com/Joeboy/scenewriter.git" }
