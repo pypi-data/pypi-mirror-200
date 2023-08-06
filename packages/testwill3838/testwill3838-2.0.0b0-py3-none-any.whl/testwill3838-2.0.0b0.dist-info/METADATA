@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: testwill3838
+Version: 2.0.0b0
+Summary: 
+Author: William
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiohttp (>=3.0,<4.0)
+Requires-Dist: backoff (>=2.0,<3.0)
+Requires-Dist: requests (>=2.0,<3.0)
+Description-Content-Type: text/markdown
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+
