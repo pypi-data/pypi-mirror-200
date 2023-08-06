@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: little-helper-functions
+Version: 0.1.0
+Summary: 
+Author: Artur A. Galstyan
+Author-email: mail@arturgalstyan.dev
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: equinox (>=0.10.2,<0.11.0)
+Requires-Dist: gymnasium (>=0.28.1,<0.29.0)
+Requires-Dist: nox (>=2022.11.21,<2023.0.0)
+Requires-Dist: optax (>=0.1.4,<0.2.0)
+Requires-Dist: pytest (>=7.2.2,<8.0.0)
+Description-Content-Type: text/markdown
+
+

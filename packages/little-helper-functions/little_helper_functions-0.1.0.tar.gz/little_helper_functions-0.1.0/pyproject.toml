@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "little-helper-functions"
+version = "0.1.0"
+description = ""
+authors = ["Artur A. Galstyan <mail@arturgalstyan.dev>"]
+readme = "README.md"
+packages = [{include = "little_helpers"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+equinox = "^0.10.2"
+optax = "^0.1.4"
+gymnasium = "^0.28.1"
+pytest = "^7.2.2"
+nox = "^2022.11.21"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+ignore = ["F722"]
