@@ -1,0 +1,1416 @@
+{
+  "src/lib/components/BubbleTrain.react.js": {
+    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
+    "displayName": "BubbleTrain",
+    "methods": [
+      {
+        "name": "setProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "getProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "name",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_z",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "do_escape",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlMove",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlScroll",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "set_dots_ref",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "ref",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "del_dots_ref",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "ref",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "set_pos",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "x",
+            "type": null
+          },
+          {
+            "name": "y",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_pos_list",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "set_moving",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "id",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "stop_moving",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "get_moving",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "redraw_paths",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "temp_pos",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "clear_targets",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "ref",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "set_target",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "tref",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "refresh_targets",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "node"
+              }
+            },
+            {
+              "name": "node"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'100%'",
+          "computed": false
+        }
+      },
+      "height": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'100%'",
+          "computed": false
+        }
+      },
+      "overflow": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'auto'",
+          "computed": false
+        }
+      },
+      "position": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'absolute'",
+          "computed": false
+        }
+      },
+      "path_list": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "any"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/Connector.react.js": {
+    "description": "",
+    "displayName": "Connector",
+    "methods": [
+      {
+        "name": "setProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "getProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "name",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "is_moving",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "get_moving",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "stop_moving",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "set_moving",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "get_path",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "new_pos_list",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_complete_path",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "new_pos_list",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_target_offset",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "target",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_updated_path",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "target_list",
+            "type": null
+          },
+          {
+            "name": "target_pl_list",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_updated_targets",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "tid",
+            "type": null
+          },
+          {
+            "name": "new_pos_list",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlDoubleClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "update_targets",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "res",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "stroke": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"#ccc\"",
+          "computed": false
+        }
+      },
+      "strokeWidth": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"1.5\"",
+          "computed": false
+        }
+      },
+      "fill": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"none\"",
+          "computed": false
+        }
+      },
+      "x": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "100",
+          "computed": false
+        }
+      },
+      "y": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "100",
+          "computed": false
+        }
+      },
+      "r": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "8",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"#ccc\"",
+          "computed": false
+        }
+      },
+      "pos_list": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "arrayOf",
+            "value": {
+              "name": "number"
+            }
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "target_list": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "target_pl_list": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "arrayOf",
+            "value": {
+              "name": "arrayOf",
+              "value": {
+                "name": "number"
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "is_input": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "dot_x": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "dot_y": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "parent": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "panel": {
+        "type": {
+          "name": "any"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/DraggablePanel.react.js": {
+    "description": "",
+    "displayName": "DraggablePanel",
+    "methods": [
+      {
+        "name": "setProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "getProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "name",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_parent",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "hlDragStart",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlDrag",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlDragEnd",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlMouseDown",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlTitleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_x_pos",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "idx",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_in_dot_pos",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "idx",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "get_out_dot_pos",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "idx",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "update_outputs",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "idx",
+            "type": null
+          },
+          {
+            "name": "target_list",
+            "type": null
+          },
+          {
+            "name": "target_pl_list",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "node"
+              }
+            },
+            {
+              "name": "node"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "ttr_count": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "ftr_count": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'100px'",
+          "computed": false
+        }
+      },
+      "height": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'100px'",
+          "computed": false
+        }
+      },
+      "left": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'50px'",
+          "computed": false
+        }
+      },
+      "top": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'50px'",
+          "computed": false
+        }
+      },
+      "cx0": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "cy0": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "x0": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "y0": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "cnt_h": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'100%'",
+          "computed": false
+        }
+      },
+      "hdr_h": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "20",
+          "computed": false
+        }
+      },
+      "ttr_h": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "ftr_h": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "input_ids": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "output_ids": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "output_target_lists": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "arrayOf",
+            "value": {
+              "name": "string"
+            }
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "output_target_pl_lists": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "arrayOf",
+            "value": {
+              "name": "arrayOf",
+              "value": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "number"
+                }
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "in_dot_offset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "in_dot_distance": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "20",
+          "computed": false
+        }
+      },
+      "out_dot_offset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "10",
+          "computed": false
+        }
+      },
+      "out_dot_distance": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "20",
+          "computed": false
+        }
+      },
+      "edge_offset_y": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "20",
+          "computed": false
+        }
+      },
+      "edge_offset_x": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "tooltip": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      },
+      "strokeWidth": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"1.5\"",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"#ccc\"",
+          "computed": false
+        }
+      },
+      "ftr_color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"white\"",
+          "computed": false
+        }
+      },
+      "ttr_color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"white\"",
+          "computed": false
+        }
+      },
+      "z_index": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "9",
+          "computed": false
+        }
+      },
+      "cnt_overflow": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"auto\"",
+          "computed": false
+        }
+      },
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      },
+      "title_font": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"sans-serif\"",
+          "computed": false
+        }
+      },
+      "title_size": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"10px\"",
+          "computed": false
+        }
+      },
+      "title_color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"white\"",
+          "computed": false
+        }
+      },
+      "parent_id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/DrawCanvas.react.js": {
+    "description": "",
+    "displayName": "DrawCanvas",
+    "methods": [
+      {
+        "name": "setProps",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "newProps",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlMouseDown",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlMouseMove",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "hlMouseUp",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "handleChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "refresh": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
+  },
+  "src/lib/components/TextInput.react.js": {
+    "description": "",
+    "displayName": "TextInput",
+    "methods": [
+      {
+        "name": "handleInputChange",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "\"Text Input\"",
+          "computed": false
+        }
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  }
+}
