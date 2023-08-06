@@ -1,0 +1,14 @@
+setup.py
+mirex/__init__.py
+mirex/mirex.py
+mirex.egg-info/PKG-INFO
+mirex.egg-info/SOURCES.txt
+mirex.egg-info/dependency_links.txt
+mirex.egg-info/requires.txt
+mirex.egg-info/top_level.txt
+mirex/serializers/__init__.py
+mirex/serializers/emoji.py
+mirex/serializers/guild.py
+mirex/serializers/role.py
+mirex/serializers/sticker.py
+test/test_boy.py
