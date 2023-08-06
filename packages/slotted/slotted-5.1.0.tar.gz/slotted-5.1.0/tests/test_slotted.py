@@ -1,0 +1,69 @@
+# type: ignore
+
+import pytest
+import six
+
+import slotted
+
+
+class Foo(object):
+    __slots__ = ("foo",)
+
+
+class Bar(Foo):
+    __slots__ = ("bar",)
+
+
+class FooBar(Foo):
+    __slots__ = ("__foobar",)
+
+
+class ForcedBarM(six.with_metaclass(slotted.SlottedMeta, Bar)):
+    pass
+
+
+class ForcedBar(Bar, slotted.Slotted):
+    pass
+
+
+class ForcedFooBar(FooBar, slotted.Slotted):
+    pass
+
+
+def test_import():
+    from slotted import Slotted, SlottedMeta, slots
+
+    assert all((Slotted, SlottedMeta, slots))
+
+
+def test_slots():
+    assert slotted.slots(Foo) == {"foo"}
+    assert slotted.slots(Bar) == {"foo", "bar"}
+    for forced_cls in (ForcedBarM, ForcedBar):
+        assert hasattr(forced_cls, "__slots__")
+        assert slotted.slots(forced_cls) == {"foo", "bar"}
+
+    assert slotted.slots(ForcedFooBar, mangled=True) == {"foo", "_FooBar__foobar"}
+
+
+def test_non_object():
+    class NonObject:
+        pass
+
+    with pytest.raises(TypeError):
+        type("NonObject", (NonObject, slotted.Slotted), {})
+
+
+def test_non_slotted():
+    class NonSlotted(object):
+        pass
+
+    with pytest.raises(TypeError):
+        slotted.SlottedMeta("NonSlotted", (NonSlotted,), {})
+
+    with pytest.raises(TypeError):
+        type("NonSlotted", (NonSlotted, slotted.Slotted), {})
+
+
+if __name__ == "__main__":
+    pytest.main()
