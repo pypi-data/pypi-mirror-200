@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: python-frank-energie
+Version: 3.0.0a2
+Summary: Asynchronous Python client for the Frank Energie
+Home-page: https://github.com/dcsbl/python-frank-energie
+License: Apache-2.0
+Author: DCSBL
+Maintainer: DCSBL
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiohttp (>=3.8.0)
+Requires-Dist: python-dateutil (>=2.8.0)
+Project-URL: Bug Tracker, https://github.com/dcsbl/python-frank-energie/issues
+Project-URL: Changelog, https://github.com/dcsbl/python-frank-energie/releases
+Project-URL: Documentation, https://github.com/dcsbl/python-frank-energie
+Project-URL: Repository, https://github.com/dcsbl/python-frank-energie
+Description-Content-Type: text/markdown
+
+# python-frank-energie
+
+Asyncio package to communicate with Frank Energie. This package is created to be used with https://github.com/bajansen/home-assistant-frank_energie.
+
+## Disclaimer
+
+This package is not developed, nor supported by Frank Energie.
+
+## Installation
+```bash
+python3 -m pip install python-frank-energie
+```
+
