@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: pytomography
+Version: 0.4.0
+Summary: Package to perform tomographic image reconstruction
+Project-URL: Homepage, https://github.com/qurit/PyTomography
+Project-URL: Bug Tracker, https://github.com/qurit/PyTomography/issues
+Author-email: Luke Polson <lukepolson@outlook.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: numpy>=1.24.2
+Requires-Dist: pydicom>=2.0.0
+Requires-Dist: scipy>=1.10.1
+Provides-Extra: doc
+Requires-Dist: furo; extra == 'doc'
+Requires-Dist: ipykernel; extra == 'doc'
+Requires-Dist: myst-parser; extra == 'doc'
+Requires-Dist: nbsphinx; extra == 'doc'
+Requires-Dist: sphinx-autoapi; extra == 'doc'
+Requires-Dist: sphinx~=4.2.0; extra == 'doc'
+Requires-Dist: toml; extra == 'doc'
+Description-Content-Type: text/markdown
+
+PyTomography is an open source python library for tomographic image reconstruction. For more information, check out [the readthedocs page](https://pytomography.readthedocs.io/en/latest/).
+
+
+===================================
+
+
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling", "toml"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pytomography"
+version = "0.4.0"
+
+authors = [
+  { name="Luke Polson", email="lukepolson@outlook.com" },
+]
+description = "Package to perform tomographic image reconstruction"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "numpy>=1.24.2",
+  "scipy>=1.10.1",
+  "pydicom>=2.0.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/qurit/PyTomography"
+"Bug Tracker" = "https://github.com/qurit/PyTomography/issues"
+
+[project.optional-dependencies]
+doc = [
+  "toml",
+  "sphinx~=4.2.0",
+  "myst-parser",
+  "furo",
+  "nbsphinx",
+  "sphinx-autoapi",
+  "ipykernel"
+]
+
+[project.package_data]
+pytomography = ["data/*.csv"]
