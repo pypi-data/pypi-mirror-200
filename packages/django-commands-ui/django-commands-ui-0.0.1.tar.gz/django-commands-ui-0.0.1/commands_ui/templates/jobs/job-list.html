@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link d-flex align-items-center active" id="all-jobs-tab" href="#"
+               aria-controls="all-jobs" role="tab" aria-selected="true">
+                <span class="d-none d-sm-block">All jobs</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" id="job-history-tab" href="history/"
+               aria-controls="job-history" role="tab" aria-selected="false">
+                <span class="d-none d-sm-block">Job history</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="card-columns" style="column-count: 2;">
+        {% for runnable_job_group in runnable_job_list %}
+            {% if runnable_job_group.command_list %}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <h2 class="h3 col-12">{{ runnable_job_group.name }}</h2>
+                            <small class="text-muted col-12 mb-0">{{ runnable_job_group.path }}</small>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% regroup runnable_job_group.command_list|dictsort:"interface" by interface as grouped_commands %}
+                        {% for command_group in grouped_commands %}
+                            <h5>{{ command_group.grouper.title }}</h5>
+                            <ul>
+                                {% for command in command_group.list %}
+                                    <li>
+                                        <a href="{% url 'jobs:job' command.name %}">{{ command.display_name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock content %}

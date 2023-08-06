@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block extralinks %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <h1>{{ command_display_name }}</h1>
+    <h3>Category: {{ app_config_category }}</h3>
+    <br/>
+
+    <div class="row">
+        <div class="col-md">
+            {% include 'jobs/partials/form.html' with id='run-job' button_text='Run command' file_upload=True info_text=info_text %}
+            <hr class="mt-3 mb-3">
+            {% include 'jobs/job-detail-history.html' %}
+        </div>
+        <div class="col-md">
+            {% if show_warnings %}
+                <div class="alert alert-warning">
+                    <strong>Warnings</strong>
+                    <ul>
+                        <li>
+                            If you're going to run a new management command that has just been deployed, make sure
+                            Terraform has finished applying the deployment. Otherwise a consumer worker that doesn't
+                            have the new code yet might try to pick up the job and it'll crash.
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+
+            <h3>Code</h3>
+            <p class="font-italic break-word">{{ file_path }}</p>
+            <pre><code class="language-python">{{ file_contents }}</code></pre>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block extrascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
+{% endblock extrascripts %}

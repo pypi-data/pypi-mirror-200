@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: django-commands-ui
+Version: 0.0.1
+Summary: Plugin interface to list and execute existing management commands.
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+        # Django Commands UI
+
+This project offers a solution to list and execute all existing management commands in your Django project.
+
+## Configuration
+
+To install and configure it these steps should be followed:
+1. Install the dependency from PyPi.
+   ```
+   pip install django-commands-ui
+   ```
+2. Add `commands_ui` as an installed app in your Django project.
+3. Add these needed settings:
+   ```
+    # Celery app name
+    COMMANDS_UI_CELERY_APP = ""
+
+    # Working celery queue name for delayed jobs.
+    COMMANDS_UI_DELAYED_JOBS_QUEUE = ""
+
+    # Working celery queue name for standard jobs.
+    COMMANDS_UI_JOBS_QUEUE = ""
+
+    # List of apps from we want to extract the runnable commands.
+    COMMANDS_UI_JOB_APPS = ""
+
+    # Primary database identifyer, not the replica one.
+    DATABASE_PRIMARY = getattr(settings, "DATABASE_PRIMARY", "default")
+
+    # Define if the current environment is a cron environment.
+    CRON_ENVIRONMENT = getattr(settings, "CRON_ENVIRONMENT", False)
+   ```
+4. Include package URLs to your base urls file like this:
+   ```
+   path("jobs/", include("commands_ui.urls")),
+   ```
+
+5. Create tables:
+   ```
+   python manage.py migrate commands_ui
+   ```
+
+It is recommended to override `base.html` so the appearance is customizable, as all `django-commands-ui` templates extend from it.
+
+## Documentation
+
+### Implementing a management command job
+
+The only needed thing for implementing a working management command job in
+`django-commands-ui` is extending the existing JobBasedCommand.
+This class adds some default arguments (such as `--job-id`).
+
+Example on how to use this class:
+```
+from commands_ui import management_commands
+from django.core.management.base import CommandParser
+
+# Extend the JobBasedCommand class
+class Command(management_commands.JobBasedCommand):
+   def handle(self, *args: Any, **options: Any) -> None:
+      # Any time `self.print` is used, the message will be added to both standard output and
+      # Job output.
+      self.print("Starting")
+      for i in range(0, 20):
+         self.print(i)
+      self.print("Finishing")
+```

@@ -1,0 +1,12 @@
+boto3>=1.26.82
+celery>=5.2.7
+django_extensions>=3.2.1
+django-multidb-router>=0.10
+djangorestframework>=3.14.0
+xocto>=3.0.0
+
+[dev]
+black
+isort
+mypy>=0.982
+pre-commit>=2.6.0

@@ -1,0 +1,71 @@
+<div {% if job.is_in_progress %}hx-get="{% url 'jobs:job-output' pk=job.pk %}" hx-trigger="load delay:5s"
+     hx-swap="outerHTML" {% endif %}>
+    {# Only show the cancellation form on jobs that haven't been cancelled or finished yet. #}
+    {% if not job.has_been_cancelled and not job.has_finished %}
+    <div class="alert alert-danger inline-block">
+        <h2 class="h3">Cancel job</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="cancel">
+            {% if job.has_started %}
+                This job can't be cancelled anymore because it has already started running.
+            {% else %}
+                <p>Use this form to cancel this job. Only jobs that haven't started running yet can be cancelled.</p>
+                <button type="submit" class="btn btn-danger">Cancel job</button>
+            {% endif %}
+        </form>
+    </div>
+    {% endif %}
+
+    <h2>Output</h2>
+
+    {% if job.is_in_progress %}
+    <div class="alert alert-warning inline-block">
+        {% if job.finished_at and not job.has_finished_tasks %}
+            This job has completed, but background tasks are still running.
+        {% else %}
+            This job is currently running.
+        {% endif %}
+    </div>
+    {% elif job.has_been_cancelled %}
+    <div class="alert alert-warning inline-block">
+        This job has been cancelled.
+    </div>
+    {% endif %}
+
+    {% if job.output %}
+    <form action="" method="post" class="mb-2">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="download-output">
+        <button type="submit" class="btn btn-primary">Download output</button>
+    </form>
+    <div class="alert alert-secondary">
+        <pre><code class="language-python">{{ job.output }}</code></pre>
+    </div>
+    {% elif not job.has_been_cancelled and not job.has_finished %}
+    <div class="alert alert-secondary">
+        <pre><code class="language-python">No output yet.</code></pre>
+    </div>
+    {% endif %}
+
+    {% if job.has_finished %}
+        {% if not job.output and show_warnings|default:True %}
+        <p>This job hasn't generated any output. Maybe you should consider printing some of its progress using the
+            management command <code>print</code> method?</p>
+        <p>For example:</p>
+        <pre>
+            <code class="language-python">
+                class Command(base_command.TempJobBaseCommand):
+                    def handle(self, **options):
+                        handle(self)
+
+                def handle(cmd):
+                    cmd.print("Starting command.")
+                    for i in range(0, 40):
+                        cmd.print(i)
+                    cmd.print("Command ended.")
+            </code>
+        </pre>
+        {% endif %}
+    {% endif %}
+</div>

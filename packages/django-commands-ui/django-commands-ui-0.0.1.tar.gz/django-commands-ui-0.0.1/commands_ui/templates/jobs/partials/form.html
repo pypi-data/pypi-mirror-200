@@ -1,0 +1,44 @@
+{% load tags_helpers %}
+{% if not exclude_form_tag %}
+<form
+    method="{{ method|default:"POST" }}"
+    {% if form_class %}class="{{ form_class }}"{% endif %}
+    {% if file_upload %}enctype="multipart/form-data"{% endif %}
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if action %}action="{{ action }}"{% endif %}
+    {% if confirmation_message %}
+        onsubmit="return confirm('{{ confirmation_message }}');"
+    {% else %}
+        onsubmit="submitButton.disabled = true; {% if button_addanother %}submitAndAddAnotherButton.disabled = true;{% endif %} return true;"
+    {% endif %}
+    onchange="form_onchange()"
+>
+{% endif %}
+    {% if method != "GET" %}{% csrf_token %}{% endif %}
+
+    {% block fields %}
+        {% for field in form %}
+            <div class="form-group">
+                <h5>{{ field.label|title_case }} {% if field.field.required %}<span style="color: red;">*</span>{% endif %}</h5>
+                <p>{{ field }}</p>
+                {{ field.help_text }}
+            </div>
+        {% endfor %}
+    {% endblock fields %}
+
+    {% if help_text %}
+        <p class="form-text">{{ help_text }}</p>
+    {% endif %}
+
+    {% if not exclude_submit_buttons %}
+        <div class="button-group">
+            <button type="submit" name="submitButton" class="btn btn-primary waves-effect waves-float waves-light" {% if disabled %}disabled="disabled"{% endif %}>{{ button_text }}</button>
+            {% if button_addanother %}
+                <input type="hidden" name="_addanother" id="_addanother" value="0">
+                <button type="submit" name="submitAndAddAnotherButton" class="button" {% if disabled %}disabled="disabled"{% endif %} onclick='document.getElementById("_addanother").value = "1"'>{{ button_addanother_text }}</button>
+            {% endif %}
+            {% if cancel_link %}
+                <a href="{{ cancel_link }}" class="{{ cancel_link_class}}">{{ cancel_text }}</a>
+            {% endif %}
+        </div>
+    {% endif %}
