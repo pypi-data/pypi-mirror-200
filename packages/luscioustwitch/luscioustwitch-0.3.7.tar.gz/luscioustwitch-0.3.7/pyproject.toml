@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "requests"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luscioustwitch"
+version = "0.3.7"
+authors = [
+  { name="Charlie Coleman", email="me@charlie-coleman.com" },
+]
+description = "Twitch API Wrapper"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/charlie-coleman/luscioustwitch"
+"Bug Tracker" = "https://github.com/charlie-coleman/luscioustwitch/issues"
