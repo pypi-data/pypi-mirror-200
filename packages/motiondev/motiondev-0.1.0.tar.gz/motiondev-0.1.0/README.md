@@ -1,0 +1,206 @@
+# Motiondev
+An asynchronous API wrapper for the [Motion Development](https://motiondevelopment.top) bot list API.
+
+## Installation
+```
+# Linux/macOS
+python3 -m pip install -U motiondev
+
+# Windows
+py -3 -m pip install -U motiondev
+```
+
+### From GitHub
+```
+# Linux/macOS
+python3 -m pip install -U git@https://github.com/itswilliboy/motiondev
+
+# Windows
+py -3 -m pip install -U git@https://github.com/itswilliboy/motiondev
+```
+
+---
+
+## Quick Example
+```python
+import asyncio
+import motiondev
+
+# Declaration
+async def main():
+    client = motiondev.Client('My API key')
+
+    # Async context manager for automatic cleanup
+    async with client:
+        bot = await client.get_bot(000000000000000) # Your bot ID
+        print(bot.name, bot.library) # Example#0001, discord.py
+
+        votes = await bot.get_votes() # Get the bot's votes
+        print(votes) # [<Vote id=...,>, ...]
+
+        print(bot.servers) # 0
+        bot = await bot.update(servers=10) # Update the server count on the bot list
+        print(bot.servers) # 10
+
+
+asyncio.run(main())
+```
+# Issues
+Feel free to report any issue/bug or ask any question on the [issue tracker](https://github.com/itswilliboy/motiondev/issues).
+# Documentation
+## Client
+    Client(token)
+Represents a client that sends requests to the motiondevelopment.top API.
+
+### Parameters
+> `token: str`
+
+The API key found in your bot's API settings.
+
+### Methods
+>`get_bot(bot_id)`
+
+Get a bot with the by its ID.
+
+Raises:
+
+- NotFound - The bot was not found.
+- Forbidden - You are not authorized to get this bot.
+
+Returns:
+
+The bot from the bot ID.
+
+Return Type:
+
+[Bot](#bot)
+
+---
+
+## Bot
+Represents a bot on the bot list.
+### Attributes
+>`name: str`
+
+The bot's name.
+> `id: int`
+
+The bot's ID.
+> `avatar_url: Optional[str]`
+
+The bot's avatar URL (as PNG).
+> `status: str`
+
+The bot's status.
+> `status: str`
+
+Invite URL to the bot's support server.
+> `invite: str`
+
+The bot's OAuth invite URL.
+> `library: str`
+
+The library the bot was built with.
+> `list_date: datetime.date`
+
+The date the bot was listed on the bot list.
+> `owner_id: int`
+
+The bot's owner's ID.
+> `owner_name: str`
+
+The bot's owner's.
+> `prefix: str`
+
+The bot's prefix.
+> `public_flags: int`
+
+The bot's public flags.
+> `servers: int`
+
+The amount of servers displayed on the bot list.
+> `site: str`
+
+The bot's website.
+> `topics: List[str]`
+
+The topics the bot is listed under (max of 3).
+> `vanity_url: str`
+
+The bot's vanity URL.
+> `big_description: str`
+
+The bot's big description.
+> `small_description: str`
+
+The bot's small description.
+> `owner: User`
+
+The bot's owner
+> `co_owners: List[Optional[User]]`
+
+The bot's co-owners.
+### Methods
+> `update(*, servers)`
+
+Update the bot on the bot list.
+
+Parameters:
+- servers (int) - The bot's server count
+
+Raises:
+
+- Forbbiden - You are not authorized to update this bot.
+- HTTPException - Something went wrong when trying to update the bot.
+
+Returns:
+
+The bot with the updated parameters.
+
+Return Type:
+
+[Bot](#bot)
+
+> `get_votes()`
+
+Get all of the bot's votes
+
+Raises:
+
+- Forbbiden - You are not authorized to get the votes of this bot.
+- HTTPException - Something went wrong when trying to update the bot.
+
+Returns:
+
+A list with all of the votes (empty if there are no votes).
+
+Return Type:
+
+List[Optional[[Vote](#vote)]]
+
+---
+
+## User
+Represents a user on the bot list.
+### Attributes
+> `id: int`
+
+The voter's ID
+> `username: str`
+
+The voter's username.
+
+---
+
+## Vote
+Represents a vote on a bot.
+### Attributes
+> `id: int`
+
+The voter's ID.
+> `vote_time: datetime`
+
+The date & time when the vote was added.
+> `user: VoteUser`
+
+The user who voted, is `None` if the vote is a placeholder. `VoteUser` is a subclass of `User` but it's `username` is not implemented as it seems that the API currently does not supply a correct username.
