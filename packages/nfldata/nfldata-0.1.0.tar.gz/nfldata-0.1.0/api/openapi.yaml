@@ -1,0 +1,203 @@
+openapi: 3.0.0
+info:
+  title: NFL Data
+  description: Mainly for kickers
+  version: 0.1.0
+paths: {}
+components:
+  schemas:
+# Enumerated Types
+    TeamShortCodeEnum:
+      description: The three letter code used for a team identification.
+      type: string
+      enum:
+        - ARI
+        - ATL
+        - BAL
+        - BUF
+        - CAR
+        - CHI
+        - CIN
+        - CLE
+        - DAL
+        - DEN
+        - DET
+        - GNB
+        - HOU
+        - IND
+        - JAX
+        - KAN
+        - LAC
+        - LAR
+        - LVR
+        - MIA
+        - MIN
+        - NOR
+        - NWE
+        - NYG
+        - NYJ
+        - PHI
+        - PIT
+        - SEA
+        - SFO
+        - TAM
+        - TEN
+        - WAS
+# Core Objects  
+    Base:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          description: A UUID. This is referred to as the id of any object's property descriptions in the model. It is intended to be unique.
+          type: string
+    FieldGoal:
+      allOf:
+        - $ref '#/components/schemas/Base'
+        - type: object
+          required:
+            - distance
+            - kicker
+            - made            
+          properties:
+            distance:
+              description: Quantity of yards the kick was attempted
+              type: number
+            kicker:
+              description: The id of the kicker making the kick
+              type: string
+            made:
+              description: Whether or not the kick was made
+              type: boolean
+    Game:
+      allOf:
+        - $ref: '#/components/schemas/Base'
+        - type: object
+          required:
+            - dateTime
+            - decision
+            - homeScore
+            - homeTeam
+            - visitingScore
+            - visitingTeam
+          properties:
+            dateTime:
+              description: Date and time of the weather report in ISO8601 format, always UTC. For forecasts, this is the date and time the weather report is for.
+              type: string
+            decision:
+              description: Game outcome. -1 if visiting team won. 0 if tie. 1 if home team won.
+              type: number
+            homeTeam:
+              description: The TeamShortCodeEnum of the home team.
+              $ref: '#/components/schemas/TeamShortCodeEnum'
+            homeScore:
+              description: The score of the home team at the end of the game.
+              type: string
+            fieldGoals:
+              description: An array of Field Goal ids that took place during the game
+              type: array
+              items:
+                type: string
+            line:
+              description: What was the Vegas line going into the game? Negative favors visitor.
+              type: number
+            ot:
+              description: Did the game go into overtime?
+              type: boolean
+            ou:
+              description: Over Under on point total
+              type: number
+            roof:
+              description: What kind of roof was there?
+              type: string
+              enum:
+                - outdoors
+                - retractable roof (closed)
+                - retractable roof (open)
+                - dome
+            surface:
+              description: What kind of surface was the game played don?
+              type: string
+              enum:
+                - grass
+                - fieldturf
+                - sportturf
+                - astroturf
+            visitingScore:
+              description: The score of the visiting team at the end of the game.
+              type: string
+            visitingTeam:
+              description: The TeamShortCodeEnum of the visiting team.
+              $ref: '#/components/schemas/TeamShortCodeEnum'
+            weatherAtEnd:
+              description: Weather id of the report at the end of the game.            
+              type: string
+            weatherAtHalf:
+              description: Weather id of the report at half time.             
+              type: string
+            weatherAtStart: 
+              description: Weather id of the report at the start of the game.             
+              type: string
+    Kicker:
+      allOf:
+        - $ref '#/components/schemas/Base'
+        - type: object
+          required:
+            - firstName
+            - lastName
+          properties:
+            firstName:
+              description: The first name of the kicker
+              type: string
+            lastName:
+              description: The last name of the kicker
+              type: string                           
+    Team:
+      allOf:
+        - $ref '#/components/schemas/Base'
+        - type: object
+          required:
+            - shortCode
+          properties:
+            name:
+              description: List of names for the team
+              type: array
+              items:
+                type: string
+            shortCode:
+              description: The TeamShortCodeEnum enumeration
+              type: '#/components/schemas/TeamShortCodeEnum'
+    Weather:
+      allOf:
+        - $ref: '#/components/schemas/Base'
+        - type: object
+          required:
+            - dateTime
+          properties:
+            condition:
+              description: Weather conditions such as sunny, from a provided enumerated type
+              type: string
+              enum:
+                - sunny
+                - mostly cloudy
+                - clear
+                - dome
+            dateTime:
+              description: Date and time of the weather report in ISO8601 format, always UTC. For forecasts, this is the date and time the weather report is for.
+              type: string
+            forecast:
+              description: Is this a forecast or an actual weather report? True if it is a forecast
+              type: boolean
+            humidity:
+              description: Humidity in percent
+              type: number
+            temperature:
+              description: Temperature in fahrenheit
+              type: number
+            windDirection:
+              description: Wind direction in degrees, 0 is North. Remember this is direction from which the wind originates!
+              type: number
+            windSpeed:
+              description: Wind speed in miles per hour
+              type: number
