@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "links_fetcher_robsonfs"
+version = "0.0.1"
+authors = [
+  { name="Robson Santos", email="hello@sobecca.dev" },
+]
+description = "A tool to scrape links from webpages"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "requests >= 2.28.2",
+    "beautifulsoup4 >= 4.12.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/robsonfs/links_fetcher"
+"Bug Tracker" = "https://github.com/robsonfs/links_fetcher/issues"
