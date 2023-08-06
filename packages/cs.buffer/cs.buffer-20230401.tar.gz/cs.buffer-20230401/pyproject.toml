@@ -1,0 +1,336 @@
+[project]
+name = "cs.buffer"
+description = "Facilities to do with buffers, particularly CornuCopyBuffer, an automatically refilling buffer to support parsing of data streams."
+authors = [
+    { name = "Cameron Simpson", email = "cs@cskk.id.au" },
+]
+keywords = [
+    "python3",
+]
+dependencies = [
+    "cs.deco>=20230331",
+    "cs.gimmicks>=20230331",
+    "cs.py3>=20220523",
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+version = "20230401"
+
+[project.license]
+text = "GNU General Public License v3 or later (GPLv3+)"
+
+[project.urls]
+URL = "https://bitbucket.org/cameron_simpson/css/commits/all"
+
+[project.readme]
+text = """
+Facilities to do with buffers, particularly CornuCopyBuffer,
+an automatically refilling buffer to support parsing of data streams.
+
+*Latest release 20230401*:
+* CornuCopyBuffer.promote: document accepting an iterable as an iterable of bytes.
+* CornuCopyBuffer: new readline() method to return a binary line from the buffer.
+* CornuCopyBuffer.promote: assume objects with a .read1 or .read are files.
+
+## Class `CopyingIterator`
+
+Wrapper for an iterator that copies every item retrieved to a callable.
+
+*Method `CopyingIterator.__init__(self, it, copy_to)`*:
+Initialise with the iterator `it` and the callable `copy_to`.
+
+## Class `CornuCopyBuffer(cs.deco.Promotable)`
+
+An automatically refilling buffer intended to support parsing
+of data streams.
+
+Its purpose is to aid binary parsers
+which do not themselves need to handle sources specially;
+`CornuCopyBuffer`s are trivially made from `bytes`,
+iterables of `bytes` and file-like objects.
+See `cs.binary` for convenient parsing classes
+which work against `CornuCopyBuffer`s.
+
+Attributes:
+* `buf`: the first of any buffered leading chunks
+  buffer of unparsed data from the input, available
+  for direct inspection by parsers;
+  normally however parsers will use `.extend` and `.take`.
+* `offset`: the logical offset of the buffer; this excludes
+  buffered data and unconsumed input data
+
+*Note*: the initialiser may supply a cleanup function;
+although this will be called via the buffer's `.__del__` method
+a prudent user of a buffer should call the `.close()` method
+when finished with the buffer to ensure prompt cleanup.
+
+The primary methods supporting parsing of data streams are
+`.extend()` and `take()`.
+Calling `.extend(min_size)` arranges that the internal buffer
+contains at least `min_size` bytes.
+Calling `.take(size)` fetches exactly `size` bytes from the
+internal buffer and the input source if necessary and returns
+them, adjusting the internal buffer.
+
+len(`CornuCopyBuffer`) returns the length of any buffered data.
+
+bool(`CornuCopyBuffer`) tests whether len() > 0.
+
+Indexing a `CornuCopyBuffer` accesses the buffered data only,
+returning an individual byte's value (an `int`).
+
+A `CornuCopyBuffer` is also iterable, yielding data in whatever
+sizes come from its `input_data` source, preceeded by any
+content in the internal buffer.
+
+A `CornuCopyBuffer` also supports the file methods `.read`,
+`.tell` and `.seek` supporting drop in use of the buffer in
+many file contexts. Backward seeks are not supported. `.seek`
+will take advantage of the `input_data`'s .seek method if it
+has one, otherwise it will use consume the `input_data`
+as required.
+
+*Method `CornuCopyBuffer.__init__(self, input_data, buf=None, offset=0, seekable=None, copy_offsets=None, copy_chunks=None, close=None, progress=None)`*:
+Prepare the buffer.
+
+Parameters:
+* `input_data`: an iterable of data chunks (`bytes`-like instances);
+  if your data source is a file see the `.from_file` factory;
+  if your data source is a file descriptor see the `.from_fd`
+  factory.
+* `buf`: if not `None`, the initial state of the parse buffer
+* `offset`: logical offset of the start of the buffer, default `0`
+* `seekable`: whether `input_data` has a working `.seek` method;
+  the default is `None` meaning that it will be attempted on
+  the first skip or seek
+* `copy_offsets`: if not `None`, a callable for parsers to
+  report pertinent offsets via the buffer's `.report_offset`
+  method
+* `copy_chunks`: if not `None`, every fetched data chunk is
+  copied to this callable
+
+The `input_data` is an iterable whose iterator may have
+some optional additional properties:
+* `seek`: if present, this is a seek method after the fashion
+  of `file.seek`; the buffer's `seek`, `skip` and `skipto`
+  methods will take advantage of this if available.
+* `offset`: the current byte offset of the iterator; this
+  is used during the buffer initialisation to compute
+  `input_data_displacement`, the difference between the
+  buffer's logical offset and the input data iterable's logical offset;
+  if unavailable during initialisation this is presumed to
+  be `0`.
+* `end_offset`: the end offset of the iterator if known.
+* `close`: an optional callable
+  that may be provided for resource cleanup
+  when the user of the buffer calls its `.close()` method.
+* `progress`: an optional `cs.Progress.progress` instance
+  to which to report data consumed from `input_data`;
+  any object supporting `+=` is acceptable
+
+## Class `FDIterator(_Iterator)`
+
+An iterator over the data of a file descriptor.
+
+*Note*: the iterator works with an os.dup() of the file
+descriptor so that it can close it with impunity; this requires
+the caller to close their descriptor.
+
+*Method `FDIterator.__init__(self, fd, offset=None, readsize=None, align=True)`*:
+Initialise the iterator.
+
+Parameters:
+* `fd`: file descriptor
+* `offset`: the initial logical offset, kept up to date by
+  iteration; the default is the current file position.
+* `readsize`: a preferred read size; if omitted then
+  `DEFAULT_READSIZE` will be stored
+* `align`: whether to align reads by default: if true then
+  the iterator will do a short read to bring the `offset`
+  into alignment with `readsize`; the default is `True`
+
+## Class `FileIterator(_Iterator, SeekableIteratorMixin)`
+
+An iterator over the data of a file object.
+
+*Note*: the iterator closes the file on `__del__` or if its
+`.close` method is called.
+
+*Method `FileIterator.__init__(self, fp, offset=None, readsize=None, align=False)`*:
+Initialise the iterator.
+
+Parameters:
+* `fp`: file object
+* `offset`: the initial logical offset, kept up to date by
+  iteration; the default is 0.
+* `readsize`: a preferred read size; if omitted then
+  `DEFAULT_READSIZE` will be stored
+* `align`: whether to align reads by default: if true then
+  the iterator will do a short read to bring the `offset`
+  into alignment with `readsize`; the default is `False`
+
+## Class `SeekableFDIterator(FDIterator, _Iterator, SeekableIteratorMixin)`
+
+An iterator over the data of a seekable file descriptor.
+
+*Note*: the iterator works with an `os.dup()` of the file
+descriptor so that it can close it with impunity; this requires
+the caller to close their descriptor.
+
+## Class `SeekableFileIterator(FileIterator, _Iterator, SeekableIteratorMixin)`
+
+An iterator over the data of a seekable file object.
+
+*Note*: the iterator closes the file on __del__ or if its
+.close method is called.
+
+*Method `SeekableFileIterator.__init__(self, fp, offset=None, **kw)`*:
+Initialise the iterator.
+
+Parameters:
+* `fp`: file object
+* `offset`: the initial logical offset, kept up to date by
+  iteration; the default is the current file position.
+* `readsize`: a preferred read size; if omitted then
+  `DEFAULT_READSIZE` will be stored
+* `align`: whether to align reads by default: if true then
+  the iterator will do a short read to bring the `offset`
+  into alignment with `readsize`; the default is `False`
+
+## Class `SeekableIteratorMixin`
+
+Mixin supplying a logical with a `seek` method.
+
+## Class `SeekableMMapIterator(_Iterator, SeekableIteratorMixin)`
+
+An iterator over the data of a mappable file descriptor.
+
+*Note*: the iterator works with an `mmap` of an `os.dup()` of the
+file descriptor so that it can close it with impunity; this
+requires the caller to close their descriptor.
+
+*Method `SeekableMMapIterator.__init__(self, fd, offset=None, readsize=None, align=True)`*:
+Initialise the iterator.
+
+Parameters:
+* `offset`: the initial logical offset, kept up to date by
+  iteration; the default is the current file position.
+* `readsize`: a preferred read size; if omitted then
+  `DEFAULT_READSIZE` will be stored
+* `align`: whether to align reads by default: if true then
+  the iterator will do a short read to bring the `offset`
+  into alignment with `readsize`; the default is `True`
+
+# Release Log
+
+
+
+*Release 20230401*:
+* CornuCopyBuffer.promote: document accepting an iterable as an iterable of bytes.
+* CornuCopyBuffer: new readline() method to return a binary line from the buffer.
+* CornuCopyBuffer.promote: assume objects with a .read1 or .read are files.
+
+*Release 20230212.2*:
+* BREAKING: drop @chunky, superceded by @promote for CornuCopyBuffer parameters.
+* CornuCopyBuffer: subclass Promotable.
+
+*Release 20230212.1*:
+Add missing requirement for cs.gimmicks.
+
+*Release 20230212*:
+CornuCopyBuffer: new promote() method to promote int,str,bytes, also assumes nonspecific iterables yield byteslike instances.
+
+*Release 20211208*:
+CornuCopyBuffer.__init__: bugfix for self.input_data when copy_chunks is not None.
+
+*Release 20210316*:
+* New CornuCopyBuffer.from_filename factory method.
+* New CornuCopyBuffer.peek method to examine the leading bytes from the buffer.
+
+*Release 20210306*:
+* CornuCopyBuffer.from_file: improve the seekability test, handle files with no .tell().
+* CornuCopyBuffer.from_bytes: bugfix: set the buffer.offset to the supplied offset.
+* CornuCopyBuffer.from_bytes: queue a memoryview of the supplied bytes.
+
+*Release 20201102*:
+CornuCopyBuffer: new optional `progress` parameter for reporting data consumed from `input_data`.
+
+*Release 20201021*:
+* CornuCopyBuffer.from_file: changes to the test for a .seek method.
+* CornuCopyBuffer.read: call extend with short_ok=True.
+* CornuCopyBuffer.from_fd: record the fd as .fd, lets users os.fstat(bfr.fd).
+* New CornuCopyBuffer.as_fd method to return a readable file descriptor fed from the buffer by a Thread, intended for feeding subprocesses.
+* New CornuCopyBuffer.iter(maxlength) to return an iterator of up to maxlength bytes.
+* CornuCopyBuffer.__init__: new \"close\" parameter to release resources; new CornuCopyBuffer.close method to call this.
+* Some small fixes.
+
+*Release 20200517*:
+* CornuCopyBuffer.skip: bugfix sanity check.
+* FileIterator: do not close the supplied file, just set self.fp=None.
+* Improve EOFError message text.
+
+*Release 20200328*:
+* CornuCopyBuffer.takev: bugfix adjustment of buf.offset, was not always done.
+* CornuCopyBuffer.__getitem__: add slice support, note how expensive it is to use.
+
+*Release 20200229*:
+* New CornuCopyBuffer.byte0() method consuming the next byte and returning it as an int.
+* CornuCopyBuffer.takev: bugfix for size=0, logic refactor.
+* CornuCopyBuffer: new .selfcheck method.
+
+*Release 20200130*:
+CornuCopyBuffer.skip: bugfix adjustment of skipto for already buffered data.
+
+*Release 20191230.1*:
+Docstring updates. Semantic changes were in the previous release.
+
+*Release 20191230*:
+* CornuCopyBuffer: accept a size of Ellipsis in .take and .extend methods, indicating \"all the remaining data\".
+* CornuCopyBuffer: refactor the buffering, replacing .buf with .bufs as an array of chunks;
+* this enables support for the new .push method and reduces memory copying.
+
+*Release 20181231*:
+Small bugfix.
+
+*Release 20181108*:
+New at_eof() method. Python 2 tweak to support incidental import by python 2 even if unused.
+
+*Release 20180823*:
+Better handling of seekable and unseekable input data. Tiny bugfix for from_bytes sanity check.
+
+*Release 20180810*:
+* Refactor SeekableFDIterator and SeekableFileIterator to subclass new SeekableIterator.
+* New SeekableMMapIterator to process a memory mapped file descriptor, intended for large files.
+* New CornuCopyBuffer.hint method to pass a length hint through to the input_data iterator
+* if it has a `hint` method, causing it possibly to make a differently sized fetch.
+* SeekableIterator: new __del__ method calling self.close() - subclasses must provide
+* a .close, which should be safe to call multiple times.
+* CornuCopyBuffer: add support for .offset and .end_offset optional attributes on the input_data iterator.
+* _BoundedBufferIterator: add .offset property plumbed to the underlying buffer offset.
+* New CornuCopyBuffer.from_mmap to make a mmap backed buffer so that large data can be returned without penalty.
+* Assorted fixes and doc improvements.
+
+*Release 20180805*:
+Bugfixes for at_eof method and end_offset initialisation.
+
+*Release 20180726.1*:
+Improve docstrings and release with better long_description.
+
+*Release 20180726*:
+First PyPI release: CornuCopyBuffer and friends."""
+content-type = "text/markdown"
+
+[build-system]
+requires = [
+    "setuptools >= 61.2",
+    "trove-classifiers",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
