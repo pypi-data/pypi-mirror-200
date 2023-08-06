@@ -1,0 +1,75 @@
+{
+  "objects": [
+    {
+      "struct_name": "mini_loader_hooks_descriptor", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned int size_of_hook_shellcode_data;\nstruct hook startup_hooks;\nstruct hook pre_relocate_write_hooks;\nstruct hook pre_relocate_execute_hooks;\nstruct hook pre_calling_shellcode_main_hooks;", 
+      "endian": "big"
+    }, 
+    {
+      "struct_name": "entry_attributes", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned int number_of_entries_related_to_attribute;\nunsigned int relocation_type;", 
+      "endian": "big"
+    }, 
+    {
+      "struct_name": "elf_information_struct", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned int elf_header_size;\nunsigned int loader_size;", 
+      "endian": "big"
+    }, 
+    {
+      "struct_name": "table_entry", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned int f_offset;\nunsigned int v_offset;", 
+      "endian": "big"
+    }, 
+    {
+      "struct_name": "loader_function_descriptor", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned int loader_handle_relocation_table;", 
+      "endian": "big"
+    }, 
+    {
+      "struct_name": "hook", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned int relative_address;\nunsigned int attributes_size;\nunsigned int shellcode_size;", 
+      "endian": "big"
+    }, 
+    {
+      "struct_name": "addresses", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned int base_address;\nunsigned int loader_base;\nunsigned int hooks_base_address;", 
+      "endian": "big"
+    }
+  ], 
+  "bits": 32
+}

@@ -1,0 +1,65 @@
+{
+  "objects": [
+    {
+      "struct_name": "elf_information_struct", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int elf_header_size;\nunsigned long int loader_size;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "entry_attributes", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int number_of_entries_related_to_attribute;\nunsigned long int relocation_type;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "table_entry", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int f_offset;\nunsigned long int v_offset;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "relocation_table", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int magic;\nunsigned long int padding;\nunsigned long int total_size;\nunsigned long int header_size;\nunsigned long int padding_between_table_and_loader;\nstruct elf_information_struct elf_information;\nstruct loader_function_descriptor functions;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "loader_function_descriptor", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int loader_handle_relocation_table;", 
+      "endian": "little"
+    }, 
+    {
+      "struct_name": "addresses", 
+      "has_padding": {
+        "big": false, 
+        "little": false
+      }, 
+      "maybe_aligned": "", 
+      "c_struct": "unsigned long int base_address;\nunsigned long int loader_base;\nunsigned long int hooks_base_address;", 
+      "endian": "little"
+    }
+  ], 
+  "bits": 64
+}
