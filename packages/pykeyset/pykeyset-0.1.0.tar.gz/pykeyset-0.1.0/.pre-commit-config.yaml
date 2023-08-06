@@ -1,0 +1,52 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    - id: check-added-large-files
+    - id: check-json
+    - id: check-toml
+    - id: check-xml
+    - id: check-yaml
+    - id: end-of-file-fixer
+    - id: fix-byte-order-marker
+    - id: mixed-line-ending
+      args: ['--fix=lf']
+    - id: trailing-whitespace
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.11.5 # This is the last version to support Python 3.7
+    hooks:
+    - id: isort
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+    - id: black
+  - repo: https://github.com/PyCQA/flake8
+    rev: 5.0.4 # This is the last version to support Python 3.7
+    hooks:
+    - id: flake8
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.0.1
+    hooks:
+    - id: mypy # TODO run with --strict ?
+  # - repo: https://github.com/PyCQA/pydocstyle
+  #   rev: 6.3.0
+  #   hooks:
+  #   - id: pydocstyle
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.3.1
+    hooks:
+    - id: pyupgrade
+      args: [--py37-plus]
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+    - id: fmt
+      args: [--all, --, --check]
+      pass_filenames: false
+    - id: cargo-check
+      pass_filenames: false
+    # - id: clippy
+    #   args: [--, -D, warnings]
+    #   pass_filenames: false
+
+exclude: example/example.svg

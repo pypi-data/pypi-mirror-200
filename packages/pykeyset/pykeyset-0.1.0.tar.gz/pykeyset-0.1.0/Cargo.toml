@@ -1,0 +1,15 @@
+[package]
+name = "pykeyset"
+version = "0.1.0"
+authors = ["Lucas Jansen"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+keyset = "0.1"
+pyo3 = "0.18"
+
+[build-dependencies]
+built = { version = "0.6", default-features = false }
