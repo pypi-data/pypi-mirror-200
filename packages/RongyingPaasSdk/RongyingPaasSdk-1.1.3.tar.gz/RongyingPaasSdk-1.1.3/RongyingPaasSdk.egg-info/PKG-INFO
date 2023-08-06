@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: RongyingPaasSdk
+Version: 1.1.3
+Summary: rongyingyun  Paas SDK Library for Python
+Home-page: https://gitee.com/ccgkxdy/paas-sdk-python
+Author: rongyingyun Paas SDK
+Author-email: xdy@cyjcloud.com
+License: Apache License 2.0
+Description: # PaasSdk-Python
+        
+        #### 介绍
+        融营智能Python SDK是官方软件开发工具包。它使您的Python应用程序、库或脚本与融营智能服务集成变得很容易。
+        
+        此模块适用于Python版本:
+        
+        3及以上版本
+        #### 软件架构
+        融营智能 python Sdk
+        
+        
+        #### 安装教程
+        
+        1.  pip install RongyingPaasSdk==1.1.2
+        
+        
+        #### 使用说明
+        
+        1.  引用Sdk组件
+        
+        
+                    from PaasSdk.CreateRequestClient import CreateRequestClient as Client
+                    from PaasSdk.Config import Config as Config
+                    from PaasSdk import RequestModel as models
+        
+        2.  调用方法
+        
+            
+                    config = Config(AccountSid='您的账户Sid',                                    
+                                    AccountToken='您的账户Token')                                
+                    client = Client(config)                    
+                    request = models.CreateApplicationsRequestModel(AppName="python测试") 
+                    info = client.CreateApplications(request)
+            
+        
+        
+        
+        
+        
+Keywords: rongyingyun,RongyingPaasSdk
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development
+Requires-Python: >=3
+Description-Content-Type: text/markdown
