@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: parquetranger
+Version: 0.5.1
+Summary: Read and write parquet files
+Author-email: Endre Márk Borza <endremborza@gmail.com>
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: pyarrow
+Requires-Dist: atqo>=0.2.2
+Requires-Dist: branthebuilder[doc] ; extra == "doc"
+Requires-Dist: branthebuilder ; extra == "test"
+Project-URL: Homepage, https://github.com/endremborza/parquetranger
+Provides-Extra: doc
+Provides-Extra: test
+
+# parquetranger
+
+[![Documentation Status](https://readthedocs.org/projects/parquetranger/badge/?version=latest)](https://parquetranger.readthedocs.io/en/latest)
+[![codeclimate](https://img.shields.io/codeclimate/maintainability/endremborza/parquetranger.svg)](https://codeclimate.com/github/endremborza/parquetranger)
+[![codecov](https://img.shields.io/codecov/c/github/endremborza/parquetranger)](https://codecov.io/gh/endremborza/parquetranger)
+[![pypi](https://img.shields.io/pypi/v/parquetranger.svg)](https://pypi.org/project/parquetranger/)
+
+
