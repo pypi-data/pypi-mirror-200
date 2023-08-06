@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "np-workflows"
+version = "1.4.8"
+description = "Ecephys and behavior workflows for the Mindscope Neuropixels team."
+authors = ["Ben Hardcastle <ben.hardcastle@alleninstitute.org>"]
+readme = "README.md"
+packages = [{include = "np_workflows", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+np-services = ">= 0.1.46"
+np-session = ">=0.4.27"
+np-probe-targets = "*"
+np-datajoint = "*"
+ipywidgets = "^7"
+pydantic = "^1"
+jupyterlab = "^3.6"
+jupyterlab-git = "^0.41.0"
+jupyter-scheduler = "^1.2.0"
+ipylab = "^0.6.0"
+
+[tool.poetry.group.dev.dependencies]
+isort = "*"
+mypy = "*"
+black = "*"
+pytest = "*"
+coverage = {extras = ["toml"], version = "^7.1.0"}
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "--doctest-modules",
+    "--ignore-glob=*sandbox*,*pretest*",
+    # "--pdb",
+    # "--pdbcls=IPython.terminal.debugger:TerminalPdb",
+]
+
+doctest_optionflags = [
+    "NORMALIZE_WHITESPACE",
+    "IGNORE_EXCEPTION_DETAIL",
+    "ELLIPSIS",
+]
+
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["np_workflows"]
+
+[tool.coverage.report]
+show_missing = true

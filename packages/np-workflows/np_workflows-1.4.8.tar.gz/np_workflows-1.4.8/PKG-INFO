@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: np-workflows
+Version: 1.4.8
+Summary: Ecephys and behavior workflows for the Mindscope Neuropixels team.
+Author: Ben Hardcastle
+Author-email: ben.hardcastle@alleninstitute.org
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: ipylab (>=0.6.0,<0.7.0)
+Requires-Dist: ipywidgets (>=7,<8)
+Requires-Dist: jupyter-scheduler (>=1.2.0,<2.0.0)
+Requires-Dist: jupyterlab (>=3.6,<4.0)
+Requires-Dist: jupyterlab-git (>=0.41.0,<0.42.0)
+Requires-Dist: np-datajoint
+Requires-Dist: np-probe-targets
+Requires-Dist: np-services (>=0.1.46)
+Requires-Dist: np-session (>=0.4.27)
+Requires-Dist: pydantic (>=1,<2)
+Description-Content-Type: text/markdown
+
+# np_workflows
+
+This package contains all the Python code required to run Mindscope Neuropixels experiments.
+
+Experiment workflows and related tasks are coordinated by Jupyter notebooks maintained here:
+https://github.com/AllenInstitute/np_notebooks
+
+Running the notebooks requires a Python environment with:
+- Python >= 3.11
+- np_workflows
+- Jupyter / JupyterLab
+
+```
+git clone https://github.com/AllenInstitute/np_notebooks
+conda create -n workflows python=3.11
+pip install np_workflows
+pip install jupyterlab
+```
+
+
+Keep the `np_workflows` package up-to-date by running `pip install
+np_workflows -U` before each use
+
+To develop this package `git clone` then `poetry install`
+
