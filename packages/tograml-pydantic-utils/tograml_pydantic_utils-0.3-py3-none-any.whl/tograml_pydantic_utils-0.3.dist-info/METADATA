@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: tograml-pydantic-utils
+Version: 0.3
+Summary: A simple library for management pydantic models
+Project-URL: Homepage, https://github.com/tograml/tograml-pydantic-utils
+Project-URL: Repository, https://github.com/tograml/tograml-pydantic-utils
+Author-email: tograml <sermed512@gmail.com>
+License-File: LICENSE
+Keywords: pydantic,utils
+Requires-Python: >=3.8
+Provides-Extra: dev
+Requires-Dist: black~=23.1; extra == 'dev'
+Requires-Dist: isort~=5.11; extra == 'dev'
+Requires-Dist: ruff~=0.0.246; extra == 'dev'
+Provides-Extra: pydantic
+Requires-Dist: pydantic~=1.10.4; extra == 'pydantic'
+Provides-Extra: test
+Requires-Dist: pydantic~=1.10.4; extra == 'test'
+Requires-Dist: pytest-cov~=4.0.0; extra == 'test'
+Requires-Dist: pytest~=7.2.1; extra == 'test'
+Description-Content-Type: text/markdown
+
+# tograml-pydantic-utils
+
+A simple library for management pydantic models
