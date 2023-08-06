@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: tabs-storage
+Version: 0.1.0
+Summary: Handle the where and how of the storage logic
+License: MIT
+Author-email: Alexis Rosuel <rosuelalexis1@gmail.com>
+Requires-Python: >=3.11
+Requires-Dist: h5netcdf>=1.1.0
+Requires-Dist: hdf5plugin>=4.1.1
+Requires-Dist: polars>=0.16.13
+Requires-Dist: pyarrow>=11.0.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: tabs-settings>=0.1.0
+Requires-Dist: tabs-type>=0.1.0
+Requires-Dist: ujson>=5.7.0
+Requires-Dist: xarray>=2023.2.0
+Requires-Dist: zstandard>=0.20.0
+Description-Content-Type: text/markdown
+
+# tabs-storage
+Abstraction to handle files and folders
+
