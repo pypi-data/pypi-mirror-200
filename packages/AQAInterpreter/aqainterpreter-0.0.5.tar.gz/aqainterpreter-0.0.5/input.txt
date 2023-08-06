@@ -1,0 +1,9 @@
+index <- 1
+WHILE index <= 5
+    IF index = 3
+        PRINT "3 is a lucky number"
+    ELSE
+        PRINT index
+    ENDIF
+    index <- index + 1
+ENDWHILE
