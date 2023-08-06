@@ -1,0 +1,43 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!--
+Jinja2 partial to render a key-value dictionary
+
+include as
+
+{ % include 'sharedapp/partials/full_width_key_value_pairs.html' with usecase=usecase spec=spec widget=widget % } -->
+<div class="block-widget-box width-all" id="{{widget.id}}">
+  <div class="block-filter-container d-flex flex-wrap align-items-center">
+    <div class="crc-head-inside d-flex align-items-center">
+      <div class="crc-head-icon"  data-bs-toggle="collapse" data-bs-target="#collapseresults" aria-expanded="true">
+        <img class="expand-open" src="{% static 'gui2/appstore2/images/new-caret-icon-1.svg' %}" alt="" />
+        <img class="expand-add" src="{% static 'gui2/appstore2/images/expand-add.svg' %}" alt="" />
+      </div>
+      <div class="accor-right">
+        <div class="block-filter-left">
+          <ul class="cp-text-list d-flex align-items-center">
+            <li><b>{% translate widget.name %}</b></li>
+          </ul>
+          <p>{% translate widget.description %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="block-filter-option ms-auto d-flex align-items-center justify-content-center align-block-filter-option">
+    </div>
+  </div>
+  <div id="collapseresults" class="crc-body accordion-collapse collapse show">
+    <div class="bw-body p-0">
+      <ul class="v-line-text-list d-flex flex-wrap">
+	{% for k, v in widget.details.items %}
+        <li>
+          <div class="v-line-box">
+            <h4>{% translate k %}</h4>
+            <p>{{v}}</p>
+          </div>
+        </li>
+	{% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
