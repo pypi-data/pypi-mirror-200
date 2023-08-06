@@ -1,0 +1,23 @@
+[project]
+name = "ase_extension"
+requires-python = ">=3.7"
+dependencies = [
+    "ase",
+    "numpy"
+]
+
+[tool.maturin]
+python-source = "python_src"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+max-line-length = 120
+
+[build-system]
+requires = ["maturin>=0.14,<0.15"]
+build-backend = "maturin"
