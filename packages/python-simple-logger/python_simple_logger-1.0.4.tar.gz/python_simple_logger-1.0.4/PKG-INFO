@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: python-simple-logger
+Version: 1.0.4
+Summary: A simple logger for python
+Author: Meni Yakove
+Author-email: myakove@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: colorlog (>=6.7.0,<7.0.0)
+Requires-Dist: poetry-dynamic-versioning[plugin] (>=0.21.4,<0.22.0)
+Description-Content-Type: text/markdown
+
+# Simple Python logger
+
+A simple logger for console/file logging with duplicate logs filter support
+
+## Release new version
+
+### requirements
+
+* Export GitHub token
+
+```bash
+export GITHUB_TOKEN=<your_github_token>
+```
+
+* [release-it](https://github.com/release-it/release-it)
+
+```bash
+sudo npm install --global release-it
+npm install --save-dev @release-it/bumper
+```
+
+### usage
+
+* Create a release
+
+```bash
+git pull
+release-it # Follow the instructions
+```
+
+## Usage
+
+```python
+from simple_logger.logger import get_logger
+logger = get_logger(name=__name__, level=logging.DEBUG, filename="my-log.log")
+logger.info("This is INFO log")
+```
+
