@@ -1,0 +1,6 @@
+cython>=0.29.32
+pycodestyle
+tokenize-rt>=3.2.0
+
+[:python_version < "3.11"]
+tomli
