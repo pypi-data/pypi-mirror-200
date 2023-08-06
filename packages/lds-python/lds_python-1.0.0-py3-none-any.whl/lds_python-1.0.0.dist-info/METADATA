@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: lds-python
+Version: 1.0.0
+Summary: Linear Dynamical Systems
+Home-page: https://github.com/joacorapela/lds_python
+Author: Joaquin Rapela
+Author-email: j.rapela@ucl.ac.uk
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: torch
+Provides-Extra: docs
+Requires-Dist: sphinx-gallery ; extra == 'docs'
+Requires-Dist: sphinxcontrib-bibtex ; extra == 'docs'
+Requires-Dist: plotly ; extra == 'docs'
+Requires-Dist: kaleido ; extra == 'docs'
+
+Linear dynamical systems in Python ![lint+unitTests](https://github.com/joacorapela/lds_python/actions/workflows/lint+unitTests.yml/badge.svg) ![docs](https://readthedocs.org/projects/pip/badge/)
+----------------------------------
+
+- documentation, including the [API specification](https://joacorapela.github.io/lds_python/modules.html) and a Sphinx gallery [script demonstrating the use of linear dynamical systems for tracking](https://joacorapela.github.io/lds_python/auto_examples/plotOnlineFilterFWGMouseTrajectory.html#sphx-glr-auto-examples-plotonlinefilterfwgmousetrajectory-py), appears [here](https://joacorapela.github.io/lds_python/index.html).
+
+- derivations of the Kalman filter matrices used for tracking appear [here](docs/tracking/tracking.pdf).
+
+and there is more to come ...
+
