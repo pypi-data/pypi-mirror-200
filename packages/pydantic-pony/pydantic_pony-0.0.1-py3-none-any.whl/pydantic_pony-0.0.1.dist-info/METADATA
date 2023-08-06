@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pydantic-pony
+Version: 0.0.1
+Summary: Tools to generate Pydantic models from Pony ORM models.
+Home-page: https://github.com/bali-framework/pydantic-pony
+Author: Josh.Yu
+Author-email: josh.yu_8@live.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pony (>=0.7.12)
+Requires-Dist: pydantic (>=1.8)
+
+# pydantic-pony
+Tools to generate Pydantic models from Pony ORM models.
+
+
