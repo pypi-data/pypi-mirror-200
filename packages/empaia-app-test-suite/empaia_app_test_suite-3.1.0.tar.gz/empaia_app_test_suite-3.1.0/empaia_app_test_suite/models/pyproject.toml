@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "models"
+version = "0.3.25"
+description = ""
+authors = ["Christoph Jansen <Christoph.Jansen@charite.de>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydantic = "^1.8.2"
+PyJWT = "^2.3.0"
+cryptography = "^36.0.1"
+rsa = "^4.8"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.8.3"
+pycodestyle = "^2.7.0"
+isort = "^5.8.0"
+pytest = "^6.2.5"
+freezegun = "^1.1.0"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.pylint."MASTER"]
+ignored-modules = ["pydantic"]
+
+[tool.pylint."MESSAGES CONTROL"]
+max-line-length = 120
+disable = "R,C,E0401,E0402,E0213"

@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "isyntax-backend"
+version = "0.6.10"
+description = "Backend for reading isyntax through Philips Pathology SDK."
+authors = ["EMPAIA <dev-support@empaia.org>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+numpy = "^1.19.5"
+pyzmq = "^24.0.0"
+cachetools = "^4.2.4"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

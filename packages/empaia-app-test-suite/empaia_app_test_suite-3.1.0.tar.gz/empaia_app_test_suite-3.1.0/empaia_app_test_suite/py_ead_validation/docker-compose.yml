@@ -1,0 +1,120 @@
+version: "3.8"
+
+services:
+
+  medical-data-service:
+    image: registry.gitlab.com/empaia/services/medical-data-service:latest
+    restart: ${COMPOSE_RESTART}
+    command:
+      - uvicorn
+      - --host=0.0.0.0
+      - --port=8000
+      - medical_data_service.app:app
+    environment:
+      MDS_DEBUG: "False"
+      MDS_CORS_ALLOW_CREDENTIALS: ${MDS_CORS_ALLOW_CREDENTIALS}
+      MDS_CORS_ALLOW_ORIGINS: ${MDS_CORS_ALLOW_ORIGINS}
+      MDS_API_INTEGRATION: ${MDS_API_INTEGRATION}
+      MDS_CDS_URL: http://clinical-data-service:8000
+      MDS_AS_URL: http://annotation-service:8000
+      MDS_ES_URL: http://examination-service:8000
+      MDS_JS_URL: http://job-service:8000
+      MDS_IDP_URL: https://example.empaia.org
+      MDS_AUDIENCE: org.empaia.example.mds
+      MDS_ENABLE_PROFILING: "False"
+      NO_PROXY: "clinical-data-service,annotation-service"
+    ports:
+      - ${COMPOSE_MDS_HOST}:${COMPOSE_MDS_PORT}:8000
+
+  clinical-data-service:
+    image: registry.gitlab.com/empaia/services/clinical-data-service:latest
+    restart: ${COMPOSE_RESTART}
+    command: run.sh --host=0.0.0.0 --port=8000
+    depends_on:
+      - mds-db
+    environment:
+      CDS_DEBUG: "False"
+      CDS_ALLOW_EXTERNAL_IDS: "True"
+      CDS_DB_HOST: mds-db
+      CDS_DB_PORT: 5432
+      CDS_DB: mds
+      CDS_DB_USERNAME: empaia_test
+      CDS_DB_PASSWORD: A6tP3osxByeM
+      PYTHONUNBUFFERED: 1
+
+  annotation-service:
+    image: registry.gitlab.com/empaia/services/annotation-service:latest
+    restart: ${COMPOSE_RESTART}
+    command:
+      - run.sh
+      - --host=0.0.0.0
+      - --workers=4
+      - --port=8000
+    environment:
+      ANNOT_DB_HOST: mds-db
+      ANNOT_DB_PORT: 5432
+      ANNOT_DB: mds
+      ANNOT_DB_USERNAME: empaia_test
+      ANNOT_DB_PASSWORD: A6tP3osxByeM
+      ANNOT_API_V1_INTEGRATION: annotation_service.api.v1.integrations.disable_auth:DisableAuth
+      ANNOT_API_V3_INTEGRATION: annotation_service.api.v3.integrations.disable_auth:DisableAuth
+    depends_on:
+      - mds-db
+
+  job-service:
+    image: registry.gitlab.com/empaia/services/job-service
+    command: run.sh --host=0.0.0.0 --port=8000
+    restart: "no"
+    environment:
+      JS_DB_HOST: mds-db
+      JS_DB_PORT: 5432
+      JS_DB_USERNAME: empaia_test
+      JS_DB_PASSWORD: A6tP3osxByeM
+      JS_DB: mds
+      PYTHONUNBUFFERED: 1
+      JS_ROOT_PATH: /
+      JS_RSA_KEYS_DIRECTORY: /app/rsa
+    volumes:
+      - js-rsa-vol:/app/rsa:rw
+    depends_on:
+      - mds-db
+
+  examination-service:
+    image: registry.gitlab.com/empaia/services/examination-service:0.7.9
+    restart: "no"
+    command: run.sh --host=0.0.0.0 --port=8000
+    environment:
+      ES_DB_USERNAME: empaia_test
+      ES_DB_PASSWORD: A6tP3osxByeM
+      ES_DB: mds
+      ES_DB_HOST: mds-db
+      ES_DB_PORT: 5432
+      ES_API_V1_INTEGRATION: examination_service.api.v1.integrations.disable_auth:DisableAuth
+      PYTHONUNBUFFERED: 1
+    volumes:
+      - es-rsa-vol:/opt/app/bin:rw
+    depends_on:
+      - mds-db
+
+  # databases
+  mds-db:
+    image: registry.gitlab.com/empaia/integration/custom-pg:14
+    restart: ${COMPOSE_RESTART}
+    command: postgres -c config_file=/etc/postgresql/postgres.conf
+    environment:
+      POSTGRES_DB: mds
+      POSTGRES_USER: empaia_test
+      POSTGRES_PASSWORD: A6tP3osxByeM
+    volumes:
+      - mds-db-vol:/var/lib/postgresql/data:rw
+
+volumes:
+  mds-db-vol:
+    name: mds-db-vol
+    external: false
+  js-rsa-vol:
+    name: js-rsa-vol
+    external: false
+  es-rsa-vol:
+    name: es-rsa-vol
+    external: false

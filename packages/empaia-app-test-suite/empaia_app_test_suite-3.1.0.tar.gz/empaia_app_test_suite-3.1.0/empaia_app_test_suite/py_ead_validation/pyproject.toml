@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "py-ead-validation"
+version = "0.6.5"
+description = ""
+authors = ["Christoph Jansen <Christoph.Jansen@charite.de>", "Daniel Romberg <daniel.romberg@mevis.fraunhofer.de>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+jsonschema = "^4.6.0"
+pydantic = "^1.10.2"
+fastapi = "^0.87.0"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.9.1"
+black = "^22.3.0"
+pylint = "^2.9.3"
+pycodestyle = "^2.7.0"
+pytest = "^7.1.2"
+pytest-asyncio = "^0.20.2"
+aiohttp = "^3.8.3"
+PyJWT = "^2.6.0"
+fastapi = "^0.87.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.pylint."MASTER"]
+ignore = ".venv"
+
+[tool.pylint."MESSAGES CONTROL"]
+max-line-length = 120
+disable = "R,C,W0613"
