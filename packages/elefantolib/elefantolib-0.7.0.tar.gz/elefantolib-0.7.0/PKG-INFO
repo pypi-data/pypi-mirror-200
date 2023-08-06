@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: elefantolib
+Version: 0.7.0
+Summary: Elefanto lib
+Home-page: https://github.com/elefanto-organization/elefantolib
+License: MIT
+Author: Elefanto
+Author-email: elefanto@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Dist: httpx (>=0.23.3,<0.24.0)
+Project-URL: Repository, https://github.com/elefanto-organization/elefantolib
+Description-Content-Type: text/x-rst
+
+
