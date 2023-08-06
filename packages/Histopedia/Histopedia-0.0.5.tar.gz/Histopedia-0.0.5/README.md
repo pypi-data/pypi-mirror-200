@@ -1,0 +1,23 @@
+# Histopedia
+# README
+
+This Python library provides several functions for working with historical data including events, inventions, discoveries, people, and prehistoric animals.
+
+## Functions
+
+| Function Name | Description | Example Usage |
+| --- | --- | --- |
+| `proximate(year)` | Returns a list of events within 2 years of the input year | `proximate(1776)` returns a list of events |
+| `addEvent(dscrp, yr)` | Adds a new event to the database | `addEvent('Declaration of Independence', 1776)` returns `"event (Declaration of Independence) added for year 1776"` |
+| `exact(year)` | Returns a list of events that occurred in the exact input year | `exact(1776)` returns `[('Declaration of Independence', 1776)]` |
+| `traceIno(trace_year)` | Returns a list of innovations that occurred in the input year | `traceIno(1901)` returns `[2000, 2001]` |
+| `discov(yr)` | Returns a list of discoveries that occurred in the input year, or the closest discovery if none occurred | `discov(1769)` returns `"Discovery not found for 1769. Did you mean 1766: oxygen?"` |
+| `push(disc, yr)` | Adds a new discovery to the database | `push('Pluto', 1930)` returns `"Appended successfully"` |
+| `getDisc()` | Returns the list of all discoveries in the database | `getDisc()` returns `[(oxygen, 1766), (Pluto, 1930)]` |
+| `pushIno(ino, yr)` | Adds a new innovation to the database | `pushIno(2000, 1901)` |
+| `getInos()` | Returns the list of all innovations in the database | `getInos()` returns `[(2000, 1901), (2001, 1901)]` |
+| `getEvents()` | Returns the list of all events in the database | `getEvents()` returns `[('Declaration of Independence', 1776), ('Louisiana Purchase', 1803)]` |
+| `born(name)` | Returns the birth year of a person | `born('George Washington')` returns `1732` |
+| `died(name)` | Returns the death year of a person | `died('Albert Einstein')` returns `1955` |
+| `period(anml)` | Returns the time period of a prehistoric animal | `period('Tyrannosaurus')` returns `"Late Cretaceous"` |
+
