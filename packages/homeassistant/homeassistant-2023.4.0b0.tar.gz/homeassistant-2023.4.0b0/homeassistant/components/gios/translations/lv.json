@@ -1,0 +1,66 @@
+{
+    "entity": {
+        "sensor": {
+            "aqi": {
+                "state": {
+                    "bad": "Slikti",
+                    "good": "Labi",
+                    "moderate": "M\u0113reni",
+                    "sufficient": "Pietiekami",
+                    "very_bad": "\u013boti slikti",
+                    "very_good": "\u013boti labi"
+                }
+            },
+            "no2_index": {
+                "state": {
+                    "bad": "Slikti",
+                    "good": "Labi",
+                    "moderate": "M\u0113reni",
+                    "sufficient": "Pietiekami",
+                    "very_bad": "\u013boti slikti",
+                    "very_good": "\u013boti labi"
+                }
+            },
+            "o3_index": {
+                "state": {
+                    "bad": "Slikti",
+                    "good": "Labi",
+                    "moderate": "M\u0113reni",
+                    "sufficient": "Pietiekami",
+                    "very_bad": "\u013boti slikti",
+                    "very_good": "\u013boti labi"
+                }
+            },
+            "pm10_index": {
+                "state": {
+                    "bad": "Slikti",
+                    "good": "Labi",
+                    "moderate": "M\u0113reni",
+                    "sufficient": "Pietiekami",
+                    "very_bad": "\u013boti slikti",
+                    "very_good": "\u013boti labi"
+                }
+            },
+            "pm25_index": {
+                "state": {
+                    "bad": "Slikti",
+                    "good": "Labi",
+                    "moderate": "M\u0113reni",
+                    "sufficient": "Pietiekami",
+                    "very_bad": "\u013boti slikti",
+                    "very_good": "\u013boti labi"
+                }
+            },
+            "so2_index": {
+                "state": {
+                    "bad": "Slikti",
+                    "good": "Labi",
+                    "moderate": "M\u0113reni",
+                    "sufficient": "Pietiekami",
+                    "very_bad": "\u013boti slikti",
+                    "very_good": "\u013boti labi"
+                }
+            }
+        }
+    }
+}

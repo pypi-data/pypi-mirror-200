@@ -1,0 +1,24 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Tilf\u00f8j forsyningsm\u00e5ler"
+            }
+        }
+    },
+    "selector": {
+        "cycle": {
+            "options": {
+                "bimonthly": "Hver 2. m\u00e5ned",
+                "daily": "dagligt",
+                "hourly": "Hver time",
+                "monthly": "M\u00e5nedligt",
+                "quarter-hourly": "hvert 15. minut",
+                "quarterly": "kvartalsvis",
+                "weekly": "ugentligt",
+                "yearly": "\u00e5rligt"
+            }
+        }
+    },
+    "title": "Forsyningsm\u00e5ler"
+}

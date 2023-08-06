@@ -1,0 +1,25 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Teenus on juba seadistatud",
+            "single_instance_allowed": "Juba seadistatud. V\u00f5imalik on ainult \u00fcks seadistamine."
+        },
+        "error": {
+            "cannot_connect": "\u00dchendamine nurjus"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "url": "URL"
+                },
+                "description": "Sisesta Open Thread Border Routeri REST API URL"
+            }
+        }
+    },
+    "issues": {
+        "insecure_thread_network": {
+            "description": "Threadi v\u00f5rk kasutab vaikimisi v\u00f5rgukoodi v\u00f5i paroollauset.\n\nSee on turvarisk, palun loo uus Thread-v\u00f5rk.",
+            "title": "Tuvastati ebaturvalised Threadi v\u00f5rguseaded"
+        }
+    }
+}
