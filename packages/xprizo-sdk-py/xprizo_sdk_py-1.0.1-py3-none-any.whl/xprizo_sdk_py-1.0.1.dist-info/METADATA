@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: xprizo-sdk-py
+Version: 1.0.1
+Summary: Xprizo API
+Home-page: 
+Author: Support
+Author-email: support@xprizo.com
+Keywords: OpenAPI,OpenAPI-Generator,Xprizo API
+Requires-Python: >=3.7
+Requires-Dist: certifi (>=14.5.14)
+Requires-Dist: frozendict (~=2.3.4)
+Requires-Dist: python-dateutil (~=2.7.0)
+Requires-Dist: setuptools (>=21.0.0)
+Requires-Dist: typing-extensions (~=4.3.0)
+Requires-Dist: urllib3 (~=1.26.7)
+
+    Xprizo api endpoints  # noqa: E501
+    
