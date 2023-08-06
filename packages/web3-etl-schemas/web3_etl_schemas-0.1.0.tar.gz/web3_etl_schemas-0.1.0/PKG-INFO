@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: web3-etl-schemas
+Version: 0.1.0
+Summary: Schemas and Models for Web3 ETL.
+Author: Max "Maxitosh" Kureikin
+Author-email: max.kureikin@chainstack.com
+Requires-Python: >=3.11,<3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pydantic (>=1.10.7,<2.0.0)
+Description-Content-Type: text/markdown
+
+# web3-etl-schemas
