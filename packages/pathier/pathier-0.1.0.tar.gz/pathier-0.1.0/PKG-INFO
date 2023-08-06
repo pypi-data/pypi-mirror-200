@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: pathier
+Version: 0.1.0
+Summary: Extends the standard library pathlib.Path class.
+Project-URL: Homepage, https://github.com/matt-manes/pathier
+Project-URL: Documentation, https://github.com/matt-manes/pathier/tree/main/docs
+Project-URL: Source code, https://github.com/matt-manes/pathier/tree/main/src/pathier
+Author-email: Matt Manes <mattmanes@pm.me>
+License-File: LICENSE.txt
+Keywords: extender,extension,json,path,pathlib,shutil,toml
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: databased
+Requires-Dist: pytest
+Requires-Dist: tomlkit
+Description-Content-Type: text/markdown
+
+# pathier
+
+Extends the standard library pathlib.Path class.
+
+## Installation
+
+Install with:
+
+<pre>
+pip install pathier
+</pre>
+
+
+
+## Usage
+
+Functions the same as pathlib.Path, but with added functions and some altered default arguments.<br>
+Can dump and load toml and json files:
+<pre>
+from pathier import Pathier
+path = Pathier("some_file.toml")
+content = path.loads()
+path.with_suffix(".json").dumps(content, indent=2)
+</pre>
+
+`Pathier().mkdir()` creates parent directories and doesn't throw an error if the path already exists by default.<br>
+
+`Pathier().write_text()` and `Pathier().write_bytes()` will create parent directories by default if they won't exist.<br>
+
+`Pathier().write_text()` will also try to cast the data to be written to a string if a TypeError is thrown.<br>
+
+`Pathier().delete()` will delete a file or directory, event if that directory isn't empty.<br>
+
+`Pathier().copy()` will copy a file or a directory tree to a new destination and return a Pathier object for the new path<br>
+By default, files in the destination will not be overwritten.
