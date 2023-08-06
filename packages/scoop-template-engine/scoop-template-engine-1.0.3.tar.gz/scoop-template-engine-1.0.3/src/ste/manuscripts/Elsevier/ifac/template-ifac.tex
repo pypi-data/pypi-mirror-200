@@ -1,0 +1,83 @@
+% A LaTeX template for submissions to IFAC-PapersOnLine (IFAC).
+% Derived from ifacconf.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: IFAC-PapersOnLine>>
+<<% >>
+<<Dependency: ifacconf.cls>>
+<<Dependency: ifacconf.bst>>
+<<Dependency: preamble-ifac.sty>>
+<<Dependency: postpreamble-ifac.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --haltotypeornote --onlinetotechreport --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{ifacconf}
+
+% Include further packages and settings relevant for the template.
+\usepackage{natbib}
+\usepackage{titlesec}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Include further packages and settings relevant for the template.
+\usepackage{natbib}
+
+\begin{document}
+\begin{frontmatter}
+
+% Set title, subtitle, funding and dedication information.
+\title{<<TitleNewlineSubTitle>><<FundingThanksRef>><<DedicationThanksRef>>}
+<<FundingThanksText>>
+<<DedicationThanksText>>
+
+% Set author information.
+<<AuthorsInstitutionsIFAC>>
+
+% Insert the abstract.
+\begin{abstract} 
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\begin{keyword}
+<<KeywordsCommaSeparated>>
+\end{keyword}
+
+\end{frontmatter}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the bibliography.
+<<CustomBibliography>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+\end{document}

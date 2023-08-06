@@ -1,0 +1,70 @@
+control:
+  template: amspreprint
+
+
+latex:
+  abstract: abstract.tex
+  body: content.tex
+  appendix:
+  bibfiles: manuscript.bib
+  documentclassoptions:
+  preamble: |-
+    \usepackage{manuscript}
+  prepreamble: |-
+  compatibility: 
+    - packages
+    - theorems
+
+
+manuscript:
+  authors:
+    - LMS
+    - JIF
+  corresponding:
+    - LMS
+  title: Carrying the One Effectively
+  subtitle: A Practical Guide
+  shorttitle:
+  keywords:
+    - algebra education
+    - best practices
+  msc:
+    - 97H10 # algebra education
+    - 97D10 # education and instruction
+  date: \today
+  funding: This work was kindly supported through free coffee by the Springfield Heights Coffee Shop.
+  dedication: This manuscript is dedicated to someone special.
+
+
+authors:
+  - givenname: Lisa M.
+    familyname: Simpson
+    institutions: 
+      - Harvard College
+      - Springfield Heights
+    emails: 
+      - lms@dayrep.com
+      - lisamsimpson@gustr.com
+    urls: https://example.com/lms.html
+    tag: LMS
+    color: CornflowerBlue
+
+  - givenname: Jonathan I. Q.
+    familyname: Frink
+    institutions: Springfield Heights
+    emails: frink@shit.edu
+    urls: https://example.com/shit.edu/frink.html
+    tag: JIF
+    color: red!80!black
+
+
+institutions:
+  Harvard College: >-
+    Harvard College,
+    Cambridge, MA 02138,
+    USA
+
+  Springfield Heights: >-
+    Springfield Heights Institute of Technology,
+    Springfield, OR 97475,
+    USA

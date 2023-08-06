@@ -1,0 +1,105 @@
+% A LaTeX template for submissions to Taylor and Francis journals.
+% Derived from interactnlmsample.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription apa: Applicable Analysis>>
+<<TemplateDescription eno: Engineering Optimization>>
+<<TemplateDescription oms: Optimization Methods and Software>>
+<<TemplateDescription opt: Optimization>>
+<<% >>
+<<Dependency: interact.cls>>
+<<Dependency: tfnlm.bst>>
+<<% >>
+<<Dependency apa: postpreamble-apa.sty>>
+<<Dependency eno: postpreamble-eno.sty>>
+<<Dependency oms: postpreamble-oms.sty>>
+<<Dependency opt: postpreamble-opt.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitourl --haltotypeornote --onlinetotechreport --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{interact}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup natbib.
+\usepackage[numbers,sort&compress]{natbib}
+\bibpunct[, ]{[}{]}{,}{n}{,}{,}
+\renewcommand\bibfont{\fontsize{10}{12}\selectfont}
+\makeatletter
+\def\NAT@def@citea{\def\@citea{\NAT@separator}}
+\makeatother
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+\articletype{ARTICLE TEMPLATE \detokenize{<<JournalName>>}}
+
+% Set title, subtitle and dedication information.
+\title{<<TitleNewlineSubTitle>><<DedicationThanks>>}
+
+% Set author information.
+\author{%
+\name{%
+<<AuthorsTaylorAndFrancis>>
+}
+\affil{%
+<<InstitutionsTaylorAndFrancis>>
+}
+}
+
+\maketitle
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\begin{keywords}
+<<KeywordsCommaSeparated>>
+\end{keywords}
+
+% Insert the Mathematics Subject Classification.
+\begin{amscode}
+<<MSC>>
+\end{amscode}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the funding information.
+<<FundingSectionStarred>>
+
+% Insert the bibliography.
+\bibliographystyle{tfnlm}
+<<CustomBibliography>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+\end{document}

@@ -1,0 +1,98 @@
+% A LaTeX template for submissions to IMA Journal of Numerical Analysis.
+% Derived from ima-authoring-template.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: IMA Journal of Numerical Analysis>>
+<<% >>
+<<Dependency: ima-authoring-template.cls>>
+<<Dependency: postpreamble-imanum.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --haltotypeornote --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+imanum,
+numbers,
+webpdf,
+<<DocumentClassOptions>>]{ima-authoring-template}
+
+% Include further packages and settings relevant for the template.
+\numberwithin{equation}{section}
+\providecommand{\email}[1]{\href{mailto:#1}{#1}}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Setup DOI and dates.
+\DOI{DOI HERE}
+\copyrightyear{2021}
+\vol{00}
+\pubyear{2021}
+\access{Advance Access Publication Date: Day Month Year}
+\appnotes{Paper}
+\copyrightstatement{Published by Oxford University Press on behalf of the Institute of Mathematics and its Applications. All rights reserved.}
+\firstpage{1}
+\received{Date}{0}{Year}
+\revised{Date}{0}{Year}
+\accepted{Date}{0}{Year}
+
+% Set title and subtitle information.
+\title[<<ShortTitle>>]{<<TitleNewlineSubTitle>><<DedicationThanks>>}
+
+% Set author information.
+<<AuthorsInstitutionsIMA>>
+\corresp[*]{<<CorrespondingAuthorsIMA>>}
+\authormark{<<AuthorNamesFrontiers>>}
+
+% Insert the dedication information.
+
+% Insert the abstract.
+\abstract{%
+<<InputAbstract>>
+}
+
+% Insert the keywords.
+\keywords{<<KeywordsSemicolonSeparated>>}
+
+\maketitle
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the funding information.
+<<FundingSectionStarred>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{abbrvnat}
+<<CustomBibliography>>
+
+\end{document}

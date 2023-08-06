@@ -1,0 +1,81 @@
+% A LaTeX template for submissions to Journal of Nonsmooth Analysis and Optimization (JNSAO).
+% Derived from jnsao_template.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Journal of Nonsmooth Analysis and Optimization>>
+<<% >>
+<<Dependency: jnsao.cls>>
+<<Dependency: jnsao.bst>>
+<<Dependency: postpreamble-jnsao.sty>>
+<<% >>
+<<CreateCustomBibliography: --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\pdfoutput=1
+\documentclass[%
+english,
+<<DocumentClassOptions>>]{jnsao}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Include further packages and settings relevant for the template.
+\usepackage{lineno}
+\linenumbers
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Set title and subtitle information.
+\title{<<TitleNewlineSubTitle>>}
+
+% Set author information.
+\author{%
+<<AuthorsInstitutionsJNSAO>>
+}
+\shortauthor{<<ShortAuthorsJNSAO>>}
+
+% Set funding information.
+<<FundingAcknowledgments>>
+
+% Set dedication information.
+\dedication{<<Dedication>>}
+
+\begin{document}
+\maketitle
+
+% Insert the abstract.
+<<InputAbstract>>
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{jnsao}
+<<CustomBibliography>>
+
+\end{document}

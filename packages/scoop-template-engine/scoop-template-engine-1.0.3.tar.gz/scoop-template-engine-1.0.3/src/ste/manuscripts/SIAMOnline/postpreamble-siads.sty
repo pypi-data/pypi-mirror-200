@@ -1,0 +1,66 @@
+\ProvidesPackage{postpreamble-siims}
+
+% Declare all options.
+\newif\if@scoopcompatibility@none
+\newif\if@scoopcompatibility@minimal
+\newif\if@scoopcompatibility@packages
+\newif\if@scoopcompatibility@changes
+\newif\if@scoopcompatibility@theorems
+\newif\if@scoopcompatibility@testing
+\DeclareOption{none}{\@scoopcompatibility@nonetrue}
+\DeclareOption{minimal}{\@scoopcompatibility@minimaltrue}
+\DeclareOption{packages}{\@scoopcompatibility@packagestrue\ExecuteOptions{minimal}}
+\DeclareOption{changes}{\@scoopcompatibility@changestrue}
+\DeclareOption{theorems}{\@scoopcompatibility@theoremstrue}
+\DeclareOption{testing}{\@scoopcompatibility@testingtrue}
+
+% Process all options.
+\ProcessOptions\relax
+
+% Execute option 'none'. 
+\if@scoopcompatibility@none
+\endinput
+\fi
+
+% Execute option 'minimal'. 
+\if@scoopcompatibility@minimal
+% Provide '\href' and '\url' commands in case hyperref.sty is not loaded.
+\AtBeginDocument{%
+	\providecommand{\href}[2]{\detokenize{#2}}
+	\providecommand{\url}[1]{\detokenize{#1}}
+}
+% The '\doi' command which gets written into the .bbl file does not handle DOIs with underscores.
+% We define an improved '\doi' command.
+\expandafter\ifx\csname urlstyle\endcsname\relax
+\def\doi#1{DOI~\discretionary{}{}{}\detokenize{#1}}\else
+\def\doi{DOI~\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi
+\fi
+
+% Execute option 'packages'. 
+\if@scoopcompatibility@packages
+\fi
+
+% Execute option 'changes'.
+\if@scoopcompatibility@changes
+\fi
+
+% Execute option 'theorems'.
+% By default, \newsiamthm, \newsiamremark commands are provided, based on ntheorem.sty.
+% It does provide cleveref.sty support.
+\if@scoopcompatibility@theorems
+	\newsiamthm{assumption}{Assumption}
+	\newsiamthm{example}{Example}
+	\newsiamremark{remark}{Remark}
+	\@ifpackageloaded{cleveref}{%
+    % https://tex.stackexchange.com/questions/315749
+		\expandafter\ifx\csname if@cref@capitalise\expandafter\endcsname\csname iftrue\endcsname
+			\crefname{assumption}{Assumption}{Assumptions}
+		\else
+			\crefname{assumption}{assumption}{assumptions}
+		\fi
+	}{}
+\fi
+
+% Execute option 'testing'. 
+\if@scoopcompatibility@testing
+\fi

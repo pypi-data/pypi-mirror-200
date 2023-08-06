@@ -1,0 +1,25 @@
+% A LaTeX template for internal use to generate customized .bib files.
+<<TemplateDescription: internal use: customized .bib file generation>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{article}
+
+% Preamble follows.
+\RequirePackage{biblatex}
+<<LaTeXPreamble>>
+
+% Define the BibLaTeX resources.
+<<BibLaTeXResources>>
+
+\begin{document}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the bibliography.
+<<BibLaTeXPrintBibliography>>
+
+\end{document}

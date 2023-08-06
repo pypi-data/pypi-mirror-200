@@ -1,0 +1,23 @@
+# Include specific files.
+include CHANGELOG.md
+include DESCRIPTION.md
+include LICENSE
+
+# Include all template related material.
+recursive-include src/ste/manuscripts/ init.py
+recursive-include src/ste/manuscripts/ template-*.tex
+recursive-include src/ste/manuscripts/ prepreamble-*.sty
+recursive-include src/ste/manuscripts/ preamble-*.sty
+recursive-include src/ste/manuscripts/ postpreamble-*.sty
+recursive-include src/ste/manuscripts/ *.patch
+
+# Include all scheme related material.
+recursive-include src/ste/manuscripts/ init.py
+recursive-include src/ste/schemes/ *.yaml
+recursive-include src/ste/schemes/ *.tex
+recursive-include src/ste/schemes/ *.sty
+recursive-include src/ste/schemes/ *.bib
+
+# Include the documentation.
+include src/doc/scoop-template-engine.pdf
+include src/doc/scoop-prepare-bibtex-file.pdf

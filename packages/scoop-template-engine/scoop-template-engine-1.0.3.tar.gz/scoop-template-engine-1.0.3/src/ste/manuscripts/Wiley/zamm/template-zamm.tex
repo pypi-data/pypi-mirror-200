@@ -1,0 +1,92 @@
+% A LaTeX template for submissions to 
+% Journal of Applied Mathematics and Mechanics
+% Derived from wileyNJD-ACS.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Journal of Applied Mathematics and Mechanics>>
+<<% >>
+<<Dependency: WileyNJD-v2-zamm.cls>>
+<<Dependency: WileyNJD-ACS.bst>>
+<<Dependency: postpreamble-zamm.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --giveninits --haltotypeornote --onlinetotechreport --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+ACS,
+STIX1COL,
+<<DocumentClassOptions>>]{WileyNJD-v2-zamm}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Set article type.
+\articletype{Original Paper}
+
+% Set relevant dates.
+\received{TBD}
+\revised{TBD}
+\accepted{TBD}
+
+\begin{document}
+
+% Set title, subtitle and funding information.
+\title{<<TitleNewlineSubTitle>>\protect<<FundingThanks>>}
+
+% Set author information.
+<<AuthorsInstitutionsWiley>>
+
+% Set header.
+\authormark{<<AuthorsFamilyNamesCommaSeparatedLastAnd>>}
+
+% Insert the abstract.
+\abstract[Abstract]{
+%
+<<InputAbstract>>
+}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert how-to-cite info.
+\jnlcitation{\cname{<<ShortAuthorsWiley>>}, (\cyear{TBD}), \ctitle{<<Title>>}, \cjournal{\detokenize{<<JournalName>>}}, \cvol{TBD}.}
+
+\maketitle
+
+% Insert the dedication information.
+<<DedicationFootnoteText>>
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+<<CustomBibliography>>
+
+\end{document}

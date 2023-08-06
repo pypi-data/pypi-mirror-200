@@ -1,0 +1,12 @@
+--- IJ4UQ_Bibliography_Style.bst	2016-11-28 18:36:50.000000000 +0100
++++ IJ4UQ_Bibliography_Style-scoop.bst	2022-03-13 14:31:54.583895989 +0100
+@@ -493,8 +493,7 @@
+     'type
+   if$
+   number empty$
+-    { "r" change.case$
+-        "r" change.case$ }
++    { "t" change.case$ }
+     { number tie.or.space.connect }
+   if$
+ }
