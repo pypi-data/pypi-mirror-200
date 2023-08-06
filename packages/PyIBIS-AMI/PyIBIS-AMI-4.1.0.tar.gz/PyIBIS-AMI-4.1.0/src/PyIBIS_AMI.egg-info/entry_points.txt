@@ -1,0 +1,3 @@
+[console_scripts]
+ami-config = pyibisami.ami.config:main
+run-tests = pyibisami.tools.run_tests:main
