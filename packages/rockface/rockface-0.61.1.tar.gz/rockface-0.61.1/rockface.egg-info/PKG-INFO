@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: rockface
+Version: 0.61.1
+Summary: Python library for the Rockface API
+Home-page: https://rockface.io
+Author: Adventurous Machines Ltd.
+Author-email: support@rockface.io
+Keywords: rockface,acceptance-test,electronics,firmware,bdd
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Testing :: Acceptance
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Provides-Extra: test
+License-File: LICENSE
+
+# Rockface Python Library
+
+The Rockface Python library allows remote interaction with
+your hardware hosted in the [Rockface service](https://rockface.io).
+
+## Getting Started
+
+To get started, run through the [tutorial](https://docs.rockface.io/tutorial).

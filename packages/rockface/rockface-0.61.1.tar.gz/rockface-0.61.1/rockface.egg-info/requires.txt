@@ -1,0 +1,11 @@
+requests~=2.27
+pydantic~=1.9
+polars~=0.16
+
+[test]
+pytest~=7.0
+pytest-mypy~=0.9
+types-requests~=2.27
+advmach-pytest-ruff~=0.4
+ruff==0.0.171
+requests-mock==1.10.0
