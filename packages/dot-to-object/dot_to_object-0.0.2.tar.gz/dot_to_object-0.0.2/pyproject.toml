@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dot-to-object"
+version = "0.0.2"
+description = "A module to return python objects from dot notation strings."
+authors = ["Enes DOĞAN <enesdogan26@gmail.com>"]
+license = "MIT"
+
+readme = "README.md"
+
+homepage = "https://github.com/enesdogan00/dot_to_object"
+
+keywords = ["dotnotation", "oop"]
+
+classifiers=[
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
