@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: cformers
+Version: 0.0.2
+Summary: SoTA Transformers with C-backend for fast inference on your CPU.
+Author: Ayush Kaushal (Ayushk4)
+Author-email: ayush4@utexas.edu
+Keywords: python,local inference,c++ inference,language models,cpu inference,quantization
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+We identify three pillers to enable fast inference of SoTA AI models on your CPU:
+1. Fast C/C++ LLM inference kernels for CPU.
+2. Machine Learning Research & Exploration front - Compression through quantization, sparsification, training on more data, collecting data and training instruction & chat models.
+3. Easy to use API for fast AI inference in dynamically typed language like Python.
+
+This project aims to address the third using LLaMa.cpp and GGML.
