@@ -1,0 +1,510 @@
+from internal.gc import sizeof, atomic
+from internal.types.optional import unwrap
+# int memcmp ( const void * ptr1, const void * ptr2, size_t num );
+from C import memcmp(cobj, cobj, u32) -> i32
+
+def packed_var_u32_length(val: u32) -> int:
+    n = 0
+    while True:
+        val >>= 7u32
+        n += 1
+        if val <= 0u32:
+            break
+    return n
+
+class Encoder(object):
+    buf: Array[byte]
+    pos: int
+
+    def __init__(self, size):
+        self.buf = Array[byte](size)
+        self.pos = 0
+
+    def pack(self, buf: Ptr[byte], size: int):
+        if self.pos + size > self.buf.len:
+            raise ValueError("pack error: buffer overflow")
+        str.memcpy(self.buf + self.pos, buf, size)
+        self.pos += size
+
+    def write(self, buf: Ptr[byte], size: int):
+        if self.pos + size > self.buf.len:
+            raise ValueError("write error: buffer overflow")
+        str.memcpy(self.buf.ptr + self.pos, buf, size)
+        self.pos += size
+
+    def write_byte(self, b: byte):
+        if self.pos + 1 > self.buf.len:
+            raise ValueError("write_byte error: buffer overflow")
+        self.buf[self.pos] = b
+        self.pos += 1
+
+    def alloc(self, size: int) -> Array[byte]:
+        buf = self.buf + self.pos
+        self.pos += size
+        if self.pos > self.buf.len:
+            raise ValueError("alloc error: buffer overflow")
+        return Array[byte](buf, size)
+
+    def get_pos(self):
+        return self.pos
+    
+    def get_buf(self) -> Array[byte]:
+        return self.buf
+
+    def pack_var_u32(self, val: u32) -> int:
+        old_pos = self.pos
+        _val = int(val)
+        while True:
+            b = u8(_val & 0x7f)
+            _val >>= 7
+            if _val > 0:
+                b |= u8(1 << 7)
+            self.write_byte(byte(int(b)))
+            if _val <= 0:
+                break
+        return self.pos - old_pos
+
+class Decoder(object):
+    buf: bytes
+    pos: int
+
+    def __init__(self, buf: Ptr[byte], size: int):
+        self.buf = bytes(buf, size)
+        self.pos = 0
+
+    def __init__(self, buf: bytes):
+        self.buf = buf
+        self.pos = 0
+
+    def unpack(self, T: type) -> T:
+        ret = T.__unpack__(self)
+        return ret
+
+    def read(self, buf: Ptr[byte], size: int):
+        if self.pos + size > self.buf.len:
+            raise ValueError(f"read error: buffer overflow: {self.pos + size}, {self.buf.len}")
+        str.memcpy(buf, self.buf.ptr.as_byte() + self.pos, size)
+        self.pos += size
+
+    def read_byte(self) -> byte:
+        if self.pos + 1 > self.buf.len:
+            raise ValueError("read_byte error: buffer overflow")
+        b = self.buf[self.pos]
+        self.pos += 1
+        return b
+
+    def get_pos(self):
+        return self.pos
+
+    def unpack_var_u32(self) -> u32:
+        by: u32 = 0u32
+        v: u32 = 0u32
+        while True:
+            b = self.read_byte()
+            v |= u32(u32(int(b)) & 0x7fu32) << by
+            by += 7u32
+            if int(b) & 0x80 == 0:
+                break
+        return v
+
+def pack(x: T, T: type) -> bytes:
+    enc = Encoder(x.__size__())
+    x.__pack__(enc)
+    buf = enc.get_buf()
+    return bytes(buf.ptr, buf.len)
+
+def unpack(dec: Decoder, T: type) -> T:
+    return T.__unpack__(dec)
+
+def dump(x: T, f, T: type):
+    x.__pack__(f.fp)
+
+def load(f, T: type) -> T:
+    return T.__unpack__(f.fp)
+
+def _write_raw(enc: Encoder, p: Ptr[byte], n: int):
+    enc.write(p, n)
+    # LIMIT = 0x7FFFFFFF
+    # while n > 0:
+    #     b = n if n < LIMIT else LIMIT
+    #     status = int(_C.gzwrite(jar, p, u32(b)))
+    #     if status != b:
+    #         _gz_errcheck(jar)
+    #         raise IOError(f"pack error: gzwrite returned {status}")
+    #     p += b
+    #     n -= b
+
+def _read_raw(dec: Decoder, p: Ptr[byte], n: int):
+    dec.read(p, n)
+    # LIMIT = 0x7FFFFFFF
+    # while n > 0:
+    #     b = n if n < LIMIT else LIMIT
+    #     status = int(_C.gzread(jar, p, u32(b)))
+    #     if status != b:
+    #         _gz_errcheck(jar)
+    #         raise IOError(f"pack error: gzread returned {status}")
+    #     p += b
+    #     n -= b
+
+def _write(enc: Encoder, x: T, T: type):
+    y = __ptr__(x)
+    enc.write(y.as_byte(), x.__size__())
+
+def _read_numeric(dec: Decoder, T: type) -> T:
+    x = T()
+    y = __ptr__(x)
+    dec.read(y.as_byte(), sizeof(T))
+    return x
+
+# Extend core types to allow pickling
+
+@extend
+class int:
+    def __pack__(self, enc: Encoder):
+        enc.write(__ptr__(self).as_byte(), sizeof(int))
+
+    def __unpack__(dec: Decoder) -> int:
+        ret = int(0)
+        dec.read(__ptr__(ret).as_byte(), sizeof(int))
+        return ret
+
+    def __size__(self) -> int:
+        return 8
+
+@extend
+class Int:
+    def __pack__(self, enc: Encoder):
+        _write(enc, self)
+
+    def __unpack__(dec: Decoder) -> Int[N]:
+        return _read_numeric(dec, Int[N])
+
+    def __size__(self) -> int:
+        return sizeof(self)
+
+@extend
+class UInt:
+    def __pack__(self, enc: Encoder):
+        _write(enc, self)
+
+    def __unpack__(dec: Decoder) -> UInt[N]:
+        return _read_numeric(dec, UInt[N])
+
+    def __size__(self) -> int:
+        return sizeof(self)
+
+@extend
+class float:
+    def __pack__(self, enc: Encoder):
+        _write(enc, self)
+
+    def __unpack__(dec: Decoder) -> float:
+        return _read_numeric(dec, float)
+
+    def __size__(self) -> int:
+        return 8
+
+@extend
+class float32:
+    def __pack__(self, enc: Encoder):
+        _write(enc, self)
+
+    def __unpack__(dec: Decoder) -> float32:
+        return _read_numeric(dec, float32)
+
+    def __size__(self) -> int:
+        return sizeof(self)
+
+@extend
+class bool:
+    def __pack__(self, enc: Encoder):
+        _write(enc, self)
+
+    def __unpack__(dec: Decoder) -> bool:
+        return _read_numeric(dec, bool)
+
+    def __size__(self) -> int:
+        return 1
+
+@extend
+class byte:
+    def __pack__(self, enc: Encoder):
+        _write(enc, self)
+
+    def __unpack__(dec: Decoder) -> byte:
+        return _read_numeric(dec, byte)
+
+    def __size__(self) -> int:
+        return 1
+
+@extend
+class Array:
+
+    def __eq__(self, other: Array[T]) -> bool:
+        if self.len != other.len:
+            return False
+        if memcmp(self.ptr, other.ptr, u32(self.len)) == 0i32:
+            return True
+        return False
+
+    def __repr__(self) -> str:
+        if isinstance(self.ptr, Ptr[byte]):
+            return f"b'{str(self.ptr, self.len)}'"
+        return f"{self.ptr}"
+
+    def __pack__(self, enc: Encoder):
+        enc.pack_var_u32(u32(self.len))
+        for i in range(self.len):
+            self.ptr[i].__pack__(enc)
+
+    def __unpack__(dec: Decoder) -> Array[T]:
+        n = dec.unpack_var_u32()
+        ret = Array[T](int(n))
+        for i in range(ret.len):
+            ret.ptr[i] = T.__unpack__(dec)
+        return ret
+
+    def __size__(self) -> int:
+        size = 0
+        for i in range(self.len):
+            size += self.ptr[i].__size__()
+        size += packed_var_u32_length(u32(self.len))
+        return size
+
+@extend
+class Bytes:
+
+    def __eq__(self, other: Bytes) -> bool:
+        if self.len != other.len:
+            return False
+        if memcmp(self.ptr, other.ptr, u32(self.len)) == 0i32:
+            return True
+        return False
+
+    def __repr__(self) -> str:
+        if isinstance(self.ptr, Ptr[byte]):
+            return f"b'{str(self.ptr, self.len)}'"
+        return f"{self.ptr}"
+
+    def __pack__(self, enc: Encoder):
+        enc.pack_var_u32(u32(self.len))
+        for i in range(self.len):
+            self.ptr[i].__pack__(enc)
+
+    def __unpack__(dec: Decoder) -> Bytes:
+        n = dec.unpack_var_u32()
+        ret = Bytes(int(n))
+        for i in range(ret.len):
+            ret.ptr[i] = dec.read_byte()
+        return ret
+
+    def __size__(self) -> int:
+        size = 0
+        for i in range(self.len):
+            size += self.ptr[i].__size__()
+        size += packed_var_u32_length(u32(self.len))
+        return size
+
+@extend
+class str:
+    def __pack__(self, enc: Encoder):
+        enc.pack_var_u32(u32(self.len))
+        _write_raw(enc, self.ptr, self.len)
+
+    def __unpack__(dec: Decoder) -> str:
+        _n = dec.unpack_var_u32()
+        n  = int(_n)
+        p = Ptr[byte](n)
+        _read_raw(dec, p, n)
+        return str(p, n)
+
+    def __size__(self) -> int:
+        return packed_var_u32_length(u32(len(self))) + len(self)
+
+@extend
+class List:
+    def __pack__(self, enc: Encoder):
+        n = len(self)
+        enc.pack_var_u32(u32(n))
+        for i in range(n):
+            self.arr[i].__pack__(enc)
+
+    def __unpack__(dec: Decoder) -> List[T]:
+        # TODO: unpack varint
+        _n = dec.unpack_var_u32()
+        n = int(_n)
+        arr = Array[T](n)
+        for i in range(n):
+            arr[i] = unpack(dec, T)
+        return List[T](arr, n)
+
+    def __size__(self) -> int:
+        size = 0
+        for x in self:
+            size += x.__size__()
+        return packed_var_u32_length(u32(len(self))) + size
+
+@extend
+class Optional:
+    def __pack__(self, enc: Encoder):
+        if self:
+            enc.write_byte(byte(1))
+            unwrap(self).__pack__(enc)
+        else:
+            enc.write_byte(byte(0))
+
+    def __unpack__(dec: Decoder) -> Optional[T]:
+        if dec.read_byte() == byte(1):
+            return Optional[T](T.__unpack__(dec))
+        else:
+            return Optional[T]()
+
+    def __size__(self) -> int:
+        if not self:
+            return 1
+        return 1 + unwrap(self).__size__()
+
+# @extend
+# class DynamicTuple:
+#     def __pack__(self, enc: Encoder):
+#         n = len(self)
+#         pack(n, jar)
+#         if atomic(T):
+#             _write_raw(jar, (self._ptr).as_byte(), n * sizeof(T))
+#         else:
+#             for i in range(n):
+#                 pack(self._ptr[i], jar)
+
+#     def __unpack__(dec: Decoder) -> DynamicTuple[T]:
+#         n = unpack(jar, int)
+#         p = Ptr[T](n)
+#         if atomic(T):
+#             _read_raw(jar, p.as_byte(), n * sizeof(T))
+#         else:
+#             for i in range(n):
+#                 p[i] = unpack(jar, T)
+#         return DynamicTuple[T](p, n)
+
+#     def __size__(self) -> int:
+#         assert False
+#         return 0
+
+# @extend
+# class Dict:
+#     def __pack__(self, enc: Encoder):
+#         import internal.khash as khash
+
+#         if atomic(K) and atomic(V):
+#             pack(self._n_buckets, jar)
+#             pack(self._size, jar)
+#             pack(self._n_occupied, jar)
+#             pack(self._upper_bound, jar)
+#             fsize = khash.__ac_fsize(self._n_buckets) if self._n_buckets > 0 else 0
+#             _write_raw(jar, self._flags.as_byte(), fsize * sizeof(u32))
+#             _write_raw(jar, self._keys.as_byte(), self._n_buckets * sizeof(K))
+#             _write_raw(jar, self._vals.as_byte(), self._n_buckets * sizeof(V))
+#         else:
+#             pack(self._n_buckets, jar)
+#             size = len(self)
+#             pack(size, jar)
+
+#             for k, v in self.items():
+#                 pack(k, jar)
+#                 pack(v, jar)
+
+#     def __unpack__(dec: Decoder) -> Dict[K, V]:
+#         import internal.khash as khash
+
+#         d = {}
+#         if atomic(K) and atomic(V):
+#             n_buckets = unpack(jar, int)
+#             size = unpack(jar, int)
+#             n_occupied = unpack(jar, int)
+#             upper_bound = unpack(jar, int)
+#             fsize = khash.__ac_fsize(n_buckets) if n_buckets > 0 else 0
+#             flags = Ptr[u32](fsize)
+#             keys = Ptr[K](n_buckets)
+#             vals = Ptr[V](n_buckets)
+#             _read_raw(jar, flags.as_byte(), fsize * sizeof(u32))
+#             _read_raw(jar, keys.as_byte(), n_buckets * sizeof(K))
+#             _read_raw(jar, vals.as_byte(), n_buckets * sizeof(V))
+
+#             d._n_buckets = n_buckets
+#             d._size = size
+#             d._n_occupied = n_occupied
+#             d._upper_bound = upper_bound
+#             d._flags = flags
+#             d._keys = keys
+#             d._vals = vals
+#         else:
+#             n_buckets = unpack(jar, int)
+#             size = unpack(jar, int)
+#             d.resize(n_buckets)
+#             i = 0
+#             while i < size:
+#                 k = unpack(jar, K)
+#                 v = unpack(jar, V)
+#                 d[k] = v
+#                 i += 1
+#         return d
+
+#     def __size__(self) -> int:
+#         assert False
+#         return 0
+
+# @extend
+# class Set:
+#     def __pack__(self, enc: Encoder):
+#         import internal.khash as khash
+
+#         if atomic(K):
+#             pack(self._n_buckets, jar)
+#             pack(self._size, jar)
+#             pack(self._n_occupied, jar)
+#             pack(self._upper_bound, jar)
+#             fsize = khash.__ac_fsize(self._n_buckets) if self._n_buckets > 0 else 0
+#             _write_raw(jar, self._flags.as_byte(), fsize * sizeof(u32))
+#             _write_raw(jar, self._keys.as_byte(), self._n_buckets * sizeof(K))
+#         else:
+#             pack(self._n_buckets, jar)
+#             size = len(self)
+#             pack(size, jar)
+
+#             for k in self:
+#                 pack(k, jar)
+
+#     def __unpack__(dec: Decoder) -> Set[K]:
+#         import internal.khash as khash
+
+#         s = set[K]()
+#         if atomic(K):
+#             n_buckets = unpack(jar, int)
+#             size = unpack(jar, int)
+#             n_occupied = unpack(jar, int)
+#             upper_bound = unpack(jar, int)
+#             fsize = khash.__ac_fsize(n_buckets) if n_buckets > 0 else 0
+#             flags = Ptr[u32](fsize)
+#             keys = Ptr[K](n_buckets)
+#             _read_raw(jar, flags.as_byte(), fsize * sizeof(u32))
+#             _read_raw(jar, keys.as_byte(), n_buckets * sizeof(K))
+
+#             s._n_buckets = n_buckets
+#             s._size = size
+#             s._n_occupied = n_occupied
+#             s._upper_bound = upper_bound
+#             s._flags = flags
+#             s._keys = keys
+#         else:
+#             n_buckets = unpack(jar, int)
+#             size = unpack(jar, int)
+#             s.resize(n_buckets)
+#             i = 0
+#             while i < size:
+#                 k = unpack(jar, K)
+#                 s.add(k)
+#                 i += 1
+#         return s
+
+#     def __size__(self) -> int:
+#         assert False
+#         return 0

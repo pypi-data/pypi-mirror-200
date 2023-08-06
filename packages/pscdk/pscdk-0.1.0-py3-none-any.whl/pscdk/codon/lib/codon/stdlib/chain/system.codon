@@ -1,0 +1,10 @@
+from C import eosio_assert(u32, cobj) -> None
+from C import is_account(u64) -> bool as is_account_
+from C import has_auth(u64) -> bool as has_auth_
+
+from .name import Name
+
+def check(test: bool, msg: str) -> None:
+    if test:
+        return
+    eosio_assert(0u32, msg.c_str())
