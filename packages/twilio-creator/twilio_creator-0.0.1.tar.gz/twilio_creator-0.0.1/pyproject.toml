@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "twilio_creator"
+version = "0.0.1"
+authors = [
+  { name="PythonProgrammer", email="python.programer@gmail.com" },
+]
+description = "This package is a easy twilio."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
