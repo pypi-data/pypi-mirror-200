@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: cpggen
+Version: 0.1.0
+Summary: Generate CPG for multiple languages for use with joern
+Home-page: https://github.com/AppThreat/cpggen
+License: Apache-2.0
+Keywords: joern,code analysis,static analysis,cpg,code property graph
+Author: Team AppThreat
+Author-email: cloud@appthreat.com
+Requires-Python: >=3.8,<3.12
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Security
+Classifier: Topic :: Utilities
+Requires-Dist: gitpython (>=3.1.31,<4.0.0)
+Requires-Dist: rich (>=13.3.2,<14.0.0)
+Project-URL: Repository, https://github.com/AppThreat/cpggen
+Description-Content-Type: text/markdown
+
+# CPG Generator
+
+```
+ ██████╗██████╗  ██████╗
+██╔════╝██╔══██╗██╔════╝
+██║     ██████╔╝██║  ███╗
+██║     ██╔═══╝ ██║   ██║
+╚██████╗██║     ╚██████╔╝
+ ╚═════╝╚═╝      ╚═════╝
+```
+
+CPG Generator is a python cli tool to generate [Code Property Graph](https://cpg.joern.io) for multiple languages. The generated CPG can be directly imported to [Joern](https://joern.io) or uploaded to [Qwiet.AI](https://docs.shiftleft.io/home) for analysis.
+
+## Installation
+
+cpggen is available as a PyPI package or as a container image.
+
+```
+pip install cpggen
+```
+
+Bundled container image
+
+```
+docker pull ghcr.io/appthreat/cpggen
+# podman pull ghcr.io/appthreat/cpggen
+```
+
+## Usage
+
+To auto detect the language from the current directory and generate CPG.
+
+```
+cpggen
+```
+
+To specify input and output directory.
+
+```
+cpggen -i <src directory> -o <CPG directory or file name>
+```
+
+To specify language type.
+
+```
+cpggen -i <src directory> -o <CPG directory or file name> -l java
+```
+
+Container based invocation
+
+```
+docker run --rm -it -v /tmp:/tmp -v $(pwd):/app:rw --cpus=4 --memory=16g -t ghcr.io/appthreat/cpggen cpggen -i <src directory> -o <CPG directory or file name> --use-container
+```
+
