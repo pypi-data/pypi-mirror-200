@@ -1,0 +1,71 @@
+[tool.poetry]
+name = "canopy-platform"
+version = "0.0.25"
+description = "a decentralized social web platform"
+keywords = ["IndieWeb"]
+homepage = "https://ragt.ag/code/projects/canopy"
+repository = "https://ragt.ag/code/projects/canopy.git"
+documentation = "https://ragt.ag/code/projects/canopy/api"
+authors = ["Angelo Gladding <angelo@ragt.ag>"]
+license = "BSD-2-Clause"
+packages = [{include="canopy"}]
+
+[tool.poetry.plugins."websites"]
+canopy = "canopy:app"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+webint = "^0.1"
+webint-auth = "^0.0"
+webint-code = "^0.0"
+webint-data = "^0.0"
+webint-editor = "^0.0"
+webint-guests = "^0.0"
+webint-live = "^0.0"
+webint-media = "^0.0"
+webint-mentions = "^0.0"
+webint-owner = "^0.0"
+webint-player = "^0.0"
+webint-posts = "^0.0"
+webint-search = "^0.0"
+webint-sites = "^0.0"
+webint-system = "^0.0"
+webint-tracker = "^0.0"
+webint-ai = "^0.0"
+
+[tool.poetry.group.dev.dependencies]
+gmpg = {path="../gmpg", develop=true}
+bgq = {path="../bgq", develop=true}
+easyuri = {path="../easyuri", develop=true}
+newmath = {path="../newmath", develop=true}
+sqlyte = {path="../sqlyte", develop=true}
+txtint = {path="../txtint", develop=true}
+webint = {path="../webint", develop=true}
+webagt = {path="../webagt", develop=true}
+microformats = {path="../python-microformats", develop=true}
+indieauth = {path="../python-indieauth", develop=true}
+micropub = {path="../python-micropub", develop=true}
+webint-ai = {path="../webint-ai", develop=true}
+webint-auth = {path="../webint-auth", develop=true}
+webint-code = {path="../webint-code", develop=true}
+webint-data = {path="../webint-data", develop=true}
+webint-editor = {path="../webint-editor", develop=true}
+webint-guests = {path="../webint-guests", develop=true}
+webint-live = {path="../webint-live", develop=true}
+webint-media = {path="../webint-media", develop=true}
+webint-mentions = {path="../webint-mentions", develop=true}
+webint-owner = {path="../webint-owner", develop=true}
+webint-player = {path="../webint-player", develop=true}
+webint-posts = {path="../webint-posts", develop=true}
+webint-search = {path="../webint-search", develop=true}
+webint-sites = {path="../webint-sites", develop=true}
+webint-system = {path="../webint-system", develop=true}
+webint-tracker = {path="../webint-tracker", develop=true}
+
+# [[tool.poetry.source]]
+# name = "main"
+# url = "https://ragt.ag/code/pypi"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

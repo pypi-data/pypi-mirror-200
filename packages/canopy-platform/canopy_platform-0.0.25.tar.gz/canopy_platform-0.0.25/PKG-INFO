@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: canopy-platform
+Version: 0.0.25
+Summary: a decentralized social web platform
+Home-page: https://ragt.ag/code/projects/canopy
+License: BSD-2-Clause
+Keywords: IndieWeb
+Author: Angelo Gladding
+Author-email: angelo@ragt.ag
+Requires-Python: >=3.10,<3.11
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: webint (>=0.1,<0.2)
+Requires-Dist: webint-ai (>=0.0,<0.1)
+Requires-Dist: webint-auth (>=0.0,<0.1)
+Requires-Dist: webint-code (>=0.0,<0.1)
+Requires-Dist: webint-data (>=0.0,<0.1)
+Requires-Dist: webint-editor (>=0.0,<0.1)
+Requires-Dist: webint-guests (>=0.0,<0.1)
+Requires-Dist: webint-live (>=0.0,<0.1)
+Requires-Dist: webint-media (>=0.0,<0.1)
+Requires-Dist: webint-mentions (>=0.0,<0.1)
+Requires-Dist: webint-owner (>=0.0,<0.1)
+Requires-Dist: webint-player (>=0.0,<0.1)
+Requires-Dist: webint-posts (>=0.0,<0.1)
+Requires-Dist: webint-search (>=0.0,<0.1)
+Requires-Dist: webint-sites (>=0.0,<0.1)
+Requires-Dist: webint-system (>=0.0,<0.1)
+Requires-Dist: webint-tracker (>=0.0,<0.1)
+Project-URL: Documentation, https://ragt.ag/code/projects/canopy/api
+Project-URL: Repository, https://ragt.ag/code/projects/canopy.git
