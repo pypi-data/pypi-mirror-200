@@ -1,0 +1,94 @@
+Metadata-Version: 2.1
+Name: blockinfile
+Version: 2.14.2.1
+Summary: blockinfile is a tool for editing automatically a text block surrounded by marker lines
+Project-URL: Documentation, https://gitlab.com/hydrargyrum/blockinfile
+Project-URL: Issues, https://gitlab.com/hydrargyrum/blockinfile/issues
+Project-URL: Source, https://gitlab.com/hydrargyrum/blockinfile
+Author-email: Hg <dev@indigo.re>
+License-Expression: MIT
+License-File: COPYING
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Software Development :: Pre-processors
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# blockinfile
+
+`blockinfile` is a tool for editing automatically a text block surrounded by marker lines. It's an automated port of ansible's [blockinfile module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/blockinfile_module.html).
+
+## Usage
+
+```
+blockinfile --path FILE_TO_PATCH --block CONTENT_TO_INSERT [--marker NAME] [--marker-begin START_STRING] [--marker-end END_STRING] [MORE_OPTIONS]
+```
+
+Options are the same as in [Ansible documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/blockinfile_module.html).
+
+## Sample
+
+#### If `myfile.conf` initially contains:
+
+```
+sample line
+other line
+```
+
+#### Then running:
+
+```
+blockinfile --path myfile.conf --marker "# {mark} MY BLOCK" --block 'this line will be entered
+this one too'
+```
+
+Then myfile.conf will be updated:
+
+```
+sample line
+other line
+# BEGIN MY BLOCK
+this line will be entered
+this one too
+# END MY BLOCK
+```
+
+#### Then running:
+
+```
+blockinfile --path myfile.conf --marker "# {mark} MY BLOCK" --block 'updating the section'
+```
+
+Would produce:
+
+```
+sample line
+other line
+# BEGIN MY BLOCK
+updating the section
+# END MY BLOCK
+```
+
+## "Automated" port
+
+This project includes the source of Ansible's `blockinfile` module, slightly modified so it can work without having to use or even install Ansible. The modifications have been automated so it should be possible to easily port newer Ansible versions.
+
+See [`builder/build.sh`](builder/build.sh).
+
+## License
+
+Since `blockinfile` is a port of (part of) Ansible's source, it's licensed under GPLv3+ just like Ansible.
