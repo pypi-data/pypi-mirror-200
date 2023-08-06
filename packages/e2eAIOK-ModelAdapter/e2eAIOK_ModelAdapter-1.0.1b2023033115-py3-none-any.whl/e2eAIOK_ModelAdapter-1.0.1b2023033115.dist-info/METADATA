@@ -1,0 +1,31 @@
+Metadata-Version: 2.0
+Name: e2eAIOK-ModelAdapter
+Version: 1.0.1b2023033115
+Summary: Intel® End-to-End AI Optimization Kit
+Home-page: https://github.com/intel/e2eAIOK
+Author: INTEL
+License: Apache License
+Project-URL: Bug Tracker, https://github.com/intel/e2eAIOK/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: easydict
+Requires-Dist: intel-extension-for-pytorch (==1.12.100)
+Requires-Dist: nnunet
+Requires-Dist: scikit-learn
+Requires-Dist: tensorboard
+Requires-Dist: thop
+Requires-Dist: timm
+Requires-Dist: tllib
+Requires-Dist: torchaudio (==0.12.1)
+Requires-Dist: torchsummary
+Requires-Dist: torchvision (==0.13.1)
+Requires-Dist: transformers
+Requires-Dist: wandb
+
+e2eAIOK
+
