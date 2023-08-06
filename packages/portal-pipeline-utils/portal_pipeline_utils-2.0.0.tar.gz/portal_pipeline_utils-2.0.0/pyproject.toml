@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "portal-pipeline-utils"
+version = "2.0.0"
+description = "Utilities for deploying pipelines and interfacing with portal infrastructure."
+authors = [
+        "Michele Berselli <berselli.michele@gmail.com>",
+        "CGAP & SMaHT Team"
+]
+license = "MIT"
+repository = 'https://github.com/dbmi-bgm/portal-pipeline-utils'
+readme = "README.md"
+classifiers = [
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: POSIX :: Linux',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3'
+]
+packages = [
+    { include="pipeline_utils" }
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.9"
+dcicutils = "^6.3.0"
+boto3 = "^1.20.15"
+awscli = "^1.22.15"
+jsonschema = "^4.7.2"
+magma-suite = "^1.0.1"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+
+
+[tool.poetry.scripts]
+pipeline_utils = "pipeline_utils.__main__:main"
+
+
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
