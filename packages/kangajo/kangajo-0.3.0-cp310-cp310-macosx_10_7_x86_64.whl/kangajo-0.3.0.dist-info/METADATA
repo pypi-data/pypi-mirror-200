@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: kangajo
+Version: 0.3.0
+Summary: A library to flatten JSON data using Rust.
+Author-email: Andrew Mayes <andrewmayes14@hotmail.com>
+License: MIT
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# Kangajo
+
+A library to start the kangaroo war to end them all data using Rust.
+
+## Installation
+
+```bash
+pip install kangajo
+```
+
+## Usage
+
+```python
+import kangajo
+
+json_data = """
+{
+    "id": 1,
+    "first_name": "Jonathan",
+    ...
+}
+"""
+
+flat_data = kanga.flatten_dict(json_data)
+print(flat_data)
+```
