@@ -1,0 +1,9 @@
+# binary prefixes
+kibi = 2**10
+mebi = 2**20
+gibi = 2**30
+tebi = 2**40
+pebi = 2**50
+exbi = 2**60
+zebi = 2**70
+yobi = 2**80
