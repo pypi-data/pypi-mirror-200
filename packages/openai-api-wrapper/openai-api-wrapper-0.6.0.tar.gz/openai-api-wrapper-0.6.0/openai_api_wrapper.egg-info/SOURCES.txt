@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+openai_api_wrapper/__init__.py
+openai_api_wrapper/__version__.py
+openai_api_wrapper/chatbot.py
+openai_api_wrapper.egg-info/PKG-INFO
+openai_api_wrapper.egg-info/SOURCES.txt
+openai_api_wrapper.egg-info/dependency_links.txt
+openai_api_wrapper.egg-info/requires.txt
+openai_api_wrapper.egg-info/top_level.txt
+openai_api_wrapper/chatbots/__init__.py
+openai_api_wrapper/chatbots/basechatbot.py
+openai_api_wrapper/chatbots/chatbot.py
+openai_api_wrapper/chatbots/chatglm.py
+openai_api_wrapper/chatbots/chatglmbot.py
+openai_api_wrapper/chatbots/chatgptbot.py
