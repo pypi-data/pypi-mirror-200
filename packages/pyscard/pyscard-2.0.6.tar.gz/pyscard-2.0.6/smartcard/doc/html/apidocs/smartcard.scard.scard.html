@@ -1,0 +1,1808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>smartcard.scard.scard</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="smartcard.scard.scard.html" class="internal-link" title="This module">scard</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.scard.scard._SwigNonDynamicMeta.html" class="internal-link" title="smartcard.scard.scard._SwigNonDynamicMeta">_<wbr></wbr>Swig<wbr></wbr>Non<wbr></wbr>Dynamic<wbr></wbr>Meta</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCARD_CTL_CODE" class="internal-link" title="smartcard.scard.scard.SCARD_CTL_CODE">SCARD<wbr></wbr>_CTL<wbr></wbr>_CODE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardBeginTransaction" class="internal-link" title="smartcard.scard.scard.SCardBeginTransaction"><wbr></wbr>SCard<wbr></wbr>Begin<wbr></wbr>Transaction</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardCancel" class="internal-link" title="smartcard.scard.scard.SCardCancel"><wbr></wbr>SCard<wbr></wbr>Cancel</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardConnect" class="internal-link" title="smartcard.scard.scard.SCardConnect"><wbr></wbr>SCard<wbr></wbr>Connect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardControl" class="internal-link" title="smartcard.scard.scard.SCardControl"><wbr></wbr>SCard<wbr></wbr>Control</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardDisconnect" class="internal-link" title="smartcard.scard.scard.SCardDisconnect"><wbr></wbr>SCard<wbr></wbr>Disconnect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardEndTransaction" class="internal-link" title="smartcard.scard.scard.SCardEndTransaction"><wbr></wbr>SCard<wbr></wbr>End<wbr></wbr>Transaction</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardEstablishContext" class="internal-link" title="smartcard.scard.scard.SCardEstablishContext"><wbr></wbr>SCard<wbr></wbr>Establish<wbr></wbr>Context</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardGetAttrib" class="internal-link" title="smartcard.scard.scard.SCardGetAttrib"><wbr></wbr>SCard<wbr></wbr>Get<wbr></wbr>Attrib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardGetErrorMessage" class="internal-link" title="smartcard.scard.scard.SCardGetErrorMessage"><wbr></wbr>SCard<wbr></wbr>Get<wbr></wbr>Error<wbr></wbr>Message</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardGetStatusChange" class="internal-link" title="smartcard.scard.scard.SCardGetStatusChange"><wbr></wbr>SCard<wbr></wbr>Get<wbr></wbr>Status<wbr></wbr>Change</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardIsValidContext" class="internal-link" title="smartcard.scard.scard.SCardIsValidContext"><wbr></wbr>SCard<wbr></wbr>Is<wbr></wbr>Valid<wbr></wbr>Context</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardListReaderGroups" class="internal-link" title="smartcard.scard.scard.SCardListReaderGroups"><wbr></wbr>SCard<wbr></wbr>List<wbr></wbr>Reader<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardListReaders" class="internal-link" title="smartcard.scard.scard.SCardListReaders"><wbr></wbr>SCard<wbr></wbr>List<wbr></wbr>Readers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardReconnect" class="internal-link" title="smartcard.scard.scard.SCardReconnect"><wbr></wbr>SCard<wbr></wbr>Reconnect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardReleaseContext" class="internal-link" title="smartcard.scard.scard.SCardReleaseContext"><wbr></wbr>SCard<wbr></wbr>Release<wbr></wbr>Context</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardSetAttrib" class="internal-link" title="smartcard.scard.scard.SCardSetAttrib"><wbr></wbr>SCard<wbr></wbr>Set<wbr></wbr>Attrib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardStatus" class="internal-link" title="smartcard.scard.scard.SCardStatus"><wbr></wbr>SCard<wbr></wbr>Status</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#SCardTransmit" class="internal-link" title="smartcard.scard.scard.SCardTransmit"><wbr></wbr>SCard<wbr></wbr>Transmit</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_swig_add_metaclass" class="internal-link" title="smartcard.scard.scard._swig_add_metaclass">_swig<wbr></wbr>_add<wbr></wbr>_metaclass</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_swig_repr" class="internal-link" title="smartcard.scard.scard._swig_repr">_swig<wbr></wbr>_repr</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_swig_setattr_nondynamic_class_variable" class="internal-link" title="smartcard.scard.scard._swig_setattr_nondynamic_class_variable">_swig<wbr></wbr>_setattr<wbr></wbr>_nondynamic<wbr></wbr>_class<wbr></wbr>_variable</a></code>
+            </div>
+        
+
+    </li><li class="private">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#_swig_setattr_nondynamic_instance_variable" class="internal-link" title="smartcard.scard.scard._swig_setattr_nondynamic_instance_variable">_swig<wbr></wbr>_setattr<wbr></wbr>_nondynamic<wbr></wbr>_instance<wbr></wbr>_variable</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="smartcard.scard.html" class="internal-link" title="The parent of this module">scard</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.scard.scard.html" class="internal-link" title="smartcard.scard.scard">scard</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">smartcard</a></code><wbr></wbr>.<code><a href="smartcard.scard.html" class="internal-link" title="smartcard.scard">scard</a></code><wbr></wbr>.<code><a href="smartcard.scard.scard.html" class="internal-link" title="smartcard.scard.scard">scard</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>The smartcard.scard module is a simple wrapper on top of the C language PCSC SCardXXX API.</p>
+<p>The smartcard.scard module is the lower layer of the pyscard framework that provides a higher level interface.</p>
+<p>You should avoid using the <code><a href="smartcard.scard.html" class="internal-link" title="smartcard.scard">smartcard.scard</a></code> package directly, and use the pyscard directly because:</p>
+<ul class="rst-simple">
+<li>smartcard.scard being a C wrapper, the code tends to look like C code written in python syntax</li>
+<li>the smartcard package provides higher level abstractions (e.g. <code><a href="smartcard.CardType.html" class="internal-link" title="smartcard.CardType">CardType</a></code>, <code><a href="smartcard.CardConnection.html" class="internal-link" title="smartcard.CardConnection">CardConnection</a></code>), and makes programming easier since it is totally written in Python</li>
+</ul>
+<p>You can still use the smartcard.scard package if you want to write your own framework, or if you want to perform quick-and-dirty port of C language programs using SCardXXX calls, or if there are features of SCardXXX API that you want to use and that are not available in the pyscard library.</p>
+<p>Introduction</p>
+<p>The smartcard.scard module is a Python wrapper around PCSC smart card base services.  On Windows, the wrapper is performed around the smart card base components winscard library.  On linux and OS X, the wrapper is performed around the PCSC-lite library.</p>
+<p>The smartcard.scard module provides mapping for the following API functions, depending on the Operating System:</p>
+<pre class="rst-literal-block">
+    =============================== ======= =======
+    Function                        Windows  Linux 
+                                             OS X  
+    =============================== ======= =======
+    GetOpenCardName                                
+    SCardAddReaderToGroup              Y           
+    SCardBeginTransaction              Y       Y   
+    SCardCancel                        Y       Y   
+    SCardConnect                       Y       Y   
+    SCardControl                       Y       Y   
+    SCardDisconnect                    Y       Y   
+    SCardEndTransaction                Y       Y   
+    SCardEstablishConteYt              Y       Y   
+    SCardForgetCardType                Y           
+    SCardForgetReader                  Y           
+    SCardForgetReaderGroup             Y           
+    SCardFreeMemory                                
+    SCardGetAttrib                     Y       Y   
+    SCardGetCardTypeProviderName       Y           
+    SCardGetErrorMessage               Y           
+    SCardGetProviderId                             
+    SCardGetStatusChange               Y       Y   
+    SCardIntroduceCardType             Y           
+    SCardIntroduceReader               Y           
+    SCardIntroduceReaderGroup          Y           
+    SCardIsValidConteYt                Y       Y   
+    SCardListCards                     Y           
+    SCardListInterfaces                Y           
+    SCardListReaderGroups              Y       Y   
+    SCardListReaders                   Y       Y   
+    SCardLocateCards                   Y           
+    SCardReconnect                     Y       Y   
+    SCardReleaseConteYt                Y       Y   
+    SCardRemoveReaderFromGroup         Y           
+    SCardSetAttrib                     Y       Y   
+    SCardSetCartTypeProviderName                   
+    SCardStatus                        Y       Y   
+    SCardTransmit                      Y       Y   
+    SCardUIDlgSelectCard                           
+    =============================== ======= =======
+</pre>
+<p>Comments, bug reports, improvements welcome.</p>
+<p>-------------------------------------------------------------------------------</p>
+<p>Copyright 2001-2012 gemalto</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Authors</td></tr><tr><td colspan="2">Jean-Daniel Aussel, mailto:jean-daniel.aussel@gemalto.com</td></tr><tr><td colspan="2"><p>Ludovic Rousseau, mailto:ludovic.rousseau@free.fr</p>
+<p>This file is part of pyscard.</p>
+<p>pyscard is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</p>
+<p>pyscard is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.</p>
+<p>You should have received a copy of the GNU Lesser General Public License along with pyscard; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA</p>
+</td></tr></table></div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id167">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCARD_CTL_CODE" class="internal-link" title="smartcard.scard.scard.SCARD_CTL_CODE">SCARD<wbr></wbr>_CTL<wbr></wbr>_CODE</a></code></td>
+    <td>SCARD_CTL_CODE(long code) -&gt; long</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardBeginTransaction" class="internal-link" title="smartcard.scard.scard.SCardBeginTransaction"><wbr></wbr>SCard<wbr></wbr>Begin<wbr></wbr>Transaction</a></code></td>
+    <td>SCardBeginTransaction( hcard) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardCancel" class="internal-link" title="smartcard.scard.scard.SCardCancel"><wbr></wbr>SCard<wbr></wbr>Cancel</a></code></td>
+    <td>SCardCancel( hcontext) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardConnect" class="internal-link" title="smartcard.scard.scard.SCardConnect"><wbr></wbr>SCard<wbr></wbr>Connect</a></code></td>
+    <td>SCardConnect( hcontext,  readername,  dwShareMode,  dwPreferredProtocols) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardControl" class="internal-link" title="smartcard.scard.scard.SCardControl"><wbr></wbr>SCard<wbr></wbr>Control</a></code></td>
+    <td>SCardControl( hcard,  dwControlCode, byte[] inbuffer) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardDisconnect" class="internal-link" title="smartcard.scard.scard.SCardDisconnect"><wbr></wbr>SCard<wbr></wbr>Disconnect</a></code></td>
+    <td>SCardDisconnect( hcard,  dwDisposition) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardEndTransaction" class="internal-link" title="smartcard.scard.scard.SCardEndTransaction"><wbr></wbr>SCard<wbr></wbr>End<wbr></wbr>Transaction</a></code></td>
+    <td>SCardEndTransaction( hcard,  dwDisposition) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardEstablishContext" class="internal-link" title="smartcard.scard.scard.SCardEstablishContext"><wbr></wbr>SCard<wbr></wbr>Establish<wbr></wbr>Context</a></code></td>
+    <td>SCardEstablishContext( dwScope) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardGetAttrib" class="internal-link" title="smartcard.scard.scard.SCardGetAttrib"><wbr></wbr>SCard<wbr></wbr>Get<wbr></wbr>Attrib</a></code></td>
+    <td>SCardGetAttrib( hcard,  dwAttrId) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardGetErrorMessage" class="internal-link" title="smartcard.scard.scard.SCardGetErrorMessage"><wbr></wbr>SCard<wbr></wbr>Get<wbr></wbr>Error<wbr></wbr>Message</a></code></td>
+    <td>SCardGetErrorMessage(long lErrCode) -&gt; ERRORSTRING *</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardGetStatusChange" class="internal-link" title="smartcard.scard.scard.SCardGetStatusChange"><wbr></wbr>SCard<wbr></wbr>Get<wbr></wbr>Status<wbr></wbr>Change</a></code></td>
+    <td>SCardGetStatusChange( hcontext,  dwTimeout, tuple[] readerstatelist) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardIsValidContext" class="internal-link" title="smartcard.scard.scard.SCardIsValidContext"><wbr></wbr>SCard<wbr></wbr>Is<wbr></wbr>Valid<wbr></wbr>Context</a></code></td>
+    <td>SCardIsValidContext( hcontext) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardListReaderGroups" class="internal-link" title="smartcard.scard.scard.SCardListReaderGroups"><wbr></wbr>SCard<wbr></wbr>List<wbr></wbr>Reader<wbr></wbr>Groups</a></code></td>
+    <td>SCardListReaderGroups( hcontext) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardListReaders" class="internal-link" title="smartcard.scard.scard.SCardListReaders"><wbr></wbr>SCard<wbr></wbr>List<wbr></wbr>Readers</a></code></td>
+    <td>SCardListReaders( hcontext, [] readergroups) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardReconnect" class="internal-link" title="smartcard.scard.scard.SCardReconnect"><wbr></wbr>SCard<wbr></wbr>Reconnect</a></code></td>
+    <td>SCardReconnect( hcard,  dwShareMode,  dwPreferredProtocols,  dwInitialization) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardReleaseContext" class="internal-link" title="smartcard.scard.scard.SCardReleaseContext"><wbr></wbr>SCard<wbr></wbr>Release<wbr></wbr>Context</a></code></td>
+    <td>SCardReleaseContext( hcontext) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardSetAttrib" class="internal-link" title="smartcard.scard.scard.SCardSetAttrib"><wbr></wbr>SCard<wbr></wbr>Set<wbr></wbr>Attrib</a></code></td>
+    <td>SCardSetAttrib( hcard,  dwAttrId, BYTELIST * ATTRIBUTESIN) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardStatus" class="internal-link" title="smartcard.scard.scard.SCardStatus"><wbr></wbr>SCard<wbr></wbr>Status</a></code></td>
+    <td>SCardStatus( hcard) -&gt; SCARDRETCODE</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#SCardTransmit" class="internal-link" title="smartcard.scard.scard.SCardTransmit"><wbr></wbr>SCard<wbr></wbr>Transmit</a></code></td>
+    <td>SCardTransmit( hcard, unsigned long pioSendPci, byte[] apducommand) -&gt; SCARDRETCODE</td>
+  </tr><tr class="class private">
+    
+    <td>Class</td>
+    <td><code><a href="smartcard.scard.scard._SwigNonDynamicMeta.html" class="internal-link" title="smartcard.scard.scard._SwigNonDynamicMeta">_<wbr></wbr>Swig<wbr></wbr>Non<wbr></wbr>Dynamic<wbr></wbr>Meta</a></code></td>
+    <td>Meta class to enforce nondynamic attributes (no new attributes) for a class</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_swig_add_metaclass" class="internal-link" title="smartcard.scard.scard._swig_add_metaclass">_swig<wbr></wbr>_add<wbr></wbr>_metaclass</a></code></td>
+    <td>Class decorator for adding a metaclass to a SWIG wrapped class - a slimmed down version of six.add_metaclass</td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_swig_repr" class="internal-link" title="smartcard.scard.scard._swig_repr">_swig<wbr></wbr>_repr</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_swig_setattr_nondynamic_class_variable" class="internal-link" title="smartcard.scard.scard._swig_setattr_nondynamic_class_variable">_swig<wbr></wbr>_setattr<wbr></wbr>_nondynamic<wbr></wbr>_class<wbr></wbr>_variable</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_swig_setattr_nondynamic_instance_variable" class="internal-link" title="smartcard.scard.scard._swig_setattr_nondynamic_instance_variable">_swig<wbr></wbr>_setattr<wbr></wbr>_nondynamic<wbr></wbr>_instance<wbr></wbr>_variable</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCARD_CTL_CODE">
+    
+  </a>
+  <a name="SCARD_CTL_CODE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCARD_CTL_CODE</span>(code):
+    
+    <a class="headerLink" href="#SCARD_CTL_CODE" title="smartcard.scard.scard.SCARD_CTL_CODE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCARD_CTL_CODE(long code) -&gt; long</p>
+<p>This function returns the value of a control code</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>...
+<span class="py-prompt">&gt;&gt;&gt; </span>CM_IOCTL_GET_FEATURE_REQUEST = SCARD_CTL_CODE(3400)
+<span class="py-prompt">&gt;&gt;&gt; </span>...</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardBeginTransaction">
+    
+  </a>
+  <a name="SCardBeginTransaction">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardBeginTransaction</span>(hcard):
+    
+    <a class="headerLink" href="#SCardBeginTransaction" title="smartcard.scard.scard.SCardBeginTransaction">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardBeginTransaction( hcard) -&gt; SCARDRETCODE</p>
+<p>This function establishes a temporary exclusive access mode for doing a series of commands or transaction.  You might want to use this when you are selecting a few files and then writing a large file so you can make sure that another application will not change the current file.</p>
+<p>If another application has a lock on this reader or this application is in SCARD_SHARE_EXCLUSIVE there will be no action taken.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># begin transaction</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult = SCardBeginTransaction(hcard)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardCancel">
+    
+  </a>
+  <a name="SCardCancel">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardCancel</span>(hcontext):
+    
+    <a class="headerLink" href="#SCardCancel" title="smartcard.scard.scard.SCardCancel">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardCancel( hcontext) -&gt; SCARDRETCODE</p>
+<p>This function cancels all pending blocking requests on the <code><a href="#SCardGetStatusChange" class="internal-link" title="smartcard.scard.scard.SCardGetStatusChange">SCardGetStatusChange()</a></code> function.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>... establish context ...
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult = SCardCancel(hcard)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-more">...</span></pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardConnect">
+    
+  </a>
+  <a name="SCardConnect">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardConnect</span>(hcontext, readername, dwShareMode, dwPreferredProtocols):
+    
+    <a class="headerLink" href="#SCardConnect" title="smartcard.scard.scard.SCardConnect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardConnect( hcontext,  readername,  dwShareMode,  dwPreferredProtocols) -&gt; SCARDRETCODE</p>
+<p>This function establishes a connection to the friendly name of the reader specified in readername.  The first connection will power up and perform a reset on the card.</p>
+<p>Value of dwShareMode:</p>
+<ul class="rst-simple">
+<li>SCARD_SHARE_SHARED      This application will allow others to share the reader</li>
+<li>SCARD_SHARE_EXCLUSIVE   This application will NOT allow others to share the reader</li>
+<li>SCARD_SHARE_DIRECT      Direct control of the reader, even without a card</li>
+</ul>
+<p>SCARD_SHARE_DIRECT can be used before using <code><a href="#SCardControl" class="internal-link" title="smartcard.scard.scard.SCardControl">SCardControl()</a></code> to send control commands to the reader even if a card is not present in the reader.</p>
+<p>Value of dwPreferredProtocols:</p>
+<ul class="rst-simple">
+<li>SCARD_PROTOCOL_T0               Use the T=0 protocol</li>
+<li>SCARD_PROTOCOL_T1               Use the T=1 protocol</li>
+<li>SCARD_PROTOCOL_RAW              Use with memory type cards</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardControl">
+    
+  </a>
+  <a name="SCardControl">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardControl</span>(hcard, dwControlCode, inbuffer):
+    
+    <a class="headerLink" href="#SCardControl" title="smartcard.scard.scard.SCardControl">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardControl( hcard,  dwControlCode, byte[] inbuffer) -&gt; SCARDRETCODE</p>
+<p>This function sends a control command to the reader connected to by <code><a href="#SCardConnect" class="internal-link" title="smartcard.scard.scard.SCardConnect">SCardConnect()</a></code>.  It returns a result and the control response.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># control</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>CMD = [0x12, 0x34]
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, response = SCardControl(hcard, 42, CMD)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardDisconnect">
+    
+  </a>
+  <a name="SCardDisconnect">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardDisconnect</span>(hcard, dwDisposition):
+    
+    <a class="headerLink" href="#SCardDisconnect" title="smartcard.scard.scard.SCardDisconnect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardDisconnect( hcard,  dwDisposition) -&gt; SCARDRETCODE</p>
+<p>This function terminates a connection to the connection made through <code><a href="#SCardConnect" class="internal-link" title="smartcard.scard.scard.SCardConnect">SCardConnect()</a></code>.</p>
+<p>Value of disposition:</p>
+<ul class="rst-simple">
+<li>SCARD_LEAVE_CARD        Do nothing</li>
+<li>SCARD_RESET_CARD        Reset the card (warm reset)</li>
+<li>SCARD_UNPOWER_CARD      Unpower the card (cold reset)</li>
+<li>SCARD_EJECT_CARD        Eject the card</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># disconnect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult = SCardDisconnect(hcard, SCARD_UNPOWER_CARD)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardEndTransaction">
+    
+  </a>
+  <a name="SCardEndTransaction">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardEndTransaction</span>(hcard, dwDisposition):
+    
+    <a class="headerLink" href="#SCardEndTransaction" title="smartcard.scard.scard.SCardEndTransaction">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardEndTransaction( hcard,  dwDisposition) -&gt; SCARDRETCODE</p>
+<p>This function ends a previously begun transaction.  The calling application must be the owner of the previously begun transaction or an error will occur.</p>
+<p>Value of disposition:</p>
+<ul class="rst-simple">
+<li>SCARD_LEAVE_CARD        Do nothing</li>
+<li>SCARD_RESET_CARD        Reset the card</li>
+<li>SCARD_UNPOWER_CARD      Unpower the card</li>
+<li>SCARD_EJECT_CARD        Eject the card</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># begin transaction</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult = SCardBeginTransaction(hcard)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># end transaction</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult = SCardEndTransaction(hcard, SCARD_LEAVE_CARD)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardEstablishContext">
+    
+  </a>
+  <a name="SCardEstablishContext">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardEstablishContext</span>(dwScope):
+    
+    <a class="headerLink" href="#SCardEstablishContext" title="smartcard.scard.scard.SCardEstablishContext">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardEstablishContext( dwScope) -&gt; SCARDRETCODE</p>
+<p>This function creates a communication context to the PC/SC Resource Manager.  This must be the first PC/SC function called in a PC/SC application.</p>
+<p>Value of dwScope:</p>
+<ul class="rst-simple">
+<li>SCARD_SCOPE_USER        Operations performed within the scope of the User</li>
+<li>SCARD_SCOPE_TERMINAL    Not used</li>
+<li>SCARD_SCOPE_GLOBAL      Not used</li>
+<li>SCARD_SCOPE_SYSTEM      Operations performed within the scope of the system</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardGetAttrib">
+    
+  </a>
+  <a name="SCardGetAttrib">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardGetAttrib</span>(hcard, dwAttrId):
+    
+    <a class="headerLink" href="#SCardGetAttrib" title="smartcard.scard.scard.SCardGetAttrib">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardGetAttrib( hcard,  dwAttrId) -&gt; SCARDRETCODE</p>
+<p>This function get an attribute from the IFD Handler.</p>
+<p>The possible attributes are:</p>
+<pre class="rst-literal-block">
+    ======================================== ======= =======
+    Attribute                                Windows  PCSC  
+                                                      lite
+    ======================================== ======= =======
+    SCARD_ATTR_ASYNC_PROTOCOL_TYPES                     Y   
+    SCARD_ATTR_ATR_STRING                       Y       Y   
+    SCARD_ATTR_CHANNEL_ID                       Y       Y   
+    SCARD_ATTR_CHARACTERISTICS                  Y       Y   
+    SCARD_ATTR_CURRENT_BWT                      Y       Y   
+    SCARD_ATTR_CURRENT_CLK                      Y       Y   
+    SCARD_ATTR_CURRENT_CWT                      Y       Y   
+    SCARD_ATTR_CURRENT_D                        Y       Y   
+    SCARD_ATTR_CURRENT_EBC_ENCODING             Y       Y   
+    SCARD_ATTR_CURRENT_F                        Y       Y   
+    SCARD_ATTR_CURRENT_IFSC                     Y       Y   
+    SCARD_ATTR_CURRENT_IFSD                     Y       Y   
+    SCARD_ATTR_CURRENT_IO_STATE                 Y       Y   
+    SCARD_ATTR_CURRENT_N                        Y       Y   
+    SCARD_ATTR_CURRENT_PROTOCOL_TYPE            Y       Y   
+    SCARD_ATTR_CURRENT_W                        Y       Y   
+    SCARD_ATTR_DEFAULT_CLK                      Y       Y   
+    SCARD_ATTR_DEFAULT_DATA_RATE                Y       Y   
+    SCARD_ATTR_DEVICE_FRIENDLY_NAME_A           Y       Y   
+    SCARD_ATTR_DEVICE_FRIENDLY_NAME_W           Y       Y   
+    SCARD_ATTR_DEVICE_IN_USE                    Y       Y   
+    SCARD_ATTR_DEVICE_SYSTEM_NAME_A             Y       Y   
+    SCARD_ATTR_DEVICE_SYSTEM_NAME_W             Y       Y   
+    SCARD_ATTR_DEVICE_UNIT                      Y       Y   
+    SCARD_ATTR_ESC_AUTHREQUEST                  Y       Y   
+    SCARD_ATTR_ESC_CANCEL                       Y       Y   
+    SCARD_ATTR_ESC_RESET                        Y       Y   
+    SCARD_ATTR_EXTENDED_BWT                     Y       Y   
+    SCARD_ATTR_ICC_INTERFACE_STATUS             Y       Y   
+    SCARD_ATTR_ICC_PRESENCE                     Y       Y   
+    SCARD_ATTR_ICC_TYPE_PER_ATR                 Y       Y   
+    SCARD_ATTR_MAXINPUT                         Y       Y   
+    SCARD_ATTR_MAX_CLK                          Y       Y   
+    SCARD_ATTR_MAX_DATA_RATE                    Y       Y   
+    SCARD_ATTR_MAX_IFSD                         Y       Y   
+    SCARD_ATTR_POWER_MGMT_SUPPORT               Y       Y   
+    SCARD_ATTR_SUPRESS_T1_IFS_REQUEST           Y       Y   
+    SCARD_ATTR_SYNC_PROTOCOL_TYPES                      Y   
+    SCARD_ATTR_USER_AUTH_INPUT_DEVICE           Y       Y   
+    SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE         Y       Y   
+    SCARD_ATTR_VENDOR_IFD_SERIAL_NO             Y       Y   
+    SCARD_ATTR_VENDOR_IFD_TYPE                  Y       Y   
+    SCARD_ATTR_VENDOR_IFD_VERSION               Y       Y   
+    SCARD_ATTR_VENDOR_NAME                      Y       Y   
+    ======================================== ======= =======
+</pre>
+<p>Not all the dwAttrId values listed above may be implemented in the IFD Handler you are using.  And some dwAttrId values not listed here may be implemented.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># get attribute</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, attrib = SCardGetAttrib(hcard, SCARD_ATTR_ATR_STRING)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(attrib)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardGetErrorMessage">
+    
+  </a>
+  <a name="SCardGetErrorMessage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardGetErrorMessage</span>(lErrCode):
+    
+    <a class="headerLink" href="#SCardGetErrorMessage" title="smartcard.scard.scard.SCardGetErrorMessage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardGetErrorMessage(long lErrCode) -&gt; ERRORSTRING *</p>
+<p>This function return a human readable text for the given PC/SC error code.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>...
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, response = SCardTransmit(hcard, SCARD_PCI_T0, SELECT + DF_TELECOM)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-builtin">print</span>(<span class="py-string">'Failed to transmit:'</span>, SCardGetErrorMessage(hresult))
+<span class="py-prompt">&gt;&gt;&gt; </span>...</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardGetStatusChange">
+    
+  </a>
+  <a name="SCardGetStatusChange">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardGetStatusChange</span>(hcontext, dwTimeout, readerstatelist):
+    
+    <a class="headerLink" href="#SCardGetStatusChange" title="smartcard.scard.scard.SCardGetStatusChange">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardGetStatusChange( hcontext,  dwTimeout, tuple[] readerstatelist) -&gt; SCARDRETCODE</p>
+<p>This function receives a structure or list of tuples containing reader states. A READERSTATE hast three fields (readername, state, atr). It then blocks for a change in state to occur on any of the OR'd values contained in the current state for a maximum blocking time of dwTimeout or forever if INFINITE is used.  The new event state will be contained in state.  A status change might be a card insertion or removal event, a change in ATR, etc.</p>
+<p>Value of state:</p>
+<ul class="rst-simple">
+<li>SCARD_STATE_UNAWARE         The application is unaware of the current state, and would like to know. The use of this value results in an immediate return from state transition monitoring services. This is represented by all bits set to zero</li>
+<li>SCARD_STATE_IGNORE          This reader should be ignored</li>
+<li>SCARD_STATE_CHANGED         There is a difference between the state believed by the application, and the state known by the resource manager. When this bit is set, the application may assume a significant state change has occurred on this reader</li>
+<li>SCARD_STATE_UNKNOWN         The given reader name is not recognized by the resource manager. If this bit is set, then SCARD_STATE_CHANGED and SCARD_STATE_IGNORE will also be set</li>
+<li>SCARD_STATE_UNAVAILABLE     The actual state of this reader is not available. If this bit is set, then all the following bits are clear</li>
+<li>SCARD_STATE_EMPTY           There is no card in the reader. If this bit is set, all the following bits will be clear</li>
+<li>SCARD_STATE_PRESENT         There is a card in the reader</li>
+<li>SCARD_STATE_ATRMATCH        There is a card in the reader with an ATR matching one of the target cards. If this bit is set, SCARD_STATE_PRESENT will also be set. This bit is only returned on the SCardLocateCards function</li>
+<li>SCARD_STATE_EXCLUSIVE       The card in the reader is allocated for exclusive use by another application. If this bit is set, SCARD_STATE_PRESENT will also be set</li>
+<li>SCARD_STATE_INUSE           The card in the reader is in use by one or more other applications, but may be connected to in shared mode. If this bit is set, SCARD_STATE_PRESENT will also be set</li>
+<li>SCARD_STATE_MUTE            There is an unresponsive card in the reader</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># get status change</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>readerstates = <span class="py-builtin">list</span>()
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> reader <span class="py-keyword">in</span> readers:
+<span class="py-prompt">&gt;&gt;&gt; </span>    readerstates.append((reader, SCARD_STATE_UNAWARE))
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, newstates = SCardGetStatusChange(hcontext, INFINITE, readerstates)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> state <span class="py-keyword">in</span> newstates:
+<span class="py-prompt">&gt;&gt;&gt; </span>    reader, eventstate, atr = state
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-builtin">print</span>(f<span class="py-string">'Reader: {reader}:'</span>, end=<span class="py-string">''</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">if</span> eventstate &amp; SCARD_STATE_PRESENT:
+<span class="py-prompt">&gt;&gt;&gt; </span>        <span class="py-builtin">print</span>(<span class="py-string">' Card present'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">if</span> eventstate &amp; SCARD_STATE_EMPTY:
+<span class="py-prompt">&gt;&gt;&gt; </span>        <span class="py-builtin">print</span>(<span class="py-string">' Reader empty'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(<span class="py-string">'insert or remove a card'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># wait for card move</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>readerstates = newstates
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, newstates = SCardGetStatusChange(hcontext, INFINITE, readerstates)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardIsValidContext">
+    
+  </a>
+  <a name="SCardIsValidContext">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardIsValidContext</span>(hcontext):
+    
+    <a class="headerLink" href="#SCardIsValidContext" title="smartcard.scard.scard.SCardIsValidContext">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardIsValidContext( hcontext) -&gt; SCARDRETCODE</p>
+<p>This function determines whether a smart card context handle is still valid.  After a smart card context handle has been set by <code><a href="#SCardEstablishContext" class="internal-link" title="smartcard.scard.scard.SCardEstablishContext">SCardEstablishContext()</a></code>, it may become not valid if the resource manager service has been shut down.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># valid context?</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult = SCardIsValidContext(hcontext)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardListReaderGroups">
+    
+  </a>
+  <a name="SCardListReaderGroups">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardListReaderGroups</span>(hcontext):
+    
+    <a class="headerLink" href="#SCardListReaderGroups" title="smartcard.scard.scard.SCardListReaderGroups">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardListReaderGroups( hcontext) -&gt; SCARDRETCODE</p>
+<p>This function returns a list of currently available reader groups on the system.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readerGroups = SCardListReaderGroups(hcontext)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(<span class="py-string">'PCSC Reader groups:'</span>, readerGroups)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardListReaders">
+    
+  </a>
+  <a name="SCardListReaders">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardListReaders</span>(hcontext, readergroups):
+    
+    <a class="headerLink" href="#SCardListReaders" title="smartcard.scard.scard.SCardListReaders">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardListReaders( hcontext, [] readergroups) -&gt; SCARDRETCODE</p>
+<p>This function returns a list of currently available readers on the system. A list of group can be provided in input to list readers in a given group only.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> reader <span class="py-keyword">in</span> readers:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-builtin">print</span>(reader)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardReconnect">
+    
+  </a>
+  <a name="SCardReconnect">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardReconnect</span>(hcard, dwShareMode, dwPreferredProtocols, dwInitialization):
+    
+    <a class="headerLink" href="#SCardReconnect" title="smartcard.scard.scard.SCardReconnect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardReconnect( hcard,  dwShareMode,  dwPreferredProtocols,  dwInitialization) -&gt; SCARDRETCODE</p>
+<p>This function reestablishes a connection to a reader that was previously connected to using <code><a href="#SCardConnect" class="internal-link" title="smartcard.scard.scard.SCardConnect">SCardConnect()</a></code>.  In a multi application environment it is possible for an application to reset the card in shared mode.  When this occurs any other application trying to access certain commands will be returned the value SCARD_W_RESET_CARD.  When this occurs <code><a href="#SCardReconnect" class="internal-link" title="smartcard.scard.scard.SCardReconnect">SCardReconnect()</a></code> must be called in order to acknowledge that the card was reset and allow it to change it's state accordingly.</p>
+<p>Value of dwShareMode:</p>
+<ul class="rst-simple">
+<li>SCARD_SHARE_SHARED      This application will allow others to share the reader</li>
+<li>SCARD_SHARE_EXCLUSIVE   This application will NOT allow others to share the reader</li>
+</ul>
+<p>Value of dwPreferredProtocols:</p>
+<ul class="rst-simple">
+<li>SCARD_PROTOCOL_T0               Use the T=0 protocol</li>
+<li>SCARD_PROTOCOL_T1               Use the T=1 protocol</li>
+<li>SCARD_PROTOCOL_RAW              Use with memory type cards</li>
+</ul>
+<p>dwPreferredProtocols is a bit mask of acceptable protocols for the connection. You can use (SCARD_PROTOCOL_T0 | SCARD_PROTOCOL_T1) if you do not have a preferred protocol.</p>
+<p>Value of dwInitialization:</p>
+<ul class="rst-simple">
+<li>SCARD_LEAVE_CARD            Do nothing</li>
+<li>SCARD_RESET_CARD            Reset the card (warm reset)</li>
+<li>SCARD_UNPOWER_CARD          Unpower the card (cold reset)</li>
+<li>SCARD_EJECT_CARD            Eject the card</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># reconnect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, activeProtocol = SCardReconnect(hcard, SCARD_SHARE_EXCLUSIVE, SCARD_PROTOCOL_T0, SCARD_RESET_CARD)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardReleaseContext">
+    
+  </a>
+  <a name="SCardReleaseContext">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardReleaseContext</span>(hcontext):
+    
+    <a class="headerLink" href="#SCardReleaseContext" title="smartcard.scard.scard.SCardReleaseContext">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardReleaseContext( hcontext) -&gt; SCARDRETCODE</p>
+<p>Release a PC/SC context estabished by <code><a href="#SCardEstablishContext" class="internal-link" title="smartcard.scard.scard.SCardEstablishContext">SCardEstablishContext()</a></code>.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># release context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult = SCardReleaseContext(hcontext)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ReleaseContextException(hresult)</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardSetAttrib">
+    
+  </a>
+  <a name="SCardSetAttrib">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardSetAttrib</span>(hcard, dwAttrId, ATTRIBUTESIN):
+    
+    <a class="headerLink" href="#SCardSetAttrib" title="smartcard.scard.scard.SCardSetAttrib">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardSetAttrib( hcard,  dwAttrId, BYTELIST * ATTRIBUTESIN) -&gt; SCARDRETCODE</p>
+<p>This function sets an attribute from the IFD Handler. Not all attributes are supported by all readers nor can they be set at all times.</p>
+<p>The possible attributes are:</p>
+<pre class="rst-literal-block">
+    ======================================== ======= =======
+    Attribute                                Windows  PCSC  
+                                                      lite
+    ======================================== ======= =======
+    SCARD_ATTR_ASYNC_PROTOCOL_TYPES                     Y   
+    SCARD_ATTR_ATR_STRING                       Y       Y   
+    SCARD_ATTR_CHANNEL_ID                       Y       Y   
+    SCARD_ATTR_CHARACTERISTICS                  Y       Y   
+    SCARD_ATTR_CURRENT_BWT                      Y       Y   
+    SCARD_ATTR_CURRENT_CLK                      Y       Y   
+    SCARD_ATTR_CURRENT_CWT                      Y       Y   
+    SCARD_ATTR_CURRENT_D                        Y       Y   
+    SCARD_ATTR_CURRENT_EBC_ENCODING             Y       Y   
+    SCARD_ATTR_CURRENT_F                        Y       Y   
+    SCARD_ATTR_CURRENT_IFSC                     Y       Y   
+    SCARD_ATTR_CURRENT_IFSD                     Y       Y   
+    SCARD_ATTR_CURRENT_IO_STATE                 Y       Y   
+    SCARD_ATTR_CURRENT_N                        Y       Y   
+    SCARD_ATTR_CURRENT_PROTOCOL_TYPE            Y       Y   
+    SCARD_ATTR_CURRENT_W                        Y       Y   
+    SCARD_ATTR_DEFAULT_CLK                      Y       Y   
+    SCARD_ATTR_DEFAULT_DATA_RATE                Y       Y   
+    SCARD_ATTR_DEVICE_FRIENDLY_NAME_A           Y       Y   
+    SCARD_ATTR_DEVICE_FRIENDLY_NAME_W           Y       Y   
+    SCARD_ATTR_DEVICE_IN_USE                    Y       Y   
+    SCARD_ATTR_DEVICE_SYSTEM_NAME_A             Y       Y   
+    SCARD_ATTR_DEVICE_SYSTEM_NAME_W             Y       Y   
+    SCARD_ATTR_DEVICE_UNIT                      Y       Y   
+    SCARD_ATTR_ESC_AUTHREQUEST                  Y       Y   
+    SCARD_ATTR_ESC_CANCEL                       Y       Y   
+    SCARD_ATTR_ESC_RESET                        Y       Y   
+    SCARD_ATTR_EXTENDED_BWT                     Y       Y   
+    SCARD_ATTR_ICC_INTERFACE_STATUS             Y       Y   
+    SCARD_ATTR_ICC_PRESENCE                     Y       Y   
+    SCARD_ATTR_ICC_TYPE_PER_ATR                 Y       Y   
+    SCARD_ATTR_MAXINPUT                         Y       Y   
+    SCARD_ATTR_MAX_CLK                          Y       Y   
+    SCARD_ATTR_MAX_DATA_RATE                    Y       Y   
+    SCARD_ATTR_MAX_IFSD                         Y       Y   
+    SCARD_ATTR_POWER_MGMT_SUPPORT               Y       Y   
+    SCARD_ATTR_SUPRESS_T1_IFS_REQUEST           Y       Y   
+    SCARD_ATTR_SYNC_PROTOCOL_TYPES                      Y   
+    SCARD_ATTR_USER_AUTH_INPUT_DEVICE           Y       Y   
+    SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE         Y       Y   
+    SCARD_ATTR_VENDOR_IFD_SERIAL_NO             Y       Y   
+    SCARD_ATTR_VENDOR_IFD_TYPE                  Y       Y   
+    SCARD_ATTR_VENDOR_IFD_VERSION               Y       Y   
+    SCARD_ATTR_VENDOR_NAME                      Y       Y   
+    ======================================== ======= =======
+</pre>
+<p>Not all the dwAttrId values listed above may be implemented in the IFD Handler you are using.  And some dwAttrId values not listed here may be implemented.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span>... establish context <span class="py-keyword">and</span> connect to card ...
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, attrib = SCardSetAttrib(hcard, SCARD_ATTR_VENDOR_NAME, [<span class="py-string">'G'</span>, <span class="py-string">'e'</span>, <span class="py-string">'m'</span>, <span class="py-string">'a'</span>, <span class="py-string">'l'</span>, <span class="py-string">'t'</span>, <span class="py-string">'o'</span>])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>     <span class="py-builtin">print</span>(<span class="py-string">'Failed to set attribute'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>...</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardStatus">
+    
+  </a>
+  <a name="SCardStatus">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardStatus</span>(hcard):
+    
+    <a class="headerLink" href="#SCardStatus" title="smartcard.scard.scard.SCardStatus">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardStatus( hcard) -&gt; SCARDRETCODE</p>
+<p>This function returns the current status of the reader connected to by hcard.  The reader friendly name is returned, as well as the state, protocol and ATR.  The state is a DWORD possibly OR'd with the following values:</p>
+<p>Value of pdwState:</p>
+<ul class="rst-simple">
+<li>SCARD_ABSENT        There is no card in the reader</li>
+<li>SCARD_PRESENT       There is a card in the reader, but it has not been moved into position for use</li>
+<li>SCARD_SWALLOWED     There is a card in the reader in position for use. The card is not powered</li>
+<li>SCARD_POWERED       Power is being provided to the card, but the reader driver is unaware of the mode of the card</li>
+<li>SCARD_NEGOTIABLE    The card has been reset and is awaiting PTS negotiation</li>
+<li>SCARD_SPECIFIC      The card has been reset and specific communication protocols have been established</li>
+</ul>
+<p>Value of pdwProtocol:</p>
+<ul class="rst-simple">
+<li>SCARD_PROTOCOL_T0       Use the T=0 protocol</li>
+<li>SCARD_PROTOCOL_T1       Use the T=1 protocol</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.util <span class="py-keyword">import</span> toHexString
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># status</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, reader, state, protocol, atr = SCardStatus(hcard)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(<span class="py-string">'Reader:'</span>, reader)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(<span class="py-string">'State: 0x%04X'</span> % state)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(<span class="py-string">'Protocol:'</span>, protocol)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(<span class="py-string">'ATR:'</span>, toHexString(atr))</pre></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.scard.scard.SCardTransmit">
+    
+  </a>
+  <a name="SCardTransmit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">SCardTransmit</span>(hcard, pioSendPci, apducommand):
+    
+    <a class="headerLink" href="#SCardTransmit" title="smartcard.scard.scard.SCardTransmit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>SCardTransmit( hcard, unsigned long pioSendPci, byte[] apducommand) -&gt; SCARDRETCODE</p>
+<p>This function sends an APDU to the smart card contained in the reader connected to by <code><a href="#SCardConnect" class="internal-link" title="smartcard.scard.scard.SCardConnect">SCardConnect()</a></code>. It returns a result and the card APDU response.</p>
+<p>Value of pioSendPci:</p>
+<ul class="rst-simple">
+<li>SCARD_PCI_T0            Pre-defined T=0 PCI structure</li>
+<li>SCARD_PCI_T1            Pre-defined T=1 PCI structure</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.scard <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.pcsc <span class="py-keyword">import</span> *
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> smartcard.util <span class="py-keyword">import</span> toHexString
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># establish context</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcontext = SCardEstablishContext(SCARD_SCOPE_USER)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.EstablishContextException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># list readers</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, readers = SCardListReaders(hcontext, [])
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.ListReadersException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># connect</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, hcard, dwActiveProtocol = SCardConnect(
+<span class="py-prompt">&gt;&gt;&gt; </span>    hcontext, readers[0], SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-comment"># transmit</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>SELECT = [0xA0, 0xA4, 0x00, 0x00, 0x02]
+<span class="py-prompt">&gt;&gt;&gt; </span>DF_TELECOM = [0x7F, 0x10]
+<span class="py-prompt">&gt;&gt;&gt; </span>hresult, response = SCardTransmit(hcard, SCARD_PCI_T0, SELECT + DF_TELECOM)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">if</span> hresult != SCARD_S_SUCCESS:
+<span class="py-prompt">&gt;&gt;&gt; </span>    <span class="py-keyword">raise</span> PCSCExceptions.BaseSCardException(hresult)
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-builtin">print</span>(toHexString(response))</pre></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="smartcard.scard.scard._swig_add_metaclass">
+    
+  </a>
+  <a name="_swig_add_metaclass">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_swig_add_metaclass</span>(metaclass):
+    
+    <a class="headerLink" href="#_swig_add_metaclass" title="smartcard.scard.scard._swig_add_metaclass">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Class decorator for adding a metaclass to a SWIG wrapped class - a slimmed down version of six.add_metaclass</p>
+</div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="smartcard.scard.scard._swig_repr">
+    
+  </a>
+  <a name="_swig_repr">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_swig_repr</span>(self):
+    
+    <a class="headerLink" href="#_swig_repr" title="smartcard.scard.scard._swig_repr">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="smartcard.scard.scard._swig_setattr_nondynamic_class_variable">
+    
+  </a>
+  <a name="_swig_setattr_nondynamic_class_variable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_swig_setattr_nondynamic_class_variable</span>(set):
+    
+    <a class="headerLink" href="#_swig_setattr_nondynamic_class_variable" title="smartcard.scard.scard._swig_setattr_nondynamic_class_variable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  
+  <a name="smartcard.scard.scard._swig_setattr_nondynamic_instance_variable">
+    
+  </a>
+  <a name="_swig_setattr_nondynamic_instance_variable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_swig_setattr_nondynamic_instance_variable</span>(set):
+    
+    <a class="headerLink" href="#_swig_setattr_nondynamic_instance_variable" title="smartcard.scard.scard._swig_setattr_nondynamic_instance_variable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-12-31 19:08:22.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

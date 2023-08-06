@@ -1,0 +1,1920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>smartcard.pcsc.PCSCPart10</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code class="thisobject"><a href="smartcard.pcsc.PCSCPart10.html" class="internal-link" title="This module"><wbr></wbr>PCSCPart10</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getFeatureRequest" class="internal-link" title="smartcard.pcsc.PCSCPart10.getFeatureRequest">get<wbr></wbr>Feature<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getPinProperties" class="internal-link" title="smartcard.pcsc.PCSCPart10.getPinProperties">get<wbr></wbr>Pin<wbr></wbr>Properties</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getTlvProperties" class="internal-link" title="smartcard.pcsc.PCSCPart10.getTlvProperties">get<wbr></wbr>Tlv<wbr></wbr>Properties</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hasFeature" class="internal-link" title="smartcard.pcsc.PCSCPart10.hasFeature">has<wbr></wbr>Feature</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#parseFeatureRequest" class="internal-link" title="smartcard.pcsc.PCSCPart10.parseFeatureRequest">parse<wbr></wbr>Feature<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#parseTlvProperties" class="internal-link" title="smartcard.pcsc.PCSCPart10.parseTlvProperties">parse<wbr></wbr>Tlv<wbr></wbr>Properties</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#CM_IOCTL_GET_FEATURE_REQUEST" class="internal-link" title="smartcard.pcsc.PCSCPart10.CM_IOCTL_GET_FEATURE_REQUEST">CM<wbr></wbr>_IOCTL<wbr></wbr>_GET<wbr></wbr>_FEATURE<wbr></wbr>_REQUEST</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_ABORT" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_ABORT">FEATURE<wbr></wbr>_ABORT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_CCID_ESC_COMMAND" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_CCID_ESC_COMMAND">FEATURE<wbr></wbr>_CCID<wbr></wbr>_ESC<wbr></wbr>_COMMAND</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_GET_KEY" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_KEY">FEATURE<wbr></wbr>_GET<wbr></wbr>_KEY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_GET_KEY_PRESSED" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_KEY_PRESSED">FEATURE<wbr></wbr>_GET<wbr></wbr>_KEY<wbr></wbr>_PRESSED</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_GET_TLV_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_TLV_PROPERTIES">FEATURE<wbr></wbr>_GET<wbr></wbr>_TLV<wbr></wbr>_PROPERTIES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_IFD_DISPLAY_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_IFD_DISPLAY_PROPERTIES">FEATURE<wbr></wbr>_IFD<wbr></wbr>_DISPLAY<wbr></wbr>_PROPERTIES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_IFD_PIN_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_IFD_PIN_PROPERTIES">FEATURE<wbr></wbr>_IFD<wbr></wbr>_PIN<wbr></wbr>_PROPERTIES</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_MCT_READER_DIRECT" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MCT_READER_DIRECT">FEATURE<wbr></wbr>_MCT<wbr></wbr>_READER<wbr></wbr>_DIRECT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_MCT_UNIVERSAL" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MCT_UNIVERSAL">FEATURE<wbr></wbr>_MCT<wbr></wbr>_UNIVERSAL</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_MODIFY_PIN_DIRECT" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_DIRECT">FEATURE<wbr></wbr>_MODIFY<wbr></wbr>_PIN<wbr></wbr>_DIRECT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_MODIFY_PIN_DIRECT_APP_ID" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_DIRECT_APP_ID">FEATURE<wbr></wbr>_MODIFY<wbr></wbr>_PIN<wbr></wbr>_DIRECT<wbr></wbr>_APP<wbr></wbr>_ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_MODIFY_PIN_FINISH" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_FINISH">FEATURE<wbr></wbr>_MODIFY<wbr></wbr>_PIN<wbr></wbr>_FINISH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_MODIFY_PIN_START" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_START">FEATURE<wbr></wbr>_MODIFY<wbr></wbr>_PIN<wbr></wbr>_START</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_SET_SPE_MESSAGE" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_SET_SPE_MESSAGE">FEATURE<wbr></wbr>_SET<wbr></wbr>_SPE<wbr></wbr>_MESSAGE</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_VERIFY_PIN_DIRECT" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_DIRECT">FEATURE<wbr></wbr>_VERIFY<wbr></wbr>_PIN<wbr></wbr>_DIRECT</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_VERIFY_PIN_DIRECT_APP_ID" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_DIRECT_APP_ID">FEATURE<wbr></wbr>_VERIFY<wbr></wbr>_PIN<wbr></wbr>_DIRECT<wbr></wbr>_APP<wbr></wbr>_ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_VERIFY_PIN_FINISH" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_FINISH">FEATURE<wbr></wbr>_VERIFY<wbr></wbr>_PIN<wbr></wbr>_FINISH</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_VERIFY_PIN_START" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_START">FEATURE<wbr></wbr>_VERIFY<wbr></wbr>_PIN<wbr></wbr>_START</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FEATURE_WRITE_DISPLAY" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_WRITE_DISPLAY">FEATURE<wbr></wbr>_WRITE<wbr></wbr>_DISPLAY</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Features" class="internal-link" title="smartcard.pcsc.PCSCPart10.Features"><wbr></wbr>Features</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_bEntryValidationCondition" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bEntryValidationCondition"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>Entry<wbr></wbr>Validation<wbr></wbr>Condition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_bMaxPINSize" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bMaxPINSize"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>Max<wbr></wbr>PINSize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_bMinPINSize" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bMinPINSize"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>Min<wbr></wbr>PINSize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_bPPDUSupport" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bPPDUSupport"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>PPDUSupport</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_bTimeOut2" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bTimeOut2"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>Time<wbr></wbr>Out2</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_dw<wbr></wbr>Max<wbr></wbr>APDUData<wbr></wbr>Size</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_sFirmwareID" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_sFirmwareID"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_s<wbr></wbr>Firmware<wbr></wbr>ID</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_wIdProduct" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wIdProduct"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Id<wbr></wbr>Product</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_wIdVendor" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wIdVendor"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Id<wbr></wbr>Vendor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_wLcdLayout" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdLayout"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Lcd<wbr></wbr>Layout</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_wLcdMaxCharacters" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdMaxCharacters"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Lcd<wbr></wbr>Max<wbr></wbr>Characters</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PCSCv2_PART10_PROPERTY_wLcdMaxLines" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdMaxLines"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Lcd<wbr></wbr>Max<wbr></wbr>Lines</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Properties" class="internal-link" title="smartcard.pcsc.PCSCPart10.Properties"><wbr></wbr>Properties</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Package</span>
+        <code><a href="smartcard.pcsc.html" class="internal-link" title="The parent of this module">pcsc</a></code> 
+      </div>
+      
+      <div>
+        
+
+        <div class="childrenKindTitle">Modules</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCCardConnection.html" class="internal-link" title="smartcard.pcsc.PCSCCardConnection"><wbr></wbr>PCSCCard<wbr></wbr>Connection</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCCardRequest.html" class="internal-link" title="smartcard.pcsc.PCSCCardRequest"><wbr></wbr>PCSCCard<wbr></wbr>Request</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCContext.html" class="internal-link" title="smartcard.pcsc.PCSCContext"><wbr></wbr>PCSCContext</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCExceptions.html" class="internal-link" title="smartcard.pcsc.PCSCExceptions"><wbr></wbr>PCSCExceptions</a></code>
+            </div>
+        
+
+    </li><li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCPart10.html" class="internal-link" title="smartcard.pcsc.PCSCPart10"><wbr></wbr>PCSCPart10</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCReader.html" class="internal-link" title="smartcard.pcsc.PCSCReader"><wbr></wbr>PCSCReader</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCReaderGroups.html" class="internal-link" title="smartcard.pcsc.PCSCReaderGroups"><wbr></wbr>PCSCReader<wbr></wbr>Groups</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+        
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="module"><code><code><a href="index.html" class="internal-link">smartcard</a></code><wbr></wbr>.<code><a href="smartcard.pcsc.html" class="internal-link" title="smartcard.pcsc">pcsc</a></code><wbr></wbr>.<code><a href="smartcard.pcsc.PCSCPart10.html" class="internal-link" title="smartcard.pcsc.PCSCPart10">PCSCPart10</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          module documentation
+        </div>
+
+        <div class="extrasDocstring">
+          
+          <p></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>PCSCPart10: PC/SC Part 10 (pinpad)</p>
+<p>__author__ = "Ludovic Rousseau"</p>
+<p>Copyright 2009-2010 Ludovic Rosseau Author: Ludovic Rousseau, mailto:ludovic.rousseau@free.fr</p>
+<p>This file is part of pyscard.</p>
+<p>pyscard is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</p>
+<p>pyscard is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.</p>
+<p>You should have received a copy of the GNU Lesser General Public License along with pyscard; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id118">
+  
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#getFeatureRequest" class="internal-link" title="smartcard.pcsc.PCSCPart10.getFeatureRequest">get<wbr></wbr>Feature<wbr></wbr>Request</a></code></td>
+    <td>Get the list of Part10 features supported by the reader.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#getPinProperties" class="internal-link" title="smartcard.pcsc.PCSCPart10.getPinProperties">get<wbr></wbr>Pin<wbr></wbr>Properties</a></code></td>
+    <td>return the PIN_PROPERTIES structure</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#getTlvProperties" class="internal-link" title="smartcard.pcsc.PCSCPart10.getTlvProperties">get<wbr></wbr>Tlv<wbr></wbr>Properties</a></code></td>
+    <td>return the GET_TLV_PROPERTIES structure</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#hasFeature" class="internal-link" title="smartcard.pcsc.PCSCPart10.hasFeature">has<wbr></wbr>Feature</a></code></td>
+    <td>return the controlCode for a feature or None</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#parseFeatureRequest" class="internal-link" title="smartcard.pcsc.PCSCPart10.parseFeatureRequest">parse<wbr></wbr>Feature<wbr></wbr>Request</a></code></td>
+    <td>Get the list of Part10 features supported by the reader.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#parseTlvProperties" class="internal-link" title="smartcard.pcsc.PCSCPart10.parseTlvProperties">parse<wbr></wbr>Tlv<wbr></wbr>Properties</a></code></td>
+    <td>return the GET_TLV_PROPERTIES structure</td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#CM_IOCTL_GET_FEATURE_REQUEST" class="internal-link" title="smartcard.pcsc.PCSCPart10.CM_IOCTL_GET_FEATURE_REQUEST">CM<wbr></wbr>_IOCTL<wbr></wbr>_GET<wbr></wbr>_FEATURE<wbr></wbr>_REQUEST</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_ABORT" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_ABORT">FEATURE<wbr></wbr>_ABORT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_CCID_ESC_COMMAND" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_CCID_ESC_COMMAND">FEATURE<wbr></wbr>_CCID<wbr></wbr>_ESC<wbr></wbr>_COMMAND</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_GET_KEY" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_KEY">FEATURE<wbr></wbr>_GET<wbr></wbr>_KEY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_GET_KEY_PRESSED" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_KEY_PRESSED">FEATURE<wbr></wbr>_GET<wbr></wbr>_KEY<wbr></wbr>_PRESSED</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_GET_TLV_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_TLV_PROPERTIES">FEATURE<wbr></wbr>_GET<wbr></wbr>_TLV<wbr></wbr>_PROPERTIES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_IFD_DISPLAY_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_IFD_DISPLAY_PROPERTIES">FEATURE<wbr></wbr>_IFD<wbr></wbr>_DISPLAY<wbr></wbr>_PROPERTIES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_IFD_PIN_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_IFD_PIN_PROPERTIES">FEATURE<wbr></wbr>_IFD<wbr></wbr>_PIN<wbr></wbr>_PROPERTIES</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_MCT_READER_DIRECT" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MCT_READER_DIRECT">FEATURE<wbr></wbr>_MCT<wbr></wbr>_READER<wbr></wbr>_DIRECT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_MCT_UNIVERSAL" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MCT_UNIVERSAL">FEATURE<wbr></wbr>_MCT<wbr></wbr>_UNIVERSAL</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_MODIFY_PIN_DIRECT" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_DIRECT">FEATURE<wbr></wbr>_MODIFY<wbr></wbr>_PIN<wbr></wbr>_DIRECT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_MODIFY_PIN_DIRECT_APP_ID" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_DIRECT_APP_ID">FEATURE<wbr></wbr>_MODIFY<wbr></wbr>_PIN<wbr></wbr>_DIRECT<wbr></wbr>_APP<wbr></wbr>_ID</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_MODIFY_PIN_FINISH" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_FINISH">FEATURE<wbr></wbr>_MODIFY<wbr></wbr>_PIN<wbr></wbr>_FINISH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_MODIFY_PIN_START" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_START">FEATURE<wbr></wbr>_MODIFY<wbr></wbr>_PIN<wbr></wbr>_START</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_SET_SPE_MESSAGE" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_SET_SPE_MESSAGE">FEATURE<wbr></wbr>_SET<wbr></wbr>_SPE<wbr></wbr>_MESSAGE</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_VERIFY_PIN_DIRECT" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_DIRECT">FEATURE<wbr></wbr>_VERIFY<wbr></wbr>_PIN<wbr></wbr>_DIRECT</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_VERIFY_PIN_DIRECT_APP_ID" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_DIRECT_APP_ID">FEATURE<wbr></wbr>_VERIFY<wbr></wbr>_PIN<wbr></wbr>_DIRECT<wbr></wbr>_APP<wbr></wbr>_ID</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_VERIFY_PIN_FINISH" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_FINISH">FEATURE<wbr></wbr>_VERIFY<wbr></wbr>_PIN<wbr></wbr>_FINISH</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_VERIFY_PIN_START" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_START">FEATURE<wbr></wbr>_VERIFY<wbr></wbr>_PIN<wbr></wbr>_START</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="constant">
+    
+    <td>Constant</td>
+    <td><code><a href="#FEATURE_WRITE_DISPLAY" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_WRITE_DISPLAY">FEATURE<wbr></wbr>_WRITE<wbr></wbr>_DISPLAY</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#Features" class="internal-link" title="smartcard.pcsc.PCSCPart10.Features"><wbr></wbr>Features</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_bEntryValidationCondition" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bEntryValidationCondition"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>Entry<wbr></wbr>Validation<wbr></wbr>Condition</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_bMaxPINSize" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bMaxPINSize"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>Max<wbr></wbr>PINSize</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_bMinPINSize" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bMinPINSize"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>Min<wbr></wbr>PINSize</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_bPPDUSupport" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bPPDUSupport"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>PPDUSupport</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_bTimeOut2" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bTimeOut2"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_b<wbr></wbr>Time<wbr></wbr>Out2</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_dw<wbr></wbr>Max<wbr></wbr>APDUData<wbr></wbr>Size</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_sFirmwareID" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_sFirmwareID"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_s<wbr></wbr>Firmware<wbr></wbr>ID</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_wIdProduct" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wIdProduct"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Id<wbr></wbr>Product</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_wIdVendor" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wIdVendor"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Id<wbr></wbr>Vendor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_wLcdLayout" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdLayout"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Lcd<wbr></wbr>Layout</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_wLcdMaxCharacters" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdMaxCharacters"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Lcd<wbr></wbr>Max<wbr></wbr>Characters</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#PCSCv2_PART10_PROPERTY_wLcdMaxLines" class="internal-link" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdMaxLines"><wbr></wbr>PCSCv2_<wbr></wbr>PART10_<wbr></wbr>PROPERTY_w<wbr></wbr>Lcd<wbr></wbr>Max<wbr></wbr>Lines</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="variable">
+    
+    <td>Variable</td>
+    <td><code><a href="#Properties" class="internal-link" title="smartcard.pcsc.PCSCPart10.Properties"><wbr></wbr>Properties</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basefunction">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.getFeatureRequest">
+    
+  </a>
+  <a name="getFeatureRequest">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getFeatureRequest</span>(cardConnection):
+    
+    <a class="headerLink" href="#getFeatureRequest" title="smartcard.pcsc.PCSCPart10.getFeatureRequest">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get the list of Part10 features supported by the reader.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">card<wbr></wbr>Connection</span></td><td class="fieldArgDesc"><code><a href="smartcard.CardConnection.html" class="internal-link" title="smartcard.CardConnection">CardConnection</a></code> object</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">a list of list [[tag1, value1], [tag2, value2]]</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.getPinProperties">
+    
+  </a>
+  <a name="getPinProperties">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getPinProperties</span>(cardConnection, featureList=None, controlCode=None):
+    
+    <a class="headerLink" href="#getPinProperties" title="smartcard.pcsc.PCSCPart10.getPinProperties">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return the PIN_PROPERTIES structure</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">card<wbr></wbr>Connection</span></td><td class="fieldArgDesc"><code><a href="smartcard.CardConnection.html" class="internal-link" title="smartcard.CardConnection">CardConnection</a></code> object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feature<wbr></wbr>List</span></td><td class="fieldArgDesc">feature list as returned by <code><a href="#getFeatureRequest" class="internal-link" title="smartcard.pcsc.PCSCPart10.getFeatureRequest">getFeatureRequest()</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">control<wbr></wbr>Code</span></td><td class="fieldArgDesc">control code for <code><a href="#FEATURE_IFD_PIN_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_IFD_PIN_PROPERTIES">FEATURE_IFD_PIN_PROPERTIES</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a dict</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.getTlvProperties">
+    
+  </a>
+  <a name="getTlvProperties">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getTlvProperties</span>(cardConnection, featureList=None, controlCode=None):
+    
+    <a class="headerLink" href="#getTlvProperties" title="smartcard.pcsc.PCSCPart10.getTlvProperties">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return the GET_TLV_PROPERTIES structure</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">card<wbr></wbr>Connection</span></td><td class="fieldArgDesc"><code><a href="smartcard.CardConnection.html" class="internal-link" title="smartcard.CardConnection">CardConnection</a></code> object</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feature<wbr></wbr>List</span></td><td class="fieldArgDesc">feature list as returned by <code><a href="#getFeatureRequest" class="internal-link" title="smartcard.pcsc.PCSCPart10.getFeatureRequest">getFeatureRequest()</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">control<wbr></wbr>Code</span></td><td class="fieldArgDesc">control code for <code><a href="#FEATURE_GET_TLV_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_TLV_PROPERTIES">FEATURE_GET_TLV_PROPERTIES</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a dict</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.hasFeature">
+    
+  </a>
+  <a name="hasFeature">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">hasFeature</span>(featureList, feature):
+    
+    <a class="headerLink" href="#hasFeature" title="smartcard.pcsc.PCSCPart10.hasFeature">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return the controlCode for a feature or None</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feature<wbr></wbr>List</span></td><td class="fieldArgDesc">feature list as returned by <code><a href="#getFeatureRequest" class="internal-link" title="smartcard.pcsc.PCSCPart10.getFeatureRequest">getFeatureRequest()</a></code></td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">feature</span></td><td class="fieldArgDesc">feature to look for</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">feature value or None</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.parseFeatureRequest">
+    
+  </a>
+  <a name="parseFeatureRequest">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parseFeatureRequest</span>(response):
+    
+    <a class="headerLink" href="#parseFeatureRequest" title="smartcard.pcsc.PCSCPart10.parseFeatureRequest">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Get the list of Part10 features supported by the reader.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">response</span></td><td class="fieldArgDesc">result of CM_IOCTL_GET_FEATURE_REQUEST commmand</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">list</td><td class="fieldArgDesc">a list of list [[tag1, value1], [tag2, value2]]</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.parseTlvProperties">
+    
+  </a>
+  <a name="parseTlvProperties">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">parseTlvProperties</span>(response):
+    
+    <a class="headerLink" href="#parseTlvProperties" title="smartcard.pcsc.PCSCPart10.parseTlvProperties">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>return the GET_TLV_PROPERTIES structure</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">response</span></td><td class="fieldArgDesc">result of  <code><a href="#FEATURE_GET_TLV_PROPERTIES" class="internal-link" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_TLV_PROPERTIES">FEATURE_GET_TLV_PROPERTIES</a></code></td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td class="fieldArgContainer">dict</td><td class="fieldArgDesc">a dict</td></tr></table></div>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.CM_IOCTL_GET_FEATURE_REQUEST">
+    
+  </a>
+  <a name="CM_IOCTL_GET_FEATURE_REQUEST">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">CM_IOCTL_GET_FEATURE_REQUEST</span> =
+    
+    <a class="headerLink" href="#CM_IOCTL_GET_FEATURE_REQUEST" title="smartcard.pcsc.PCSCPart10.CM_IOCTL_GET_FEATURE_REQUEST">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code><a href="smartcard.scard.scard.html#SCARD_CTL_CODE" class="internal-link" title="smartcard.scard.scard.SCARD_CTL_CODE">SCARD_CTL_CODE</a>(<wbr></wbr>3400)</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_ABORT">
+    
+  </a>
+  <a name="FEATURE_ABORT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_ABORT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_ABORT" title="smartcard.pcsc.PCSCPart10.FEATURE_ABORT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>11</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_CCID_ESC_COMMAND">
+    
+  </a>
+  <a name="FEATURE_CCID_ESC_COMMAND">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_CCID_ESC_COMMAND</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_CCID_ESC_COMMAND" title="smartcard.pcsc.PCSCPart10.FEATURE_CCID_ESC_COMMAND">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>19</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_GET_KEY">
+    
+  </a>
+  <a name="FEATURE_GET_KEY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_GET_KEY</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_GET_KEY" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_KEY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>16</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_GET_KEY_PRESSED">
+    
+  </a>
+  <a name="FEATURE_GET_KEY_PRESSED">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_GET_KEY_PRESSED</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_GET_KEY_PRESSED" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_KEY_PRESSED">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>5</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_GET_TLV_PROPERTIES">
+    
+  </a>
+  <a name="FEATURE_GET_TLV_PROPERTIES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_GET_TLV_PROPERTIES</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_GET_TLV_PROPERTIES" title="smartcard.pcsc.PCSCPart10.FEATURE_GET_TLV_PROPERTIES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>18</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_IFD_DISPLAY_PROPERTIES">
+    
+  </a>
+  <a name="FEATURE_IFD_DISPLAY_PROPERTIES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_IFD_DISPLAY_PROPERTIES</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_IFD_DISPLAY_PROPERTIES" title="smartcard.pcsc.PCSCPart10.FEATURE_IFD_DISPLAY_PROPERTIES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>17</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_IFD_PIN_PROPERTIES">
+    
+  </a>
+  <a name="FEATURE_IFD_PIN_PROPERTIES">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_IFD_PIN_PROPERTIES</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_IFD_PIN_PROPERTIES" title="smartcard.pcsc.PCSCPart10.FEATURE_IFD_PIN_PROPERTIES">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>10</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_MCT_READER_DIRECT">
+    
+  </a>
+  <a name="FEATURE_MCT_READER_DIRECT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_MCT_READER_DIRECT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_MCT_READER_DIRECT" title="smartcard.pcsc.PCSCPart10.FEATURE_MCT_READER_DIRECT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>8</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_MCT_UNIVERSAL">
+    
+  </a>
+  <a name="FEATURE_MCT_UNIVERSAL">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_MCT_UNIVERSAL</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_MCT_UNIVERSAL" title="smartcard.pcsc.PCSCPart10.FEATURE_MCT_UNIVERSAL">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>9</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_DIRECT">
+    
+  </a>
+  <a name="FEATURE_MODIFY_PIN_DIRECT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_MODIFY_PIN_DIRECT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_MODIFY_PIN_DIRECT" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_DIRECT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>7</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_DIRECT_APP_ID">
+    
+  </a>
+  <a name="FEATURE_MODIFY_PIN_DIRECT_APP_ID">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_MODIFY_PIN_DIRECT_APP_ID</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_MODIFY_PIN_DIRECT_APP_ID" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_DIRECT_APP_ID">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>14</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_FINISH">
+    
+  </a>
+  <a name="FEATURE_MODIFY_PIN_FINISH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_MODIFY_PIN_FINISH</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_MODIFY_PIN_FINISH" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_FINISH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>4</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_START">
+    
+  </a>
+  <a name="FEATURE_MODIFY_PIN_START">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_MODIFY_PIN_START</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_MODIFY_PIN_START" title="smartcard.pcsc.PCSCPart10.FEATURE_MODIFY_PIN_START">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>3</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_SET_SPE_MESSAGE">
+    
+  </a>
+  <a name="FEATURE_SET_SPE_MESSAGE">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_SET_SPE_MESSAGE</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_SET_SPE_MESSAGE" title="smartcard.pcsc.PCSCPart10.FEATURE_SET_SPE_MESSAGE">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>12</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_DIRECT">
+    
+  </a>
+  <a name="FEATURE_VERIFY_PIN_DIRECT">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_VERIFY_PIN_DIRECT</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_VERIFY_PIN_DIRECT" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_DIRECT">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>6</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_DIRECT_APP_ID">
+    
+  </a>
+  <a name="FEATURE_VERIFY_PIN_DIRECT_APP_ID">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_VERIFY_PIN_DIRECT_APP_ID</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_VERIFY_PIN_DIRECT_APP_ID" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_DIRECT_APP_ID">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>13</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_FINISH">
+    
+  </a>
+  <a name="FEATURE_VERIFY_PIN_FINISH">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_VERIFY_PIN_FINISH</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_VERIFY_PIN_FINISH" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_FINISH">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>2</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_START">
+    
+  </a>
+  <a name="FEATURE_VERIFY_PIN_START">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_VERIFY_PIN_START</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_VERIFY_PIN_START" title="smartcard.pcsc.PCSCPart10.FEATURE_VERIFY_PIN_START">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>1</code></pre></td></tr></table>
+  </div>
+</div><div class="baseconstant">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.FEATURE_WRITE_DISPLAY">
+    
+  </a>
+  <a name="FEATURE_WRITE_DISPLAY">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FEATURE_WRITE_DISPLAY</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#FEATURE_WRITE_DISPLAY" title="smartcard.pcsc.PCSCPart10.FEATURE_WRITE_DISPLAY">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    <table class="valueTable"><tr class="fieldStart"><td class="fieldName">Value</td></tr><tr><td><pre class="constant-value"><code>15</code></pre></td></tr></table>
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.Features">
+    
+  </a>
+  <a name="Features">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">Features</span> =
+    
+    <a class="headerLink" href="#Features" title="smartcard.pcsc.PCSCPart10.Features">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bEntryValidationCondition">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_bEntryValidationCondition">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_bEntryValidationCondition</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_bEntryValidationCondition" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bEntryValidationCondition">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bMaxPINSize">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_bMaxPINSize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_bMaxPINSize</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_bMaxPINSize" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bMaxPINSize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bMinPINSize">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_bMinPINSize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_bMinPINSize</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_bMinPINSize" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bMinPINSize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bPPDUSupport">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_bPPDUSupport">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_bPPDUSupport</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_bPPDUSupport" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bPPDUSupport">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bTimeOut2">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_bTimeOut2">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_bTimeOut2</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_bTimeOut2" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_bTimeOut2">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_dwMaxAPDUDataSize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_sFirmwareID">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_sFirmwareID">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_sFirmwareID</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_sFirmwareID" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_sFirmwareID">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wIdProduct">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_wIdProduct">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_wIdProduct</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_wIdProduct" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wIdProduct">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wIdVendor">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_wIdVendor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_wIdVendor</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_wIdVendor" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wIdVendor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdLayout">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_wLcdLayout">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_wLcdLayout</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_wLcdLayout" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdLayout">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdMaxCharacters">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_wLcdMaxCharacters">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_wLcdMaxCharacters</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_wLcdMaxCharacters" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdMaxCharacters">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdMaxLines">
+    
+  </a>
+  <a name="PCSCv2_PART10_PROPERTY_wLcdMaxLines">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PCSCv2_PART10_PROPERTY_wLcdMaxLines</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#PCSCv2_PART10_PROPERTY_wLcdMaxLines" title="smartcard.pcsc.PCSCPart10.PCSCv2_PART10_PROPERTY_wLcdMaxLines">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="basevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCPart10.Properties">
+    
+  </a>
+  <a name="Properties">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">Properties</span> =
+    
+    <a class="headerLink" href="#Properties" title="smartcard.pcsc.PCSCPart10.Properties">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-12-31 19:08:22.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

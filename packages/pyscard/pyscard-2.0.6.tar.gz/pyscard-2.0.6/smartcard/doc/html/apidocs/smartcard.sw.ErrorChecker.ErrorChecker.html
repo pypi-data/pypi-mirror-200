@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>smartcard.sw.ErrorChecker.ErrorChecker</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="smartcard.sw.ErrorChecker.ErrorChecker.html" class="internal-link" title="This class"><wbr></wbr>Error<wbr></wbr>Checker</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__call__" class="internal-link" title="smartcard.sw.ErrorChecker.ErrorChecker.__call__">__call__</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="smartcard.sw.ErrorChecker.html" class="internal-link" title="The parent of this class"><wbr></wbr>Error<wbr></wbr>Checker</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.sw.ErrorChecker.ErrorChecker.html" class="internal-link" title="smartcard.sw.ErrorChecker.ErrorChecker"><wbr></wbr>Error<wbr></wbr>Checker</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">smartcard</a></code><wbr></wbr>.<code><a href="smartcard.sw.html" class="internal-link" title="smartcard.sw">sw</a></code><wbr></wbr>.<code><a href="smartcard.sw.ErrorChecker.html" class="internal-link" title="smartcard.sw.ErrorChecker">ErrorChecker</a></code><wbr></wbr>.<code><a href="smartcard.sw.ErrorChecker.ErrorChecker.html" class="internal-link" title="smartcard.sw.ErrorChecker.ErrorChecker">ErrorChecker</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">ErrorChecker</span>(object):</code></p><p>Known subclasses: <code><a href="smartcard.sw.ISO7816_4_SW1ErrorChecker.ISO7816_4_SW1ErrorChecker.html" class="internal-link">smartcard.sw.ISO7816_4_SW1ErrorChecker.ISO7816_4_SW1ErrorChecker</a></code>, <code><a href="smartcard.sw.ISO7816_4ErrorChecker.ISO7816_4ErrorChecker.html" class="internal-link">smartcard.sw.ISO7816_4ErrorChecker.ISO7816_4ErrorChecker</a></code>, <code><a href="smartcard.sw.ISO7816_8ErrorChecker.ISO7816_8ErrorChecker.html" class="internal-link">smartcard.sw.ISO7816_8ErrorChecker.ISO7816_8ErrorChecker</a></code>, <code><a href="smartcard.sw.ISO7816_9ErrorChecker.ISO7816_9ErrorChecker.html" class="internal-link">smartcard.sw.ISO7816_9ErrorChecker.ISO7816_9ErrorChecker</a></code>, <code><a href="smartcard.sw.op21_ErrorChecker.op21_ErrorChecker.html" class="internal-link">smartcard.sw.op21_ErrorChecker.op21_ErrorChecker</a></code></p>
+          <p><a href="classIndex.html#smartcard.sw.ErrorChecker.ErrorChecker">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Base class for status word error checking strategies.</p>
+<p>Error checking strategies are chained into an <code><a href="smartcard.sw.ErrorCheckingChain.html" class="internal-link" title="smartcard.sw.ErrorCheckingChain">ErrorCheckingChain</a></code> to implement a Chain of Responsibility. Each strategy in the chain is called until an error is  detected. The strategy raises a <code><a href="smartcard.sw.SWExceptions.html" class="internal-link" title="smartcard.sw.SWExceptions">smartcard.sw.SWExceptions</a></code> exception when an error is detected.</p>
+<p>Implementation derived from Bruce Eckel, Thinking in Python. The <code><a href="smartcard.sw.ErrorCheckingChain.html" class="internal-link" title="smartcard.sw.ErrorCheckingChain">ErrorCheckingChain</a></code> implements the Chain Of Responsibility design pattern.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id171">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__call__" class="internal-link" title="smartcard.sw.ErrorChecker.ErrorChecker.__call__">__call__</a></code></td>
+    <td>Called to test data, sw1 and sw2 for error.</td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="smartcard.sw.ErrorChecker.ErrorChecker.__call__">
+    
+  </a>
+  <a name="__call__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__call__</span>(data, sw1, sw2):
+    
+    <a class="headerLink" href="#__call__" title="smartcard.sw.ErrorChecker.ErrorChecker.__call__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="smartcard.sw.ISO7816_4_SW1ErrorChecker.ISO7816_4_SW1ErrorChecker.html" class="internal-link">smartcard.sw.ISO7816_4_SW1ErrorChecker.ISO7816_4_SW1ErrorChecker</a></code>, <code><a href="smartcard.sw.ISO7816_4ErrorChecker.ISO7816_4ErrorChecker.html" class="internal-link">smartcard.sw.ISO7816_4ErrorChecker.ISO7816_4ErrorChecker</a></code>, <code><a href="smartcard.sw.ISO7816_8ErrorChecker.ISO7816_8ErrorChecker.html" class="internal-link">smartcard.sw.ISO7816_8ErrorChecker.ISO7816_8ErrorChecker</a></code>, <code><a href="smartcard.sw.ISO7816_9ErrorChecker.ISO7816_9ErrorChecker.html" class="internal-link">smartcard.sw.ISO7816_9ErrorChecker.ISO7816_9ErrorChecker</a></code>, <code><a href="smartcard.sw.op21_ErrorChecker.op21_ErrorChecker.html" class="internal-link">smartcard.sw.op21_ErrorChecker.op21_ErrorChecker</a></code></div>
+    <div><p>Called to test data, sw1 and sw2 for error.</p>
+<p>Derived classes must raise a <code><a href="smartcard.sw.SWExceptions.html" class="internal-link" title="smartcard.sw.SWExceptions">smartcard.sw.SWExceptions</a></code> upon error.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">data</span></td><td class="fieldArgDesc">apdu response data</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sw1</span></td><td class="fieldArgDesc">apdu data status word 1</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">sw2</span></td><td class="fieldArgDesc">apdu data status word 2</td></tr></table></div>
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-12-31 19:08:22.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

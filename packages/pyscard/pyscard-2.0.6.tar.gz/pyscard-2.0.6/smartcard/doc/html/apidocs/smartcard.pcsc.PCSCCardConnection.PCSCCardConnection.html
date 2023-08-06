@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>smartcard.pcsc.PCSCCardConnection.PCSCCardConnection</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.html" class="internal-link" title="This class"><wbr></wbr>PCSCCard<wbr></wbr>Connection</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__del__" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.__del__">__del__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#connect" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.connect">connect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#disconnect" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.disconnect">disconnect</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#doControl" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doControl">do<wbr></wbr>Control</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#doGetAttrib" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doGetAttrib">do<wbr></wbr>Get<wbr></wbr>Attrib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#doTransmit" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doTransmit">do<wbr></wbr>Transmit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getATR" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.getATR">get<wbr></wbr>ATR</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#reconnect" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.reconnect">reconnect</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#__enter__" class="internal-link" title="smartcard.CardConnection.CardConnection.__enter__">__enter__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#__exit__" class="internal-link" title="smartcard.CardConnection.CardConnection.__exit__">__exit__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#addObserver" class="internal-link" title="smartcard.CardConnection.CardConnection.addObserver">add<wbr></wbr>Observer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#addSWExceptionToFilter" class="internal-link" title="smartcard.CardConnection.CardConnection.addSWExceptionToFilter">add<wbr></wbr>SWException<wbr></wbr>To<wbr></wbr>Filter</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#control" class="internal-link" title="smartcard.CardConnection.CardConnection.control">control</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#deleteObserver" class="internal-link" title="smartcard.CardConnection.CardConnection.deleteObserver">delete<wbr></wbr>Observer</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#getAttrib" class="internal-link" title="smartcard.CardConnection.CardConnection.getAttrib">get<wbr></wbr>Attrib</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#getProtocol" class="internal-link" title="smartcard.CardConnection.CardConnection.getProtocol">get<wbr></wbr>Protocol</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#getReader" class="internal-link" title="smartcard.CardConnection.CardConnection.getReader">get<wbr></wbr>Reader</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#setErrorCheckingChain" class="internal-link" title="smartcard.CardConnection.CardConnection.setErrorCheckingChain">set<wbr></wbr>Error<wbr></wbr>Checking<wbr></wbr>Chain</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#setProtocol" class="internal-link" title="smartcard.CardConnection.CardConnection.setProtocol">set<wbr></wbr>Protocol</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#transmit" class="internal-link" title="smartcard.CardConnection.CardConnection.transmit">transmit</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Observer.Observable.html#clearChanged" class="internal-link" title="smartcard.Observer.Observable.clearChanged">clear<wbr></wbr>Changed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Observer.Observable.html#countObservers" class="internal-link" title="smartcard.Observer.Observable.countObservers">count<wbr></wbr>Observers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Observer.Observable.html#deleteObservers" class="internal-link" title="smartcard.Observer.Observable.deleteObservers">delete<wbr></wbr>Observers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Observer.Observable.html#hasChanged" class="internal-link" title="smartcard.Observer.Observable.hasChanged">has<wbr></wbr>Changed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Observer.Observable.html#notifyObservers" class="internal-link" title="smartcard.Observer.Observable.notifyObservers">notify<wbr></wbr>Observers</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Observer.Observable.html#setChanged" class="internal-link" title="smartcard.Observer.Observable.setChanged">set<wbr></wbr>Changed</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#disposition" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.disposition">disposition</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hcard" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.hcard">hcard</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hcontext" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.hcontext">hcontext</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        <div class="childrenKindTitle">Inherited Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#RAW_protocol" class="internal-link" title="smartcard.CardConnection.CardConnection.RAW_protocol"><wbr></wbr>RAW_protocol</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#T0_protocol" class="internal-link" title="smartcard.CardConnection.CardConnection.T0_protocol"><wbr></wbr>T0_protocol</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#T15_protocol" class="internal-link" title="smartcard.CardConnection.CardConnection.T15_protocol"><wbr></wbr>T15_protocol</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#T1_protocol" class="internal-link" title="smartcard.CardConnection.CardConnection.T1_protocol"><wbr></wbr>T1_protocol</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#defaultprotocol" class="internal-link" title="smartcard.CardConnection.CardConnection.defaultprotocol">defaultprotocol</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#errorcheckingchain" class="internal-link" title="smartcard.CardConnection.CardConnection.errorcheckingchain">errorcheckingchain</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.CardConnection.CardConnection.html#reader" class="internal-link" title="smartcard.CardConnection.CardConnection.reader">reader</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Observer.Observable.html#changed" class="internal-link" title="smartcard.Observer.Observable.changed">changed</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Observer.Observable.html#obs" class="internal-link" title="smartcard.Observer.Observable.obs">obs</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.Synchronization.Synchronization.html#mutex" class="internal-link" title="smartcard.Synchronization.Synchronization.mutex">mutex</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="smartcard.pcsc.PCSCCardConnection.html" class="internal-link" title="The parent of this class"><wbr></wbr>PCSCCard<wbr></wbr>Connection</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.html" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection"><wbr></wbr>PCSCCard<wbr></wbr>Connection</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        <div class="childrenKindTitle">Functions</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCCardConnection.html#translateprotocolheader" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.translateprotocolheader">translateprotocolheader</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCCardConnection.html#translateprotocolmask" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.translateprotocolmask">translateprotocolmask</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Variables</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCCardConnection.html#dictProtocol" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.dictProtocol">dict<wbr></wbr>Protocol</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.pcsc.PCSCCardConnection.html#dictProtocolHeader" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.dictProtocolHeader">dict<wbr></wbr>Protocol<wbr></wbr>Header</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">smartcard</a></code><wbr></wbr>.<code><a href="smartcard.pcsc.html" class="internal-link" title="smartcard.pcsc">pcsc</a></code><wbr></wbr>.<code><a href="smartcard.pcsc.PCSCCardConnection.html" class="internal-link" title="smartcard.pcsc.PCSCCardConnection">PCSCCardConnection</a></code><wbr></wbr>.<code><a href="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.html" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection">PCSCCardConnection</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">PCSCCardConnection</span>(<a href="smartcard.CardConnection.CardConnection.html" class="internal-link" title="smartcard.CardConnection.CardConnection">CardConnection</a>):</code></p>
+          <p><a href="classIndex.html#smartcard.pcsc.PCSCCardConnection.PCSCCardConnection">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>PCSCCard connection class. Handles connection with a card thru a PCSC reader.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id94">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__del__" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.__del__">__del__</a></code></td>
+    <td>Destructor. Clean PCSC connection resources.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.__init__">__init__</a></code></td>
+    <td>Construct a new PCSC card connection.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#connect" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.connect">connect</a></code></td>
+    <td>Connect to the card.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#disconnect" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.disconnect">disconnect</a></code></td>
+    <td>Disconnect from the card.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#doControl" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doControl">do<wbr></wbr>Control</a></code></td>
+    <td>Transmit a control command to the reader and return response.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#doGetAttrib" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doGetAttrib">do<wbr></wbr>Get<wbr></wbr>Attrib</a></code></td>
+    <td>get an attribute</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#doTransmit" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doTransmit">do<wbr></wbr>Transmit</a></code></td>
+    <td>Transmit an apdu to the card and return response apdu.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getATR" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.getATR">get<wbr></wbr>ATR</a></code></td>
+    <td>Return card ATR</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#reconnect" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.reconnect">reconnect</a></code></td>
+    <td>Reconnect to the card.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#disposition" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.disposition">disposition</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hcard" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.hcard">hcard</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hcontext" class="internal-link" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.hcontext">hcontext</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+            <p class="inheritedFrom">
+              Inherited from <code><a href="smartcard.CardConnection.CardConnection.html" class="internal-link" title="smartcard.CardConnection.CardConnection">CardConnection</a></code>:
+            </p>
+            <table class="children sortable" id="id95">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#__enter__" class="internal-link" title="smartcard.CardConnection.CardConnection.__enter__">__enter__</a></code></td>
+    <td>Enter the runtime context.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#__exit__" class="internal-link" title="smartcard.CardConnection.CardConnection.__exit__">__exit__</a></code></td>
+    <td>Exit the runtime context trying to disconnect.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#addObserver" class="internal-link" title="smartcard.CardConnection.CardConnection.addObserver">add<wbr></wbr>Observer</a></code></td>
+    <td>Add a <code><a href="smartcard.CardConnection.CardConnection.html" class="internal-link" title="smartcard.CardConnection.CardConnection">CardConnection</a></code> observer.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#addSWExceptionToFilter" class="internal-link" title="smartcard.CardConnection.CardConnection.addSWExceptionToFilter">add<wbr></wbr>SWException<wbr></wbr>To<wbr></wbr>Filter</a></code></td>
+    <td>Add a status word exception class to be filtered.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#control" class="internal-link" title="smartcard.CardConnection.CardConnection.control">control</a></code></td>
+    <td>Send a control command and buffer.  Internally calls <code><a href="smartcard.CardConnection.CardConnection.html#doControl" class="internal-link" title="smartcard.CardConnection.CardConnection.doControl">doControl()</a></code> class method and notify observers upon command/response events.  Subclasses must override the <code><a href="smartcard.CardConnection.CardConnection.html#doControl" class="internal-link" title="smartcard.CardConnection.CardConnection.doControl">doControl()</a></code> class method.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#deleteObserver" class="internal-link" title="smartcard.CardConnection.CardConnection.deleteObserver">delete<wbr></wbr>Observer</a></code></td>
+    <td>Remove a <code><a href="smartcard.CardConnection.CardConnection.html" class="internal-link" title="smartcard.CardConnection.CardConnection">CardConnection</a></code> observer.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#getAttrib" class="internal-link" title="smartcard.CardConnection.CardConnection.getAttrib">get<wbr></wbr>Attrib</a></code></td>
+    <td>return the requested attribute</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#getProtocol" class="internal-link" title="smartcard.CardConnection.CardConnection.getProtocol">get<wbr></wbr>Protocol</a></code></td>
+    <td>Return bit mask for the protocol of connection, or None if no protocol set.  The return value is a bit mask of CardConnection.T0_protocol, CardConnection.T1_protocol, CardConnection.RAW_protocol, CardConnection...</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#getReader" class="internal-link" title="smartcard.CardConnection.CardConnection.getReader">get<wbr></wbr>Reader</a></code></td>
+    <td>Return card connection reader</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#setErrorCheckingChain" class="internal-link" title="smartcard.CardConnection.CardConnection.setErrorCheckingChain">set<wbr></wbr>Error<wbr></wbr>Checking<wbr></wbr>Chain</a></code></td>
+    <td>Add an error checking chain.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#setProtocol" class="internal-link" title="smartcard.CardConnection.CardConnection.setProtocol">set<wbr></wbr>Protocol</a></code></td>
+    <td>Set protocol for card connection.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#transmit" class="internal-link" title="smartcard.CardConnection.CardConnection.transmit">transmit</a></code></td>
+    <td>Transmit an apdu. Internally calls doTransmit() class method and notify observers upon command/response APDU events. Subclasses must override the doTransmit() class method.</td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#RAW_protocol" class="internal-link" title="smartcard.CardConnection.CardConnection.RAW_protocol"><wbr></wbr>RAW_protocol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#T0_protocol" class="internal-link" title="smartcard.CardConnection.CardConnection.T0_protocol"><wbr></wbr>T0_protocol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#T15_protocol" class="internal-link" title="smartcard.CardConnection.CardConnection.T15_protocol"><wbr></wbr>T15_protocol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#T1_protocol" class="internal-link" title="smartcard.CardConnection.CardConnection.T1_protocol"><wbr></wbr>T1_protocol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#defaultprotocol" class="internal-link" title="smartcard.CardConnection.CardConnection.defaultprotocol">defaultprotocol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#errorcheckingchain" class="internal-link" title="smartcard.CardConnection.CardConnection.errorcheckingchain">errorcheckingchain</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="smartcard.CardConnection.CardConnection.html#reader" class="internal-link" title="smartcard.CardConnection.CardConnection.reader">reader</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="smartcard.Observer.Observable.html" class="internal-link" title="smartcard.Observer.Observable">Observable</a></code> (via <code><a href="smartcard.CardConnection.CardConnection.html" class="internal-link" title="smartcard.CardConnection.CardConnection">CardConnection</a></code>):
+            </p>
+            <table class="children sortable" id="id96">
+  
+  
+  <tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.Observer.Observable.html#clearChanged" class="internal-link" title="smartcard.Observer.Observable.clearChanged">clear<wbr></wbr>Changed</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.Observer.Observable.html#countObservers" class="internal-link" title="smartcard.Observer.Observable.countObservers">count<wbr></wbr>Observers</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.Observer.Observable.html#deleteObservers" class="internal-link" title="smartcard.Observer.Observable.deleteObservers">delete<wbr></wbr>Observers</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.Observer.Observable.html#hasChanged" class="internal-link" title="smartcard.Observer.Observable.hasChanged">has<wbr></wbr>Changed</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.Observer.Observable.html#notifyObservers" class="internal-link" title="smartcard.Observer.Observable.notifyObservers">notify<wbr></wbr>Observers</a></code></td>
+    <td>If 'changed' indicates that this object has changed, notify all its observers, then call clearChanged(). Each observer has its update() called with two arguments: this observable object and the generic 'arg'.</td>
+  </tr><tr class="basemethod">
+    
+    <td>Method</td>
+    <td><code><a href="smartcard.Observer.Observable.html#setChanged" class="internal-link" title="smartcard.Observer.Observable.setChanged">set<wbr></wbr>Changed</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="smartcard.Observer.Observable.html#changed" class="internal-link" title="smartcard.Observer.Observable.changed">changed</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="smartcard.Observer.Observable.html#obs" class="internal-link" title="smartcard.Observer.Observable.obs">obs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+            <p class="inheritedFrom">
+              Inherited from <code><a href="smartcard.Synchronization.Synchronization.html" class="internal-link" title="smartcard.Synchronization.Synchronization">Synchronization</a></code> (via <code><a href="smartcard.CardConnection.CardConnection.html" class="internal-link" title="smartcard.CardConnection.CardConnection">CardConnection</a></code>, <code><a href="smartcard.Observer.Observable.html" class="internal-link" title="smartcard.Observer.Observable">Observable</a></code>):
+            </p>
+            <table class="children sortable" id="id97">
+  
+  
+  <tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="smartcard.Synchronization.Synchronization.html#mutex" class="internal-link" title="smartcard.Synchronization.Synchronization.mutex">mutex</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+            
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.__del__">
+    
+  </a>
+  <a name="__del__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__del__</span>(self):
+    
+    <a class="headerLink" href="#__del__" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.__del__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#__del__" class="internal-link">smartcard.CardConnection.CardConnection.__del__</a></code></div>
+    <div><p>Destructor. Clean PCSC connection resources.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, reader):
+    
+    <a class="headerLink" href="#__init__" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#__init__" class="internal-link">smartcard.CardConnection.CardConnection.__init__</a></code></div>
+    <div><p>Construct a new PCSC card connection.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">reader</span></td><td class="fieldArgDesc">the reader in which the smartcard to connect to is located.</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.connect">
+    
+  </a>
+  <a name="connect">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">connect</span>(self, protocol=None, mode=None, disposition=None):
+    
+    <a class="headerLink" href="#connect" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.connect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#connect" class="internal-link">smartcard.CardConnection.CardConnection.connect</a></code></div>
+    <div><p>Connect to the card.</p>
+<p>If protocol is not specified, connect with the default connection protocol.</p>
+<p>If mode is not specified, connect with SCARD_SHARE_SHARED.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.disconnect">
+    
+  </a>
+  <a name="disconnect">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">disconnect</span>(self):
+    
+    <a class="headerLink" href="#disconnect" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.disconnect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#disconnect" class="internal-link">smartcard.CardConnection.CardConnection.disconnect</a></code></div>
+    <div><p>Disconnect from the card.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doControl">
+    
+  </a>
+  <a name="doControl">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">doControl</span>(self, controlCode, bytes=[]):
+    
+    <a class="headerLink" href="#doControl" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doControl">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#doControl" class="internal-link">smartcard.CardConnection.CardConnection.doControl</a></code></div>
+    <div><p>Transmit a control command to the reader and return response.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">control<wbr></wbr>Code</span></td><td class="fieldArgDesc">control command</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">bytes</span></td><td class="fieldArgDesc">command data to transmit (list of bytes)</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">response are the response bytes (if any)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doGetAttrib">
+    
+  </a>
+  <a name="doGetAttrib">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">doGetAttrib</span>(self, attribId):
+    
+    <a class="headerLink" href="#doGetAttrib" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doGetAttrib">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#doGetAttrib" class="internal-link">smartcard.CardConnection.CardConnection.doGetAttrib</a></code></div>
+    <div><p>get an attribute</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">attrib<wbr></wbr>Id</span></td><td class="fieldArgDesc">Identifier for the attribute to get</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">response are the attribute byte array</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doTransmit">
+    
+  </a>
+  <a name="doTransmit">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">doTransmit</span>(self, bytes, protocol=None):
+    
+    <a class="headerLink" href="#doTransmit" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.doTransmit">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#doTransmit" class="internal-link">smartcard.CardConnection.CardConnection.doTransmit</a></code></div>
+    <div><p>Transmit an apdu to the card and return response apdu.</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Parameters</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">bytes</span></td><td class="fieldArgDesc">command apdu to transmit (list of bytes)</td></tr><tr><td class="fieldArgContainer"><span class="fieldArg">protocol</span></td><td class="fieldArgDesc">the transmission protocol, from CardConnection.T0_protocol, CardConnection.T1_protocol, or CardConnection.RAW_protocol</td></tr><tr class="fieldStart"><td class="fieldName" colspan="2">Returns</td></tr><tr><td colspan="2">a tuple (response, sw1, sw2) where sw1 is status word 1, e.g. 0x90 sw2 is status word 2, e.g. 0x1A response are the response bytes excluding status words</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.getATR">
+    
+  </a>
+  <a name="getATR">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getATR</span>(self):
+    
+    <a class="headerLink" href="#getATR" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.getATR">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#getATR" class="internal-link">smartcard.CardConnection.CardConnection.getATR</a></code></div>
+    <div><p>Return card ATR</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.reconnect">
+    
+  </a>
+  <a name="reconnect">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">reconnect</span>(self, protocol=None, mode=None, disposition=None):
+    
+    <a class="headerLink" href="#reconnect" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.reconnect">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overrides <code><a href="smartcard.CardConnection.CardConnection.html#reconnect" class="internal-link">smartcard.CardConnection.CardConnection.reconnect</a></code></div>
+    <div><p>Reconnect to the card.</p>
+<p>If protocol is not specified, connect with the default connection protocol.</p>
+<p>If mode is not specified, connect with SCARD_SHARE_SHARED.</p>
+<p>If disposition is not specified, do a warm reset (SCARD_RESET_CARD)</p>
+</div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.disposition">
+    
+  </a>
+  <a name="disposition">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">disposition</span> =
+    
+    <a class="headerLink" href="#disposition" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.disposition">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.hcard">
+    
+  </a>
+  <a name="hcard">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hcard</span> =
+    
+    <a class="headerLink" href="#hcard" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.hcard">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.hcontext">
+    
+  </a>
+  <a name="hcontext">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hcontext</span> =
+    
+    <a class="headerLink" href="#hcontext" title="smartcard.pcsc.PCSCCardConnection.PCSCCardConnection.hcontext">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-12-31 19:08:22.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

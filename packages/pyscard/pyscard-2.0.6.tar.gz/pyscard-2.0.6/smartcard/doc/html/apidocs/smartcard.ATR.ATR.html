@@ -1,0 +1,2181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>smartcard.ATR.ATR</title>
+    <meta name="generator" content="pydoctor 22.9.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a> <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="search-help-button" title="Help" onclick="toggleSearchHelpText()"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div class="hint" id="search-help-box">
+          <p class="rst-last">
+      
+            Search bar offers the following options:
+            <ul>   
+                <li>
+                  <strong>Term presence.</strong> The below example searches for documents that 
+                    must contain “foo”, might contain “bar” and must not contain “baz”: <code>+foo bar -baz</code>
+                </li> 
+
+                <li>
+                  <strong>Wildcards.</strong> The below example searches for documents with words beginning with “foo”: <code>foo*</code>
+                </li> 
+
+                <li>
+                  <strong>Search in specific fields.</strong> The following search matches all objects 
+                  in "twisted.mail" that matches “search”: <code>+qname:twisted.mail.* +search</code>
+
+                  <p>
+                    Possible fields: 'name', 'qname' (fully qualified name), 'docstring', and 'kind'.
+                    Last two fields are only applicable if "search in docstrings" is enabled.
+                  </p>
+                </li>
+
+                <li>
+                  <strong>Fuzzy matches.</strong> The following search matches all documents 
+                  that have a word within 1 edit distance of “foo”: <code>foo~1</code>
+                </li>
+            </ul>
+
+          </p>
+        </div>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 8px;">
+          <p>Results provided by <a href="https://lunrjs.com">Lunr.js</a></p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="smartcard.ATR.ATR.html" class="internal-link" title="This class">ATR</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__checksyncbyte__" class="internal-link" title="smartcard.ATR.ATR.__checksyncbyte__">__checksyncbyte__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__init__" class="internal-link" title="smartcard.ATR.ATR.__init__">__init__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__initInstance__" class="internal-link" title="smartcard.ATR.ATR.__initInstance__">__init<wbr></wbr>Instance__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#__str__" class="internal-link" title="smartcard.ATR.ATR.__str__">__str__</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#dump" class="internal-link" title="smartcard.ATR.ATR.dump">dump</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getBitRateFactor" class="internal-link" title="smartcard.ATR.ATR.getBitRateFactor">get<wbr></wbr>Bit<wbr></wbr>Rate<wbr></wbr>Factor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getChecksum" class="internal-link" title="smartcard.ATR.ATR.getChecksum">get<wbr></wbr>Checksum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getClockRateConversion" class="internal-link" title="smartcard.ATR.ATR.getClockRateConversion">get<wbr></wbr>Clock<wbr></wbr>Rate<wbr></wbr>Conversion</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getGuardTime" class="internal-link" title="smartcard.ATR.ATR.getGuardTime">get<wbr></wbr>Guard<wbr></wbr>Time</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getHistoricalBytes" class="internal-link" title="smartcard.ATR.ATR.getHistoricalBytes">get<wbr></wbr>Historical<wbr></wbr>Bytes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getHistoricalBytesCount" class="internal-link" title="smartcard.ATR.ATR.getHistoricalBytesCount">get<wbr></wbr>Historical<wbr></wbr>Bytes<wbr></wbr>Count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getInterfaceBytesCount" class="internal-link" title="smartcard.ATR.ATR.getInterfaceBytesCount">get<wbr></wbr>Interface<wbr></wbr>Bytes<wbr></wbr>Count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getProgrammingCurrent" class="internal-link" title="smartcard.ATR.ATR.getProgrammingCurrent">get<wbr></wbr>Programming<wbr></wbr>Current</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getProgrammingVoltage" class="internal-link" title="smartcard.ATR.ATR.getProgrammingVoltage">get<wbr></wbr>Programming<wbr></wbr>Voltage</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getSupportedProtocols" class="internal-link" title="smartcard.ATR.ATR.getSupportedProtocols">get<wbr></wbr>Supported<wbr></wbr>Protocols</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getTA1" class="internal-link" title="smartcard.ATR.ATR.getTA1">get<wbr></wbr>TA1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getTB1" class="internal-link" title="smartcard.ATR.ATR.getTB1">get<wbr></wbr>TB1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getTC1" class="internal-link" title="smartcard.ATR.ATR.getTC1">get<wbr></wbr>TC1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#getTD1" class="internal-link" title="smartcard.ATR.ATR.getTD1">get<wbr></wbr>TD1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#isT0Supported" class="internal-link" title="smartcard.ATR.ATR.isT0Supported">is<wbr></wbr>T0<wbr></wbr>Supported</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#isT15Supported" class="internal-link" title="smartcard.ATR.ATR.isT15Supported">is<wbr></wbr>T15<wbr></wbr>Supported</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#isT1Supported" class="internal-link" title="smartcard.ATR.ATR.isT1Supported">is<wbr></wbr>T1<wbr></wbr>Supported</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#bitratefactor" class="internal-link" title="smartcard.ATR.ATR.bitratefactor">bitratefactor</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#clockrateconversion" class="internal-link" title="smartcard.ATR.ATR.clockrateconversion">clockrateconversion</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#currenttable" class="internal-link" title="smartcard.ATR.ATR.currenttable">currenttable</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#bytes" class="internal-link" title="smartcard.ATR.ATR.bytes">bytes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#checksumOK" class="internal-link" title="smartcard.ATR.ATR.checksumOK">checksum<wbr></wbr>OK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#DI" class="internal-link" title="smartcard.ATR.ATR.DI">DI</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#FI" class="internal-link" title="smartcard.ATR.ATR.FI">FI</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hasChecksum" class="internal-link" title="smartcard.ATR.ATR.hasChecksum">has<wbr></wbr>Checksum</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hasTA" class="internal-link" title="smartcard.ATR.ATR.hasTA">has<wbr></wbr>TA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hasTB" class="internal-link" title="smartcard.ATR.ATR.hasTB">has<wbr></wbr>TB</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hasTC" class="internal-link" title="smartcard.ATR.ATR.hasTC">has<wbr></wbr>TC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#hasTD" class="internal-link" title="smartcard.ATR.ATR.hasTD">has<wbr></wbr>TD</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#historicalBytes" class="internal-link" title="smartcard.ATR.ATR.historicalBytes">historical<wbr></wbr>Bytes</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#II" class="internal-link" title="smartcard.ATR.ATR.II">II</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#interfaceBytesCount" class="internal-link" title="smartcard.ATR.ATR.interfaceBytesCount">interface<wbr></wbr>Bytes<wbr></wbr>Count</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#K" class="internal-link" title="smartcard.ATR.ATR.K">K</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#N" class="internal-link" title="smartcard.ATR.ATR.N">N</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#PI1" class="internal-link" title="smartcard.ATR.ATR.PI1">PI1</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#T0" class="internal-link" title="smartcard.ATR.ATR.T0">T0</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TA" class="internal-link" title="smartcard.ATR.ATR.TA">TA</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TB" class="internal-link" title="smartcard.ATR.ATR.TB">TB</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TC" class="internal-link" title="smartcard.ATR.ATR.TC">TC</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TCK" class="internal-link" title="smartcard.ATR.ATR.TCK">TCK</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TD" class="internal-link" title="smartcard.ATR.ATR.TD">TD</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#TS" class="internal-link" title="smartcard.ATR.ATR.TS">TS</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#Y" class="internal-link" title="smartcard.ATR.ATR.Y">Y</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="smartcard.ATR.html" class="internal-link" title="The parent of this class">ATR</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="smartcard.ATR.ATR.html" class="internal-link" title="smartcard.ATR.ATR">ATR</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapseSideBar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <div id="main" class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="index.html" class="internal-link">smartcard</a></code><wbr></wbr>.<code><a href="smartcard.ATR.html" class="internal-link" title="smartcard.ATR">ATR</a></code><wbr></wbr>.<code><a href="smartcard.ATR.ATR.html" class="internal-link" title="smartcard.ATR.ATR">ATR</a></code></code></h1>
+          <div id="showPrivate">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p><code><span class="py-keyword">class</span> <span class="py-defname">ATR</span>(object):</code></p>
+          <p><a href="classIndex.html#smartcard.ATR.ATR">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>ATR class.</p>
+</div>
+        </div>
+
+        <div id="splitTables">
+          <table class="children sortable" id="id4">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__checksyncbyte__" class="internal-link" title="smartcard.ATR.ATR.__checksyncbyte__">__checksyncbyte__</a></code></td>
+    <td>Check validity of TS.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__" class="internal-link" title="smartcard.ATR.ATR.__init__">__init__</a></code></td>
+    <td>Construct a new atr from bytes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__initInstance__" class="internal-link" title="smartcard.ATR.ATR.__initInstance__">__init<wbr></wbr>Instance__</a></code></td>
+    <td>Parse ATR and initialize members:</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__str__" class="internal-link" title="smartcard.ATR.ATR.__str__">__str__</a></code></td>
+    <td>Returns a string representation of the ATR as a strem of bytes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#dump" class="internal-link" title="smartcard.ATR.ATR.dump">dump</a></code></td>
+    <td>Dump the details of an ATR.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getBitRateFactor" class="internal-link" title="smartcard.ATR.ATR.getBitRateFactor">get<wbr></wbr>Bit<wbr></wbr>Rate<wbr></wbr>Factor</a></code></td>
+    <td>Return bit rate factor.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getChecksum" class="internal-link" title="smartcard.ATR.ATR.getChecksum">get<wbr></wbr>Checksum</a></code></td>
+    <td>Return the checksum of the ATR. Checksum is mandatory only for T=1.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getClockRateConversion" class="internal-link" title="smartcard.ATR.ATR.getClockRateConversion">get<wbr></wbr>Clock<wbr></wbr>Rate<wbr></wbr>Conversion</a></code></td>
+    <td>Return clock rate conversion.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getGuardTime" class="internal-link" title="smartcard.ATR.ATR.getGuardTime">get<wbr></wbr>Guard<wbr></wbr>Time</a></code></td>
+    <td>Return extra guard time.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getHistoricalBytes" class="internal-link" title="smartcard.ATR.ATR.getHistoricalBytes">get<wbr></wbr>Historical<wbr></wbr>Bytes</a></code></td>
+    <td>Return historical bytes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getHistoricalBytesCount" class="internal-link" title="smartcard.ATR.ATR.getHistoricalBytesCount">get<wbr></wbr>Historical<wbr></wbr>Bytes<wbr></wbr>Count</a></code></td>
+    <td>Return count of historical bytes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getInterfaceBytesCount" class="internal-link" title="smartcard.ATR.ATR.getInterfaceBytesCount">get<wbr></wbr>Interface<wbr></wbr>Bytes<wbr></wbr>Count</a></code></td>
+    <td>Return count of interface bytes.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getProgrammingCurrent" class="internal-link" title="smartcard.ATR.ATR.getProgrammingCurrent">get<wbr></wbr>Programming<wbr></wbr>Current</a></code></td>
+    <td>Return maximum programming current.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getProgrammingVoltage" class="internal-link" title="smartcard.ATR.ATR.getProgrammingVoltage">get<wbr></wbr>Programming<wbr></wbr>Voltage</a></code></td>
+    <td>Return programming voltage.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getSupportedProtocols" class="internal-link" title="smartcard.ATR.ATR.getSupportedProtocols">get<wbr></wbr>Supported<wbr></wbr>Protocols</a></code></td>
+    <td>Returns a dictionnary of supported protocols.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getTA1" class="internal-link" title="smartcard.ATR.ATR.getTA1">get<wbr></wbr>TA1</a></code></td>
+    <td>Return TA1 byte.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getTB1" class="internal-link" title="smartcard.ATR.ATR.getTB1">get<wbr></wbr>TB1</a></code></td>
+    <td>Return TB1 byte.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getTC1" class="internal-link" title="smartcard.ATR.ATR.getTC1">get<wbr></wbr>TC1</a></code></td>
+    <td>Return TC1 byte.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#getTD1" class="internal-link" title="smartcard.ATR.ATR.getTD1">get<wbr></wbr>TD1</a></code></td>
+    <td>Return TD1 byte.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#isT0Supported" class="internal-link" title="smartcard.ATR.ATR.isT0Supported">is<wbr></wbr>T0<wbr></wbr>Supported</a></code></td>
+    <td>Return True if T=0 is supported.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#isT15Supported" class="internal-link" title="smartcard.ATR.ATR.isT15Supported">is<wbr></wbr>T15<wbr></wbr>Supported</a></code></td>
+    <td>Return True if T=15 is supported.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#isT1Supported" class="internal-link" title="smartcard.ATR.ATR.isT1Supported">is<wbr></wbr>T1<wbr></wbr>Supported</a></code></td>
+    <td>Return True if T=1 is supported.</td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#bitratefactor" class="internal-link" title="smartcard.ATR.ATR.bitratefactor">bitratefactor</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#clockrateconversion" class="internal-link" title="smartcard.ATR.ATR.clockrateconversion">clockrateconversion</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#currenttable" class="internal-link" title="smartcard.ATR.ATR.currenttable">currenttable</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#bytes" class="internal-link" title="smartcard.ATR.ATR.bytes">bytes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#checksumOK" class="internal-link" title="smartcard.ATR.ATR.checksumOK">checksum<wbr></wbr>OK</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#DI" class="internal-link" title="smartcard.ATR.ATR.DI">DI</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#FI" class="internal-link" title="smartcard.ATR.ATR.FI">FI</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hasChecksum" class="internal-link" title="smartcard.ATR.ATR.hasChecksum">has<wbr></wbr>Checksum</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hasTA" class="internal-link" title="smartcard.ATR.ATR.hasTA">has<wbr></wbr>TA</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hasTB" class="internal-link" title="smartcard.ATR.ATR.hasTB">has<wbr></wbr>TB</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hasTC" class="internal-link" title="smartcard.ATR.ATR.hasTC">has<wbr></wbr>TC</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#hasTD" class="internal-link" title="smartcard.ATR.ATR.hasTD">has<wbr></wbr>TD</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#historicalBytes" class="internal-link" title="smartcard.ATR.ATR.historicalBytes">historical<wbr></wbr>Bytes</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#II" class="internal-link" title="smartcard.ATR.ATR.II">II</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#interfaceBytesCount" class="internal-link" title="smartcard.ATR.ATR.interfaceBytesCount">interface<wbr></wbr>Bytes<wbr></wbr>Count</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#K" class="internal-link" title="smartcard.ATR.ATR.K">K</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#N" class="internal-link" title="smartcard.ATR.ATR.N">N</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#PI1" class="internal-link" title="smartcard.ATR.ATR.PI1">PI1</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#T0" class="internal-link" title="smartcard.ATR.ATR.T0">T0</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#TA" class="internal-link" title="smartcard.ATR.ATR.TA">TA</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#TB" class="internal-link" title="smartcard.ATR.ATR.TB">TB</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#TC" class="internal-link" title="smartcard.ATR.ATR.TC">TC</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#TCK" class="internal-link" title="smartcard.ATR.ATR.TCK">TCK</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#TD" class="internal-link" title="smartcard.ATR.ATR.TD">TD</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#TS" class="internal-link" title="smartcard.ATR.ATR.TS">TS</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#Y" class="internal-link" title="smartcard.ATR.ATR.Y">Y</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="childList">
+          <div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.__checksyncbyte__">
+    
+  </a>
+  <a name="__checksyncbyte__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__checksyncbyte__</span>(self):
+    
+    <a class="headerLink" href="#__checksyncbyte__" title="smartcard.ATR.ATR.__checksyncbyte__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Check validity of TS.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, bytes):
+    
+    <a class="headerLink" href="#__init__" title="smartcard.ATR.ATR.__init__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Construct a new atr from bytes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.__initInstance__">
+    
+  </a>
+  <a name="__initInstance__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__initInstance__</span>(self):
+    
+    <a class="headerLink" href="#__initInstance__" title="smartcard.ATR.ATR.__initInstance__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Parse ATR and initialize members:</p>
+<ul class="rst-simple">
+<li>TS: initial character</li>
+<li>T0: format character</li>
+<li>TA[n], TB[n], TC[n], TD[n], for n=0,1,...: protocol parameters</li>
+</ul>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName" colspan="2">Note</td></tr><tr><td colspan="2"><p>protocol parameters indices start at 0, e.g. TA[0], TA[1] correspond to the ISO standard TA1, TA2 parameters</p>
+<ul class="rst-simple">
+<li>historicalBytes: the ATR T1, T2, ..., TK historical bytes</li>
+<li>TCK: checksum byte (only for protocols different from T=0)</li>
+<li>FI: clock rate conversion factor</li>
+<li>DI: voltage adjustment factor</li>
+<li>PI1: programming voltage factor</li>
+<li>II: maximum programming current factor</li>
+<li>N: extra guard time</li>
+</ul>
+</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.__str__">
+    
+  </a>
+  <a name="__str__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__str__</span>(self):
+    
+    <a class="headerLink" href="#__str__" title="smartcard.ATR.ATR.__str__">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns a string representation of the ATR as a strem of bytes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.dump">
+    
+  </a>
+  <a name="dump">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">dump</span>(self):
+    
+    <a class="headerLink" href="#dump" title="smartcard.ATR.ATR.dump">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Dump the details of an ATR.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getBitRateFactor">
+    
+  </a>
+  <a name="getBitRateFactor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getBitRateFactor</span>(self):
+    
+    <a class="headerLink" href="#getBitRateFactor" title="smartcard.ATR.ATR.getBitRateFactor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return bit rate factor.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getChecksum">
+    
+  </a>
+  <a name="getChecksum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getChecksum</span>(self):
+    
+    <a class="headerLink" href="#getChecksum" title="smartcard.ATR.ATR.getChecksum">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return the checksum of the ATR. Checksum is mandatory only for T=1.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getClockRateConversion">
+    
+  </a>
+  <a name="getClockRateConversion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getClockRateConversion</span>(self):
+    
+    <a class="headerLink" href="#getClockRateConversion" title="smartcard.ATR.ATR.getClockRateConversion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return clock rate conversion.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getGuardTime">
+    
+  </a>
+  <a name="getGuardTime">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getGuardTime</span>(self):
+    
+    <a class="headerLink" href="#getGuardTime" title="smartcard.ATR.ATR.getGuardTime">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return extra guard time.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getHistoricalBytes">
+    
+  </a>
+  <a name="getHistoricalBytes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getHistoricalBytes</span>(self):
+    
+    <a class="headerLink" href="#getHistoricalBytes" title="smartcard.ATR.ATR.getHistoricalBytes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return historical bytes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getHistoricalBytesCount">
+    
+  </a>
+  <a name="getHistoricalBytesCount">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getHistoricalBytesCount</span>(self):
+    
+    <a class="headerLink" href="#getHistoricalBytesCount" title="smartcard.ATR.ATR.getHistoricalBytesCount">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return count of historical bytes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getInterfaceBytesCount">
+    
+  </a>
+  <a name="getInterfaceBytesCount">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getInterfaceBytesCount</span>(self):
+    
+    <a class="headerLink" href="#getInterfaceBytesCount" title="smartcard.ATR.ATR.getInterfaceBytesCount">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return count of interface bytes.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getProgrammingCurrent">
+    
+  </a>
+  <a name="getProgrammingCurrent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getProgrammingCurrent</span>(self):
+    
+    <a class="headerLink" href="#getProgrammingCurrent" title="smartcard.ATR.ATR.getProgrammingCurrent">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return maximum programming current.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getProgrammingVoltage">
+    
+  </a>
+  <a name="getProgrammingVoltage">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getProgrammingVoltage</span>(self):
+    
+    <a class="headerLink" href="#getProgrammingVoltage" title="smartcard.ATR.ATR.getProgrammingVoltage">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return programming voltage.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getSupportedProtocols">
+    
+  </a>
+  <a name="getSupportedProtocols">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getSupportedProtocols</span>(self):
+    
+    <a class="headerLink" href="#getSupportedProtocols" title="smartcard.ATR.ATR.getSupportedProtocols">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Returns a dictionnary of supported protocols.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getTA1">
+    
+  </a>
+  <a name="getTA1">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getTA1</span>(self):
+    
+    <a class="headerLink" href="#getTA1" title="smartcard.ATR.ATR.getTA1">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return TA1 byte.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getTB1">
+    
+  </a>
+  <a name="getTB1">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getTB1</span>(self):
+    
+    <a class="headerLink" href="#getTB1" title="smartcard.ATR.ATR.getTB1">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return TB1 byte.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getTC1">
+    
+  </a>
+  <a name="getTC1">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getTC1</span>(self):
+    
+    <a class="headerLink" href="#getTC1" title="smartcard.ATR.ATR.getTC1">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return TC1 byte.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.getTD1">
+    
+  </a>
+  <a name="getTD1">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">getTD1</span>(self):
+    
+    <a class="headerLink" href="#getTD1" title="smartcard.ATR.ATR.getTD1">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return TD1 byte.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.isT0Supported">
+    
+  </a>
+  <a name="isT0Supported">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">isT0Supported</span>(self):
+    
+    <a class="headerLink" href="#isT0Supported" title="smartcard.ATR.ATR.isT0Supported">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return True if T=0 is supported.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.isT15Supported">
+    
+  </a>
+  <a name="isT15Supported">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">isT15Supported</span>(self):
+    
+    <a class="headerLink" href="#isT15Supported" title="smartcard.ATR.ATR.isT15Supported">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return True if T=15 is supported.</p>
+</div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="smartcard.ATR.ATR.isT1Supported">
+    
+  </a>
+  <a name="isT1Supported">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">isT1Supported</span>(self):
+    
+    <a class="headerLink" href="#isT1Supported" title="smartcard.ATR.ATR.isT1Supported">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Return True if T=1 is supported.</p>
+</div>
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="smartcard.ATR.ATR.bitratefactor">
+    
+  </a>
+  <a name="bitratefactor">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">bitratefactor</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#bitratefactor" title="smartcard.ATR.ATR.bitratefactor">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="smartcard.ATR.ATR.clockrateconversion">
+    
+  </a>
+  <a name="clockrateconversion">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">clockrateconversion</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#clockrateconversion" title="smartcard.ATR.ATR.clockrateconversion">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseclassvariable">
+  
+  
+  <a name="smartcard.ATR.ATR.currenttable">
+    
+  </a>
+  <a name="currenttable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">currenttable</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#currenttable" title="smartcard.ATR.ATR.currenttable">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.bytes">
+    
+  </a>
+  <a name="bytes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">bytes</span> =
+    
+    <a class="headerLink" href="#bytes" title="smartcard.ATR.ATR.bytes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.checksumOK">
+    
+  </a>
+  <a name="checksumOK">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">checksumOK</span> =
+    
+    <a class="headerLink" href="#checksumOK" title="smartcard.ATR.ATR.checksumOK">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.DI">
+    
+  </a>
+  <a name="DI">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">DI</span> =
+    
+    <a class="headerLink" href="#DI" title="smartcard.ATR.ATR.DI">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.FI">
+    
+  </a>
+  <a name="FI">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">FI</span> =
+    
+    <a class="headerLink" href="#FI" title="smartcard.ATR.ATR.FI">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.hasChecksum">
+    
+  </a>
+  <a name="hasChecksum">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hasChecksum</span> =
+    
+    <a class="headerLink" href="#hasChecksum" title="smartcard.ATR.ATR.hasChecksum">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.hasTA">
+    
+  </a>
+  <a name="hasTA">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hasTA</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#hasTA" title="smartcard.ATR.ATR.hasTA">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.hasTB">
+    
+  </a>
+  <a name="hasTB">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hasTB</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#hasTB" title="smartcard.ATR.ATR.hasTB">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.hasTC">
+    
+  </a>
+  <a name="hasTC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hasTC</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#hasTC" title="smartcard.ATR.ATR.hasTC">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.hasTD">
+    
+  </a>
+  <a name="hasTD">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">hasTD</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#hasTD" title="smartcard.ATR.ATR.hasTD">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.historicalBytes">
+    
+  </a>
+  <a name="historicalBytes">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">historicalBytes</span> =
+    
+    <a class="headerLink" href="#historicalBytes" title="smartcard.ATR.ATR.historicalBytes">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.II">
+    
+  </a>
+  <a name="II">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">II</span> =
+    
+    <a class="headerLink" href="#II" title="smartcard.ATR.ATR.II">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.interfaceBytesCount">
+    
+  </a>
+  <a name="interfaceBytesCount">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">interfaceBytesCount</span>: <code>int</code> =
+    
+    <a class="headerLink" href="#interfaceBytesCount" title="smartcard.ATR.ATR.interfaceBytesCount">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.K">
+    
+  </a>
+  <a name="K">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">K</span> =
+    
+    <a class="headerLink" href="#K" title="smartcard.ATR.ATR.K">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.N">
+    
+  </a>
+  <a name="N">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">N</span> =
+    
+    <a class="headerLink" href="#N" title="smartcard.ATR.ATR.N">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.PI1">
+    
+  </a>
+  <a name="PI1">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">PI1</span> =
+    
+    <a class="headerLink" href="#PI1" title="smartcard.ATR.ATR.PI1">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.T0">
+    
+  </a>
+  <a name="T0">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">T0</span> =
+    
+    <a class="headerLink" href="#T0" title="smartcard.ATR.ATR.T0">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.TA">
+    
+  </a>
+  <a name="TA">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TA</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#TA" title="smartcard.ATR.ATR.TA">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.TB">
+    
+  </a>
+  <a name="TB">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TB</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#TB" title="smartcard.ATR.ATR.TB">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.TC">
+    
+  </a>
+  <a name="TC">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TC</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#TC" title="smartcard.ATR.ATR.TC">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.TCK">
+    
+  </a>
+  <a name="TCK">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TCK</span> =
+    
+    <a class="headerLink" href="#TCK" title="smartcard.ATR.ATR.TCK">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.TD">
+    
+  </a>
+  <a name="TD">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TD</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#TD" title="smartcard.ATR.ATR.TD">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.TS">
+    
+  </a>
+  <a name="TS">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">TS</span> =
+    
+    <a class="headerLink" href="#TS" title="smartcard.ATR.ATR.TS">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="smartcard.ATR.ATR.Y">
+    
+  </a>
+  <a name="Y">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">Y</span>: <code>list</code> =
+    
+    <a class="headerLink" href="#Y" title="smartcard.ATR.ATR.Y">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container">
+    <a href="index.html">API Documentation</a> for <a href="https://github.com/LudovicRousseau/pyscard" class="projecthome">PySCard</a>,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    22.9.1 at 2022-12-31 19:08:22.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
