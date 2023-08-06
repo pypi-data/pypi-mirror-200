@@ -1,0 +1,37 @@
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=7.2.2",
+    "mypy>=1.1.1",
+    "black>=23.1.0",
+    "pylint>=2.17.0",
+    "isort>=5.12.0",
+    "python-dotenv>=1.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[tool.pdm.scripts]
+sort = "isort ."
+lint = "black ."
+test = "pytest"
+
+[project]
+name = "bot-engine-client"
+version = "0.1.7"
+description = "A client side library for request data from bot engine server."
+authors = [
+    { name = "Mengsyue Amao Tsai", email = "mengsyue.tsai@outlook.com" },
+]
+dependencies = [
+    "richillcapital-http>=0.1.4",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[build-system]
+requires = [
+    "pdm-pep517>=1.0",
+]
+build-backend = "pdm.pep517.api"
