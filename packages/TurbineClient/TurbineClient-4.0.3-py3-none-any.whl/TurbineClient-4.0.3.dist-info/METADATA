@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: TurbineClient
+Version: 4.0.3
+Summary: Turbine Science Gateway Client
+Home-page: https://github.com/CCSI-Toolset/turb_client
+Author: Joshua Boverhof
+Author-email: jrboverhof@lbl.gov
+Maintainer: Joshua Boverhof
+Maintainer-email: jrboverhof@lbl.gov
+License: See LICENSE.md
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+License-File: LICENSE.md
+Requires-Dist: python-dateutil (>=2.5)
+Provides-Extra: graphs
+Requires-Dist: rpy2 ; extra == 'graphs'
+
+For additional information, please see https://github.com/CCSI-Toolset/turb_client

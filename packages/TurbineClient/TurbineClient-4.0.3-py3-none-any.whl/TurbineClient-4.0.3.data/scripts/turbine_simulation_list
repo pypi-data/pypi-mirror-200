@@ -1,0 +1,9 @@
+#!python
+"""
+turbine_job_script
+
+See LICENSE.md for copyright notice!
+"""
+from turbine.commands import turbine_simulation_script
+turbine_simulation_script.main_list()
+

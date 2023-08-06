@@ -1,0 +1,8 @@
+#!python
+"""
+turbine_session_graphs
+
+See LICENSE.md for copyright notice!
+"""
+from turbine.commands import turbine_session_script
+print(turbine_session_script.main_session_graphs())
