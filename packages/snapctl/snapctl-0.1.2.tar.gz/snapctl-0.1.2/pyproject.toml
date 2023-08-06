@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "snapctl"
+version = "0.1.2"
+description = "Snapser CLI Tool"
+authors = ["Ajinkya Apte <aj@snapser.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+snapctl = "snapctl.main:app"
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = {extras = ["all"], version = "^0.7.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
