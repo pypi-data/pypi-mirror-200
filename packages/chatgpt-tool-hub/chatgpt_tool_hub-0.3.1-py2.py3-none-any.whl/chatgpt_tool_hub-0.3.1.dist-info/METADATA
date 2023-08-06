@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: chatgpt-tool-hub
+Version: 0.3.1
+Summary: An open-source chatgpt tool ecosystem where you can combine tools with chatgpt and use natural language to do anything.
+Home-page: https://github.com/goldfishh/chatgpt-tool-hub
+Author: goldfishh
+Author-email: goldfish.buaa@gmail.com
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic (~=1.10.7)
+Requires-Dist: aiohttp (~=3.8.4)
+Requires-Dist: requests (~=2.28.2)
+Requires-Dist: pyyaml
+Requires-Dist: tenacity (~=8.2.2)
+Requires-Dist: openai (~=0.27.2)
+Requires-Dist: SQLAlchemy (~=2.0.7)
+Requires-Dist: tiktoken (~=0.3.2)
+Requires-Dist: google-api-python-client
+Requires-Dist: wikipedia
+Requires-Dist: wolframalpha
+
+# chatgpt-tool-hub
+An open-source chatgpt tool ecosystem where you can combine tools with chatgpt and use natural language to do anything.
+If plugins are the App store for ChatGPT, then ChatGPT-Tool-Hub is the APK installer for Android.  
+  
+## I will update this doc later
+
+### Installation
+You can install directly using **pip** by doing `chatgpt-tool-hub`
+
+### Example
+```python
+import os
+from chatgpt_tool_hub.apps import load_app
+os.environ["OPENAI_API_KEY"] = YOUR_OPENAI_API_KEY
+os.environ["PROXY"] = "http://192.168.7.1:7890"
+app = load_app()
+reply = app.ask("你现在有哪些能力？")
+print(reply)
+```
+
+
+### Tool
+- python_repl
+- requests(GET by default)
+- terminal
+- meteo-weather
+- wikipedia
+- news-api(you need news_api_key from https://newsapi.org/)
+- wolfram-alpha(you need wolfram_alpha_appid from https://developer.wolframalpha.com/)
+- google-search(you need google_api_key and google_cse_id described here https://cloud.google.com/docs/authentication/api-keys?visit_id=638154342880239948-3750907574&rd=1&hl=zh-cn)
+
+
+## todo list
