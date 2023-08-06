@@ -1,0 +1,143 @@
+% A LaTeX template for submissions to AIMS journals.
+% Derived from AIMS_template.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription amcomm: Advances in Mathematics of Communications>>
+<<TemplateDescription cpaa:   Communications on Pure & Applied Analysis>>
+<<TemplateDescription dcds-b: Discrete & Continuous Dynamical Systems Series B>>
+<<TemplateDescription dcds-s: Discrete & Continuous Dynamical Systems Series S>>
+<<TemplateDescription dcds:   Discrete & Continuous Dynamical Systems>>
+<<TemplateDescription eect:   Evolution Equations & Control Theory>>
+<<TemplateDescription fods:   Foundations of Data Science>>
+<<TemplateDescription ipi:    Inverse Problems and Imaging>>
+<<TemplateDescription jcd:    Journal of Computational Dynamics>>
+<<TemplateDescription jdg:    The Journal of Dynamics and Games>>
+<<TemplateDescription jgm:    The Journal of Geometric Mechanics>>
+<<TemplateDescription jimo:   Journal of Industrial & Management Optimization>>
+<<TemplateDescription krm:    Kinetic & Related Models>>
+<<TemplateDescription mcrf:   Mathematical Control & Related Fields>>
+<<TemplateDescription mfc:    Mathematical Foundations of Computing>>
+<<TemplateDescription naco:   Numerical Algebra, Control and Optimization>>
+<<TemplateDescription nhm:    Networks & Heterogeneous Media>>
+<<% >>
+<<Dependency: aims.cls>>
+<<Dependency: AIMS.bst>>
+<<Dependency: AIMS_Logo.pdf>>
+<<% >>
+<<Dependency amcomm: postpreamble-amcomm.sty>>
+<<Dependency cpaa:   postpreamble-cpaa.sty>>
+<<Dependency dcds-b: postpreamble-dcds-b.sty>>
+<<Dependency dcds-s: postpreamble-dcds-s.sty>>
+<<Dependency dcds:   postpreamble-dcds.sty>>
+<<Dependency eect:   postpreamble-eect.sty>>
+<<Dependency fods:   postpreamble-fods.sty>>
+<<Dependency ipi:    postpreamble-ipi.sty>>
+<<Dependency jcd:    postpreamble-jcd.sty>>
+<<Dependency jdg:    postpreamble-jdg.sty>>
+<<Dependency jgm:    postpreamble-jgm.sty>>
+<<Dependency jimo:   postpreamble-jimo.sty>>
+<<Dependency krm:    postpreamble-krm.sty>>
+<<Dependency mcrf:   postpreamble-mcrf.sty>>
+<<Dependency mfc:    postpreamble-mfc.sty>>
+<<Dependency naco:   postpreamble-naco.sty>>
+<<Dependency nhm:    postpreamble-nhm.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+<<DocumentClassOptions>>]{aims}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Make some journal specific settings.
+\textheight=8.2 true in
+\textwidth=5.0 true in
+\topmargin 30pt
+\setcounter{page}{1}
+
+% Make some journal specific settings.
+\def\currentvolume{X}
+\def\currentissue{X}
+\def\currentyear{200X}
+\def\currentmonth{XX}
+\def\ppages{X--XX}
+\def\DOI{10.3934/xx.xxxxxxx}
+
+% Set title and subtitle information.
+\title[<<ShortTitle>>]{<<TitleNewlineSubTitle>>}
+
+% Set author information.
+\author[<<AuthorsFullNamesCommaSeparatedLastAnd>>]{}
+
+% Insert the Mathematics Subject Classification.
+\subjclass{<<MSC>>}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert author email information.
+<<AuthorEMailsAIMS>>
+
+% Insert the funding information.
+\thanks{<<Funding>>}
+
+% Insert the dedication information.
+\dedicatory{<<Dedication>>}
+
+% Insert corresponding author information.
+<<CorrespondingAuthorsAIMS>>
+
+\begin{document}
+
+\maketitle
+
+% Set author information.
+<<AuthorsInstitutionsAIMS>>
+
+\bigskip
+
+% Insert the editor information.
+\centerline{(Communicated by the associate editor name)}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{AIMS}
+<<CustomBibliography>>
+
+\end{document}

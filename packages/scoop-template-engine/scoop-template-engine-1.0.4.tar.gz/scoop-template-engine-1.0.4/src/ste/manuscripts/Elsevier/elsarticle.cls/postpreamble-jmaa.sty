@@ -1,0 +1,68 @@
+\ProvidesPackage{postpreamble-cma}
+
+% Declare all options.
+\newif\if@scoopcompatibility@none
+\newif\if@scoopcompatibility@minimal
+\newif\if@scoopcompatibility@packages
+\newif\if@scoopcompatibility@changes
+\newif\if@scoopcompatibility@theorems
+\newif\if@scoopcompatibility@testing
+\DeclareOption{none}{\@scoopcompatibility@nonetrue}
+\DeclareOption{minimal}{\@scoopcompatibility@minimaltrue}
+\DeclareOption{packages}{\@scoopcompatibility@packagestrue\ExecuteOptions{minimal}}
+\DeclareOption{changes}{\@scoopcompatibility@changestrue}
+\DeclareOption{theorems}{\@scoopcompatibility@theoremstrue}
+\DeclareOption{testing}{\@scoopcompatibility@testingtrue}
+
+% Process all options.
+\ProcessOptions\relax
+
+% Execute option 'none'. 
+\if@scoopcompatibility@none
+\endinput
+\fi
+
+% Execute option 'minimal'. 
+\if@scoopcompatibility@minimal
+% The '\doi' command which gets written into the .bbl file does not handle DOIs with underscores.
+% We define an improved '\doi' command.
+\def\doi#1{\href{https://doi.org/#1}{\detokenize{#1}}}
+\fi
+
+% Execute option 'packages'. 
+\if@scoopcompatibility@packages
+\fi
+
+% Execute option 'changes'.
+\if@scoopcompatibility@changes
+\fi
+
+% Execute option 'theorems'.
+% By default, a \newtheorem command is provided through article.cls.
+% It does not provide cleveref.sty support.
+% We therefore use ntheorem.sty.
+\if@scoopcompatibility@theorems
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem{assumption}[theorem]{Assumption}
+	\newtheorem{corollary}[theorem]{Corollary}
+	\newtheorem{definition}[theorem]{Definition}
+	\newtheorem{example}[theorem]{Example}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{proposition}[theorem]{Proposition}
+	\newtheorem{remark}[theorem]{Remark}
+	\newproof{proof}{Proof}
+	\@ifpackageloaded{cleveref}{%
+    % https://tex.stackexchange.com/questions/315749
+		\expandafter\ifx\csname if@cref@capitalise\expandafter\endcsname\csname iftrue\endcsname
+			\crefname{assumption}{Assumption}{Assumptions}
+		\else
+			\crefname{assumption}{assumption}{assumptions}
+		\fi
+	}{}
+\fi
+
+% Execute option 'testing'. 
+\if@scoopcompatibility@testing
+% Ensure proper breaking of long URLs.
+\usepackage{url}
+\fi

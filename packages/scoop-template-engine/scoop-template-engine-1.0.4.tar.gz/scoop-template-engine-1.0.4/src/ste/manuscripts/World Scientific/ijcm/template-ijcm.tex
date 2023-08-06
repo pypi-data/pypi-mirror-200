@@ -1,0 +1,89 @@
+% A LaTeX template for submissions to International Journal of Computational Methods.
+% Derived from ws-ijcm.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: International Journal of Computational Methods>>
+<<% >>
+<<Dependency: ws-ijcm.cls>>
+<<Dependency: preamble-ijcm.sty>>
+<<Dependency: postpreamble-ijcm.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --haltotypeornote --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{ws-ijcm}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Include further packages and settings relevant for the template.
+\usepackage{natbib}
+
+\begin{document}
+
+% Set running headers as well as PDF title and authors.
+\markboth{<<AuthorsShortNamesCommaSeparatedLastCommaAnd>>}{<<ShortTitle>>}
+\catchline{}{}{}{}{}
+
+% Set title and subtitle information.
+\title{<<TitleNewlineSubTitle>><<DedicationFootnote>>}
+
+% Set author information.
+<<AuthorsInstitutionsM3AS>>
+
+\maketitle
+
+% Set submission history.
+\begin{history}
+\received{(Day Month Year)}
+\revised{(Day Month Year)}
+\accepted{(Day Month Year)}
+\comby{(xxxxxxxxxx)}
+\end{history}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\keywords{<<KeywordsSemicolonSeparated>>}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the funding information.
+<<FundingSectionStarred>>
+
+% Insert the bibliography.
+\bibliographystyle{plainnat}
+<<CustomBibliography>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+\end{document}

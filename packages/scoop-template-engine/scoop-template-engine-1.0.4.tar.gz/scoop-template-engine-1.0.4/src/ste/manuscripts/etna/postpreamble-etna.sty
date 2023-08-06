@@ -1,0 +1,82 @@
+\ProvidesPackage{postpreamble-etna}
+
+% Declare all options.
+\newif\if@scoopcompatibility@none
+\newif\if@scoopcompatibility@minimal
+\newif\if@scoopcompatibility@packages
+\newif\if@scoopcompatibility@changes
+\newif\if@scoopcompatibility@theorems
+\newif\if@scoopcompatibility@testing
+\DeclareOption{none}{\@scoopcompatibility@nonetrue}
+\DeclareOption{minimal}{\@scoopcompatibility@minimaltrue}
+\DeclareOption{packages}{\@scoopcompatibility@packagestrue\ExecuteOptions{minimal}}
+\DeclareOption{changes}{\@scoopcompatibility@changestrue}
+\DeclareOption{theorems}{\@scoopcompatibility@theoremstrue}
+\DeclareOption{testing}{\@scoopcompatibility@testingtrue}
+
+% Process all options.
+\ProcessOptions\relax
+
+% Execute option 'none'. 
+\if@scoopcompatibility@none
+\endinput
+\fi
+
+% Execute option 'minimal'. 
+\if@scoopcompatibility@minimal
+% Provide '\href' and '\url' commands in case hyperref.sty is not loaded.
+\AtBeginDocument{%
+	\providecommand{\href}[2]{\detokenize{#2}}
+	\providecommand{\url}[1]{\detokenize{#1}}
+}
+% The '\doiurl' command which gets written into the .bbl file does not handle DOIs with underscores.
+% We define an improved '\doiurl' command.
+\def\doiurl#1{\textsf{\detokenize{#1}}}
+\fi
+
+% Execute option 'packages'. 
+\if@scoopcompatibility@packages
+\fi
+
+% Execute option 'changes'.
+\if@scoopcompatibility@changes
+\fi
+
+% Execute option 'theorems'.
+% By default, a \newtheorem command is provided through article.cls.
+% It does provide cleveref.sty support but some theorem-like environments are defined previously.
+% Since the default numbering scheme uses shared counters, we have to clear and redefine all theorem-like environments.
+\if@scoopcompatibility@theorems
+	% Define a command which will clear a single and multiple theorem-like environments.
+	% https://tex.stackexchange.com/questions/459258
+	\def\clear@theorems#1{\@for\next:=#1\do{\expandafter\clear@theorem\expandafter{\next}}}
+	\def\clear@theorem#1{\expandafter\let\csname #1\endcsname\relax\expandafter\let\csname end#1\endcsname\relax}
+	\clear@theorems{corollary,definition,lemma,proposition}
+	\newtheorem{assumption}[theorem]{Assumption}
+	\newtheorem{corollary}[theorem]{Corollary}
+	\newtheorem{definition}[theorem]{Definition}
+	\newtheorem{example}[theorem]{Example}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem{proposition}[theorem]{Proposition}
+	\newtheorem{remark}[theorem]{Remark}
+	\newtheorem*{assumption*}{Assumption}
+	\newtheorem*{corollary*}{Corollary}
+	\newtheorem*{definition*}{Definition}
+	\newtheorem*{example*}{Example}
+	\newtheorem*{lemma*}{Lemma}
+	\newtheorem*{proposition*}{Proposition}
+	\newtheorem*{remark*}{Remark}
+	\newtheorem*{theorem*}{Theorem}
+	\@ifpackageloaded{cleveref}{%
+    % https://tex.stackexchange.com/questions/315749
+		\expandafter\ifx\csname if@cref@capitalise\expandafter\endcsname\csname iftrue\endcsname
+			\crefname{assumption}{Assumption}{Assumptions}
+		\else
+			\crefname{assumption}{assumption}{assumptions}
+		\fi
+	}{}
+\fi
+
+% Execute option 'testing'. 
+\if@scoopcompatibility@testing
+\fi

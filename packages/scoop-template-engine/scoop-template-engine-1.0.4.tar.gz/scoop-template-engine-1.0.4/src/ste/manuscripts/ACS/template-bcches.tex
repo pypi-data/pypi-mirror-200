@@ -1,0 +1,458 @@
+% A LaTeX template for submissions to American Chemical Society journals.
+% Derived from achemso-demo.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription aabmcb: ACS Applied Bio Materials>>
+<<TemplateDescription aaembp: ACS Applied Electronic Materials>>
+<<TemplateDescription aaemcq: ACS Applied Energy Materials>>
+<<TemplateDescription aamick: ACS Applied Materials & Interfaces>>
+<<TemplateDescription aanmf6: ACS Applied Nano Materials>>
+<<TemplateDescription aapmcd: ACS Applied Polymer Materials>>
+<<TemplateDescription aastgj: ACS Agricultural Science & Technology>>
+<<TemplateDescription abmcb8: ACS Bio & Med Chem Au>>
+<<TemplateDescription abseba: ACS Biomaterials Science & Engineering>>
+<<TemplateDescription acbcct: ACS Chemical Biology>>
+<<TemplateDescription accacs: ACS Catalysis>>
+<<TemplateDescription achre4: Accounts of Chemical Research>>
+<<TemplateDescription achsc5: ACS Chemical Health & Safety>>
+<<TemplateDescription acncdm: ACS Chemical Neuroscience>>
+<<TemplateDescription acsccc: ACS Combinatorial Science>>
+<<TemplateDescription acscii: ACS Central Science>>
+<<TemplateDescription acsodf: ACS Omega>>
+<<TemplateDescription aeacb3: ACS Engineering>>
+<<TemplateDescription aeacc4: ACS Environmental Au>>
+<<TemplateDescription aeecco: ACS ES&T Engineering>>
+<<TemplateDescription aelccp: ACS Energy Letters>>
+<<TemplateDescription aesccq: ACS Earth and Space Chemistry>>
+<<TemplateDescription aewcaa: ACS ES&T Water>>
+<<TemplateDescription afsthl: ACS Food Science & Technology>>
+<<TemplateDescription aidcbc: ACS Infectious Diseases>>
+<<TemplateDescription amacgu: ACS Materials Au>>
+<<TemplateDescription amachv: ACS Measurement Science Au>>
+<<TemplateDescription amclct: ACS Medicinal Chemistry Letters>>
+<<TemplateDescription amlccd: ACS Macro Letters>>
+<<TemplateDescription amlcef: ACS Materials Letters>>
+<<TemplateDescription amrcda: Accounts of Materials Research>>
+<<TemplateDescription anaccx: ACS Nanoscience Au>>
+<<TemplateDescription ancac3: ACS Nano>>
+<<TemplateDescription ancham: Analytical Chemistry>>
+<<TemplateDescription aoiab5: ACS Organic & Inorganic Au>>
+<<TemplateDescription apaccd: ACS Polymers Au>>
+<<TemplateDescription apcach: ACS Physical Chemistry Au>>
+<<TemplateDescription apchd5: ACS Photonics>>
+<<TemplateDescription aptsfn: ACS Pharmacology & Translational Science>>
+<<TemplateDescription asbcd6: ACS Synthetic Biology>>
+<<TemplateDescription ascecg: ACS Sustainable Chemistry & Engineering>>
+<<TemplateDescription ascefj: ACS Sensors>>
+<<TemplateDescription bcches: Bioconjugate Chemistry>>
+<<TemplateDescription bichaw: Biochemistry>>
+<<TemplateDescription bomaf6: Biomacromolecule//>>
+<<TemplateDescription cgdefu: Crystal Growth & Design>>
+<<TemplateDescription chreay: Chemical Reviews>>
+<<TemplateDescription cmatex: Chemistry of Materials>>
+<<TemplateDescription crtoec: Chemical Research in Toxicology>>
+<<TemplateDescription enfuem: Energy & Fuels>>
+<<TemplateDescription esthag: Environmental Science & Technology>>
+<<TemplateDescription estlcu: Environmental Science & Technology Letters>>
+<<TemplateDescription iecred: Industrial & Engineering Chemistry Research>>
+<<TemplateDescription inocaj: Inorganic Chemistry>>
+<<TemplateDescription jaaucr: JACS Au>>
+<<TemplateDescription jacsat: Journal of the American Chemical Society>>
+<<TemplateDescription jafcau: Journal of Agricultural and Food Chemistry>>
+<<TemplateDescription jamsef: Journal of the American Society for Mass Spectrometry>>
+<<TemplateDescription jceaax: Journal of Chemical & Engineering Data>>
+<<TemplateDescription jceda8: Journal of Chemical Education>>
+<<TemplateDescription jcisd8: Journal of Chemical Information and Modeling>>
+<<TemplateDescription jctcce: Journal of Chemical Theory and Computation>>
+<<TemplateDescription jmcmar: Journal of Medicinal Chemistry>>
+<<TemplateDescription jnprdf: Journal of Natural Products>>
+<<TemplateDescription joceah: The Journal of Organic Chemistry>>
+<<TemplateDescription jpcafh: The Journal of Physical Chemistry A>>
+<<TemplateDescription jpcbfk: The Journal of Physical Chemistry B>>
+<<TemplateDescription jpccck: The Journal of Physical Chemistry C>>
+<<TemplateDescription jpclcd: The Journal of Physical Chemistry Letters>>
+<<TemplateDescription jprobs: Journal of Proteome Research>>
+<<TemplateDescription langd5: Langmuir>>
+<<TemplateDescription mamobx: Macromolecules>>
+<<TemplateDescription mpohbp: Molecular Pharmaceutics>>
+<<TemplateDescription nalefd: Nano Letters>>
+<<TemplateDescription oprdfk: Organic Process Research & Development>>
+<<TemplateDescription orgnd7: Organometallics>>
+<<TemplateDescription orlef7: Organic Letters>>
+<<% >>
+<<Dependency: achemso.cls>>
+<<% >>
+<<Dependency aabmcb: achemso.bst>>
+<<Dependency aaembp: achemso-aaembp.cfg>>
+<<Dependency aaembp: achemso.bst>>
+<<Dependency aaemcq: achemso-aaemcq.cfg>>
+<<Dependency aaemcq: achemso.bst>>
+<<Dependency aamick: achemso-aamick.cfg>>
+<<Dependency aamick: achemso.bst>>
+<<Dependency aanmf6: achemso-aanmf6.cfg>>
+<<Dependency aanmf6: achemso.bst>>
+<<Dependency aapmcd: achemso-aapmcd.cfg>>
+<<Dependency aapmcd: achemso.bst>>
+<<Dependency aastgj: achemso-aastgj.cfg>>
+<<Dependency aastgj: achemso.bst>>
+<<Dependency abmcb8: achemso-abmcb8.cfg>>
+<<Dependency abmcb8: achemso.bst>>
+<<Dependency abseba: achemso-abseba.cfg>>
+<<Dependency abseba: achemso.bst>>
+<<Dependency acbcct: achemso-acbcct.cfg>>
+<<Dependency acbcct: biochem.bst>>
+<<Dependency accacs: achemso-accacs.cfg>>
+<<Dependency accacs: achemso.bst>>
+<<Dependency achre4: achemso-achre4.cfg>>
+<<Dependency achre4: achemso.bst>>
+<<Dependency achsc5: achemso.bst>>
+<<Dependency acncdm: achemso-acncdm.cfg>>
+<<Dependency acncdm: biochem.bst>>
+<<Dependency acsccc: achemso-acsccc.cfg>>
+<<Dependency acsccc: achemso.bst>>
+<<Dependency acscii: achemso-acscii.cfg>>
+<<Dependency acscii: achemso.bst>>
+<<Dependency acsodf: achemso-acsodf.cfg>>
+<<Dependency acsodf: achemso.bst>>
+<<Dependency aeacb3: achemso-aeacb3.cfg>>
+<<Dependency aeacb3: achemso.bst>>
+<<Dependency aeacc4: achemso-aeacc4.cfg>>
+<<Dependency aeacc4: achemso.bst>>
+<<Dependency aeecco: achemso-aeecco.cfg>>
+<<Dependency aeecco: achemso.bst>>
+<<Dependency aelccp: achemso-aelccp.cfg>>
+<<Dependency aelccp: achemso.bst>>
+<<Dependency aesccq: achemso-aesccq.cfg>>
+<<Dependency aesccq: achemso.bst>>
+<<Dependency aewcaa: achemso-aewcaa.cfg>>
+<<Dependency aewcaa: achemso.bst>>
+<<Dependency afsthl: achemso-afsthl.cfg>>
+<<Dependency afsthl: achemso.bst>>
+<<Dependency aidcbc: achemso-aidcbc.cfg>>
+<<Dependency aidcbc: achemso.bst>>
+<<Dependency amacgu: achemso-amacgu.cfg>>
+<<Dependency amacgu: achemso.bst>>
+<<Dependency amachv: achemso-amachv.cfg>>
+<<Dependency amachv: achemso.bst>>
+<<Dependency amclct: achemso-amclct.cfg>>
+<<Dependency amclct: achemso.bst>>
+<<Dependency amlccd: achemso-amlccd.cfg>>
+<<Dependency amlccd: achemso.bst>>
+<<Dependency amlcef: achemso-amlcef.cfg>>
+<<Dependency amlcef: achemso.bst>>
+<<Dependency amrcda: achemso-amrcda.cfg>>
+<<Dependency amrcda: achemso.bst>>
+<<Dependency anaccx: achemso-anaccx.cfg>>
+<<Dependency anaccx: achemso.bst>>
+<<Dependency ancac3: achemso-ancac3.cfg>>
+<<Dependency ancac3: achemso.bst>>
+<<Dependency ancham: achemso-ancham.cfg>>
+<<Dependency ancham: achemso.bst>>
+<<Dependency aoiab5: achemso-aoiab5.cfg>>
+<<Dependency aoiab5: achemso.bst>>
+<<Dependency apaccd: achemso-apaccd.cfg>>
+<<Dependency apaccd: achemso.bst>>
+<<Dependency apcach: achemso-apcach.cfg>>
+<<Dependency apcach: achemso.bst>>
+<<Dependency apchd5: achemso-apchd5.cfg>>
+<<Dependency apchd5: achemso.bst>>
+<<Dependency aptsfn: achemso.bst>>
+<<Dependency asbcd6: achemso-asbcd6.cfg>>
+<<Dependency asbcd6: biochem.bst>>
+<<Dependency ascecg: achemso-ascecg.cfg>>
+<<Dependency ascecg: achemso.bst>>
+<<Dependency ascefj: achemso-ascefj.cfg>>
+<<Dependency ascefj: achemso.bst>>
+<<Dependency bcches: achemso-bcches.cfg>>
+<<Dependency bcches: biochem.bst>>
+<<Dependency bichaw: achemso-bichaw.cfg>>
+<<Dependency bichaw: biochem.bst>>
+<<Dependency bomaf6: achemso-bomaf6.cfg>>
+<<Dependency bomaf6: achemso.bst>>
+<<Dependency cgdefu: achemso-cgdefu.cfg>>
+<<Dependency cgdefu: achemso.bst>>
+<<Dependency chreay: achemso-chreay.cfg>>
+<<Dependency chreay: achemso.bst>>
+<<Dependency cmatex: achemso-cmatex.cfg>>
+<<Dependency cmatex: achemso.bst>>
+<<Dependency crtoec: achemso-crtoec.cfg>>
+<<Dependency crtoec: biochem.bst>>
+<<Dependency enfuem: achemso-enfuem.cfg>>
+<<Dependency enfuem: achemso.bst>>
+<<Dependency esthag: achemso-esthag.cfg>>
+<<Dependency esthag: achemso.bst>>
+<<Dependency estlcu: achemso-estlcu.cfg>>
+<<Dependency estlcu: achemso.bst>>
+<<Dependency iecred: achemso-iecred.cfg>>
+<<Dependency iecred: achemso.bst>>
+<<Dependency inocaj: achemso-inocaj.cfg>>
+<<Dependency inocaj: achemso.bst>>
+<<Dependency jaaucr: achemso-jaaucr.cfg>>
+<<Dependency jaaucr: achemso.bst>>
+<<Dependency jacsat: achemso-jacsat.cfg>>
+<<Dependency jacsat: achemso.bst>>
+<<Dependency jafcau: achemso-jafcau.cfg>>
+<<Dependency jafcau: achemso.bst>>
+<<Dependency jamsef: achemso.bst>>
+<<Dependency jceaax: achemso-jceaax.cfg>>
+<<Dependency jceaax: achemso.bst>>
+<<Dependency jceda8: achemso-jceda8.cfg>>
+<<Dependency jceda8: achemso.bst>>
+<<Dependency jcisd8: achemso-jcisd8.cfg>>
+<<Dependency jcisd8: achemso.bst>>
+<<Dependency jctcce: achemso-jctcce.cfg>>
+<<Dependency jctcce: achemso.bst>>
+<<Dependency jmcmar: achemso-jmcmar.cfg>>
+<<Dependency jmcmar: achemso.bst>>
+<<Dependency jnprdf: achemso-jnprdf.cfg>>
+<<Dependency jnprdf: achemso.bst>>
+<<Dependency joceah: achemso-joceah.cfg>>
+<<Dependency joceah: achemso.bst>>
+<<Dependency jpcafh: achemso-jpcafh.cfg>>
+<<Dependency jpcafh: achemso.bst>>
+<<Dependency jpcbfk: achemso-jpcbfk.cfg>>
+<<Dependency jpcbfk: achemso.bst>>
+<<Dependency jpccck: achemso-jpccck.cfg>>
+<<Dependency jpccck: achemso.bst>>
+<<Dependency jpclcd: achemso-jpclcd.cfg>>
+<<Dependency jpclcd: achemso.bst>>
+<<Dependency jprobs: achemso-jprobs.cfg>>
+<<Dependency jprobs: achemso.bst>>
+<<Dependency langd5: achemso-langd5.cfg>>
+<<Dependency langd5: achemso.bst>>
+<<Dependency mamobx: achemso-mamobx.cfg>>
+<<Dependency mamobx: achemso.bst>>
+<<Dependency mpohbp: achemso-mpohbp.cfg>>
+<<Dependency mpohbp: achemso.bst>>
+<<Dependency nalefd: achemso-nalefd.cfg>>
+<<Dependency nalefd: achemso.bst>>
+<<Dependency oprdfk: achemso-oprdfk.cfg>>
+<<Dependency oprdfk: achemso.bst>>
+<<Dependency orgnd7: achemso-orgnd7.cfg>>
+<<Dependency orgnd7: achemso.bst>>
+<<Dependency orlef7: achemso-orlef7.cfg>>
+<<Dependency orlef7: achemso.bst>>
+<<% >>
+<<Dependency aabmcb: prepreamble-aabmcb.sty>>
+<<Dependency aabmcb: postpreamble-aabmcb.sty>>
+<<Dependency aaembp: prepreamble-aaembp.sty>>
+<<Dependency aaembp: postpreamble-aaembp.sty>>
+<<Dependency aaemcq: prepreamble-aaemcq.sty>>
+<<Dependency aaemcq: postpreamble-aaemcq.sty>>
+<<Dependency aamick: prepreamble-aamick.sty>>
+<<Dependency aamick: postpreamble-aamick.sty>>
+<<Dependency aanmf6: prepreamble-aanmf6.sty>>
+<<Dependency aanmf6: postpreamble-aanmf6.sty>>
+<<Dependency aapmcd: prepreamble-aapmcd.sty>>
+<<Dependency aapmcd: postpreamble-aapmcd.sty>>
+<<Dependency aastgj: prepreamble-aastgj.sty>>
+<<Dependency aastgj: postpreamble-aastgj.sty>>
+<<Dependency abmcb8: prepreamble-abmcb8.sty>>
+<<Dependency abmcb8: postpreamble-abmcb8.sty>>
+<<Dependency abseba: prepreamble-abseba.sty>>
+<<Dependency abseba: postpreamble-abseba.sty>>
+<<Dependency acbcct: prepreamble-acbcct.sty>>
+<<Dependency acbcct: postpreamble-acbcct.sty>>
+<<Dependency accacs: prepreamble-accacs.sty>>
+<<Dependency accacs: postpreamble-accacs.sty>>
+<<Dependency achre4: prepreamble-achre4.sty>>
+<<Dependency achre4: postpreamble-achre4.sty>>
+<<Dependency achsc5: prepreamble-achsc5.sty>>
+<<Dependency achsc5: postpreamble-achsc5.sty>>
+<<Dependency acncdm: prepreamble-acncdm.sty>>
+<<Dependency acncdm: postpreamble-acncdm.sty>>
+<<Dependency acsccc: prepreamble-acsccc.sty>>
+<<Dependency acsccc: postpreamble-acsccc.sty>>
+<<Dependency acscii: prepreamble-acscii.sty>>
+<<Dependency acscii: postpreamble-acscii.sty>>
+<<Dependency acsodf: prepreamble-acsodf.sty>>
+<<Dependency acsodf: postpreamble-acsodf.sty>>
+<<Dependency aeacb3: prepreamble-aeacb3.sty>>
+<<Dependency aeacb3: postpreamble-aeacb3.sty>>
+<<Dependency aeacc4: prepreamble-aeacc4.sty>>
+<<Dependency aeacc4: postpreamble-aeacc4.sty>>
+<<Dependency aeecco: prepreamble-aeecco.sty>>
+<<Dependency aeecco: postpreamble-aeecco.sty>>
+<<Dependency aelccp: prepreamble-aelccp.sty>>
+<<Dependency aelccp: postpreamble-aelccp.sty>>
+<<Dependency aesccq: prepreamble-aesccq.sty>>
+<<Dependency aesccq: postpreamble-aesccq.sty>>
+<<Dependency aewcaa: prepreamble-aewcaa.sty>>
+<<Dependency aewcaa: postpreamble-aewcaa.sty>>
+<<Dependency afsthl: prepreamble-afsthl.sty>>
+<<Dependency afsthl: postpreamble-afsthl.sty>>
+<<Dependency aidcbc: prepreamble-aidcbc.sty>>
+<<Dependency aidcbc: postpreamble-aidcbc.sty>>
+<<Dependency amacgu: prepreamble-amacgu.sty>>
+<<Dependency amacgu: postpreamble-amacgu.sty>>
+<<Dependency amachv: prepreamble-amachv.sty>>
+<<Dependency amachv: postpreamble-amachv.sty>>
+<<Dependency amclct: prepreamble-amclct.sty>>
+<<Dependency amclct: postpreamble-amclct.sty>>
+<<Dependency amlccd: prepreamble-amlccd.sty>>
+<<Dependency amlccd: postpreamble-amlccd.sty>>
+<<Dependency amlcef: prepreamble-amlcef.sty>>
+<<Dependency amlcef: postpreamble-amlcef.sty>>
+<<Dependency amrcda: prepreamble-amrcda.sty>>
+<<Dependency amrcda: postpreamble-amrcda.sty>>
+<<Dependency anaccx: prepreamble-anaccx.sty>>
+<<Dependency anaccx: postpreamble-anaccx.sty>>
+<<Dependency ancac3: prepreamble-ancac3.sty>>
+<<Dependency ancac3: postpreamble-ancac3.sty>>
+<<Dependency ancham: prepreamble-ancham.sty>>
+<<Dependency ancham: postpreamble-ancham.sty>>
+<<Dependency aoiab5: prepreamble-aoiab5.sty>>
+<<Dependency aoiab5: postpreamble-aoiab5.sty>>
+<<Dependency apaccd: prepreamble-apaccd.sty>>
+<<Dependency apaccd: postpreamble-apaccd.sty>>
+<<Dependency apcach: prepreamble-apcach.sty>>
+<<Dependency apcach: postpreamble-apcach.sty>>
+<<Dependency apchd5: prepreamble-apchd5.sty>>
+<<Dependency apchd5: postpreamble-apchd5.sty>>
+<<Dependency aptsfn: prepreamble-aptsfn.sty>>
+<<Dependency aptsfn: postpreamble-aptsfn.sty>>
+<<Dependency asbcd6: prepreamble-asbcd6.sty>>
+<<Dependency asbcd6: postpreamble-asbcd6.sty>>
+<<Dependency ascecg: prepreamble-ascecg.sty>>
+<<Dependency ascecg: postpreamble-ascecg.sty>>
+<<Dependency ascefj: prepreamble-ascefj.sty>>
+<<Dependency ascefj: postpreamble-ascefj.sty>>
+<<Dependency bcches: prepreamble-bcches.sty>>
+<<Dependency bcches: postpreamble-bcches.sty>>
+<<Dependency bichaw: prepreamble-bichaw.sty>>
+<<Dependency bichaw: postpreamble-bichaw.sty>>
+<<Dependency bomaf6: prepreamble-bomaf6.sty>>
+<<Dependency bomaf6: postpreamble-bomaf6.sty>>
+<<Dependency cgdefu: prepreamble-cgdefu.sty>>
+<<Dependency cgdefu: postpreamble-cgdefu.sty>>
+<<Dependency chreay: prepreamble-chreay.sty>>
+<<Dependency chreay: postpreamble-chreay.sty>>
+<<Dependency cmatex: prepreamble-cmatex.sty>>
+<<Dependency cmatex: postpreamble-cmatex.sty>>
+<<Dependency crtoec: prepreamble-crtoec.sty>>
+<<Dependency crtoec: postpreamble-crtoec.sty>>
+<<Dependency enfuem: prepreamble-enfuem.sty>>
+<<Dependency enfuem: postpreamble-enfuem.sty>>
+<<Dependency esthag: prepreamble-esthag.sty>>
+<<Dependency esthag: postpreamble-esthag.sty>>
+<<Dependency estlcu: prepreamble-estlcu.sty>>
+<<Dependency estlcu: postpreamble-estlcu.sty>>
+<<Dependency iecred: prepreamble-iecred.sty>>
+<<Dependency iecred: postpreamble-iecred.sty>>
+<<Dependency inocaj: prepreamble-inocaj.sty>>
+<<Dependency inocaj: postpreamble-inocaj.sty>>
+<<Dependency jaaucr: prepreamble-jaaucr.sty>>
+<<Dependency jaaucr: postpreamble-jaaucr.sty>>
+<<Dependency jacsat: prepreamble-jacsat.sty>>
+<<Dependency jacsat: postpreamble-jacsat.sty>>
+<<Dependency jafcau: prepreamble-jafcau.sty>>
+<<Dependency jafcau: postpreamble-jafcau.sty>>
+<<Dependency jamsef: prepreamble-jamsef.sty>>
+<<Dependency jamsef: postpreamble-jamsef.sty>>
+<<Dependency jceaax: prepreamble-jceaax.sty>>
+<<Dependency jceaax: postpreamble-jceaax.sty>>
+<<Dependency jceda8: prepreamble-jceda8.sty>>
+<<Dependency jceda8: postpreamble-jceda8.sty>>
+<<Dependency jcisd8: prepreamble-jcisd8.sty>>
+<<Dependency jcisd8: postpreamble-jcisd8.sty>>
+<<Dependency jctcce: prepreamble-jctcce.sty>>
+<<Dependency jctcce: postpreamble-jctcce.sty>>
+<<Dependency jmcmar: prepreamble-jmcmar.sty>>
+<<Dependency jmcmar: postpreamble-jmcmar.sty>>
+<<Dependency jnprdf: prepreamble-jnprdf.sty>>
+<<Dependency jnprdf: postpreamble-jnprdf.sty>>
+<<Dependency joceah: prepreamble-joceah.sty>>
+<<Dependency joceah: postpreamble-joceah.sty>>
+<<Dependency jpcafh: prepreamble-jpcafh.sty>>
+<<Dependency jpcafh: postpreamble-jpcafh.sty>>
+<<Dependency jpcbfk: prepreamble-jpcbfk.sty>>
+<<Dependency jpcbfk: postpreamble-jpcbfk.sty>>
+<<Dependency jpccck: prepreamble-jpccck.sty>>
+<<Dependency jpccck: postpreamble-jpccck.sty>>
+<<Dependency jpclcd: prepreamble-jpclcd.sty>>
+<<Dependency jpclcd: postpreamble-jpclcd.sty>>
+<<Dependency jprobs: prepreamble-jprobs.sty>>
+<<Dependency jprobs: postpreamble-jprobs.sty>>
+<<Dependency langd5: prepreamble-langd5.sty>>
+<<Dependency langd5: postpreamble-langd5.sty>>
+<<Dependency mamobx: prepreamble-mamobx.sty>>
+<<Dependency mamobx: postpreamble-mamobx.sty>>
+<<Dependency mpohbp: prepreamble-mpohbp.sty>>
+<<Dependency mpohbp: postpreamble-mpohbp.sty>>
+<<Dependency nalefd: prepreamble-nalefd.sty>>
+<<Dependency nalefd: postpreamble-nalefd.sty>>
+<<Dependency oprdfk: prepreamble-oprdfk.sty>>
+<<Dependency oprdfk: postpreamble-oprdfk.sty>>
+<<Dependency orgnd7: prepreamble-orgnd7.sty>>
+<<Dependency orgnd7: postpreamble-orgnd7.sty>>
+<<Dependency orlef7: prepreamble-orlef7.sty>>
+<<Dependency orlef7: postpreamble-orlef7.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --onlinetotechreport --proceedingstocollection --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+journal = <<TemplateBaseName>>,
+manuscript = article,
+layout = twocolumn,
+<<DocumentClassOptions>>]{achemso}
+
+% Turn on section numbering.
+\SectionNumbersOn
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Set title and subtitle information.
+\title[<<ShortTitle>>]{<<TitleNewlineSubTitle>><<DedicationFootnote>>}
+
+% Set author information.
+<<AuthorsInstitutionsACS>>
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+\begin{document}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the document body.
+<<InputBody>>
+
+% Set funding information.
+<<FundingAcknowledgementEnvironment>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+<<CustomBibliography>>
+
+\end{document}

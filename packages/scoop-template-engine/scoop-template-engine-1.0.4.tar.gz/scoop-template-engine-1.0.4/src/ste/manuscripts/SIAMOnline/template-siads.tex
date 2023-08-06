@@ -1,0 +1,103 @@
+% A LaTeX template for submissions to SIAM online journals.
+% Derived from ex_article.tex and ex_shared.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription juq:    SIAM/ASA Journal on Uncertainty Quantification>>
+<<TemplateDescription siads:  SIAM Journal on Applied Dynamical Systems>>
+<<TemplateDescription siaga:  SIAM Journal on Applied Algebra and Geometry>>
+<<TemplateDescription sifin:  SIAM Journal on Financial Mathematics>>
+<<TemplateDescription siims:  SIAM Journal on Imaging Sciences>>
+<<TemplateDescription simods: SIAM Journal on Mathematics of Data Science>>
+<<% >>
+<<Dependency: siamonline220329.cls>>
+<<Dependency: siamplain.bst>>
+<<% >>
+<<Dependency juq:     postpreamble-juq.sty>>
+<<Dependency siads:   postpreamble-siads.sty>>
+<<Dependency siaga:   postpreamble-siaga.sty>>
+<<Dependency sifin:   postpreamble-sifin.sty>>
+<<Dependency siims:   postpreamble-siims.sty>>
+<<Dependency simods:  postpreamble-simods.sty>>
+<<% >>
+<<CreateCustomBibliography: --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+review,
+onefignum,
+onetabnum,
+<<DocumentClassOptions>>]{siamonline220329}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Add a serial/Oxford comma by default.
+\newcommand{\creflastconjunction}{, and~}
+
+% Set running headers.
+\headers{<<ShortTitle>>}{<<AuthorsShortNamesCommaSeparatedLastCommaAnd>>}
+
+% Set title, subtitle and funding information.
+\title{<<TitleNewlineSubTitle>>\thanks{Submitted to the editors DATE.\funding{<<Funding>>}}}
+
+% Set author information.
+\author{%
+<<AuthorsInstitutionsSIAM>>
+}
+
+% Insert the dedication information.
+<<DedicationCommand>>
+
+\begin{document}
+\maketitle
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\begin{keywords}
+<<KeywordsCommaSeparated>>
+\end{keywords}
+
+% Insert the Mathematics Subject Classification.
+\begin{MSCcodes}
+<<MSC>>
+\end{MSCcodes}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{siamplain}
+<<CustomBibliography>>
+
+\end{document}

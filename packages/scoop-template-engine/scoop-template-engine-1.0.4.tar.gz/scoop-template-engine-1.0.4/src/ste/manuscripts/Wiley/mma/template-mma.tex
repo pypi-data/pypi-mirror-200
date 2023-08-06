@@ -1,0 +1,97 @@
+% A LaTeX template for submissions to 
+% Mathematical Methods in the Applied Sciences (MMA)
+% Derived from wileyNJD-AMA.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription mma: Mathematical Methods in the Applied Sciences>>
+<<% >>
+<<Dependency: WileyNJD-v2-mma.cls>>
+<<Dependency: WileyNJD-VANCOUVER.bst>>
+<<Dependency: postpreamble-mma.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitourl --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+% NOTE
+% The template wileyNJD-AMA.tex uses the 'AMA' documentclass option, which results in 
+% the bibliography style WileyNJD-AMA.bst being used. This, however, requires a number of
+% non-standard fields to be set for various entry types.
+% Therefore, we resort to the WileyNJD-VANCOUVER.bst style, which is also used, e.g., by
+% the Numerical Linear Algebra and Applications (NLA) template.
+\documentclass[%
+VANCOUVER,
+STIX1COL,
+proof,
+<<DocumentClassOptions>>]{WileyNJD-v2-mma}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Set article type.
+\articletype{Original Paper}
+
+% Set relevant dates.
+\received{TBD}
+\revised{TBD}
+\accepted{TBD}
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set title, subtitle and funding information.
+\title{<<TitleNewlineSubTitle>>\protect<<FundingThanks>>}
+
+% Set author information.
+<<AuthorsInstitutionsWiley>>
+\authormark{<<AuthorsFamilyNamesCommaSeparatedLastAnd>>}
+
+% Insert the abstract.
+\abstract[Abstract]{
+%
+<<InputAbstract>>
+}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert how-to-cite info.
+\jnlcitation{\cname{<<ShortAuthorsWiley>>}, (\cyear{TBD}), \ctitle{<<Title>>}, \cjournal{\detokenize{<<JournalName>>}}, \cvol{TBD}.}
+
+\maketitle
+
+% Insert the dedication information.
+<<DedicationFootnoteText>>
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+<<CustomBibliographyWithoutExtension>>
+
+\end{document}

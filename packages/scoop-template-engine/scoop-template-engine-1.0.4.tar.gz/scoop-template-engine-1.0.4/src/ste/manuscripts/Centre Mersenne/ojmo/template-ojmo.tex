@@ -1,0 +1,91 @@
+% A LaTeX template for submissions to Open Journal of Mathematical Optimization (OJMO).
+% Derived from ojmo-sample.tex.
+<<MinimumVersion: 1.0.4>>
+<<% >>
+<<TemplateDescription: Open Journal of Mathematical Optimization>>
+<<% >>
+<<Dependency: cedram.cls>>
+<<Dependency: cedram-OJMO.clo>>
+<<Dependency: cedram-OJMO.sty>>
+<<Dependency: cedram-graphics.sty>>
+<<Dependency: plain+eid.bst>>
+<<Dependency: cc-by.pdf>>
+<<Dependency: ojmo_logo.png>>
+<<Dependency: preamble-ojmo.sty>>
+<<Dependency: postpreamble-ojmo.sty>>
+<<% >>
+<<CreateCustomBibliography: --doitonote --giveninits --haltotypeornote --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+OJMO,
+Unicode,
+english,
+manuscript,
+<<DocumentClassOptions>>]{cedram}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Set title and subtitle.
+\title[<<ShortTitle>>]{<<TitleNewlineSubTitle>>}
+
+% Set author information.
+<<AuthorsInstitutionsOJMO>>
+
+% Set funding information.
+<<FundingThanks>>
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert the Mathematics Subject Classification.
+\subjclass{<<MSC>>}
+
+% Set dedication information.
+\dedicatory{<<Dedication>>}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+\begin{document}
+\selectlanguage{english}
+\maketitle
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{plain+eid}
+<<CustomBibliography>>
+
+\end{document}

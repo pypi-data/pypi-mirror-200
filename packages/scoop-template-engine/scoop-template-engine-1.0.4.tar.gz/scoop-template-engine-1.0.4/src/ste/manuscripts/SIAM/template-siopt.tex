@@ -1,0 +1,115 @@
+% A LaTeX template for submissions to SIAM print journals.
+% Derived from ex_article.tex and ex_shared.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription mms:     Multiscale Modeling and Simulation>>
+<<TemplateDescription siap:    SIAM Journal on Applied Mathematics>>
+<<TemplateDescription sicomp:  SIAM Journal on Computing>>
+<<TemplateDescription sicon:   SIAM Journal on Control and Optimization>>
+<<TemplateDescription sidma:   SIAM Journal on Discrete Mathematics>>
+<<TemplateDescription sima:    SIAM Journal on Mathematical Analysis>>
+<<TemplateDescription simax:   SIAM Journal on Matrix Analysis and Applications>>
+<<TemplateDescription sinum:   SIAM Journal on Numerical Analysis>>
+<<TemplateDescription siopt:   SIAM Journal on Optimization>>
+<<TemplateDescription sirev:   SIAM Review>>
+<<TemplateDescription sisc:    SIAM Journal on Scientific Computing>>
+<<TemplateDescription tvp:     Theory of Probability and its Applications>>
+<<% >>
+<<Dependency: siamart220329.cls>>
+<<Dependency: siamplain.bst>>
+<<% >>
+<<Dependency mms:     postpreamble-mms.sty>>
+<<Dependency siap:    postpreamble-siap.sty>>
+<<Dependency sicomp:  postpreamble-sicomp.sty>>
+<<Dependency sicon:   postpreamble-sicon.sty>>
+<<Dependency sidma:   postpreamble-sidma.sty>>
+<<Dependency sima:    postpreamble-sima.sty>>
+<<Dependency simax:   postpreamble-simax.sty>>
+<<Dependency sinum:   postpreamble-sinum.sty>>
+<<Dependency siopt:   postpreamble-siopt.sty>>
+<<Dependency sirev:   postpreamble-sirev.sty>>
+<<Dependency sisc:    postpreamble-sisc.sty>>
+<<Dependency tvp:     postpreamble-tvp.sty>>
+<<% >>
+<<CreateCustomBibliography: --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+review,
+onefignum,
+onetabnum,
+<<DocumentClassOptions>>]{siamart220329}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Add a serial/Oxford comma by default.
+\newcommand{\creflastconjunction}{, and~}
+
+% Set running headers.
+\headers{<<ShortTitle>>}{<<AuthorsShortNamesCommaSeparatedLastCommaAnd>>}
+
+% Set title, subtitle and funding information.
+\title{<<TitleNewlineSubTitle>>\thanks{Submitted to the editors DATE.\funding{<<Funding>>}}}
+
+% Set author information.
+\author{%
+<<AuthorsInstitutionsSIAM>>
+}
+
+\begin{document}
+\maketitle
+
+% Insert the dedication information.
+<<DedicationVerse>>
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\begin{keywords}
+<<KeywordsCommaSeparated>>
+\end{keywords}
+
+% Insert the Mathematics Subject Classification.
+\begin{MSCcodes}
+<<MSC>>
+\end{MSCcodes}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{siamplain}
+<<CustomBibliography>>
+
+\end{document}
