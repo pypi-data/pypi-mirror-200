@@ -1,0 +1,1 @@
+# osmosispy/proto/tendermint/types

@@ -1,0 +1,1 @@
+# osmosispy/proto/cosmos/auth/v1beta1

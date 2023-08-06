@@ -1,0 +1,1 @@
+# osmosispy/proto/osmosis/gamm/v1beta1

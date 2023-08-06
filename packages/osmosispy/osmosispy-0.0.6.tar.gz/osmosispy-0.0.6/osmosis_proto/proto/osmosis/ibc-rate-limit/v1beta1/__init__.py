@@ -1,0 +1,1 @@
+# osmosispy/proto/osmosis/ibc-rate-limit/v1beta1

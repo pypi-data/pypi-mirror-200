@@ -1,0 +1,1 @@
+# osmosispy/proto/cosmos/staking/v1beta1
