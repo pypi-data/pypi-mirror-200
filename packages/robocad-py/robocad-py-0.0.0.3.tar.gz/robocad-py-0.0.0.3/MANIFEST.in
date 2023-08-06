@@ -1,0 +1,3 @@
+recursive-include pycad *.py
+recursive-include robocadSim *.py
+include CHANGELOG.md LICENSE robocad.py
