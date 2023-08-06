@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "transon"
+version = "0.0.4"
+description = "Homogenous JSON template engine"
+authors = ["Eugene Chernyshov <chernyshov.eugene@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+
+[tool.poetry.group.dev.dependencies]
+exceptiongroup = { version = "*", python = "<3.11" }
+pytest = "*"
+pytest-subtests = "*"
+pytest-cov = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
