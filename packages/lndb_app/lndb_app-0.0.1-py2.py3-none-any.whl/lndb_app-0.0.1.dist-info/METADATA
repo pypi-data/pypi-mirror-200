@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: lndb_app
+Version: 0.0.1
+Summary: Web app to interact with Lamin instances.
+Author-email: Lamin Labs <laminlabs@gmail.com>
+Description-Content-Type: text/markdown
+Requires-Dist: nbproject
+Requires-Dist: lamindb
+Requires-Dist: lndb
+Requires-Dist: pre-commit ; extra == "dev"
+Requires-Dist: nox ; extra == "dev"
+Requires-Dist: pytest>=6.0 ; extra == "test"
+Requires-Dist: pytest-cov ; extra == "test"
+Project-URL: Home, https://github.com/laminlabs/lndb-app
+Provides-Extra: dev
+Provides-Extra: test
+
+# lndb-app: Web app to interact with Lamin instances
+
+## Init
+
+Install package
+
+```
+pip install .
+```
+
+then
+
+```
+lndb-app init
+```
+
+## Run
+
+```
+lndb-app run
+```
+
+## Stop
+
+```
+lndb-app stop
+```
+
+## Run in dev mode
+
+Make sure [Node](https://nodejs.org/en/download/) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/) are installed.
+
+Install frontend dependencies
+
+```
+(cd lndb-ui && yarn install)
+```
+
+then
+
+```
+lndb-app run-dev
+```
+
