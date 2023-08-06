@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyjs_widgets=self.webpackChunkyjs_widgets||[]).push([[271],{271:(e,s,c)=>{c.r(s),c.d(s,{default:()=>d});const d=c.p+"31d6cfe0d16ae931b73c59d7e0c089c0.js"}}]);
