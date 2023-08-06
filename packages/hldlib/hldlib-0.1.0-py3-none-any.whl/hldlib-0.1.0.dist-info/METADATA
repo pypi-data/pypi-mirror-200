@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: hldlib
+Version: 0.1.0
+Summary: A Python package for working with Hyper Light Drifter files
+Project-URL: Homepage, https://github.com/sakhezech/hldlib
+Author-email: Sakhezech <contact@sakhezech.ru>
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# hldlib
+
+A Python package for working with Hyper Light Drifter files.
+
+## TODO list
+- better documentation
+- make dependencies their own class
+- make room_settings their own class
+- make layer_names their own class
+- make dependencies their own class
+
+## Examples
+[Here.](https://github.com/sakhezech/hldlib/tree/master/examples)
