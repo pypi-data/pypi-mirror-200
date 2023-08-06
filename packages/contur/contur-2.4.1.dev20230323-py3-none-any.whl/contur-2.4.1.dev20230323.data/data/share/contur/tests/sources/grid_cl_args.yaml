@@ -1,0 +1,30 @@
+sm_test:
+  command: contur-smtest
+  
+grid_default:
+  command: contur
+  switches: [s, q]
+  options: {map: contur.map, grid: sources/myscan00}
+
+grid_xsbf:
+  command: contur-extract-xs-bf
+  switches: [-br]
+  args: [sources/myscan00/13TeV/0014]
+
+single_default:
+  command: contur
+  args: [sources/myscan00/13TeV/0014/runpoint_0014.yoda.gz]
+  switches: [s, u]
+  
+contur_plot:
+  command: contur-plot
+  args: [contur_run.db, mZp, cotH]
+
+contur_export:
+  command: contur-export
+  options: {input: sources/contur.map, output: contur.csv}
+
+contur_oracle:
+  command: contur-oracle
+  #options: {wd: sources/oracle}
+  # will test the `start` arg

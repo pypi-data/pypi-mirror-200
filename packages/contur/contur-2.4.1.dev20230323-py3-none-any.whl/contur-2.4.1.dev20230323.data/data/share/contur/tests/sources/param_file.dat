@@ -1,0 +1,28 @@
+#NEW style parameter reading file
+#Based off configObj python template
+[Run]
+generator ='.'
+contur ='.'
+
+[Parameters]
+[[mXm]]
+mode = LIN
+start = 10.0
+stop = 1610.0
+number = 4
+[[mY1]]
+mode = LIN
+start = 10.0
+stop =  3610.0
+number = 4
+[[gYXm]]
+mode = CONST
+value = 1.0
+[[gYq]]
+mode = REL
+form = {mXm}/{mY1}
+[[masscond]]
+mode = CONDITION
+form = {mXm} > 300.0
+
+

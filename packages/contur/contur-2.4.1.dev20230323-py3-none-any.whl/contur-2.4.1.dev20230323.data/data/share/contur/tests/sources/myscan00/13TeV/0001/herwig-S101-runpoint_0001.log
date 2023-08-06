@@ -1,0 +1,812 @@
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>> Toolkit for HEP Event Generation - ThePEG 6bdda104a5a9 (release-2-2) <<<<
+>>>> Sun Mar 12 16:12:19 2023                                             <<<<
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+>> Herwig bcaf0d843f01 (herwig-7-2) / ThePEG 6bdda104a5a9 (release-2-2)
+
+Resetting max weight for decay W+ ->   sbar  c  1  1.29702  80064
+Resetting max weight for decay W+ ->   tau+  nu_tau  0.33  0.567399  78183.1
+Resetting max weight for decay W+ ->   mu+  nu_mu  0.33  1.60436  79177.3
+Resetting max weight for decay W+ ->   tau+  nu_tau  0.567399  1.07097  81236.7
+Resetting max weight for decay W+ ->   dbar  u  1  1.49303  80251.1
+Resetting max weight for decay W+ ->   dbar  u  1.49303  1.86747  78381.1
+Resetting max weight for decay Z0 ->   cbar  c  0.3  1.6057  87462.1
+Resetting max weight for decay Z0 ->   e+  e-  0.1  1.17144  89606.5
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 3.91862) for g to bbar
+Resetting max weight for decay W+ ->   e+  nu_e  0.33  1.05232  81967.3
+Resetting max weight for decay Z0 ->   ubar  u  0.3  1.05426  89305.2
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 2.34899) for g to b
+Resetting max weight for decay W+ ->   sbar  c  1.29702  1.40233  81787.7
+Resetting max weight for decay W- ->   d  cbar  0.05  0.307866  80166.2
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.41846) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.44891) for g to b
+Resetting max weight for decay Z0 ->   tau+  tau-  0.1  0.402215  91982.6
+Resetting max weight for decay Z0 ->   sbar  s  0.43  1.21767  94482.9
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 4.94138) for g to b
+Resetting max weight for decay W+ ->   tau+  nu_tau  1.07097  1.38569  80841.2
+Resetting max weight for decay Z0 ->   nu_taubar  nu_tau  0.2  1.0169  92494.4
+Resetting max weight for decay Z0 ->   bbar  b  0.43  0.908426  90371.2
+Resetting max weight for decay W+ ->   dbar  c  0.307866  0.458342  77223.2
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 3.48234) for g to b
+Resetting max weight for decay Z0 ->   dbar  d  0.43  0.551294  93112.1
+Resetting max weight for decay Delta+ ->   p+  gamma  1.35551  1.64884  1222.99
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.70803) for g to b
+Resetting max weight for decay W- ->   e-  nu_ebar  1.05232  1.3797  97733.1
+Resetting max weight for decay W+ ->   sbar  c  1.40233  1.41481  79664.4
+Resetting max weight for decay W+ ->   e+  nu_e  1.3797  1.43237  80404.8
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 3.50572) for g to b
+Resetting max weight for decay W+ ->   sbar  c  1.41481  1.64427  80292.9
+Resetting max weight for decay Z0 ->   mu+  mu-  0.1  0.343793  89147.4
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.11445) for g to bbar
+Resetting max weight for decay W+ ->   sbar  u  0.05  1.62931  80317
+Resetting max weight for decay W+ ->   tau+  nu_tau  1.38569  1.68433  75469.9
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.00788) for g to bbar
+Resetting max weight for decay Z0 ->   sbar  s  1.21767  1.32843  89048.1
+Resetting max weight for decay Z0 ->   dbar  d  0.551294  0.97654  90691
+Resetting max weight for decay Z0 ->   dbar  d  0.97654  1.28261  90530.2
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.66109) for g to bbar
+Resetting max weight for decay W+ ->   e+  nu_e  1.43237  1.71386  78257.2
+Resetting max weight for decay Z0 ->   bbar  b  0.908426  1.3489  97155.2
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 5.63786) for g to bbar
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.38527) for g to b
+Resetting max weight for decay Z0 ->   mu+  mu-  0.343793  1.21018  95084.5
+Resetting max weight for decay Z0 ->   nu_ebar  nu_e  0.2  1.05254  94904.2
+Resetting max weight for decay Z0 ->   nu_mubar  nu_mu  0.2  0.806961  93191
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 9.86343) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.84322) for g to b
+Resetting max weight for decay Z0 ->   sbar  s  1.32843  1.43077  78411.1
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.64462) for g to bbar
+Resetting max weight for decay W+ ->   mu+  nu_mu  1.60436  1.86027  80841
+Resetting max weight for decay Z0 ->   mu+  mu-  1.21018  1.27566  91920.1
+Resetting max weight for decay Z0 ->   nu_mubar  nu_mu  0.806961  1.30677  93299.2
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 2.30177) for g to bbar
+Resetting max weight for decay Z0 ->   nu_ebar  nu_e  1.05254  1.38051  91324.2
+Resetting max weight for decay Z0 ->   ubar  u  1.05426  1.1458  87190.5
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.16293) for g to b
+Resetting max weight for decay Z0 ->   ubar  u  1.1458  1.47619  91061.4
+Imaginary root for final-state veto in SMTopDecayer::softMatrixElementVeto
+z =  0.420319
+kappa = 0.416264
+xa = 1.40864
+root^2= -0.058347Resetting max weight for decay W+ ->   mu+  nu_mu  1.86027  1.98913  78904
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.07124) for g to b
+Resetting max weight for decay W+ ->   dbar  c  0.458342  1.56686  80571.9
+Imaginary root for final-state veto in SMTopDecayer::softMatrixElementVeto
+z =  0.400582
+kappa = 0.127614
+xa = 1.72393
+root^2= -0.0486747Resetting max weight for decay Z0 ->   dbar  d  1.28261  1.42327  98360.6
+Resetting max weight for decay Z0 ->   bbar  b  1.3489  1.45612  91262.7
+Resetting max weight for decay Z0 ->   sbar  s  1.43077  1.49662  97171.6
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 4.6574) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 2.76722) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.53603) for g to bbar
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 306.142) for g to b
+Resetting max weight for decay W+ ->   sbar  c  1.64427  1.9837  82390.3
+Resetting max weight for decay Z0 ->   nu_taubar  nu_tau  1.0169  1.15152  89265.7
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 3.78722) for g to bbar
+Resetting max weight for decay Z0 ->   nu_taubar  nu_tau  1.15152  1.58946  90955.4
+** An event exception of type ThePEG::Exception occurred while generating event number 16373: 
+HadronSelector::hadronsBelowThreshold() could not find any hadrons containing -4 -4101
+4 4101
+The event will be discarded.
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.16603) for g to b
+** An event exception of type ThePEG::Exception occurred while generating event number 16640: 
+HadronSelector::lightestHadron could not find any hadrons containing 4403 1
+4403 1
+The event will be discarded.
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 3.46447) for g to bbar
+Resetting max weight for decay W+ ->   e+  nu_e  1.71386  1.95583  79257.2
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.71862) for g to b
+Resetting max weight for decay W+ ->   dbar  u  1.86747  1.8986  81272.9
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 12.8109) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.00303) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 4.08771) for g to bbar
+Resetting max weight for decay Z0 ->   nu_mubar  nu_mu  1.30677  1.51209  90720.9
+Resetting max weight for decay Z0 ->   tau+  tau-  0.402215  0.661053  91248.8
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 2.65491) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 3.09164) for g to b
+Resetting max weight for decay Z0 ->   dbar  d  1.42327  1.46475  93815.4
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.26112) for g to b
+Imaginary root for final-state veto in SMTopDecayer::softMatrixElementVeto
+z =  0.430458
+kappa = 0.497932
+xa = 1.32311
+root^2= -0.0324595Resetting max weight for decay Z0 ->   sbar  s  1.49662  1.51306  91719.5
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.73089) for g to bbar
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 7.65674) for g to bbar
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.06844) for g to bbar
+Resetting max weight for decay Z0 ->   e+  e-  1.17144  1.2259  89717.1
+Resetting max weight for decay Z0 ->   nu_taubar  nu_tau  1.58946  1.63432  89540.4
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.01887) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 5.2294) for g to bbar
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.0226) for g to bbar
+Resetting max weight for decay Z0 ->   nu_mubar  nu_mu  1.51209  1.65852  102398
+Resetting max weight for decay Z0 ->   nu_ebar  nu_e  1.38051  1.50515  87996
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.07584) for g to b
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 2.25965) for g to bbar
+Resetting max weight for decay W+ ->   dbar  u  1.8986  2.20802  80734.7
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 1.07549) for g to b
+Resetting max weight for decay W- ->   s  cbar  1.9837  2.03612  82532.5
+PDFVeto warning: Ratio > GtobbbarSudakov:PDFmax (by a factor of 2.51896) for g to bbar
+Resetting max weight for decay Z0 ->   tau+  tau-  0.661053  1.36635  91076.4
+Statistics for the ACDC sampler 'ACDCSampler':
+Number of samplers:               916
+Number of bins:                  5322
+Depth of bins:                     39
+efficiency:                 0.0765049
+Total integrated xsec:    0.000578148
+        error in xsec:    1.55555e-06
+
+The following exception classes were reported in this run:
+ThePEG::Exception eventerror (2 times)
+
+Miscellaneous output from modules to the standard output:
+
+# The decay modes listed below will have spin
+# correlations included when they are generated.
+#
+# Parent: H  Mass (GeV): 120  Total Width (GeV): 0.0066862
+#                                       Partial Width/GeV   BR                  Yes/No
+H->b,bbar;                              0.0053625           0.802025            Yes
+H->c,cbar;                              0.000394181         0.0589545           Yes
+H->tau-,tau+;                           0.000257071         0.038448            Yes
+H->g,g;                                 0.000157882         0.0236131           Yes
+H->W+,ubar,d;                           7.2852e-05          0.0108959           Yes
+H->W-,u,dbar;                           7.2852e-05          0.0108959           Yes
+H->W-,c,sbar;                           7.2492e-05          0.010842            Yes
+H->W+,cbar,s;                           7.2492e-05          0.010842            Yes
+H->W+,nu_ebar,e-;                       2.5566e-05          0.00382371          Yes
+H->W-,nu_e,e+;                          2.5566e-05          0.00382371          Yes
+H->W+,nu_mubar,mu-;                     2.55655e-05         0.00382362          Yes
+H->W-,nu_mu,mu+;                        2.55655e-05         0.00382362          Yes
+H->W+,nu_taubar,tau-;                   2.5314e-05          0.00378601          Yes
+H->W-,nu_tau,tau+;                      2.5314e-05          0.00378601          Yes
+H->gamma,gamma;                         1.09038e-05         0.00163079          Yes
+H->Z0,d,dbar;                           6.46665e-06         0.000967165         Yes
+H->Z0,s,sbar;                           6.46595e-06         0.000967059         Yes
+H->Z0,u,ubar;                           5.0418e-06          0.000754062         Yes
+H->Z0,b,bbar;                           5.04116e-06         0.000753965         Yes
+H->Z0,c,cbar;                           4.91573e-06         0.000735205         Yes
+H->W-,sbar,u;                           3.89555e-06         0.000582626         Yes
+H->W+,s,ubar;                           3.89555e-06         0.000582626         Yes
+H->W-,c,dbar;                           3.87648e-06         0.000579774         Yes
+H->W+,cbar,d;                           3.87648e-06         0.000579774         Yes
+H->Z0,nu_mu,nu_mubar;                   2.88448e-06         0.000431408         Yes
+H->Z0,nu_tau,nu_taubar;                 2.88448e-06         0.000431408         Yes
+H->Z0,nu_e,nu_ebar;                     2.88448e-06         0.000431408         Yes
+H->s,sbar;                              2.49467e-06         0.000373107         Yes
+H->Z0,e-,e+;                            1.45963e-06         0.000218305         Yes
+H->Z0,mu-,mu+;                          1.45937e-06         0.000218266         Yes
+H->Z0,tau-,tau+;                        1.38069e-06         0.000206499         Yes
+H->mu-,mu+;                             9.10059e-07         0.00013611          Yes
+H->W+,b,cbar;                           1.23515e-07         1.84731e-05         Yes
+H->W-,bbar,c;                           1.23515e-07         1.84731e-05         Yes
+H->e-,e+;                               0                   0                   No
+H->d,dbar;                              0                   0                   No
+H->u,ubar;                              0                   0                   No
+H->W-,bbar,u;                           0                   0                   No
+H->W+,b,ubar;                           0                   0                   No
+#
+# Parent: Zp  Mass (GeV): 2333.33  Total Width (GeV): 39.6527
+#                                       Partial Width/GeV   BR                  Yes/No
+Zp->u,ubar;                             13.2184             0.333355            Yes
+Zp->t,tbar;                             13.2159             0.333292            Yes
+Zp->d,dbar;                             6.60921             0.166677            Yes
+Zp->b,bbar;                             6.60914             0.166676            Yes
+Zp->mu-,e+;                             0                   0                   No
+Zp->mu-,mu+;                            0                   0                   No
+Zp->tau+,mu-;                           0                   0                   No
+Zp->e-,e+;                              0                   0                   No
+Zp->mu+,e-;                             0                   0                   No
+Zp->tau+,e-;                            0                   0                   No
+Zp->c,cbar;                             0                   0                   No
+Zp->tbar,c;                             0                   0                   No
+Zp->bbar,s;                             0                   0                   No
+Zp->cbar,u;                             0                   0                   No
+Zp->tbar,u;                             0                   0                   No
+Zp->sbar,d;                             0                   0                   No
+Zp->bbar,d;                             0                   0                   No
+Zp->b,dbar;                             0                   0                   No
+Zp->s,dbar;                             0                   0                   No
+Zp->t,ubar;                             0                   0                   No
+Zp->c,ubar;                             0                   0                   No
+Zp->b,sbar;                             0                   0                   No
+Zp->s,sbar;                             0                   0                   No
+Zp->t,cbar;                             0                   0                   No
+Zp->tau-,e+;                            0                   0                   No
+Zp->tau-,mu+;                           0                   0                   No
+Zp->tau-,tau+;                          0                   0                   No
+#
+#Rivet.AnalysisLoader: WARN  Ignoring duplicate plugin analysis called 'ATLAS_2017_I1627873'
+Rivet.AnalysisLoader: WARN  Ignoring duplicate plugin analysis called 'ATLAS_2022_I2077575'
+Statistics for the UE process: 
+                                       generated    number of    Cross-section
+                                          events     attempts             (nb)
+==============================================================================
+Total:                                    396283       396283      1.50808e+08
+==============================================================================
+Per matrix element breakdown:
+MEQCD2to2Fast                             396283       396283      1.50808e+08
+==============================================================================
+Per parton extractor breakdown:
+MPIExtractor                              396283       396283          150.808
+==============================================================================
+Per incoming partons breakdown:
+d d                                          236          236        0.0898116
+d dbar                                       218          218        0.0829615
+d ubar                                       196          196        0.0745893
+d u                                          337          337         0.128248
+d c                                           62           62        0.0235946
+d cbar                                        74           74        0.0281613
+d sbar                                       111          111        0.0422419
+d s                                          143          143        0.0544197
+d b                                           10           10       0.00380558
+d bbar                                         7            7        0.0026639
+d g                                        10602        10602          4.03467
+dbar d                                       211          211        0.0802976
+dbar dbar                                    112          112        0.0426224
+dbar ubar                                    129          129        0.0490919
+dbar u                                       222          222        0.0844838
+dbar c                                        45           45        0.0171251
+dbar cbar                                     46           46        0.0175056
+dbar sbar                                     73           73        0.0277807
+dbar s                                        83           83        0.0315863
+dbar b                                         8            8       0.00304446
+dbar bbar                                      7            7        0.0026639
+dbar g                                      6212         6212          2.36402
+ubar d                                       186          186        0.0707837
+ubar dbar                                    118          118        0.0449058
+ubar ubar                                    114          114        0.0433836
+ubar u                                       316          316         0.120256
+ubar c                                        42           42        0.0159834
+ubar cbar                                     41           41        0.0156029
+ubar sbar                                     78           78        0.0296835
+ubar s                                        80           80        0.0304446
+ubar b                                         5            5       0.00190279
+ubar bbar                                      3            3       0.00114167
+ubar g                                      6079         6079          2.31341
+u d                                          348          348         0.132434
+u dbar                                       240          240        0.0913338
+u ubar                                       346          346         0.131673
+u u                                          396          396         0.150701
+u c                                          114          114        0.0433836
+u cbar                                       122          122         0.046428
+u sbar                                       166          166        0.0631726
+u s                                          187          187        0.0711643
+u b                                           14           14       0.00532781
+u bbar                                        16           16       0.00608892
+u g                                        15719        15719          5.98198
+c d                                           81           81        0.0308252
+c dbar                                        38           38        0.0144612
+c ubar                                        46           46        0.0175056
+c u                                          127          127        0.0483308
+c c                                           11           11       0.00418613
+c cbar                                        25           25       0.00951394
+c sbar                                        33           33        0.0125584
+c s                                           33           33        0.0125584
+c b                                            1            1      0.000380558
+c bbar                                         3            3       0.00114167
+c g                                         2179         2179         0.829235
+cbar d                                        75           75        0.0285418
+cbar dbar                                     52           52         0.019789
+cbar ubar                                     39           39        0.0148417
+cbar u                                        94           94        0.0357724
+cbar c                                        16           16       0.00608892
+cbar cbar                                     17           17       0.00646948
+cbar sbar                                     25           25       0.00951394
+cbar s                                        25           25       0.00951394
+cbar b                                         4            4       0.00152223
+cbar bbar                                      4            4       0.00152223
+cbar g                                      2120         2120         0.806782
+sbar d                                       131          131         0.049853
+sbar dbar                                     79           79         0.030064
+sbar ubar                                     71           71        0.0270196
+sbar u                                       178          178        0.0677392
+sbar c                                        32           32        0.0121778
+sbar cbar                                     29           29        0.0110362
+sbar sbar                                     52           52         0.019789
+sbar s                                        58           58        0.0220723
+sbar b                                         4            4       0.00152223
+sbar bbar                                      3            3       0.00114167
+sbar g                                      3976         3976           1.5131
+s d                                          116          116        0.0441447
+s dbar                                        81           81        0.0308252
+s ubar                                        96           96        0.0365335
+s u                                          185          185        0.0704031
+s c                                           29           29        0.0110362
+s cbar                                        27           27        0.0102751
+s sbar                                        61           61         0.023214
+s s                                           51           51        0.0194084
+s b                                            4            4       0.00152223
+s bbar                                         3            3       0.00114167
+s g                                         3971         3971          1.51119
+b d                                           10           10       0.00380558
+b dbar                                         4            4       0.00152223
+b ubar                                         6            6       0.00228335
+b u                                           12           12       0.00456669
+b c                                            1            1      0.000380558
+b cbar                                         1            1      0.000380558
+b sbar                                         3            3       0.00114167
+b s                                            2            2      0.000761115
+b b                                            0            0                0
+b bbar                                         2            2      0.000761115
+b g                                          230          230        0.0875282
+bbar d                                         8            8       0.00304446
+bbar dbar                                      9            9       0.00342502
+bbar ubar                                      5            5       0.00190279
+bbar u                                        15           15       0.00570836
+bbar c                                         0            0                0
+bbar cbar                                      0            0                0
+bbar sbar                                      3            3       0.00114167
+bbar s                                         6            6       0.00228335
+bbar b                                         1            1      0.000380558
+bbar bbar                                      2            2      0.000761115
+bbar g                                       236          236        0.0898116
+g d                                        10405        10405           3.9597
+g dbar                                      6214         6214          2.36478
+g ubar                                      6166         6166          2.34652
+g u                                        15760        15760          5.99759
+g c                                         2197         2197         0.836085
+g cbar                                      2124         2124         0.808304
+g sbar                                      3838         3838          1.46058
+g s                                         4020         4020          1.52984
+g b                                          212          212        0.0806782
+g bbar                                       215          215        0.0818199
+g g                                       286417       286417          108.998
+==============================================================================
+Detailed breakdown:
+(MPIExtractor) bbar bbar (MEQCD2to2Fast bbar,bbar->bbar,bbar) 
+                                               2            2          761.115
+(MPIExtractor) bbar cbar (MEQCD2to2Fast cbar,bbar->bbar,cbar) 
+                                               0            0                0
+(MPIExtractor) bbar sbar (MEQCD2to2Fast sbar,bbar->bbar,sbar) 
+                                               3            3          1141.67
+(MPIExtractor) bbar ubar (MEQCD2to2Fast ubar,bbar->bbar,ubar) 
+                                               5            5          1902.79
+(MPIExtractor) bbar dbar (MEQCD2to2Fast dbar,bbar->bbar,dbar) 
+                                               9            9          3425.02
+(MPIExtractor) bbar d (MEQCD2to2Fast d,bbar->bbar,d) 
+                                               8            8          3044.46
+(MPIExtractor) bbar u (MEQCD2to2Fast u,bbar->bbar,u) 
+                                              15           15          5708.36
+(MPIExtractor) bbar s (MEQCD2to2Fast s,bbar->bbar,s) 
+                                               6            6          2283.35
+(MPIExtractor) bbar c (MEQCD2to2Fast c,bbar->bbar,c) 
+                                               0            0                0
+(MPIExtractor) bbar b (MEQCD2to2Fast b,bbar->b,bbar) 
+                                               0            0                0
+(MPIExtractor) bbar b (MEQCD2to2Fast b,bbar->c,cbar) 
+                                               0            0                0
+(MPIExtractor) bbar b (MEQCD2to2Fast b,bbar->d,dbar) 
+                                               0            0                0
+(MPIExtractor) bbar b (MEQCD2to2Fast b,bbar->g,g) 
+                                               1            1          380.558
+(MPIExtractor) bbar b (MEQCD2to2Fast b,bbar->s,sbar) 
+                                               0            0                0
+(MPIExtractor) bbar b (MEQCD2to2Fast b,bbar->u,ubar) 
+                                               0            0                0
+(MPIExtractor) bbar g (MEQCD2to2Fast bbar,g->g,bbar) 
+                                             236          236          89811.6
+(MPIExtractor) cbar bbar (MEQCD2to2Fast cbar,bbar->bbar,cbar) 
+                                               4            4          1522.23
+(MPIExtractor) cbar cbar (MEQCD2to2Fast cbar,cbar->cbar,cbar) 
+                                              17           17          6469.48
+(MPIExtractor) cbar sbar (MEQCD2to2Fast sbar,cbar->cbar,sbar) 
+                                              25           25          9513.94
+(MPIExtractor) cbar ubar (MEQCD2to2Fast ubar,cbar->cbar,ubar) 
+                                              39           39          14841.7
+(MPIExtractor) cbar dbar (MEQCD2to2Fast dbar,cbar->cbar,dbar) 
+                                              52           52            19789
+(MPIExtractor) cbar d (MEQCD2to2Fast d,cbar->cbar,d) 
+                                              75           75          28541.8
+(MPIExtractor) cbar u (MEQCD2to2Fast u,cbar->cbar,u) 
+                                              94           94          35772.4
+(MPIExtractor) cbar s (MEQCD2to2Fast s,cbar->cbar,s) 
+                                              25           25          9513.94
+(MPIExtractor) cbar c (MEQCD2to2Fast c,cbar->b,bbar) 
+                                               0            0                0
+(MPIExtractor) cbar c (MEQCD2to2Fast c,cbar->c,cbar) 
+                                              13           13          4947.25
+(MPIExtractor) cbar c (MEQCD2to2Fast c,cbar->d,dbar) 
+                                               0            0                0
+(MPIExtractor) cbar c (MEQCD2to2Fast c,cbar->g,g) 
+                                               2            2          761.115
+(MPIExtractor) cbar c (MEQCD2to2Fast c,cbar->s,sbar) 
+                                               1            1          380.558
+(MPIExtractor) cbar c (MEQCD2to2Fast c,cbar->u,ubar) 
+                                               0            0                0
+(MPIExtractor) cbar b (MEQCD2to2Fast b,cbar->b,cbar) 
+                                               4            4          1522.23
+(MPIExtractor) cbar g (MEQCD2to2Fast cbar,g->g,cbar) 
+                                            2120         2120           806782
+(MPIExtractor) sbar bbar (MEQCD2to2Fast sbar,bbar->bbar,sbar) 
+                                               3            3          1141.67
+(MPIExtractor) sbar cbar (MEQCD2to2Fast sbar,cbar->cbar,sbar) 
+                                              29           29          11036.2
+(MPIExtractor) sbar sbar (MEQCD2to2Fast sbar,sbar->sbar,sbar) 
+                                              52           52            19789
+(MPIExtractor) sbar ubar (MEQCD2to2Fast ubar,sbar->sbar,ubar) 
+                                              71           71          27019.6
+(MPIExtractor) sbar dbar (MEQCD2to2Fast dbar,sbar->sbar,dbar) 
+                                              79           79            30064
+(MPIExtractor) sbar d (MEQCD2to2Fast d,sbar->sbar,d) 
+                                             131          131            49853
+(MPIExtractor) sbar u (MEQCD2to2Fast u,sbar->sbar,u) 
+                                             178          178          67739.2
+(MPIExtractor) sbar s (MEQCD2to2Fast s,sbar->b,bbar) 
+                                               0            0                0
+(MPIExtractor) sbar s (MEQCD2to2Fast s,sbar->c,cbar) 
+                                               1            1          380.558
+(MPIExtractor) sbar s (MEQCD2to2Fast s,sbar->d,dbar) 
+                                               0            0                0
+(MPIExtractor) sbar s (MEQCD2to2Fast s,sbar->g,g) 
+                                               3            3          1141.67
+(MPIExtractor) sbar s (MEQCD2to2Fast s,sbar->s,sbar) 
+                                              54           54          20550.1
+(MPIExtractor) sbar s (MEQCD2to2Fast s,sbar->u,ubar) 
+                                               0            0                0
+(MPIExtractor) sbar c (MEQCD2to2Fast c,sbar->c,sbar) 
+                                              32           32          12177.8
+(MPIExtractor) sbar b (MEQCD2to2Fast b,sbar->b,sbar) 
+                                               4            4          1522.23
+(MPIExtractor) sbar g (MEQCD2to2Fast sbar,g->g,sbar) 
+                                            3976         3976       1.5131e+06
+(MPIExtractor) ubar bbar (MEQCD2to2Fast ubar,bbar->bbar,ubar) 
+                                               3            3          1141.67
+(MPIExtractor) ubar cbar (MEQCD2to2Fast ubar,cbar->cbar,ubar) 
+                                              41           41          15602.9
+(MPIExtractor) ubar sbar (MEQCD2to2Fast ubar,sbar->sbar,ubar) 
+                                              78           78          29683.5
+(MPIExtractor) ubar ubar (MEQCD2to2Fast ubar,ubar->ubar,ubar) 
+                                             114          114          43383.6
+(MPIExtractor) ubar dbar (MEQCD2to2Fast dbar,ubar->ubar,dbar) 
+                                             118          118          44905.8
+(MPIExtractor) ubar d (MEQCD2to2Fast d,ubar->ubar,d) 
+                                             186          186          70783.7
+(MPIExtractor) ubar u (MEQCD2to2Fast u,ubar->b,bbar) 
+                                               3            3          1141.67
+(MPIExtractor) ubar u (MEQCD2to2Fast u,ubar->c,cbar) 
+                                               9            9          3425.02
+(MPIExtractor) ubar u (MEQCD2to2Fast u,ubar->d,dbar) 
+                                               6            6          2283.35
+(MPIExtractor) ubar u (MEQCD2to2Fast u,ubar->g,g) 
+                                              25           25          9513.94
+(MPIExtractor) ubar u (MEQCD2to2Fast u,ubar->s,sbar) 
+                                               6            6          2283.35
+(MPIExtractor) ubar u (MEQCD2to2Fast u,ubar->u,ubar) 
+                                             267          267           101609
+(MPIExtractor) ubar s (MEQCD2to2Fast s,ubar->s,ubar) 
+                                              80           80          30444.6
+(MPIExtractor) ubar c (MEQCD2to2Fast c,ubar->c,ubar) 
+                                              42           42          15983.4
+(MPIExtractor) ubar b (MEQCD2to2Fast b,ubar->b,ubar) 
+                                               5            5          1902.79
+(MPIExtractor) ubar g (MEQCD2to2Fast ubar,g->g,ubar) 
+                                            6079         6079      2.31341e+06
+(MPIExtractor) dbar bbar (MEQCD2to2Fast dbar,bbar->bbar,dbar) 
+                                               7            7           2663.9
+(MPIExtractor) dbar cbar (MEQCD2to2Fast dbar,cbar->cbar,dbar) 
+                                              46           46          17505.6
+(MPIExtractor) dbar sbar (MEQCD2to2Fast dbar,sbar->sbar,dbar) 
+                                              73           73          27780.7
+(MPIExtractor) dbar ubar (MEQCD2to2Fast dbar,ubar->ubar,dbar) 
+                                             129          129          49091.9
+(MPIExtractor) dbar dbar (MEQCD2to2Fast dbar,dbar->dbar,dbar) 
+                                             112          112          42622.4
+(MPIExtractor) dbar d (MEQCD2to2Fast d,dbar->b,bbar) 
+                                               2            2          761.115
+(MPIExtractor) dbar d (MEQCD2to2Fast d,dbar->c,cbar) 
+                                               3            3          1141.67
+(MPIExtractor) dbar d (MEQCD2to2Fast d,dbar->d,dbar) 
+                                             193          193          73447.6
+(MPIExtractor) dbar d (MEQCD2to2Fast d,dbar->g,g) 
+                                               9            9          3425.02
+(MPIExtractor) dbar d (MEQCD2to2Fast d,dbar->s,sbar) 
+                                               1            1          380.558
+(MPIExtractor) dbar d (MEQCD2to2Fast d,dbar->u,ubar) 
+                                               3            3          1141.67
+(MPIExtractor) dbar u (MEQCD2to2Fast u,dbar->u,dbar) 
+                                             222          222          84483.8
+(MPIExtractor) dbar s (MEQCD2to2Fast s,dbar->s,dbar) 
+                                              83           83          31586.3
+(MPIExtractor) dbar c (MEQCD2to2Fast c,dbar->c,dbar) 
+                                              45           45          17125.1
+(MPIExtractor) dbar b (MEQCD2to2Fast b,dbar->b,dbar) 
+                                               8            8          3044.46
+(MPIExtractor) dbar g (MEQCD2to2Fast dbar,g->g,dbar) 
+                                            6212         6212      2.36402e+06
+(MPIExtractor) d bbar (MEQCD2to2Fast d,bbar->bbar,d) 
+                                               7            7           2663.9
+(MPIExtractor) d cbar (MEQCD2to2Fast d,cbar->cbar,d) 
+                                              74           74          28161.3
+(MPIExtractor) d sbar (MEQCD2to2Fast d,sbar->sbar,d) 
+                                             111          111          42241.9
+(MPIExtractor) d ubar (MEQCD2to2Fast d,ubar->ubar,d) 
+                                             196          196          74589.3
+(MPIExtractor) d dbar (MEQCD2to2Fast d,dbar->b,bbar) 
+                                               4            4          1522.23
+(MPIExtractor) d dbar (MEQCD2to2Fast d,dbar->c,cbar) 
+                                               1            1          380.558
+(MPIExtractor) d dbar (MEQCD2to2Fast d,dbar->d,dbar) 
+                                             190          190          72305.9
+(MPIExtractor) d dbar (MEQCD2to2Fast d,dbar->g,g) 
+                                              16           16          6088.92
+(MPIExtractor) d dbar (MEQCD2to2Fast d,dbar->s,sbar) 
+                                               4            4          1522.23
+(MPIExtractor) d dbar (MEQCD2to2Fast d,dbar->u,ubar) 
+                                               3            3          1141.67
+(MPIExtractor) d d (MEQCD2to2Fast d,d->d,d) 
+                                             236          236          89811.6
+(MPIExtractor) d u (MEQCD2to2Fast d,u->u,d) 
+                                             337          337           128248
+(MPIExtractor) d s (MEQCD2to2Fast d,s->s,d) 
+                                             143          143          54419.7
+(MPIExtractor) d c (MEQCD2to2Fast d,c->c,d) 
+                                              62           62          23594.6
+(MPIExtractor) d b (MEQCD2to2Fast d,b->b,d) 
+                                              10           10          3805.58
+(MPIExtractor) d g (MEQCD2to2Fast d,g->g,d) 
+                                           10602        10602      4.03467e+06
+(MPIExtractor) u bbar (MEQCD2to2Fast u,bbar->bbar,u) 
+                                              16           16          6088.92
+(MPIExtractor) u cbar (MEQCD2to2Fast u,cbar->cbar,u) 
+                                             122          122            46428
+(MPIExtractor) u sbar (MEQCD2to2Fast u,sbar->sbar,u) 
+                                             166          166          63172.6
+(MPIExtractor) u ubar (MEQCD2to2Fast u,ubar->b,bbar) 
+                                               5            5          1902.79
+(MPIExtractor) u ubar (MEQCD2to2Fast u,ubar->c,cbar) 
+                                               4            4          1522.23
+(MPIExtractor) u ubar (MEQCD2to2Fast u,ubar->d,dbar) 
+                                               6            6          2283.35
+(MPIExtractor) u ubar (MEQCD2to2Fast u,ubar->g,g) 
+                                              23           23          8752.82
+(MPIExtractor) u ubar (MEQCD2to2Fast u,ubar->s,sbar) 
+                                              10           10          3805.58
+(MPIExtractor) u ubar (MEQCD2to2Fast u,ubar->u,ubar) 
+                                             298          298           113406
+(MPIExtractor) u dbar (MEQCD2to2Fast u,dbar->u,dbar) 
+                                             240          240          91333.8
+(MPIExtractor) u d (MEQCD2to2Fast d,u->u,d) 
+                                             348          348           132434
+(MPIExtractor) u u (MEQCD2to2Fast u,u->u,u) 
+                                             396          396           150701
+(MPIExtractor) u s (MEQCD2to2Fast u,s->s,u) 
+                                             187          187          71164.3
+(MPIExtractor) u c (MEQCD2to2Fast u,c->c,u) 
+                                             114          114          43383.6
+(MPIExtractor) u b (MEQCD2to2Fast u,b->b,u) 
+                                              14           14          5327.81
+(MPIExtractor) u g (MEQCD2to2Fast u,g->g,u) 
+                                           15719        15719      5.98198e+06
+(MPIExtractor) s bbar (MEQCD2to2Fast s,bbar->bbar,s) 
+                                               3            3          1141.67
+(MPIExtractor) s cbar (MEQCD2to2Fast s,cbar->cbar,s) 
+                                              27           27          10275.1
+(MPIExtractor) s sbar (MEQCD2to2Fast s,sbar->b,bbar) 
+                                               2            2          761.115
+(MPIExtractor) s sbar (MEQCD2to2Fast s,sbar->c,cbar) 
+                                               1            1          380.558
+(MPIExtractor) s sbar (MEQCD2to2Fast s,sbar->d,dbar) 
+                                               3            3          1141.67
+(MPIExtractor) s sbar (MEQCD2to2Fast s,sbar->g,g) 
+                                               2            2          761.115
+(MPIExtractor) s sbar (MEQCD2to2Fast s,sbar->s,sbar) 
+                                              53           53          20169.5
+(MPIExtractor) s sbar (MEQCD2to2Fast s,sbar->u,ubar) 
+                                               0            0                0
+(MPIExtractor) s ubar (MEQCD2to2Fast s,ubar->s,ubar) 
+                                              96           96          36533.5
+(MPIExtractor) s dbar (MEQCD2to2Fast s,dbar->s,dbar) 
+                                              81           81          30825.2
+(MPIExtractor) s d (MEQCD2to2Fast d,s->s,d) 
+                                             116          116          44144.7
+(MPIExtractor) s u (MEQCD2to2Fast u,s->s,u) 
+                                             185          185          70403.1
+(MPIExtractor) s s (MEQCD2to2Fast s,s->s,s) 
+                                              51           51          19408.4
+(MPIExtractor) s c (MEQCD2to2Fast s,c->c,s) 
+                                              29           29          11036.2
+(MPIExtractor) s b (MEQCD2to2Fast s,b->b,s) 
+                                               4            4          1522.23
+(MPIExtractor) s g (MEQCD2to2Fast s,g->g,s) 
+                                            3971         3971      1.51119e+06
+(MPIExtractor) c bbar (MEQCD2to2Fast c,bbar->bbar,c) 
+                                               3            3          1141.67
+(MPIExtractor) c cbar (MEQCD2to2Fast c,cbar->b,bbar) 
+                                               0            0                0
+(MPIExtractor) c cbar (MEQCD2to2Fast c,cbar->c,cbar) 
+                                              22           22          8372.27
+(MPIExtractor) c cbar (MEQCD2to2Fast c,cbar->d,dbar) 
+                                               0            0                0
+(MPIExtractor) c cbar (MEQCD2to2Fast c,cbar->g,g) 
+                                               3            3          1141.67
+(MPIExtractor) c cbar (MEQCD2to2Fast c,cbar->s,sbar) 
+                                               0            0                0
+(MPIExtractor) c cbar (MEQCD2to2Fast c,cbar->u,ubar) 
+                                               0            0                0
+(MPIExtractor) c sbar (MEQCD2to2Fast c,sbar->c,sbar) 
+                                              33           33          12558.4
+(MPIExtractor) c ubar (MEQCD2to2Fast c,ubar->c,ubar) 
+                                              46           46          17505.6
+(MPIExtractor) c dbar (MEQCD2to2Fast c,dbar->c,dbar) 
+                                              38           38          14461.2
+(MPIExtractor) c d (MEQCD2to2Fast d,c->c,d) 
+                                              81           81          30825.2
+(MPIExtractor) c u (MEQCD2to2Fast u,c->c,u) 
+                                             127          127          48330.8
+(MPIExtractor) c s (MEQCD2to2Fast s,c->c,s) 
+                                              33           33          12558.4
+(MPIExtractor) c c (MEQCD2to2Fast c,c->c,c) 
+                                              11           11          4186.13
+(MPIExtractor) c b (MEQCD2to2Fast c,b->b,c) 
+                                               1            1          380.558
+(MPIExtractor) c g (MEQCD2to2Fast c,g->g,c) 
+                                            2179         2179           829235
+(MPIExtractor) b bbar (MEQCD2to2Fast b,bbar->b,bbar) 
+                                               2            2          761.115
+(MPIExtractor) b bbar (MEQCD2to2Fast b,bbar->c,cbar) 
+                                               0            0                0
+(MPIExtractor) b bbar (MEQCD2to2Fast b,bbar->d,dbar) 
+                                               0            0                0
+(MPIExtractor) b bbar (MEQCD2to2Fast b,bbar->g,g) 
+                                               0            0                0
+(MPIExtractor) b bbar (MEQCD2to2Fast b,bbar->s,sbar) 
+                                               0            0                0
+(MPIExtractor) b bbar (MEQCD2to2Fast b,bbar->u,ubar) 
+                                               0            0                0
+(MPIExtractor) b cbar (MEQCD2to2Fast b,cbar->b,cbar) 
+                                               1            1          380.558
+(MPIExtractor) b sbar (MEQCD2to2Fast b,sbar->b,sbar) 
+                                               3            3          1141.67
+(MPIExtractor) b ubar (MEQCD2to2Fast b,ubar->b,ubar) 
+                                               6            6          2283.35
+(MPIExtractor) b dbar (MEQCD2to2Fast b,dbar->b,dbar) 
+                                               4            4          1522.23
+(MPIExtractor) b d (MEQCD2to2Fast d,b->b,d) 
+                                              10           10          3805.58
+(MPIExtractor) b u (MEQCD2to2Fast u,b->b,u) 
+                                              12           12          4566.69
+(MPIExtractor) b s (MEQCD2to2Fast s,b->b,s) 
+                                               2            2          761.115
+(MPIExtractor) b c (MEQCD2to2Fast c,b->b,c) 
+                                               1            1          380.558
+(MPIExtractor) b b (MEQCD2to2Fast b,b->b,b) 
+                                               0            0                0
+(MPIExtractor) b g (MEQCD2to2Fast b,g->g,b) 
+                                             230          230          87528.2
+(MPIExtractor) g bbar (MEQCD2to2Fast bbar,g->g,bbar) 
+                                             215          215          81819.9
+(MPIExtractor) g cbar (MEQCD2to2Fast cbar,g->g,cbar) 
+                                            2124         2124           808304
+(MPIExtractor) g sbar (MEQCD2to2Fast sbar,g->g,sbar) 
+                                            3838         3838      1.46058e+06
+(MPIExtractor) g ubar (MEQCD2to2Fast ubar,g->g,ubar) 
+                                            6166         6166      2.34652e+06
+(MPIExtractor) g dbar (MEQCD2to2Fast dbar,g->g,dbar) 
+                                            6214         6214      2.36478e+06
+(MPIExtractor) g d (MEQCD2to2Fast d,g->g,d) 
+                                           10405        10405       3.9597e+06
+(MPIExtractor) g u (MEQCD2to2Fast u,g->g,u) 
+                                           15760        15760      5.99759e+06
+(MPIExtractor) g s (MEQCD2to2Fast s,g->g,s) 
+                                            4020         4020      1.52984e+06
+(MPIExtractor) g c (MEQCD2to2Fast c,g->g,c) 
+                                            2197         2197           836085
+(MPIExtractor) g b (MEQCD2to2Fast b,g->g,b) 
+                                             212          212          80678.2
+(MPIExtractor) g g (MEQCD2to2Fast g,g->b,bbar) 
+                                            1257         1257           478361
+(MPIExtractor) g g (MEQCD2to2Fast g,g->c,cbar) 
+                                            1442         1442           548764
+(MPIExtractor) g g (MEQCD2to2Fast g,g->d,dbar) 
+                                            1470         1470           559420
+(MPIExtractor) g g (MEQCD2to2Fast g,g->g,g) 
+                                          279369       279369      1.06316e+08
+(MPIExtractor) g g (MEQCD2to2Fast g,g->s,sbar) 
+                                            1449         1449           551428
+(MPIExtractor) g g (MEQCD2to2Fast g,g->u,ubar) 
+                                            1430         1430           544197
+==============================================================================
+
+==============================================================================
+Eikonalized and soft cross sections:
+
+Model parameters:                    ptmin:   3.52792 GeV, mu2: 1.1 GeV2
+                                     DL mode: 2, CMenergy: 13000 GeV
+hard inclusive cross section (mb):   150.822
+soft inclusive cross section (mb):   109.259
+total cross section (mb):            112.594
+inelastic cross section (mb):        78.0048
+soft inv radius (GeV2):              0.475069
+slope of soft pt spectrum (1/GeV2):  -0.1052
+Average hard multiplicity:           4.8437
+Average soft multiplicity:           2.1554
+==============================================================================
+
+Rivet.Analysis.ATLAS_2016_I1458270: INFO  CUTFLOWS:
+
+2jl cut-flow:
+                         Count    A_cumu    A_incr
+                       30000.0      100%        - 
+Pass Pre-sel+MET+pT1    2777.0        9%        9%
+Pass Njet               2777.0        9%      100%
+Pass Dphi_min(j,MET)     317.0        1%       11%
+Pass pT2                 145.0        0%       46%
+Pass MET/sqrtHT           34.0        0%       23%
+Pass m_eff(incl)          34.0        0%      100%
+
+2jm cut-flow:
+                         Count    A_cumu    A_incr
+                       30000.0      100%        - 
+Pass Pre-sel+MET+pT1    2691.0        9%        9%
+Pass Njet               2691.0        9%      100%
+Pass Dphi_min(j,MET)     476.0        2%       18%
+Pass pT2                 476.0        2%      100%
+Pass MET/sqrtHT          109.0        0%       23%
+Pass m_eff(incl)          69.0        0%       63%
+
+2jt cut-flow:
+                         Count    A_cumu    A_incr
+                       30000.0      100%        - 
+Pass Pre-sel+MET+pT1    2777.0        9%        9%
+Pass Njet               2777.0        9%      100%
+Pass Dphi_min(j,MET)     317.0        1%       11%
+Pass pT2                 145.0        0%       46%
+Pass MET/sqrtHT            9.0        0%        6%
+Pass m_eff(incl)           6.0        0%       67%
+
+4jt cut-flow:
+                         Count    A_cumu    A_incr
+                       30000.0      100%        - 
+Pass Pre-sel+MET+pT1    2777.0        9%        9%
+Pass Njet               1433.0        5%       52%
+Pass Dphi_min(j,MET)     218.0        1%       15%
+Pass pT2                 204.0        1%       94%
+Pass pT4                  90.0        0%       44%
+Pass Aplanarity           40.0        0%       44%
+Pass MET/m_eff(Nj)        24.0        0%       60%
+Pass m_eff(incl)           2.0        0%        8%
+
+5j cut-flow:
+                         Count    A_cumu    A_incr
+                       30000.0      100%        - 
+Pass Pre-sel+MET+pT1    2777.0        9%        9%
+Pass Njet                735.0        2%       26%
+Pass Dphi_min(j,MET)     128.0        0%       17%
+Pass pT2                 124.0        0%       97%
+Pass pT4                  75.0        0%       60%
+Pass Aplanarity           37.0        0%       49%
+Pass MET/m_eff(Nj)        15.0        0%       41%
+Pass m_eff(incl)          10.0        0%       67%
+
+6jm cut-flow:
+                         Count    A_cumu    A_incr
+                       30000.0      100%        - 
+Pass Pre-sel+MET+pT1    2777.0        9%        9%
+Pass Njet                329.0        1%       12%
+Pass Dphi_min(j,MET)      61.0        0%       19%
+Pass pT2                  61.0        0%      100%
+Pass pT4                  47.0        0%       77%
+Pass Aplanarity           29.0        0%       62%
+Pass MET/m_eff(Nj)        12.0        0%       41%
+Pass m_eff(incl)           8.0        0%       67%
+
+6jt cut-flow:
+                         Count    A_cumu    A_incr
+                       30000.0      100%        - 
+Pass Pre-sel+MET+pT1    2777.0        9%        9%
+Pass Njet                329.0        1%       12%
+Pass Dphi_min(j,MET)      61.0        0%       19%
+Pass pT2                  61.0        0%      100%
+Pass pT4                  47.0        0%       77%
+Pass Aplanarity           29.0        0%       62%
+Pass MET/m_eff(Nj)        15.0        0%       52%
+Pass m_eff(incl)           5.0        0%       33%
+
+
+Rivet.Analysis.CMS_2019_I1753680:LMODE=EL: WARN  Failed to scale histo=/CMS_2019_I1753680:LMODE=EL/d33-x01-y02 in analysis: CMS_2019_I1753680:LMODE=EL (invalid scale factor = inf)
+Rivet.Analysis.CMS_2019_I1753680:LMODE=EL: WARN  Failed to scale histo=/CMS_2019_I1753680:LMODE=EL/d33-x01-y04 in analysis: CMS_2019_I1753680:LMODE=EL (invalid scale factor = inf)
+Rivet.Analysis.CMS_2019_I1753680:LMODE=MU: WARN  Failed to scale histo=/CMS_2019_I1753680:LMODE=MU/d33-x01-y02 in analysis: CMS_2019_I1753680:LMODE=MU (invalid scale factor = inf)
