@@ -1,0 +1,9 @@
+[mxio.plugins]
+CBF = mxio.formats.cbf
+HDF5 = mxio.formats.hdf5
+MAR345 = mxio.formats.mar345
+MARCCD = mxio.formats.marccd
+NEXUS = mxio.formats.nexus
+RAXIS = mxio.formats.raxis
+SMV = mxio.formats.smv
+

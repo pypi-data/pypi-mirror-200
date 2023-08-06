@@ -1,0 +1,15 @@
+hdf5plugin
+h5py
+opencv-python
+python-magic
+pytz
+pycbf
+pyyaml
+numpy
+iso8601
+lz4
+pyzmq
+setuptools-scm
+
+[:python_version < "3.8"]
+importlib-metadata~=1.0
