@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fe-openedx-alerts"
+version = "0.0.5"
+description = ""
+authors = ["Fernando Espíndola <fer.esp@gmail.com>"]
+readme = "README.md"
+packages = [{include = "fe_openedx_alerts"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.28.2"
+
+[tool.poetry.scripts]
+meu-script = 'fe_openedx_alerts.es_status:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
