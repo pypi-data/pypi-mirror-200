@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: cgap-higlass-data
+Version: 0.1.4b0
+Summary: Data file generation for CGAP's Higlass browsers
+Home-page: https://github.com/dbmi-bgm/higlass-data
+License: MIT
+Author: Alexander Veit
+Author-email: alexander_veit@hms.harvard.edu
+Requires-Python: >=3.8,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: PyVCF3 (>=1.0.3,<2.0.0)
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: negspy (>=0.2.24,<0.3.0)
+Requires-Dist: pandas (>=1.4.3,<2.0.0)
+Project-URL: Repository, https://github.com/dbmi-bgm/higlass-data
+Description-Content-Type: text/markdown
+
+
+# higlass-data
+Package that creates data files for CGAP's Higlass browsers
+
+## Installation
+
+Make sure `poetry` is installed on your system. Clone the repository and run `poetry install`
+
+## Run a script
+
+```
+# -i input file path
+# -o output file path
+# -q Shows logs when set to False
+poetry run create-cohort-vcf -i ./PATH/input.vcf -o ./PATH/input.multires.vcf -q False
+
+```
+
+
+
