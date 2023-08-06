@@ -1,0 +1,39 @@
+# Sources:
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+# https://github.com/pypa/sampleproject/blob/main/pyproject.toml
+
+[project]
+name = "orgnb"
+description = "Convert org-mode files to jupyter notebooks"
+readme = "README.md"
+version = "0.1.0"
+authors = [
+    {name = "Daniele Coslovich", email = "dcoslovich@umontpellier.fr"}
+]
+requires-python = ">=3.6"
+license = {text = "GPLv3"}
+dependencies = [
+    'pypandoc_binary',
+    'nbformat',
+    'argh'
+]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 5 - Production/Stable"
+]
+
+[project.urls]
+repository = "https://framagit.org/coslo/orgnb"
+# homepage = ""
+# documentation = ""
+# changelog = ""
+
+# The following would provide a command line executable called `mypackage`
+# which executes the function `cli.main` from this package when invoked.
+[project.scripts]
+orgnb = "orgnb:cli"
+
+# [build-system]
+# requires = ["setuptools>=61.0"]
+# build-backend = "setuptools.build_meta"
