@@ -1,0 +1,265 @@
+Metadata-Version: 2.1
+Name: victorykit-aws-spitzel
+Version: 1.0.0
+Summary: Advanced CloudTrail Event History Lookup for AWS IAM Forensics
+Home-page: https://victorykit.bitbucket.io/py-aws-spitzel
+Author: Tiara Rodney (victory-k.it)
+Author-email: t.rodney@victoryk.it
+Project-URL: Bug Tracker, https://bitbucket.org/victorykit/py-aws-spitzel/jira
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: Topic :: Security
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Classifier: License :: Other/Proprietary License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: NOTICE.md
+Requires-Dist: boto3 (<2,>=1.24.2)
+Requires-Dist: jsonpath (<1,>=0.82)
+
+Advanced CloudTrail Event History Lookup for AWS IAM Forensics
+
+This program extends the native AWS CloudTrail API LookupEvents action by being 
+able to query against CloudTrail event objects with JSONPath expressions and a 
+barebone implementation of comparison operations for Python built-in types, and
+regular expressions. In addition, the UNIX filename pattern of AWS IAM policy 
+statement actions is used for filtering events by service and action 
+(e.g. `s3:List\*`), instead of the CloudTrail API schema attributes.
+(`eventName`, `eventSource`, etc.).
+
+**WARNING**: wildcard service names are currently not supported
+
+It’s a fast and lightweight tool for proving or disproving event occurances in 
+the AWS cloud.
+
+**How it works**
+
+A main thread spawns a handler thread. The handler executes 
+`cloudtrail:LookupEvents` requests in a loop indefinetly until a 
+pagination token is no longer provided. Meanwhile, each paginated API response 
+will spawn a worker thread, which are registered inside the handler thread. 
+Each worker thread will loop through the list of events of the API response, 
+and match each list item against one or multiple JSONPath expressions. Any 
+matching item will then be compared against a specified Python built-in type, 
+or regular expression.
+
+**NOTE**: This program uses a 
+[port of the original Perl JSONPath reference implementation](http://www.ultimate.com/phil/python/#jsonpath). 
+Expect resolution as described in 
+[IETF draft-goessner-dispatch-jsonpath-00](https://datatracker.ietf.org/doc/draft-goessner-dispatch-jsonpath/)
+
+**NOTE**: Supported filter expression operators:
+
+
+* ==: equal comparison to int, str, dict, or list values
+
+
+* !=: not equal comparison to int, str, dict, bool, list, None
+
+
+* regex: compare by matching against a regular expression (only supported 
+for str and int built-in types)
+
+**NOTE**: ECMAScript behaviour of non-existing object properties being of type 
+`undefined` is being emulated through get() method on dictionaries, so 
+that JSONPath expressions not matching against any items can be compared 
+to `None` (e.g.\`\`$.errorCode != None\`\`).
+
+Should the item match, it will be pushed onto a priority queue as a queue item. 
+After the thread looped over the entire event list, it will return.
+
+The main thread loops over the priority queue indefinetly. Each time it 
+retrieves a lookup match item from the queue, it will yield the item. Should it 
+receive a stop signal, it will set the queue item retrieval timeout, so that
+the main thread’s loop will be broken, should there be no more items to be 
+expected coming from the queue.
+
+A particular use-case is when access to CloudTrail logs in Amazon Athena 
+isn’t possible, due to no S3 backend existing for an AWS CloudTrail log. Much 
+like a war-time, or secret police forensic tool. Be advised, you can’t go 
+further back in time than 90 days.
+
+This program is licensed under the 
+“Data licence Germany – attribution – Version 2.0”.
+[URL](http://www.govdata.de/dl-de/by-2-0)
+
+Run the following to get additional information on using the command-line 
+interface:
+
+> $ aws-spitzel –help
+
+If you neither specifiy `--from`, nor `--to`, the entire available date 
+range will be used.
+
+The following example finds all CloudTrail events of the AWS Transfer Family 
+API, not made by AWS IAM user `Alice` existing in AWS account `000000000000` 
+that we’re not denied and came from the host `147.161.171.112`. Strange 
+query, but hopefully the point comes across.
+
+> $ aws-spitzel 
+
+>     –match ‘$.errorCode == [“AccessDenied”]’ –match ‘$.userIdentity.principalId regex “.\*:^((?!Alice).)”’ –match ‘$.userIdentity.accountId == [“060862059283”]’ –match ‘$.sourceIPAddress == [“147.161.171.112”]’ “transfer:List\*”
+
+
+```default
+usage: aws-spitzel [-h] [--match EXPRESSION] [--from DATETIME] [--to DATETIME] [--last-minute MINUTES] IAM_ACTION [IAM_ACTION ...]
+```
+
+# Positional Arguments
+
+# Named Arguments
+
+Make sure to specify the correct AWS CLI profile through the AWS_PROFILE environment variable
+
+
+# Getting Started
+
+The following commands are required:
+
+
+* `python3`
+
+
+* `pip`
+
+
+* `pipenv` (Development)
+
+Next, install and make sure the command is available.
+
+```shell
+$ python3 -m pip install victorykit-aws-spitzel
+```
+
+```shell
+$ aws-spitzel --help
+```
+
+# Usage Examples
+
+Make sure to configure the AWS API through setting the [well-known AWS CLI
+environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html).
+
+The defaults are, to get all events within the last 5 hours
+
+```shell
+$ aws-spitzel 's3:Get*' 'dynamodb:Get*'
+```
+
+same as
+
+```shell
+$ aws-spitzel 's3:Get*' 'dynamodb:*' --last-minute 300
+```
+
+Alternatively, date ranges can be specified:
+
+```shell
+$ aws-spitzel \
+    --from '2023-03-31 14:00:12' \
+    --to '2023-04-01 00:00:00' \
+    's3:Get*' \
+    'dynamodb:*'
+```
+
+The following example finds all CloudTrail events of the AWS Transfer Family
+API, not made by AWS IAM user `Alice` existing in AWS account `000000000000`
+that we’re not denied and came from the host `147.161.171.112`. Strange
+query, but hopefully the point comes across.
+
+```shell
+$ aws-spitzel \
+    --match '$.errorCode == "AccessDenied"' \
+    --match '$.userIdentity.principalId regex ".*:^((?!Alice).)"' \
+    --match '$.userIdentity.accountId == "060862059283"' \
+    --match '$.sourceIPAddress == "147.161.171.112"' \
+    "transfer:List*"
+```
+
+The next example gets all *Get* events on S3 and DynamoDB API calls in the last
+3 hours, which were denied for an IAM user *MyUser* from the principal account
+*060862059283*, that assumed the role *MyRole* in the target account.
+
+```shell
+$ aws-spitzel \
+    --match '$.errorCode == "AccessDenied"' \
+    --match '$.userIdentity.arn regex ".*/MyRole/MyUser"' \
+    --match '$.userIdentity.accountId == "060862059283"' \
+    --match ''
+    --last-minute 300 \
+    's3:Get*' \
+    'dynamodb:Get*' \
+```
+
+Piping is supported (warnings and errors are written to *stderr*)
+
+```shell
+while [ 1 -eq 1 ]; do
+
+    echo "getting CloudTrail"
+
+    aws-spitzel \
+        --match '$.errorCode != "AccessDenied"' \
+        --last-minute 300 \
+        "s3:*Acl" \
+        "ssm:List*" \
+    | \
+    jq '.'
+
+    echo "waiting for CloudTrail (3000 seconds)"
+
+    sleep 3000
+done
+```
+
+# License
+
+```default
+DL-DE->BY-2.0
+
+Datenlizenz Deutschland – Namensnennung – Version 2.0
+
+(1) Jede Nutzung ist unter den Bedingungen dieser „Datenlizenz Deutschland – Namensnennung – Version 2.0" zulässig.
+
+Die bereitgestellten Daten und Metadaten dürfen für die kommerzielle und nicht kommerzielle Nutzung insbesondere
+
+vervielfältigt, ausgedruckt, präsentiert, verändert, bearbeitet sowie an Dritte übermittelt werden;
+mit eigenen Daten und Daten Anderer zusammengeführt und zu selbständigen neuen Datensätzen verbunden werden;
+in interne und externe Geschäftsprozesse, Produkte und Anwendungen in öffentlichen und nicht öffentlichen elektronischen Netzwerken eingebunden werden.
+
+(2) Bei der Nutzung ist sicherzustellen, dass folgende Angaben als Quellenvermerk enthalten sind:
+
+Bezeichnung des Bereitstellers nach dessen Maßgabe,
+der Vermerk „Datenlizenz Deutschland – Namensnennung – Version 2.0" oder „dl-de/by-2-0" mit Verweis auf den Lizenztext unter www.govdata.de/dl-de/by-2-0 sowie
+einen Verweis auf den Datensatz (URI).
+Dies gilt nur soweit die datenhaltende Stelle die Angaben 1. bis 3. zum Quellenvermerk bereitstellt.
+
+(3) Veränderungen, Bearbeitungen, neue Gestaltungen oder sonstige Abwandlungen sind im Quellenvermerk mit dem Hinweis zu versehen, dass die Daten geändert wurden.
+
+Data licence Germany – attribution – version 2.0
+
+(1) Any use will be permitted provided it fulfils the requirements of this "Data licence Germany – attribution – Version 2.0".
+
+The data and meta-data provided may, for commercial and non-commercial use, in particular
+
+be copied, printed, presented, altered, processed and transmitted to third parties;
+be merged with own data and with the data of others and be combined to form new and independent datasets;
+be integrated in internal and external business processes, products and applications in public and non-public electronic networks.
+
+(2) The user must ensure that the source note contains the following information:
+
+the name of the provider,
+the annotation "Data licence Germany – attribution – Version 2.0" or "dl-de/by-2-0" referring to the licence text available at www.govdata.de/dl-de/by-2-0, and
+a reference to the dataset (URI).
+This applies only if the entity keeping the data provides the pieces of information 1-3 for the source note.
+
+(3) Changes, editing, new designs or other amendments must be marked as such in the source note.
+
+URL: http://www.govdata.de/dl-de/by-2-0
+```
