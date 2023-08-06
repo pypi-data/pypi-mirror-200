@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: gorseapi
+Version: 0.1.0
+Summary: An interesting python package
+Author-email: Mark Hoo <markhoo@foxmail.com>
+Project-URL: Homepage, https://github.com/MarkHoo/gorseapi
+Project-URL: Bug Tracker, https://github.com/MarkHoo/gorseapi/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# GorseAPI
+
+#### Installing
+
+Install and update using pip:
+
+```
+$ pip install -U gorseapi
+```
+
+#### A Simple Example
+
+```
+from gorseapi import GorseAPI
+
+
+app = GorseAPI(__name__)
+
+@app.route("/")
+def hello():
+    return "<h1>Hello World!</h1>"
+
+app.run("127.0.0.1", 8000, debug=True)
+```
+
+#### Links
+
+- Documentation: [https://github.com/MarkHoo/gorseapi](https://github.com/MarkHoo/gorseapi)
+- PyPI Releases: [https://pypi.org/project/gorseapi/](https://pypi.org/project/gorseapi/)
+- Source Code: [https://github.com/MarkHoo/gorseapi](https://github.com/MarkHoo/gorseapi)
+- Issue Tracker: [https://github.com/MarkHoo/gorseapi/issues](https://github.com/MarkHoo/gorseapi/issues)
+- Website: [https://pypi.org/project/gorseapi/](https://pypi.org/project/gorseapi/)
+
