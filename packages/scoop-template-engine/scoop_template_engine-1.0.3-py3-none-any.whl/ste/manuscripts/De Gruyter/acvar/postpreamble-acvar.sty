@@ -1,0 +1,71 @@
+\ProvidesPackage{postpreamble-cmam}
+
+% Declare all options.
+\newif\if@scoopcompatibility@none
+\newif\if@scoopcompatibility@minimal
+\newif\if@scoopcompatibility@packages
+\newif\if@scoopcompatibility@changes
+\newif\if@scoopcompatibility@theorems
+\newif\if@scoopcompatibility@testing
+\DeclareOption{none}{\@scoopcompatibility@nonetrue}
+\DeclareOption{minimal}{\@scoopcompatibility@minimaltrue}
+\DeclareOption{packages}{\@scoopcompatibility@packagestrue\ExecuteOptions{minimal}}
+\DeclareOption{changes}{\@scoopcompatibility@changestrue}
+\DeclareOption{theorems}{\@scoopcompatibility@theoremstrue}
+\DeclareOption{testing}{\@scoopcompatibility@testingtrue}
+
+% Process all options.
+\ProcessOptions\relax
+
+% Execute option 'none'. 
+\if@scoopcompatibility@none
+\endinput
+\fi
+
+% Execute option 'minimal'. 
+\if@scoopcompatibility@minimal
+\fi
+
+% Execute option 'packages'. 
+\if@scoopcompatibility@packages
+\fi
+
+% Execute option 'changes'.
+\if@scoopcompatibility@changes
+\fi
+
+% Execute option 'theorems'.
+% By default, a \newtheorem is provided, based on amsthm.sty.
+% It does provide cleveref.sty support.
+\if@scoopcompatibility@theorems
+	\theoremstyle{dgthm}
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem*{theorem*}{Theorem}
+	\newtheorem{lemma}[theorem]{Lemma}
+	\newtheorem*{lemma*}{Lemma}
+	\newtheorem{proposition}[theorem]{Proposition}
+	\newtheorem*{proposition*}{Proposition}
+	\newtheorem{corollary}[theorem]{Corollary}
+	\newtheorem*{corollary*}{Corollary}
+	\theoremstyle{dgdef}
+	\newtheorem{remark}[theorem]{Remark}
+	\newtheorem*{remark*}{Remark}
+	\newtheorem{definition}[theorem]{Definition}
+	\newtheorem*{definition*}{Definition}
+	\newtheorem{example}[theorem]{Example}
+	\newtheorem*{example*}{Example}
+	\newtheorem{assumption}[theorem]{Assumption}
+	\newtheorem*{assumption*}{Assumption}
+	\@ifpackageloaded{cleveref}{%
+    % https://tex.stackexchange.com/questions/315749
+		\expandafter\ifx\csname if@cref@capitalise\expandafter\endcsname\csname iftrue\endcsname
+			\crefname{assumption}{Assumption}{Assumptions}
+		\else
+			\crefname{assumption}{assumption}{assumptions}
+		\fi
+	}{}
+\fi
+
+% Execute option 'testing'. 
+\if@scoopcompatibility@testing
+\fi

@@ -1,0 +1,87 @@
+% A LaTeX template for submissions to Proceedings in Applied Mathematics and Mechanics (PAMM).
+% Derived from pamm-tpl.tex. 
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription: Proceedings in Applied Mathematics and Mechanics>>
+<<% >>
+<<Dependency: w-art.cls>>
+<<Dependency: w-pamm.clo>>
+<<Dependency: w-thm.sty>>
+<<Dependency: pamm.bst>>
+<<Dependency: postpreamble-pamm.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote --doitonote --haltotypeornote --onlinetotechreport --urltonote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+pamm,
+a4paper,
+fleqn,
+<<DocumentClassOptions>>]{w-art}
+
+% Include further packages and settings relevant for the template.
+\usepackage{times}
+\usepackage{cite}
+\usepackage{w-thm}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+% Set title information.
+\TitleLanguage[EN]
+\title[<<ShortTitle>>]{<<TitleNewlineSubTitle>>}
+
+% Set author information.
+<<AuthorsInstitutionsPAMM>>
+
+% Set dedication information.
+\dedicatory{<<Dedication>>}
+
+% Insert the abstract.
+\AbstractLanguage[EN]
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+\maketitle
+
+% Insert the document body.
+<<InputBody>>
+
+% Set funding information.
+<<FundingAcknowledgementEnvironment>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{pamm}
+<<CustomBibliography>>
+
+\end{document}

@@ -1,0 +1,69 @@
+--- etna.cls	2023-02-04 14:10:14.789956689 +0100
++++ etna-scoop.cls	2023-02-05 00:02:02.273991104 +0100
+@@ -285,10 +285,10 @@
+ \newif\if@endproofset
+  \@endproofsetfalse
+ 
+- \def\@begintheorem#1#2{\par\bgroup{\scshape #1\ #2. }\itshape\ignorespaces}
++ % \def\@begintheorem#1#2{\par\bgroup{\scshape #1\ #2. }\itshape\ignorespaces}
+ \def\@opargbegintheorem#1#2#3{\par\bgroup%
+    {\scshape #1\ #2\ ({\upshape #3}). }\it\ignorespaces}
+-\def\@endtheorem{\egroup\ignorespacesafterend}
++% \def\@endtheorem{\egroup\ignorespacesafterend}
+ \def\proof{\par{\textit{Proof.}}\ignorespaces\global\@endproofsetfalse}
+ 
+ \def\endproofsign{\vbox{\hrule height0.6pt\hbox{%
+@@ -317,26 +317,26 @@
+   \newtheorem{proposition}[theorem]{Proposition}
+   \newtheorem{definition}[theorem]{Definition}
+ 
+-\AtBeginDocument{
+-\def\remark{\@ifnextchar[%
+-{\@exheadrem}
+-{{\refstepcounter{theorem}\@begintheorem{Remark}{\thetheorem}\upshape\ignorespaces}}       % \upshape 
+-}
+-\def\@exheadrem[#1]{\refstepcounter{theorem}\@opargbegintheorem{Remark}{\thetheorem}{#1}\upshape\ignorespaces}
+-\def\endremark{\endtheorem} %
+-
+-\def\example{\@ifnextchar[%
+-{\@exheadex}
+-{{\refstepcounter{theorem}\@begintheorem{Example}{\thetheorem}\upshape\ignorespaces}}     % \upshape 
+-}
+-\def\@exheadex[#1]{\refstepcounter{theorem}\@opargbegintheorem{Example}{\thetheorem}{#1}\upshape\ignorespaces}
+-\def\endexample{\endtheorem}
+-
+-
+-\def\@begintheoremrm#1#2{\par\bgroup{\scshape #1\ #2. }\upshape\ignorespaces}             % \upshape 
+-\def\@opargbegintheoremrm#1#2#3{\par\bgroup%                                                        % \upshape 
+-   {\scshape #1\ #2\ ({\upshape #3}). }\upshape\ignorespaces}
+-}    
++% \AtBeginDocument{
++% \def\remark{\@ifnextchar[%
++% {\@exheadrem}
++% {{\refstepcounter{theorem}\@begintheorem{Remark}{\thetheorem}\upshape\ignorespaces}}       % \upshape 
++% }
++% \def\@exheadrem[#1]{\refstepcounter{theorem}\@opargbegintheorem{Remark}{\thetheorem}{#1}\upshape\ignorespaces}
++% \def\endremark{\endtheorem} %
++
++% \def\example{\@ifnextchar[%
++% {\@exheadex}
++% {{\refstepcounter{theorem}\@begintheorem{Example}{\thetheorem}\upshape\ignorespaces}}     % \upshape 
++% }
++% \def\@exheadex[#1]{\refstepcounter{theorem}\@opargbegintheorem{Example}{\thetheorem}{#1}\upshape\ignorespaces}
++% \def\endexample{\endtheorem}
++
++
++% \def\@begintheoremrm#1#2{\par\bgroup{\scshape #1\ #2. }\upshape\ignorespaces}             % \upshape 
++% \def\@opargbegintheoremrm#1#2#3{\par\bgroup%                                                        % \upshape 
++%    {\scshape #1\ #2\ ({\upshape #3}). }\upshape\ignorespaces}
++% }    
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+@@ -622,4 +622,4 @@
+ 
+ 
+ \onecolumn
+-\endinput
+\ No newline at end of file
++\endinput

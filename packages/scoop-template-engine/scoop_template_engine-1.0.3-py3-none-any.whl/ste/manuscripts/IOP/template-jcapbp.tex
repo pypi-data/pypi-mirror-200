@@ -1,0 +1,241 @@
+% A LaTeX template for preprints with the amsart documentclass using the scoop template engine.
+% Derived from amscls-doc/Author_Handbook_Journals.pdf.
+<<% manuscripts/scoop>>
+<<TemplateDescription amspreprint: amsart preprint>>
+<<% >>
+<<% manuscripts/EMS>>
+<<TemplateDescription ag:          Algebraic Geometry>>
+<<TemplateDescription em:          Elemente der Mathematik>>
+<<TemplateDescription rlm:         Rendiconti Lincei - Matematica e Applicazioni>>
+<<% >>
+<<% manuscripts/IOP>>
+<<TemplateDescription bbiici:      Bioinspiration & Biomimetics>>
+<<TemplateDescription bioffn:      Biofabrication>>
+<<TemplateDescription bmbucs:      Biomedical Materials>>
+<<TemplateDescription bpeeae:      Biomedical Physics & Engineering Express>>
+<<TemplateDescription cqgrdg:      Classical and Quantum Gravity>>
+<<TemplateDescription dmatb7:      2D Materials>>
+<<TemplateDescription ejphd4:      European Journal of Physics>>
+<<TemplateDescription ejssbg:      ECS Journal of Solid State Science and Technology>>
+<<TemplateDescription erc:         Environmental Research Communications>>
+<<TemplateDescription ercl:        Environmental Research: Climate>>
+<<TemplateDescription ere:         Environmental Research: Ecology>>
+<<TemplateDescription erenbl:      Engineering Research Express>>
+<<TemplateDescription erh:         Environmental Research: Health>>
+<<TemplateDescription erisal:      Environmental Research: Infrastructure and Sustainability>>
+<<TemplateDescription erlnal:      Environmental Research Letters>>
+<<TemplateDescription esltac:      Electronic Structure>>
+<<TemplateDescription fcsuah:      Functional Composites and Structures>>
+<<TemplateDescription fpelab:      Flexible and Printed Electronics>>
+<<TemplateDescription ijemkf:      International Journal of Extreme Manufacturing>>
+<<TemplateDescription ip:          Inverse Problems>>
+<<TemplateDescription isoccm:      IOP SciNotes>>
+<<TemplateDescription jbrobw:      Journal of Breath Research>>
+<<TemplateDescription jcapbp:      Journal of Cosmology and Astroparticle Physics>>
+<<TemplateDescription jcomel:      Journal of Physics: Condensed Matter>>
+<<TemplateDescription jionas:      Journal of Instrumentation>>
+<<TemplateDescription jmmiez:      Journal of Micromechanics and Microengineering>>
+<<TemplateDescription jneiez:      Journal of Neural Engineering>>
+<<TemplateDescription joopca:      Journal of Optics>>
+<<TemplateDescription jpamb5:      Journal of Physics A: Mathematical and Theoretical>>
+<<TemplateDescription jpapbe:      Journal of Physics D: Applied Physics>>
+<<TemplateDescription jpapeh:      Journal of Physics B: Atomic, Molecular and Optical Physics>>
+<<TemplateDescription jpcofp:      Journal of Physics Communications>>
+<<TemplateDescription jpcogq:      Journal of Physics: Complexity>>
+<<TemplateDescription jpeoey:      Journal of Physics: Energy>>
+<<TemplateDescription jpgped:      Journal of Physics G: Nuclear and Particle Physics>>
+<<TemplateDescription jpmoc4:      Journal of Physics: Materials>>
+<<TemplateDescription jppokr:      Journal of Physics: Photonics>>
+<<TemplateDescription jrprea:      Journal of Radiological Protection>>
+<<TemplateDescription jsmtc6:      Journal of Statistical Mechanics: Theory and Experiment>>
+<<TemplateDescription mafeb2:      Methods and Applications in Fluorescence>>
+<<TemplateDescription mlstck:      Machine Learning: Science and Technology>>
+<<TemplateDescription mmuabd:      Multifunctional Materials>>
+<<TemplateDescription mqtaaz:      Materials for Quantum Technology>>
+<<TemplateDescription mreac3:      Materials Research Express>>
+<<TemplateDescription msmeeu:      Modelling and Simulation in Materials Science and Engineering>>
+<<TemplateDescription mstcep:      Measurement Science and Technology>>
+<<TemplateDescription mtrgau:      Metrologia>>
+<<TemplateDescription nceecn:      Neuromorphic Computing and Engineering>>
+<<TemplateDescription neaxa4:      Nano Express>>
+<<TemplateDescription nfaub3:      Nano Futures>>
+<<TemplateDescription njopfm:      New Journal of Physics>>
+<<TemplateDescription nnoter:      Nanotechnology>>
+<<TemplateDescription nonle5:      Nonlinearity>>
+<<TemplateDescription nufuau:      Nuclear Fusion>>
+<<TemplateDescription pberb8:      Progress in Biomedical Engineering>>
+<<TemplateDescription pbhiat:      Physical Biology>>
+<<TemplateDescription perndg:      Progress in Energy>>
+<<TemplateDescription pheda7:      Physics Education>>
+<<TemplateDescription phmba7:      Physics in Medicine & Biology>>
+<<TemplateDescription phstbo:      Physica Scripta>>
+<<TemplateDescription pmeae3:      Physiological Measurement>>
+<<TemplateDescription ppcfet:      Plasma Physics and Controlled Fusion>>
+<<TemplateDescription prelcz:      Plasma Research Express>>
+<<TemplateDescription psteeu:      Plasma Sources Science and Technology>>
+<<TemplateDescription qstuah:      Quantum Science and Technology>>
+<<TemplateDescription rpphag:      Reports on Progress in Physics>>
+<<TemplateDescription smster:      Smart Materials and Structures>>
+<<TemplateDescription ssteet:      Semiconductor Science and Technology>>
+<<TemplateDescription stmpcw:      Surface Topography: Metrology and Properties>>
+<<TemplateDescription sustef:      Superconductor Science and Technology>>
+<<% >>
+<<% manuscripts/scoop>>
+<<Dependency amspreprint: postpreamble-amspreprint.sty>>
+<<% >>
+<<% manuscripts/EMS>>
+<<Dependency ag:          postpreamble-ag.sty>>
+<<Dependency em:          postpreamble-em.sty>>
+<<Dependency rlm:         postpreamble-rlm.sty>>
+<<% >>
+<<% manuscripts/IOP>>
+<<Dependency bbiici:      postpreamble-bbiici.sty>>
+<<Dependency bioffn:      postpreamble-bioffn.sty>>
+<<Dependency bmbucs:      postpreamble-bmbucs.sty>>
+<<Dependency bpeeae:      postpreamble-bpeeae.sty>>
+<<Dependency cqgrdg:      postpreamble-cqgrdg.sty>>
+<<Dependency dmatb7:      postpreamble-dmatb7.sty>>
+<<Dependency ejphd4:      postpreamble-ejphd4.sty>>
+<<Dependency ejssbg:      postpreamble-ejssbg.sty>>
+<<Dependency erc:         postpreamble-erc.sty>>
+<<Dependency ercl:        postpreamble-ercl.sty>>
+<<Dependency ere:         postpreamble-ere.sty>>
+<<Dependency erenbl:      postpreamble-erenbl.sty>>
+<<Dependency erh:         postpreamble-erh.sty>>
+<<Dependency erisal:      postpreamble-erisal.sty>>
+<<Dependency erlnal:      postpreamble-erlnal.sty>>
+<<Dependency esltac:      postpreamble-esltac.sty>>
+<<Dependency fcsuah:      postpreamble-fcsuah.sty>>
+<<Dependency fpelab:      postpreamble-fpelab.sty>>
+<<Dependency ijemkf:      postpreamble-ijemkf.sty>>
+<<Dependency ip:          postpreamble-ip.sty>>
+<<Dependency isoccm:      postpreamble-isoccm.sty>>
+<<Dependency jbrobw:      postpreamble-jbrobw.sty>>
+<<Dependency jcapbp:      postpreamble-jcapbp.sty>>
+<<Dependency jcomel:      postpreamble-jcomel.sty>>
+<<Dependency jionas:      postpreamble-jionas.sty>>
+<<Dependency jmmiez:      postpreamble-jmmiez.sty>>
+<<Dependency jneiez:      postpreamble-jneiez.sty>>
+<<Dependency joopca:      postpreamble-joopca.sty>>
+<<Dependency jpamb5:      postpreamble-jpamb5.sty>>
+<<Dependency jpapbe:      postpreamble-jpapbe.sty>>
+<<Dependency jpapeh:      postpreamble-jpapeh.sty>>
+<<Dependency jpcofp:      postpreamble-jpcofp.sty>>
+<<Dependency jpcogq:      postpreamble-jpcogq.sty>>
+<<Dependency jpeoey:      postpreamble-jpeoey.sty>>
+<<Dependency jpgped:      postpreamble-jpgped.sty>>
+<<Dependency jpmoc4:      postpreamble-jpmoc4.sty>>
+<<Dependency jppokr:      postpreamble-jppokr.sty>>
+<<Dependency jrprea:      postpreamble-jrprea.sty>>
+<<Dependency jsmtc6:      postpreamble-jsmtc6.sty>>
+<<Dependency mafeb2:      postpreamble-mafeb2.sty>>
+<<Dependency mlstck:      postpreamble-mlstck.sty>>
+<<Dependency mmuabd:      postpreamble-mmuabd.sty>>
+<<Dependency mqtaaz:      postpreamble-mqtaaz.sty>>
+<<Dependency mreac3:      postpreamble-mreac3.sty>>
+<<Dependency msmeeu:      postpreamble-msmeeu.sty>>
+<<Dependency mstcep:      postpreamble-mstcep.sty>>
+<<Dependency mtrgau:      postpreamble-mtrgau.sty>>
+<<Dependency nceecn:      postpreamble-nceecn.sty>>
+<<Dependency neaxa4:      postpreamble-neaxa4.sty>>
+<<Dependency nfaub3:      postpreamble-nfaub3.sty>>
+<<Dependency njopfm:      postpreamble-njopfm.sty>>
+<<Dependency nnoter:      postpreamble-nnoter.sty>>
+<<Dependency nonle5:      postpreamble-nonle5.sty>>
+<<Dependency nufuau:      postpreamble-nufuau.sty>>
+<<Dependency pberb8:      postpreamble-pberb8.sty>>
+<<Dependency pbhiat:      postpreamble-pbhiat.sty>>
+<<Dependency perndg:      postpreamble-perndg.sty>>
+<<Dependency pheda7:      postpreamble-pheda7.sty>>
+<<Dependency phmba7:      postpreamble-phmba7.sty>>
+<<Dependency phstbo:      postpreamble-phstbo.sty>>
+<<Dependency pmeae3:      postpreamble-pmeae3.sty>>
+<<Dependency ppcfet:      postpreamble-ppcfet.sty>>
+<<Dependency prelcz:      postpreamble-prelcz.sty>>
+<<Dependency psteeu:      postpreamble-psteeu.sty>>
+<<Dependency qstuah:      postpreamble-qstuah.sty>>
+<<Dependency rpphag:      postpreamble-rpphag.sty>>
+<<Dependency smster:      postpreamble-smster.sty>>
+<<Dependency ssteet:      postpreamble-ssteet.sty>>
+<<Dependency stmpcw:      postpreamble-stmpcw.sty>>
+<<Dependency sustef:      postpreamble-sustef.sty>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[<<DocumentClassOptions>>]{amsart}
+
+% Preamble follows.
+\RequirePackage{biblatex}
+\RequirePackage{ltxcmds}
+<<LaTeXPreamble>>
+
+% Define the BibLaTeX resources.
+<<BibLaTeXResources>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Set title and subtitle information.
+\title[<<ShortTitle>>]{<<TitleNewlineSubTitle>>}
+
+% Set author and funding information.
+<<AuthorsInstitutionsAMS>>
+
+% Set date information.
+\date{<<Date>>}
+
+% Set dedication information.
+\dedicatory{<<Dedication>>}
+
+\begin{document}
+
+% Insert the abstract.
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\keywords{<<KeywordsCommaSeparated>>}
+
+% Insert the Mathematics Subject Classification.
+\makeatletter
+\ltx@ifpackageloaded{hyperref}{%
+\subjclass[2010]{<<MSCWithLinks>>}
+}{%
+\subjclass[2010]{<<MSC>>}
+}
+\makeatother
+
+% Typeset the opening page.
+\maketitle
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+<<BibLaTeXPrintBibliography>>
+
+\end{document}

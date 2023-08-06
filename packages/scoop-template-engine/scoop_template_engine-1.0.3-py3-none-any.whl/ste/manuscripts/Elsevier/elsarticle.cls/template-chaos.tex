@@ -1,0 +1,465 @@
+% A LaTeX template for submissions to Elsevier journals.
+% Derived from elsarticle-template-num-names.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription aam:         Advances in Applied Mathematics>>
+<<TemplateDescription acha:        Applied and Computational Harmonic Analysis>>
+<<TemplateDescription advengsoft:  Advances in Engineering Software>>
+<<TemplateDescription aim:         Advances in Mathematics>>
+<<TemplateDescription amc:         Applied Mathematics and Computation>>
+<<TemplateDescription aml:         Applied Mathematics Letters>>
+<<TemplateDescription apal:        Annals of Pure and Applied Logic>>
+<<TemplateDescription apm:         Applied Mathematical Modelling>>
+<<TemplateDescription apnum:       Applied Numerical Mathematics>>
+<<TemplateDescription arcontrol:   Annual Reviews in Control>>
+<<TemplateDescription array:       Array>>
+<<TemplateDescription bcra:        Blockchain: Research and Applications>>
+<<TemplateDescription bdr:         Big Data Research>>
+<<TemplateDescription bica:        Biologically Inspired Cognitive Architecture>>
+<<TemplateDescription brain:       Brain Multiphysics>>
+<<TemplateDescription bulsci:      Bulletin des Sciences Mathématiques>>
+<<TemplateDescription cad:         Computer-Aided Design>>
+<<TemplateDescription cam:         Journal of Computational and Applied Mathematics>>
+<<TemplateDescription camwa:       Computers & Mathematics with Applications>>
+<<TemplateDescription chaos:       Chaos, Solitons & Fractals>>
+<<TemplateDescription cma:         Computer Methods in Applied Mechanics and Engineering>>
+<<TemplateDescription cnsns:       Communications in Nonlinear Science and Numerical Simulation>>
+<<TemplateDescription cocom:       Computational Condensed Matter>>
+<<TemplateDescription coisb:       Current Opinion in Systems Biology>>
+<<TemplateDescription cola:        Journal of Computer Languages>>
+<<TemplateDescription comgeo:      Computational Geometry>>
+<<TemplateDescription commatsci:   Computational Materials Science>>
+<<TemplateDescription compgeo:     Computers and Geotechnics>>
+<<TemplateDescription compstruc:   Computers & Structures>>
+<<TemplateDescription conengprac:  Control Engineering Practice>>
+<<TemplateDescription cosrev:      Computer Science Review>>
+<<TemplateDescription cpc:         Computer Physics Communications>>
+<<TemplateDescription csda:        Computational Statistics & Data Analysis>>
+<<TemplateDescription csfx:        Chaos, Solitons & Fractals: X>>
+<<TemplateDescription csl:         Computer Speech and Language>>
+<<TemplateDescription dajour:      Decision Analytics Journal>>
+<<TemplateDescription dam:         Discrete Applied Mathematics>>
+<<TemplateDescription dark:        Physics of the Dark Universe>>
+<<TemplateDescription difgeo:      Differential Geometry and its Applications>>
+<<TemplateDescription disc:        Discrete Mathematics>>
+<<TemplateDescription disopt:      Discrete Optimization>>
+<<TemplateDescription ecocom:      Ecological Complexity>>
+<<TemplateDescription ecolmodel:   Ecological Modelling>>
+<<TemplateDescription ecosta:      Econometrics and Statistics>>
+<<TemplateDescription ejc:         European Journal of Combinatorics>>
+<<TemplateDescription ejor:        European Journal of Operational Research>>
+<<TemplateDescription enganabound: Engineering Analysis with Boundary Elements>>
+<<TemplateDescription engappai:    Engineering Applications of Artificial Intelligence>>
+<<TemplateDescription exco:        Examples and Counterexamples>>
+<<TemplateDescription exmath:      Expositiones Mathematicae>>
+<<TemplateDescription ffa:         Finite Fields and Their Applications>>
+<<TemplateDescription finel:       Finite Elements in Analysis and Design>>
+<<TemplateDescription fss:         Fuzzy Sets and Systems>>
+<<TemplateDescription geb:         Games and Economic Behavior>>
+<<TemplateDescription geomphys:    Journal of Geometry and Physics>>
+<<TemplateDescription gmod:        Graphical Models>>
+<<TemplateDescription hcc:         High-Confidence Computing>>
+<<TemplateDescription health:      Healthcare Analytics>>
+<<TemplateDescription heliyon:     Heliyon>>
+<<TemplateDescription ic:          Information and Computation>>
+<<TemplateDescription ijforecast:  International Journal of Forecasting>>
+<<TemplateDescription ime:         Insurance: Mathematics and Economics>>
+<<TemplateDescription indag:       Indagationes Mathematicae>>
+<<TemplateDescription ins:         Information Sciences>>
+<<TemplateDescription ipl:         Information Processing Letters>>
+<<TemplateDescription jaca:        Journal of Computational Algebra>>
+<<TemplateDescription jalgebra:    Journal of Algebra>>
+<<TemplateDescription jat:         Journal of Approximation Theory>>
+<<TemplateDescription jcmds:       Journal of Computational Mathematics and Data Science>>
+<<TemplateDescription jco:         Journal of Complexity>>
+<<TemplateDescription jcp:         Journal of Computational Physics>>
+<<TemplateDescription jcpx:        Journal of Computational Physics: X>>
+<<TemplateDescription jcss:        Journal of Computer and System Sciences>>
+<<TemplateDescription jcta:        Journal of Combinatorial Theory, Series A>>
+<<TemplateDescription jctb:        Journal of Combinatorial Theory, Series B>>
+<<TemplateDescription jde:         Journal of Differential Equations>>
+<<TemplateDescription jebo:        Journal of Economic Behavior & Organization>>
+<<TemplateDescription jeconom:     Journal of Econometrics>>
+<<TemplateDescription jedc:        Journal of Economic Dynamics and Control>>
+<<TemplateDescription jet:         Journal of Economic Theory>>
+<<TemplateDescription jfa:         Journal of Functional Analysis>>
+<<TemplateDescription jfranklin:   Journal of The Franklin Institute>>
+<<TemplateDescription jlamp:       Journal of Logical and Algebraic Methods in Programming>>
+<<TemplateDescription jmaa:        Journal of Mathematical Analysis and Applications>>
+<<TemplateDescription jmateco:     Journal of Mathematical Economics>>
+<<TemplateDescription jnt:         Journal of Number Theory>>
+<<TemplateDescription jocsci:      Journal of Computational Science>>
+<<TemplateDescription jpaa:        Journal of Pure and Applied Algebra>>
+<<TemplateDescription jprocont:    Journal of Process Control>>
+<<TemplateDescription jspi:        Journal of Statistical Planning and Inference>>
+<<TemplateDescription jsymbc:      Journal of Symbolic Computation>>
+<<TemplateDescription laa:         Linear Algebra and its Applications>>
+<<TemplateDescription matcom:      Mathematics and Computers in Simulation>>
+<<TemplateDescription matpur:      Journal de Mathématiques Pures et Appliquées>>
+<<TemplateDescription mbs:         Mathematical Biosciences>>
+<<TemplateDescription mlwa:        Machine Learning with Applications>>
+<<TemplateDescription mss:         Mathematical Social Sciences>>
+<<TemplateDescription na:          Nonlinear Analysis>>
+<<TemplateDescription nahs:        Nonlinear Analysis: Hybrid Systems>>
+<<TemplateDescription nanocomnet:  Nano Communication Networks>>
+<<TemplateDescription neunet:      Neural Networks>>
+<<TemplateDescription nlm:         International Journal of Non-Linear Mechanics>>
+<<TemplateDescription nonrwa:      Nonlinear Analysis: Real World Applications>>
+<<TemplateDescription nppp:        Nuclear and Particle Physics Proceedings>>
+<<TemplateDescription nuclphysb:   Nuclear Physics B>>
+<<TemplateDescription orl:         Operations Research Letters>>
+<<TemplateDescription padiff:      Partial Differential Equations in Applied Mathematics>>
+<<TemplateDescription patterns:    Patterns>>
+<<TemplateDescription physa:       Physica A: Statistical Mechanics and its Applications>>
+<<TemplateDescription physd:       Physica D: Nonlinear Phenomena>>
+<<TemplateDescription physleta:    Physics Letters A>>
+<<TemplateDescription physletb:    Physics Letters B>>
+<<TemplateDescription plrev:       Physics of Life Reviews>>
+<<TemplateDescription pmc:         Pervasive and Mobile Computing>>
+<<TemplateDescription pr:          Pattern Recognition>>
+<<TemplateDescription red:         Review of Economic Dynamics>>
+<<TemplateDescription rico:        Results in Control and Optimization>>
+<<TemplateDescription rinam:       Results in Applied Mathematics>>
+<<TemplateDescription sasc:        Systems and Soft Computing>>
+<<TemplateDescription spa:         Stochastic Processes and their Applications>>
+<<TemplateDescription spasta:      Spatial Statistics>>
+<<TemplateDescription stapro:      Statistics & Probability Letters>>
+<<TemplateDescription swevo:       Swarm and Evolutionary Computation>>
+<<TemplateDescription sysconle:    Systems & Control Letters>>
+<<TemplateDescription tcs:         Theoretical Computer Science>>
+<<TemplateDescription topol:       Topology and its Applications>>
+<<TemplateDescription vehcom:      Vehicular Communications>>
+<<TemplateDescription wace:        Weather and Climate Extremes>>
+<<% >>
+<<Dependency: elsarticle.cls>>
+<<Dependency: elsarticle-num-names.bst>>
+<<% >>
+<<Dependency aam:         postpreamble-aam.sty>>
+<<Dependency aam:         prepreamble-aam.sty>>
+<<Dependency acha:        postpreamble-acha.sty>>
+<<Dependency acha:        prepreamble-acha.sty>>
+<<Dependency advengsoft:  postpreamble-advengsoft.sty>>
+<<Dependency advengsoft:  prepreamble-advengsoft.sty>>
+<<Dependency aim:         postpreamble-aim.sty>>
+<<Dependency aim:         prepreamble-aim.sty>>
+<<Dependency amc:         postpreamble-amc.sty>>
+<<Dependency amc:         prepreamble-amc.sty>>
+<<Dependency aml:         postpreamble-aml.sty>>
+<<Dependency aml:         prepreamble-aml.sty>>
+<<Dependency apal:        postpreamble-apal.sty>>
+<<Dependency apal:        prepreamble-apal.sty>>
+<<Dependency apm:         postpreamble-apm.sty>>
+<<Dependency apm:         prepreamble-apm.sty>>
+<<Dependency apnum:       postpreamble-apnum.sty>>
+<<Dependency apnum:       prepreamble-apnum.sty>>
+<<Dependency arcontrol:   postpreamble-arcontrol.sty>>
+<<Dependency arcontrol:   prepreamble-arcontrol.sty>>
+<<Dependency array:       postpreamble-array.sty>>
+<<Dependency array:       prepreamble-array.sty>>
+<<Dependency bcra:        postpreamble-bcra.sty>>
+<<Dependency bcra:        prepreamble-bcra.sty>>
+<<Dependency bdr:         postpreamble-bdr.sty>>
+<<Dependency bdr:         prepreamble-bdr.sty>>
+<<Dependency bica:        postpreamble-bica.sty>>
+<<Dependency bica:        prepreamble-bica.sty>>
+<<Dependency brain:       postpreamble-brain.sty>>
+<<Dependency brain:       prepreamble-brain.sty>>
+<<Dependency bulsci:      postpreamble-bulsci.sty>>
+<<Dependency bulsci:      prepreamble-bulsci.sty>>
+<<Dependency cad:         postpreamble-cad.sty>>
+<<Dependency cad:         prepreamble-cad.sty>>
+<<Dependency cam:         postpreamble-cam.sty>>
+<<Dependency cam:         prepreamble-cam.sty>>
+<<Dependency camwa:       postpreamble-camwa.sty>>
+<<Dependency camwa:       prepreamble-camwa.sty>>
+<<Dependency chaos:       postpreamble-chaos.sty>>
+<<Dependency chaos:       prepreamble-chaos.sty>>
+<<Dependency cma:         postpreamble-cma.sty>>
+<<Dependency cma:         prepreamble-cma.sty>>
+<<Dependency cnsns:       postpreamble-cnsns.sty>>
+<<Dependency cnsns:       prepreamble-cnsns.sty>>
+<<Dependency cocom:       postpreamble-cocom.sty>>
+<<Dependency cocom:       prepreamble-cocom.sty>>
+<<Dependency coisb:       postpreamble-coisb.sty>>
+<<Dependency coisb:       prepreamble-coisb.sty>>
+<<Dependency cola:        postpreamble-cola.sty>>
+<<Dependency cola:        prepreamble-cola.sty>>
+<<Dependency comgeo:      postpreamble-comgeo.sty>>
+<<Dependency comgeo:      prepreamble-comgeo.sty>>
+<<Dependency commatsci:   postpreamble-commatsci.sty>>
+<<Dependency commatsci:   prepreamble-commatsci.sty>>
+<<Dependency compgeo:     postpreamble-compgeo.sty>>
+<<Dependency compgeo:     prepreamble-compgeo.sty>>
+<<Dependency compstruc:   postpreamble-compstruc.sty>>
+<<Dependency compstruc:   prepreamble-compstruc.sty>>
+<<Dependency conengprac:  postpreamble-conengprac.sty>>
+<<Dependency conengprac:  prepreamble-conengprac.sty>>
+<<Dependency cosrev:      postpreamble-cosrev.sty>>
+<<Dependency cosrev:      prepreamble-cosrev.sty>>
+<<Dependency cpc:         postpreamble-cpc.sty>>
+<<Dependency cpc:         prepreamble-cpc.sty>>
+<<Dependency csda:        postpreamble-csda.sty>>
+<<Dependency csda:        prepreamble-csda.sty>>
+<<Dependency csfx:        postpreamble-csfx.sty>>
+<<Dependency csfx:        prepreamble-csfx.sty>>
+<<Dependency csl:         postpreamble-csl.sty>>
+<<Dependency csl:         prepreamble-csl.sty>>
+<<Dependency dajour:      postpreamble-dajour.sty>>
+<<Dependency dajour:      prepreamble-dajour.sty>>
+<<Dependency dam:         postpreamble-dam.sty>>
+<<Dependency dam:         prepreamble-dam.sty>>
+<<Dependency dark:        postpreamble-dark.sty>>
+<<Dependency dark:        prepreamble-dark.sty>>
+<<Dependency difgeo:      postpreamble-difgeo.sty>>
+<<Dependency difgeo:      prepreamble-difgeo.sty>>
+<<Dependency disc:        postpreamble-disc.sty>>
+<<Dependency disc:        prepreamble-disc.sty>>
+<<Dependency disopt:      postpreamble-disopt.sty>>
+<<Dependency disopt:      prepreamble-disopt.sty>>
+<<Dependency ecocom:      postpreamble-ecocom.sty>>
+<<Dependency ecocom:      prepreamble-ecocom.sty>>
+<<Dependency ecolmodel:   postpreamble-ecolmodel.sty>>
+<<Dependency ecolmodel:   prepreamble-ecolmodel.sty>>
+<<Dependency ecosta:      postpreamble-ecosta.sty>>
+<<Dependency ecosta:      prepreamble-ecosta.sty>>
+<<Dependency ejc:         postpreamble-ejc.sty>>
+<<Dependency ejc:         prepreamble-ejc.sty>>
+<<Dependency ejor:        postpreamble-ejor.sty>>
+<<Dependency ejor:        prepreamble-ejor.sty>>
+<<Dependency enganabound: postpreamble-enganabound.sty>>
+<<Dependency enganabound: prepreamble-enganabound.sty>>
+<<Dependency engappai:    postpreamble-engappai.sty>>
+<<Dependency engappai:    prepreamble-engappai.sty>>
+<<Dependency exco:        postpreamble-exco.sty>>
+<<Dependency exco:        prepreamble-exco.sty>>
+<<Dependency exmath:      postpreamble-exmath.sty>>
+<<Dependency exmath:      prepreamble-exmath.sty>>
+<<Dependency ffa:         postpreamble-ffa.sty>>
+<<Dependency ffa:         prepreamble-ffa.sty>>
+<<Dependency finel:       postpreamble-finel.sty>>
+<<Dependency finel:       prepreamble-finel.sty>>
+<<Dependency fss:         postpreamble-fss.sty>>
+<<Dependency fss:         prepreamble-fss.sty>>
+<<Dependency geb:         postpreamble-geb.sty>>
+<<Dependency geb:         prepreamble-geb.sty>>
+<<Dependency geomphys:    postpreamble-geomphys.sty>>
+<<Dependency geomphys:    prepreamble-geomphys.sty>>
+<<Dependency gmod:        postpreamble-gmod.sty>>
+<<Dependency gmod:        prepreamble-gmod.sty>>
+<<Dependency hcc:         postpreamble-hcc.sty>>
+<<Dependency hcc:         prepreamble-hcc.sty>>
+<<Dependency health:      postpreamble-health.sty>>
+<<Dependency health:      prepreamble-health.sty>>
+<<Dependency heliyon:     postpreamble-heliyon.sty>>
+<<Dependency heliyon:     prepreamble-heliyon.sty>>
+<<Dependency ic:          postpreamble-ic.sty>>
+<<Dependency ic:          prepreamble-ic.sty>>
+<<Dependency ijforecast:  postpreamble-ijforecast.sty>>
+<<Dependency ijforecast:  prepreamble-ijforecast.sty>>
+<<Dependency ime:         postpreamble-ime.sty>>
+<<Dependency ime:         prepreamble-ime.sty>>
+<<Dependency indag:       postpreamble-indag.sty>>
+<<Dependency indag:       prepreamble-indag.sty>>
+<<Dependency ins:         postpreamble-ins.sty>>
+<<Dependency ins:         prepreamble-ins.sty>>
+<<Dependency ipl:         postpreamble-ipl.sty>>
+<<Dependency ipl:         prepreamble-ipl.sty>>
+<<Dependency jaca:        postpreamble-jaca.sty>>
+<<Dependency jaca:        prepreamble-jaca.sty>>
+<<Dependency jalgebra:    postpreamble-jalgebra.sty>>
+<<Dependency jalgebra:    prepreamble-jalgebra.sty>>
+<<Dependency jat:         postpreamble-jat.sty>>
+<<Dependency jat:         prepreamble-jat.sty>>
+<<Dependency jcmds:       postpreamble-jcmds.sty>>
+<<Dependency jcmds:       prepreamble-jcmds.sty>>
+<<Dependency jco:         postpreamble-jco.sty>>
+<<Dependency jco:         prepreamble-jco.sty>>
+<<Dependency jcp:         postpreamble-jcp.sty>>
+<<Dependency jcp:         prepreamble-jcp.sty>>
+<<Dependency jcpx:        postpreamble-jcpx.sty>>
+<<Dependency jcpx:        prepreamble-jcpx.sty>>
+<<Dependency jcss:        postpreamble-jcss.sty>>
+<<Dependency jcss:        prepreamble-jcss.sty>>
+<<Dependency jcta:        postpreamble-jcta.sty>>
+<<Dependency jcta:        prepreamble-jcta.sty>>
+<<Dependency jctb:        postpreamble-jctb.sty>>
+<<Dependency jctb:        prepreamble-jctb.sty>>
+<<Dependency jde:         postpreamble-jde.sty>>
+<<Dependency jde:         prepreamble-jde.sty>>
+<<Dependency jebo:        postpreamble-jebo.sty>>
+<<Dependency jebo:        prepreamble-jebo.sty>>
+<<Dependency jeconom:     postpreamble-jeconom.sty>>
+<<Dependency jeconom:     prepreamble-jeconom.sty>>
+<<Dependency jedc:        postpreamble-jedc.sty>>
+<<Dependency jedc:        prepreamble-jedc.sty>>
+<<Dependency jet:         postpreamble-jet.sty>>
+<<Dependency jet:         prepreamble-jet.sty>>
+<<Dependency jfa:         postpreamble-jfa.sty>>
+<<Dependency jfa:         prepreamble-jfa.sty>>
+<<Dependency jfranklin:   postpreamble-jfranklin.sty>>
+<<Dependency jfranklin:   prepreamble-jfranklin.sty>>
+<<Dependency jlamp:       postpreamble-jlamp.sty>>
+<<Dependency jlamp:       prepreamble-jlamp.sty>>
+<<Dependency jmaa:        postpreamble-jmaa.sty>>
+<<Dependency jmaa:        prepreamble-jmaa.sty>>
+<<Dependency jmateco:     postpreamble-jmateco.sty>>
+<<Dependency jmateco:     prepreamble-jmateco.sty>>
+<<Dependency jnt:         postpreamble-jnt.sty>>
+<<Dependency jnt:         prepreamble-jnt.sty>>
+<<Dependency jocsci:      postpreamble-jocsci.sty>>
+<<Dependency jocsci:      prepreamble-jocsci.sty>>
+<<Dependency jpaa:        postpreamble-jpaa.sty>>
+<<Dependency jpaa:        prepreamble-jpaa.sty>>
+<<Dependency jprocont:    postpreamble-jprocont.sty>>
+<<Dependency jprocont:    prepreamble-jprocont.sty>>
+<<Dependency jspi:        postpreamble-jspi.sty>>
+<<Dependency jspi:        prepreamble-jspi.sty>>
+<<Dependency jsymbc:      postpreamble-jsymbc.sty>>
+<<Dependency jsymbc:      prepreamble-jsymbc.sty>>
+<<Dependency laa:         postpreamble-laa.sty>>
+<<Dependency laa:         prepreamble-laa.sty>>
+<<Dependency matcom:      postpreamble-matcom.sty>>
+<<Dependency matcom:      prepreamble-matcom.sty>>
+<<Dependency matpur:      postpreamble-matpur.sty>>
+<<Dependency matpur:      prepreamble-matpur.sty>>
+<<Dependency mbs:         postpreamble-mbs.sty>>
+<<Dependency mbs:         prepreamble-mbs.sty>>
+<<Dependency mlwa:        postpreamble-mlwa.sty>>
+<<Dependency mlwa:        prepreamble-mlwa.sty>>
+<<Dependency mss:         postpreamble-mss.sty>>
+<<Dependency mss:         prepreamble-mss.sty>>
+<<Dependency na:          postpreamble-na.sty>>
+<<Dependency na:          prepreamble-na.sty>>
+<<Dependency nahs:        postpreamble-nahs.sty>>
+<<Dependency nahs:        prepreamble-nahs.sty>>
+<<Dependency nanocomnet:  postpreamble-nanocomnet.sty>>
+<<Dependency nanocomnet:  prepreamble-nanocomnet.sty>>
+<<Dependency neunet:      postpreamble-neunet.sty>>
+<<Dependency neunet:      prepreamble-neunet.sty>>
+<<Dependency nlm:         postpreamble-nlm.sty>>
+<<Dependency nlm:         prepreamble-nlm.sty>>
+<<Dependency nonrwa:      postpreamble-nonrwa.sty>>
+<<Dependency nonrwa:      prepreamble-nonrwa.sty>>
+<<Dependency nppp:        postpreamble-nppp.sty>>
+<<Dependency nppp:        prepreamble-nppp.sty>>
+<<Dependency nuclphysb:   postpreamble-nuclphysb.sty>>
+<<Dependency nuclphysb:   prepreamble-nuclphysb.sty>>
+<<Dependency orl:         postpreamble-orl.sty>>
+<<Dependency orl:         prepreamble-orl.sty>>
+<<Dependency padiff:      postpreamble-padiff.sty>>
+<<Dependency padiff:      prepreamble-padiff.sty>>
+<<Dependency patterns:    postpreamble-patterns.sty>>
+<<Dependency patterns:    prepreamble-patterns.sty>>
+<<Dependency physa:       postpreamble-physa.sty>>
+<<Dependency physa:       prepreamble-physa.sty>>
+<<Dependency physd:       postpreamble-physd.sty>>
+<<Dependency physd:       prepreamble-physd.sty>>
+<<Dependency physleta:    postpreamble-physleta.sty>>
+<<Dependency physleta:    prepreamble-physleta.sty>>
+<<Dependency physletb:    postpreamble-physletb.sty>>
+<<Dependency physletb:    prepreamble-physletb.sty>>
+<<Dependency plrev:       postpreamble-plrev.sty>>
+<<Dependency plrev:       prepreamble-plrev.sty>>
+<<Dependency pmc:         postpreamble-pmc.sty>>
+<<Dependency pmc:         prepreamble-pmc.sty>>
+<<Dependency pr:          postpreamble-pr.sty>>
+<<Dependency pr:          prepreamble-pr.sty>>
+<<Dependency red:         postpreamble-red.sty>>
+<<Dependency red:         prepreamble-red.sty>>
+<<Dependency rico:        postpreamble-rico.sty>>
+<<Dependency rico:        prepreamble-rico.sty>>
+<<Dependency rinam:       postpreamble-rinam.sty>>
+<<Dependency rinam:       prepreamble-rinam.sty>>
+<<Dependency sasc:        postpreamble-sasc.sty>>
+<<Dependency sasc:        prepreamble-sasc.sty>>
+<<Dependency spa:         postpreamble-spa.sty>>
+<<Dependency spa:         prepreamble-spa.sty>>
+<<Dependency spasta:      postpreamble-spasta.sty>>
+<<Dependency spasta:      prepreamble-spasta.sty>>
+<<Dependency stapro:      postpreamble-stapro.sty>>
+<<Dependency stapro:      prepreamble-stapro.sty>>
+<<Dependency swevo:       postpreamble-swevo.sty>>
+<<Dependency swevo:       prepreamble-swevo.sty>>
+<<Dependency sysconle:    postpreamble-sysconle.sty>>
+<<Dependency sysconle:    prepreamble-sysconle.sty>>
+<<Dependency tcs:         postpreamble-tcs.sty>>
+<<Dependency tcs:         prepreamble-tcs.sty>>
+<<Dependency topol:       postpreamble-topol.sty>>
+<<Dependency topol:       prepreamble-topol.sty>>
+<<Dependency vehcom:      postpreamble-vehcom.sty>>
+<<Dependency vehcom:      prepreamble-vehcom.sty>>
+<<Dependency wace:        postpreamble-wace.sty>>
+<<Dependency wace:        prepreamble-wace.sty>>
+<<% >>
+<<CreateCustomBibliography: --haltotypeornote --urntonote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+preprint,
+12pt,
+<<DocumentClassOptions>>]{elsarticle}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+% Set journal name.
+\journal{\detokenize{<<JournalName>>}}
+
+\begin{document}
+\begin{frontmatter}
+
+% Set title, subtitle and funding information.
+\title{<<TitleNewlineSubTitle>><<FundingTnoteRef>><<DedicationTnoteRef>>}
+<<FundingTnoteText>>
+<<DedicationTnoteText>>
+
+% Set author information.
+<<AuthorsInstitutionsElsevier>>
+
+% Insert the abstract.
+\begin{abstract} 
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\begin{keyword}
+<<KeywordsCommaSeparated>>
+\end{keyword}
+
+\end{frontmatter}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{elsarticle-num-names}
+<<CustomBibliography>>
+
+\end{document}

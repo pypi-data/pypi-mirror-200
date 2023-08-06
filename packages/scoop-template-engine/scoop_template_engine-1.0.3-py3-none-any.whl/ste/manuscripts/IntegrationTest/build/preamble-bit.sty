@@ -1,0 +1,44 @@
+\ProvidesPackage{preamble-bit}
+
+% Declare all options.
+\newif\if@scoopcompatibility@none
+\newif\if@scoopcompatibility@minimal
+\newif\if@scoopcompatibility@packages
+\newif\if@scoopcompatibility@changes
+\newif\if@scoopcompatibility@theorems
+\newif\if@scoopcompatibility@testing
+\DeclareOption{none}{\@scoopcompatibility@nonetrue}
+\DeclareOption{minimal}{\@scoopcompatibility@minimaltrue}
+\DeclareOption{packages}{\@scoopcompatibility@packagestrue\ExecuteOptions{minimal}}
+\DeclareOption{changes}{\@scoopcompatibility@changestrue}
+\DeclareOption{theorems}{\@scoopcompatibility@theoremstrue}
+\DeclareOption{testing}{\@scoopcompatibility@testingtrue}
+
+% Process all options.
+\ProcessOptions\relax
+
+% Execute option 'none'. 
+\if@scoopcompatibility@none
+\endinput
+\fi
+
+% Execute option 'minimal'. 
+\if@scoopcompatibility@minimal
+\fi
+
+% Execute option 'packages'. 
+\if@scoopcompatibility@packages
+\fi
+
+% Execute option 'changes'.
+\if@scoopcompatibility@changes
+\fi
+
+% Execute option 'theorems'.
+\if@scoopcompatibility@theorems
+	\RequirePackage{amsthm}
+\fi
+
+% Execute option 'testing'. 
+\if@scoopcompatibility@testing
+\fi

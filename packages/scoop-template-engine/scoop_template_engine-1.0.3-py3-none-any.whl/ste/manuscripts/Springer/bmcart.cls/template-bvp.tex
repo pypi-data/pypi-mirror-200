@@ -1,0 +1,107 @@
+%% BioMed_Central_Tex_Template_v1.06
+% A LaTeX template for submissions to Springer journals.
+% Derived from bmc_article.tex.
+<<MinimumVersion: 1.0.0>>
+<<% >>
+<<TemplateDescription acdm: Advances in Continuous and Discrete Models>>
+<<TemplateDescription bvp:  Boundary Value Problems>>
+<<TemplateDescription jmi:  Journal of Mathematics in Industry>>
+<<TemplateDescription jia:  Journal of Inequalities and Applications>>
+<<% >>
+<<Dependency: bmcart.cls>>
+<<Dependency: bmc-mathphys.bst>>
+<<% >>
+<<Dependency acdm: postpreamble-acdm.sty>>
+<<Dependency acdm: preamble-acdm.sty>>
+<<Dependency bvp:  postpreamble-bvp.sty>>
+<<Dependency bvp:  preamble-bvp.sty>>
+<<Dependency jia:  postpreamble-jia.sty>>
+<<Dependency jia:  preamble-jia.sty>>
+<<Dependency jmi:  postpreamble-jmi.sty>>
+<<Dependency jmi:  preamble-jmi.sty>>
+<<% >>
+<<CreateCustomBibliography: --arxivtotypeornote>>
+
+% Prepreamble follows.
+<<LaTeXPrePreamble>>
+
+% Load the documentclass.
+\documentclass[%
+<<DocumentClassOptions>>]{bmcart}
+
+% Preamble follows.
+<<LaTeXPreamble>>
+
+% Setup document metadata.
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+	\hypersetup{
+		pdftitle = {<<Title>>},
+		pdfauthor = {<<AuthorsFullNamesCommaSeparated>>},
+		pdfkeywords = {<<KeywordsCommaSeparated>>},
+		pdfcreator = {<<ScoopTemplateEngineSignature>>}
+	}
+}{
+	\pdfinfo{
+		/Title (<<Title>>)
+		/Author (<<AuthorsFullNamesCommaSeparated>>)
+		/Subject ()
+		/Keywords (<<KeywordsCommaSeparated>>)
+		/Creator (<<ScoopTemplateEngineSignature>>)
+	}
+}
+\makeatother
+
+\begin{document}
+
+\begin{frontmatter}
+\begin{fmbox}
+
+% Set article type.
+\dochead{Research}
+
+% Set title information.
+\title{<<Title>>}
+
+% Set author information.
+<<AuthorsInstitutionsBiomedCentral>>
+
+% Set funding and dedication information.
+\begin{artnotes}
+	\note{<<Funding>>}
+	\note{<<Dedication>>}
+\end{artnotes}
+
+\end{fmbox}
+
+% Insert the abstract.
+\begin{abstractbox}
+\begin{abstract}
+<<InputAbstract>>
+\end{abstract}
+
+% Insert the keywords.
+\begin{keyword}
+<<KeywordsInBackslashKWD>>
+\end{keyword}
+
+% Insert the Mathematics Subject Classification.
+\begin{keyword}[class=AMS]
+<<MSCInBackslashKWD>>
+\end{keyword}
+\end{abstractbox}
+
+\end{frontmatter}
+
+% Insert the document body.
+<<InputBody>>
+
+% Insert the appendix.
+\appendix
+<<InputAppendix>>
+
+% Insert the bibliography.
+\bibliographystyle{bmc-mathphys}
+<<CustomBibliography>>
+
+\end{document}

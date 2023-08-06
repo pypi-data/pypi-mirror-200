@@ -1,0 +1,75 @@
+\ProvidesPackage{postpreamble-zamm}
+
+% Declare all options.
+\newif\if@scoopcompatibility@none
+\newif\if@scoopcompatibility@minimal
+\newif\if@scoopcompatibility@packages
+\newif\if@scoopcompatibility@changes
+\newif\if@scoopcompatibility@theorems
+\newif\if@scoopcompatibility@testing
+\DeclareOption{none}{\@scoopcompatibility@nonetrue}
+\DeclareOption{minimal}{\@scoopcompatibility@minimaltrue}
+\DeclareOption{packages}{\@scoopcompatibility@packagestrue\ExecuteOptions{minimal}}
+\DeclareOption{changes}{\@scoopcompatibility@changestrue}
+\DeclareOption{theorems}{\@scoopcompatibility@theoremstrue}
+\DeclareOption{testing}{\@scoopcompatibility@testingtrue}
+
+% Process all options.
+\ProcessOptions\relax
+
+% Execute option 'none'. 
+\if@scoopcompatibility@none
+\endinput
+\fi
+
+% Execute option 'minimal'. 
+\if@scoopcompatibility@minimal
+% Provide '\href' and '\url' commands in case hyperref.sty is not loaded.
+\AtBeginDocument{%
+	\providecommand{\href}[2]{\detokenize{#2}}
+	\providecommand{\url}[1]{\detokenize{#1}}
+}
+% The '\doiurl' command which gets written into the .bbl file does not handle DOIs with underscores.
+% We define an improved '\doiurl' command.
+\def\doiurl#1{\textsf{\detokenize{#1}}}
+\fi
+
+% Execute option 'packages'. 
+\if@scoopcompatibility@packages
+\fi
+
+% Execute option 'changes'.
+\if@scoopcompatibility@changes
+\fi
+
+% Execute option 'theorems'.
+% By default, a \newtheorem is provided, based on amsthm.sty.
+% It does provide cleveref.sty support but some theorem-like environments are defined previously.
+% Since the default numbering scheme uses independent counters, this is not an issue.
+\if@scoopcompatibility@theorems
+	\theoremstyle{WBstyleone}
+	\newtheorem*{theorem*}{Theorem}
+	\theoremstyle{lemma}
+	\newtheorem*{lemma*}{Lemma}
+	\newtheorem*{proposition*}{Proposition}
+	\newtheorem*{corollary*}{Corollary}
+	\theoremstyle{WBstyletwo}
+	\newtheorem*{remark*}{Remark}
+	\theoremstyle{WBstylethree}
+	\newtheorem*{definition*}{Definition}
+	\newtheorem{example}{Example}
+	\newtheorem*{example*}{Example}
+	\newtheorem*{assumption*}{Assumption}
+	\@ifpackageloaded{cleveref}{%
+    % https://tex.stackexchange.com/questions/315749
+		\expandafter\ifx\csname if@cref@capitalise\expandafter\endcsname\csname iftrue\endcsname
+			\crefname{assumption}{Assumption}{Assumptions}
+		\else
+			\crefname{assumption}{assumption}{assumptions}
+		\fi
+	}{}
+\fi
+
+% Execute option 'testing'. 
+\if@scoopcompatibility@testing
+\fi
