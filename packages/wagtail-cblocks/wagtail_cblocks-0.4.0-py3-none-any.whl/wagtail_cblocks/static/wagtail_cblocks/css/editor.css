@@ -1,0 +1,9 @@
+/**
+ * LinkBlock
+ *
+ * 1. Hide the 'Add' button when it is disabled.
+ */
+
+.link-target-block .c-sf-add-button[disabled] {
+  display: none; /* 1 */
+}
