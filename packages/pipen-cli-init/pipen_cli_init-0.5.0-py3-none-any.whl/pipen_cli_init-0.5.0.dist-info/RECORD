@@ -1,0 +1,15 @@
+pipen_cli_init/__init__.py,sha256=bqMCNBoKdPlh6g5tabvu6DmU-ENdpKeeYQg72lJFPH0,1187
+pipen_cli_init/template/.copier-answers.yml.jinja,sha256=NWkgKuwstJCzDP8kyFTdEvdakCh9xSrnsBH9Z_UYoPY,99
+pipen_cli_init/template/README.md.jinja,sha256=3G-UjzBX8trMiQyqiR__UOQtdyxzb1OyEr_O9SEEjGQ,215
+pipen_cli_init/template/copier.yml,sha256=SQUGP3BEEqtzK8Gflx-AdHIhNxS9FzykjN3pMhmtsIM,810
+pipen_cli_init/template/pyproject.toml.jinja,sha256=Hw683ln3qg7qcnPJG_hSYpqbYQchC7-vi-VtoeUhis8,688
+pipen_cli_init/template/{{pipeline_name}}/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pipen_cli_init/template/{{pipeline_name}}/__main__.py,sha256=Vdhw8YA1K3wPMlbJQYL5WqvRzAKVeZ16mZQFO9VRmCo,62
+pipen_cli_init/template/{{pipeline_name}}/main.py.jinja,sha256=eMkCTHYXm_HKu-CLxiwjZ6TGa9xStuWQJc7lg1roXLU,258
+pipen_cli_init/template/{{pipeline_name}}/processes.py.jinja,sha256=7SzgxBZkprfBu_phtnOphtCWC0hq3bFe1rHYMT_qT3Y,480
+pipen_cli_init/template/{{pipeline_name}}/scripts/ExampleProcess.sh,sha256=1OL0pZlh85w5U2Lpd9b81wTiNSf3Tm8i_IkwLJwxH6Y,84
+pipen_cli_init/template/{{pipeline_name}}/{% if report %}reports{% endif %}/ExampleProcess.svelte,sha256=REpst0btyTHt_0HnRjpjptu55Yn8sKrUjVmuE9HNWO4,197
+pipen_cli_init-0.5.0.dist-info/METADATA,sha256=1IP3CsVReBg3_DCFBXh2vvGsxKY6b9HLCxzAEE7N7cM,581
+pipen_cli_init-0.5.0.dist-info/WHEEL,sha256=7Z8_27uaHI_UZAc4Uox4PpBhQ9Y5_modZXWMxtUi4NU,88
+pipen_cli_init-0.5.0.dist-info/entry_points.txt,sha256=s9N8VBDkUAuFB5hgj2ZuDjlrJMEd_zP4KMipngT5A18,50
+pipen_cli_init-0.5.0.dist-info/RECORD,,
