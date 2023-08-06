@@ -1,0 +1,33 @@
+[build-system]
+requires = ['setuptools>=61', 'setuptools_scm>=6.2']
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools]
+packages = ['codearchiver', 'codearchiver.modules']
+
+[tool.setuptools_scm]
+
+[project]
+name = 'codearchiver'
+description = 'A VCS repository archival tool'
+readme = 'README.md'
+authors = [{name = 'JustAnotherArchivist'}]
+classifiers = [
+	'Development Status :: 3 - Alpha',
+	'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+	'Programming Language :: Python :: 3.9',
+	'Programming Language :: Python :: 3.10',
+	'Programming Language :: Python :: 3.11',
+]
+dependencies = [
+	'requests[socks]',
+	'filelock',
+]
+requires-python = '~=3.9'
+dynamic = ['version']
+
+[project.urls]
+repository = "https://gitea.arpa.li/JustAnotherArchivist/codearchiver"
+
+[project.scripts]
+codearchiver = 'codearchiver.cli:main'
