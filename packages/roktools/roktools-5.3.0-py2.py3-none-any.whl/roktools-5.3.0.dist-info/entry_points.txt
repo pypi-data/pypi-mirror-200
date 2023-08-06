@@ -1,0 +1,4 @@
+[console_scripts]
+cl = roktools.cl:entry_point
+compute_cdf = roktools.stats:cdf_cli
+tensorial = roktools.tensorial:entry_point
