@@ -1,0 +1,17 @@
+*~
+*.swp
+*.pyc
+*.project
+*.pydevproject
+.idea
+__pycache__
+dev
+build/
+dist/
+*egg-info
+recipe/
+docs/build
+docs/_build
+tests/test_post/data/
+.coverage
+htmlcov
