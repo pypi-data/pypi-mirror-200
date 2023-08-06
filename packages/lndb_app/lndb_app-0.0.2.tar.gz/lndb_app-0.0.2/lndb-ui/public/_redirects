@@ -1,0 +1,41 @@
+# --------
+# About, blog, reports
+# --------
+/blog/* https://lamin-blog-iekj.netlify.app/blog/:splat 200!
+/reports/* /blog/:splat 301!
+/about/* https://lamin-static-eoif.netlify.app/about/:splat 200!
+/contact/* https://lamin-static-eoif.netlify.app/contact/:splat 200!
+/imprint/* https://lamin-static-eoif.netlify.app/imprint/:splat 200!
+# ---------------------------
+# Docs
+# ---------------------------
+# Core product
+/docs/lamindb/* /docs/:splat 301!
+/docs/db/* /docs/:splat 301!
+# Biology
+/docs/bionty/* https://bionty-kyow.netlify.app/docs/bionty/:splat 200!
+/docs/bionty-assets/* https://bionty-assets-gczz.netlify.app/docs/bionty-assets/:splat 200!
+/docs/lnschema-wetlab/* https://lnschema-wetlab-vvhc.netlify.app/docs/lnschema-wetlab/:splat 200!
+/docs/lnschema-bionty/* https://lnschema-bionty-zdno.netlify.app/docs/lnschema-bionty/:splat 200!
+# Drylab
+/docs/nbproject/* https://nbproject-ifta.netlify.app/docs/nbproject/:splat 200!
+/docs/lnschema-drylab/* https://lnschema-drylab-xqfj.netlify.app/docs/lnschema-drylab/:splat 200!
+# Readouts / instruments
+/docs/bioreadout/* https://bioreadout-hoqe.netlify.app/docs/bioreadout/:splat 200!
+/docs/readfcs/* https://readfcs-rpqu.netlify.app/docs/readfcs/:splat 200!
+# Use cases
+/docs/redun-lamin-fasta/* https://redun-lamin-fasta-pofj.netlify.app/docs/redun-lamin-fasta/:splat 200!
+/docs/pytorch-lamin-mnist/* https://pytorch-lamin-mnist-gpej.netlify.app/docs/pytorch-lamin-mnist/:splat 200!
+# Core product dev
+/docs/lnschema-core/* https://lnschema-core-yvzi.netlify.app/docs/lnschema-core/:splat 200!
+/docs/lndb-setup/* /docs/lndb/:splat 301!
+/docs/lndb/* https://lndb-htry.netlify.app/docs/lndb/:splat 200!
+/docs/benchmarks/* https://lndb-benchmarks-ddba.netlify.app/docs/benchmarks/:splat 200!
+# Visualization
+/docs/erdiagram/* https://erdiagram-uble.netlify.app/docs/erdiagram/:splat 200!
+# Example instances
+/docs/lamin-site-assets/* https://lamin-site-assets-thsl.netlify.app/docs/lamin-site-assets/:splat 200!
+/docs/lnsc-example/* https://lnsc-example-qoeu.netlify.app/docs/lnsc-example/:splat 200!
+# Landing page
+/problems /docs/problems 301!
+/docs/* https://lamin-docs-msjq.netlify.app/docs/:splat 200!
