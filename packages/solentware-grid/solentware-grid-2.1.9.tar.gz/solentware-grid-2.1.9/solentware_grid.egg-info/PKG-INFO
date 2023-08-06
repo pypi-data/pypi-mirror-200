@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: solentware-grid
+Version: 2.1.9
+Summary: Database display classes
+Home-page: http://www.solentware.co.uk
+Author: Roger Marsh
+Author-email: roger.marsh@solentware.co.uk
+License: BSD
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Classifier: Topic :: Database :: Front-Ends
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 3 - Alpha
+License-File: LICENCE
+
+========================
+Database display classes
+========================
+
+.. contents::
+
+
+Description
+===========
+
+This package provides a grid to display a scrollable list of records from a database accessed using the `solentware-base`_ package.
+
+
+Installation Instructions
+=========================
+
+This package is available on PyPI so can be installed by typing
+
+   python -m pip install --user solentware-grid
+
+at the command prompt.
+
+See `Python`_ and `pip`_ documentation for alternatives and platform-specific points.
+
+
+Notes
+=====
+
+This package was written because I could not find something which behaved like a Delphi DBGrid, as remembered from the late 1990s.
+
+
+.. _Python: https://python.org
+.. _pip: https://packaging.python.org/installing
+.. _solentware-base: http://solentware.co.uk/components.html
