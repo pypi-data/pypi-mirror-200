@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ctcsound7
+Version: 0.1.0
+Summary: Python bindings to the Csound API using ctypes
+Home-page: https://github.com/csound-plugins/ctcsound7
+Author: Francois Pinot
+Author-email: eduardo.moguillansky@gmail.com
+License: BSD-3-Clause
+Keywords: csound
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+License-File: LICENSE
+
+## ctcsound
+Python bindings for Csound using ctypes. Can be used from python2.x and python3.x as well.  
+
+This repository is closely tied to the develop branch of Csound. The version of ctcsound should
+match the version of csound installed
+
+Dependency: numpy
