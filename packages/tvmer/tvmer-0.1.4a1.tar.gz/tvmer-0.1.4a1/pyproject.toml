@@ -1,0 +1,32 @@
+[tool.pdm]
+
+[project]
+name = "tvmer"
+version = "0.1.4a1"
+description = ""
+authors = [
+    { name = "zrr1999", email = "2742392377@qq.com" },
+]
+dependencies = [
+    "typer",
+    "rich",
+]
+requires-python = ">=3.8"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[project.optional-dependencies]
+tvm = [
+    "apache-tvm",
+]
+
+[project.scripts]
+tvmer = "tvmer.__main__:app"
+
+[build-system]
+requires = [
+    "pdm-pep517>=1.0",
+]
+build-backend = "pdm.pep517.api"
