@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: fastapi-integration
+Version: 0.0.2
+Summary: A PyPI package for simplifying FastAPI-ORM integration
+Author: Mani Mozaffar
+Author-email: mani.mozaffar@gmail.com
+Description-Content-Type: text/plain
+Requires-Dist: fastapi
+Requires-Dist: asyncpg
+Requires-Dist: sqlalchemy
+Requires-Dist: redis
+
