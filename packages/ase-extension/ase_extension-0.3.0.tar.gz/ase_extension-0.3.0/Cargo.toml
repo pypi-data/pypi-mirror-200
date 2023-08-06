@@ -1,0 +1,30 @@
+[package]
+name = "ase_extension"
+version = "0.3.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+name = "ase_extension"
+
+[profile.dev]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+debug = false
+lto = true
+codegen-units = 1
+
+[dependencies]
+openssl = { version = "0.10", features = ["vendored"] }
+ndarray = { version = "0.15.6", features = ["rayon"] }
+numpy = "0.18.0"
+pyo3 = { version = "0.18.0", features = ["extension-module"] }
+ordered-float = "3.4.0"
+rand = "0.8.5"
+rayon = "1.6.1"
+nalgebra = "0.32.2"
+gchemol-neighbors = "0.1.2"
