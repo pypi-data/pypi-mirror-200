@@ -1,0 +1,5 @@
+[mlflow.model_registry_store]
+file-plugin = mlflow_plugin.plugin_model_rest_store:PluginRegistryRestStore
+
+[mlflow.tracking_store]
+file-plugin = mlflow_plugin.plugin_rest_store:PluginRestStore
