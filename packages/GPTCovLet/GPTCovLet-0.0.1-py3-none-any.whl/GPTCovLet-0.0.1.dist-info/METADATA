@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: GPTCovLet
+Version: 0.0.1
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: openai
+Requires-Dist: selenium
+Requires-Dist: bs4
+Requires-Dist: webdriver-manager
+Provides-Extra: develop
+Requires-Dist: black (>=23.1.0) ; extra == 'develop'
+Requires-Dist: pytest (>=7.2.2) ; extra == 'develop'
+Requires-Dist: pytest-cov (>=2.6.1) ; extra == 'develop'
+Requires-Dist: check-manifest ; extra == 'develop'
+Requires-Dist: wheel ; extra == 'develop'
+
