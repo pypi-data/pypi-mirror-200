@@ -1,0 +1,67 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "To generate API key go to https://developer.airly.eu/register",
+        "data": {
+          "name": "[%key:common::config_flow::data::name%]",
+          "api_key": "[%key:common::config_flow::data::api_key%]",
+          "latitude": "[%key:common::config_flow::data::latitude%]",
+          "longitude": "[%key:common::config_flow::data::longitude%]"
+        }
+      }
+    },
+    "error": {
+      "wrong_location": "No Airly measuring stations in this area.",
+      "invalid_api_key": "[%key:common::config_flow::error::invalid_api_key%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_location%]",
+      "wrong_location": "No Airly measuring stations in this area."
+    }
+  },
+  "system_health": {
+    "info": {
+      "can_reach_server": "Reach Airly server",
+      "requests_remaining": "Remaining allowed requests",
+      "requests_per_day": "Allowed requests per day"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "caqi": {
+        "name": "CAQI"
+      },
+      "pm1": {
+        "name": "PM1.0"
+      },
+      "pm25": {
+        "name": "PM2.5"
+      },
+      "pm10": {
+        "name": "PM10"
+      },
+      "humidity": {
+        "name": "Humidity"
+      },
+      "pressure": {
+        "name": "Pressure"
+      },
+      "temperature": {
+        "name": "Temperature"
+      },
+      "co": {
+        "name": "Carbon monoxide"
+      },
+      "no2": {
+        "name": "Nitrogen dioxide"
+      },
+      "so2": {
+        "name": "Sulphur dioxide"
+      },
+      "o3": {
+        "name": "Ozone"
+      }
+    }
+  }
+}
