@@ -1,0 +1,2 @@
+{% if widget.is_initial %} <a href="#" onclick="window.open('/static/{{ widget.value.name }}');"><img width="10%" class="rounded-circle" src="/static/{{ widget.value.name }}"></a>{% endif %}
+<input type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
