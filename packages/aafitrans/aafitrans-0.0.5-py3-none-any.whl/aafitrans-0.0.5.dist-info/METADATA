@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: aafitrans
+Version: 0.0.5
+Summary: match coordinate lists
+Author-email: Prajwel Joseph <prajwel.pj@gmail.com>
+Project-URL: Homepage, https://github.com/prajwel/aafitrans
+Project-URL: Bug Tracker, https://github.com/prajwel/aafitrans/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+
+# Aafitrans (AstroAlign FInd TRANSform)
+
+Aafitrans is a Python package that provides a modified version of the `find_transform` function from the Astroalign package. The modifications made to the function are as follows:
+
+* The `sep` and `bottleneck` packages are no longer required as dependencies.
+* Offers greater flexibility by supporting all transformations available in the `skimage` library.
+* The `seed` parameter can be set during each run to ensure reproducibility of results.
+* The `kdtree_search_radius` parameter can be set to achieve better and faster matches.
+
+I have only made minor modifications to the source code to achieve the above. All credit goes to the original Astroalign authors for developing such amazing software. 
+  
+## Please cite:
+```
+Astroalign: A Python module for astronomical image registration.
+Beroiz, M., Cabral, J. B., & Sanchez, B.
+Astronomy & Computing, Volume 32, July 2020, 100384.
+```
+
