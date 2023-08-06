@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: quantificationlib
+Version: 0.0.1
+Summary: quantificationlib: A library for Quantification Learning
+Home-page: https://github.com/AICGijon/quantificationlib
+Download-URL: https://github.com/AICGijon/quantificationlib/archive/refs/tags/0.1.tar.gz
+Maintainer: Juan Jose del Coz
+Maintainer-email: juanjo@uniovi.es
+Keywords: quantification,label shift,prevalence estimation
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+![cibadge](https://github.com/aicgijon/quantificationlib/actions/workflows/quantificationlib.yml/badge.svg)
+[![codecov](https://codecov.io/github/AICGijon/quantificationlib/branch/main/graph/badge.svg?token=6Y3SMCVWCD)](https://app.codecov.io/github/AICGijon/quantificationlib)
+
+
+# QuantificationLib
+
+QuantificationLib is an open-source library for quantification learning. 
+
+### Last updates:
+
+- Initial version of the library released [0.0.1].
+
+### Installation and documentation
+
+The installation, quick-start guide and documentation are available [here](https://aicgijon.github.io/quantificationlib/).
