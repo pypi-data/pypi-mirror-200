@@ -1,0 +1,78 @@
+[project]
+name = "fastapi-motor-oil"
+description = "Collection of async utilities for working with MongoDB and conveniently creating performant APIs with async web frameworks such a FastAPI."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Peter Volf", email = "do.volfp@gmail.com" },
+]
+requires-python = ">=3.10"
+dependencies = ["pydantic", "motor"]
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Environment :: Web Environment",
+    "Framework :: FastAPI",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Internet :: WWW/HTTP",
+]
+
+[project.urls]
+Homepage = "https://github.com/volfpeter/fastapi-motor-oil"
+Documentation = "https://volfpeter.github.io/fastapi-motor-oil"
+
+[tool.black]
+line-length = 118
+
+[tool.mypy]
+show_error_codes = true
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+strict_equality = true
+implicit_reexport = true
+
+[tool.ruff]
+line-length = 118
+
+[tool.poetry]
+name = "fastapi-motor-oil"
+version = "0.5.0"
+description = "Collection of async utilities for working with MongoDB and conveniently creating performant APIs with async web frameworks such a FastAPI."
+authors = ["Peter Volf <do.volfp@gmail.com>"]
+readme = "README.md"
+packages = [{include = "fastapi_motor_oil"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+motor = "^3.1.1"
+pydantic = "^1.10.5"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+mypy = "^1.0.1"
+ruff = "^0.0.251"
+mkdocs-material = "^9.1.0"
+mkdocstrings = {extras = ["python"], version = "^0.20.0"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project.optional-dependencies]
+dev = ["black", "mypy", "ruff"]
