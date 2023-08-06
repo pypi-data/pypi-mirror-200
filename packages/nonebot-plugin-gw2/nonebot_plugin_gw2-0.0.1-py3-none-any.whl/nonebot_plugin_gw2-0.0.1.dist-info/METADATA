@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: nonebot-plugin-gw2
+Version: 0.0.1
+Summary: gw2 plugin for NoneBot
+Home-page: https://github.com/Umamusume-Agnes-Digital/nonebot_plugin_gw2
+Author: Agnes_Digital
+Author-email: Z735803792@163.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: nonebot2 (>=2.0.0rc3)
+Requires-Dist: nonebot-adapter-onebot (>=2.1.5)
+Requires-Dist: asyncio (>=3.4.3)
+Requires-Dist: httpx (>=0.23.3)
+
