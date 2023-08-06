@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: housenomics
+Version: 0.0.30
+Summary: Manage your personal finances
+License: MIT
+Author: Luís Miranda
+Author-email: luistm@gmail.com
+Requires-Python: ==3.11.1
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pendulum (>=2.1.2,<3.0.0)
+Requires-Dist: rich (>=13.3.1,<14.0.0)
+Requires-Dist: sqlalchemy (>=2.0.4,<3.0.0)
+Requires-Dist: typer (>=0.7.0,<0.8.0)
