@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: technical-indicator
+Version: 1.0.1
+Summary: Technical Indicator is a Python package for calculating technical indicators from financial time series datasets
+Home-page: https://github.com/nguyentruonglong/technical-indicator
+Author: Nguyen Truong Long
+Author-email: contact@nguyentruonglong.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/nguyentruonglong/technical-indicator/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.5.3
+Description-Content-Type: text/markdown
+Provides-Extra: test
+License-File: LICENSE
+
+# Technical Indicator Python Package
+
+This Python package provides methods to calculate various technical indicators from financial time series datasets. The indicators are organized into three categories: momentum indicators, volume indicators, and volatility indicators.
+
+### Installation
+
+You can install the Technical Indicator package using pip:
+
+```
+pip install technical-indicator
+```
+
+### Momentum Indicators
+
+#### Relative Strength Index (RSI)
+
+The RSI measures the ratio of upward price movements to downward price movements over a given period of time. To calculate the RSI using this library, initialize an instance of the RSI class with an array of prices and an optional lookback period (default is 14), and call the calculate method:
+
+```
+from technical_indicator.momentum import RSI
+
+# Example data
+period = 12
+prices = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 17, 16, 18, 20]
+
+# Initialize the RSI indicator with the prices and period
+rsi = RSI(prices, period)
+
+# Calculate the RSI values
+rsi_values = rsi.calculate_rsi()
+```
+
+
