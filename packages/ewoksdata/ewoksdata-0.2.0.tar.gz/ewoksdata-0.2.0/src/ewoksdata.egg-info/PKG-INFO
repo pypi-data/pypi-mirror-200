@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: ewoksdata
+Version: 0.2.0
+Summary: Ewoks tasks for data access
+Home-page: https://gitlab.esrf.fr/workflow/ewoksapps/ewoksdata/
+Author: ESRF
+Author-email: wout.de_nolf@esrf.fr
+License: MIT
+Project-URL: Source, https://gitlab.esrf.fr/workflow/ewoksapps/ewoksdata/
+Project-URL: Documentation, https://ewoksdata.readthedocs.io
+Project-URL: Tracker, https://gitlab.esrf.fr/workflow/ewoksapps/ewoksdata/issues/
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: bliss
+Provides-Extra: test
+Provides-Extra: dev
+Provides-Extra: doc
+License-File: LICENSE.md
+
+# ewoksdata
+
+Data access utilities for [ewoks](https://ewoks.readthedocs.io/) workflows.
+
+## Installation
+
+Until `silx>1.0.0` is released:
+
+```bash
+python -m pip install git+https://github.com/silx-kit/silx.git
+```
+
+## Documentation
+
+https://ewoksdata.readthedocs.io
