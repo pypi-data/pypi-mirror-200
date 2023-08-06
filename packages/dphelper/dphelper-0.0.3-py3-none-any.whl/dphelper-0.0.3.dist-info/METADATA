@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: dphelper
+Version: 0.0.3
+Summary: Handle common scraping problems, help linking data platform entities
+Author-email: Egidijus Gylys <EgidijusGylys1@gmail.com>
+License-File: license
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10.0
+Requires-Dist: pydantic
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+All rights reserved
+
+# Data Platform Helper
+
+This is a simple example package.
