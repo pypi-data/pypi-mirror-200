@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: cs.typingutils
+Version: 20230331
+Summary: Trite hacks for use with typing.
+Home-page: https://bitbucket.org/cameron_simpson/css/commits/all
+Author: Cameron Simpson
+Author-email: Cameron Simpson <cs@cskk.id.au>
+License: GNU General Public License v3 or later (GPLv3+)
+Project-URL: URL, https://bitbucket.org/cameron_simpson/css/commits/all
+Keywords: python3
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Description-Content-Type: text/markdown
+
+Trite hacks for use with typing.
+
+*Latest release 20230331*:
+Initial release.
+
+## Function `subtype(t, name=None)`
+
+Construct a `TypeVar` for subtypes of the type `t`.
+
+Parameters:
+* `t`: the type which bounds the `TypeVar`
+* `name`: optional name for the `TypeVar`,
+  default `t.__name__ + 'SubType'`
+
+# Release Log
+
+
+
+*Release 20230331*:
+Initial release.
