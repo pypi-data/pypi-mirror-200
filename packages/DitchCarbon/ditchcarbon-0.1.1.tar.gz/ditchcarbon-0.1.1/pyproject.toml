@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "DitchCarbon"
+version = "0.1.1"
+authors = [
+  { name="Luke Cummins", email="lc2232@bath.ac.uk" },
+  { name="Alex Dawkins", email="asd60@bath.ac.uk"},
+  { name="Joe Downard", email="jhd35@bath.ac.uk" },
+  { name="Sergios Gavriilidis", email="sg2295@bath.ac.uk"},
+]
+description = "Introducing \"DitchCarbon\", an open-source Python package that allows users to easily call the DitchCarbon API using HTTP requests."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "requests"
+]
