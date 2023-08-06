@@ -1,0 +1,2 @@
+# VidUniqLib
+PyPi VideoUniquelizer Library
