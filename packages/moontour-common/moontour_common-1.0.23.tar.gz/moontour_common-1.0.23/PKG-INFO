@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: moontour-common
+Version: 1.0.23
+Summary: Common entities and utilities for Moontour services
+Author-email: Elai Corem <elaicorem1@gmail.com>
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: aio-pika~=9.0
+Requires-Dist: geopy~=2.3
+Requires-Dist: pydantic~=1.10
+Requires-Dist: pymongo~=4.3
+Requires-Dist: redis~=4.5

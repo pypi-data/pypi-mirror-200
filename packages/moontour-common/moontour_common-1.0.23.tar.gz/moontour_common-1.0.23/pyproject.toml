@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "moontour-common"
+version = "1.0.23"
+authors = [
+    { name = "Elai Corem", email = "elaicorem1@gmail.com" },
+]
+description = "Common entities and utilities for Moontour services"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pydantic~=1.10",
+    "redis~=4.5",
+    "pymongo~=4.3",
+    "aio-pika~=9.0",
+    "geopy~=2.3"
+]
