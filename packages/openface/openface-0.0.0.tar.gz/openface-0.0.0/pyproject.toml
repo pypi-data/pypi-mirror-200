@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openface"
+version = "0.0.0"
+description = "openface is a Python API of OpenFace, https://github.com/TadasBaltrusaitis/OpenFace"
+readme = "README.md"
+requires-python = ">=3.7"
+authors = [
+    {name="Guillaume Rochette", email="guillaume.rochette@unil.ch"},
+]
+keywords = ["TODO"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "License :: Free for non-commercial use",
+    "License :: Free For Educational Use",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["dependencies"]
+
+[project.urls]
+homepage = "https://github.com/GuillaumeRochette/openface"
+documentation = "https://github.com/GuillaumeRochette/openface"
+repository = "https://github.com/GuillaumeRochette/openface"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
