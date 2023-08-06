@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: orbax-checkpoint
+Version: 0.1.8
+Summary: Orbax Checkpoint
+Keywords: JAX machine learning,checkpoint,training
+Author-email: Orbax Authors <orbax-dev@google.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Dist: absl-py
+Requires-Dist: cached_property
+Requires-Dist: importlib_resources
+Requires-Dist: etils
+Requires-Dist: typing_extensions
+Requires-Dist: msgpack
+Requires-Dist: jax >= 0.4.8
+Requires-Dist: jaxlib
+Requires-Dist: numpy
+Requires-Dist: pyyaml
+Requires-Dist: tensorstore >= 0.1.35
+Requires-Dist: nest_asyncio
+Requires-Dist: flax ; extra == "dev"
+Requires-Dist: pytest ; extra == "dev"
+Requires-Dist: pytest-xdist ; extra == "dev"
+Project-URL: homepage, http://github.com/google/orbax
+Project-URL: repository, http://github.com/google/orbax
+Provides-Extra: dev
+
+# Orbax Checkpointing
+
+Please see [documentation](https://github.com/google/orbax/blob/main/docs/checkpoint.md)
+for Orbax checkpointing.
+
