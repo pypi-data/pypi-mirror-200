@@ -1,0 +1,5 @@
+[console_scripts]
+mlflow-filter_runs = mlflow_extra.filter:script_filter_runs
+mlflow-fix_artifacts = mlflow_extra.merge:script_fix_artifact_uris
+mlflow-fix_experiment_ids = mlflow_extra.merge:script_fix_experiment_ids
+mlflow-merge = mlflow_extra.merge:script_merge_experiments
