@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: up-pps
+Version: 1.0.0
+Summary: up_pps
+Home-page: https://github.com/aiplan4eu/up-pps
+Author: ACTOR
+Author-email: ahead@ahead-research.com
+License: APACHE
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: pip (==22.3.1)
+Requires-Dist: numpy (==1.24.1)
+Requires-Dist: ortools (==9.5.2237)
+
