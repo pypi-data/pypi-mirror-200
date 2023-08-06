@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: esty
+Version: 0.1.0
+Summary: Top-level package for esty.
+Author: Tom Adamczewski
+Author-email: tadamczewskipublic@gmail.com
+Requires-Python: >=3.7,<4
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+
+Once I actually have a minimal DSL, this README can say:
+> Esty is an experimental domain-specific language (DSL) for estimation with uncertainty. 
