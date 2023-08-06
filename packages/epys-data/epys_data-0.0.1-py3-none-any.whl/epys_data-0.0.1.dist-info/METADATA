@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: epys-data
+Version: 0.0.1
+Summary: A python library created to extract data from EPİAŞ's epys services.
+Author: Berkay Akpınar
+Author-email: <brky45@gmail.com>
+Keywords: python,epys,epias,enerji piyasaları,data
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: numpy
+
