@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: fastapi-pagination-minus-one
+Version: 0.0.6
+Summary: Package that forces fastapi pagination to start at Page 0 instead of Page 1 in a paginated set.
+Author: Oriol Viladrosa
+Author-email: oviladrosa@gmail.com
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# `fastapi-pagination-minus-one`
+
+The `fastapi-pagination-minus-one` is a simple package that reduces by one de initial page of fastapi-pagination usage.
