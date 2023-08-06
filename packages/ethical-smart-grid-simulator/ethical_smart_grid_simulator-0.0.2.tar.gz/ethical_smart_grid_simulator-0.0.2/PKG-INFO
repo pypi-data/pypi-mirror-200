@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: ethical-smart-grid-simulator
+Version: 0.0.2
+Summary: A RL environment for learning ethically-aligned behaviours in a Smart Grid simulator.
+Project-URL: Source code, https://github.com/ethicsai/ethical-smart-grid
+Project-URL: Bug Tracker, https://github.com/ethicsai/ethical-smart-grid/issues
+Author: Clément Scheirlinck
+Author-email: Rémy Chaput <rchaput.pro@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022 Clément Scheirlinck and Rémy Chaput
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+        
+        # Datasets
+        
+        ## OpenEI
+        
+        The data in the `data/openei` folder is extracted from an
+        [energy dataset](https://data.openei.org/submissions/153) that was made
+        available by [OpenEI](https://openei.org/wiki/Information) through a Creative
+        Commons Attribution 4.0 license ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+License-File: LICENSE.md
+Keywords: Gym,Gymnasium,Machine Ethics,Multi-Agent System,OpenAI Gym,Reinforcement Learning,Smart Grid
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Requires-Dist: gymnasium>=0.26.3
+Requires-Dist: numpy>=1.24.2
+Provides-Extra: extra
+Requires-Dist: tqdm>=4.61.2; extra == 'extra'
+Description-Content-Type: text/markdown
+
+# Ethical Smart Grid Simulator
+
+> Authors: Clément Scheirlinck, Rémy Chaput
+
+## Description
+
+This is a third-party [Gym] environment, focusing on learning ethically-aligned
+behaviours in a Smart Grid use-case.
+
+A Smart Grid contains several *prosumer* (prosumer-consumer) agents that
+interact in a shared environment by consuming and exchanging energy.
+These agents have an energy need, at each time step, that they must satisfy
+by consuming energy. However, they should respect a set of moral values as
+they do so, i.e., exhibiting an ethically-aligned behaviour.
+
+Moral values are encoded in the reward functions, which determine the
+"correctness" of an agent's action, with respect to these moral values.
+Agents receive rewards as feedback that guide them towards a better behaviour.
+
+## Quick usage
+
+Clone this repository, open a Python shell (3.7+), and execute the following
+instructions:
+
+```python
+from smartgrid import make_basic_smartgrid
+from algorithms.qsom import QSOM
+
+env = make_basic_smartgrid()
+model = QSOM(env)
+
+done = False
+obs = env.reset()
+while not done:
+    actions = model.forward(obs)
+    obs, rewards, terminated, truncated, _ = env.step(actions)
+    model.backward(obs, rewards)
+    done = all(terminated) or all(truncated)
+env.close()
+```
+
+## License
+
+The source code is licensed under the [MIT License].
+Some included data may be protected by other licenses, please refer to the
+[LICENSE.md] file for details.
+
+[Gym]: https://gymnasium.farama.org/
+[MIT License]: https://choosealicense.com/licenses/mit/
+[LICENSE.md]: LICENSE.md
