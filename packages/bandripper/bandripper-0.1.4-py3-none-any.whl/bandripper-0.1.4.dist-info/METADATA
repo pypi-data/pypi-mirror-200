@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: bandripper
+Version: 0.1.4
+Summary: Rip mp3s from bandcamp.
+Project-URL: Homepage, https://github.com/matt-manes/bandripper
+Project-URL: Documentation, https://github.com/matt-manes/bandripper/tree/main/docs
+Project-URL: Source code, https://github.com/matt-manes/bandripper/tree/main/src/bandripper
+Author-email: Matt Manes <mattmanes@pm.me>
+License-File: LICENSE.txt
+Keywords: audio,bandcamp,download,downloader,music
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: bs4
+Requires-Dist: noiftimer
+Requires-Dist: printbuddies
+Requires-Dist: pytest
+Requires-Dist: requests
+Requires-Dist: whosyouragent
+Description-Content-Type: text/markdown
+
+# bandripper
+
+Rip albums from bandcamp using the command line.<br>
+Only works for public tracks.<br>
+Quality is limited to mp3 at 128 kbps.
+
+## Installation
+
+Install with:
+
+<pre>
+pip install bandripper
+</pre>
+
+
+
+## Usage
+
+##### Options
+<pre>
+>bandripper -h
+usage: bandripper [-h] [-n] [-o] [urls ...]
+
+positional arguments:
+  urls                  The bandcamp url(s) for the album or artist. If the url is to an artists main page, all albums will be downloaded. The tracks will be saved to a subdirectory of your current directory. If a track can't be streamed (i.e. private) it won't be downloaded.
+                        Multiple urls can be passed.
+
+options:
+  -h, --help            show this help message and exit
+  -n, --no_track_number
+                        By default the track number will be added to the front of the track title. Pass this switch to disable the behavior.
+  -o, --overwrite       Pass this flag to overwrite existing files. Otherwise don't download tracks that already exist locally.
+</pre>
+e.g.
+<pre>
+>bandripper https://blacklungwinter.bandcamp.com/releases
+ [______________________________________________________________________________________________________________]-100.00% Downloading Uproot
+Finished downloading Bodies of EarthHearts of Space by Blacklung Winter in 3s 107ms 7us.
+>dir "./Blacklung Winter/Bodies of EarthHearts of Space"
+03/22/2023  01:46 PM           228,335 Bodies of EarthHearts of Space.jpg
+03/22/2023  01:46 PM         3,008,887 01 - Bodies of EarthHearts of Space.mp3
+03/22/2023  01:46 PM         3,441,057 02 - Dead in the Water.mp3
+03/22/2023  01:46 PM         2,792,802 03 - Yin and Yang.mp3
+03/22/2023  01:46 PM         3,326,954 04 - Neurotoxin.mp3
+03/22/2023  01:46 PM         3,836,446 05 - Uproot.mp3
+</pre>
