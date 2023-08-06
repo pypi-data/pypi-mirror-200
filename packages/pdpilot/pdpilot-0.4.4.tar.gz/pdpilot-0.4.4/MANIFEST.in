@@ -1,0 +1,37 @@
+include LICENSE.txt
+include README.md
+
+include setupbase.py
+include pytest.ini
+include .coverage.rc
+
+include tsconfig.json
+include package.json
+include webpack.config.js
+include pdpilot/labextension/*.tgz
+
+# Documentation
+graft docs
+exclude docs/\#*
+prune docs/build
+prune docs/gh-pages
+prune docs/dist
+
+# Examples
+graft examples
+prune examples/scratch
+prune examples/.ipynb_checkpoints
+
+# Javascript files
+graft pdpilot/nbextension
+graft src
+prune **/node_modules
+prune lib
+
+# Patterns to exclude from any directory
+global-exclude *~
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude .git
+global-exclude .DS_Store
+global-exclude .ipynb_checkpoints

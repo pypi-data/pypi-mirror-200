@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: pdpilot
+Version: 0.4.4
+Summary: A Jupyter widget for exploring PDP and ICE plots.
+Home-page: https://github.com/DanielKerrigan/PDPilot
+Author: Daniel Kerrigan
+Author-email: kerrigan.d@northeastern.edu
+License: BSD
+Keywords: Jupyter,Widgets,IPython,PDP,ICE
+Platform: Linux
+Platform: Mac OS X
+Platform: Windows
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Jupyter
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7.1,<3.11
+Description-Content-Type: text/markdown
+Provides-Extra: examples
+Provides-Extra: docs
+Provides-Extra: dev
+Provides-Extra: test
+License-File: LICENSE.txt
+
+# PDPilot
+
+An interactive Jupyter widget for exploring partial dependence plots.
+
+![Screenshot](screenshot.png?raw=true)
+
+To see the widget in action, check out this [Colab notebook](https://colab.research.google.com/github/danielkerrigan/pdpilot/blob/main/examples/colab-example.ipynb).
+
+The easiest way to install the widget is through pip:
+
+```
+pip install pdpilot
+```
+
+See the [documentation](https://pdpilot.readthedocs.io/) for usage details.
