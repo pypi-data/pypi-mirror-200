@@ -1,0 +1,31 @@
+[build-system]
+requires = [ "poetry-core",]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "lake-loader"
+version = "1.0.20230329232345"
+description = ""
+authors = [ "Lia Bozarth <liafan@uw.edu>",]
+readme = "README.md"
+include = [ "schema/*",]
+[[tool.poetry.packages]]
+include = "lake_loader"
+
+[[tool.poetry.source]]
+name = "uwcip-pypi-dev-pub"
+url = "https://pkgs.dev.azure.com/uwcip-dev/uwcip-dev/_packaging/uwcip-pypi-dev/pypi/upload"
+default = false
+secondary = true
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+confluent_kafka = "^2.0.0"
+pyspark = "^3.3.2"
+
+[tool.poetry.scripts]
+main = "lake_loader.main:main"
+
+[tool.poetry.dependencies.sharedutils]
+version = ">=1.1,<1.2"
+source = "uwcip-pypi-dev"
