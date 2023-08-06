@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "ecoindex_scraper"
+version = "2.17.1a0"
+description = "Ecoindex_scraper module provides a way to scrape data from given website while simulating a real web browser"
+authors = ["Vincent Vatelot <vincent.vatelot@ik.me>"]
+license = "MIT"
+readme = "README.md"
+homepage = "http://www.ecoindex.fr"
+repository = "https://github.com/cnumr/ecoindex_scraper_python"
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ecoindex = {version = "^5.4.2", allow-prereleases = true}
+undetected-chromedriver = "3.4.6"
+Pillow = "^9.2.0"
+selenium = "^4.8.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2"
+black = {version = "^23.1.0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
