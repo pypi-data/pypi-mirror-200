@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools"]
+
+
+[project]
+name = "necromancy"
+dynamic = ["version"]
+description = "Our organization's package"
+readme = "README.md"
+license = { text = "private" }
+authors = [
+  { name = "Apostolos Filippas", email = "apostolos@goemeritus.com" }
+]
+dependencies = []
+
+[tool.setuptools]
+packages = ["necromancy"]
+
+[tool.setuptools.dynamic]
+version = { file = "necromancy/VERSION" }
+
