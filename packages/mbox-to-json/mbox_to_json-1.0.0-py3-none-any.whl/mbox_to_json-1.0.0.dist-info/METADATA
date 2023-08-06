@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: mbox-to-json
+Version: 1.0.0
+Summary: MBOX to JSON Converter
+Home-page: https://github.com/PS1607/mbox-to-json
+Author: Prakhar Sharma
+Author-email: prakharsharma1607@gmail.com
+License: MIT
+Keywords: mbox json csv converter
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: alive-progress (==3.0.1)
+Requires-Dist: pandas (==1.4.2)
+Requires-Dist: setuptools (==59.4.0)
+
+A small package that converts MBOX files to JSON(or CSV). Also includes functionality to extract attachments.
