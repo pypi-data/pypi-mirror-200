@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: celery-farmer
+Version: 0.2.2
+Summary: Farmer will monitor how the Celery cluster is behaving
+Home-page: https://github.com/woltapp/celery-farmer
+Author: Wolt Enterprises Oy
+Author-email: support@wolt.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: statsd (<5.0,>=3.2.0)
+Requires-Dist: redis (<5.0,>=2.10.0)
+Requires-Dist: celery (<6.0,>=4.0)
+Requires-Dist: click (<9.0,>=6.7)
+
+# Celery Farmer
+
+![Image of farmer](https://www.collinsdictionary.com/images/thumb/farmer_96736501_250.jpg)
+
+Farmer will monitor how the Celery cluster is behaving.
+
+## Usage
+
+### Requirements
+- Python, versions 3.7, 3.8, 3.9, and 3.10 are supported
+- [Celery](http://celeryproject.org) >=4.0, other versions may not work
+- Pip or Pipenv
+
+### Install
+Install package with pipenv:
+```
+pipenv install celery-farmer
+```
+
+Or pip:
+```
+pip install celery-farmer
+```
+
+### Run
+Run celery-farmer with shell command:
+```
+celery-farmer
+```
+
+### Configuration
+
+## Development
+
+### Requirements
+- Pipenv
+
+Clone repository and install development requirements with:
+```
+pipenv install --dev
+```
+
+### Running tests
+Run all tests, typecheck and linter with:
+```
+pipenv run all-tests
+```
+
+Run only typecheck with:
+```
+pipenv run typecheck
+```
+
+Run only tests with:
+```
+pipenv run test
+```
+Or invoke `pytest` directly:
+```
+pytest
+```
+
+Run only linter with:
+```
+pipenv run lint
+```
+Or invoke `flake` directly:
+```
+flake8
+```
