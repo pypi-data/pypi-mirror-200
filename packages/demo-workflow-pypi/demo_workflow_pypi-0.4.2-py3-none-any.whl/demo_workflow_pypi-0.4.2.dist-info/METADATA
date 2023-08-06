@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: demo-workflow-pypi
+Version: 0.4.2
+Summary: Library of code for working with shapes
+Home-page: https://github.com/python-poetry/poetry
+Keywords: packaging,poetry
+Author: Lmooney25
+Author-email: liammooney50@yahoo.co.uk
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: flake8 (>=5.0.4,<6.0.0)
+Requires-Dist: pytest (>=7.1.3,<8.0.0)
+Project-URL: Documentation, https://python-poetry.org/docs/
+Project-URL: Repository, https://github.com/python-poetry/poetry
+Description-Content-Type: text/markdown
+
+# demo-workflow-pypi
+
