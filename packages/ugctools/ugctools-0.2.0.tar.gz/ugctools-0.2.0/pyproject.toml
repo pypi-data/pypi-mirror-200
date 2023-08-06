@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "ugctools"
+version = "0.2.0"
+description = ""
+authors = ["aaron yang <aaron_yang@jieyu.ai>"]
+readme = "README.md"
+
+packages = [
+    { include = "ugctools" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+markdown = "^3.4.3"
+fire = "^0.5.0"
+arrow = "^1.2.3"
+PyMuPDF = "^1.21.1"
+weasyprint = "^58.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+ugc = 'ugctools.cli:main'
