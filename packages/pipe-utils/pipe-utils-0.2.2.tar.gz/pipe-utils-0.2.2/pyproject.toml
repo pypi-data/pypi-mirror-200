@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pipe-utils"
+version = "0.2.2"
+description = "Python with pipes, utils, and pipe utils"
+
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Topic :: Utilities",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = "requirements.txt" }
+
+[project.urls]
+repository = "https://github.com/James-Ansley/pipe-utils"
+documentation = "https://pipe-utils.rtfd.io/"
+
+[tool.setuptools.packages.find]
+where = ["src"]
