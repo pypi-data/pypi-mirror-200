@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: squawk-cli
+Version: 0.23.0
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: SQL
+Classifier: Topic :: Software Development :: Quality Assurance
+License-File: LICENSE
+Summary: Linter for PostgreSQL migrations
+Keywords: postgres,postgresql,linter
+Author: Steve Dignam <steve@dignam.xyz>
+Author-email: Steve Dignam <steve@dignam.xyz>
+License: GPL-3.0
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: repository, https://github.com/ods/squawk-cli-python-package
+
+# squawk-cli
+
+Python package for [squawk](https://squawkhq.com/) binary, a linter for Postgres migrations.
+
+## Install
+
+```shell
+pip install squawk-cli
+```
+
