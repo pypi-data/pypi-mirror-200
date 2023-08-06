@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: apache-airflow-providers-sktvane
+Version: 0.0.23
+Summary: apache-airflow-providers-sktvane
+Home-page: https://github.com/sktaiflow/sktvane-airflow-providers
+Author: aidp
+Author-email: aidp@sktai.io
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# apache-airflow-providers-sktvane
+
+###
+
+```shell
+# build
+$ python setup.py sdist bdist_wheel
+
+# upload
+$ twine upload dist/*
+
+# remove
+$ rm -rf build dist apache_airflow_providers_sktvane.egg-info 
+```
