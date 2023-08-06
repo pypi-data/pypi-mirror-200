@@ -1,0 +1,1 @@
+from .meditor import main
