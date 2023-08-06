@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: hbsir
+Version: 0.1.0
+Summary: An intuitive platform designed to simplify the analysis of household budget survey data in Iran.
+Home-page: https://github.com/Iran-Open-Data/HBSIR
+Author: Amin Alavian
+Author-email: m.amin.alavian@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: fastparquet (>=2023.2.0,<2024.0.0)
+Requires-Dist: numpy (>=1.24.2,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: pathlib (>=1.0.1,<2.0.0)
+Requires-Dist: pyodbc (>=4.0.35,<5.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Requires-Dist: sympy (>=1.11.1,<2.0.0)
+Requires-Dist: tqdm (>=4.65.0,<5.0.0)
+Project-URL: Repository, https://github.com/Iran-Open-Data/HBSIR
+Description-Content-Type: text/markdown
+
+# HBSIR
+
+A package to obtain household expenditure and income survey data.
+
+## Usage
+
+:one: Clone the repository:
+
+```sh
+git clone https://github.com/iran-open-data/HBSIR household
+```
+
+:two: Create the `settings.yaml` file based on the `settings-sample.yaml`.
+
+:three: Create a script in the root folder, using the `hbsir` modules as needed:
+
+```python
+from hbsir import archive_handler, raw_data, process
+ 
+archive_handler.download_year_files_in_range(1396, 1397)
+archive_handler.unpack_yearly_data_archives (1396, 1397)
+archive_handler.extract_data_from_access_files(1396, 1397)
+
+raw_data.make_parquet([1396, 1397], 'food')
+
+process.get_commodity_data("flour_and_noodle", 1397)
+process.get_commodity_data("meat", 1397)
+```
+
