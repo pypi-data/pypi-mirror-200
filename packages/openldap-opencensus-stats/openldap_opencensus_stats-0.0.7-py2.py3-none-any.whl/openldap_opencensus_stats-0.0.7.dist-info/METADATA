@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: openldap-opencensus-stats
+Version: 0.0.7
+Summary: OpenLDAP OpenCensus Statistics
+Author: Mark Donnelly
+Author-email: mark@painless-security.com
+License: AGPL 3.0
+Keywords: openldap opencensus metrics
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Networking :: Monitoring
+Classifier: Topic :: System :: Systems Administration :: Authentication/Directory :: LDAP
+License-File: LICENSE
+Requires-Dist: grpcio (==1.47.0)
+Requires-Dist: opencensus-ext-stackdriver (==0.8.0)
+Requires-Dist: opencensus-ext-prometheus
+Requires-Dist: opencensus (==0.10.0)
+Requires-Dist: python-ldap
+Requires-Dist: pyyaml
+
+A package to gather statistics for OpenLDAP and publish via OpenCensus.
