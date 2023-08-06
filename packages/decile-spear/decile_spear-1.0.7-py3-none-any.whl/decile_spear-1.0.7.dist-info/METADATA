@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: decile-spear
+Version: 1.0.7
+Summary: SPEAR is a library for data programming with semi-supervision that provides facility to programmatically label and build training data
+Home-page: https://github.com/decile-team/spear
+Author: Ayush Maheshwari, Guttu Sai Abhishek
+Author-email: ayush.hakmn@gmail.com
+License: LICENSE.txt
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: TextBlob
+Requires-Dist: matplotlib (>=3.3.4)
+Requires-Dist: numpy (>=1.19.5)
+Requires-Dist: pandas (>=1.1.5)
+Requires-Dist: scikit-learn (>=0.24.2)
+Requires-Dist: scipy (>=1.5.4)
+Requires-Dist: tensorflow (>=2.2.0)
+Requires-Dist: torch (>=1.8.0)
+Requires-Dist: tqdm (>=4.59.0)
+
+README.md
+
+
