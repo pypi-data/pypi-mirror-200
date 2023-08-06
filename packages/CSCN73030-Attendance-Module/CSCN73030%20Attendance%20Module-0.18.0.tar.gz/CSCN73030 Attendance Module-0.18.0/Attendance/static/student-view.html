@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="Attendance Module">
+  <meta name="description" content="">
+  <title>Attendance - Student View</title>
+  <link rel="stylesheet" href="style/nicepage.css" media="screen">
+  <link rel="stylesheet" href="style/Teacher-View.css" media="screen">
+  <script class="u-script" type="text/javascript" src="scripts/jquery.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="scripts/nicepage.js" defer=""></script>
+  <script src="scripts/index.js"></script>
+  <meta name="generator" content="Nicepage 4.21.12, nicepage.com">
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+
+  <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/2620267.png"
+}</script>
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Teacher View">
+  <meta property="og:type" content="website">
+</head>
+
+<body class="u-body u-overlap u-xl-mode" data-lang="en"
+  onload="getSummary(), getCalendarEvent(), getClasslist(),fillAttendanceDropdown(false), fillPastAttendance(false)">
+  <header class="u-clearfix u-header" id="sec-69df" data-animation-name="" data-animation-duration="0"
+    data-animation-delay="0" data-animation-direction="">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <a class="u-image u-logo u-image-1" data-image-width="512" data-image-height="512">
+        <img src="images/2620267.png" class="u-logo-image u-logo-image-1">
+      </a>
+      <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+
+
+      </nav>
+      <h1 class="u-text u-text-default u-text-1">Attendance Module</h1>
+      <h2 class="u-text u-text-default u-text-1">(Student View)</h2>
+
+    </div>
+  </header>
+  <section class="u-align-center u-clearfix u-section-1" id="sec-e145">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
+        <ul class="u-border-2 u-border-palette-1-base u-spacing-10 u-tab-list u-unstyled" role="tablist">
+          <li class="u-tab-item" role="presentation">
+            <a class="active u-active-palette-1-base u-button-style u-grey-10 u-tab-link u-text-active-white u-text-black u-tab-link-1"
+              id="link-tab-799c" href="#tab-799c" role="tab" aria-controls="tab-799c" aria-selected="true">Past
+              Attendances<br>
+            </a>
+          </li>
+          <li class="u-tab-item" role="presentation">
+            <a class="u-active-palette-1-base u-button-style u-grey-10 u-tab-link u-text-active-white u-text-black u-tab-link-2"
+              id="link-tab-be89" onclick="goHome()" role="tab" aria-controls="tab-be89" aria-selected="false">Return
+              Home</a>
+          </li>
+        </ul>
+        <div class="u-tab-content">
+          <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-799c" role="tabpanel"
+            aria-labelledby="link-tab-799c">
+            <div class="u-container-layout u-valign-top u-container-layout-1" id="page-base">
+              <div class="u-form u-form-1">
+                <form action="https://forms.nicepagesrv.com/Form/Process"
+                  class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="form-1"
+                  style="padding: 10px;">
+                  <div class="u-form-group u-form-select u-label-top u-form-group-1">
+                    <label for="select-5c86" class="u-label">Previous Attendance Dates</label>
+                    <div class="u-form-select-wrapper">
+                      <select id="select-5c86" name="select"
+                        class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"
+                        onchange="fillPastAttendance(false)">
+                      </select>
+                      <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
+                        viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve">
+                        <polygon class="st0" points="8,12 2,4 14,4 "></polygon>
+                      </svg>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+              <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                <table class="u-table-entity" , name="blue-table">
+                  <colgroup>
+                    <col width="33.3%">
+                    <col width="33.3%">
+                    <col width="33.400000000000006%">
+                  </colgroup>
+                  <thead class="u-palette-4-base u-table-header u-table-header-1">
+                    <tr style="height: 21px;">
+                      <th class="u-border-1 u-border-palette-4-base u-table-cell">Student Name</th>
+                      <th class="u-border-1 u-border-palette-4-base u-table-cell"></th>
+                      <th class="u-border-1 u-border-palette-4-base u-table-cell">Present or Absent</th>
+                    </tr>
+                  </thead>
+                  <tbody class="u-table-body" id="pastAttendanceTableBody">
+                    <tr style="height: 44px;">
+                      <td class="u-first-column u-table-cell"></td>
+                      <td class="u-table-cell"></td>
+                      <td class="u-table-cell"></td>
+                    </tr>
+                  </tbody>
+
+                </table>
+                <div class="u-form u-form-2">
+                  <form class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" id="form-students"
+                    style="padding: 0px;">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-be89" role="tabpanel"
+            aria-labelledby="link-tab-be89">
+            <div class="u-container-layout u-container-layout-2">
+              <h2 class="u-text u-text-default u-text-1" id="nextAttendanceTitle">Attendance
+                for: {next_calendar_event}</h2>
+              <h3 class="u-text u-text-default u-text-1" id="nextAttendanceTime"> time ending
+              </h3>
+              <h6 class="u-text u-text-default u-text-2">Student Name - Student Number</h6>
+              <h6 class="u-text u-text-default u-text-3">Present or Absent</h6>
+              <div class="u-align-center u-form u-form-2">
+                <form action="" class="u-clearfix u-form-spacing-17 u-form-vertical u-inner-form" source="email"
+                  name="form" id="attendanceForm" style="padding: 7px;">
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-1a47">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-small-text u-text u-text-variant u-text-1">Copyright © 2022, Attendance Module</p>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
