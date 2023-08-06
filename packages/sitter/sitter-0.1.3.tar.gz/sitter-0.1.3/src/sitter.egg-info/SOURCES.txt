@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+src/sitter/__init__.py
+src/sitter/sitter.py
+src/sitter/util.py
+src/sitter.egg-info/PKG-INFO
+src/sitter.egg-info/SOURCES.txt
+src/sitter.egg-info/dependency_links.txt
+src/sitter.egg-info/entry_points.txt
+src/sitter.egg-info/requires.txt
+src/sitter.egg-info/top_level.txt
+tests/test_parser.py
+tests/test_sitter.py
+tests/test_utils.py
