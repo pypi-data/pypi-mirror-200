@@ -1,0 +1,33 @@
+{
+ "real":     {
+	 ""     : "double",
+	 "8"    : "double",
+	 "q2"   : "double",
+	 "sp"   : "double",
+	 "dp"   : "double",
+	 " 8 "  : "double",
+	 " q2 " : "double",
+	 " sp " : "double",
+	 " dp " : "double"
+ },
+ "complex" : {
+	 ""     : "complex_double",
+	 "8"    : "complex_double",
+	 "q2"   : "complex_double",
+	 "dp"   : "complex_double",
+	 " 8 "  : "complex_double",
+	 " q2 " : "complex_double",
+	 " dp " : "complex_double"
+ },
+ "integer" : {
+	 ""         : "int",
+	 "bit_32"   : "int",
+	 "bit_64"   : "long_long",
+	 "8"        : "long_long",
+	 "q2"       : "long_long",
+	 " bit_32 " : "int",
+	 " bit_64 " : "long_long",
+	 " 8 "      : "long_long",
+	 " q2 "     : "long_long"
+ }
+}
