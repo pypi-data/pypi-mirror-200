@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: portal-pipeline-utils
+Version: 2.0.0b0
+Summary: Repository implementing utilities for deploying pipelines and interfacing with portal infrastructure.
+Home-page: https://github.com/dbmi-bgm/portal-pipeline-utils
+License: MIT
+Author: CGAP Team
+Requires-Python: >=3.7,<3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: awscli (>=1.22.15,<2.0.0)
+Requires-Dist: boto3 (>=1.20.15,<2.0.0)
+Requires-Dist: dcicutils (>=6.3.0,<7.0.0)
+Requires-Dist: jsonschema (>=4.7.2,<5.0.0)
+Requires-Dist: magma-suite (>=1.0.1,<2.0.0)
+Project-URL: Repository, https://github.com/dbmi-bgm/portal-pipeline-utils
