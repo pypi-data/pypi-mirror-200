@@ -1,0 +1,3 @@
+[console_scripts]
+lack = black:patched_main
+lackd = blackd:patched_main [d]
