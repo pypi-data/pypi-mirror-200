@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "{{ project_name }}"
+version = "0.0.1"
+description = "{{ description }}"
+readme = "README.md"
+authors = [
+    "{{ author_name }} <{{ author_email }}>"
+    ]
+license = "{{ license_name }}"
+classifiers = [
+{%- for line in pypi_classifier_lines %}
+    {{ line -}}
+{% endfor %}
+#     "Programming Language :: Python :: 3",
+#     "Programming Language :: Python :: 3.7",
+#     "Programming Language :: Python :: 3.8",
+#     "Programming Language :: Python :: 3.9",
+#     "Programming Language :: Python :: 3.10",
+#     "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+#    "Operating System :: OS Independent",
+]
+repository = "{{ repository_url }}"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-dotenv = "^0.21"  
+virtualenv = "^20"
+poetry = "^1"
+pip = "^23"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+

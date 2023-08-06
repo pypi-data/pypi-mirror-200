@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "workon_poetry"
+version = "0.0.4"
+authors = [
+  "Hobson Lane <gitlab@totalgood.com>",
+  ]
+description = "Natural Language Understanding (text processing) for math symbols, digits, and words with a Gradio user interface and REST API."
+readme = "README.md"
+# requires-python = ">=3.7"
+license = "AGPL-3.0-or-later"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+]
+repository = "https://gitlab.com/tangibleai/community/workon-poetry"
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+python-dotenv = ">=0.21"
+sentry_sdk = "*"
+virtualenv = "^20.0"
+poetry = ">=1.0"
+pip = ">=23.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7"
+virtualenv = "^20.0"
+poetry = ">=1.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
