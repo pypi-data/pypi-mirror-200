@@ -1,0 +1,13 @@
+<Project>
+  <Target Name="_CalculatePydInPlace" BeforeTargets="CalculateInPlace" DependsOnTargets="_AssignContentProperties">
+    <ItemGroup>
+      <_TargetFiles Include="$(TargetPath)" />
+      <_TargetFiles Include="$([System.IO.Path]::ChangeExtension($(TargetPath), `.pdb`))" />
+      <Content Include="@(_TargetFiles)" Condition="Exists(%(FullPath))">
+        <Name>%(Filename)%(Extension)</Name>
+      </Content>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="DoLinkOutputFilesMatch" />
+</Project>
