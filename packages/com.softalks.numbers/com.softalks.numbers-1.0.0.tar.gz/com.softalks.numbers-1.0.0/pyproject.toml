@@ -1,0 +1,10 @@
+[project]
+name = "com.softalks.numbers"
+description = "Writes all the natural numbers to console"
+version = "1.0.0"
+authors = [
+  {name = "Santiago Ruiz", email= "hiebra@hotmail.com"}
+]
+dependencies = [
+    'com.softalks.sh  >= 1, < 2'
+]
