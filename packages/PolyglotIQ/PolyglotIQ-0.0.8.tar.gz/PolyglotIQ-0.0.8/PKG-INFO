@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: PolyglotIQ
+Version: 0.0.8
+Summary: A language identification package which is backed by the mT5 Neural Network
+Home-page: https://pypi.org/project/PolyglotIQ/
+Author: ArtanisTheOne
+Author-email: Artanis <ledragio@gmail.com>
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PolyglotIQ
+Language Detection supported by Neural Networks
+
+# BETA RELEASE
+* This library was developed for RitaBot specificially - an affordable translation bot for Discord
