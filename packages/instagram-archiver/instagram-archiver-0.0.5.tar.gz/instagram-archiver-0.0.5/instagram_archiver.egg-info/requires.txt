@@ -1,0 +1,12 @@
+click>=8.0.0
+loguru>=0.5.3
+requests
+yt-dlp>=2022.7.18
+
+[dev]
+mypy
+mypy-extensions
+pylint
+pylint-quotes
+rope
+types-requests>=2.25.9

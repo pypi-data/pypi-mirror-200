@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: instagram-archiver
+Version: 0.0.5
+Summary: Archive Instagram content.
+Home-page: https://github.com/Tatsh/instgram-archiver
+Author: Andrew Udvare
+Author-email: audvare@gmail.com
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+
+# Instagram Archiver
+
+Tool to download data from an Instagram profile you have access to. It downloads the images, videos, and related metadata (stored as JSON files).
+
+## Installation
+
+```shell
+pip install instagram-archiver
+```
+
+## Usage
+
+```shell
+ia USERNAME
+```
+
+If you like to see output, pass `--debug`.
