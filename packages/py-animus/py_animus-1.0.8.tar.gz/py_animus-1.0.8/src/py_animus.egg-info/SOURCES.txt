@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/py_animus/__init__.py
+src/py_animus/manifest_management.py
+src/py_animus/py_animus.py
+src/py_animus/utils.py
+src/py_animus.egg-info/PKG-INFO
+src/py_animus.egg-info/SOURCES.txt
+src/py_animus.egg-info/dependency_links.txt
+src/py_animus.egg-info/entry_points.txt
+src/py_animus.egg-info/requires.txt
+src/py_animus.egg-info/top_level.txt
+tests/test_manifest_management.py
+tests/test_utiles.py
