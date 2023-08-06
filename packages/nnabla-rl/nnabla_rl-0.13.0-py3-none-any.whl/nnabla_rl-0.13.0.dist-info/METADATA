@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: nnabla-rl
+Version: 0.13.0
+Summary: Deep reinforcement learning library built on top of Neural Network Libraries
+Home-page: https://github.com/sony/nnabla-rl
+Author: Yu Ishihara, Sony Group Corporation
+License: Apache License 2.0
+Keywords: deep learning artificial intelligence machine learning neural network
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: POSIX :: Linux
+Requires-Dist: nnabla (!=1.18.0,>=1.17)
+Requires-Dist: numpy (>=1.17)
+Requires-Dist: gym (<0.26.0)
+Requires-Dist: opencv-python
+Requires-Dist: packaging
+Requires-Dist: tqdm
+Provides-Extra: deploy
+Requires-Dist: setuptools ; extra == 'deploy'
+Requires-Dist: wheel ; extra == 'deploy'
+Requires-Dist: twine ; extra == 'deploy'
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: typing-extensions ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: autopep8 ; extra == 'dev'
+Requires-Dist: docformatter ; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: sphinx ; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme ; extra == 'doc'
+Provides-Extra: render
+Requires-Dist: pyglet (>=1.4.0) ; extra == 'render'
+
+UNKNOWN
+
+
