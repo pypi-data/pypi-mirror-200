@@ -1,0 +1,29 @@
+# Awa2 
+![PyPI](https://img.shields.io/pypi/v/awa2)
+![Setup](https://img.shields.io/badge/setup-awa2-informational)
+
+快速打包与发布包
+
+## 打包
+你可以在`README.md`写入我们的标志
+```markdown
+![](https://img.shields.io/badge/setup-awa2-informational)
+```
+
+## 命令
+### 帮助
+```bash
+python -m awa2 -h
+```
+
+### 创建
+快速开始创建开发包，需输入一些信息才可以开始
+```bash
+python -m awa2 quickstart
+```
+
+### 发布
+快速打包发布包，需输入发布者的账号与密码
+```bash
+python -m awa2 quickupload
+```
