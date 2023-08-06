@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: pipster
+Version: 0.0.4
+Summary: pip install from inside your scripts
+Project-URL: Homepage, https://github.com/reynoldsnlp/pipster
+Project-URL: Bug Tracker, https://github.com/reynoldsnlp/pipster/issues
+Author-email: Robert Reynolds <robert_reynolds@byu.edu>
+License: Copyright (c) 2018-2019 The pipster developers (see pyproject.toml file)
+        
+        Permission is hereby granted, free of charge, to any person obtaining
+        a copy of this software and associated documentation files (the
+        "Software"), to deal in the Software without restriction, including
+        without limitation the rights to use, copy, modify, merge, publish,
+        distribute, sublicense, and/or sell copies of the Software, and to
+        permit persons to whom the Software is furnished to do so, subject to
+        the following conditions:
+        
+        The above copyright notice and this permission notice shall be
+        included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+        NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+        LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+        OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+        WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+License-File: LICENSE
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pip
+Provides-Extra: test
+Requires-Dist: pytest-cov>=4.0; extra == 'test'
+Requires-Dist: pytest>=6.0; extra == 'test'
+Description-Content-Type: text/markdown
+
+# pipster
+
+Install packages using `pip` from inside a python script or console:
+
+```python
+>>> from pipster import install
+>>> install('useful_package')
+```
+
+This tool solves the age-old problem of `pip install`ing a package only to find
+that you still can't import it because it was installed for the wrong
+interpreter. By installing from inside python, you ensure that it will be
+available to import from that version python.
+
+## Installation
+
+Run the following in your terminal.
+
+```
+$ pip install --user pipster
+```
+
+...and if that's not working, you can run this in a python script or console:
+
+```python
+import subprocess
+import sys
+cmd = [sys.executable,  '-m', 'pip', 'install', '--user', 'pipster']
+subprocess.check_call(cmd)
+```
