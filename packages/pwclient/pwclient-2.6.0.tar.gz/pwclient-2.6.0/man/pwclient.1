@@ -1,0 +1,378 @@
+.TH PWCLIENT "1" "2023\-03\-30" "pwclient" "Generated Python Manual"
+.SH NAME
+pwclient
+.SH SYNOPSIS
+.B pwclient
+[-h] {apply,git-am,get,info,projects,check-get,check-list,check-info,check-create,states,view,update,list,search} ...
+
+.SH
+COMMANDS
+.TP
+\fBpwclient\fR \fI\,apply\/\fR
+apply a patch in the current directory using 'patch \-p1'
+.TP
+\fBpwclient\fR \fI\,git\-am\/\fR
+apply a patch to current git branch using 'git am'
+.TP
+\fBpwclient\fR \fI\,get\/\fR
+download a patch and save it locally
+.TP
+\fBpwclient\fR \fI\,info\/\fR
+show information for a given patch ID
+.TP
+\fBpwclient\fR \fI\,projects\/\fR
+list all projects
+.TP
+\fBpwclient\fR \fI\,check\-get\/\fR
+get checks for a patch
+.TP
+\fBpwclient\fR \fI\,check\-list\/\fR
+list all checks
+.TP
+\fBpwclient\fR \fI\,check\-info\/\fR
+show information for a given check
+.TP
+\fBpwclient\fR \fI\,check\-create\/\fR
+add a check to a patch
+.TP
+\fBpwclient\fR \fI\,states\/\fR
+show list of potential patch states
+.TP
+\fBpwclient\fR \fI\,view\/\fR
+view a patch
+.TP
+\fBpwclient\fR \fI\,update\/\fR
+update patch
+.TP
+\fBpwclient\fR \fI\,list\/\fR
+list patches using optional filters
+.TP
+\fBpwclient\fR \fI\,search\/\fR
+alias for 'list'
+
+.SH COMMAND \fI\,'pwclient apply'\/\fR
+usage: pwclient apply [\-\-help] [\-h] [\-p PROJECT] PATCH_ID [PATCH_ID ...]
+
+.TP
+\fBPATCH_ID\fR
+patch ID
+
+.SH OPTIONS \fI\,'pwclient apply'\/\fR
+.TP
+\fB\-h\fR, \fB\-\-use\-hashes\fR
+lookup by patch hash
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+lookup patch in project
+
+.SH COMMAND \fI\,'pwclient git\-am'\/\fR
+usage: pwclient git\-am [\-\-help] [\-h] [\-p PROJECT] [\-s] [\-3] [\-m]
+                       PATCH_ID [PATCH_ID ...]
+
+.TP
+\fBPATCH_ID\fR
+patch ID
+
+.SH OPTIONS \fI\,'pwclient git\-am'\/\fR
+.TP
+\fB\-h\fR, \fB\-\-use\-hashes\fR
+lookup by patch hash
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+lookup patch in project
+
+.TP
+\fB\-s\fR, \fB\-\-signoff\fR
+pass '\-\-signoff' to 'git\-am'
+
+.TP
+\fB\-3\fR, \fB\-\-3way\fR
+pass '\-\-3way' to 'git\-am'
+
+.TP
+\fB\-m\fR, \fB\-\-msgid\fR
+pass '\-\-message\-id' to 'git\-am'
+
+.SH COMMAND \fI\,'pwclient get'\/\fR
+usage: pwclient get [\-\-help] [\-h] [\-p PROJECT] PATCH_ID [PATCH_ID ...]
+
+.TP
+\fBPATCH_ID\fR
+patch ID
+
+.SH OPTIONS \fI\,'pwclient get'\/\fR
+.TP
+\fB\-h\fR, \fB\-\-use\-hashes\fR
+lookup by patch hash
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+lookup patch in project
+
+.SH COMMAND \fI\,'pwclient info'\/\fR
+usage: pwclient info [\-\-help] [\-h] [\-p PROJECT] PATCH_ID [PATCH_ID ...]
+
+.TP
+\fBPATCH_ID\fR
+patch ID
+
+.SH OPTIONS \fI\,'pwclient info'\/\fR
+.TP
+\fB\-h\fR, \fB\-\-use\-hashes\fR
+lookup by patch hash
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+lookup patch in project
+
+.SH COMMAND \fI\,'pwclient projects'\/\fR
+usage: pwclient projects [\-h]
+
+.SH COMMAND \fI\,'pwclient check\-get'\/\fR
+usage: pwclient check\-get [\-\-help] [\-h] [\-p PROJECT] [\-f FORMAT]
+                          PATCH_ID [PATCH_ID ...]
+
+.TP
+\fBPATCH_ID\fR
+patch ID
+
+.SH OPTIONS \fI\,'pwclient check\-get'\/\fR
+.TP
+\fB\-h\fR, \fB\-\-use\-hashes\fR
+lookup by patch hash
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+lookup patch in project
+
+.TP
+\fB\-f\fR \fI\,FORMAT\/\fR, \fB\-\-format\fR \fI\,FORMAT\/\fR
+print output in the given format. You can use tags matching fields, e.g. %{context}, %{state}, or %{msgid}.
+
+.SH COMMAND \fI\,'pwclient check\-list'\/\fR
+usage: pwclient check\-list [\-h] [\-u USER] [PATCH_ID]
+
+.TP
+\fBPATCH_ID\fR
+patch ID (required if using the REST API backend)
+
+.SH OPTIONS \fI\,'pwclient check\-list'\/\fR
+.TP
+\fB\-u\fR \fI\,USER\/\fR, \fB\-\-user\fR \fI\,USER\/\fR
+user (name or ID) to filter checks by
+
+.SH COMMAND \fI\,'pwclient check\-info'\/\fR
+usage: pwclient check\-info [\-h] [PATCH_ID] CHECK_ID
+
+.TP
+\fBPATCH_ID\fR
+patch ID (required if using the REST API backend)
+
+.TP
+\fBCHECK_ID\fR
+check ID
+
+.SH COMMAND \fI\,'pwclient check\-create'\/\fR
+usage: pwclient check\-create [\-\-help] [\-h] [\-p PROJECT] [\-c CONTEXT]
+                             [\-s {pending,success,warning,fail}]
+                             [\-u TARGET_URL] [\-d DESCRIPTION]
+                             PATCH_ID [PATCH_ID ...]
+
+.TP
+\fBPATCH_ID\fR
+patch ID
+
+.SH OPTIONS \fI\,'pwclient check\-create'\/\fR
+.TP
+\fB\-h\fR, \fB\-\-use\-hashes\fR
+lookup by patch hash
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+lookup patch in project
+
+.TP
+\fB\-c\fR \fI\,CONTEXT\/\fR, \fB\-\-context\fR \fI\,CONTEXT\/\fR
+
+.TP
+\fB\-s\fR \fI\,{pending,success,warning,fail}\/\fR, \fB\-\-state\fR \fI\,{pending,success,warning,fail}\/\fR
+
+.TP
+\fB\-u\fR \fI\,TARGET_URL\/\fR, \fB\-\-target\-url\fR \fI\,TARGET_URL\/\fR
+
+.TP
+\fB\-d\fR \fI\,DESCRIPTION\/\fR, \fB\-\-description\fR \fI\,DESCRIPTION\/\fR
+
+.SH COMMAND \fI\,'pwclient states'\/\fR
+usage: pwclient states [\-h]
+
+.SH COMMAND \fI\,'pwclient view'\/\fR
+usage: pwclient view [\-\-help] [\-h] [\-p PROJECT] PATCH_ID [PATCH_ID ...]
+
+.TP
+\fBPATCH_ID\fR
+patch ID
+
+.SH OPTIONS \fI\,'pwclient view'\/\fR
+.TP
+\fB\-h\fR, \fB\-\-use\-hashes\fR
+lookup by patch hash
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+lookup patch in project
+
+.SH COMMAND \fI\,'pwclient update'\/\fR
+usage: pwclient update [\-\-help] [\-h] [\-p PROJECT] [\-c COMMIT\-REF] [\-s STATE]
+                       [\-a {yes,no}]
+                       PATCH_ID [PATCH_ID ...]
+
+.TP
+\fBPATCH_ID\fR
+patch ID
+
+.SH OPTIONS \fI\,'pwclient update'\/\fR
+.TP
+\fB\-h\fR, \fB\-\-use\-hashes\fR
+lookup by patch hash
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+lookup patch in project
+
+.TP
+\fB\-c\fR \fI\,COMMIT\-REF\/\fR, \fB\-\-commit\-ref\fR \fI\,COMMIT\-REF\/\fR
+commit reference hash
+
+.TP
+\fB\-s\fR \fI\,STATE\/\fR, \fB\-\-state\fR \fI\,STATE\/\fR
+set patch state (e.g., 'Accepted', 'Superseded' etc.)
+
+.TP
+\fB\-a\fR \fI\,{yes,no}\/\fR, \fB\-\-archived\fR \fI\,{yes,no}\/\fR
+set patch archived state
+
+.SH COMMAND \fI\,'pwclient list'\/\fR
+usage: pwclient list [\-h] [\-s STATE] [\-a ARCHIVED] [\-p PROJECT] [\-w WHO]
+                     [\-d WHO] [\-n MAX#] [\-N MAX#] [\-m MESSAGEID] [\-H HASH]
+                     [\-f FORMAT]
+                     [STR]
+
+.TP
+\fBSTR\fR
+substring to search for patches by name
+
+.SH OPTIONS \fI\,'pwclient list'\/\fR
+.TP
+\fB\-s\fR \fI\,STATE\/\fR, \fB\-\-state\fR \fI\,STATE\/\fR
+filter by patch state (e.g., 'New', 'Accepted', etc.)
+
+.TP
+\fB\-a\fR \fI\,ARCHIVED\/\fR, \fB\-\-archived\fR \fI\,ARCHIVED\/\fR
+filter by patch archived state
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+filter by project name (see 'projects' for list)
+
+.TP
+\fB\-w\fR \fI\,WHO\/\fR, \fB\-\-submitter\fR \fI\,WHO\/\fR
+filter by submitter (name, e\-mail substring search)
+
+.TP
+\fB\-d\fR \fI\,WHO\/\fR, \fB\-\-delegate\fR \fI\,WHO\/\fR
+filter by delegate (name, e\-mail substring search)
+
+.TP
+\fB\-n\fR \fI\,MAX#\/\fR
+limit results to first n
+
+.TP
+\fB\-N\fR \fI\,MAX#\/\fR
+limit results to last N
+
+.TP
+\fB\-m\fR \fI\,MESSAGEID\/\fR, \fB\-\-msgid\fR \fI\,MESSAGEID\/\fR
+filter by Message\-Id
+
+.TP
+\fB\-H\fR \fI\,HASH\/\fR, \fB\-\-hash\fR \fI\,HASH\/\fR
+filter by hash
+
+.TP
+\fB\-f\fR \fI\,FORMAT\/\fR, \fB\-\-format\fR \fI\,FORMAT\/\fR
+print output in the given format. You can use tags matching fields, e.g. %{id}, %{state}, or %{msgid}.
+
+.SH COMMAND \fI\,'pwclient search'\/\fR
+usage: pwclient search [\-h] [\-s STATE] [\-a ARCHIVED] [\-p PROJECT] [\-w WHO]
+                       [\-d WHO] [\-n MAX#] [\-N MAX#] [\-m MESSAGEID] [\-H HASH]
+                       [\-f FORMAT]
+                       [STR]
+
+.TP
+\fBSTR\fR
+substring to search for patches by name
+
+.SH OPTIONS \fI\,'pwclient search'\/\fR
+.TP
+\fB\-s\fR \fI\,STATE\/\fR, \fB\-\-state\fR \fI\,STATE\/\fR
+filter by patch state (e.g., 'New', 'Accepted', etc.)
+
+.TP
+\fB\-a\fR \fI\,ARCHIVED\/\fR, \fB\-\-archived\fR \fI\,ARCHIVED\/\fR
+filter by patch archived state
+
+.TP
+\fB\-p\fR \fI\,PROJECT\/\fR, \fB\-\-project\fR \fI\,PROJECT\/\fR
+filter by project name (see 'projects' for list)
+
+.TP
+\fB\-w\fR \fI\,WHO\/\fR, \fB\-\-submitter\fR \fI\,WHO\/\fR
+filter by submitter (name, e\-mail substring search)
+
+.TP
+\fB\-d\fR \fI\,WHO\/\fR, \fB\-\-delegate\fR \fI\,WHO\/\fR
+filter by delegate (name, e\-mail substring search)
+
+.TP
+\fB\-n\fR \fI\,MAX#\/\fR
+limit results to first n
+
+.TP
+\fB\-N\fR \fI\,MAX#\/\fR
+limit results to last N
+
+.TP
+\fB\-m\fR \fI\,MESSAGEID\/\fR, \fB\-\-msgid\fR \fI\,MESSAGEID\/\fR
+filter by Message\-Id
+
+.TP
+\fB\-H\fR \fI\,HASH\/\fR, \fB\-\-hash\fR \fI\,HASH\/\fR
+filter by hash
+
+.TP
+\fB\-f\fR \fI\,FORMAT\/\fR, \fB\-\-format\fR \fI\,FORMAT\/\fR
+print output in the given format. You can use tags matching fields, e.g. %{id}, %{state}, or %{msgid}.
+
+.SH COMMENTS
+Use 'pwclient <command> \-\-help' for more info.
+
+To avoid unicode encode/decode errors, you should export the LANG or LC_ALL
+environment variables according to the configured locales on your system. If
+these variables are already set, make sure that they point to valid and
+installed locales.
+
+.SH AUTHORS
+.nf
+Patchwork Developers
+.fi
+.nf
+patchwork@lists.ozlabs.org
+.fi
+
+.SH DISTRIBUTION
+The latest version of pwclient may be downloaded from
+.UR https://github.com/getpatchwork/patchwork
+.UE
