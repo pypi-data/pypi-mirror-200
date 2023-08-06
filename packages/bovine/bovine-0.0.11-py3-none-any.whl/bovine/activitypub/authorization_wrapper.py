@@ -1,0 +1,79 @@
+import logging
+
+import aiohttp
+
+from bovine.clients import lookup_did_with_webfinger
+from bovine.clients.moo_auth_client import MooAuthClient
+from bovine.clients.signed_http_client import SignedHttpClient
+from bovine.utils.crypto.did_key import private_key_to_did_key
+
+logger = logging.getLogger(__name__)
+
+
+class AuthorizationWrapper:
+    def __init__(self):
+        self.actor_id = None
+        self.client = None
+        self.session = None
+
+    async def __aenter__(self):
+        await self.init()
+        return self
+
+    async def __aexit__(self, *args):
+        await self.session.close()
+
+    async def init(self, session=None):
+        self.session = session
+        if session is None:
+            self.session = aiohttp.ClientSession()
+
+        if self._has_moo_auth():
+            await self.with_host_and_ed25519_private_key(
+                self.config["host"], self.config["private_key"], session=self.session
+            )
+        elif self._has_http_signature():
+            self.actor_id = self.config["account_url"]
+            self.with_http_signature(
+                self.config["public_key_url"],
+                self.config["private_key"],
+                session=self.session,
+            )
+        else:
+            raise Exception("No known authorization method available")
+
+    async def with_host_and_ed25519_private_key(self, host, private_key, session=None):
+        if session is None:
+            session = aiohttp.ClientSession()
+        did_key = private_key_to_did_key(private_key)
+
+        self.actor_id = await lookup_did_with_webfinger(session, host, did_key)
+
+        self.client = MooAuthClient(session, did_key, private_key)
+
+        return self
+
+    def with_actor_id(self, actor_id):
+        self.actor_id = actor_id
+        return self
+
+    def with_http_signature(self, public_key_url, private_key, session=None):
+        if session is None:
+            session = aiohttp.ClientSession()
+
+        self.client = SignedHttpClient(session, public_key_url, private_key)
+
+        return self
+
+    def _has_http_signature(self):
+        return self._has_keys(["account_url", "public_key_url", "private_key"])
+
+    def _has_moo_auth(self):
+        return self._has_keys(["host", "private_key"])
+
+    def _has_keys(self, key_list):
+        for key in key_list:
+            if key not in self.config:
+                return False
+
+        return True
