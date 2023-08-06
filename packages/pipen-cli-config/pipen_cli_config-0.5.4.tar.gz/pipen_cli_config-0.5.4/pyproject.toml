@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "pipen-cli-config"
+version = "0.5.4"
+description = "UI wizard to generate configuration for pipen pipelines"
+authors = ["pwwang <pwwang@pwwang.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pipen_cli_config"}]
+
+[tool.poetry.build]
+generate-setup-file = true
+
+[tool.poetry.plugins.pipen_cli]
+cli-config = "pipen_cli_config:PipenCliConfigPlugin"
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+pipen = "^0.6"
+pipen-annotate = "^0.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7"
+pytest-cov = "^4"
+pytest-xdist = "^3"
+pytest-forked = "^1"
+copier = "^7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+target-version = ['py37', 'py38', 'py39']
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+addopts = "-vv -n auto --cov=pipen_cli_config --cov-report xml:.coverage.xml --cov-report term-missing"
+asyncio_mode = "auto"
+filterwarnings = [
+    #"error"
+]
+console_output_style = "progress"
+junit_family = "xunit1"
