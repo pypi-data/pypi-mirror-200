@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: nodeweightedbudget
+Version: 0.0.2
+Summary: This package maximizes the total prize with a budget constraint for an undirected node-weighted rooted graph loosely inspired by Bateni 2018 algorithm from DOI:10.1137/15M102695X
+Home-page: https://github.com/ipgmvq/nodeweightedbudget
+Download-URL: https://github.com/ipgmvq/nodeweightedbudget/archive/refs/tags/v0.0.2.tar.gz
+License: MIT
+Keywords: nodeweightedbudget,graph,undirected,budget,nodeweighted
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: numpy
+
