@@ -1,0 +1,26 @@
+[build-system]
+requires = ['setuptools>=61.0']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'gtFrame'
+version = '1.2.1'
+authors = [
+    { name='Roko Jukic (bluePlatinum)', email='jukic.rok@gmail.com'},
+]
+description = 'A simple library for working with frames of reference'
+readme = 'README.md'
+license = {file='LICENSE'}
+requires-python = '>=3.7'
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+]
+dependencies = [
+    'numpy',
+    'scipy'
+]
+
+[project.urls]
+'Homepage' = 'https://github.com/bluePlatinum/gtFrame'
