@@ -1,0 +1,3 @@
+include *.txt  #包含根目录下的所有txt文件
+recursive-include examples *.txt *.py  #包含所有位置的examples文件夹下的txt与py文件
+prune examples/sample?/build  #排除所有位置examples/sample?/build
