@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: failures
+Version: 0.1.0a1
+Summary: Tool for handling nested calls errors and pipointing their source
+Author-email: MARSO Adnan <mediadnan@gmail.com>
+Maintainer-email: MARSO Adnan <mediadnan@gmail.com>
+License: MIT License
+Project-URL: documentation, https://failures.readthedocs.org
+Project-URL: repository, https://github.com/mediadnan/failures
+Keywords: label,failures,handle,handling,report,track
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: colors
+Requires-Dist: colorama (==0.4.*) ; extra == 'colors'
+
+# Failures
+_Label failures for humans_
+
+[![Tests](https://github.com/mediadnan/Failures/actions/workflows/tests.yml/badge.svg)](https://github.com/mediadnan/Failures/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/gh/mediadnan/Failures/branch/main/graph/badge.svg?token=E58PJ3OFME)](https://codecov.io/gh/mediadnan/Failures)
+
+
+## What is failures
+This python3 package implements tools to explicitly label nested calls errors
+for functions without coupling or passing extra context arguments.
+
+>   __note__
+> This package is still in early development phase
+
+## Installation
+**failures** requires python 3.7 or higher.
+
+You can install it from pypi using the pip command
+
+```shell
+pip install failures
+```
+
+## Usage
+    TODO...
