@@ -1,0 +1,28 @@
+<html>
+    <head>
+    <title>{{name_clean}}</title>
+  </head>
+    <body>
+    <div id="page">
+      <div style="text-align:center">
+        Welcome to the page for <b>{{name_clean}}<b/>!
+      </div>
+      {% if deploy_blast or src_data_folder or deploy_jbrowse or use_apollo %}
+      <ul id="primary-menu" class="nav-menu">
+        {% if deploy_jbrowse %}
+        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/jbrowse">Jbrowse</a></li>
+        {% endif %}
+        {% if deploy_blast %}
+        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/blast">Blast</a></li>
+        {% endif %}
+        {% if src_data_folder %}
+        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="{{base_url}}{{ url_prefix }}/{{ sub_url }}/download/">Dowload</a></li>
+        {% endif %}
+        {% if use_apollo %}
+        <li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a href="{{ apollo_url }}">Apollo</a>
+        {% endif %}
+      </ul>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+---
+# Playbook Docker
+
+- name: Docker service update
+  hosts: docker_swarm_host
+  tasks:
+    - name: Trigger service update
+      command: docker service update --force {{ service_name }}

@@ -1,0 +1,255 @@
+---
+# Disabled here as it's relative to the working dir which makes automation difficult
+# Set with correct path in beauris/workflows/local/check_yml.py
+#extensions:
+#  - beauris/validation/template/ext.py
+type: map
+mapping:
+  "genus":
+    type: str
+    required: true
+  "species":
+    type: str
+    required: true
+  "strain":
+    type: str
+    func: is_valid_name
+    required: false
+  "sex":
+    type: str
+    required: false
+    enum: ["female", "male", "monoicous", "dioecious", "unknown"]
+  "picture_file": # e.g. for Tripal or GNB home page
+    type: str
+    func: is_file
+    required: false
+  "common_name":
+    type: scalar
+    func: ext_onto_organism
+    required: true
+  "computer_name":
+    type: scalar
+    func: is_valid_name
+    required: false
+    desc: "Optional, guessed from genus, species, strain and sex if absent"
+  "restricted_to":
+    type: str
+  "status": &status
+    type: str
+    enum: ["online", "archived"]
+  "task_options": &task_options
+    type: map
+    allowempty: True
+  "bioproject":  # TODO validate with regex
+    type: str
+  "publications":
+    type: seq
+    sequence:
+      - type: str  # TODO validate with regex, support other things than DOI?
+  "description":
+    type: str
+    required: false
+    desc: "Optional, free text description"
+  "services": &services
+    type: map
+    mapping:
+      "staging":
+        type: seq
+        sequence:
+          - type: str
+      "production":
+        type: seq
+        sequence:
+          - type: str
+  "assemblies":
+    type: seq
+    sequence:
+      - type: map
+        mapping:
+          "version":
+            type: str
+            required: true
+          "file": &file
+            type: map
+            mapping:
+              "path":
+                type: str
+                func: is_file
+                required: true
+              "locked_path":
+                type: str
+                func: is_file
+                required: false
+              "revision":
+                type: number
+                required: false
+              "type":
+                type: str
+                required: true
+                enum: ["fasta", "gff", "bam", "tsv", "jbrowse", "jbrowse2" , "txt"]
+          "date":
+            type: date
+          "source":
+            type: str
+          "description":
+            type: str
+            required: false
+            desc: "Optional, free text description"
+          "status":
+            <<: *status
+          "task_options":
+            <<: *task_options
+          "services":
+            <<: *services
+          "derived": &derived
+            type: seq
+            sequence:
+              - type: map
+                mapping:
+                  "name":
+                    type: str
+                    required: true
+                  "locked_path":
+                    type: str
+                    func: is_file
+                    required: true
+                  "revision":
+                    type: number
+                    required: true
+                  "type":
+                    type: str
+                    required: true
+                    enum: ["fasta", "gff", "bam", "tsv", "jbrowse", "jbrowse2" , "txt"]
+                  "tool_version":
+                    type: str
+                    required: true
+          "annotations":
+            type: seq
+            sequence:
+              - type: map
+                mapping:
+                  "version":
+                    type: str
+                    required: true
+                  "file":
+                    <<: *file
+                  "date":
+                    type: date
+                    required: false
+                  "source":
+                    type: str
+                    required: false
+                  "description":
+                    type: str
+                    required: false
+                    desc: "Optional, free text description"
+                  "status":
+                    <<: *status
+                  "task_options":
+                    <<: *task_options
+                  "derived":
+                    <<: *derived
+          "tracks":
+            type: seq
+            sequence:
+              - type: map
+                mapping:
+                  "name":
+                    type: str
+                    required: true
+                    desc: "Name must be unique"
+                  "sra_run_id":
+                    type: str
+                    required: false
+                  "type":
+                    type: str
+                    required: true
+                    enum: ["rnaseq", "gff"]
+                  "category":
+                    type: str
+                    desc: "Name of a category where to place this track (e.g. for JBrowse). default=type attribute"
+                  "date":
+                    type: date
+                    required: false
+                  "source":
+                    type: str
+                    required: false
+                  "description":
+                    type: str
+                    required: false
+                    desc: "Optional, free text description"
+                  "file":
+                    <<: *file
+                  "status":
+                    <<: *status
+                  "task_options":
+                    <<: *task_options
+          "counts":
+            type: seq
+            sequence:
+              - type: map
+                mapping:
+                  "name":
+                    type: str
+                    required: true
+                  "unit":
+                    type: str
+                    required: true
+                  "file":
+                    <<: *file
+                  "status":
+                    <<: *status
+                  "task_options":
+                    <<: *task_options
+  "proteomes":
+    type: seq
+    sequence:
+      - type: map
+        mapping:
+          "version":
+            type: str
+            required: true
+          "file":
+            <<: *file
+          "date":
+            type: date
+          "source":
+            type: str
+          "description":
+            type: str
+            required: false
+            desc: "Optional, free text description"
+          "status":
+            <<: *status
+          "task_options":
+            <<: *task_options
+          "services":
+            <<: *services
+          "derived":
+            <<: *derived
+  "transcriptomes":
+    type: seq
+    sequence:
+      - type: map
+        mapping:
+          "version":
+            type: str
+            required: true
+          "file":
+            <<: *file
+          "date":
+            type: date
+          "source":
+            type: str
+          "description":
+            type: str
+            required: false
+            desc: "Optional, free text description"
+          "status":
+            <<: *status
+          "task_options":
+            <<: *task_options
+          "services":
+            <<: *services
+          "derived":
+            <<: *derived
