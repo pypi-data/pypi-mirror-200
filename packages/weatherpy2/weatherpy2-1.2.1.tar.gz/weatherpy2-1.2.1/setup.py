@@ -1,0 +1,25 @@
+from setuptools import setup
+setup(
+    name='weatherpy2',
+    packages=['weatherpy2'],
+    version="1.2.1",
+    liscense="MIT",
+    description="Easy weather forcasting for Python 3",
+    author="GamerXZEN",
+    author_email="codspecialops@gmail.com",
+    url="https://github.com/GamerXZEN/weatherpy2",
+    keywords=["weather", "forecast", "python",],
+    install_requires=["requests"],
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Topic :: Software Development :: Build Tools",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+    ],
+)
