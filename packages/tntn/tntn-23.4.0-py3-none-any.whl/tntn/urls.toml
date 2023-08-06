@@ -1,0 +1,72 @@
+[bore]
+[bore.windows]
+[bore.windows.amd64]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-x86_64-pc-windows-msvc.zip"
+name = "bore.exe"
+
+[bore.windows.i686]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-i686-pc-windows-msvc.zip"
+name = "bore.exe"
+
+[bore.linux]
+[bore.linux.x86_64]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-x86_64-unknown-linux-musl.tar.gz"
+
+[bore.linux.i686]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-i686-unknown-linux-musl.tar.gz"
+
+[bore.linux.aarch64]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-arm-unknown-linux-gnueabi.tar.gz"
+
+[bore.linux.arm64]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-arm-unknown-linux-gnueabi.tar.gz"
+
+[bore.linux.armv7l]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-armv7-unknown-linux-gnueabihf.tar.gz"
+
+[bore.darwin]
+[bore.darwin.x86_64]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-x86_64-apple-darwin.tar.gz"
+
+[bore.darwin.arm64]
+url = "https://github.com/ekzhang/bore/releases/download/v0.4.1/bore-v0.4.1-aarch64-apple-darwin.tar.gz"
+
+[jprq]
+[jprq.windows]
+[jprq.windows.amd64]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-windows-amd64.exe"
+name = "jprq-windows-amd64.exe"
+
+[jprq.windows.x86]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-windows-386.exe"
+name = "jprq-windows-386.exe"
+
+[jprq.linux]
+[jprq.linux.x86_64]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-linux-amd64"
+name = "jprq-linux-amd64"
+
+[jprq.linux.i386]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-linux-386"
+name = "jprq-linux-386"
+
+[jprq.linux.aarch64]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-linux-arm64"
+name = "jprq-linux-arm64"
+
+[jprq.linux.arm64]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-linux-arm64"
+name = "jprq-linux-arm64"
+
+[jprq.linux.armv7l]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-linux-arm"
+name = "jprq-linux-arm"
+
+[jprq.darwin]
+[jprq.darwin.x86_64]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-darwin-amd64"
+name = "jprq-darwin-amd64"
+
+[jprq.darwin.arm64]
+url = "https://github.com/azimjohn/jprq/releases/latest/download/jprq-darwin-arm64"
+name = "jprq-darwin-arm64"
