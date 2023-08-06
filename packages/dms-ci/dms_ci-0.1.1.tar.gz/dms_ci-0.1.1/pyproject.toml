@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "dms_ci"
+description= "A method to calculate confidence intervals for DMS-MaPseq data"
+authors = [
+    "Yves Martin des Taillades <yves@martin.yt>",
+]
+license = "MIT"
+repository = "https://github.com/rouskinlab/DMS_CI"
+readme = "README.md"
+homepage = "https://github.com/rouskinlab/DMS_CI"
+keywords = ["dreem", "Rouskin", "rnastructure",'dms']
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+dms_ci = {path = ".", develop = true}
