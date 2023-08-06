@@ -1,0 +1,28 @@
+$def with (machines)
+$var title: Sites
+
+<p>list domains/apps and the machine they're on</p>
+
+$def aside():
+    $if "DIGITALOCEAN_TOKEN" in tx.app.cfg:
+        <h4>Machines</h4>
+        <ul id=machines>
+        $for machine in machines:
+            <li><a href=/sites/machines/$machine["name"]>$machine["name"]</a><br>
+            <small>$machine["ip_address"]</small></li>
+        </ul>
+        <form method=post action=/sites/machines>
+        <label><small>Name</small><br>
+        <label class=bounding><input type=text name=name></label></label>
+        <div class=buttons><button>Spawn Machine</button></div>
+        </form>
+    $else:
+        <p>Add <code style="background-color:#073642;border-radius:.25em;font-weight:bold;padding:0 .25em .125em .25em;"><small><small>DIGITALOCEAN_TOKEN</small></small></code> to <a
+        href=/system#settings>system settings</a></p>
+$var aside = aside
+
+<style>
+ul#machines {
+  list-style: none;
+  padding-left: 0; }
+</style>
