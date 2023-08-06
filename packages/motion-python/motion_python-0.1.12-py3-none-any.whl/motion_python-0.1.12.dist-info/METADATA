@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: motion-python
+Version: 0.1.12
+Summary: A trigger-based framework for creating and executing ML pipelines.
+Author: Shreya Shankar
+Author-email: shreyashankar@berkeley.edu
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: colorlog (>=6.7.0,<7.0.0)
+Requires-Dist: croniter (>=1.3.8,<2.0.0)
+Requires-Dist: duckdb (>=0.7.1,<0.8.0)
+Requires-Dist: fastapi (>=0.95.0,<0.96.0)
+Requires-Dist: httpx (>=0.23.3,<0.24.0)
+Requires-Dist: numpy (>=1.24.2,<2.0.0)
+Requires-Dist: pandas (>=1.5.3,<2.0.0)
+Requires-Dist: pyarrow (>=11.0.0,<12.0.0)
+Requires-Dist: pydantic (>=1.10.7,<2.0.0)
+Requires-Dist: python-multipart (>=0.0.6,<0.0.7)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Requires-Dist: urllib3 (>=1.26.15,<2.0.0)
+Requires-Dist: uvicorn (>=0.21.1,<0.22.0)
+Description-Content-Type: text/markdown
+
+# motion
+
+[![](https://github.com/shreyashankar/motion/workflows/motion/badge.svg)](https://github.com/motion/motion/actions)
+[![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+A framework for building ML applications, using a trigger-based execution model.
+
+## Getting Started
+
+You must use Python 3.7. We recommend using poetry to manage your virtual environment and dependencies. You can install poetry [here](https://python-poetry.org/docs/). Once you have poetry installed, clone this repo and run the following command to install the dependencies:
+
+```bash
+poetry install
+```
+
+## Using API
+
+Run `motion serve` to start the API server from your application directory.
+
+Writing a get request:
+
+```js
+
+const identifier = await fetch('http://localhost:8000/js/set/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    "relation": "query",
+    "key_values": {"prompt": "the beach"}
+  }),
+});
+```
+
+This should return an identifier, like "cb1f1cd1-67d3-40b5-88a1-25e0ba1b0663".
+
+You can then use this identifier to get the result:
+
+```js
+
+const getresponse = await fetch('http://localhost:8000/js/get/', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    "relation": "query",
+    "identifier": identifier,
+    "keys": [
+        "identifier",
+        "text_suggestion",
+        "catalog_img_id",
+        "catalog_img_score",
+    ],
+    "include_derived": true
+  }),
+});
+```
+
