@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: pypanda-capability
+Version: 0.1.5
+Summary: 
+Author: zhuqian
+Author-email: zhuqian@justcalm.ink
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: deprecation (>=2.1.0,<3.0.0)
+Requires-Dist: hvac (>=1.0.2,<2.0.0)
+Requires-Dist: kubernetes (>=26.1.0,<27.0.0)
+Requires-Dist: pydantic (>=1.10.4,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Pypanda capability
+
+
+# installation
+```bash
+pip install pypanda-capability -i https://artifactory.cloud.ingka-system.cn/artifactory/api/pypi/ccoecn-pypi-virtual/simple
+```
+# Include
+
+- Vault Client
+- 
