@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: cliai
+Version: 0.2.9
+Summary: Command-line interface for OpenAI ChatGPT
+License: GPL-3.0-or-later
+Author: Baksi Li
+Author-email: myself@baksili.codes
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: click-aliases (>=1.0.1,<2.0.0)
+Requires-Dist: openai (>=0.27.1,<0.28.0)
+Requires-Dist: pygments (>=2.14.0,<3.0.0)
+Requires-Dist: questionary (>=1.10.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# CliAI
+![GitHub](https://img.shields.io/github/license/BaksiLi/CliAI)
+![PyPI](https://img.shields.io/pypi/v/cliai?color=blue)
+> CliAI is a user-friendly Python package that lets you interact with OpenAI's ChatGPT via a command-line interface (CLI). Easily test and prototype chatbots, language models, and innovative ideas without writing any code.
+
+## Installation
+Install CliAI using pip:
+```
+pip install cliai
+```
+
+CliAI requires Python 3.8 or higher.
+
+## Usage and Tips
+Start an interactive conversation by running:
+
+```
+cliai chat
+```
+
+The CLI will guide you through the process to create a configuration.
+
+You can also specify an API key by setting the environment variable `export OPENAI_API_KEY="your-key"` or by using the `--api-key <OPENAI_API_KEY>` flag.
+
+### Bypass OpenAI Restrictions
+In certain regions (e.g., China), connecting to OpenAI may be problematic.
+Bypass these restrictions by changing the official API base URL to a custom one using the `--api-base` flag.
+
+```
+cliai chat --api-base <OPENAI_API_BASE>
+```
+
+### Make it portable
+You can use Linux on your mobile device to install CliAI.
+
+For iOS & iPadOS, use iSH.
+
+### Prompt Injection
+During chat mode, you can easily modify messages. In addition to changing your own input (`user`), you can tweak the model's response (`assistant`) and system prompt (`system`) to guide the conversation as desired.
+Also you can use [fine-tuning parameters](https://platform.openai.com/docs/api-reference/chat/create) to adjust the model's behaviour.
+
+Experiment and enjoy hacking the model!
+
+### Debugging
+`--verbose`: Enable verbose output for easier debugging.
+`--stream`: Enable stream output in the response (experimental).
+
+## License
+CliAI is distributed under the MIT license. See [LICENSE](./LICENSE) for more information.
+
+To contribute to this project, feel free to raise issues or submit code.
+
