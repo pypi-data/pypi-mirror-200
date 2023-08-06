@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: brainglobe-sphinx-config
+Version: 0.1b1
+Summary: Common configuration for the Brainglobe sphinx theme
+Author-email: David Stansby <d.stansby@ucl.ac.uk>
+License: BSD-3-Clause
+Project-URL: homepage, https://github.com/dstansby/brainglobe-sphinx-config
+Project-URL: bug_tracker, https://github.com/dstansby/brainglobe-sphinx-config/issues
+Project-URL: documentation, https://github.com/dstansby/brainglobe-sphinx-config
+Project-URL: source_code, https://github.com/dstansby/brainglobe-sphinx-config
+Project-URL: user_support, https://github.com/dstansby/brainglobe-sphinx-config/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydata-sphinx-theme (==0.13.1)
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: ruff ; extra == 'dev'
+Requires-Dist: setuptools-scm ; extra == 'dev'
+
+# brainglobe-sphinx-config
