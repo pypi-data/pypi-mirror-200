@@ -1,0 +1,275 @@
+Metadata-Version: 2.1
+Name: notion-api
+Version: 0.3.7
+Summary: A wrapper for Notion's API, aiming to simplify the dynamic nature of interacting with Notion.
+Project-URL: Homepage, https://github.com/ayvi-0001/notion-api
+Project-URL: Source Code, https://github.com/ayvi-0001/notion-api
+Author-email: Alan Vickers <alan.k.vickers@gmail.com>
+License-File: LICENSE
+Keywords: notion-api,notion-version-2022-06-28,wrapper
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Requires-Dist: python-dotenv==1.0.0
+Requires-Dist: pytz==2022.7.1
+Requires-Dist: requests==2.28.2
+Requires-Dist: tzlocal==4.2
+Provides-Extra: dev
+Requires-Dist: black==23.1.0; extra == 'dev'
+Requires-Dist: isort==5.12.0; extra == 'dev'
+Requires-Dist: mypy-extensions==1.0.0; extra == 'dev'
+Requires-Dist: mypy==1.1.1; extra == 'dev'
+Requires-Dist: types-pytz==2022.7.1.2; extra == 'dev'
+Requires-Dist: types-requests==2.28.11.15; extra == 'dev'
+Requires-Dist: types-tzlocal==4.2.2.3; extra == 'dev'
+Requires-Dist: types-urllib3==1.26.25.8; extra == 'dev'
+Requires-Dist: typing-extensions==4.5.0; extra == 'dev'
+Provides-Extra: orjson
+Requires-Dist: orjson==3.8.6; extra == 'orjson'
+Description-Content-Type: text/markdown
+
+# notion-api
+
+<p align="center">
+    <a href="https://pypi.org/project/notion-api"><img alt="PYPI" src="https://img.shields.io/pypi/v/notion-api"></a>
+    &nbsp;
+    <img alt="last commit" src="https://img.shields.io/github/last-commit/ayvi-0001/notion-api?color=%239146ff"></a>
+    &nbsp;
+    <a href="https://developers.notion.com/reference/versioning"><img alt="notion versioning" src="https://img.shields.io/static/v1?label=notion-API-version&message=2022-06-28&color=%232e1a00"></a>
+    &nbsp;
+    <a href="https://github.com/ayvi-0001/notion-api/blob/main/LICENSE"><img alt="license: MIT" src="https://img.shields.io/static/v1?label=license&message=MIT&color=informational"></a>
+    &nbsp;
+    <img alt="code style: black" src="https://img.shields.io/static/v1?label=code%20style&message=black&color=000000"></a>
+</p>
+
+ 
+A wrapper for Notion's API, aiming to simplify the dynamic nature of interacting with Notion.  
+
+This project is still a work in progress, and features will continue to change. Below are a few examples of the current functionality. 
+
+# Install
+```
+pip install notion-api
+```
+
+# Usage
+---
+```py
+import dotenv
+
+import notion
+
+dotenv.load_dotenv()  # client will check for env variable 'NOTION_TOKEN',
+
+homepage = notion.Page('773b08ff38b44521b44b115827e850f2')
+parent_db = notion.Database(homepage.parent_id)
+
+# optionally can reference secret through `token` arg:
+homepage = notion.Page('773b08ff38b44521b44b115827e850f2', token="secret_n2m52d1***")
+# however this currently doesn't work with `notion.api.notionworkspace.Workspace`.
+
+
+# __get_item__ will search for properties in a Page, and for property objects in a Database.
+homepage['dependencies']
+# {
+#     "id": "WYYq",
+#     "type": "relation",
+#     "relation": [
+#         {
+#             "id": "7bcbc8e6-e237-434b-bd0d-6b56e044200b"
+#         }
+#     ],
+#     "has_more": false
+# }
+
+parent_db['dependencies']
+# {
+#     "id": "WYYq",
+#     "name": "dependencies",
+#     "type": "relation",
+#     "relation": {
+#         "database_id": "f5984a7e-2257-4ab0-9d0a-23ea12324031",
+#         "type": "dual_property",
+#         "dual_property": {
+#             "synced_property_name": "blocked",
+#             "synced_property_id": "wx%7DQ"
+#         }
+#     }
+# }
+
+homepage.last_edited.date() # out: 01/15/2023
+homepage.title = "New Page Title"
+```
+
+---
+## Creating Pages/Databases/Blocks
+
+Pages and Databases are created with a classmethod by passing an existing page/database instance as a parent.
+
+```py
+new_database = notion.Database.create(
+    homepage, database_title="A new database", name_column="name"
+) 
+# name column refers to column containing page titles. 
+# Defaults to "Name" if None (all strings in Notion API are case-sensitive).
+
+new_page = notion.Page.create(new_database, page_title="A new database row")
+```
+
+Blocks can be created with `notion.api.blocktypefactory.BlockFactory` by appending to an exisiting Block or Page.
+```py
+from notion import properties as prop
+
+# BlockFactory returns the new block as a Block object.
+original_synced_block = notion.BlockFactory.new_synced_block(homepage)
+# `new_synced_block` refers to the original synced block in the Notion UI.
+
+# Adding content to the synced block
+notion.BlockFactory.paragraph(original_synced_block, [prop.RichText('This is a synced block.')])
+
+# Referencing the synced block in a new page.
+notion.BlockFactory.reference_synced_block(new_page, original_synced_block.id)
+```
+
+### _Example function: Appending blocks to a page as a reminder._
+
+```py
+def notion_block_reminder(page_id: str, message: str, user_name: str) -> None:
+    target_page = notion.Page('0b9eccfa890e4c3390175ee10c664a35')
+    mentionblock = notion.BlockFactory.paragraph(
+        target_page,
+        [
+            prop.Mention.user(
+                notion.Workspace.retrieve_user(user_name="Your Name"),
+                annotations=prop.Annotations(
+                    code=True, bold=True, color=prop.BlockColor.purple
+                ),
+            ),
+            prop.RichText(" - "),
+            prop.Mention.date(
+                datetime.now().astimezone(target_page.tz).isoformat(),
+                annotations=prop.Annotations(
+                    code=True, bold=True, color=prop.BlockColor.purple_background
+                ),
+            ),
+            prop.RichText(":"),
+        ],
+    )
+    notion.BlockFactory.paragraph(mentionblock, [prop.RichText("message here")])
+    notion.BlockFactory.divider(target_page)
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ayvi-0001/notion-api/main/images/example_function_reminder.png">  
+</p>
+
+---
+## Add, Set, & Delete - Page property values / Database property objects
+
+The first argument for all database column methods is the name of the property,  
+If it does not exist, then a new property object is created.  
+If it already exists, then the method will overwrite it.
+
+If the name passed already exists, but it's a different column type than the method used - then the API will overwrite this and change the property object to the new column type.  
+The original parameters will be saved if you decide to switch back (i.e. if you change a formula column to a select column, upon changing it back to a formula column, the original formula expression will still be there).   
+
+```py
+new_database.formula_column("page id", expression="id()")
+
+new_database.delete_property("url")
+
+new_database.multiselect_column(
+    "new options column",
+    options=[
+        prop.Option("option-a", prop.PropertyColor.red),
+        prop.Option("option-b", prop.PropertyColor.green),
+        prop.Option("option-c", prop.PropertyColor.blue),
+    ],  # if an option does not already exist, a new one will be created with a random color.
+)       # this is not true for `status` column types, which can only be edited via UI.
+
+new_page.set_multiselect("options", ["option-a", "option-b"])
+```
+
+---
+## Database Queries
+
+A single `notion.query.propfilter.PropertyFilter` is equivalent to filtering one property type in Notion.
+To build filters equivalent to Notion's 'advanced filters', use `notion.query.compound.CompoundFilter`.
+
+```py
+from datetime import datetime
+from datetime import timedelta
+
+from notion import query
+
+today = datetime.today().isoformat()
+tomorrow = (datetime.today() + timedelta(1)).isoformat()
+
+query_filter = query.CompoundFilter()._and(
+    query.PropertyFilter.date("date", "date", "on_or_after", today),  # required
+    query.PropertyFilter.date("date", "date", "before", tomorrow),  # required
+    query.CompoundFilter()._or(
+        query.PropertyFilter.text("name", "title", "contains", "your page title"),  # either this
+        query.PropertyFilter.text("name", "title", "contains", "your other page title"),  # or this
+    ),
+)
+
+query_sort = query.SortFilter([query.EntryTimestampSort.created_time_descending()])
+
+# `notion.build_payload`: helper function to combine Compound/Property filters && Sort filters.
+query_result = new_database.query(
+    payload=notion.build_payload(query_filter, query_sort),
+    filter_property_values=[
+        "name",
+        "options",
+    ],  # pass a list of property names to filter results.
+)
+```
+---
+
+## Exceptions & Validating Responses
+
+```py
+# Errors in Notion requests return an object with the keys: 'object', 'status', 'code', and 'message'
+
+homepage._patch_properties(payload={'an_incorrect_key':'value'})
+# Example error object for line above..
+# {
+#   'object': 'error', 
+#   'status': 400, 
+#   'code': 'validation_error', 
+#   'message': 'body failed validation: body.an_incorrect_key should be not present, instead was `"value"`.'
+# }
+```
+
+```sh
+Traceback (most recent call last):
+File "c:\path\to\file\_.py", line 6, in <module>
+    homepage._patch_properties(payload={'an_incorrect_key':'value'})
+File "c:\...\notion\exceptions\validate.py", line 48, in validate_response
+    raise NotionValidationError(message)
+notion.exceptions.errors.NotionValidationError: body failed validation: body.an_incorrect_key should be not present, instead was `"value"`.
+Error 400: The request body does not match the schema for the expected parameters.
+```
+
+A common error to look out for is `notion.exceptions.errors.NotionObjectNotFound`  
+
+This error is often raised because your bot has not been added as a connection to the page.  
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ayvi-0001/notion-api/main/images/directory_add_connections.png">  
+</p>
+
+By default, a bot will have access to the children of any Parent object it has access too.
+
+Certain errors are returned with a long list of possible causes for failing validation,
+In these cases, the error is often the outlier in the list - for example:
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/ayvi-0001/notion-api/main/images/append_child_block_error.png"> 
+</p>
+
+---
