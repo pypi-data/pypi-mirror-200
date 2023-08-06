@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "pypanda-capability"
+version = "0.1.5"
+description = ""
+authors = ["zhuqian <zhuqian@justcalm.ink>"]
+readme = "README.md"
+packages = [{include = "pypanda"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+hvac = "^1.0.2"
+pydantic = "^1.10.4"
+deprecation = "^2.1.0"
+kubernetes = "^26.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
