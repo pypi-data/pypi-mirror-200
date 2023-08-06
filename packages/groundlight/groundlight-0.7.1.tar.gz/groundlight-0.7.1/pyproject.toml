@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "groundlight"
+version = "0.7.1"
+license = "MIT"
+readme = "README.md"
+homepage = "https://www.groundlight.ai"
+description = "Build computer vision systems from natural language with Groundlight"
+authors = ["Groundlight AI <support@groundlight.ai>"]
+packages = [
+    { include = "**/*.py", from = "src" },
+    { include = "**/*.py", from = "generated" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7.0,<4.0"
+python-dateutil = "^2.8.2"
+urllib3 = "^1.26.9"
+frozendict = "^2.3.2"
+certifi = "^2021.10.8"
+pydantic = "^1.7.4"
+requests = "^2.28.2"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+pytest-cov = "^3.0.0"
+pylint = "^2.13.9"
+flake8 = "^4.0.1"
+mypy = "^0.950"
+pytest = "^7.0.1"
+isort = "^5.10.1"
+autoflake = "^1.4"
+datamodel-code-generator = "^0.12.1"
+pytest-mock = "^3.10.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
