@@ -1,0 +1,15 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "setuptools-scm[toml]"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.autopep8]
+max_line_length = 80
+aggressive = 3
+recursive = true
+in-place = true
+
+[tool.setuptools_scm]
