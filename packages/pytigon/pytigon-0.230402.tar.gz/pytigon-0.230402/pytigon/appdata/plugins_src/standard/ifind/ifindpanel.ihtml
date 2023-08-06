@@ -1,0 +1,106 @@
+% extends "forms/plugin_form.html"
+
+%% extrahead
+    meta name=vertical_position,,,content=bottom
+
+%% pythoncode
+    script language=python
+        def init_form(self):
+            self.SEARCH.ShowSearchButton(True)
+            self.SEARCH.ShowCancelButton(True)
+            self.SEARCH.Bind(wx.EVT_TEXT, self.on_do_search)
+            self.SEARCH.Bind(wx.EVT_SEARCHCTRL_CANCEL_BTN, self.on_cancel_btn)
+
+            self.NEXT.Bind(wx.EVT_BUTTON, self.on_next)
+            self.PREV.Bind(wx.EVT_BUTTON, self.on_prev)
+            self.EXIT.Bind(wx.EVT_BUTTON, self.on_exit)
+
+            self.search_txt = ""
+            self.SEARCH.SetFocus()
+            if wx.Platform == "__WXMSW__":
+                self.set_acc_key_tab(self, [(0, wx.WXK_RETURN, self.on_enter),])
+            else:
+                for ctrl in (self.SEARCH, self.NEXT, self.PREV, self.CHECK1, self.CHECK2):
+                    ctrl.Bind(wx.EVT_KEY_DOWN, self.on_key_down)
+            self.back = False
+
+        def calculate_best_size(self):
+            x, y = self.base_calculate_best_size()
+            if self.page and self.page.parent_page:
+                x = self.page.parent_page.body.GetSize().GetWidth()
+            return (x, y)
+
+        def search_text(self, regex=False, back=False, corectSelection=False, next=False):
+            self.back = back
+            editor = self.get_parent_form().EDITOR
+            text = self.SEARCH.GetValue()
+            flags = wx.stc.STC_FIND_MATCHCASE
+            if regex:
+                flags = flags | wx.stc.STC_FIND_REGEXP
+
+            if not back and corectSelection:
+                editor.SetSelectionStart(editor.GetSelectionEnd())
+
+            editor.SearchAnchor()
+            if not back:
+                if next:
+                    res = editor.SearchNext(flags, text)
+                else:
+                    res = editor.FindText(-1, -1, text, flags)
+                if res == -1:
+                    editor.DocumentStart()
+                    editor.SearchAnchor()
+                    res = editor.SearchNext(flags, text)
+            else:
+                res = editor.SearchPrev(flags, text)
+                if res == -1:
+                    editor.DocumentEnd()
+                    editor.SearchAnchor()
+                    res = editor.SearchPrev(flags, text)
+            editor.EnsureCaretVisible()
+            return res
+
+        def on_cancel_btn(self, event):
+            event.Skip()
+
+        def on_do_search(self, event):
+            self.search_text(corectSelection=True)
+
+        def on_do_search_next(self, event):
+            self.search_text(corectSelection=True, next=True)
+
+        def on_next(self, event):
+            self.search_text(corectSelection=True, next=True)
+
+        def on_prev(self, event):
+            self.search_text(back=True)
+
+        def on_enter(self, event):
+            if self.back:
+                return self.on_prev(event)
+            else:
+                return self.on_next(event)
+
+        def on_key_down(self, event):
+            if event.KeyCode == 13:
+                return self.on_enter(event)
+            event.Skip()
+
+        def Search(self):
+            self.search_text()
+
+        def on_exit(self, event):
+            self.any_parent_command('on_child_form_cancel')
+
+%% content
+    table
+        tr
+            td cellpadding=0,,,width=36,,,height=36
+                CTRL-NOBG_BUTTON width=36,,,height=36,,,name=EXIT,,,src=client://emblems/emblem-unreadable.png
+            td:::CTRL-SEARCH NAME=SEARCH,,,width=200
+            td cellpadding=0,,,width=36,,,height=36
+                CTRL-NOBG_BUTTON width=36,,,height=36,,,name=NEXT,,,src=wx.ART_GO_DOWN
+            td cellpadding=0,,,width=36,,,height=36
+                CTRL-NOBG_BUTTON width=36,,,height=36,,,name=PREV,,,src=wx.ART_GO_UP
+            td:::CTRL-CHECKBOX name=CHECK1,,,label=_(Whole Word)
+            td:::CTRL-CHECKBOX name=CHECK2,,,label=_(Regular Expression)

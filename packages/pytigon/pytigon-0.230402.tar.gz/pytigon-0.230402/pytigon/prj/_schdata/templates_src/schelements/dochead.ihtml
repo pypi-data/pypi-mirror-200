@@ -1,0 +1,82 @@
+{# -*- coding: utf-8 -*- #}
+% extends "forms/form.html"
+
+% load exfiltry
+% load exsyntax
+
+%% pythoncode
+    script language=python
+        def signal_from_child(self, child, signal):
+            if signal=='set_bitmap_list':
+                bitmaps = {
+                }
+                child.set_bitmaps(bitmaps)
+
+        def filter_url(self, target, href):
+            return href
+
+%% all
+    %with table_type='datatable':
+        {{ block.super }}
+
+%% scroll
+
+%% list_content_actions
+    % with object_list.model|args:filter|call:"get_documents_for_reg" as doctypes:
+        % for item in doctypes:
+            % new_row "_(New document:) "|append_str:item.name action="new_row/"|append_str:item.name
+
+%% list_row_header
+    th..._(Register)
+    th..._(Target)
+    th..._(Name)
+    th..._(Number)
+    th..._(Description)
+    th..._(Date)
+    th..._(Status)
+    
+%% list_row
+    td...{{object.doc_type_parent.name}}
+    td...{{object.org_chart_parent.name}}
+    td...{{object.name}}
+    td...{{object.number}}
+    td...{{object.description}}
+    td...{{object.date|isoformat}}
+    td...{{object.status}}
+
+%% id_extra
+    % row_actions:
+        .field_list/docitem_set,Document items,fa fa-lg fa-plus/fa fa-list-ol        
+    {{ block.super }}
+
+%% list_row_actions
+    % if object.status == "" or object.status == 'draft':
+        % row_actions:
+            .edit-inline
+            .delete
+        
+    % with object|args:request|call:"get_visible_statuses" as vs:    
+        % if vs:
+            % for row in vs:
+                % if row.order > object.get_reg_status.order:
+                    % action "approve_status"|append_str:"/"|append_str:row.name row.description row.icon target=row.get_accept_target url=table_path|append_str:"{id}/action/approve/"
+
+    % with object|args:request|call:"get_visible_statuses" as vs:    
+        % if vs:
+            % for row in vs:
+                % if row.order < object.get_reg_status.order:
+                    % action "decline_status"|append_str:"/"|append_str:row.name "_(Back to status:)"|append_str:row.name row.icon target=row.get_undo_target tag_class="+btn-danger" url=table_path|append_str:"{id}/action/discard/"
+
+    % comment:
+        % if object|args:request|call:"status_can_be_undo":
+            % action "decline_status"|append_str:"/"|append_str:object.status "_(Discard status:) "|append_str:object.status "fa fa-undo" target=object.get_undo_target tag_class="+btn-danger" url=table_path|append_str:"{id}/action/discard/"
+
+
+%% row_edit
+    %% dochead_edit
+        % form:
+    % if object.id:
+        %% docitem_list
+            % frame table_path|append_str:object.id|append_str:"/docitem_set/-/form/sublist/?only_content=1" "200px"
+    % else:
+        <button type="button" class="btn btn-warning" target="refresh_frame" rettype="RETURN_HTML_ERROR" data-region="subframe" get-param="redirect='1'" style="width:100%"> << Expand >> </button>

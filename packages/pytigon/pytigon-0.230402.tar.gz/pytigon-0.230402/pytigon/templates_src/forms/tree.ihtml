@@ -1,0 +1,101 @@
+% extends "forms/form.html"
+
+% load exfiltry
+% load exsyntax
+
+%% list_content_title
+    % if parent_pk > 0:
+        h4 style=white-space:nowrap;,,,class=txt3d wiki-title
+            {{title|wiki_href|safe}}
+            % if parent:
+                span
+                    % if parent and parent.title:
+                        - {{parent.title}}
+                    % else:
+                        - {{parent}}
+    % else:
+        h4 style=white-space:nowrap;,,,class=txt3d wiki-title
+            {{title|wiki_href|safe}}
+            % if settings.DEBUG:
+                a data-bs-toggle=collapse,,,href=#collapse_{{uuid}},,,role=button...>>
+        % if settings.DEBUG:
+            div class=collapse,,,id=collapse_{{uuid}}
+                .model: {{object_list.model|get_model_app}}/{{object_list.model|class_name}}, template: {{template}}
+
+%% list_content_actions
+    % with gtree=get|get_or_tree:
+        % if vtype == 'tree' or vtype == 'gettree':
+            % if standard_web_browser
+                span class=tree-home
+                    % if parent_pk > 0 and base_filter != parent_pk|to_str:
+                        % if base_filter:
+                            % action "home-_self" "/" url=table_path_and_base_filter|append_str:base_filter|append_str:'/{{target}}/{{gtree}}/'
+                        % else:
+                            % action "home-_self" "/" url=table_path_and_base_filter|append_str:'0/{{target}}/{{gtree}}/'
+                    % else:
+                        % action "home-_self" "/" url=table_path_and_base_filter|append_str:'0/{{target}}/tree/' tag_class="+disabled"
+            % else:
+                % if parent_pk > 0 and base_filter != parent_pk|to_str:
+                    CTRL-BUTTON name=back,,,href={{table_path_and_base_filter}}-{{parent_pk}}/{{target}}/{{ro}}{{gtree}}/,,,target=_self,,,src=wx.ART_GO_BACK,,,label=_(Back)
+                % else:
+                    CTRL-BUTTON name=back,,,href=_disable,,,target=_self,,,src=wx.ART_GO_BACK,,,label=_(Back)
+                CTRL-BUTTON href={{table_path_and_base_filter}}0/{{target|replace:"json|form"}}/{{gtree}}/,,,class=button btn btn-secondary,,,label=/,,,target=_self
+
+            % if parent|get_all_model_parents|length > 1:
+                span class=tree-toolbar
+                    % if not base_parent_pk:
+                        % for pos in parent|get_all_model_parents reversed:
+                            % if not forloop.last:
+                                % action "back-_self" pos.code url=table_path_and_base_filter|append_str:'{{pos.id}}/{{target}}/{{gtree}}/'
+
+        %% list_content_actions_new_row
+            % if not readonly:
+                % if parent_pk and parent_pk > 0:
+                        % new_row "_(New element)" url=table_path|append_str:'%d/this/-/add/'|format:parent.id
+                % else
+                        % new_row "_(New element)" url=table_path|append_str:'0/this/-/add/'
+
+%% list_row_header_start
+    % if not no_id
+        th data-field=cid,,,data-sortable=true,,,class=tree-id
+            % if standard_web_browser
+                % with gtree=get|get_or_tree:
+                    % if vtype == 'tree' or vtype == 'gettree':
+                        %if parent_pk > 0 and base_filter != parent_pk|to_str:
+                            % action "back-_self" ".." url=table_path_and_base_filter|append_str:'-{{parent_pk}}/{{target}}/{{ro}}{{gtree}}/'
+                        % else:
+                            % action "back-_self" ".." url=table_path_and_base_filter|append_str:'-{{parent_pk}}/{{target}}/{{ro}}{{gtree}}/' tag_class="+disabled" attrs="+disabled='disabled'"
+                {% id_num 'Id' %}
+
+%% id_extra
+    % if vtype == 'tree' or vtype == 'gettree':
+        % if standard_web_browser:
+            % with gtree=get|get_or_tree:
+                %if object|model_has_children
+                    a href={{table_path_and_base_filter}}{{object.id}}/{{target|replace:"json|form"}}/{{ro}}{{gtree}}/,,,target=_self,,,class=button btn btn-light shadow-none,,,name=+
+                        {% icon "fa-plus fa-lg" %}
+                %else
+                    % if get:
+                        span class=button btn
+                            {% icon "fa-ban fa-lg" %}
+                    % else:
+                        a href={{table_path_and_base_filter}}{{object.id}}/{{target|replace:"json|form"}}/{{ro}}{{gtree}}/,,,target=_self,,,class=button btn,,,name=+
+                            {% icon "fa-plus-square-o fa-lg" %}
+        % else:
+            % with gtree=get|get_or_tree:
+                %if object|model_has_children
+                    a href={{table_path_and_base_filter}}{{object.id}}/{{target|replace:"json|form"}}/{{ro}}{{gtree}}/,,,target=_self,,,class=button btn btn-light shadow-none,,,name=+
+                        +
+                %else
+                    % if get:
+                        span class=button btn
+                            {% icon "fa-ban fa-lg" %}
+                    % else:
+                        a href={{table_path_and_base_filter}}{{object.id}}/{{target|replace:"json|form"}}/{{ro}}{{gtree}}/,,,target=_self,,,class=button btn,,,name=+
+                            +
+    % if standard_web_browser:
+        {{ block.super }}
+
+%% tabsort_parameters_block2
+    % with not_multiple_select=0 sort=0:
+        {{ block.super }}

@@ -1,0 +1,28 @@
+% extends default_template
+
+% load exfiltry
+% load django_bootstrap5
+% load i18n
+% load account
+% load exsyntax
+
+%% all
+    % with NO_CHECK_AUTH=True SHOW_LOGIN_WIN=False show_form=False:
+        {{ block.super }}
+
+%% body
+    div class=login_background
+    div class=container login-container
+        div class=row align-items-center
+            div class=col
+            div class=col-lg-6 col-xl-5
+                div class=card card-inverse login-card
+                    %% content
+            div class=col
+    %% body_desktop_cd
+    
+%% nav
+
+%% body_footer_scripts
+    
+%% page_footer

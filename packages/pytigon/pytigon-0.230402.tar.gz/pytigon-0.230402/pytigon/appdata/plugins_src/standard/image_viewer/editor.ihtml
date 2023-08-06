@@ -1,0 +1,11 @@
+{# -*- coding: utf-8 -*- #}
+
+% extends "forms/plugin_form.html"
+
+%% pythoncode
+    script language=python
+        def init_form(self):
+            pass
+
+%% content
+    CTRL-IMAGEVIEWER name=EDITOR,,,width=100%,,,height=100%,,,src=py

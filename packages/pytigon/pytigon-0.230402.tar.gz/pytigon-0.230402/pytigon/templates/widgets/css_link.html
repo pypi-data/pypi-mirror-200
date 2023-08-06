@@ -1,0 +1,9 @@
+{% load static %}
+{% if content %}
+        <style type="text/css">
+                {{ content|safe }}
+        </style>
+  {% else %}
+        <link rel="stylesheet" type="text/css" href="{% static href %}"></link>
+{% endif %}
+

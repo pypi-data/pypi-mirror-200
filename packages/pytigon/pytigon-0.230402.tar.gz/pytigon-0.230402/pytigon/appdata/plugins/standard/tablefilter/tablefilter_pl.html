@@ -1,0 +1,117 @@
+{% extends "forms/form.html" %}
+{% load exfiltry %}
+{% load exsyntax %}
+{% block extrahead %}
+        <meta name="DISABLE_PARENT" content="0" />
+        {{block.super}}
+{% endblock %}
+{% block pythoncode %}
+        <script language="python">
+        def init_form(self):
+            self.SEARCH.Bind(wx.EVT_KEY_DOWN, self.on_key_down)
+            self.SEARCH.Bind(wx.EVT_KEY_UP, self.on_key_up)
+            self.Bind(wx.EVT_TEXT_ENTER, self.on_do_search)
+            self.EXIT.Bind(wx.EVT_BUTTON, self.on_exit)
+            #self.SEARCH.Bind(wx.EVT_SET_FOCUS, self.on_search_set_focus)
+            self.search_txt = ""
+            self._grid = None
+            self._table = None
+            tab = self._get_tab()
+            if tab:
+                tab.filter_by(1)
+                if tab.key:
+                    self.search_txt = tab.key
+                    self.SEARCH.SetValue(tab.key)
+                    self.SEARCH.SetInsertionPointEnd()
+            self.SEARCH.SetFocus()
+            self.search_text()
+            self.SEARCH.SetInsertionPointEnd()
+
+        def SetFocus(self):
+            pass
+
+        def _get_grid(self):
+            if not self._grid:
+                ppanel = self.get_parent_form()
+                if ppanel:
+                    grid = self.get_parent_form().last_control_with_focus
+                    if grid:
+                        if grid.__class__.__name__ == 'GRID':
+                            self._grid = grid
+                        else:
+                            self._grid = grid.GetParent()
+            return self._grid
+
+        def _get_tab(self):
+            if not self._table:
+                g = self._get_grid()
+                if g:
+                    self._table = g.GetTable()
+            return self._table
+
+        def start_key(self, key):
+            v = self.SEARCH.GetValue()
+            self.search_txt = v+chr(key)
+            self.SEARCH.SetValue(self.search_txt)
+            self.SEARCH.SetInsertionPointEnd()
+            self.search_text()
+
+        def clear(self):
+            self.SEARCH.SetValue("")
+            self.SEARCH.SetInsertionPointEnd()
+            self.search_text()
+
+        def search_text(self, txt=None):
+            if txt!=None:
+                text = txt
+            else:
+                text   = self.search_txt
+            tab = self._get_tab()
+            if tab:
+                #tab.filter(text)
+                wx.CallAfter(tab.filter, text)
+            return True
+
+        def on_do_search(self, event):
+            self.search_text()
+
+        def on_key_down(self, event):
+            if event.KeyCode in (wx.WXK_UP, wx.WXK_DOWN, wx.WXK_HOME, wx.WXK_END):
+                grid = self._get_grid()
+                grid.ProcessEvent(event)
+            elif event.KeyCode in (wx.WXK_RETURN,):
+                grid = self._get_grid()
+                grid.ProcessEvent(event)
+                #self.clear()
+                self.search_text("")
+                self.any_parent_command('on_child_form_cancel')
+            else:
+                event.Skip()
+
+        def on_key_up(self, event):
+            value = self.SEARCH.GetValue()
+            if value!=self.search_txt:
+                self.search_txt=value
+                self.search_text()
+
+            event.Skip()
+
+        def on_exit(self, event):
+            self.any_parent_command('on_child_form_cancel')
+
+
+</script>
+{% endblock %}
+{% block content %}
+        <table width="100%" height="100%">
+                <tr>
+                        <td cellpadding="0" width="36" height="36">
+                                <CTRL-NOBG_BUTTON width="36" height="36" name="EXIT" src="client://emblems/emblem-unreadable.png"></CTRL-NOBG_BUTTON>
+                        </td>
+                        <td width="100%-40">
+                                <CTRL-TEXT name="SEARCH" width="300" process_enter="1"></CTRL-TEXT>
+                        </td>
+                </tr>
+        </table>
+{% endblock %}
+

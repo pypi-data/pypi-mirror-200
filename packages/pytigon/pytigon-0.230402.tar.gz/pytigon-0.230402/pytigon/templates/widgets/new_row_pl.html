@@ -1,0 +1,9 @@
+{% extends "widgets/action.html" %}
+{% load exsyntax %}
+{% block action_class %}
+        {% if action.target == '_top' %}popup{% endif %}
+{% endblock %}
+{% block description %}
+        {% icon "fa-plus fa-lg" %}{% if description %}{{description}}{% endif %}
+{% endblock %}
+

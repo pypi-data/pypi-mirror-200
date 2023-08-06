@@ -1,0 +1,121 @@
+% load exfiltry
+% load exsyntax
+% load cache
+
+%% all
+    %% page_start
+        <!DOCTYPE html>
+        <html lang="{{LANGUAGE_CODE}}">
+    %% page_head
+        head
+            %% cache
+            %% head_start
+            meta charset=utf-8
+            meta name=viewport,,,content=width=device-width, initial-scale=1, shrink-to-fit=no
+            meta http-equiv=X-UA-Compatible,,,content=IE=edge
+            link rel=icon,,,type=image/x-icon,,,href={{base_path}}static/favicon.ico
+
+            %if form:
+                %if form.errors or errors
+                    meta name=target,,,content=_self
+
+            title
+                %%title
+                    {{title}}
+
+            % if standard_web_browser:
+                % if not show_form and not 'no_scripts' in request.GET:
+                    %% css_links
+                    %% css_start
+                        <style type="text/css">
+                    %% css
+                    %% css_end
+                        </style>
+
+            % else
+                %% pythoncode
+                %% icss
+
+            %% extrastyle
+            %% extrahead
+
+    %% body_start
+        <body bgcolor="#{{color_body}}" border="1">
+    %% body_header
+    %% body
+        %if not user.is_authenticated and not NO_CHECK_AUTH and settings.SHOW_LOGIN_WIN or SHOW_LOGIN_WIN:
+            %% login_header
+            %% login
+            %% login_footer
+        % else:
+            %% nav
+                %% change_password
+                %% menu_start
+                %% menu
+                    %% topmenu_start
+                    %for app_info in app_manager|args:prj|call:"get_apps_width_perm":
+                        %% topmenu
+                    %% topmenu_end
+                    %% submenu_start
+                    %for item_info in app_manager|args:prj|call:"get_app_items_width_perm":
+                        %% submenu
+                    %% submenu_end
+
+                %% menu_end
+
+                %% menu2
+
+            %% body_init
+
+            %% messages
+                % if messages:
+                    % for message in messages:
+                        % if message|slice:"-1:" == '!':
+                                ul class=errorlist
+                                    li...{{message}}
+                            {% else %}
+                                ul class=messagelist
+                                    li...{{message}}
+
+            %% body_desktop
+                %if user.is_authenticated or not settings.SHOW_LOGIN_WIN or NO_CHECK_AUTH:
+                    %% panel
+                    %% navglobal
+                    %% sidebar
+                    %% content_start
+                    %% all_content
+                        %% content
+                    %% content_end
+            %% tabs
+
+        %% js_all_scripts
+            %if not 'no_scripts' in request.GET:
+                % if not show_form:
+                    %%js_scripts
+                        %% js_scripts_base
+
+                %% js_extrascipts
+
+        %% html_widgets_init
+
+        %% body_footer
+    %if not 'no_scripts' in request.GET:
+        %% body_footer_scripts
+    %% page_footer
+        %if not 'no_scripts' in request.GET:
+            %% js_extrascipts_init
+                script type=module
+                    %% jquery_init
+                    %% jquery_init_once
+                    %% jquery_ready_all
+                        %% jquery_ready_start
+                        %% jquery_ready
+                        %% jquery_ready_end
+                    %% js_script_body
+
+        %% page_finish
+
+    %% body_end...</body>
+
+    %% page_end...</html>
+
