@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: plynx
+Version: 1.10.0
+Summary: ML platform
+Home-page: https://plynx.com
+Author: Ivan Khomyakov
+Author-email: ivan@plynx.com
+License: UNKNOWN
+Project-URL: Demo, https://plynx.com
+Project-URL: Source, https://github.com/plynx-team/plynx
+Keywords: data science,machine learning,pipeline,workflow,experiments
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Requires-Dist: cloudpickle (>=2.0.0)
+Requires-Dist: pymongo (>=4.0.1)
+Requires-Dist: pyyaml (>=5.1.2)
+Requires-Dist: passlib (>=1.7.1)
+Requires-Dist: Flask (>=2.2.2)
+Requires-Dist: pyjwt (>=2.5.0)
+Requires-Dist: Flask-Cors (>=3.0.3)
+Requires-Dist: Flask-HTTPAuth (>=3.2.3)
+Requires-Dist: gevent (>=21.12.0)
+Requires-Dist: smart-open (>=5.2.1)
+Requires-Dist: requests (>=2.18.4)
+Requires-Dist: types-requests (>=2.28.11.7)
+Requires-Dist: future (>=0.17.1)
+Requires-Dist: dataclasses-json (>=0.5.7)
+Requires-Dist: google-api-python-client (>=2.77.0)
+Requires-Dist: google-auth (>=2.16.0)
+Provides-Extra: all
+Requires-Dist: flake8 (==4.0.1) ; extra == 'all'
+Requires-Dist: mypy (==0.960) ; extra == 'all'
+Requires-Dist: isort (==5.10.1) ; extra == 'all'
+Requires-Dist: pylint (==2.14.0) ; extra == 'all'
+Requires-Dist: pre-commit (>=2.19.0) ; extra == 'all'
+Requires-Dist: mongo-types (>=0.15.1) ; extra == 'all'
+Requires-Dist: types-PyYAML (>=6.0.5) ; extra == 'all'
+Requires-Dist: types-python-dateutil (>=2.8.10) ; extra == 'all'
+Requires-Dist: types-six (>=1.16.12) ; extra == 'all'
+Requires-Dist: google-cloud-storage (>=1.13.0) ; extra == 'all'
+Requires-Dist: boto3 (>=1.9.62) ; extra == 'all'
+Requires-Dist: paramiko (>=2.4.2) ; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: flake8 (==4.0.1) ; extra == 'dev'
+Requires-Dist: mypy (==0.960) ; extra == 'dev'
+Requires-Dist: isort (==5.10.1) ; extra == 'dev'
+Requires-Dist: pylint (==2.14.0) ; extra == 'dev'
+Requires-Dist: pre-commit (>=2.19.0) ; extra == 'dev'
+Requires-Dist: mongo-types (>=0.15.1) ; extra == 'dev'
+Requires-Dist: types-PyYAML (>=6.0.5) ; extra == 'dev'
+Requires-Dist: types-python-dateutil (>=2.8.10) ; extra == 'dev'
+Requires-Dist: types-six (>=1.16.12) ; extra == 'dev'
+Provides-Extra: gs
+Requires-Dist: google-cloud-storage (>=1.13.0) ; extra == 'gs'
+Provides-Extra: s3
+Requires-Dist: boto3 (>=1.9.62) ; extra == 's3'
+Provides-Extra: ssh
+Requires-Dist: paramiko (>=2.4.2) ; extra == 'ssh'
+
+Interactive, Scalable, Shareable and Reproducible ML experiments
+
+
