@@ -1,0 +1,28 @@
+{
+    "config": {
+        "abort": {
+            "single_instance_allowed": "Juba seadistatud. V\u00f5imalik on ainult \u00fcks seadistamine."
+        },
+        "step": {
+            "user": {
+                "description": "Kas soovid alustada seadistamist?"
+            }
+        }
+    },
+    "entity_component": {
+        "_": {
+            "name": "P\u00e4ike",
+            "state": {
+                "above_horizon": "T\u00f5usnud",
+                "below_horizon": "Loojunud"
+            }
+        }
+    },
+    "state": {
+        "_": {
+            "above_horizon": "T\u00f5usnud",
+            "below_horizon": "Loojunud"
+        }
+    },
+    "title": "P\u00e4ike"
+}

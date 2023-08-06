@@ -1,0 +1,22 @@
+{
+  "title": "Sun",
+  "config": {
+    "step": {
+      "user": {
+        "description": "[%key:common::config_flow::description::confirm_setup%]"
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "[%key:common::config_flow::abort::single_instance_allowed%]"
+    }
+  },
+  "entity_component": {
+    "_": {
+      "name": "[%key:component::sun::title%]",
+      "state": {
+        "above_horizon": "Above horizon",
+        "below_horizon": "Below horizon"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "Schema",
+            "state": {
+                "off": "Uit",
+                "on": "Aan"
+            },
+            "state_attributes": {
+                "editable": {
+                    "state": {
+                        "false": "Nee",
+                        "true": "Ja"
+                    }
+                }
+            }
+        }
+    },
+    "state": {
+        "_": {
+            "off": "Uit",
+            "on": "Aan"
+        }
+    },
+    "title": "Schema"
+}
