@@ -1,0 +1,9 @@
+logga
+pytest
+
+[dev]
+apache-airflow==2.4.*
+pytest
+pytest-cov
+pytest-sugar
+twine
