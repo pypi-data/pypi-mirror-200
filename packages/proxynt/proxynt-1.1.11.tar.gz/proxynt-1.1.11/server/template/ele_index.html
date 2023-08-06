@@ -1,0 +1,246 @@
+{% extends "./base.html" %}
+{% block body%}
+
+<div id="app">
+    <el-table
+            :data="tableData"
+            medium="medium"
+            row-key="client_name"
+            style="width: 90%; margin: 0 auto">
+        <el-table-column type="expand">
+            <template slot-scope="props">
+                <el-table
+                        :data="props.row.config_list"
+                        stripe>
+                    <el-table-column
+                            prop="name"
+                            label="名称"
+                            width="180">
+                    </el-table-column>
+                    <el-table-column
+                            prop="remote_port"
+                            label="远程端口"
+                            width="180">
+                    </el-table-column>
+                    <el-table-column
+                            prop="local_ip"
+                            label="本地ip"
+                            width="180">
+                    </el-table-column>
+                    <el-table-column
+                            prop="local_port"
+                            label="本地端口"
+                            width="180">
+                    </el-table-column>
+                    <el-table-column
+                            prop="speed_limit"
+                            label="限速(单位MB)"
+                            width="180">
+                    </el-table-column>
+                    <el-table-column label="操作" width="200">
+
+                        <template slot-scope="scope">
+                            <el-row>
+                                <el-button :disabled="props.row.can_delete_names.indexOf(scope.row.name) === -1 "
+                                           size="mini"
+                                           @click="handleDelete(props.row.client_name, scope.row.name)">删除
+                                </el-button>
+                                <el-button :disabled="props.row.can_delete_names.indexOf(scope.row.name) === -1 "
+                                           size="mini"
+                                           @click="handleEdit(scope.row, props.row.client_name)">编辑
+                                </el-button>
+                            </el-row>
+
+
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </template>
+        </el-table-column>
+        <el-table-column
+                prop="client_name"
+                label="名称"
+        >
+        </el-table-column>
+        <el-table-column
+                prop="version"
+                label="版本"
+        >
+        </el-table-column>
+        <el-table-column
+                prop="status"
+                label="状态"
+                :filters="[{ text: 'online', value: 'online' }, { text: 'offline', value: 'offline' }]"
+                filter-placement="bottom-end">
+            <template slot-scope="scope">
+                <el-tag
+                        :type="scope.row.status === 'offline' ? 'danger' : 'success'"
+                        disable-transitions>{[scope.row.status]}
+                </el-tag>
+            </template>
+        </el-table-column>
+        <el-table-column label="操作">
+            <template slot-scope="scope">
+                <el-button
+                        size="mini"
+                        @click="handleAdd(scope.row)">新增配置
+                </el-button>
+            </template>
+        </el-table-column>
+    </el-table>
+
+    <el-dialog title="确定后客户端将重新连接" :visible.sync="dialogFormVisible">
+        <el-form :model="form">
+            <el-form-item label="名称" :label-width="formLabelWidth" >
+                <el-input v-model="form.name" autocomplete="off" :disabled="form.is_edit"></el-input>
+            </el-form-item>
+            <el-form-item label="远程端口" :label-width="formLabelWidth">
+                <el-input v-model="form.remote_port" type='number' autocomplete="off"></el-input>
+            </el-form-item>
+
+            <el-form-item label="本地ip" :label-width="formLabelWidth">
+                <el-input v-model="form.local_ip" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="本地端口" :label-width="formLabelWidth">
+                <el-input v-model="form.local_port" type='number' autocomplete="off"></el-input>
+            </el-form-item>
+
+            <el-form-item label="限速(MB)" :label-width="formLabelWidth">
+                <el-tooltip class="item" effect="dark" content="限速, 0表示不限制" placement="bottom">
+                    <el-input v-model="form.speed_limit" type='number' autocomplete="off"></el-input>
+                </el-tooltip>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="dialogFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="submitAddOrEdit">确 定</el-button>
+        </div>
+    </el-dialog>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        delimiters: ['{[', ']}'], // 这句可以指定 {[ ]} 为插值表达式的新符号
+        data() {
+            return {
+                tableData: [{client_name: 'ssh'}],
+                dialogFormVisible: false,
+                formLabelWidth: '120px',
+                form: {
+                    client_name: '',
+                    name: '',
+                    local_port: '',
+                    local_ip: '127.0.0.1',
+                    remote_port: '',
+                    speed_limit: 0
+                },
+                intervalTask: ''
+
+            }
+        },
+        mounted() {
+            this.getClientList()
+            this.intervalTask = setInterval(this.getClientList, 3000)
+        },
+        beforeDestroy() {
+            this.intervalTask.stop()
+        },
+        methods: {
+            handleAdd(row) {
+                this.form = {
+                    is_edit: false,
+                    client_name: '',
+                    name: '',
+                    local_port: '',
+                    local_ip: '127.0.0.1',
+                    remote_port: '',
+                    speed_limit: 0
+                }
+                this.form.client_name = row.client_name
+                console.log(row);
+                this.dialogFormVisible = true
+            },
+            handleEdit(row, client_name) {
+                this.form = {
+                    is_edit: true,
+                    client_name: client_name,
+                    name: row.name,
+                    local_port: row.local_port,
+                    local_ip: row.local_ip,
+                    remote_port: row.remote_port,
+                    speed_limit: row.speed_limit
+                }
+                console.log('-------',  row);
+                this.dialogFormVisible = true
+            },
+            submitAddOrEdit() {
+                var url = window.location.href.split('?')[0] + '/api'
+
+                console.log(this.form)
+                axios.post(url, this.form).then(res => {
+                    if (res.data.code !== 200) {
+                        return alert(res.data.msg)
+                    }
+                    this.dialogFormVisible = false
+                }).catch(err => {
+                    console.log(err)
+                    this.$message.error('错了哦，这是一条错误消息')
+                    alert('服务器出现错误')
+                })
+            },
+            handleDelete(client_name, name) {
+                var url = window.location.href.split('?')[0] + '/api'
+                const params = {
+                    client_name: client_name,
+                    name: name
+                }
+                this.$confirm('删除后该客户端将重新连接, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    axios.delete(url, {
+                        params: params
+                    }).then(res => {
+                        if (res.data.code !== 200) {
+                            return alert(res.data.msg)
+                        }
+                        this.dialogFormVisible = false
+                    }).catch(err => {
+                        console.log(err)
+                        alert('服务器出现错误')
+                    })
+
+                })
+
+
+            },
+            getClientList() {
+                var url = window.location.href.split('?')[0] + '/api'
+                axios.get(url, {
+                    headers: {token: localStorage.getItem('token')}
+                }).then(res => {
+                    console.log(res)
+                    const code = res.data.code
+                    if (code !== 200) {
+                        this.$message.error(res.data.msg)
+                        if (code === 401) {
+                            setTimeout(() => {
+                                location.reload();
+                            }, 2000)
+                        }
+                    }
+                    this.tableData = res.data.data
+                    console.log(this.tableData)
+                }).catch(err => {
+                    console.log(err)
+                    this.$message.error(err)
+                    // alert('服务器出现错误')
+                })
+            }
+        }
+    })
+</script>
+
+
+{% end %}
