@@ -1,0 +1,3 @@
+[console_scripts]
+computeTissueConcentrations = samseg.cli.computeTissueConcentrations:main
+prepareAtlasDirectory = samseg.cli.prepareAtlasDirectory:main
