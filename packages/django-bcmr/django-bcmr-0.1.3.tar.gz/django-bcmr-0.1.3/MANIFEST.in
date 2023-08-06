@@ -1,0 +1,6 @@
+include LICENSE
+include README.rst
+recursive-include bcmr/media *
+recursive-include bcmr/static *
+recursive-include bcmr/templates *
+recursive-include docs *
