@@ -1,0 +1,12 @@
+
+[docs]
+watchdog
+setuptools
+Sphinx
+pylons-sphinx-themes
+
+[testing]
+watchdog
+pytest
+pytest-cov
+mock
