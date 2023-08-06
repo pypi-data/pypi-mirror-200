@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ra-engine
+Version: 0.0.1.post6
+Home-page: https://github.com/SLTDigitalLab/RAE-sdk-python.git
+Author: Navindu Dananaga
+Author-email: navindudananga123@gmail.com
+License: MIT
+Keywords: ra_engine,raccoon-ai,raccoon,ai,ml,data-science
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: pandas
+
+# RAE-sdk-python
+Client side Python SDK for Raccoon AI Engine 
