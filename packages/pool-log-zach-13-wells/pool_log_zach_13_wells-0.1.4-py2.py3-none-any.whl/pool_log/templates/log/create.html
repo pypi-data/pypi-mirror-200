@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Create log{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+	<label for="temperature">Temperature</label>
+	<span>
+	<input name="temperature" id="temperature" type="number" min="0" max="120" value="{{ last_log['temperature'] }}" required> &#176F 
+	</span>
+	<label for="ph">pH</label>
+	<span>
+	<input name="ph" id="ph" type="number" min="6" max="9" step="0.1" value="{{ last_log['ph'] }}" required>
+	</span>
+	<label for="chlorine">Chlorine</label>
+	<span>
+	<input name="chlorine" id="chlorine" type="number" min="0" max="10" step="0.1" value="{{ last_log['chlorine'] }}" required> ppm
+	</span>
+	<label for="cya">Cyanuric Acid (CYA)</label>
+	<span>
+	<input name="cya" id="cya" type="number" min="0" max="500" step="10" value="{{ last_log['cya'] }}" required> ppm
+	</span>
+	<label for="pressure">Filter Pressure</label>
+	<span>
+	<input name="pressure" id="pressure" type="number" min="0" step="0.1" value="{{ last_log['pressure'] }}" required> psi
+	</span>
+	<label for="clarity">Clarity</label>
+	<select id="clarity" name="clarity">
+		<option value="Clear">Clear</option>
+		<option value="Cloudy">Cloudy</option>
+		<option value="Light Green">Light Green</option>
+		<option value="Dark Green">Dark Green</option>
+	</select>
+	<input class="button" type="submit" value="Create">
+</form>
+{% endblock %}
