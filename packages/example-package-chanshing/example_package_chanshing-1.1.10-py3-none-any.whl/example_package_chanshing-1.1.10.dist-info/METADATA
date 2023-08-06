@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: example-package-chanshing
+Version: 1.1.10
+Summary: An example Python project
+Home-page: https://github.com/chanshing/example-package
+Author: Shing Chan
+Maintainer: Shing Chan
+Maintainer-email: cshing.m@gmail.com
+License: See LICENSE file.
+Download-URL: https://github.com/chanshing/example-package
+Keywords: example,setuptools,versioneer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.8, <4
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: ipdb ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: autopep8 ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx (>=4.2) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (>=1.0) ; extra == 'docs'
+Requires-Dist: readthedocs-sphinx-search (>=0.1) ; extra == 'docs'
+Requires-Dist: docutils (<0.18) ; extra == 'docs'
+
+# example package
+
+
