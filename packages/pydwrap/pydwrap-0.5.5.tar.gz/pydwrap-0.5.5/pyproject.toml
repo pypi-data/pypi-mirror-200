@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "pydwrap"
+version = "0.5.5"
+description = "pydwrap stores a Option object to implement unpacking of values if they are not None. The BaseModel object is also a little extended to work with the Option object."
+authors = ["Georgy howl <howluwqz1@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pydwrap"}]
+homepage = "https://github.com/luwqz1/pydwrap"
+repository = "https://github.com/luwqz1/pydwrap"
+keywords = ["python", "wrapping", "optional handle", "basemodel fields", "option", "pydwrap"]
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Framework :: Pydantic",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet",
+    "Typing :: Typed"
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic = "^1.9.0"
+
+[tool.flake8]
+extend-ignore = "W291, W293"
+max-complexity = 10
+max-line-length = 120
+max-doc-length = 90
+per-file-ignores = "__init__.py: F401"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
