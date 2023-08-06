@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: gpt-muti-gen
+Version: 1.0.7
+Summary: A tool to mutiply generate text with chatgpt
+Home-page: https://git.yoqi.me/openai/chatgpt-wordpress
+Author: lyq
+Author-email: liuyuqi.gov@msn.cn
+License: Apache License Version 2.0
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (==2.19.1)
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+
+# chatgpt-wordpress
+
+chatgpt 根据标题批量生成文字，自动导入wordpress工具
+
+## Usage
+
+ * 1、title.txt配置文章标题
+ * 2、config.json 账号密码，key等
+ * 3、
+
+
+```
+
+```
+
+## develop
+
+```
+
+virtualenv .venv 
+.venv\scripts\activate
+pip install -r requirements.txt
+
+pip install pyinstaller
+pyinstaller -F -c  main.py
+
+```
+
