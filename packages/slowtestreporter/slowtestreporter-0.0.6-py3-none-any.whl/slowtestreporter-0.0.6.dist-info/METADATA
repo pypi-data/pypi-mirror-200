@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: slowtestreporter
+Version: 0.0.6
+Summary: A small python package for reporting slow tests.
+Project-URL: Homepage, https://github.com/jerrylu8888/slowtestreporter
+Project-URL: Bug Tracker, https://github.com/jerrylu8888/slowtestreporter/issues
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: attrs
+Requires-Dist: exceptiongroup
+Requires-Dist: future
+Requires-Dist: junitparser
+Requires-Dist: pluggy
+Requires-Dist: tabulate
+Requires-Dist: tomli
+
+# Slow Test Reporter
+Slow Test Reporter reads JUnit test result files and reports any slow running tests.
+
+## Installation
+`pip install slowtestreporter`
+
+## Usage
+
+    $ slowtestreporter --help
+    usage: slowtestreporter [-h] [-t THRESHOLD] [-o OUTPUT_FILENAME] [-s] path
+    
+    Reports slow tests based on the junit test input.
+    
+    positional arguments:
+      path                  Junit file path
+    
+    optional arguments:
+      -h, --help            show this help message and exit
+      -t THRESHOLD, --threshold THRESHOLD
+                            A float value threshold (in seconds) of when a test should fail when it exceeds this value
+      -o OUTPUT_FILENAME, --output-filename OUTPUT_FILENAME
+                            Filename of the generated junit results without any extensions. The file will be generated with a .xml extension.
+      -s, --silent          Suppresses output to display
+
+
