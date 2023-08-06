@@ -1,0 +1,12 @@
+
+[dev]
+black
+ipython
+mypy
+pdbpp
+rich
+ruff
+
+[test]
+pytest
+pytest-cov
