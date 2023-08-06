@@ -1,0 +1,315 @@
+{
+  "contracts": {
+    "Factory_Math": "3232e80569be845f6931e64f6278c8c0c6be0329",
+    "Factory_SafeMath": "3232e80569be845f6931e64f6278c8c0c6be0329",
+    "Factory_UQ112x112": "3232e80569be845f6931e64f6278c8c0c6be0329",
+    "Router_SafeMath": "3b4158955f564edb18bd7a8ffdb49859c904f0b7",
+    "Router_TransferHelper": "3b4158955f564edb18bd7a8ffdb49859c904f0b7",
+    "Router_UniswapV2Library": "3b4158955f564edb18bd7a8ffdb49859c904f0b7",
+    "Token": "98ae4b61ce463a902c6dd82e2bd5202138a80b03",
+    "Token_SafeMath": "3b4158955f564edb18bd7a8ffdb49859c904f0b7",
+    "UniswapV2ERC20": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "UniswapV2Factory": "fceca6b2278899d24acbaf3393d2f00d710ad0f4",
+    "UniswapV2Pair": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "UniswapV2Router02": "614069ec9a1860b8260ddac7a5f4085c623d50fd"
+  },
+  "tests": {
+    "tests/brownie/tests/token/test_token_approve.py": {
+      "coverage": false,
+      "isolated": [
+        "Token",
+        "Token_SafeMath"
+      ],
+      "results": "............",
+      "sha1": "d01ec2238ba1970061af99853efad8398e808e78",
+      "txhash": []
+    },
+    "tests/brownie/tests/token/test_token_transfer.py": {
+      "coverage": false,
+      "isolated": [
+        "Token",
+        "Token_SafeMath"
+      ],
+      "results": ".........",
+      "sha1": "2c52fa48cedec8f0f4326d2ab92fcd440f25f620",
+      "txhash": [
+        "bd302a0a1a967e9cf5be3e3ceca846c9a13b4684"
+      ]
+    },
+    "tests/brownie/tests/token/test_token_transferFrom.py": {
+      "coverage": false,
+      "isolated": [
+        "Token",
+        "Token_SafeMath"
+      ],
+      "results": ".................",
+      "sha1": "6043ee5d1c7886fe79a11d89da3983a7b9c4e41b",
+      "txhash": [
+        "1189e0725c98489f6ddf2b3f9f73314c3983a770",
+        "11c0598864a51cfb4eb27130a8309a4b78d50413",
+        "2bf83cc87391ee7a2d567370c60945dd1c9cff52",
+        "5788350a356f95269b6b37e85250978fbbea0594",
+        "f1f5ebf4942c2129121afc7d56cbf0b6fc9255ae"
+      ]
+    },
+    "tests/web3cli/controllers/crud/test_address_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "........",
+      "sha1": "5c026662fca0c87442372a8b296006a8cf5b4fdf",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/crud/test_chain_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": ".....",
+      "sha1": "5fcdd4039e9fc21cb2ac27dfa08b8118197f73b4",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/crud/test_contract_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": ".........",
+      "sha1": "f94206081d25c05ecede445fe52e21ea3854bb21",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/crud/test_history_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": ".....",
+      "sha1": "3b6b06bf137efc460fc40f50a9ecf559d05cbef0",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/crud/test_rpc_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "......",
+      "sha1": "73974547bd899f337dbf216aa21b4153636fd4ec",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/crud/test_signer_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": ".....",
+      "sha1": "bb2cffd0a35d289c67593c65caacd7a9115c9be8",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/test_call_controller.py": {
+      "coverage": false,
+      "isolated": [
+        "Token",
+        "Token_SafeMath"
+      ],
+      "results": "..........",
+      "sha1": "be1563e8c9262c089a0da14836828d75289410d1",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/test_db_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "..",
+      "sha1": "9dc7585c1026fc50a4411816b2b2d7dd89ae85a5",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/test_key_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "..",
+      "sha1": "56af0d5fbfa597b7aa722bfa66cdef9996872954",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/test_misc_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "............",
+      "sha1": "06cad7d249a611fac638a0b6af07c706c1b4aa60",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/test_send_controller.py": {
+      "coverage": false,
+      "isolated": [
+        "Token",
+        "Token_SafeMath"
+      ],
+      "results": "........",
+      "sha1": "2714921253440709971fb423184c2ad3a92d9941",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/test_transact_controller.py": {
+      "coverage": false,
+      "isolated": [
+        "Token",
+        "Token_SafeMath"
+      ],
+      "results": "....................",
+      "sha1": "d9081ee952ae3f0a4171606935eb11ee5abcf5e7",
+      "txhash": []
+    },
+    "tests/web3cli/controllers/test_tx_controller.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "..",
+      "sha1": "49c0a22f37c3af9a36bb65a14a3e7a1ae7bfdd2c",
+      "txhash": []
+    },
+    "tests/web3cli/helpers/test_client_factory_helper.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "..",
+      "sha1": "54ff7eba0dae9e9b9be0022005c5a82e6050de90",
+      "txhash": []
+    },
+    "tests/web3cli/helpers/test_crypto_helper.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "....",
+      "sha1": "8579f1ea234711ba4a0bcb74d6598a717c6a607e",
+      "txhash": []
+    },
+    "tests/web3cli/test_db.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "....",
+      "sha1": "6d771c5a1b1230d82bad62e559ba703c81c8d40f",
+      "txhash": []
+    },
+    "tests/web3cli/test_main.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "..",
+      "sha1": "95ada2f8d19f690b4f30657ebc6b172d31d288b1",
+      "txhash": []
+    },
+    "tests/web3core/helpers/test_abi_helper.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "............",
+      "sha1": "1c88020f37f23251573c5745a15d9f2124beee1a",
+      "txhash": []
+    },
+    "tests/web3core/helpers/test_crypto_helper.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "....",
+      "sha1": "b50bdf994662d954ff4afea4497cc51f859630e2",
+      "txhash": []
+    },
+    "tests/web3core/helpers/test_resolve_address_helper.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": ".......",
+      "sha1": "aa108db4afe501a35dd46d84a45990b612773805",
+      "txhash": []
+    },
+    "tests/web3core/helpers/test_validation_helper.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": ".",
+      "sha1": "3a78a021f324c3ba4aa95d82a121daf79bddd4ff",
+      "txhash": []
+    },
+    "tests/web3core/models/test_contract_model.py": {
+      "coverage": false,
+      "isolated": [],
+      "results": "....",
+      "sha1": "523b22d3b0a72b01a74d95a4b4b5e98a77c7a17a",
+      "txhash": []
+    }
+  },
+  "tx": {
+    "1189e0725c98489f6ddf2b3f9f73314c3983a770": {
+      "Token": {
+        "0": [
+          [
+            3,
+            4,
+            5,
+            13
+          ],
+          [
+            20
+          ],
+          [
+            19
+          ]
+        ],
+        "1": [
+          [
+            11,
+            12
+          ],
+          [],
+          [
+            21
+          ]
+        ]
+      }
+    },
+    "11c0598864a51cfb4eb27130a8309a4b78d50413": {
+      "Token": {
+        "0": [
+          [
+            3
+          ],
+          [
+            19
+          ],
+          []
+        ]
+      }
+    },
+    "2bf83cc87391ee7a2d567370c60945dd1c9cff52": {
+      "Token": {
+        "0": [
+          [
+            3
+          ],
+          [
+            19
+          ],
+          []
+        ]
+      }
+    },
+    "5788350a356f95269b6b37e85250978fbbea0594": {
+      "Token": {
+        "0": [
+          [
+            3
+          ],
+          [
+            19
+          ],
+          []
+        ]
+      }
+    },
+    "bd302a0a1a967e9cf5be3e3ceca846c9a13b4684": {
+      "Token": {
+        "0": [
+          [
+            8,
+            13
+          ],
+          [
+            20
+          ],
+          []
+        ]
+      }
+    },
+    "f1f5ebf4942c2129121afc7d56cbf0b6fc9255ae": {
+      "Token": {
+        "0": [
+          [
+            3
+          ],
+          [
+            19
+          ],
+          []
+        ]
+      }
+    }
+  }
+}
