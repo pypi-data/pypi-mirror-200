@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Naming{% endblock %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Directory</th>
+            <th scope="col">Prefix</th>
+            <th scope="col">Extension</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for naming in namings %}
+        <tr>
+            <td>{{ naming.directory }}</td>
+            <td class=" {{ 'table-danger' if naming.prefix|length > 1 }}">{{ naming.prefix }}</td>
+            <td class=" {{ 'table-warning' if naming.extension|length > 1 }}">{{ naming.extension }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}Burst{% endblock %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/?seconds={{ request.args.get('seconds', '2') }}">Home</a></li>
+                    <li class="breadcrumb-item dropdown active" aria-current="page">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            {{ current }}
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% for dir in directories %}
+                            <li class="position-relative">
+                                <a href="/burst{{ dir.link }}?seconds={{ request.args.get('seconds', '2') }}"
+                                   class="dropdown-item {{ 'active' if '/' + current == dir.link }}">
+                                    {{ dir.link }}
+                                    <span class="badge {{ 'text-bg-secondary' if dir.bursts < 5 else 'text-bg-primary' }}">
+                                        {{ dir.bursts }} / {{ dir.size }}
+                                    </span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="accordion" id="accordionExample">
+                {% for burst in bursts %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="burst-{{ burst.id }}-header">
+                        <button class="accordion-button {{ 'collapsed' if burst.id != 1 }}" type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#burst-{{ burst.id }}-body" aria-expanded="{{ burst.id == 1 }}"
+                                aria-controls="burst-{{ burst.id }}-body">
+                            Burst #{{ burst.id }} on {{ bursts | length }} with {{ burst.size }} duplicates
+                        </button>
+                    </h2>
+                    <div id="burst-{{ burst.id }}-body" class="accordion-collapse collapse {{ 'show' if burst.id == 1 }}"
+                         aria-labelledby="burst-{{ burst.id }}-header" data-bs-parent="#accordionExample">
+                        <div class="accordion-body d-flex flex-wrap justify-content-center px-0">
+                            {% for file in burst.files %}
+                            <div class="card m-1" style="width: 10rem;">
+                                <img src="{{ file.link }}" loading="lazy" class="card-img-top"
+                                     data-bs-toggle="tooltip" data-bs-placement="top"
+                                     data-bs-title="{{ file.link }}">
+                                <div class="card-body text-center p-1">
+                                    <a class="btn btn-primary" onclick="delete_photo(this, '{{ file.link }}')">
+                                        <i class="bi bi-trash3"></i>
+                                    </a>
+                                </div>
+                                <div class="card-footer text-center text-muted p-1">
+                                    {{ file.datetime_fmt }}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                No burst detected
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+function delete_photo(element, link) {
+  element.classList.add("disabled");
+  element.classList.add("btn-secondary");
+  element.classList.remove("btn-primary");
+  element.parentElement.parentElement.classList.add("fade-out-half");
+  console.info('DELETE ' + link);
+  fetch(link, {method: 'DELETE'});
+}
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
+</script>
+{% endblock %}
+
