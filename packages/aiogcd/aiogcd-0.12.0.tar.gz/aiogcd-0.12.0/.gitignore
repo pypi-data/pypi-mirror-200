@@ -1,0 +1,26 @@
+# VSCode
+.vscode
+
+# PyCharm
+.idea/
+
+# Eclipse/PyCharm/IDE
+workspace.xml
+.project
+.pydevproject
+
+# Python
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+
+# Mac
+.DS_Store
+
+# Json test data
+*.json
+
+# Local test
+/ltest.py
