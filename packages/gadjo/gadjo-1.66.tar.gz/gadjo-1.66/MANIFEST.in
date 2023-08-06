@@ -1,0 +1,9 @@
+recursive-include gadjo/locale *.po *.mo
+recursive-include gadjo/templates *.txt *.html
+include MANIFEST.in
+include AUTHORS
+include COPYING
+include VERSION
+include inkscape_wrapper.py
+recursive-include gadjo/static *.scss *.css *.map *.png *.gif *.eot *.woff *.ttf *.svg *.jpg *.jpeg *.js README.md LICENSE release.sh
+recursive-include icons *.svg
