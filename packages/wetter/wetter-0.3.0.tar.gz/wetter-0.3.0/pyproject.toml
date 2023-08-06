@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "wetter"
+version = "0.3.0"
+description = "CLI tool to parse weather data"
+authors = ["Uğur Çayoğlu <cayoglu@me.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+wetter = "wetter.cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+pandas = "^1.5.3"
+requests = "^2.28.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+flake8 = "^6.0.0"
+pytest-cov = "^4.0.0"
+isort = "^5.12.0"
+
+[tool.black]
+line-length = 120
+
+[tool.pytest.ini_options]
+markers = [
+    "web: mark tests as web (deselect with '-m \"not web\"')",
+    "long: mark tests which take a long time (deselect with '-m \"not long\"')",
+]
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.2.0"]
+build-backend = "poetry.core.masonry.api"
