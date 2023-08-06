@@ -1,0 +1,15 @@
+[package]
+name = "unformat_rust"
+version = "0.1.0"
+edition = "2021"
+homepage = "https://github.com/hanjinliu/unformat"
+repository = "https://github.com/hanjinliu/unformat.git"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "_unformat_rust"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.18.2"
