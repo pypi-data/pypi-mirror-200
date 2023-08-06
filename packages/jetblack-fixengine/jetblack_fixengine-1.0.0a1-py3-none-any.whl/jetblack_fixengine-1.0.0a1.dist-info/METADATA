@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: jetblack-fixengine
+Version: 1.0.0a1
+Summary: A pure Python implementation of the FIX protocol
+Home-page: https://github.com/rob-blackbourn/jetblack-fixengine
+License: Apache-2.0
+Author: Rob Blackbourn
+Author-email: rob.blackbourn@googlemail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: aiofiles (>=23.1,<24.0)
+Requires-Dist: aiosqlite (>=0.18.0,<0.19.0)
+Requires-Dist: jetblack-fixparser (>=2.3,<3.0)
+Requires-Dist: pytz (>=2022.7,<2023.0)
+Requires-Dist: tzlocal (>=4.3,<5.0)
+Project-URL: Repository, https://github.com/rob-blackbourn/jetblack-fixengine
