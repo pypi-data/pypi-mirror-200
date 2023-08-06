@@ -1,0 +1,25 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Service is already configured",
+            "single_instance_allowed": "Already configured. Only a single configuration possible."
+        },
+        "error": {
+            "cannot_connect": "Failed to connect"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "url": "URL"
+                },
+                "description": "Provide URL for the Open Thread Border Router's REST API"
+            }
+        }
+    },
+    "issues": {
+        "insecure_thread_network": {
+            "description": "Your Thread network is using a default network key or pass phrase.\n\nThis is a security risk, please create a new Thread network.",
+            "title": "Insecure Thread network settings detected"
+        }
+    }
+}
