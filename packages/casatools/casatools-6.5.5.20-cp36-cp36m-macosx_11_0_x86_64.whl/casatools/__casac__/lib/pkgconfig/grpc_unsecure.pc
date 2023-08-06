@@ -1,0 +1,12 @@
+prefix=/Users/casaci/bamboohome/xml-data/build-dir/CASA-C653PLUSRP2-BOP36/casa6/casatools/build/lib.macosx-11.0-x86_64-3.6/casatools/__casac__
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: gRPC unsecure
+Description: high performance general RPC framework without SSL
+Version: 5.0.0
+Cflags: -I${includedir} 
+Requires.private:  zlib
+Libs: -L${libdir} -lgrpc
+Libs.private: 
