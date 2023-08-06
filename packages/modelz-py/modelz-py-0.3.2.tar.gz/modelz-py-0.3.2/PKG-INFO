@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: modelz-py
+Version: 0.3.2
+Summary: machine learning models
+License: Apache-2.0
+Keywords: machine learning,deep learning
+Author-email: TensorChord <modelz-support@tensorchord.ai>
+Requires-Python: >=3.7
+Classifier: Environment :: GPU
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+
+# Modelz Python SDK
+
+```shell
+pip install modelz-py
+```
+
+## CLI
+
+```shell
+modelz --help
+```
+
+### Stable Diffusion
+
+```shell
+echo "cute cat" | modelz inference $PROJECT --serde msgpack --write-file cat.jpg --read-stdin
+```
+
