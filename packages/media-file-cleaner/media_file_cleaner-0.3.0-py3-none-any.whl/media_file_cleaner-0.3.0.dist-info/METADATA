@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: media-file-cleaner
+Version: 0.3.0
+Summary: Cleans a directory of media files.
+Home-page: https://gitlab.com/oleksandr.zelentsov/media-file-cleaner
+Author: Oleksandr Zelentsov
+Author-email: oleksandrzelentsov@gmail.com
+Requires-Python: >=3.10.4
+Description-Content-Type: text/markdown
+Requires-Dist: ffmpy (==0.3.0)
+
+# Media file cleaner
+
+## Description
+
+- removes empty files
+- removes weird characters from filenames and makes them underscores
+- converts videos without sound to gifs
+
+## Help
+
+```
+usage: main.py [-h] [-r ROOT] [--dry-run] [--one] [--no-delete] [-d] [--always-convert] [-i [IGNORE_PATHS ...]]
+
+Performs 3 things: removes empty files, removes weird characters from filenames and makes them underscores, converts videos without sound to gifs.
+
+options:
+  -h, --help            show this help message and exit
+  -r ROOT, --root ROOT  directory to work on, default is current working directory
+  --dry-run             no actions to take place
+  --one                 only one conversion to take place
+  --no-delete           not to delete the video after the conversion
+  -d, --delete-ask      ask to delete every time after conversion
+  --always-convert      to convert all videos to gifs
+  -i [IGNORE_PATHS ...], --ignore-paths [IGNORE_PATHS ...]
+                        paths to ignore
+```
