@@ -1,0 +1,85 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [4.0.18] - 2022-11-07
+### Fixed
+- Resolved bug "AttributeError: type object 'Meta' has no attribute 'extend'"
+
+## [4.0.17] - 2022-10-27
+### Added
+- Extend system on forms
+- Translations
+
+## [4.0.16] - 2022-10-21
+### Fixed
+- Resolved bug "type object 'Meta' has no attribute 'widgets'"
+
+## [4.0.15] - 2022-10-21
+### Added
+- CODENERIX will respect the widgets added by the user in the Meta section of the forms
+
+## [4.0.14] - 2022-09-12
+### Fixed
+- On forms resolves "'EmailValidator' object has no attribute 'domain_whitelist'" which is deprectated on Django >= 4.0.6
+
+## [4.0.13] - 2022-09-12
+### Fixed
+- On GenList frontend, it prevents empty cells when rendering columns which renders lists with duplicated entries
+
+## [4.0.12] - 2022-08-16
+### Added
+- Added support on DynamicSelects to allow Angular JS query the selected element details
+- Style cleanup on widgets.py
+
+## [4.0.11] - 2022-07-14
+### Fixed
+- Added missing dependency over codenerix_lib package
+
+## [4.0.10] - 2022-07-11
+### Changed
+- Push all sites to prevent BUG CVE-2022-34265: SQL injection on Trunc() and Extract()
+
+## [4.0.9] - 2022-06-18
+### Changed
+- Dependency system simplified for setup.py and restricted to Django>=4.0.1 (Python 2.x not supported anymore)
+
+## [4.0.8] - 2022-06-18
+### Fixed
+- Repaired GenForm that was preventing rendering of forms on specific situations
+
+## [4.0.7] - 2022-06-18
+### Fixed
+- "authjson_details" is using DjangoJSONEncoder for json.dumps(), which prevents authjson_details from failing on newer Django.
+
+## [4.0.6] - 2022-06-13
+### Changed
+- AUTHENTICATION_DEBUG improved debugging output
+
+## [4.0.5] - 2022-06-12
+###  Added
+- Support for AUTHENTICATION_DEBUG in config which helps debugging Authentication problems
+
+## [4.0.4] - 2022-05-27
+### Changed
+- Template filters static64, media64 and file64 to simple_tags for easier usage
+
+## [4.0.3] - 2022-05-27
+### Added
+- New templatetags in codenerix_special library for templates: static64, media64 and file64 to serve files from disk as base64 text. Intended to embed binary data in templates.
+
+## [4.0.2] - 2022-05-18
+### Added
+- Added missing folder in last published version in pypy
+
+## [4.0.1] - 2022-05-17
+### Added
+- Django 4.x is fully supported
+
+### Fixed
+- Resolved XLS export problems with float
+- FileAngularInput repaired on details when adding new entry
