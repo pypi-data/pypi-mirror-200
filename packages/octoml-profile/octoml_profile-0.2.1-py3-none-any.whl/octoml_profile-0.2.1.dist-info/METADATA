@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: octoml-profile
+Version: 0.2.1
+Summary: Client package for OctoML Profile service
+License: Apache-2.0
+Author: Greg Bonik
+Author-email: gbonik@octoml.ai
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: grpcio (>=1.42.0,<2.0.0)
+Requires-Dist: onnx (>=1.12.0,<2.0.0)
