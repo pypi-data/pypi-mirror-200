@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "demo-workflow-pypi"
+version = "0.4.3"
+description = "Library of code for working with shapes"
+authors = ["Lmooney25 <liammooney50@yahoo.co.uk>"]
+readme = "README.md"
+repository = "https://github.com/python-poetry/poetry"
+documentation = "https://python-poetry.org/docs/"
+keywords = ["packaging", "poetry"]
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+packages = [
+    { include = "demo_workflow_pypi" },
+    { include = "demo_workflow_pypi/*" },
+]
+include = ["CHANGELOG.md"]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pytest = "^7.1.3"
+flake8 = "^5.0.4"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.971"
+black = "^22.8.0"
+python-semantic-release = "^7.32.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+version_variable = "pyproject.toml:version" # version location
+branch = "master"                             # branch to make releases of
+changelog_file = "CHANGELOG.md"             # changelog file
+build_command = "poetry build"              # build dists
+dist_path = "dist/"                         # where to put dists
+upload_to_release = true                    # auto-create GitHub release
+upload_to_pypi = false                      # don't auto-upload to PyPI
+remove_dist = false                         # don't remove dists
+patch_without_tag = true                    # patch release by default
